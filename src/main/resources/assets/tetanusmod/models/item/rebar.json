@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/rebar"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

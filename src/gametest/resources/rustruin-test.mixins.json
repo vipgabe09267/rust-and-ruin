@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "com.tetanusmod.test.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": ["SoundProbeMixin"],
+  "injectors": { "defaultRequire": 1 }
+}

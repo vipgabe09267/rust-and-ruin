@@ -1,0 +1,56 @@
+package com.tetanusmod.client;
+
+import com.tetanusmod.TetanusMod;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import com.tetanusmod.config.ModConfig;
+import com.tetanusmod.effect.Infection;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.minecraft.util.Hand;
+
+public final class TetanusClient implements ClientModInitializer {
+    private int twitchTicks;
+    private float previousOffset;
+    private float amplitude;
+    @Override
+    public void onInitializeClient() {
+        EntityRendererRegistry.register(TetanusMod.NAIL_ENTITY, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(TetanusMod.TETANIZED_ARROW_ENTITY,TetanizedArrowRenderer::new);
+        net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback.EVENT.register(
+                (type,renderer,helper,context) -> helper.register(new RustedSkinFeature<>(renderer)));
+        ModConfig local = TetanusMod.CONFIG;
+        ClientPlayNetworking.registerGlobalReceiver(TetanusMod.CONFIG_PACKET, (client, handler, packet, sender) -> {
+            String json = packet.readString();
+            client.execute(() -> TetanusMod.CONFIG = new com.google.gson.Gson().fromJson(json, ModConfig.class));
+        });
+        ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
+            TetanusMod.CONFIG = local;
+            twitchTicks = 0;
+            previousOffset = 0;
+        });
+        ClientPlayNetworking.registerGlobalReceiver(Infection.SYMPTOM_PACKET, (client, handler, packet, sender) -> {
+            int stage = packet.readUnsignedByte();
+            boolean enabled = packet.readBoolean();
+            client.execute(() -> {
+                if (client.player == null) return;
+                client.player.swingHand(Hand.MAIN_HAND);
+                if (enabled && local.cameraShaking && twitchTicks == 0) {
+                    amplitude = (0.15F + Math.min(stage, 2) * 0.15F) * (client.player.getRandom().nextBoolean() ? 1 : -1);
+                    twitchTicks = 6;
+                }
+            });
+        });
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (client.player == null) { twitchTicks = 0; previousOffset = 0; return; }
+            if (twitchTicks > 0 || previousOffset != 0) {
+                float offset = twitchTicks > 0 ? (float) Math.sin((6 - twitchTicks) * Math.PI / 3) * amplitude : 0;
+                client.player.setYaw(client.player.getYaw() + offset - previousOffset);
+                previousOffset = offset;
+                if (twitchTicks > 0) twitchTicks--;
+            }
+        });
+    }
+}

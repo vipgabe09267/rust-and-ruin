@@ -1,0 +1,123 @@
+plugins {
+    id 'fabric-loom' version '1.6.12'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+base { archivesName = project.archives_base_name }
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.blamejared.com' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modCompileOnly('mezz.jei:jei-1.20.1-fabric:15.3.0.4') { transitive = false }
+    if (providers.gradleProperty('withJei').isPresent()) {
+        modLocalRuntime('mezz.jei:jei-1.20.1-fabric:15.3.0.4') { transitive = false }
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand 'version': project.version }
+}
+
+tasks.withType(JavaCompile).configureEach { options.release = 17 }
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    withSourcesJar()
+}
+
+// Integration tests are a separate development mod and never enter the distributable JAR.
+sourceSets {
+    smoketest {
+        compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
+        runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
+    }
+    gametest {
+        compileClasspath += sourceSets.main.compileClasspath + sourceSets.main.output
+        runtimeClasspath += sourceSets.main.runtimeClasspath + sourceSets.main.output
+    }
+}
+loom {
+    mods {
+        tetanusmod { sourceSet sourceSets.main }
+        tetanusmod_tests { sourceSet sourceSets.gametest }
+        tetanusmod_smoketest { sourceSet sourceSets.smoketest }
+    }
+    runs {
+        clientSmoke {
+            client()
+            name 'Rust & Ruin Client Smoke Test'
+            source sourceSets.smoketest
+            runDir 'build/client-smoke'
+            programArgs '--quickPlaySingleplayer','smoke-world-final','--width','960','--height','540'
+        }
+        gameTest {
+            server()
+            name 'Rust & Ruin Game Tests'
+            source sourceSets.gametest
+            runDir 'build/gametest'
+            vmArg '-Dfabric-api.gametest'
+            vmArg "-Dfabric-api.gametest.report-file=${project.layout.buildDirectory.file('gametest-results.xml').get().asFile.absolutePath}"
+        }
+    }
+}
+
+tasks.register('verifyResources') {
+    group = 'verification'
+    description = 'Validate JSON and local model, texture, recipe and audio references.'
+    inputs.dir('src/main/resources')
+    doLast {
+        def root = file('src/main/resources')
+        def assets = new File(root, 'assets/tetanusmod')
+        def parser = new groovy.json.JsonSlurper()
+        def requireFile = { File target ->
+            if (!target.isFile()) throw new GradleException("Missing resource: ${target}")
+        }
+        fileTree(root).matching { include '**/*.json' }.each { parser.parse(it) }
+        fileTree(new File(assets, 'models')).matching { include '**/*.json' }.each { modelFile ->
+            def model = parser.parse(modelFile)
+            if (model.parent?.startsWith('tetanusmod:')) {
+                requireFile(new File(assets, "models/${model.parent.substring(11)}.json"))
+            }
+            model.textures?.each { key, value ->
+                if (value.startsWith('tetanusmod:')) requireFile(new File(assets, "textures/${value.substring(11)}.png"))
+            }
+        }
+        fileTree(new File(assets, 'textures')).matching { include '**/*.png' }.each { png ->
+            def image = javax.imageio.ImageIO.read(png)
+            if (image == null || image.width < 1 || image.height < 1 || image.width > 2048 || image.height > 2048) throw new GradleException("Invalid texture: ${png}")
+            if (png.parentFile.name == 'item' && (image.width != image.height || !(image.width in [16,32,64]))) throw new GradleException("Invalid item texture: ${png}")
+        }
+        def sounds = parser.parse(new File(assets, 'sounds.json'))
+        sounds.values().each { event ->
+            event.sounds.each { sound ->
+                if (sound.name.startsWith('tetanusmod:') && sound.type != 'event') {
+                    def audio = new File(assets, "sounds/${sound.name.substring(11)}.ogg")
+                    requireFile(audio)
+                    if (new String(audio.bytes, 0, 4, 'US-ASCII') != 'OggS') throw new GradleException("Invalid OGG: ${audio}")
+                }
+            }
+        }
+        requireFile(new File(assets, 'textures/mob_effect/tetanus.png'))
+        fileTree(new File(root, 'data/tetanusmod/recipes')).matching { include '*.json' }.each { recipeFile ->
+            def recipe = parser.parse(recipeFile)
+            def output = recipe.result instanceof Map ? recipe.result.item : recipe.result
+            if (output?.startsWith('tetanusmod:')) requireFile(new File(assets, "models/item/${output.substring(11)}.json"))
+        }
+        ['entity/tetanized_skin','entity/tetanized_creeper','entity/tetanized_arrow','gui/rust_heart','gui/rust_heart_half'].each {
+            requireFile(new File(assets,"textures/${it}.png"))
+        }
+        requireFile(new File(root,parser.parse(new File(root,'fabric.mod.json')).icon))
+        logger.lifecycle('Validated JSON, item/entity/HUD textures, models, recipe outputs and OGG audio.')
+    }
+}
+tasks.named('check') { dependsOn 'verifyResources' }

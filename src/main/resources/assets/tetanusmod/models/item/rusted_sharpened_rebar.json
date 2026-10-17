@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/rusted_sharpened_rebar"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

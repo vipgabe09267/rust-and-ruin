@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/wire_brush"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

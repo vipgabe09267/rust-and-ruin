@@ -1,0 +1,33 @@
+{
+    "spasm":  {
+                  "sounds":  [
+                                 {
+                                     "pitch":  0.8,
+                                     "name":  "minecraft:entity.player.hurt",
+                                     "volume":  0.45,
+                                     "type":  "event"
+                                 }
+                             ],
+                  "subtitle":  "subtitles.tetanusmod.spasm"
+              },
+    "vomit":  {
+                  "sounds":  [
+                                 {
+                                     "pitch":  0.7,
+                                     "name":  "minecraft:entity.player.burp",
+                                     "volume":  0.8,
+                                     "type":  "event"
+                                 }
+                             ],
+                  "subtitle":  "subtitles.tetanusmod.vomit"
+              },
+    "tetanus_effect":  {
+                           "sounds":  [
+                                          {
+                                              "stream":  false,
+                                              "name":  "tetanusmod:tetanus_effect"
+                                          }
+                                      ],
+                           "subtitle":  "subtitles.tetanusmod.tetanus_effect"
+                       }
+}

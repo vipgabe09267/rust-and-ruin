@@ -1,0 +1,10 @@
+{
+    "variants":  {
+                     "waterlogged=false":  {
+                                               "model":  "tetanusmod:block/caltrops"
+                                           },
+                     "waterlogged=true":  {
+                                              "model":  "tetanusmod:block/caltrops"
+                                          }
+                 }
+}

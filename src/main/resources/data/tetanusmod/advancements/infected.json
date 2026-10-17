@@ -1,0 +1,30 @@
+{
+    "criteria":  {
+                     "get_infected":  {
+                                          "trigger":  "minecraft:effects_changed",
+                                          "conditions":  {
+                                                             "effects":  {
+                                                                             "tetanusmod:tetanus":  {
+
+                                                                                                    }
+                                                                         }
+                                                         }
+                                      }
+                 },
+    "parent":  "tetanusmod:root",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.infected.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:rusted_nail"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.infected.title"
+                              },
+                    "frame":  "task"
+                }
+}

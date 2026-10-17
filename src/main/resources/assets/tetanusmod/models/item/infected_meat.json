@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/infected_meat"
+                 },
+    "parent":  "minecraft:item/generated"
+}

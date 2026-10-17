@@ -1,0 +1,13 @@
+.gradle/
+build/
+run/
+.tools/
+.idea/
+*.iml
+.vscode/
+*.log
+hs_err_pid*
+.env
+.env.*
+*.jfr
+client-smoke-result.txt

@@ -1,0 +1,34 @@
+{
+    "criteria":  {
+                     "has_iron":  {
+                                      "trigger":  "minecraft:inventory_changed",
+                                      "conditions":  {
+                                                         "items":  [
+                                                                       {
+                                                                           "items":  [
+                                                                                         "minecraft:iron_ingot"
+                                                                                     ]
+                                                                       }
+                                                                   ]
+                                                     }
+                                  }
+                 },
+    "parent":  "minecraft:recipes/root",
+    "rewards":  {
+                    "recipes":  [
+                                    "tetanusmod:nail",
+                                    "tetanusmod:rebar",
+                                    "tetanusmod:metal_pipe",
+                                    "tetanusmod:sharpened_rebar",
+                                    "tetanusmod:caltrops",
+                                    "tetanusmod:wire_brush",
+                                    "tetanusmod:tetanus_antitoxin",
+                                    "tetanusmod:tetanized_arrow",
+                                    "tetanusmod:bent_nail",
+                                    "tetanusmod:cooked_infected_meat_smelting",
+                                    "tetanusmod:cooked_infected_meat_smoking",
+                                    "tetanusmod:cooked_infected_meat_campfire_cooking",
+                                    "tetanusmod:tetanized_soul_sand"
+                                ]
+                }
+}

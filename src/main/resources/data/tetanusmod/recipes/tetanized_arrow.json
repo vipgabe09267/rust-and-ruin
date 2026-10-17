@@ -1,0 +1,22 @@
+{
+    "key":  {
+                "R":  {
+                          "item":  "minecraft:rotten_flesh"
+                      },
+                "A":  {
+                          "item":  "minecraft:arrow"
+                      },
+                "N":  {
+                          "item":  "tetanusmod:rusted_nail"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "RNA"
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:tetanized_arrow"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

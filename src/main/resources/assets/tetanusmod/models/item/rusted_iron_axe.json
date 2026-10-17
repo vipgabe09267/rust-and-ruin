@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/rusted_iron_axe"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

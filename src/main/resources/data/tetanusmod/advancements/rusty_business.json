@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "rust_a_nail":  {
+                                         "trigger":  "minecraft:impossible"
+                                     }
+                 },
+    "parent":  "tetanusmod:root",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.rust.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:rusted_nail"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.rust.title"
+                              },
+                    "frame":  "task"
+                }
+}

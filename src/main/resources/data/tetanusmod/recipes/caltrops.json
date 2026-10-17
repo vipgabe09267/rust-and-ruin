@@ -1,0 +1,21 @@
+{
+    "key":  {
+                "N":  {
+                          "item":  "tetanusmod:nail"
+                      },
+                "S":  {
+                          "item":  "minecraft:string"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    " N ",
+                    "NSN",
+                    " N "
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:caltrops"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

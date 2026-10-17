@@ -1,0 +1,23 @@
+{
+    "key":  {
+                "R":  {
+                          "item":  "tetanusmod:rebar"
+                      },
+                "F":  {
+                          "item":  "minecraft:flint"
+                      },
+                "A":  {
+                          "item":  "minecraft:amethyst_shard"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    " F",
+                    "RA"
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:sharpened_rebar"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

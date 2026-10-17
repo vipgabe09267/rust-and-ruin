@@ -1,0 +1,24 @@
+{
+    "key":  {
+                "C":  {
+                          "item":  "minecraft:copper_ingot"
+                      },
+                "S":  {
+                          "item":  "minecraft:stick"
+                      },
+                "N":  {
+                          "item":  "minecraft:iron_nugget"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "NNN",
+                    " C ",
+                    " S "
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:wire_brush"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

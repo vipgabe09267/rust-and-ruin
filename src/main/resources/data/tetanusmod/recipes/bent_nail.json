@@ -1,0 +1,16 @@
+{
+    "ingredients":  [
+                        {
+                            "item":  "tetanusmod:nail"
+                        },
+                        {
+                            "item":  "minecraft:andesite"
+                        }
+                    ],
+    "category":  "equipment",
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:bent_nail"
+               },
+    "type":  "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/rusted_metal_pipe"
+                 },
+    "parent":  "minecraft:item/handheld"
+}

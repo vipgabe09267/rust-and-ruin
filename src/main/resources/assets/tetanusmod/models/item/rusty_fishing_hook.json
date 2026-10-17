@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/rusty_fishing_hook"
+                 },
+    "parent":  "minecraft:item/generated"
+}

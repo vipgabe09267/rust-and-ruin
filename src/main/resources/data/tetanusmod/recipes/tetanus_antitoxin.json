@@ -1,0 +1,26 @@
+{
+    "key":  {
+                "C":  {
+                          "item":  "minecraft:golden_carrot"
+                      },
+                "F":  {
+                          "item":  "minecraft:fermented_spider_eye"
+                      },
+                "B":  {
+                          "item":  "minecraft:glass_bottle"
+                      },
+                "H":  {
+                          "item":  "minecraft:honey_bottle"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "HCF",
+                    " B "
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:tetanus_antitoxin"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

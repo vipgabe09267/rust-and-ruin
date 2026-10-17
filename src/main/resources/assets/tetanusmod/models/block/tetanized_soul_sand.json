@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "tetanusmod:block/tetanized_soul_sand"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

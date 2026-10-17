@@ -1,0 +1,18 @@
+{
+    "ingredients":  [
+                        {
+                            "item":  "tetanusmod:rust"
+                        },
+                        {
+                            "item":  "minecraft:soul_sand"
+                        },
+                        {
+                            "item":  "minecraft:iron_ingot"
+                        }
+                    ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:tetanized_soul_sand"
+               },
+    "type":  "minecraft:crafting_shapeless"
+}

@@ -1,0 +1,32 @@
+{
+    "criteria":  {
+                     "obtain_iron":  {
+                                         "trigger":  "minecraft:inventory_changed",
+                                         "conditions":  {
+                                                            "items":  [
+                                                                          {
+                                                                              "items":  [
+                                                                                            "minecraft:iron_ingot"
+                                                                                        ]
+                                                                          }
+                                                                      ]
+                                                        }
+                                     }
+                 },
+    "display":  {
+                    "background":  "minecraft:textures/gui/advancements/backgrounds/stone.png",
+                    "announce_to_chat":  true,
+                    "frame":  "task",
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.root.title"
+                              },
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.root.description"
+                                    },
+                    "hidden":  false,
+                    "icon":  {
+                                 "item":  "tetanusmod:rebar"
+                             },
+                    "show_toast":  true
+                }
+}

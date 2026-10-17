@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/nail"
+                 },
+    "parent":  "minecraft:item/generated"
+}

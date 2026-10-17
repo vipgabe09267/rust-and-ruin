@@ -1,0 +1,10 @@
+{
+    "cookingtime":  600,
+    "experience":  0.35,
+    "ingredient":  {
+                       "item":  "tetanusmod:infected_meat"
+                   },
+    "type":  "minecraft:campfire_cooking",
+    "category":  "food",
+    "result":  "tetanusmod:cooked_infected_meat"
+}

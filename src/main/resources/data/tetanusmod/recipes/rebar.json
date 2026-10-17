@@ -1,0 +1,21 @@
+{
+    "key":  {
+                "C":  {
+                          "item":  "minecraft:chain"
+                      },
+                "I":  {
+                          "item":  "minecraft:iron_ingot"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "I  ",
+                    " C ",
+                    "  I"
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:rebar"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

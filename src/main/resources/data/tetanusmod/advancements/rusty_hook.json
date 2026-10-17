@@ -1,0 +1,32 @@
+{
+    "criteria":  {
+                     "find_hook":  {
+                                       "trigger":  "minecraft:inventory_changed",
+                                       "conditions":  {
+                                                          "items":  [
+                                                                        {
+                                                                            "items":  [
+                                                                                          "tetanusmod:rusty_fishing_hook"
+                                                                                      ]
+                                                                        }
+                                                                    ]
+                                                      }
+                                   }
+                 },
+    "parent":  "tetanusmod:rusty_business",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.rusty_hook.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:rusty_fishing_hook"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.rusty_hook.title"
+                              },
+                    "frame":  "task"
+                }
+}

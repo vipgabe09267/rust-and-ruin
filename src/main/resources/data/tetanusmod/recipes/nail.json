@@ -1,0 +1,20 @@
+{
+    "key":  {
+                "F":  {
+                          "item":  "minecraft:flint"
+                      },
+                "I":  {
+                          "item":  "minecraft:iron_ingot"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "IF",
+                    "I "
+                ],
+    "result":  {
+                   "count":  4,
+                   "item":  "tetanusmod:nail"
+               },
+    "type":  "minecraft:crafting_shaped"
+}
