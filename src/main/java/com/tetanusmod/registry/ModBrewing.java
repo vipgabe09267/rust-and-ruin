@@ -21,7 +21,7 @@ public final class ModBrewing {
         BrewingRecipeRegistry.registerPotionRecipe(MANURE,ModItems.RUST,TETANUS);
         BrewingRecipeRegistry.registerPotionRecipe(MANURE,ModItems.INFECTED_MEAT,SALMONELLA);
         UseEntityCallback.EVENT.register((player,world,hand,entity,hit)->{
-            if(!(entity instanceof CowEntity cow)||!player.getStackInHand(hand).isOf(Items.GLASS_BOTTLE))return ActionResult.PASS;
+            if(player.isSpectator() || !(entity instanceof CowEntity cow)||!player.getStackInHand(hand).isOf(Items.GLASS_BOTTLE))return ActionResult.PASS;
             if(!world.isClient) {
                 long now=world.getTime();
                 if(now<COLLECTED.getOrDefault(cow,Long.MIN_VALUE)) { player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.manure_wait"),true);return ActionResult.FAIL; }

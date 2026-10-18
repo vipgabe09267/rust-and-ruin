@@ -4,7 +4,7 @@ Validated October 17, 2026 with Minecraft 1.20.1, Java 17, Fabric Loader 0.16.14
 
 ## Results
 
-- `tools/Build.ps1 -Test`: **BUILD SUCCESSFUL; all 53 required GameTests passed**, in a dedicated server environment with neither recipe viewer installed.
+- `tools/Build.ps1 -Test`: **BUILD SUCCESSFUL; all 58 required GameTests passed**, in a dedicated server environment with neither recipe viewer installed.
 - `gradlew.bat -PwithJei runClientSmoke --console plain`: **BUILD SUCCESSFUL**, with Fabric JEI 15.3.0.4.
 - `gradlew.bat -PwithRei runClientSmoke --console plain`: **BUILD SUCCESSFUL**, with Fabric REI 12.1.725 and its development dependencies.
 - The two graphical runs independently displayed all 11 Rusting recipes, the repaired caltrop recipe, potions, species skins, the custom beacon screen, and rusty tab-list hearts.
@@ -13,6 +13,14 @@ Validated October 17, 2026 with Minecraft 1.20.1, Java 17, Fabric Loader 0.16.14
 - Full resource regeneration (`tools/Generate-Resources.ps1`) and a final release build succeeded. JSON, model/texture references, recipe outputs, all three effect icons, and OGG checks passed.
 
 The test report is retained at [validation/gametest-results.xml](validation/gametest-results.xml). Local full logs are ignored files under `.tools/`.
+
+## Final request audit
+
+The [request-by-request audit](docs/REQUEST_AUDIT.md) maps the requested features to their implemented behavior and checks. The audit reproduced and fixed four regressions: legacy golem health, repeat-hit permanent infection, spectator entity interactions, and explosion protection for the special Wither Star. A fifth check verifies that vanilla mob conversions retain permanent mutation.
+
+Five additional GameTests cover those cases, bringing the suite to 58. The spectator fixture explicitly reports spectator mode because Minecraft's built-in mock server player always returns false. The hookline fixture now waits two ticks and verifies its target is present in the world entity lookup before raycasting; an immediate post-spawn raycast intermittently missed during the expanded suite.
+
+JEI and REI graphical checks were rerun against the audited code. The new conversion mixin is included in the release JAR; test and viewer implementation classes remain excluded.
 
 ## Gameplay coverage
 
@@ -73,8 +81,8 @@ The harness enters the copied world, prepares the scene, forces late-stage disea
 - Includes 42 PNGs, normalized audio, recipes, advancements, custom block tags, and required mixins.
 - Contains no GameTest, sound-probe, smoke-test, JEI implementation, REI implementation, or Architectury classes.
 - Fabric API is the only required mod dependency. JEI and REI are optional integrations.
-- Size: 2930021 bytes.
-- SHA-256: `93B1E0681A2161033200F066E8D975D76E96F033B3176463152FCDD8E703476B`.
+- Size: 2931865 bytes.
+- SHA-256: `49965F052FF08FEA8F432FE5798263CD143F2278DC6506FE766AD67F768D839D`.
 
 ## Practical limits
 

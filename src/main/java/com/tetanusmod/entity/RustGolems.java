@@ -11,14 +11,14 @@ public final class RustGolems {
     public static final float CHANCE=0.18F;
     public static void initialize() {
         UseEntityCallback.EVENT.register((player,world,hand,entity,hit)->{
-            if(!(entity instanceof IronGolemEntity golem)||!player.getStackInHand(hand).isOf(ModItems.RUST)||MobVariants.permanent(golem))return ActionResult.PASS;
+            if(player.isSpectator() || !(entity instanceof IronGolemEntity golem)||!player.getStackInHand(hand).isOf(ModItems.RUST)||MobVariants.permanent(golem))return ActionResult.PASS;
             if(!world.isClient)attempt(player,hand,golem,golem.getRandom().nextFloat());
             return ActionResult.success(world.isClient);
         });
     }
     public static boolean attempt(PlayerEntity player,Hand hand,IronGolemEntity golem,float roll) {
         var stack=player.getStackInHand(hand);
-        if(golem.getWorld().isClient||!golem.isAlive()||MobVariants.permanent(golem)||!stack.isOf(ModItems.RUST))return false;
+        if(player.isSpectator()||golem.getWorld().isClient||!golem.isAlive()||MobVariants.permanent(golem)||!stack.isOf(ModItems.RUST))return false;
         if(!player.getAbilities().creativeMode)stack.decrement(1);
         com.tetanusmod.rust.RustingSystem.rustFeedback(golem.getWorld(),golem.getPos());
         if(roll>=CHANCE)return false;

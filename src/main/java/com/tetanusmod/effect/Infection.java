@@ -40,12 +40,13 @@ public final class Infection {
         if (target.getWorld().isClient) return;
         int min = TetanusMod.CONFIG.minDurationSeconds;
         int max = TetanusMod.CONFIG.maxDurationSeconds;
-        int ticks = (min + target.getRandom().nextInt(max - min + 1)) * 20;
+        boolean permanent=com.tetanusmod.entity.MobVariants.permanent(target);
+        int ticks = permanent ? -1 : (min + target.getRandom().nextInt(max - min + 1)) * 20;
         target.removeStatusEffect(TetanusMod.TETANUS);
         target.removeStatusEffect(TetanusMod.LOCKJAW);
         if (target.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, ticks, 0), source)) {
             InfectionState state = (InfectionState) target;
-            state.tetanus$setInfection(0, ticks);
+            state.tetanus$setInfection(0, permanent ? 6000 : ticks);
             state.tetanus$setLockjaw(0);
             state.tetanus$setFreeze(0);
         }

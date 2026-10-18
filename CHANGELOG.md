@@ -13,3 +13,10 @@
 - Fixed water-surface rusting, neighboring icon fragments, and the caltrop recipe. Four nails plus an iron nugget now make four caltrops, shapeless.
 - Added native REI Rusting displays alongside JEI and verified disease brewing in both.
 - Retained the 0.1.0-beta version. Install the updated JAR on both clients and the server.
+## Final audit fixes
+
+- Preserve permanent infection when a rusty hit refreshes Tetanus, and carry mutations through vanilla mob conversions such as zombie to drowned.
+- Migrate older tetanized iron golems to 200 maximum health without stacking modifiers.
+- Block spectator interactions with Rust on golems and manure collection from cows.
+- Give Tetanized Wither Stars the same explosion protection as ordinary Nether Stars.
+- Add regression reproductions and a request-by-request implementation audit.

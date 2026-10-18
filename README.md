@@ -4,7 +4,7 @@
 
 Rusting weapons, infected creatures, and a Wither worth preparing for. A Minecraft **1.20.1 Fabric** mod, version **0.1.0-beta**.
 
-[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes and progression](docs/RECIPES.md) · [Test results](VALIDATION.md)
+[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes and progression](docs/RECIPES.md) · [Test results](VALIDATION.md) · [Requested feature audit](docs/REQUEST_AUDIT.md)
 
 ![Rust & Ruin in Minecraft](validation/screenshots/rust-and-ruin-hud.png)
 

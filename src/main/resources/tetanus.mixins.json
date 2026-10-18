@@ -16,7 +16,8 @@
                    "BeaconBlockEntityMixin",
                    "BeaconAccessor",
                    "BlockEntityTypeAccessor",
-                   "ManurePotionColorMixin"
+                   "ManurePotionColorMixin",
+                   "MobConversionMixin"
                ],
     "client":  [
                    "InGameHudMixin",

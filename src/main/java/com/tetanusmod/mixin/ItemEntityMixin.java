@@ -14,6 +14,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin {
+    @Inject(method="damage",at=@At("HEAD"),cancellable=true)
+    private void rustruin$starExplosionProtection(net.minecraft.entity.damage.DamageSource source,float amount,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<Boolean> cir) {
+        ItemEntity entity=(ItemEntity)(Object)this;
+        if(entity.getStack().isOf(com.tetanusmod.registry.ModItems.TETANIZED_WITHER_STAR) && source.isIn(net.minecraft.registry.tag.DamageTypeTags.IS_EXPLOSION))cir.setReturnValue(false);
+    }
     @Unique private int tetanus$waterTicks;
     @Unique private int tetanus$rainTicks;
     @Unique private int rustruin$rodTicks;

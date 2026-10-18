@@ -12,7 +12,8 @@
                                                 "com.tetanusmod.test.TetanusGameTests",
                                                 "com.tetanusmod.test.ExpansionGameTests",
                                                 "com.tetanusmod.test.BalanceGameTests",
-                                                "com.tetanusmod.test.ProgressionGameTests"
+                                                "com.tetanusmod.test.ProgressionGameTests",
+                                                "com.tetanusmod.test.AuditGameTests"
                                             ]
                     },
     "depends":  {

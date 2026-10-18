@@ -137,10 +137,14 @@ public class ProgressionGameTests implements FabricGameTest {
         var player=ctx.createMockSurvivalPlayer();player.setPosition(ctx.getAbsolute(new Vec3d(3,3,1)));player.setYaw(0);player.setPitch(0);
         var target=ctx.spawnEntity(EntityType.COW,new Vec3d(3,3.5,6));target.setNoGravity(true);target.setAiDisabled(true);
         player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModItems.RUSTY_HOOKLINE));
+        // Let the server register the spawned cow in its chunk entity lookup before raycasting.
+        ctx.runAtTick(2,()->{
+        ctx.assertTrue(ctx.getWorld().getOtherEntities(player,target.getBoundingBox()).contains(target),"Hookline target is not in the world entity lookup");
         ModItems.RUSTY_HOOKLINE.use(ctx.getWorld(),player,Hand.MAIN_HAND);
-        ctx.assertTrue(target.hasStatusEffect(TetanusMod.TETANUS),"Hookline did not infect");
+        ctx.assertTrue(target.hasStatusEffect(TetanusMod.TETANUS),"Hookline did not infect: health="+target.getHealth()+" pos="+target.getPos()+" player="+player.getPos()+" damage="+player.getMainHandStack().getDamage());
         ctx.assertTrue(target.getVelocity().z<0,"Hookline did not pull toward player");
         ctx.assertTrue(player.getMainHandStack().getDamage()==1&&player.getItemCooldownManager().isCoolingDown(ModItems.RUSTY_HOOKLINE),"Hookline cost or cooldown missing");ctx.complete();
+        });
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void caltropsShapelessCraftingAndBeaconRecipe(TestContext ctx) {

@@ -69,7 +69,10 @@ public final class MobVariants {
     }
     private static void modifier(LivingEntity entity, EntityAttribute attribute, UUID id, double value) {
         var instance = entity.getAttributeInstance(attribute);
-        if (instance != null && instance.getModifier(id) == null) instance.addPersistentModifier(
+        if(instance==null)return;
+        var existing=instance.getModifier(id);
+        if(existing!=null && Double.compare(existing.getValue(),value)!=0)instance.removeModifier(id);
+        if (instance.getModifier(id) == null) instance.addPersistentModifier(
                 new EntityAttributeModifier(id, "Permanent tetanized mutation", value, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
     }
     private static void applyAttributes(LivingEntity entity, boolean heal) {
