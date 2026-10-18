@@ -37,7 +37,8 @@ public final class Infection {
     public static final Identifier SYMPTOM_PACKET = TetanusMod.id("symptom");
 
     public static void expose(LivingEntity target, Entity source) {
-        apply(target,source);
+        if(target.getWorld().isClient||!target.isAlive()||!InfectionProtection.allows(target,true))return;
+        applyChecked(target,source);
         com.tetanusmod.entity.MobVariants.projectileExposure(target,source);
     }
     public static StatusEffectInstance potionEffect(StatusEffectInstance effect) {
@@ -45,20 +46,26 @@ public final class Infection {
         int seconds=net.minecraft.util.math.random.Random.create().nextBetween(com.tetanusmod.TetanusMod.CONFIG.minDurationSeconds,com.tetanusmod.TetanusMod.CONFIG.maxDurationSeconds);
         return new StatusEffectInstance(effect.getEffectType(),seconds*20,effect.getAmplifier(),effect.isAmbient(),effect.shouldShowParticles(),effect.shouldShowIcon());
     }
-    public static void apply(LivingEntity target, Entity source) {
-        if (target.getWorld().isClient) return;
+    public static boolean apply(LivingEntity target,Entity source){
+        if(target.getWorld().isClient||!target.isAlive()||!InfectionProtection.allows(target,false))return false;
+        return applyChecked(target,source);
+    }
+    private static boolean applyChecked(LivingEntity target, Entity source) {
+
         int min = TetanusMod.CONFIG.minDurationSeconds;
         int max = TetanusMod.CONFIG.maxDurationSeconds;
         boolean permanent=com.tetanusmod.entity.MobVariants.permanent(target);
         int ticks = permanent ? -1 : (min + target.getRandom().nextInt(max - min + 1)) * 20;
         target.removeStatusEffect(TetanusMod.TETANUS);
         target.removeStatusEffect(TetanusMod.LOCKJAW);
-        if (target.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, ticks, 0), source)) {
+        if (InfectionProtection.checked(target,()->target.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, ticks, 0), source))) {
             InfectionState state = (InfectionState) target;
             state.tetanus$setInfection(0, permanent ? 6000 : ticks);
             state.tetanus$setLockjaw(0);
             state.tetanus$setFreeze(0);
+            return true;
         }
+        return false;
     }
 
     public static int stage(int elapsed, int total) {

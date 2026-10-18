@@ -1,0 +1,27 @@
+{
+    "key":  {
+                "L":  {
+                          "item":  "minecraft:leather"
+                      },
+                "S":  {
+                          "item":  "minecraft:string"
+                      },
+                "I":  {
+                          "item":  "minecraft:iron_nugget"
+                      },
+                "N":  {
+                          "item":  "minecraft:copper_ingot"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "L L",
+                    "INI",
+                    " S "
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:protective_gloves"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

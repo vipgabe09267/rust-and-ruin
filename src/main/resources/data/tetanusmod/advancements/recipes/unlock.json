@@ -30,7 +30,10 @@
                                     "tetanusmod:cooked_infected_meat_campfire_cooking",
                                     "tetanusmod:tetanized_soul_sand",
                                     "tetanusmod:rusty_hookline",
-                                    "tetanusmod:tetanized_beacon"
+                                    "tetanusmod:tetanized_beacon",
+                                    "tetanusmod:tetanus_vaccine",
+                                    "tetanusmod:protective_gloves",
+                                    "tetanusmod:field_guide"
                                 ]
                 }
 }

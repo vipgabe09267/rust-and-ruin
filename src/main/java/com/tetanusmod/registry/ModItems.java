@@ -25,7 +25,10 @@ public final class ModItems {
     public static final Item METAL_PIPE = register("metal_pipe", new RebarItem(false, 2, true, new FabricItemSettings().maxDamage(160)));
     public static final Item RUSTED_METAL_PIPE = register("rusted_metal_pipe", new RebarItem(true, 2, true, new FabricItemSettings().maxDamage(160)));
     public static final Item WIRE_BRUSH = register("wire_brush", new WireBrushItem(new FabricItemSettings().maxDamage(128)));
-    public static final Item ANTITOXIN = register("tetanus_antitoxin", new AntitoxinItem(new FabricItemSettings().maxCount(16)));
+    public static final Item ANTITOXIN = register("tetanus_antitoxin", new AntitoxinItem(new FabricItemSettings().maxCount(16).recipeRemainder(net.minecraft.item.Items.GLASS_BOTTLE)));
+    public static final Item VACCINE=register("tetanus_vaccine",new VaccineItem(new FabricItemSettings().maxCount(16)));
+    public static final Item PROTECTIVE_GLOVES=register("protective_gloves",new DescribedItem(new FabricItemSettings().maxDamage(192),"gloves"));
+    public static final Item FIELD_GUIDE=register("field_guide",new FieldGuideItem(new FabricItemSettings().maxCount(1)));
     public static final Item TETANIZED_ARROW = register("tetanized_arrow", new TetanizedArrowItem(new FabricItemSettings()));
     public static final Item RUST=register("rust",new Item(new FabricItemSettings()));
     public static final Item RUSTY_FISHING_HOOK=register("rusty_fishing_hook",new com.tetanusmod.item.DescribedItem(new FabricItemSettings(),"hook"));

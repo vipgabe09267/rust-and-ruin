@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/tetanus_vaccine"
+                 },
+    "parent":  "minecraft:item/generated"
+}

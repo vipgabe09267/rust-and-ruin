@@ -12,6 +12,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin implements InfectionState, com.tetanusmod.entity.TetanizedState {
+    @Inject(method="addStatusEffect(Lnet/minecraft/entity/effect/StatusEffectInstance;Lnet/minecraft/entity/Entity;)Z",at=@At("HEAD"),cancellable=true)
+    private void rustruin$preventDisease(net.minecraft.entity.effect.StatusEffectInstance effect,net.minecraft.entity.Entity source,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<Boolean> result) {
+        LivingEntity self=(LivingEntity)(Object)this;
+        if(!self.getWorld().isClient && effect.getEffectType()==TetanusMod.TETANUS && !com.tetanusmod.effect.InfectionProtection.checked(self)
+                && !com.tetanusmod.effect.InfectionProtection.allows(self,false))result.setReturnValue(false);
+    }
     @org.spongepowered.asm.mixin.Shadow protected abstract void dropXp();
     @org.spongepowered.asm.mixin.Shadow protected net.minecraft.entity.player.PlayerEntity attackingPlayer;
     @Inject(method="drop",at=@At("HEAD"),cancellable=true)

@@ -6,6 +6,9 @@ All recipes are for Rust & Ruin **0.1.0-beta**, Minecraft 1.20.1 Fabric. JEI and
 
 | Result | Ingredients | Layout |
 | --- | --- | --- |
+| Tetanus Vaccine | Tetanus Antitoxin + golden apple + glowstone dust + honey bottle | Shapeless; returns both glass bottles |
+| Protective Gloves | 2 leather + 2 iron nuggets + copper ingot + string | Leather in upper corners; nugget/copper/nugget across middle; string below center |
+| Field Guide | Book + Rust + feather | Shapeless; right-click to read |
 | 4 Nails | 2 iron ingots + flint | Two vertical ingots; flint right of the upper ingot |
 | Rebar | 2 iron ingots + chain | Iron top left, chain center, iron bottom right |
 | Sharpened Rebar | Rebar + flint + amethyst shard | Flint upper right; rebar lower left, amethyst lower right |
@@ -78,3 +81,10 @@ The layer sizes are the same as a normal beacon: 3x3, then 5x5, 7x7, and 9x9 for
 ## Rusted iron golem
 
 Right-click an iron golem with Rust. Each Survival attempt consumes one Rust and has an **18% chance** of conversion. A tetanized iron golem has **200 maximum health**, keeps its mutation when saved, and uses a rusty version of its original texture. Success awards **Rusty Guardian** and **Tetanized Mob**. Existing tetanized golems cannot consume repeated Rust attempts.
+## Prevention
+
+Drink a vaccine for 20 minutes of Tetanus Resistance: 80% lower Tetanus risk by default. It does not cure an existing infection or prevent Salmonella. Drinking a dose consumes one and returns one bottle; Creative use does not create extra bottles. Milk removes resistance while preserving Tetanus and Lockjaw.
+
+Gloves must be equipped in the offhand. They reduce rusty-contact infection risk by 50% and have 192 durability, charging one base durability per exposure. Main-hand/inventory gloves do not protect, and gloves do not stop contaminated food or disease potions. Combined vaccine and glove protection is 90% by default; weapon damage is unchanged.
+
+The guide is reusable and has ten scrollable chapters. It shows the connected server's prevention settings. Configuration keys: `vaccineDurationSeconds` (default 1200), `vaccineProtectionChance` (0.8) and `gloveProtectionChance` (0.5).

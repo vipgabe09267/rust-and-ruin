@@ -34,6 +34,11 @@ public final class RustRuinJeiPlugin implements IModPlugin {
     }
     public static boolean hasCaltropRecipe() { return activeRuntime.getRecipeManager().createRecipeLookup(mezz.jei.api.constants.RecipeTypes.CRAFTING).includeHidden().get().anyMatch(recipe->recipe.getId().equals(TetanusMod.id("caltrops"))); }
     public static void showCaltropRecipe() { activeRuntime.getRecipesGui().show(List.of(activeRuntime.getJeiHelpers().getFocusFactory().createFocus(RecipeIngredientRole.OUTPUT,VanillaTypes.ITEM_STACK,new ItemStack(ModBlocks.CALTROPS)))); }
+    public static boolean hasPreventionRecipes() {
+        var recipes=activeRuntime.getRecipeManager().createRecipeLookup(mezz.jei.api.constants.RecipeTypes.CRAFTING).includeHidden().get().toList();
+        return List.of("tetanus_vaccine","protective_gloves","field_guide").stream().allMatch(id->recipes.stream().anyMatch(recipe->recipe.getId().equals(TetanusMod.id(id))));
+    }
+    public static void showVaccineRecipe(){activeRuntime.getRecipesGui().show(List.of(activeRuntime.getJeiHelpers().getFocusFactory().createFocus(RecipeIngredientRole.OUTPUT,VanillaTypes.ITEM_STACK,new ItemStack(ModItems.VACCINE))));}
     public static void showRustingRecipes() { if(activeRuntime!=null) activeRuntime.getRecipesGui().showTypes(List.of(RUSTING)); }
     @Override public void onRuntimeAvailable(mezz.jei.api.runtime.IJeiRuntime runtime) {
         activeRuntime=runtime;

@@ -4,56 +4,55 @@ Validated October 17, 2026 with Minecraft 1.20.1, Java 17, Fabric Loader 0.16.14
 
 ## Results
 
-- Dedicated server: **all 73 required GameTests passed**, including a complete repeat after final changes, with neither recipe viewer installed.
-- Graphical JEI 15.3.0.4 client: **PASS**.
-- Graphical REI 12.1.725 client: **PASS**, using its normal development dependencies.
-- Both clients check all 11 Rusting recipes, caltrop crafting, the five requested brewing outputs, rusty HUD/tab hearts, minutes-long Lockjaw, and the custom beacon screen.
-- Both clients verify base mutation render layers for **78 vanilla mob types** and the actual symptom text for **all six drinkable/splash/lingering disease potion tooltips**.
-- The advancement screen opens with the rusty metal wallpaper. The Salmonella advancement is titled **Why did I eat that?**; meat pickup grants **Strange Meat**.
-- Release build and JSON/model/texture/recipe/audio/background reference validation passed.
+- Dedicated server: **all 96 required GameTests passed**; including the requested complete repeat before committing, with neither recipe viewer installed.
+- Graphical JEI 15.3.0.4 and REI 12.1.725 clients: **PASS**.
+- Both clients verify the vaccine status and offhand glove synchronization, item-driven guide opening, all ten guide chapters, server protection values, bounded chapter/scroll selection, the three synchronized crafting recipes and an actual vaccine recipe page.
+- Both clients receive four deliberately malformed messages through the real custom network handlers, log one warning, and continue all feature checks.
+- Retained checks cover all 11 Rusting displays, caltrop crafting, five brewing outputs, 78 vanilla mob base skin layers, six disease potion tooltips, minutes-long Lockjaw, rusty HUD/tab hearts, the custom beacon and rusty advancement wallpaper.
+- Release build, resource references, official wrapper checksum, pinned Gradle download, packaging and new item sprite borders pass.
 
-The server report is retained in [validation/gametest-results.xml](validation/gametest-results.xml), graphical summaries in [validation/client-results.txt](validation/client-results.txt), and the request mapping in [docs/REQUEST_AUDIT.md](docs/REQUEST_AUDIT.md). Full local logs are ignored under `.tools/`.
+Reports: [GameTests](validation/gametest-results.xml), [client summaries](validation/client-results.txt), [release integrity](validation/release-audit.json), [requested features](docs/REQUEST_AUDIT.md), and [security review](docs/SECURITY_AUDIT.md). Full logs remain ignored under `.tools/`.
 
-## Regression and functionality coverage
+## Prevention and security tests
 
-The 58 earlier tests retain weapon damage, ammo consumption and recovery, crafting/container returns, water/rain timing, floating nails, roofs/interrupted exposure, NBT/durability/enchantments, brushing/grindstones, medicine, iron tools, Infinity arrows, permanent attributes, loot, cooking, rituals, commands, advancements, sound positions and beacon behavior.
+The existing 73 checks retain weapon damage and ammunition, crafting, containers, water/rain rusting, floating nails, roofs, interrupted exposure, data preservation, brushing/grindstones, cures, iron tools, Infinity arrows, permanent variants, animals and salvage, cooking, disease timing, Lockjaw, rituals, commands, advancements, sound positions and beacon powers/payment rules.
 
-Fifteen additional disease tests cover:
+Twenty-three additional tests cover:
 
-- New 300–600 second defaults; migration of old 120–300 defaults, including unversioned configuration; preservation of custom durations.
-- Random 120–240 second Lockjaw windows, and long counters surviving save/load.
-- Exact Lockjaw onset, a full simulated minute of uninterrupted symptoms, natural expiry and recovery.
-- Milk retaining both Tetanus and Lockjaw without restarting progression while still clearing ordinary effects; antitoxin immediately clearing both and returning a bottle.
-- Actual deaths across creatable animal types with temporary Tetanus: only infected meat, without ordinary animal loot. Disabled `doMobLoot` is respected.
-- Actual infected-meat pickup granting Strange Meat.
-- Every ordinary creatable vanilla mob receiving permanent mutation through the shared exposure path under controlled success probabilities, plus an actual rusty melee conversion.
-- Random 5–10 minute drinkable Tetanus, unchanged ordinary potion instances, and actual splash/cloud delivery using the same duration range.
-- Actual raw-meat consumption with a guaranteed Salmonella roll granting Why did I eat that?; a zero-probability roll granting no such advancement.
-- Actual Salmonella ticks causing nausea, hunger loss and mild damage, with nausea applied after status iteration to avoid concurrent modification.
+- Vaccine use consumes exactly one dose, returns one bottle, does not cure or refresh an existing illness, and creates no extra containers in Creative.
+- Empty/wrong items, spectators and forged item-duration NBT cannot grant unauthorized vaccination.
+- Actual 32-tick drinking completes during Lockjaw, and full Survival inventories drop exactly one bottle.
+- Exact 80% vaccine, 50% glove and 90% combined boundaries; glove durability is charged once per exposure.
+- Gloves require the offhand, do not protect food/potions, break on their final use and stop protecting once broken.
+- Guaranteed prevention rejects direct Tetanus status/potion application and prevents a permanent mutation roll. Blocked refreshes preserve existing disease counters.
+- Vaccination does not prevent Salmonella. Saved vaccine status, glove damage and enchantments survive loading; milk removes protection while retaining Tetanus. Vaccination expires naturally.
+- Entity-specific checked scopes isolate nested callbacks and restore state after exceptions.
+- All three crafting recipes match; vaccine crafting returns exactly two ingredient bottles.
+- Reading a guide has no server gameplay effect and consumes no book.
+- Hookline cooldown cannot be bypassed by immediate repeated calls, and a solid wall prevents hits.
+- Exact presence/symptom payload bounds, strict booleans, invalid stages and valid decoder round trips.
+- Bounded configuration parsing, field clamping, escaped quotes/braces, malformed/scalar/null JSON, deeply nested input, oversized/trailing data and **2,000 deterministic random payloads**.
+- Non-operators cannot use command helpers or the command tree; non-finite coordinates are rejected.
 
-Default mutation probabilities retain existing boundary tests: animals 15%, other mobs 5%, Rust-on-golem 18%, special Wither 5% or 30% with the netherite ritual. Withers remain a separate ritual/command path.
+The real-server-player fixture is used for full-inventory drops. The hookline fixture explicitly clears its positive-test sightline; a separate wall test verifies that obstruction remains enforced. Trap cooldown assertions account for the intended healing when an animal permanently mutates.
 
-Earlier edge cases remain covered: old golem health migration, repeat-hit permanent infection, spectator interaction rejection, special-star explosion protection, and mutations surviving vanilla mob conversions.
+## Graphical verification
 
-## Graphical checks
+The harness enters a real integrated-server world, checks the existing mod scene and recipes, opens the advancement tab, closes its container correctly, drinks a vaccine in the server setup, equips a guide/gloves, waits for synchronization, opens the guide using its item action, checks every chapter and displays the vaccine recipe in the installed viewer.
 
-Representative animals, spider, zombie, golem and the Tetanized Wither are rendered in the scene. In addition, the harness creates every vanilla mob type and checks the normal living-renderer path resolves to its own generated mutation texture: 78 types. The dragon retains its separate texture hook.
+Representative creatures are visually rendered. The harness additionally resolves generated base texture layers for 78 vanilla mob types; the dragon retains its separate hook. It verifies actual symptoms in drinkable, splash and lingering Tetanus/Salmonella tooltips.
 
-The final tooltip check caught lingering potions using their own vanilla tooltip method; both potion methods are now covered. All six disease tooltips are checked for actual symptom text, and Tetanus no longer displays the misleading nominal 7:30 duration or just a Speed modifier.
-
-The client checks also require a synchronized Lockjaw duration of at least 115 seconds after forcing onset, infection presence synchronization, brewing displays, and the requested Salmonella advancement. The advancement root wallpaper identifier is checked before opening and capturing the tab.
-
-The Gradle client task deletes stale result files and fails if the fresh harness result is missing or reports failure; a clean game shutdown alone is insufficient.
+Malformed config, deeply nested config, short presence and invalid-stage symptom packets are delivered through Fabric networking. Their handlers reject them and normal gameplay checks continue. Gradle deletes stale result files and fails on a missing/failed fresh result.
 
 Fresh screenshots include:
 
+- [Field guide and server prevention values](validation/screenshots/rust-and-ruin-jei-field-guide.png)
+- [REI field guide](validation/screenshots/rust-and-ruin-rei-field-guide.png)
+- [JEI vaccine recipe](validation/screenshots/rust-and-ruin-jei-vaccine-recipe.png)
+- [REI vaccine recipe](validation/screenshots/rust-and-ruin-rei-vaccine-recipe.png)
 - [Lockjaw and rusty hearts](validation/screenshots/rust-and-ruin-jei-hud.png)
-- [Tab-list hearts](validation/screenshots/rust-and-ruin-jei-tab-hearts.png)
-- [Inventory and potions](validation/screenshots/rust-and-ruin-jei-inventory.png)
-- [JEI caltrops](validation/screenshots/rust-and-ruin-jei-caltrops.png)
-- [REI caltrops](validation/screenshots/rust-and-ruin-rei-caltrops.png)
-- [Custom beacon interface](validation/screenshots/rust-and-ruin-rei-beacon.png)
-- [Rusty advancement background](validation/screenshots/rust-and-ruin-rei-advancements.png)
+- [Rusty advancement wallpaper](validation/screenshots/rust-and-ruin-rei-advancements.png)
+- [Custom beacon](validation/screenshots/rust-and-ruin-rei-beacon.png)
 
 ## Reproduce
 
@@ -63,21 +62,23 @@ With JDK 17, from the project root:
 .\tools\Build.ps1 -Test
 .\gradlew.bat -PwithJei runClientSmoke --console plain
 .\gradlew.bat -PwithRei runClientSmoke --console plain
+.\tools\Audit-Release.ps1
 ```
 
-Run viewer configurations sequentially. The client harness uses `build/client-smoke/saves/smoke-world-final`; if absent, first copy the generated GameTest world there. It prepares its own scene, checks assertions, captures screenshots and closes Minecraft.
+Run viewers sequentially. The client harness uses `build/client-smoke/saves/smoke-world-final`; if absent, first copy the generated GameTest world there. It prepares the scene, checks assertions, captures screenshots and closes Minecraft.
 
 ## Release inspection
 
 `build/libs/rust-and-ruin-0.1.0-beta.jar`:
 
-- Rust & Ruin 0.1.0-beta metadata; Minecraft 1.20.1, Java 17 and Fabric API required on both sides.
-- Includes 42 PNGs, audio, recipes, advancements, block tags and required mixins, including the existing rusty metal tile used as wallpaper.
-- Strange Meat uses `inventory_changed`; Why did I eat that? uses `effects_changed` for Salmonella.
-- Contains no GameTest/smoke-test classes or bundled JEI, REI or Architectury implementations.
-- Size: 2940089 bytes.
-- SHA-256: `FF47F014F80D25F93C51DCB097EE3CD48A7F1098E0E97F94D6208505C786926F`.
+- Rust & Ruin 0.1.0-beta; Minecraft 1.20.1, Java 17 and Fabric API on both sides. No added mandatory mod dependency.
+- Includes 46 PNGs, audio, recipes, advancements, tags, item models and required mixins.
+- No test classes, viewer implementations, private files or unsafe archive paths were found.
+- New item sprites have transparent margins. Original artwork and exact built-in imagegen prompts are retained under [assets-source/art/prevention](assets-source/art/prevention/PROMPTS.md).
+- Strange Meat requires infected-meat pickup; Why did I eat that? requires Salmonella infection.
+- Size: 2985006 bytes.
+- SHA-256: `E675A7BA4CB52E78D9191F835584E15C3541E1C25D7592C811F91C2FC4C86145`.
 
 ## Practical limits
 
-These checks cover a dedicated server environment and graphical integrated-server clients. They do not prove arbitrary modpack compatibility, real-network latency behavior or every emergent encounter bug-free. Texture assertions verify generated base render layers, with representative species visually inspected; third-party/procedural renderers that bypass vanilla paths may need compatibility work. Actual probabilities use controlled boundaries rather than thousands of natural boss summons. Subjective loudness and multiplayer balance still benefit from playtesting.
+This is a dedicated/integrated-server functional suite, a source/protocol security review, and adversarial packet testing. It does not prove 100% correctness/security, audit every upstream Minecraft/JVM dependency, or establish arbitrary modpack/network compatibility. Texture assertions verify base layers, with representative species visually inspected; third-party renderers that bypass vanilla paths may need compatibility work. Subjective balance and loudness still benefit from multiplayer playtesting.

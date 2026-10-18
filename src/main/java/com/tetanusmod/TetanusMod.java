@@ -29,6 +29,7 @@ public final class TetanusMod implements ModInitializer {
     public static final Identifier CONFIG_PACKET = id("config");
     public static final StatusEffect TETANUS = Registry.register(
             Registries.STATUS_EFFECT, id("tetanus"), new TetanusEffect());
+    public static final StatusEffect VACCINATED=Registry.register(Registries.STATUS_EFFECT,id("tetanus_resistance"),new com.tetanusmod.effect.VaccinationEffect());
     public static final StatusEffect LOCKJAW=Registry.register(Registries.STATUS_EFFECT,id("lockjaw"),new com.tetanusmod.effect.LockjawEffect());
     public static final StatusEffect SALMONELLA=Registry.register(Registries.STATUS_EFFECT,id("salmonella"),new com.tetanusmod.effect.SalmonellaEffect());
     public static final Item NAIL = ModItems.NAIL;

@@ -4,7 +4,7 @@
 
 Rusting weapons, infected creatures, and a Wither worth preparing for. A Minecraft **1.20.1 Fabric** mod, version **0.1.0-beta**.
 
-[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes and progression](docs/RECIPES.md) · [Test results](VALIDATION.md) · [Requested feature audit](docs/REQUEST_AUDIT.md)
+[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes and progression](docs/RECIPES.md) · [Test results](VALIDATION.md) · [Security review](docs/SECURITY_AUDIT.md) · [Requested feature audit](docs/REQUEST_AUDIT.md)
 
 ![Rust & Ruin in Minecraft](validation/screenshots/rust-and-ruin-hud.png)
 
@@ -13,6 +13,14 @@ Rusting weapons, infected creatures, and a Wither worth preparing for. A Minecra
 Put `rust-and-ruin-0.1.0-beta.jar` in the `mods` folder on **both the client and server**. Requires **Java 17**, **Fabric Loader 0.16.14+**, and **Fabric API for 1.20.1**. Replace older copies of the mod.
 
 **JEI and REI are optional alternatives.** Each supports crafting, cooking, brewing, and all 11 Rusting recipes. Install one recipe viewer with its own dependencies. Rust & Ruin itself only requires Fabric API.
+
+## Prevention and field guide
+
+**Tetanus Vaccine** grants Tetanus Resistance for **20 minutes**, reducing new Tetanus infection risk by **80%**. It prevents rather than cures: existing Tetanus and Lockjaw remain. It does not prevent Salmonella. Milk removes this beneficial protection.
+
+Equip **Protective Gloves in your offhand** for **50% lower risk from rusty contact**. Each exposure costs one base durability out of 192; ordinary enchantment rules still apply. Gloves do not prevent infected-food or potion exposure and do not reduce weapon damage. Vaccine and gloves combine to give **90% contact protection** by default.
+
+Craft a **Rust & Ruin Field Guide** from a book, Rust and a feather. Right-click to open its ten chapters, then use the mouse wheel or arrow buttons to scroll. It covers recipes, symptoms, prevention, creatures, salvage, brewing, commands and Wither/beacon progression. Prevention values use the connected server settings. Reading never consumes the book.
 
 ## Weapons, rust, and salvage
 
@@ -83,7 +91,7 @@ Summon commands bypass random conversion chances. Existing mob AI and models rem
 
 ## Configuration
 
-Launch once to create `config/tetanusmod.json`. Stop the instance before editing it. Settings include infection duration, rust timing, damage, camera shaking, audio volume, and mutation probabilities. Defaults: hostile 0.05, animal 0.15, special Wither 0.05, raw-meat Salmonella 0.10. The netherite ritual adds 0.25 to the Wither probability, capped at 1.
+Launch once to create `config/tetanusmod.json`. Stop the instance before editing it. Settings include infection duration, rust timing, damage, camera shaking, audio volume, mutation probabilities, vaccine duration, and both protection chances. Defaults: hostile 0.05, animal 0.15, special Wither 0.05, raw-meat Salmonella 0.10. The netherite ritual adds 0.25 to the Wither probability, capped at 1.
 
 Previous default animal rates migrate to 15%, and the old default 120–300 second duration migrates to 300–600 seconds. Custom settings are retained. Internal IDs remain `tetanusmod` for save compatibility.
 

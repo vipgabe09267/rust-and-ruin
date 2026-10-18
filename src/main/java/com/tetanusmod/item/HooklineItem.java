@@ -16,6 +16,7 @@ public final class HooklineItem extends DescribedItem {
     public HooklineItem(Settings settings) { super(settings,"hookline"); }
     @Override public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         ItemStack stack=player.getStackInHand(hand);
+        if(player.isSpectator()||!player.isAlive()||!stack.isOf(this)||player.getItemCooldownManager().isCoolingDown(this))return TypedActionResult.pass(stack);
         var start=player.getEyePos();var direction=player.getRotationVec(1);
         var end=start.add(direction.multiply(12));
         var block=world.raycast(new net.minecraft.world.RaycastContext(start,end,net.minecraft.world.RaycastContext.ShapeType.COLLIDER,net.minecraft.world.RaycastContext.FluidHandling.NONE,player));

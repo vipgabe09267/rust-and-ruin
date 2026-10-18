@@ -118,7 +118,7 @@ tasks.register('verifyResources') {
         def advancementRoot = parser.parse(new File(root, 'data/tetanusmod/advancements/root.json'))
         def wallpaper = advancementRoot.display.background
         if (wallpaper.startsWith('tetanusmod:')) requireFile(new File(root, 'assets/' + wallpaper.replace(':','/')))
-        ['tetanus','salmonella','lockjaw'].each { requireFile(new File(assets, "textures/mob_effect/${it}.png")) }
+        ['tetanus','salmonella','lockjaw','tetanus_resistance'].each { requireFile(new File(assets, "textures/mob_effect/${it}.png")) }
         fileTree(new File(root, 'data/tetanusmod/recipes')).matching { include '*.json' }.each { recipeFile ->
             def recipe = parser.parse(recipeFile)
             def output = recipe.result instanceof Map ? recipe.result.item : recipe.result

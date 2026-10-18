@@ -1,0 +1,22 @@
+{
+    "ingredients":  [
+                        {
+                            "item":  "tetanusmod:tetanus_antitoxin"
+                        },
+                        {
+                            "item":  "minecraft:golden_apple"
+                        },
+                        {
+                            "item":  "minecraft:glowstone_dust"
+                        },
+                        {
+                            "item":  "minecraft:honey_bottle"
+                        }
+                    ],
+    "category":  "misc",
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:tetanus_vaccine"
+               },
+    "type":  "minecraft:crafting_shapeless"
+}

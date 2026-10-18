@@ -27,6 +27,7 @@ public final class RustRuinCommands {
             })))));
     }
     public static int summon(ServerCommandSource source,String name,Vec3d pos)throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        if(!source.hasPermissionLevel(2)||!Double.isFinite(pos.x)||!Double.isFinite(pos.y)||!Double.isFinite(pos.z))throw error("commands.tetanusmod.invalid");
         Identifier id=Identifier.tryParse(name);
         var type=id==null?null:Registries.ENTITY_TYPE.getOrEmpty(id).orElse(null);
         if(type==null||!net.minecraft.world.World.isValid(net.minecraft.util.math.BlockPos.ofFloored(pos)))throw error("commands.tetanusmod.invalid");

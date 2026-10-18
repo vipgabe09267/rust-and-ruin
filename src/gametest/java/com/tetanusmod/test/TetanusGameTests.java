@@ -264,10 +264,11 @@ public class TetanusGameTests implements FabricGameTest {
             CaltropsBlockEntity trap = (CaltropsBlockEntity) ctx.getBlockEntity(pos);
             CowEntity target = cow(ctx, 5, 5);
             trap.stepOn(target, true);
-            ctx.assertTrue(target.getHealth() == 9 && target.hasStatusEffect(TetanusMod.TETANUS), "Rusty trap did not damage/infect");
+            float firstHealth=target.getHealth();
+            ctx.assertTrue(firstHealth == (com.tetanusmod.entity.MobVariants.permanent(target)?target.getMaxHealth():9) && target.hasStatusEffect(TetanusMod.TETANUS), "Rusty trap did not damage/infect");
             target.timeUntilRegen = 0;
             trap.stepOn(target, true);
-            ctx.assertTrue(target.getHealth() == 9, "Trap cooldown bypassed");
+            ctx.assertTrue(target.getHealth() == firstHealth, "Trap cooldown bypassed");
             ctx.complete();
         });
     }

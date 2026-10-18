@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/protective_gloves"
+                 },
+    "parent":  "minecraft:item/generated"
+}

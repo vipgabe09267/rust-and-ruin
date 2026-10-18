@@ -1,0 +1,10 @@
+{
+    "Result":  "PASS",
+    "Jar":  "rust-and-ruin-0.1.0-beta.jar",
+    "Bytes":  2985006,
+    "SHA256":  "E675A7BA4CB52E78D9191F835584E15C3541E1C25D7592C811F91C2FC4C86145",
+    "OfficialWrapperSHA256":  "D3B261C2820E9E3D8D639ED084900F11F4A86050A8F83342ADE7B6BC9B0D2BDD",
+    "Pngs":  46,
+    "MandatoryMods":  "Fabric API",
+    "DevelopmentCodeBundled":  false
+}

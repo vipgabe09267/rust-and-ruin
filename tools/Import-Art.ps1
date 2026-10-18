@@ -97,3 +97,11 @@ Copy-Item -LiteralPath (Join-Path $textureRoot 'block/tetanized_soul_sand.png') 
 $jaw=[Drawing.Bitmap]::FromFile((Join-Path $projectRoot 'assets-source/art/lockjaw.png'))
 Save-Sprite $jaw ([Drawing.Rectangle]::new(0,0,$jaw.Width,$jaw.Height)) 'mob_effect/lockjaw.png' 64 64
 $jaw.Dispose()
+foreach($entry in @(@('vaccine','item/tetanus_vaccine.png'),@('gloves','item/protective_gloves.png'),@('guide','item/field_guide.png'),@('vaccine','mob_effect/tetanus_resistance.png'))) {
+    $source=Join-Path $projectRoot ('assets-source/art/prevention/'+$entry[0]+'.png')
+    if(Test-Path -LiteralPath $source) {
+        $sprite=[Drawing.Bitmap]::FromFile($source)
+        Save-Sprite $sprite ([Drawing.Rectangle]::new(0,0,$sprite.Width,$sprite.Height)) $entry[1] 64 64
+        $sprite.Dispose()
+    }
+}

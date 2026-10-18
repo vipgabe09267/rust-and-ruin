@@ -2,6 +2,12 @@
 
 Craft iron weapons, let them rust, and turn a small injury into a much bigger problem. Rust & Ruin brings throwable nails, industrial melee weapons, diseases, and tetanized creatures to **Minecraft 1.20.1 Fabric**.
 
+## Prepare before exposure
+
+Drink a **Tetanus Vaccine** for 20 minutes of protection that reduces infection risk by 80%. It does not cure an existing case or protect against Salmonella. **Protective Gloves** in the offhand reduce rusty-contact risk by 50%, with durability loss. Together they provide 90% contact protection by default; attacks still deal their normal damage.
+
+Craft the **Rust & Ruin Field Guide** from a book, Rust and a feather. Its ten scrollable chapters cover recipes, diseases, prevention, mobs, brewing, salvage and boss progression. No additional mod dependency is needed.
+
 ## Weapons that weather
 
 Throw nails, swing rebar and metal pipes, or set caltrops. Dropped metal rusts after **five seconds in water, including at the surface**, or fifteen seconds exposed to rain. Iron tools keep their durability and enchantments when they rust.

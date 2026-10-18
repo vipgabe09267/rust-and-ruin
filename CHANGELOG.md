@@ -1,4 +1,15 @@
-# 0.1.0-beta - disease and creature fixes
+# 0.1.0-beta - prevention and field guide
+
+- Added a craftable Tetanus Vaccine: 20 minutes of 80% protection, with a visible Tetanus Resistance effect. It does not cure existing infections or prevent Salmonella.
+- Added offhand Protective Gloves: 50% protection from rusty contact and 192 durability. Combined vaccine/glove protection is 90% by default.
+- Added a reusable ten-chapter Field Guide with recipes, symptoms, server protection settings, creatures, salvage, brewing, commands and boss progression.
+- Added item artwork, crafting recipes, recipe unlocks and optional JEI/REI displays. No new mandatory dependency.
+- Hardened client custom-packet parsing, bounded the infection cache, checked command helper permissions/coordinates, and enforced hookline cooldowns in the item itself.
+- Scoped prevention checks to individual entities, including nested callbacks and failure cleanup. Blocked hits cannot reset disease or permanently mutate a mob.
+- Pinned the official Gradle distribution checksum and added a reproducible release integrity audit.
+- Retained version 0.1.0-beta. Replace the JAR on both clients and server.
+
+## Earlier 0.1 disease and creature fixes
 
 - Tetanus now lasts a random 5-10 minutes, including infections from drinkable, splash and lingering disease potions.
 - Lockjaw Sonata now lasts continuously through the final randomly chosen 2-4 minutes. Its duration survives saving and reloading.

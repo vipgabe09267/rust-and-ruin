@@ -30,6 +30,7 @@ public final class RustRuinReiPlugin implements REIClientPlugin {
         return true;
     }
     public static boolean showRusting() { return me.shedaniel.rei.api.client.view.ViewSearchBuilder.builder().addCategory(RUSTING).open(); }
+    public static boolean showVaccineRecipe(){return me.shedaniel.rei.api.client.view.ViewSearchBuilder.builder().addRecipesFor(EntryStacks.of(ModItems.VACCINE)).open();}
     public static boolean showCaltrops() { return me.shedaniel.rei.api.client.view.ViewSearchBuilder.builder().addRecipesFor(EntryStacks.of(com.tetanusmod.registry.ModBlocks.CALTROPS)).open(); }
     public static final class RustDisplay extends BasicDisplay {
         public RustDisplay(Item input,Item output) { super(List.of(EntryIngredient.of(EntryStacks.of(input))),List.of(EntryIngredient.of(EntryStacks.of(output)))); }

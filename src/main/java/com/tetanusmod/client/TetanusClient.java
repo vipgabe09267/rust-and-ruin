@@ -25,6 +25,7 @@ public final class TetanusClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.register(TetanusMod.NAIL_ENTITY, FlyingItemEntityRenderer::new);
         registerBeacon();
+        com.tetanusmod.item.FieldGuideItem.open=()->net.minecraft.client.MinecraftClient.getInstance().setScreen(new FieldGuideScreen());
         InfectedPlayerList.initialize();
         net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlock(com.tetanusmod.beacon.ModBeacons.BLOCK,net.minecraft.client.render.RenderLayer.getTranslucent());
         net.fabricmc.fabric.api.resource.ResourceManagerHelper.get(net.minecraft.resource.ResourceType.CLIENT_RESOURCES).registerReloadListener(new net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener() {
@@ -36,17 +37,21 @@ public final class TetanusClient implements ClientModInitializer {
 
         ModConfig local = TetanusMod.CONFIG;
         ClientPlayNetworking.registerGlobalReceiver(TetanusMod.CONFIG_PACKET, (client, handler, packet, sender) -> {
-            String json = packet.readString();
-            client.execute(() -> TetanusMod.CONFIG = new com.google.gson.Gson().fromJson(json, ModConfig.class));
+            try {
+                var config=com.tetanusmod.network.ModPacketDecoder.config(packet);
+                client.execute(()->TetanusMod.CONFIG=config);
+            }catch(RuntimeException invalid){ClientPacketWarnings.invalid();}
         });
         ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
             TetanusMod.CONFIG = local;
+            ClientPacketWarnings.reset();
             twitchTicks = 0;
             previousOffset = 0;
         });
         ClientPlayNetworking.registerGlobalReceiver(Infection.SYMPTOM_PACKET, (client, handler, packet, sender) -> {
-            int stage = packet.readUnsignedByte();
-            boolean enabled = packet.readBoolean();
+            final com.tetanusmod.network.ModPacketDecoder.Symptom symptom;
+            try{symptom=com.tetanusmod.network.ModPacketDecoder.symptom(packet);}catch(RuntimeException invalid){ClientPacketWarnings.invalid();return;}
+            int stage=symptom.stage();boolean enabled=symptom.shaking();
             client.execute(() -> {
                 if (client.player == null) return;
                 client.player.swingHand(Hand.MAIN_HAND);

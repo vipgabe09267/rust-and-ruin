@@ -1,0 +1,19 @@
+{
+    "ingredients":  [
+                        {
+                            "item":  "minecraft:book"
+                        },
+                        {
+                            "item":  "tetanusmod:rust"
+                        },
+                        {
+                            "item":  "minecraft:feather"
+                        }
+                    ],
+    "category":  "misc",
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:field_guide"
+               },
+    "type":  "minecraft:crafting_shapeless"
+}

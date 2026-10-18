@@ -23,7 +23,7 @@ import java.nio.file.*;
 
 public final class ClientSmokeTest implements ClientModInitializer {
     private int ticks,worldTicks,recipesAt;
-    private boolean prepared,finished,caltropsOpened,beaconOpened,advancementsOpened;
+    private boolean prepared,finished,caltropsOpened,beaconOpened,advancementsOpened,guidePrepared,guideOpened,vaccineOpened;
     private volatile boolean serverReady;
     private volatile String serverFailure;
     private final boolean rei=FabricLoader.getInstance().isModLoaded("roughlyenoughitems");
@@ -87,10 +87,43 @@ public final class ClientSmokeTest implements ClientModInitializer {
                     if(root==null||root.getDisplay()==null||!root.getDisplay().getBackground().equals(TetanusMod.id("textures/block/rusted_metal.png")))throw new IllegalStateException("Rusty advancement background missing");
                     var screen=new net.minecraft.client.gui.screen.advancement.AdvancementsScreen(handler);client.setScreen(screen);screen.selectTab(root);advancementsOpened=true;
                 }
-                if(advancementsOpened&&worldTicks>recipesAt+140) {
+                if(advancementsOpened&&!guidePrepared&&worldTicks>recipesAt+140) {
                     if(!(client.currentScreen instanceof net.minecraft.client.gui.screen.advancement.AdvancementsScreen))throw new IllegalStateException("Advancement screen did not open");
                     screenshot(client,"advancements");
-                    finish(client,"PASS: "+(rei?"REI":"JEI")+" Rusting (11), caltrops, brewing, 78 vanilla base skin layers, minutes-long Lockjaw, rusty hearts, beacon and rusty advancement wallpaper");
+                    client.player.closeHandledScreen();guidePrepared=true;
+                    client.getServer().execute(()->{
+                        var player=client.getServer().getPlayerManager().getPlayerList().get(0);
+                        player.closeHandledScreen();
+                        ModItems.VACCINE.finishUsing(new ItemStack(ModItems.VACCINE),player.getWorld(),player);
+                        player.equipStack(EquipmentSlot.MAINHAND,new ItemStack(ModItems.FIELD_GUIDE));
+                        player.equipStack(EquipmentSlot.OFFHAND,new ItemStack(ModItems.PROTECTIVE_GLOVES));
+                        player.playerScreenHandler.sendContentUpdates();
+                    });
+                }
+                if(guidePrepared&&!guideOpened&&worldTicks>recipesAt+170) {
+                    if(!client.player.hasStatusEffect(TetanusMod.VACCINATED)||!client.player.getOffHandStack().isOf(ModItems.PROTECTIVE_GLOVES)||!client.player.getMainHandStack().isOf(ModItems.FIELD_GUIDE))throw new IllegalStateException("Prevention sync failed: vaccine="+client.player.hasStatusEffect(TetanusMod.VACCINATED)+" offhand="+client.player.getOffHandStack()+" main="+client.player.getMainHandStack());
+                    ModItems.FIELD_GUIDE.use(client.world,client.player,net.minecraft.util.Hand.MAIN_HAND);
+                    if(!(client.currentScreen instanceof com.tetanusmod.client.FieldGuideScreen guide))throw new IllegalStateException("Guide item failed to open screen");
+                    for(int chapter=0;chapter<guide.chapterCount();chapter++) {
+                        guide.selectChapter(chapter);String body=guide.body().getString();
+                        if(body.startsWith("guide.")||body.length()<100||body.indexOf((char)92)>=0)throw new IllegalStateException("Invalid guide chapter: "+chapter+" "+body);
+                    }
+                    guide.selectChapter(2);
+                    if(!guide.body().getString().contains("80%")||!guide.body().getString().contains("90%"))throw new IllegalStateException("Guide protection values do not match server config");
+                    for(String id:new String[]{"tetanus_vaccine","protective_gloves","field_guide"})if(client.world.getRecipeManager().get(TetanusMod.id(id)).isEmpty())throw new IllegalStateException("Prevention recipe missing: "+id);
+                    if(!rei&&!RustRuinJeiPlugin.hasPreventionRecipes())throw new IllegalStateException("JEI prevention recipes missing");
+                    guideOpened=true;
+                }
+                if(guideOpened&&worldTicks==recipesAt+185)screenshot(client,"field-guide");
+                if(guideOpened&&!vaccineOpened&&worldTicks>recipesAt+210) {
+                    var guide=(com.tetanusmod.client.FieldGuideScreen)client.currentScreen;
+                    guide.selectChapter(-99);guide.selectChapter(Integer.MAX_VALUE);guide.mouseScrolled(0,0,Double.POSITIVE_INFINITY);guide.selectChapter(2);
+                    if(rei){if(!RustRuinReiPlugin.showVaccineRecipe())throw new IllegalStateException("REI vaccine recipe failed to open");}
+                    else RustRuinJeiPlugin.showVaccineRecipe();vaccineOpened=true;
+                }
+                if(vaccineOpened&&worldTicks>recipesAt+240) {
+                    screenshot(client,"vaccine-recipe");
+                    finish(client,"PASS: "+(rei?"REI":"JEI")+" Rusting (11), crafting/brewing, 78 skins, 6 potion tooltips, Lockjaw/hearts/beacon/advancements; vaccine sync, offhand gloves, 10 guide chapters and prevention recipes");
                 }
             }catch(Throwable failure){finish(client,"FAIL: "+failure);}
         });
@@ -105,7 +138,7 @@ public final class ClientSmokeTest implements ClientModInitializer {
             var board=server.getScoreboard();var objective=board.getNullableObjective("rust_health");
             if(objective==null)objective=board.addObjective("rust_health",net.minecraft.scoreboard.ScoreboardCriterion.HEALTH,net.minecraft.text.Text.literal("Health"),net.minecraft.scoreboard.ScoreboardCriterion.RenderType.HEARTS);
             board.setObjectiveSlot(0,objective);board.getPlayerScore(player.getEntityName(),objective).setScore(20);
-            player.changeGameMode(GameMode.SURVIVAL);player.teleport(world,0.5,4,0.5,0,8);player.setHealth(18);player.getInventory().clear();
+            player.clearStatusEffects();player.changeGameMode(GameMode.SURVIVAL);player.teleport(world,0.5,4,0.5,0,8);player.setHealth(18);player.getInventory().clear();
             int slot=0;for(var item:ModItems.ALL)if(slot<36)player.getInventory().setStack(slot++,new ItemStack(item));
             player.getInventory().setStack(32,PotionUtil.setPotion(new ItemStack(Items.POTION),ModBrewing.MANURE));
             player.getInventory().setStack(33,PotionUtil.setPotion(new ItemStack(Items.POTION),ModBrewing.TETANUS));
@@ -127,6 +160,14 @@ public final class ClientSmokeTest implements ClientModInitializer {
             ModItems.INFECTED_MEAT.finishUsing(new ItemStack(ModItems.INFECTED_MEAT),world,player);
             var questionable=server.getAdvancementLoader().get(TetanusMod.id("why_did_i_eat_that"));
             if(questionable==null||!player.getAdvancementTracker().getProgress(questionable).isDone())throw new IllegalStateException("Why did I eat that? did not unlock from Salmonella");
+            var badConfig=net.fabricmc.fabric.api.networking.v1.PacketByteBufs.create();badConfig.writeByte(128);
+            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player,TetanusMod.CONFIG_PACKET,badConfig);
+            var deepConfig=net.fabricmc.fabric.api.networking.v1.PacketByteBufs.create();deepConfig.writeString("[".repeat(256)+"]".repeat(256));
+            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player,TetanusMod.CONFIG_PACKET,deepConfig);
+            var badPresence=net.fabricmc.fabric.api.networking.v1.PacketByteBufs.create();badPresence.writeByte(0);
+            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player,com.tetanusmod.effect.InfectionPresence.PACKET,badPresence);
+            var badSymptom=net.fabricmc.fabric.api.networking.v1.PacketByteBufs.create();badSymptom.writeByte(255);badSymptom.writeByte(0);
+            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player,Infection.SYMPTOM_PACKET,badSymptom);
             serverReady=true;
         }catch(Throwable failure){serverFailure="Smoke world setup failed: "+failure;}
     }

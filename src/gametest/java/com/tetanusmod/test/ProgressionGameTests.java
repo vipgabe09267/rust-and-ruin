@@ -134,8 +134,9 @@ public class ProgressionGameTests implements FabricGameTest {
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void hooklinePullsAndInfects(TestContext ctx) {
-        var player=ctx.createMockSurvivalPlayer();player.setPosition(ctx.getAbsolute(new Vec3d(3,3,1)));player.setYaw(0);player.setPitch(0);
-        var target=ctx.spawnEntity(EntityType.COW,new Vec3d(3,3.5,6));target.setNoGravity(true);target.setAiDisabled(true);
+        for(int x=2;x<=4;x++)for(int y=3;y<=5;y++)for(int z=1;z<=6;z++)ctx.setBlockState(x,y,z,Blocks.AIR);
+        var player=ctx.createMockSurvivalPlayer();player.setPosition(ctx.getAbsolute(new Vec3d(3.5,3,1.5)));player.setYaw(0);player.setPitch(0);
+        var target=ctx.spawnEntity(EntityType.COW,new Vec3d(3.5,3.5,5.5));target.setNoGravity(true);target.setAiDisabled(true);
         player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModItems.RUSTY_HOOKLINE));
         // Let the server register the spawned cow in its chunk entity lookup before raycasting.
         ctx.runAtTick(2,()->{

@@ -24,6 +24,9 @@ public final class ModConfig {
     public float animalConversionChance = 0.15F;
     public float witherConversionChance = 0.05F;
     public float salmonellaChance = 0.10F;
+    public int vaccineDurationSeconds=1200;
+    public float vaccineProtectionChance=0.80F;
+    public float gloveProtectionChance=0.50F;
     public int balanceRevision = 4;
 
     public static ModConfig load() {
@@ -72,6 +75,9 @@ public final class ModConfig {
         animalConversionChance = finite(animalConversionChance, 0.15F, 1);
         witherConversionChance = finite(witherConversionChance, 0.05F, 1);
         salmonellaChance=finite(salmonellaChance,0.10F,1);
+        vaccineDurationSeconds=clamp(vaccineDurationSeconds,1,7200);
+        vaccineProtectionChance=finite(vaccineProtectionChance,0.80F,1);
+        gloveProtectionChance=finite(gloveProtectionChance,0.50F,1);
         balanceRevision=4;
     }
     private static float finite(float value, float fallback, float max) { return Float.isFinite(value) ? Math.max(0,Math.min(max,value)) : fallback; }
