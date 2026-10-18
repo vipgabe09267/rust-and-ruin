@@ -32,6 +32,8 @@ public final class AntitoxinItem extends Item {
     @Override public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!world.isClient) {
             user.removeStatusEffect(TetanusMod.TETANUS);
+            user.removeStatusEffect(TetanusMod.LOCKJAW);
+            var state=(com.tetanusmod.effect.InfectionState)user;state.tetanus$setInfection(0,0);state.tetanus$setLockjaw(0);state.tetanus$setLockjawWindow(0);state.tetanus$setFreeze(0);
             ((ServerWorld) world).spawnParticles(ParticleTypes.HAPPY_VILLAGER, user.getX(), user.getBodyY(0.6),
                     user.getZ(), 10, 0.3, 0.4, 0.3, 0.05);
         }

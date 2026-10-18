@@ -36,6 +36,15 @@ public final class Infection {
     }
     public static final Identifier SYMPTOM_PACKET = TetanusMod.id("symptom");
 
+    public static void expose(LivingEntity target, Entity source) {
+        apply(target,source);
+        com.tetanusmod.entity.MobVariants.projectileExposure(target,source);
+    }
+    public static StatusEffectInstance potionEffect(StatusEffectInstance effect) {
+        if(effect.getEffectType()!=com.tetanusmod.TetanusMod.TETANUS)return effect;
+        int seconds=net.minecraft.util.math.random.Random.create().nextBetween(com.tetanusmod.TetanusMod.CONFIG.minDurationSeconds,com.tetanusmod.TetanusMod.CONFIG.maxDurationSeconds);
+        return new StatusEffectInstance(effect.getEffectType(),seconds*20,effect.getAmplifier(),effect.isAmbient(),effect.shouldShowParticles(),effect.shouldShowIcon());
+    }
     public static void apply(LivingEntity target, Entity source) {
         if (target.getWorld().isClient) return;
         int min = TetanusMod.CONFIG.minDurationSeconds;

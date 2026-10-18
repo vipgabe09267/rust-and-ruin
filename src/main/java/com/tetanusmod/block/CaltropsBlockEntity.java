@@ -27,7 +27,7 @@ public final class CaltropsBlockEntity extends BlockEntity {
         if (now < nextHit.getOrDefault(entity.getUuid(), 0L)) return;
         nextHit.put(entity.getUuid(), now + 20);
         if (entity.damage(world.getDamageSources().cactus(), 1.0F) && rusty) {
-            Infection.at(world,Vec3d.ofCenter(pos),net.minecraft.sound.SoundCategory.BLOCKS,()->Infection.apply(entity,null));
+            Infection.at(world,Vec3d.ofCenter(pos),net.minecraft.sound.SoundCategory.BLOCKS,()->Infection.expose(entity,null));
             RustingSystem.particles(world, entity.getPos());
         }
     }

@@ -1,0 +1,30 @@
+{
+    "criteria":  {
+                     "get_salmonella":  {
+                                            "trigger":  "minecraft:effects_changed",
+                                            "conditions":  {
+                                                               "effects":  {
+                                                                               "tetanusmod:salmonella":  {
+
+                                                                                                         }
+                                                                           }
+                                                           }
+                                        }
+                 },
+    "parent":  "tetanusmod:strange_meat",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.why_did_i_eat_that.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:infected_meat"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.why_did_i_eat_that.title"
+                              },
+                    "frame":  "task"
+                }
+}

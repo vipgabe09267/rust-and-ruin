@@ -32,8 +32,8 @@ public final class TetanusClient implements ClientModInitializer {
             public void reload(net.minecraft.resource.ResourceManager manager){TetanizedTextures.clear();}
         });
         EntityRendererRegistry.register(TetanusMod.TETANIZED_ARROW_ENTITY,TetanizedArrowRenderer::new);
-        net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback.EVENT.register(
-                (type,renderer,helper,context) -> helper.register(new RustedSkinFeature<>(renderer)));
+
+
         ModConfig local = TetanusMod.CONFIG;
         ClientPlayNetworking.registerGlobalReceiver(TetanusMod.CONFIG_PACKET, (client, handler, packet, sender) -> {
             String json = packet.readString();

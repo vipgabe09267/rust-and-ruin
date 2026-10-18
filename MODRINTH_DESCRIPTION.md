@@ -10,9 +10,9 @@ A wire brush cleans equipment and collects Rust. Fishing rods left in water brea
 
 ## Tetanus and Salmonella
 
-Tetanus lasts two to five minutes, with stiffness, spasms, and late-stage lockjaw. Lockjaw Sonata has a visible icon and countdown, and briefly prevents eating. Experiencing it earns the **Lockjaw Sonata** advancement. Infected hearts turn rusty brown on both the HUD and tab-list health display.
+Tetanus lasts **5–10 minutes**, with stiffness, spasms, and late-stage lockjaw. **Lockjaw Sonata** continuously prevents eating during the final randomly chosen **2–4 minutes**, with a visible icon and countdown. **Milk cannot cure either effect: drink Tetanus Antitoxin**, or wait for natural recovery. Experiencing it earns the **Lockjaw Sonata** advancement. Infected hearts turn rusty brown on both the HUD and tab-list health display.
 
-Tetanized animals drop only infected meat. Cook it before eating: raw meat causes Tetanus and has a low chance of Salmonella, with vomiting, hunger loss, and light damage.
+Animals with Tetanus, including temporary infections, drop only infected meat. Collecting it unlocks **Strange Meat**; contracting Salmonella earns **Why did I eat that?**. Cook it before eating: raw meat causes Tetanus and has a low chance of Salmonella, with vomiting, nausea, hunger loss, and light damage.
 
 You can also brew both diseases:
 
@@ -23,7 +23,7 @@ You can also brew both diseases:
 
 ## Tetanized creatures
 
-All vanilla mob types can be tetanized, including spiders. Rusty projectile and hookline hits have a **15% chance for animals** and **5% for other mobs**. Their textures preserve the original creature's faces, fur, scales, and other details.
+All vanilla mob types can be tetanized, including spiders. Rusty attacks, including melee, traps, projectiles and hooklines, have a **15% chance for animals** and **5% for other mobs**. Their textures preserve the original creature's faces, fur, scales, and other details.
 
 Hostile variants are tougher and drop a small mix of useful salvage. Animals are slower and drop infected meat instead of their ordinary items.
 

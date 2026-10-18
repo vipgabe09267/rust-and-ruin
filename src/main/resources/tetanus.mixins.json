@@ -12,12 +12,12 @@
                    "WitherEntityMixin",
                    "ItemEntityAccessor",
                    "WitherSummoningMixin",
-                   "SalmonellaAdvancementMixin",
+
                    "BeaconBlockEntityMixin",
                    "BeaconAccessor",
                    "BlockEntityTypeAccessor",
                    "ManurePotionColorMixin",
-                   "MobConversionMixin"
+                   "MobConversionMixin", "SalmonellaAdvancementMixin", "MilkBucketItemMixin", "DiseasePotionItemMixin", "DiseaseSplashPotionMixin", "DiseaseCloudMixin"
                ],
     "client":  [
                    "InGameHudMixin",
@@ -25,7 +25,7 @@
                    "BeaconButtonMixin",
                    "DragonTextureMixin",
                    "PlayerListHeartsMixin",
-                   "SheepWoolTintMixin"
+                   "SheepWoolTintMixin", "LivingTextureMixin", "DiseasePotionTooltipMixin"
                ],
     "injectors":  {
                       "defaultRequire":  1

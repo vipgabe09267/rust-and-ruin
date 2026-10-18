@@ -53,12 +53,11 @@ public final class TetanusEffect extends StatusEffect {
             entity.setVelocity(0, entity.getVelocity().y, 0);
             entity.velocityModified = true;
         }
-        // Visible lockjaw episodes occur independently of the randomized spasm roll.
-        int lateStart=(int)((state.tetanus$getTotal()*2L+2)/3);
-        if(stage==2 && entity instanceof net.minecraft.entity.player.PlayerEntity player && (elapsed-lateStart)%400==0) {
-            state.tetanus$setLockjaw(80);
-
-
+        // One continuous, persisted 2-4 minute final phase, independent of random spasms.
+        if(state.tetanus$getLockjawWindow()<=0)state.tetanus$setLockjawWindow((120+entity.getRandom().nextInt(121))*20);
+        int remaining=Math.max(0,state.tetanus$getTotal()-elapsed);
+        if(entity instanceof net.minecraft.entity.player.PlayerEntity && remaining>0 && remaining<=state.tetanus$getLockjawWindow()) {
+            state.tetanus$setLockjaw(remaining);
             if(entity.isUsingItem()&&entity.getActiveItem().isFood())entity.stopUsingItem();
         }
         // Randomized bursts, rolled once per second, keep symptoms intermittent.

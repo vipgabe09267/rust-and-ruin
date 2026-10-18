@@ -25,8 +25,9 @@ $more=@{
 'item.tetanusmod.cow_manure'='Cow Manure';'item.tetanusmod.tetanized_wither_star'='Tetanized Wither Star';'item.tetanusmod.rusty_hookline'='Rusty Hookline';
 'block.tetanusmod.tetanized_beacon'='Tetanized Beacon';
 'advancements.tetanusmod.rusty_guardian.title'='Rusty Guardian';'advancements.tetanusmod.rusty_guardian.description'='Tetanize an iron golem with Rust. It now has 200 health.';
-'advancements.tetanusmod.strange_meat.title'='Strange Meat';'advancements.tetanusmod.strange_meat.description'='Contract Salmonella.';
-'advancements.tetanusmod.tetanized_mob.title'='Tetanized Mob';'advancements.tetanusmod.tetanized_mob.description'='Permanently tetanize a mob with a rusty projectile or hookline.';
+'advancements.tetanusmod.why_did_i_eat_that.title'='Why did I eat that?';'advancements.tetanusmod.why_did_i_eat_that.description'='Contract Salmonella. That was a decision.';
+'advancements.tetanusmod.strange_meat.title'='Strange Meat';'advancements.tetanusmod.strange_meat.description'='Collect infected meat from an infected animal.';
+'advancements.tetanusmod.tetanized_mob.title'='Tetanized Mob';'advancements.tetanusmod.tetanized_mob.description'='Permanently tetanize a mob through a rusty attack.';
 'gui.tetanusmod.primary'='Primary II';'gui.tetanusmod.secondary'='Secondary II / III';'gui.tetanusmod.netherite_only'='Netherite only';
 'message.tetanusmod.manure_wait'='This cow needs time. Try again in a minute.';
 'item.minecraft.potion.effect.cow_manure'='Cow Manure Potion';'item.minecraft.potion.effect.tetanus'='Potion of Tetanus';'item.minecraft.potion.effect.salmonella'='Potion of Salmonella';
@@ -37,12 +38,23 @@ $more=@{
 'tooltip.tetanusmod.manure'='Collect with a glass bottle on a cow. Brew with a water bottle.';
 'tooltip.tetanusmod.star'='Crafts a Tetanized Beacon. Wire-brush it into a Nether Star.';
 'jei.tetanusmod.drop'='Drop in water, including the surface';
-'jei.tetanusmod.meat'='Tetanized animals drop only infected meat. Raw meat causes Tetanus and has a 10% chance of Salmonella. Cook it first.'
+'tooltip.tetanusmod.potion_duration'='Tetanus: random %s-%s';
+'tooltip.tetanusmod.potion_stiffness'='Muscle stiffness, spasms and movement disturbances.';
+'tooltip.tetanusmod.potion_lockjaw'='Lockjaw Sonata: cannot eat for the final 2-4 min.';
+'tooltip.tetanusmod.potion_cure'='Milk cannot cure it. Drink Tetanus Antitoxin.';
+'tooltip.tetanusmod.potion_salmonella'='Vomiting and nausea every 10 seconds.';
+'tooltip.tetanusmod.potion_sickness'='Loses hunger and takes mild, nonlethal damage.';
+'jei.tetanusmod.salmonella'='Raw infected meat has a 10% chance of Salmonella: vomiting, nausea, hunger loss and mild nonlethal damage. Why did I eat that? unlocks only when Salmonella is contracted.';
+'jei.tetanusmod.tetanus'='Tetanus lasts 5-10 minutes. Lockjaw Sonata lasts the final 2-4 minutes. Milk cannot cure it; drink Tetanus Antitoxin.';
+'tooltip.tetanusmod.antitoxin'='Cures Tetanus and Lockjaw Sonata. Milk cannot cure them.';
+'jei.tetanusmod.meat'='Animals with Tetanus drop only infected meat. Raw meat causes Tetanus and has a 10% chance of Salmonella. Cook it first.'
 }
+
 foreach($key in $more.Keys){$lang[$key]=$more[$key]}
 Json 'assets/tetanusmod/lang/en_us.json' $lang
 function Display($icon,$id){return @{icon=@{item=$icon};title=@{translate="advancements.tetanusmod.$id.title"};description=@{translate="advancements.tetanusmod.$id.description"};frame='task';show_toast=$true;announce_to_chat=$true;hidden=$false}}
-Json 'data/tetanusmod/advancements/strange_meat.json' @{parent='tetanusmod:infected';display=(Display 'tetanusmod:infected_meat' 'strange_meat');criteria=@{get_salmonella=@{trigger='minecraft:effects_changed';conditions=@{effects=@{'tetanusmod:salmonella'=@{}}}}}}
+Json 'data/tetanusmod/advancements/strange_meat.json' @{parent='tetanusmod:infected';display=(Display 'tetanusmod:infected_meat' 'strange_meat');criteria=@{obtain_infected_meat=@{trigger='minecraft:inventory_changed';conditions=@{items=@(@{items=@('tetanusmod:infected_meat')})}}}}
+Json 'data/tetanusmod/advancements/why_did_i_eat_that.json' @{parent='tetanusmod:strange_meat';display=(Display 'tetanusmod:infected_meat' 'why_did_i_eat_that');criteria=@{get_salmonella=@{trigger='minecraft:effects_changed';conditions=@{effects=@{'tetanusmod:salmonella'=@{}}}}}}
 Json 'data/tetanusmod/advancements/tetanized_mob.json' @{parent='tetanusmod:infected';display=(Display 'tetanusmod:rusted_nail' 'tetanized_mob');criteria=@{convert_mob=@{trigger='minecraft:impossible'}}}
 $unlock=Get-Content -Encoding UTF8 (Join-Path $resourceRoot 'data/tetanusmod/advancements/recipes/unlock.json') -Raw|ConvertFrom-Json
 $unlock.rewards.recipes+=@('tetanusmod:rusty_hookline','tetanusmod:tetanized_beacon')

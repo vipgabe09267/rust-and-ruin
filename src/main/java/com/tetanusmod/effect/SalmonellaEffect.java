@@ -7,6 +7,11 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.particle.DustParticleEffect;
 import org.joml.Vector3f;
 public final class SalmonellaEffect extends StatusEffect {
+    private static final java.util.Set<LivingEntity> NAUSEA=java.util.Collections.newSetFromMap(new java.util.WeakHashMap<>());
+    public static void flush(LivingEntity entity) {
+        if(!entity.getWorld().isClient && NAUSEA.remove(entity) && entity.hasStatusEffect(TetanusMod.SALMONELLA))
+            entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA,160));
+    }
     public SalmonellaEffect(){super(StatusEffectCategory.HARMFUL,0x79833A);}
     @Override public boolean canApplyUpdateEffect(int duration,int amplifier){return duration>0&&duration<1200&&duration%200==0;}
     @Override public void applyUpdateEffect(LivingEntity entity,int amplifier) {
@@ -17,6 +22,7 @@ public final class SalmonellaEffect extends StatusEffect {
         }
         float damage=Math.min(0.5F,Math.max(0,entity.getHealth()-1));
         if(damage>0)entity.damage(entity.getDamageSources().magic(),damage);
+        NAUSEA.add(entity);
         var direction=entity.getRotationVec(1).multiply(0.18);
         var mouth=entity.getEyePos().add(direction);
         for(int i=0;i<10;i++)world.spawnParticles(new DustParticleEffect(new Vector3f(0.47F,0.45F,0.16F),0.85F),

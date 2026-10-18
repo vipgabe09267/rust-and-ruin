@@ -14,7 +14,7 @@ public final class TetanizedArrowEntity extends PersistentProjectileEntity {
     @Override protected ItemStack asItemStack() { return new ItemStack(ModItems.TETANIZED_ARROW); }
     @Override protected void onHit(LivingEntity target) {
         super.onHit(target);
-        if (!getWorld().isClient) { Infection.apply(target,getOwner()); MobVariants.projectileExposure(target,getOwner()); }
+        if (!getWorld().isClient) { Infection.expose(target,getOwner()); }
     }
     @Override protected void onEntityHit(EntityHitResult hit) {
         if(!getWorld().isClient) {

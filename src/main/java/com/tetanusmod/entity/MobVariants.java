@@ -26,6 +26,7 @@ public final class MobVariants {
 
     public static boolean permanent(LivingEntity entity) { return ((TetanizedState) entity).rustruin$isPermanent(); }
     public static boolean isAnimal(LivingEntity entity) { return entity instanceof AnimalEntity || entity instanceof net.minecraft.entity.mob.WaterCreatureEntity || entity instanceof net.minecraft.entity.mob.AmbientEntity; }
+    public static boolean infectedAnimal(LivingEntity entity){return isAnimal(entity)&&(permanent(entity)||entity.hasStatusEffect(TetanusMod.TETANUS));}
     public static boolean susceptible(LivingEntity entity) {
         return entity instanceof MobEntity && !(entity instanceof WitherEntity);
     }
@@ -93,7 +94,7 @@ public final class MobVariants {
         }
     }
     public static void drops(LivingEntity entity) {
-        if (!permanent(entity) || entity.getWorld().isClient
+        if ((!permanent(entity)&&!infectedAnimal(entity)) || entity.getWorld().isClient
                 || !entity.getWorld().getGameRules().getBoolean(net.minecraft.world.GameRules.DO_MOB_LOOT)) return;
         if (isAnimal(entity)) entity.dropStack(new ItemStack(ModItems.INFECTED_MEAT, 1 + entity.getRandom().nextInt(3)));
         else if(susceptible(entity)) {

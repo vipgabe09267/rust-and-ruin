@@ -8,6 +8,7 @@ public final class InfectedMeatItem extends Item {
     @Override public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         ItemStack result = super.finishUsing(stack, world, user);
         if (!world.isClient) {
+
             Infection.apply(user, null);
             if(user.getRandom().nextFloat()<com.tetanusmod.TetanusMod.CONFIG.salmonellaChance)
                 user.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(com.tetanusmod.TetanusMod.SALMONELLA,1200));

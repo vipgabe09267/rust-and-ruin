@@ -23,7 +23,7 @@ import java.nio.file.*;
 
 public final class ClientSmokeTest implements ClientModInitializer {
     private int ticks,worldTicks,recipesAt;
-    private boolean prepared,finished,caltropsOpened,beaconOpened;
+    private boolean prepared,finished,caltropsOpened,beaconOpened,advancementsOpened;
     private volatile boolean serverReady;
     private volatile String serverFailure;
     private final boolean rei=FabricLoader.getInstance().isModLoaded("roughlyenoughitems");
@@ -42,10 +42,13 @@ public final class ClientSmokeTest implements ClientModInitializer {
                 if(worldTicks==90)client.getServer().execute(()->{
                     var player=client.getServer().getPlayerManager().getPlayerList().get(0);
                     var state=(com.tetanusmod.effect.InfectionState)player;
-                    int total=state.tetanus$getTotal();state.tetanus$setInfection((int)((total*2L+2)/3),total);
+                    int total=state.tetanus$getTotal();state.tetanus$setInfection(total-state.tetanus$getLockjawWindow(),total);
                 });
                 if(worldTicks==110){client.getToastManager().clear();client.inGameHud.getChatHud().clear(false);}
                 if(worldTicks==120){
+                    verifySpeciesTextures(client);
+                    verifyPotionTooltips(client);
+                    if(client.player.getStatusEffect(TetanusMod.LOCKJAW)==null||client.player.getStatusEffect(TetanusMod.LOCKJAW).getDuration()<2300)throw new IllegalStateException("Lockjaw duration did not synchronize as minutes");
                     if(!client.player.hasStatusEffect(TetanusMod.LOCKJAW))throw new IllegalStateException("Lockjaw icon/status did not synchronize");
                     if(!com.tetanusmod.client.InfectedPlayerList.contains(client.player.getUuid()))throw new IllegalStateException("Player infection flags did not synchronize");
                     screenshot(client,"hud");client.options.playerListKey.setPressed(true);
@@ -76,10 +79,18 @@ public final class ClientSmokeTest implements ClientModInitializer {
                     });
                     beaconOpened=true;
                 }
-                if(beaconOpened&&worldTicks>recipesAt+110) {
+                if(beaconOpened&&!advancementsOpened&&worldTicks>recipesAt+110) {
                     if(!(client.currentScreen instanceof com.tetanusmod.client.TetanizedBeaconScreen))throw new IllegalStateException("Custom beacon screen failed to open");
                     screenshot(client,"beacon");
-                    finish(client,"PASS: "+(rei?"REI":"JEI")+" Rusting (11 recipes), caltrop crafting, corrected item sprites, species skins, potions, and custom beacon screen rendered");
+                    var handler=client.player.networkHandler.getAdvancementHandler();
+                    var root=handler.getManager().get(TetanusMod.id("root"));
+                    if(root==null||root.getDisplay()==null||!root.getDisplay().getBackground().equals(TetanusMod.id("textures/block/rusted_metal.png")))throw new IllegalStateException("Rusty advancement background missing");
+                    var screen=new net.minecraft.client.gui.screen.advancement.AdvancementsScreen(handler);client.setScreen(screen);screen.selectTab(root);advancementsOpened=true;
+                }
+                if(advancementsOpened&&worldTicks>recipesAt+140) {
+                    if(!(client.currentScreen instanceof net.minecraft.client.gui.screen.advancement.AdvancementsScreen))throw new IllegalStateException("Advancement screen did not open");
+                    screenshot(client,"advancements");
+                    finish(client,"PASS: "+(rei?"REI":"JEI")+" Rusting (11), caltrops, brewing, 78 vanilla base skin layers, minutes-long Lockjaw, rusty hearts, beacon and rusty advancement wallpaper");
                 }
             }catch(Throwable failure){finish(client,"FAIL: "+failure);}
         });
@@ -89,6 +100,7 @@ public final class ClientSmokeTest implements ClientModInitializer {
             var server=client.getServer();var world=server.getOverworld();
             var cleanup=new java.util.ArrayList<Entity>();for(var e:world.iterateEntities())if(!(e instanceof net.minecraft.entity.player.PlayerEntity))cleanup.add(e);cleanup.forEach(Entity::discard);
             var player=server.getPlayerManager().getPlayerList().get(0);
+            ModAdvancements.award(player,"root","obtain_iron");
             for(int x=-10;x<=10;x++)for(int z=-10;z<=40;z++)world.setBlockState(new BlockPos(x,3,z),Blocks.STONE.getDefaultState());
             var board=server.getScoreboard();var objective=board.getNullableObjective("rust_health");
             if(objective==null)objective=board.addObjective("rust_health",net.minecraft.scoreboard.ScoreboardCriterion.HEALTH,net.minecraft.text.Text.literal("Health"),net.minecraft.scoreboard.ScoreboardCriterion.RenderType.HEARTS);
@@ -112,8 +124,37 @@ public final class ClientSmokeTest implements ClientModInitializer {
             world.setBlockState(beaconPos,ModBeacons.BLOCK.getDefaultState());
             var beacon=(TetanizedBeaconEntity)world.getBlockEntity(beaconPos);var nbt=beacon.createNbt();
             nbt.putInt("Primary",net.minecraft.registry.Registries.STATUS_EFFECT.getRawId(StatusEffects.HASTE));nbt.putInt("Secondary",net.minecraft.registry.Registries.STATUS_EFFECT.getRawId(StatusEffects.HASTE));beacon.readNbt(nbt);
+            ModItems.INFECTED_MEAT.finishUsing(new ItemStack(ModItems.INFECTED_MEAT),world,player);
+            var questionable=server.getAdvancementLoader().get(TetanusMod.id("why_did_i_eat_that"));
+            if(questionable==null||!player.getAdvancementTracker().getProgress(questionable).isDone())throw new IllegalStateException("Why did I eat that? did not unlock from Salmonella");
             serverReady=true;
         }catch(Throwable failure){serverFailure="Smoke world setup failed: "+failure;}
+    }
+    @SuppressWarnings({"rawtypes","unchecked"})
+    private void verifySpeciesTextures(MinecraftClient client) throws Exception {
+        var method=net.minecraft.client.render.entity.LivingEntityRenderer.class.getDeclaredMethod("getRenderLayer",net.minecraft.entity.LivingEntity.class,boolean.class,boolean.class,boolean.class);
+        method.setAccessible(true);int count=0;
+        for(var type:net.minecraft.registry.Registries.ENTITY_TYPE) {
+            if(!(type.create(client.world) instanceof net.minecraft.entity.mob.MobEntity mob))continue;
+            ((com.tetanusmod.entity.TetanizedState)mob).rustruin$setPermanent(true);
+            var renderer=client.getEntityRenderDispatcher().getRenderer(mob);
+            if(renderer instanceof net.minecraft.client.render.entity.LivingEntityRenderer living) {
+                var layer=(net.minecraft.client.render.RenderLayer)method.invoke(living,mob,true,false,false);
+                if(layer==null||!layer.toString().contains("tetanusmod:tetanized/"))throw new IllegalStateException("Missing base mutation texture: "+type+" "+layer);
+                count++;
+            }
+        }
+        if(count<60)throw new IllegalStateException("Insufficient species texture coverage: "+count);
+        org.slf4j.LoggerFactory.getLogger("tetanusmod").info("Verified base mutation render layers for {} vanilla mob types",count);
+    }
+    private void verifyPotionTooltips(MinecraftClient client) {
+        for(var item:new Item[]{Items.POTION,Items.SPLASH_POTION,Items.LINGERING_POTION}) {
+            var tetanus=PotionUtil.setPotion(new ItemStack(item),ModBrewing.TETANUS).getTooltip(client.player,net.minecraft.client.item.TooltipContext.BASIC).stream().map(net.minecraft.text.Text::getString).collect(java.util.stream.Collectors.joining(" "));
+            var salmonella=PotionUtil.setPotion(new ItemStack(item),ModBrewing.SALMONELLA).getTooltip(client.player,net.minecraft.client.item.TooltipContext.BASIC).stream().map(net.minecraft.text.Text::getString).collect(java.util.stream.Collectors.joining(" "));
+            if(!tetanus.contains("Lockjaw Sonata")||!tetanus.contains("5:00-10:00")||tetanus.contains("7:30"))throw new IllegalStateException("Inaccurate Tetanus tooltip: "+tetanus);
+            if(!salmonella.contains("Vomiting")||!salmonella.contains("nausea")||!salmonella.contains("hunger"))throw new IllegalStateException("Incomplete Salmonella tooltip: "+salmonella);
+        }
+        org.slf4j.LoggerFactory.getLogger("tetanusmod").info("Verified actual symptoms in all six drinkable/splash/lingering disease potion tooltips");
     }
     private void screenshot(MinecraftClient client,String name) { ScreenshotRecorder.saveScreenshot(client.runDirectory,"rust-and-ruin-"+(rei?"rei":"jei")+"-"+name+".png",client.getFramebuffer(),text->{}); }
     private void finish(MinecraftClient client,String result) {

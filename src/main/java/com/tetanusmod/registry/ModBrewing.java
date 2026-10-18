@@ -13,7 +13,7 @@ import java.util.WeakHashMap;
 
 public final class ModBrewing {
     public static final Potion MANURE=Registry.register(Registries.POTION,TetanusMod.id("cow_manure"),new Potion());
-    public static final Potion TETANUS=Registry.register(Registries.POTION,TetanusMod.id("tetanus"),new Potion(new StatusEffectInstance(TetanusMod.TETANUS,3600)));
+    public static final Potion TETANUS=Registry.register(Registries.POTION,TetanusMod.id("tetanus"),new Potion(new StatusEffectInstance(TetanusMod.TETANUS,9000)));
     public static final Potion SALMONELLA=Registry.register(Registries.POTION,TetanusMod.id("salmonella"),new Potion(new StatusEffectInstance(TetanusMod.SALMONELLA,1200)));
     private static final WeakHashMap<CowEntity,Long> COLLECTED=new WeakHashMap<>();
     public static void initialize() {

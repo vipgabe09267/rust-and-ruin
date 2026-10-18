@@ -1,15 +1,17 @@
 {
     "criteria":  {
-                     "get_salmonella":  {
-                                            "trigger":  "minecraft:effects_changed",
-                                            "conditions":  {
-                                                               "effects":  {
-                                                                               "tetanusmod:salmonella":  {
-
-                                                                                                         }
-                                                                           }
-                                                           }
-                                        }
+                     "obtain_infected_meat":  {
+                                                  "trigger":  "minecraft:inventory_changed",
+                                                  "conditions":  {
+                                                                     "items":  [
+                                                                                   {
+                                                                                       "items":  [
+                                                                                                     "tetanusmod:infected_meat"
+                                                                                                 ]
+                                                                                   }
+                                                                               ]
+                                                                 }
+                                              }
                  },
     "parent":  "tetanusmod:infected",
     "display":  {

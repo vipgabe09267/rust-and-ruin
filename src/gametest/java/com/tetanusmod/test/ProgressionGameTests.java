@@ -40,12 +40,12 @@ public class ProgressionGameTests implements FabricGameTest {
         double original=TetanusMod.CONFIG.spasmFrequency;
         try {
             TetanusMod.CONFIG.spasmFrequency=0;TetanusMod.TETANUS.applyUpdateEffect(player,0);com.tetanusmod.effect.LockjawEffect.flush(player);
-            ctx.assertTrue(player.hasStatusEffect(TetanusMod.LOCKJAW)&&player.getStatusEffect(TetanusMod.LOCKJAW).getDuration()==80,"Late-stage lockjaw is not a visible 4s effect");
+            ctx.assertTrue(player.hasStatusEffect(TetanusMod.LOCKJAW)&&player.getStatusEffect(TetanusMod.LOCKJAW).getDuration()==800,"Lockjaw did not last through the remaining infection");
             player.setStackInHand(Hand.MAIN_HAND,new ItemStack(Items.BREAD));
             var result=net.fabricmc.fabric.api.event.player.UseItemCallback.EVENT.invoker().interact(player,ctx.getWorld(),Hand.MAIN_HAND);
             ctx.assertTrue(result.getResult()==ActionResult.FAIL,"Lockjaw allowed eating");
             player.removeStatusEffect(TetanusMod.LOCKJAW);state.tetanus$setInfection(2000,2400);TetanusMod.TETANUS.applyUpdateEffect(player,0);com.tetanusmod.effect.LockjawEffect.flush(player);
-            ctx.assertTrue(player.hasStatusEffect(TetanusMod.LOCKJAW),"Lockjaw did not recur after 20s");
+            ctx.assertTrue(player.hasStatusEffect(TetanusMod.LOCKJAW),"Lockjaw was not restored during the continuous final phase");
             player.removeStatusEffect(TetanusMod.TETANUS);player.tick();
             ctx.assertFalse(player.hasStatusEffect(TetanusMod.LOCKJAW),"Curing Tetanus did not clear lockjaw");
         }finally{TetanusMod.CONFIG.spasmFrequency=original;}
@@ -121,8 +121,8 @@ public class ProgressionGameTests implements FabricGameTest {
     public void newAdvancementsAwarded(TestContext ctx) {
         var player=ctx.createMockCreativeServerPlayerInWorld();
         player.addStatusEffect(new StatusEffectInstance(TetanusMod.SALMONELLA,1200));
-        var strange=player.getServer().getAdvancementLoader().get(TetanusMod.id("strange_meat"));
-        ctx.assertTrue(strange!=null&&player.getAdvancementTracker().getProgress(strange).isDone(),"Strange Meat not awarded");
+        var strange=player.getServer().getAdvancementLoader().get(TetanusMod.id("why_did_i_eat_that"));
+        ctx.assertTrue(strange!=null&&player.getAdvancementTracker().getProgress(strange).isDone(),"Why did I eat that? not awarded");
         float old=TetanusMod.CONFIG.mobConversionChance;
         try {
             TetanusMod.CONFIG.mobConversionChance=1;

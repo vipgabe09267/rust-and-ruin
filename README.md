@@ -28,15 +28,15 @@ Dropped fishing rods break after five seconds in water, returning two sticks and
 
 ## Infections and variants
 
-Ordinary Tetanus lasts **120–300 seconds** per hit. Symptoms develop in stages: stiffness, spasms, and stronger movement disturbances. Player hearts turn rusty brown on the HUD and in tab-list health objectives.
+Ordinary Tetanus lasts **5–10 minutes** per hit. Symptoms develop in stages: stiffness, spasms, and stronger movement disturbances. Player hearts turn rusty brown on the HUD and in tab-list health objectives.
 
-**Lockjaw Sonata** has a visible status icon and timer. In late-stage Tetanus it blocks eating for four seconds, recurring every 20 seconds. An action-bar message explains the restriction. Curing Tetanus also clears lockjaw; drinking medicine or milk is still possible.
+**Lockjaw Sonata** has a visible status icon and timer. It continuously blocks eating during the final randomly selected **2–4 minutes** of the infection. An action-bar message explains the restriction. **Milk cannot cure Tetanus or Lockjaw Sonata; drink Tetanus Antitoxin.** Natural recovery clears both effects.
 
-Rusty projectile and hookline hits have a **15% mutation chance for animals** and **5% for other mobs**. All vanilla mob types can be tetanized, including spiders. Withers retain their separate ritual rules. Skins preserve each creature's own texture layout and details instead of applying a shared texture across unrelated models.
+Rusty attacks (including melee, traps, projectiles, and hooklines) have a **15% mutation chance for animals** and **5% for other mobs**. All vanilla mob types can be tetanized, including spiders. Withers retain their separate ritual rules. Skins preserve each creature's own texture layout and details instead of applying a shared texture across unrelated models.
 
-Permanent hostile variants gain 50% maximum health and additional attack damage where supported. Animals move slower and replace their ordinary item drops with **only 1–3 Infected Meat**. Hostiles retain normal loot and add Rust plus a small random reward: iron nuggets, a copper ingot, flint, string, coal, or a bone.
+Permanent hostile variants gain 50% maximum health and additional attack damage where supported. Permanent animal variants move slower. **Any animal with Tetanus**, temporary or permanent, replaces its ordinary item drops with **only 1–3 Infected Meat**. Hostiles retain normal loot and add Rust plus a small random reward: iron nuggets, a copper ingot, flint, string, coal, or a bone.
 
-Raw infected meat causes Tetanus and has a **10% chance of Salmonella**. Salmonella causes periodic vomiting, hunger loss, and light nonlethal damage. Cooking the meat makes it safe. Collect cow manure with a glass bottle and use it as the base for **Tetanus and Salmonella potions**, including splash variants.
+Raw infected meat causes Tetanus and has a **10% chance of Salmonella**. Salmonella causes periodic vomiting, nausea, hunger loss, and light nonlethal damage. Cooking the meat makes it safe. Collect cow manure with a glass bottle and use it as the base for **Tetanus and Salmonella potions**, including splash variants.
 
 ## Golems, Withers, and beacons
 
@@ -50,12 +50,15 @@ Exact crafting layouts, brewing ingredients, ritual diagrams, and beacon rules a
 
 ## Advancements
 
+The Rust & Ruin tab uses a rusty metal background.
+
 - **A Painful Lesson:** contract Tetanus.
 - **Rusty Business:** make a dropped nail rust.
 - **Hook, Line and Tetanus:** recover a rusty fishing hook.
 - **Lockjaw Sonata:** experience late-stage lockjaw.
-- **Strange Meat:** contract Salmonella.
-- **Tetanized Mob:** permanently convert a creature with a rusty projectile or hookline.
+- **Strange Meat:** collect Infected Meat.
+- **Why did I eat that?:** contract Salmonella.
+- **Tetanized Mob:** permanently convert a creature through a rusty attack.
 - **Rusty Guardian:** convert an iron golem with Rust.
 - **Tetanus. Nice One!:** defeat a Tetanized Wither.
 
@@ -82,7 +85,7 @@ Summon commands bypass random conversion chances. Existing mob AI and models rem
 
 Launch once to create `config/tetanusmod.json`. Stop the instance before editing it. Settings include infection duration, rust timing, damage, camera shaking, audio volume, and mutation probabilities. Defaults: hostile 0.05, animal 0.15, special Wither 0.05, raw-meat Salmonella 0.10. The netherite ritual adds 0.25 to the Wither probability, capped at 1.
 
-Previous default animal rates migrate to 15%; other customized probabilities are retained. Internal IDs remain `tetanusmod` for save compatibility.
+Previous default animal rates migrate to 15%, and the old default 120–300 second duration migrates to 300–600 seconds. Custom settings are retained. Internal IDs remain `tetanusmod` for save compatibility.
 
 ## Build and test
 

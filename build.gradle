@@ -115,6 +115,9 @@ tasks.register('verifyResources') {
                 }
             }
         }
+        def advancementRoot = parser.parse(new File(root, 'data/tetanusmod/advancements/root.json'))
+        def wallpaper = advancementRoot.display.background
+        if (wallpaper.startsWith('tetanusmod:')) requireFile(new File(root, 'assets/' + wallpaper.replace(':','/')))
         ['tetanus','salmonella','lockjaw'].each { requireFile(new File(assets, "textures/mob_effect/${it}.png")) }
         fileTree(new File(root, 'data/tetanusmod/recipes')).matching { include '*.json' }.each { recipeFile ->
             def recipe = parser.parse(recipeFile)
@@ -129,3 +132,16 @@ tasks.register('verifyResources') {
     }
 }
 tasks.named('check') { dependsOn 'verifyResources' }
+
+// A clean client shutdown is not a passing assertion; require the harness result.
+tasks.named('runClientSmoke') {
+    def viewer = providers.gradleProperty('withRei').isPresent() ? 'rei' : 'jei'
+    def resultFile = layout.buildDirectory.file("client-smoke/client-smoke-result-${viewer}.txt")
+    doFirst { resultFile.get().asFile.delete() }
+    doLast {
+        def result = resultFile.get().asFile
+        if (!result.isFile() || !result.getText('UTF-8').startsWith('PASS:')) {
+            throw new GradleException(result.isFile() ? result.getText('UTF-8').trim() : 'Client smoke test produced no result')
+        }
+    }
+}

@@ -45,7 +45,7 @@ foreach ($name in @($newNames.Keys)+@('caltrops','rusted_caltrops')) {
 }
 function Display($icon,$title,$description,$frame='task') { return @{icon=@{item=$icon};title=@{translate=$title};description=@{translate=$description};frame=$frame;show_toast=$true;announce_to_chat=$true;hidden=$false} }
 $root=Display 'tetanusmod:rebar' 'advancements.tetanusmod.root.title' 'advancements.tetanusmod.root.description'
-$root.background='minecraft:textures/gui/advancements/backgrounds/stone.png'
+$root.background='tetanusmod:textures/block/rusted_metal.png'
 Write-Json 'data/tetanusmod/advancements/root.json' @{display=$root;criteria=@{obtain_iron=@{trigger='minecraft:inventory_changed';conditions=@{items=@(@{items=@('minecraft:iron_ingot')})}}}}
 Write-Json 'data/tetanusmod/advancements/infected.json' @{parent='tetanusmod:root';display=(Display 'tetanusmod:rusted_nail' 'advancements.tetanusmod.infected.title' 'advancements.tetanusmod.infected.description');criteria=@{get_infected=@{trigger='minecraft:effects_changed';conditions=@{effects=@{'tetanusmod:tetanus'=@{}}}}}}
 Write-Json 'data/tetanusmod/advancements/rusty_business.json' @{parent='tetanusmod:root';display=(Display 'tetanusmod:rusted_nail' 'advancements.tetanusmod.rust.title' 'advancements.tetanusmod.rust.description');criteria=@{rust_a_nail=@{trigger='minecraft:impossible'}}}

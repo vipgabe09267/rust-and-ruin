@@ -17,7 +17,7 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     @Inject(method="drop",at=@At("HEAD"),cancellable=true)
     private void rustruin$infectedAnimalOnlyMeat(net.minecraft.entity.damage.DamageSource source,CallbackInfo ci) {
         LivingEntity self=(LivingEntity)(Object)this;
-        if(com.tetanusmod.entity.MobVariants.isAnimal(self)&&com.tetanusmod.entity.MobVariants.permanent(self)) {
+        if(com.tetanusmod.entity.MobVariants.infectedAnimal(self)) {
             com.tetanusmod.entity.MobVariants.drops(self);
             dropXp();
             ci.cancel();
@@ -54,7 +54,7 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
         boolean rusty = stack.getItem() instanceof com.tetanusmod.item.RebarItem rebar && rebar.isRusty();
         boolean enchanted = net.minecraft.enchantment.EnchantmentHelper.getLevel(com.tetanusmod.registry.ModItems.TETANUS_ENCHANTMENT,stack)>0;
         boolean tool = com.tetanusmod.registry.ModIronTools.isRusted(stack.getItem()) && target.getRandom().nextFloat()<0.2F;
-        if (rusty || enchanted || tool) com.tetanusmod.effect.Infection.apply(target,attacker);
+        if (rusty || enchanted || tool) com.tetanusmod.effect.Infection.expose(target,attacker);
     }
     @Inject(method = "dropLoot", at = @At("TAIL"))
     private void rustruin$variantDrops(net.minecraft.entity.damage.DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
@@ -78,6 +78,7 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
         if (!((LivingEntity) (Object) this).getWorld().isClient) {
             tetanus$elapsed = tetanus$lockjaw = tetanus$freeze = 0;
             tetanus$total = effect.getDuration();
+            tetanus$lockjawWindow = (120 + ((LivingEntity)(Object)this).getRandom().nextInt(121)) * 20;
         }
         LivingEntity self=(LivingEntity)(Object)this;
         if (!self.getWorld().isClient && rustruin$lastAudioTick != self.getWorld().getTime()) {
@@ -91,6 +92,9 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     @Unique private int tetanus$total;
     @Unique private int tetanus$lockjaw;
     @Unique private int tetanus$freeze;
+    @Unique private int tetanus$lockjawWindow;
+    public int tetanus$getLockjawWindow(){return tetanus$lockjawWindow;}
+    public void tetanus$setLockjawWindow(int ticks){tetanus$lockjawWindow=ticks;}
     public int tetanus$getElapsed() { return tetanus$elapsed; }
     public int tetanus$getTotal() { return tetanus$total; }
     public int tetanus$getLockjaw() { return tetanus$lockjaw; }
@@ -104,8 +108,9 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
         LivingEntity self = (LivingEntity) (Object) this;
         com.tetanusmod.entity.MobVariants.tick(self);
         com.tetanusmod.effect.LockjawEffect.flush(self);
+        com.tetanusmod.effect.SalmonellaEffect.flush(self);
         if (!self.getWorld().isClient && !self.hasStatusEffect(TetanusMod.TETANUS)) {
-            tetanus$elapsed = tetanus$total = tetanus$lockjaw = tetanus$freeze = 0;
+            tetanus$elapsed = tetanus$total = tetanus$lockjaw = tetanus$freeze = tetanus$lockjawWindow = 0;
             self.removeStatusEffect(TetanusMod.LOCKJAW);
         }
     }
@@ -115,6 +120,7 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
         nbt.putInt("TetanusElapsed", tetanus$elapsed);
         nbt.putInt("TetanusTotal", tetanus$total);
         nbt.putInt("TetanusLockjaw", tetanus$lockjaw);
+        nbt.putInt("TetanusLockjawWindow",tetanus$lockjawWindow);
         nbt.putInt("TetanusFreeze", tetanus$freeze);
         nbt.putBoolean("RustRuinPermanent",rustruin$isPermanent());
         nbt.putBoolean("RustRuinRolled",rustruin$rolled);
@@ -124,7 +130,8 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     private void tetanus$load(NbtCompound nbt, CallbackInfo ci) {
         tetanus$elapsed = Math.max(0, nbt.getInt("TetanusElapsed"));
         tetanus$total = Math.max(0, nbt.getInt("TetanusTotal"));
-        tetanus$lockjaw = Math.max(0, Math.min(80, nbt.getInt("TetanusLockjaw")));
+        tetanus$lockjaw = Math.max(0, Math.min(4800, nbt.getInt("TetanusLockjaw")));
+        tetanus$lockjawWindow=Math.max(0,Math.min(4800,nbt.getInt("TetanusLockjawWindow")));
         tetanus$freeze = Math.max(0, Math.min(10, nbt.getInt("TetanusFreeze")));
         rustruin$setPermanent(nbt.getBoolean("RustRuinPermanent"));
         rustruin$rolled = nbt.getBoolean("RustRuinRolled");

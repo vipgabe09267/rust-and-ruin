@@ -7,10 +7,11 @@ public final class LockjawEffect extends StatusEffect {
     public static void flush(LivingEntity entity) {
         if(entity.getWorld().isClient)return;
         int remaining=((InfectionState)entity).tetanus$getLockjaw();
-        if(remaining>0 && entity.hasStatusEffect(com.tetanusmod.TetanusMod.TETANUS) && !entity.hasStatusEffect(com.tetanusmod.TetanusMod.LOCKJAW)) {
+        var current=entity.getStatusEffect(com.tetanusmod.TetanusMod.LOCKJAW);
+        if(remaining>0 && entity.hasStatusEffect(com.tetanusmod.TetanusMod.TETANUS) && (current==null||current.getDuration()<remaining-1)) {
             entity.addStatusEffect(new StatusEffectInstance(com.tetanusmod.TetanusMod.LOCKJAW,remaining,0,false,true,true));
-            if(entity instanceof net.minecraft.server.network.ServerPlayerEntity serverPlayer)com.tetanusmod.registry.ModAdvancements.award(serverPlayer,"lockjaw_sonata","get_lockjaw");
-            if(entity instanceof net.minecraft.entity.player.PlayerEntity player)player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.lockjaw"),true);
+            if(current==null && entity instanceof net.minecraft.server.network.ServerPlayerEntity serverPlayer)com.tetanusmod.registry.ModAdvancements.award(serverPlayer,"lockjaw_sonata","get_lockjaw");
+            if(current==null && entity instanceof net.minecraft.entity.player.PlayerEntity player)player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.lockjaw"),true);
         }
     }
     public LockjawEffect() { super(StatusEffectCategory.HARMFUL,0xBC7847); }

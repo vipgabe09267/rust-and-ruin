@@ -8,8 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public final class ModConfig {
-    public int minDurationSeconds = 120;
-    public int maxDurationSeconds = 300;
+    public int minDurationSeconds = 300;
+    public int maxDurationSeconds = 600;
     public int waterRustTicks = 100;
     public int rainRustTicks = 300;
     public float nailDamage = 2.0F;
@@ -24,7 +24,7 @@ public final class ModConfig {
     public float animalConversionChance = 0.15F;
     public float witherConversionChance = 0.05F;
     public float salmonellaChance = 0.10F;
-    public int balanceRevision = 3;
+    public int balanceRevision = 4;
 
     public static ModConfig load() {
         Path path = FabricLoader.getInstance().getConfigDir().resolve("tetanusmod.json");
@@ -32,14 +32,7 @@ public final class ModConfig {
         ModConfig config = new ModConfig();
         try {
             if (Files.exists(path)) {
-                String json=Files.readString(path);
-                ModConfig read = gson.fromJson(json, ModConfig.class);
-                if(read!=null&&!com.google.gson.JsonParser.parseString(json).getAsJsonObject().has("balanceRevision")) {
-                    if(read.mobConversionChance==0.25F)read.mobConversionChance=0.05F;
-
-                    if(read.witherConversionChance==0.02F)read.witherConversionChance=0.05F;
-                }
-                if (read != null) { if(read.balanceRevision < 3 && read.animalConversionChance == 0.02F) read.animalConversionChance=0.15F; config = read; }
+                config=fromJson(Files.readString(path));
             }
             config.validate();
             Files.createDirectories(path.getParent());
@@ -51,6 +44,20 @@ public final class ModConfig {
         return config;
     }
 
+    public static ModConfig fromJson(String json) {
+        var object=com.google.gson.JsonParser.parseString(json).getAsJsonObject();
+        ModConfig config=new Gson().fromJson(object,ModConfig.class);
+        int revision=object.has("balanceRevision")?object.get("balanceRevision").getAsInt():0;
+        if(revision==0) {
+            if(config.mobConversionChance==0.25F)config.mobConversionChance=0.05F;
+            if(config.witherConversionChance==0.02F)config.witherConversionChance=0.05F;
+        }
+        if(revision<3&&config.animalConversionChance==0.02F)config.animalConversionChance=0.15F;
+        if(revision<4&&config.minDurationSeconds==120&&config.maxDurationSeconds==300) {
+            config.minDurationSeconds=300;config.maxDurationSeconds=600;
+        }
+        config.validate();return config;
+    }
     private void validate() {
         minDurationSeconds = clamp(minDurationSeconds, 1, 3600);
         maxDurationSeconds = clamp(maxDurationSeconds, minDurationSeconds, 3600);
@@ -65,7 +72,7 @@ public final class ModConfig {
         animalConversionChance = finite(animalConversionChance, 0.15F, 1);
         witherConversionChance = finite(witherConversionChance, 0.05F, 1);
         salmonellaChance=finite(salmonellaChance,0.10F,1);
-        balanceRevision=3;
+        balanceRevision=4;
     }
     private static float finite(float value, float fallback, float max) { return Float.isFinite(value) ? Math.max(0,Math.min(max,value)) : fallback; }
 

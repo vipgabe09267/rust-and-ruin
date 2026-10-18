@@ -36,8 +36,8 @@ public final class NailEntity extends ThrownItemEntity {
                 && hit.getEntity().damage(nail.isRusty() && hit.getEntity() instanceof net.minecraft.entity.mob.EndermanEntity
                         ? getDamageSources().magic() : getDamageSources().thrown(this, getOwner()), nail.isBent() ? 1 : TetanusMod.CONFIG.nailDamage)
                 && nail.isRusty() && hit.getEntity() instanceof LivingEntity living) {
-            Infection.apply(living, getOwner());
-            MobVariants.projectileExposure(living,getOwner());
+            Infection.expose(living, getOwner());
+
         }
     }
 

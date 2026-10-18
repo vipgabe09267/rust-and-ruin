@@ -25,7 +25,7 @@ The hookline works up to 12 blocks away. Right-click while aiming at a creature 
 - **Rust:** wire-brush rusty equipment. One cleaning action produces one Rust, even when cleaning a stack. Mutated hostile mobs also drop it.
 - **Rusty Fishing Hook:** leave a dropped fishing rod touching water for five consecutive seconds. It breaks into two sticks and two string, with a 15% hook chance.
 - **Cow Manure:** use a glass bottle on a cow. This consumes the bottle and gives a bottled manure ingredient. Each cow has a one-minute collection cooldown.
-- **Infected Meat:** tetanized animals drop only 1–3 infected meat. A furnace, smoker, or campfire makes it safe to eat.
+- **Infected Meat:** animals with Tetanus, temporary or permanent, drop only 1–3 infected meat. Collecting it unlocks Strange Meat. A furnace, smoker, or campfire makes it safe to eat.
 
 ## Brewing
 
@@ -39,7 +39,7 @@ Use a standard brewing stand with blaze powder fuel. Each ingredient can process
 | Potion of Tetanus | Gunpowder | Splash Potion of Tetanus |
 | Potion of Salmonella | Gunpowder | Splash Potion of Salmonella |
 
-The Tetanus potion lasts three minutes before splash-distance scaling. Salmonella lasts one minute before scaling. Cow Manure Potion is a brewing base. Vanilla splash and lingering conversions remain available.
+Tetanus potions show a nominal 7:30 base, but drinking or receiving a disease splash/cloud rolls a **5–10 minute infection**. The final **2–4 minutes** are continuous Lockjaw Sonata. Salmonella lasts one minute before vanilla splash-distance scaling. Cow Manure Potion is a brewing base. Vanilla splash and lingering conversions remain available. Milk clears other ordinary effects but preserves Tetanus and Lockjaw; Tetanus Antitoxin cures both immediately and returns a glass bottle.
 
 ## Tetanized Wither rituals
 

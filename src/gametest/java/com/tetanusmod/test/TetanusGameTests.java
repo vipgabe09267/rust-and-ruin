@@ -150,7 +150,7 @@ public class TetanusGameTests implements FabricGameTest {
         for (int i = 0; i < 256; i++) {
             Infection.apply(target, null);
             int duration = target.getStatusEffect(TetanusMod.TETANUS).getDuration();
-            ctx.assertTrue(duration >= 2400 && duration <= 6000 && duration % 20 == 0, "Duration outside 120-300 seconds");
+            ctx.assertTrue(duration >= 6000 && duration <= 12000 && duration % 20 == 0, "Duration outside 300-600 seconds");
             min = Math.min(min, duration); max = Math.max(max, duration);
         }
         ctx.assertTrue(max > min, "Duration did not randomize");
@@ -292,7 +292,7 @@ public class TetanusGameTests implements FabricGameTest {
         ctx.assertTrue(empty.isOf(Items.GLASS_BOTTLE), "Antitoxin did not return bottle");
         Infection.apply(player, null);
         Items.MILK_BUCKET.finishUsing(new ItemStack(Items.MILK_BUCKET), ctx.getWorld(), player);
-        ctx.assertFalse(player.hasStatusEffect(TetanusMod.TETANUS), "Milk failed to cure");
+        ctx.assertTrue(player.hasStatusEffect(TetanusMod.TETANUS), "Milk cured Tetanus");
         ctx.complete();
     }
 
