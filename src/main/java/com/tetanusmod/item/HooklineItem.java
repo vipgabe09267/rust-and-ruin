@@ -24,7 +24,7 @@ public final class HooklineItem extends DescribedItem {
         var hit=ProjectileUtil.raycast(player,start,end,player.getBoundingBox().stretch(direction.multiply(12)).expand(1),e->e instanceof LivingEntity && e.isAlive() && !e.isSpectator(),distance);
         if(hit==null)return TypedActionResult.pass(stack);
         if(world instanceof ServerWorld server && hit.getEntity() instanceof LivingEntity target) {
-            if(target.damage(world.getDamageSources().playerAttack(player),1)) {
+            if(Infection.withoutMeleeExposure(()->target.damage(world.getDamageSources().playerAttack(player),1))) {
                 var pull=player.getPos().subtract(target.getPos()).normalize().multiply(0.8);
                 target.addVelocity(pull.x,0.25,pull.z);target.velocityModified=true;
                 Infection.expose(target,player);

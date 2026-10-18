@@ -135,7 +135,7 @@ tasks.named('check') { dependsOn 'verifyResources' }
 
 // A clean client shutdown is not a passing assertion; require the harness result.
 tasks.named('runClientSmoke') {
-    def viewer = providers.gradleProperty('withRei').isPresent() ? 'rei' : 'jei'
+    def viewer = providers.gradleProperty('withRei').isPresent() ? 'rei' : providers.gradleProperty('withJei').isPresent() ? 'jei' : 'plain'
     def resultFile = layout.buildDirectory.file("client-smoke/client-smoke-result-${viewer}.txt")
     doFirst { resultFile.get().asFile.delete() }
     doLast {

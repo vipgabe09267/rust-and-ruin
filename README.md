@@ -4,7 +4,7 @@
 
 Rusting weapons, infected creatures, and a Wither worth preparing for. A Minecraft **1.20.1 Fabric** mod, version **0.1.0-beta**.
 
-[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes and progression](docs/RECIPES.md) · [Test results](VALIDATION.md) · [Security review](docs/SECURITY_AUDIT.md) · [Requested feature audit](docs/REQUEST_AUDIT.md)
+[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes and progression](docs/RECIPES.md) · [Test results](VALIDATION.md) · [Security review](docs/SECURITY_AUDIT.md) · [Requested feature audit](docs/REQUEST_AUDIT.md) · [Complete file audit](docs/FULL_AUDIT.md)
 
 ![Rust & Ruin in Minecraft](validation/screenshots/rust-and-ruin-hud.png)
 
@@ -112,6 +112,7 @@ Graphical test configurations are separate:
 ```powershell
 .\gradlew.bat -PwithJei runClientSmoke --console plain
 .\gradlew.bat -PwithRei runClientSmoke --console plain
+.\gradlew.bat runClientSmoke --console plain # Neither viewer installed
 ```
 
 See [VALIDATION.md](VALIDATION.md) for setup and results. Development test classes are excluded from the release JAR.

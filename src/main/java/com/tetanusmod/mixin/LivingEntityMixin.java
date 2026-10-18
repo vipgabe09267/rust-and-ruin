@@ -54,7 +54,8 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     private void rustruin$meleeInfection(net.minecraft.entity.damage.DamageSource source, float amount,
             org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<Boolean> cir) {
         LivingEntity target = (LivingEntity)(Object)this;
-        if (!cir.getReturnValue() || target.getWorld().isClient || amount <= 0
+        if (!cir.getReturnValue() || target.getWorld().isClient || amount <= 0 || com.tetanusmod.effect.Infection.meleeSuppressed()
+                || source.isOf(net.minecraft.entity.damage.DamageTypes.THORNS)
                 || !(source.getAttacker() instanceof LivingEntity attacker) || source.getSource() != attacker) return;
         var stack = attacker.getMainHandStack();
         boolean rusty = stack.getItem() instanceof com.tetanusmod.item.RebarItem rebar && rebar.isRusty();

@@ -18,6 +18,12 @@ Review date: October 17, 2026. Scope: this mod's Java code, custom protocol, pre
 | Field guide | A book must not execute NBT commands, URLs or scripts. | The guide is a local read-only screen from trusted localization text. It sends no gameplay packets, parses no user book NBT, never consumes its item and bounds chapter/scroll indices. Every chapter and extreme indices are exercised graphically. |
 | Release and build integrity | Development classes, private files or altered wrappers must not enter the release. | Audit-Release.ps1 checks archive paths/content, metadata, mandatory dependencies, required assets, sprite borders, advancement conditions and the official wrapper checksum. The Gradle distribution checksum is pinned. |
 
+## Additional final-audit controls
+
+The [complete-file audit](FULL_AUDIT.md) adds beacon selection validation on the server: clients cannot select locked powers or unrelated secondaries, and invalid requests do not consume payment. Runtime application rejects invalid saved powers. Offhand hookline damage cannot inherit a second exposure from the main-hand weapon, and reflected Thorns damage cannot inherit rusty melee infection. Antitoxin consumption now rejects wrong/empty items and spectators and handles full inventories on the server.
+
+The release auditor compares every source resource with its packaged bytes, accounting explicitly for version expansion and Loom's refmap field. It decodes all packaged PNGs, checks all item/status margins and rejects duplicate ZIP entry names. Disposable copies with altered PNG data and duplicate entries are rejected as expected. The file auditor covers every tracked/new nonignored project file; the complete resource generator is exercised, all PNGs decoded, and both audio files fully decoded.
+
 ## Protocol limits
 
 - Infection presence: exactly 17 bytes, UUID plus strict 0/1 flag.
@@ -58,6 +64,6 @@ No runtime process execution, arbitrary remote HTTP calls, Java object deseriali
 .\tools\Audit-Release.ps1
 ```
 
-The complete functional suite is run again before committing. Read [VALIDATION.md](../VALIDATION.md) for exact results, screenshots and artifact hash.
+The complete functional suite is run again before user testing. The owner authorized committing the final audit fixes on October 18, 2026. Read [VALIDATION.md](../VALIDATION.md) for exact results, screenshots and artifact hash.
 
 This review reduces specific identified risks. It cannot prove 100% correctness or security, replace independent penetration testing, or establish compatibility with arbitrary modpacks and network conditions. No known unresolved issue was observed in the reviewed mod paths after the recorded checks; upstream game/runtime vulnerabilities require separate monitoring.

@@ -1,3 +1,3 @@
-JEI: PASS: JEI Rusting (11), crafting/brewing, 78 skins, 6 potion tooltips, Lockjaw/hearts/beacon/advancements; vaccine sync, offhand gloves, 10 guide chapters and prevention recipes
-REI: PASS: REI Rusting (11), crafting/brewing, 78 skins, 6 potion tooltips, Lockjaw/hearts/beacon/advancements; vaccine sync, offhand gloves, 10 guide chapters and prevention recipes
-Both clients rejected four malformed custom payloads and logged exactly one warning per connection.
+PASS: JEI Rusting (11), crafting/brewing, 78 skins, 6 potion tooltips, Lockjaw/hearts/beacon/advancements; vaccine sync, offhand gloves, 10 guide chapters and prevention recipes
+PASS: REI Rusting (11), crafting/brewing, 78 skins, 6 potion tooltips, Lockjaw/hearts/beacon/advancements; vaccine sync, offhand gloves, 10 guide chapters and prevention recipes
+PASS: Plain client without recipe viewers; native recipes, 78 skins, 6 potion tooltips, Lockjaw/hearts/beacon/advancements; vaccine sync, offhand gloves, 10 guide chapters and prevention recipes

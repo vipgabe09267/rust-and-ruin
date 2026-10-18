@@ -246,7 +246,10 @@ public class TetanusGameTests implements FabricGameTest {
             player.setOnGround(true);
             for (int t = 0; t < 25; t++) player.tick();
             CowEntity target = cow(ctx, 3, 4);
-            player.attack(target);
+            // The damage assertion excludes the separate mutation roll, whose intended healing masks the hit.
+            float conversionChance=TetanusMod.CONFIG.animalConversionChance;
+            try { TetanusMod.CONFIG.animalConversionChance=0;player.attack(target); }
+            finally { TetanusMod.CONFIG.animalConversionChance=conversionChance; }
             ctx.assertTrue(target.getHealth() == 10 - damage[i], "Wrong total melee damage for " + weapons[i] + ": " + target.getHealth());
             ctx.assertTrue(target.hasStatusEffect(TetanusMod.TETANUS) == (i == 3), "Melee infection mismatch");
             ctx.assertTrue(player.getMainHandStack().getDamage() == 1, "Melee durability not consumed");

@@ -10,6 +10,13 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 
 public final class Infection {
+    private static final ThreadLocal<Boolean> MELEE_SUPPRESSED=ThreadLocal.withInitial(()->false);
+    public static boolean meleeSuppressed(){return MELEE_SUPPRESSED.get();}
+    /** Active items that handle their own exposure must not also inherit main-hand melee infection. */
+    public static boolean withoutMeleeExposure(java.util.function.BooleanSupplier damage) {
+        boolean previous=MELEE_SUPPRESSED.get();MELEE_SUPPRESSED.set(true);
+        try{return damage.getAsBoolean();}finally{if(previous)MELEE_SUPPRESSED.set(true);else MELEE_SUPPRESSED.remove();}
+    }
     private static final ThreadLocal<Boolean> SILENT=ThreadLocal.withInitial(()->false);
     private static final ThreadLocal<Origin> ORIGIN=new ThreadLocal<>();
     private record Origin(net.minecraft.world.World world,net.minecraft.util.math.Vec3d pos,net.minecraft.sound.SoundCategory category){}

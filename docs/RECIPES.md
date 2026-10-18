@@ -42,7 +42,7 @@ Use a standard brewing stand with blaze powder fuel. Each ingredient can process
 | Potion of Tetanus | Gunpowder | Splash Potion of Tetanus |
 | Potion of Salmonella | Gunpowder | Splash Potion of Salmonella |
 
-Tetanus potions show a nominal 7:30 base, but drinking or receiving a disease splash/cloud rolls a **5–10 minute infection**. The final **2–4 minutes** are continuous Lockjaw Sonata. Salmonella lasts one minute before vanilla splash-distance scaling. Cow Manure Potion is a brewing base. Vanilla splash and lingering conversions remain available. Milk clears other ordinary effects but preserves Tetanus and Lockjaw; Tetanus Antitoxin cures both immediately and returns a glass bottle.
+Tetanus potion tooltips show the configured duration range. Drinking or receiving a disease splash/cloud rolls a **5–10 minute infection**. The final **2–4 minutes** are continuous Lockjaw Sonata. Salmonella lasts one minute before vanilla splash-distance scaling. Cow Manure Potion is a brewing base. Vanilla splash and lingering conversions remain available. Milk clears other ordinary effects but preserves Tetanus and Lockjaw; Tetanus Antitoxin cures both immediately and returns a glass bottle.
 
 ## Tetanized Wither rituals
 
@@ -73,7 +73,7 @@ Build a pyramid with **gold blocks, copper blocks, netherite blocks, or a mixtur
 The layer sizes are the same as a normal beacon: 3x3, then 5x5, 7x7, and 9x9 for the full pyramid. The beam needs the usual clear path upward.
 
 - Payments accept **only netherite ingots**. Confirming a power selection consumes one ingot, as with a normal beacon payment.
-- Primary powers start at **level II**.
+- Primary powers start at **level II**. Selection still requires the normal pyramid tier: Speed/Haste at one layer, Resistance/Jump Boost at two, Strength at three. The server rejects invalid selections without consuming payment.
 - A full pyramid can add **Regeneration II** as the secondary power.
 - Selecting the primary power again as the full-pyramid upgrade gives **level III** of that power instead.
 - Range and duration refresh follow normal beacon behavior. Changes to pyramid blocks or beam obstruction update on the normal beacon cycle.

@@ -146,8 +146,9 @@ public class PreventionGameTests implements FabricGameTest {
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void hooklineCannotBypassCooldown(TestContext ctx) {
-        var player=ctx.createMockSurvivalPlayer();player.setPosition(ctx.getAbsolute(new Vec3d(3,3,1)));player.setYaw(0);player.setPitch(0);player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModItems.RUSTY_HOOKLINE));
-        var cow=ctx.spawnEntity(EntityType.COW,new Vec3d(3,3.5,6));cow.setAiDisabled(true);cow.setNoGravity(true);
+        for(int x=2;x<=4;x++)for(int y=3;y<=5;y++)for(int z=1;z<=6;z++)ctx.setBlockState(x,y,z,net.minecraft.block.Blocks.AIR);
+        var player=ctx.createMockSurvivalPlayer();player.setPosition(ctx.getAbsolute(new Vec3d(3.5,3,1.5)));player.setYaw(0);player.setPitch(0);player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModItems.RUSTY_HOOKLINE));
+        var cow=ctx.spawnEntity(EntityType.COW,new Vec3d(3.5,3.5,5.5));cow.setAiDisabled(true);cow.setNoGravity(true);
         ctx.runAtTick(2,()->{ModItems.RUSTY_HOOKLINE.use(ctx.getWorld(),player,Hand.MAIN_HAND);float health=cow.getHealth();cow.timeUntilRegen=0;ModItems.RUSTY_HOOKLINE.use(ctx.getWorld(),player,Hand.MAIN_HAND);ctx.assertTrue(cow.getHealth()==health&&player.getMainHandStack().getDamage()==1,"Repeated use bypassed hookline cooldown");ctx.complete();});
     }
     @GameTest(templateName=EMPTY_STRUCTURE)

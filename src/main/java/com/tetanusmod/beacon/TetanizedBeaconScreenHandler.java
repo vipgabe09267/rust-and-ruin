@@ -28,6 +28,7 @@ public final class TetanizedBeaconScreenHandler extends BeaconScreenHandler {
         return super.quickMove(player,slot);
     }
     @Override public void setEffects(Optional<StatusEffect> primary,Optional<StatusEffect> secondary) {
-        if(getSlot(0).getStack().isOf(Items.NETHERITE_INGOT))super.setEffects(primary,secondary);
+        if(getSlot(0).getStack().isOf(Items.NETHERITE_INGOT)
+                && BeaconPower.selectionAllowed(getProperties(),primary.orElse(null),secondary.orElse(null)))super.setEffects(primary,secondary);
     }
 }

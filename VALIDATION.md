@@ -4,12 +4,12 @@ Validated October 17, 2026 with Minecraft 1.20.1, Java 17, Fabric Loader 0.16.14
 
 ## Results
 
-- Dedicated server: **all 96 required GameTests passed**; including the requested complete repeat before committing, with neither recipe viewer installed.
-- Graphical JEI 15.3.0.4 and REI 12.1.725 clients: **PASS**.
-- Both clients verify the vaccine status and offhand glove synchronization, item-driven guide opening, all ten guide chapters, server protection values, bounded chapter/scroll selection, the three synchronized crafting recipes and an actual vaccine recipe page.
-- Both clients receive four deliberately malformed messages through the real custom network handlers, log one warning, and continue all feature checks.
+- Dedicated server: **all 103 required GameTests passed**; including the requested complete repeat before user testing, with neither recipe viewer installed.
+- Graphical JEI 15.3.0.4, REI 12.1.725, and plain clients without either viewer: **PASS**.
+- All three clients verify the vaccine status and offhand glove synchronization, item-driven guide opening, all ten guide chapters, server protection values, bounded chapter/scroll selection, the three synchronized crafting recipes. JEI and REI additionally open actual vaccine recipe pages.
+- All three clients receive four deliberately malformed messages through the real custom network handlers, log one warning, and continue all feature checks.
 - Retained checks cover all 11 Rusting displays, caltrop crafting, five brewing outputs, 78 vanilla mob base skin layers, six disease potion tooltips, minutes-long Lockjaw, rusty HUD/tab hearts, the custom beacon and rusty advancement wallpaper.
-- Release build, resource references, official wrapper checksum, pinned Gradle download, packaging and new item sprite borders pass.
+- Release build, resource references, official wrapper checksum, pinned Gradle download, packaging and every runtime item/status sprite border pass. All 289 project files pass the file-format/integrity scan; see [complete audit](docs/FULL_AUDIT.md).
 
 Reports: [GameTests](validation/gametest-results.xml), [client summaries](validation/client-results.txt), [release integrity](validation/release-audit.json), [requested features](docs/REQUEST_AUDIT.md), and [security review](docs/SECURITY_AUDIT.md). Full logs remain ignored under `.tools/`.
 
@@ -33,6 +33,8 @@ Twenty-three additional tests cover:
 - Exact presence/symptom payload bounds, strict booleans, invalid stages and valid decoder round trips.
 - Bounded configuration parsing, field clamping, escaped quotes/braces, malformed/scalar/null JSON, deeply nested input, oversized/trailing data and **2,000 deterministic random payloads**.
 - Non-operators cannot use command helpers or the command tree; non-finite coordinates are rejected.
+
+Seven final-audit regressions add forged beacon primary/secondary/tier checks, legitimate tier unlocks, invalid saved-power rejection, a single offhand hookline exposure, nested damage-scope cleanup, invalid/spectator antitoxin rejection, container/full-inventory handling, and reflected Thorns exclusion. The full suite totals 103 tests. The owner authorized committing these audit fixes on October 18, 2026.
 
 The real-server-player fixture is used for full-inventory drops. The hookline fixture explicitly clears its positive-test sightline; a separate wall test verifies that obstruction remains enforced. Trap cooldown assertions account for the intended healing when an animal permanently mutates.
 
@@ -62,7 +64,9 @@ With JDK 17, from the project root:
 .\tools\Build.ps1 -Test
 .\gradlew.bat -PwithJei runClientSmoke --console plain
 .\gradlew.bat -PwithRei runClientSmoke --console plain
+.\gradlew.bat runClientSmoke --console plain # No recipe viewer
 .\tools\Audit-Release.ps1
+.\tools\Audit-Files.ps1 -Report .tools/final-file-inventory.json
 ```
 
 Run viewers sequentially. The client harness uses `build/client-smoke/saves/smoke-world-final`; if absent, first copy the generated GameTest world there. It prepares the scene, checks assertions, captures screenshots and closes Minecraft.
@@ -74,10 +78,10 @@ Run viewers sequentially. The client harness uses `build/client-smoke/saves/smok
 - Rust & Ruin 0.1.0-beta; Minecraft 1.20.1, Java 17 and Fabric API on both sides. No added mandatory mod dependency.
 - Includes 46 PNGs, audio, recipes, advancements, tags, item models and required mixins.
 - No test classes, viewer implementations, private files or unsafe archive paths were found.
-- New item sprites have transparent margins. Original artwork and exact built-in imagegen prompts are retained under [assets-source/art/prevention](assets-source/art/prevention/PROMPTS.md).
+- Every runtime item/status sprite has transparent margins. Original artwork and exact built-in imagegen prompts are retained under [assets-source/art/prevention](assets-source/art/prevention/PROMPTS.md).
 - Strange Meat requires infected-meat pickup; Why did I eat that? requires Salmonella infection.
-- Size: 2985006 bytes.
-- SHA-256: `E675A7BA4CB52E78D9191F835584E15C3541E1C25D7592C811F91C2FC4C86145`.
+- Size: 2986095 bytes.
+- SHA-256: `16C8AF244DA6B88E20D1EB9116C9834A8E67849D439E5F2D1ED9DE07F698A6E3`.
 
 ## Practical limits
 

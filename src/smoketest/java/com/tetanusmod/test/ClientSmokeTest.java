@@ -27,6 +27,8 @@ public final class ClientSmokeTest implements ClientModInitializer {
     private volatile boolean serverReady;
     private volatile String serverFailure;
     private final boolean rei=FabricLoader.getInstance().isModLoaded("roughlyenoughitems");
+    private final boolean plain=!rei&&!FabricLoader.getInstance().isModLoaded("jei");
+    private String viewer(){return plain?"plain":rei?"rei":"jei";}
     private final BlockPos beaconPos=new BlockPos(3,4,10);
     @Override public void onInitializeClient() {
         ClientTickEvents.END_CLIENT_TICK.register(client->{
@@ -56,22 +58,22 @@ public final class ClientSmokeTest implements ClientModInitializer {
                 if(worldTicks==130)screenshot(client,"tab-hearts");
                 if(worldTicks==135)client.options.playerListKey.setPressed(false);
                 if(worldTicks==140)client.setScreen(new InventoryScreen(client.player));
-                boolean ready=rei?RustRuinReiPlugin.registeredCount==11:RustRuinJeiPlugin.runtimeReady;
+                boolean ready=plain|| (rei?RustRuinReiPlugin.registeredCount==11:RustRuinJeiPlugin.runtimeReady);
                 if(worldTicks>220&&ready&&recipesAt==0) {
                     screenshot(client,"inventory");
-                    if(!(rei?RustRuinReiPlugin.hasDiseaseBrewing():RustRuinJeiPlugin.hasDiseaseBrewing()))throw new IllegalStateException("Disease brewing recipes missing from viewer");
-                    if(rei) { if(!RustRuinReiPlugin.showRusting())throw new IllegalStateException("REI Rusting screen unavailable"); }
-                    else { if(RustRuinJeiPlugin.rustingRecipeCount!=11||!RustRuinJeiPlugin.hasCaltropRecipe())throw new IllegalStateException("JEI recipe registration missing");RustRuinJeiPlugin.showRustingRecipes(); }
+                    if(!plain&&!(rei?RustRuinReiPlugin.hasDiseaseBrewing():RustRuinJeiPlugin.hasDiseaseBrewing()))throw new IllegalStateException("Disease brewing recipes missing from viewer");
+                    if(!plain&&rei) { if(!RustRuinReiPlugin.showRusting())throw new IllegalStateException("REI Rusting screen unavailable"); }
+                    else if(!plain) { if(RustRuinJeiPlugin.rustingRecipeCount!=11||!RustRuinJeiPlugin.hasCaltropRecipe())throw new IllegalStateException("JEI recipe registration missing");RustRuinJeiPlugin.showRustingRecipes(); }
                     recipesAt=worldTicks;
                 }
                 if(recipesAt>0&&worldTicks==recipesAt+40) {
-                    screenshot(client,"rusting");
-                    if(rei) { if(!RustRuinReiPlugin.showCaltrops())throw new IllegalStateException("REI caltrops recipe unavailable"); }
-                    else RustRuinJeiPlugin.showCaltropRecipe();
+                    if(!plain)screenshot(client,"rusting");
+                    if(!plain&&rei) { if(!RustRuinReiPlugin.showCaltrops())throw new IllegalStateException("REI caltrops recipe unavailable"); }
+                    else if(!plain) RustRuinJeiPlugin.showCaltropRecipe();
                     caltropsOpened=true;
                 }
                 if(caltropsOpened&&worldTicks==recipesAt+80) {
-                    screenshot(client,"caltrops");client.setScreen(null);
+                    if(!plain)screenshot(client,"caltrops");client.setScreen(null);
                     client.getServer().execute(()->{
                         var server=client.getServer();var player=server.getPlayerManager().getPlayerList().get(0);
                         player.teleport(server.getOverworld(),3.5,4,8.5,0,0);
@@ -111,19 +113,19 @@ public final class ClientSmokeTest implements ClientModInitializer {
                     guide.selectChapter(2);
                     if(!guide.body().getString().contains("80%")||!guide.body().getString().contains("90%"))throw new IllegalStateException("Guide protection values do not match server config");
                     for(String id:new String[]{"tetanus_vaccine","protective_gloves","field_guide"})if(client.world.getRecipeManager().get(TetanusMod.id(id)).isEmpty())throw new IllegalStateException("Prevention recipe missing: "+id);
-                    if(!rei&&!RustRuinJeiPlugin.hasPreventionRecipes())throw new IllegalStateException("JEI prevention recipes missing");
+                    if(!plain&&!rei&&!RustRuinJeiPlugin.hasPreventionRecipes())throw new IllegalStateException("JEI prevention recipes missing");
                     guideOpened=true;
                 }
                 if(guideOpened&&worldTicks==recipesAt+185)screenshot(client,"field-guide");
                 if(guideOpened&&!vaccineOpened&&worldTicks>recipesAt+210) {
                     var guide=(com.tetanusmod.client.FieldGuideScreen)client.currentScreen;
                     guide.selectChapter(-99);guide.selectChapter(Integer.MAX_VALUE);guide.mouseScrolled(0,0,Double.POSITIVE_INFINITY);guide.selectChapter(2);
-                    if(rei){if(!RustRuinReiPlugin.showVaccineRecipe())throw new IllegalStateException("REI vaccine recipe failed to open");}
-                    else RustRuinJeiPlugin.showVaccineRecipe();vaccineOpened=true;
+                    if(!plain&&rei){if(!RustRuinReiPlugin.showVaccineRecipe())throw new IllegalStateException("REI vaccine recipe failed to open");}
+                    else if(!plain) RustRuinJeiPlugin.showVaccineRecipe();vaccineOpened=true;
                 }
                 if(vaccineOpened&&worldTicks>recipesAt+240) {
-                    screenshot(client,"vaccine-recipe");
-                    finish(client,"PASS: "+(rei?"REI":"JEI")+" Rusting (11), crafting/brewing, 78 skins, 6 potion tooltips, Lockjaw/hearts/beacon/advancements; vaccine sync, offhand gloves, 10 guide chapters and prevention recipes");
+                    if(!plain)screenshot(client,"vaccine-recipe");
+                    finish(client,"PASS: "+(plain?"Plain client without recipe viewers; native recipes":rei?"REI Rusting (11), crafting/brewing":"JEI Rusting (11), crafting/brewing")+", 78 skins, 6 potion tooltips, Lockjaw/hearts/beacon/advancements; vaccine sync, offhand gloves, 10 guide chapters and prevention recipes");
                 }
             }catch(Throwable failure){finish(client,"FAIL: "+failure);}
         });
@@ -197,10 +199,10 @@ public final class ClientSmokeTest implements ClientModInitializer {
         }
         org.slf4j.LoggerFactory.getLogger("tetanusmod").info("Verified actual symptoms in all six drinkable/splash/lingering disease potion tooltips");
     }
-    private void screenshot(MinecraftClient client,String name) { ScreenshotRecorder.saveScreenshot(client.runDirectory,"rust-and-ruin-"+(rei?"rei":"jei")+"-"+name+".png",client.getFramebuffer(),text->{}); }
+    private void screenshot(MinecraftClient client,String name) { ScreenshotRecorder.saveScreenshot(client.runDirectory,"rust-and-ruin-"+viewer()+"-"+name+".png",client.getFramebuffer(),text->{}); }
     private void finish(MinecraftClient client,String result) {
         finished=true;
-        try{Files.writeString(Path.of("client-smoke-result-"+(rei?"rei":"jei")+".txt"),result+System.lineSeparator());}catch(Exception e){throw new RuntimeException(e);}
+        try{Files.writeString(Path.of("client-smoke-result-"+viewer()+".txt"),result+System.lineSeparator());}catch(Exception e){throw new RuntimeException(e);}
         org.slf4j.LoggerFactory.getLogger("tetanusmod").info(result);client.scheduleStop();
     }
 }

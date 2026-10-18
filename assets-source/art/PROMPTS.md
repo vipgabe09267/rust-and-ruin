@@ -43,4 +43,4 @@ One Minecraft status effect icon, transparent background, a clenched jaw with sh
 
 ## Mob skins
 
-Mob skins are generated at runtime by recoloring the original texture, retaining its dimensions, alpha, UV mapping, and recognizable surface details. Dynamic textures receive a color tint fallback; sheep wool is tinted separately. This also follows resource packs where an original PNG is available.
+Mob skins are generated at runtime by recoloring the original texture, retaining its dimensions, alpha, UV mapping, and recognizable surface details. Textures unavailable through the resource manager retain their original appearance; sheep wool is tinted separately. This also follows resource packs where an original PNG is available.

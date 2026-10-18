@@ -1,3 +1,12 @@
+# 0.1.0-beta - final stability audit
+
+- Validate beacon pyramid tiers and secondary choices on the server before consuming netherite; reject invalid saved powers.
+- Prevent duplicate infection/glove wear from an offhand hookline used alongside a rusty main-hand weapon.
+- Exclude reflected Thorns armor damage from rusty melee infection.
+- Make antitoxin consumption server-authoritative and verify wrong/empty items, spectator use and bottle accounting.
+- Add seven regression tests, remove mutation-healing flakiness from damage assertions, and test graphical clients without a recipe viewer.
+- Audit every project file and packaged resource; detect duplicate JAR entries and stale assets, and check every item/status sprite border.
+- Remain on 0.1.0-beta. Commit authorized by the owner after automated validation.
 # 0.1.0-beta - prevention and field guide
 
 - Added a craftable Tetanus Vaccine: 20 minutes of 80% protection, with a visible Tetanus Resistance effect. It does not cure existing infections or prevent Salmonella.
