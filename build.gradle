@@ -9,6 +9,8 @@ base { archivesName = project.archives_base_name }
 
 repositories {
     mavenCentral()
+    maven { url = 'https://maven.shedaniel.me' }
+    maven { url = 'https://maven.architectury.dev' }
     maven { url = 'https://maven.blamejared.com' }
 }
 
@@ -17,7 +19,13 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modCompileOnly('dev.architectury:architectury-fabric:9.2.14') { transitive = false }
+    modCompileOnly('me.shedaniel:RoughlyEnoughItems-api-fabric:12.1.725') { transitive = false }
+    modCompileOnly('me.shedaniel.cloth:basic-math:0.6.1') { transitive = false }
     modCompileOnly('mezz.jei:jei-1.20.1-fabric:15.3.0.4') { transitive = false }
+    if (providers.gradleProperty('withRei').isPresent()) {
+        modLocalRuntime 'me.shedaniel:RoughlyEnoughItems-fabric:12.1.725'
+    }
     if (providers.gradleProperty('withJei').isPresent()) {
         modLocalRuntime('mezz.jei:jei-1.20.1-fabric:15.3.0.4') { transitive = false }
     }
@@ -107,7 +115,7 @@ tasks.register('verifyResources') {
                 }
             }
         }
-        requireFile(new File(assets, 'textures/mob_effect/tetanus.png'))
+        ['tetanus','salmonella','lockjaw'].each { requireFile(new File(assets, "textures/mob_effect/${it}.png")) }
         fileTree(new File(root, 'data/tetanusmod/recipes')).matching { include '*.json' }.each { recipeFile ->
             def recipe = parser.parse(recipeFile)
             def output = recipe.result instanceof Map ? recipe.result.item : recipe.result

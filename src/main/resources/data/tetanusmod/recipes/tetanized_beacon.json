@@ -1,0 +1,24 @@
+{
+    "key":  {
+                "G":  {
+                          "item":  "minecraft:glass"
+                      },
+                "S":  {
+                          "item":  "tetanusmod:tetanized_wither_star"
+                      },
+                "O":  {
+                          "item":  "minecraft:obsidian"
+                      }
+            },
+    "category":  "misc",
+    "pattern":  [
+                    "GGG",
+                    "GSG",
+                    "OOO"
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:tetanized_beacon"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

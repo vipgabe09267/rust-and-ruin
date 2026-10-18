@@ -1,10 +1,22 @@
 {
-  "schemaVersion": 1,
-  "id": "tetanusmod_tests",
-  "version": "1.0.0",
-  "name": "Rust & Ruin Integration Tests",
-  "environment": "server",
-  "mixins": ["rustruin-test.mixins.json"],
-  "entrypoints": { "fabric-gametest": ["com.tetanusmod.test.TetanusGameTests", "com.tetanusmod.test.ExpansionGameTests", "com.tetanusmod.test.BalanceGameTests"] },
-  "depends": { "tetanusmod": "*", "fabric-gametest-api-v1": "*" }
+    "schemaVersion":  1,
+    "id":  "tetanusmod_tests",
+    "version":  "1.0.0",
+    "name":  "Rust \u0026 Ruin Integration Tests",
+    "environment":  "server",
+    "mixins":  [
+                   "rustruin-test.mixins.json"
+               ],
+    "entrypoints":  {
+                        "fabric-gametest":  [
+                                                "com.tetanusmod.test.TetanusGameTests",
+                                                "com.tetanusmod.test.ExpansionGameTests",
+                                                "com.tetanusmod.test.BalanceGameTests",
+                                                "com.tetanusmod.test.ProgressionGameTests"
+                                            ]
+                    },
+    "depends":  {
+                    "tetanusmod":  "*",
+                    "fabric-gametest-api-v1":  "*"
+                }
 }

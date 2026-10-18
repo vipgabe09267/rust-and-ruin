@@ -1,24 +1,37 @@
 {
-  "schemaVersion": 1,
-  "id": "tetanusmod",
-  "version": "${version}",
-  "name": "Rust & Ruin",
-  "icon": "assets/tetanusmod/icon.png",
-  "description": "Rusting iron weapons, Tetanus infections, mutated mobs, and a stronger Wither. Minecraft 1.20.1 Fabric.",
-  "contact": {
-    "homepage": "https://modrinth.com/mod/rust-ruin"
-  },
-  "environment": "*",
-  "entrypoints": {
-    "main": ["com.tetanusmod.TetanusMod"],
-    "client": ["com.tetanusmod.client.TetanusClient"],
-    "jei_mod_plugin": ["com.tetanusmod.compat.RustRuinJeiPlugin"]
-  },
-  "mixins": ["tetanus.mixins.json"],
-  "depends": {
-    "fabricloader": ">=0.16.14",
-    "minecraft": "1.20.1",
-    "java": ">=17",
-    "fabric-api": "*"
-  }
+    "schemaVersion":  1,
+    "id":  "tetanusmod",
+    "version":  "${version}",
+    "name":  "Rust \u0026 Ruin",
+    "icon":  "assets/tetanusmod/icon.png",
+    "description":  "Rusting iron weapons, Tetanus infections, mutated mobs, and a stronger Wither. Minecraft 1.20.1 Fabric.",
+    "contact":  {
+                    "homepage":  "https://modrinth.com/mod/rust-ruin",
+                    "sources":  "https://github.com/vipgabe09267/rust-and-ruin",
+                    "issues":  "https://github.com/vipgabe09267/rust-and-ruin/issues"
+                },
+    "environment":  "*",
+    "entrypoints":  {
+                        "main":  [
+                                     "com.tetanusmod.TetanusMod"
+                                 ],
+                        "client":  [
+                                       "com.tetanusmod.client.TetanusClient"
+                                   ],
+                        "jei_mod_plugin":  [
+                                               "com.tetanusmod.compat.RustRuinJeiPlugin"
+                                           ],
+                        "rei_client":  [
+                                           "com.tetanusmod.compat.RustRuinReiPlugin"
+                                       ]
+                    },
+    "mixins":  [
+                   "tetanus.mixins.json"
+               ],
+    "depends":  {
+                    "fabricloader":  "\u003e=0.16.14",
+                    "minecraft":  "1.20.1",
+                    "java":  "\u003e=17",
+                    "fabric-api":  "*"
+                }
 }

@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/tetanized_wither_star"
+                 },
+    "parent":  "minecraft:item/generated"
+}

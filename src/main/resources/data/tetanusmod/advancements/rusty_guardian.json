@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "rust_golem":  {
+                                        "trigger":  "minecraft:impossible"
+                                    }
+                 },
+    "parent":  "tetanusmod:tetanized_mob",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.rusty_guardian.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "minecraft:iron_ingot"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.rusty_guardian.title"
+                              },
+                    "frame":  "task"
+                }
+}

@@ -24,6 +24,16 @@ public final class RustRuinJeiPlugin implements IModPlugin {
     public static volatile boolean runtimeReady;
     public static long rustingRecipeCount;
     private static mezz.jei.api.runtime.IJeiRuntime activeRuntime;
+    public static boolean hasDiseaseBrewing() {
+        var recipes=activeRuntime.getRecipeManager().createRecipeLookup(mezz.jei.api.constants.RecipeTypes.BREWING).includeHidden().get().toList();
+        for(var potion:List.of(ModBrewing.MANURE,ModBrewing.TETANUS,ModBrewing.SALMONELLA)) {
+            if(recipes.stream().noneMatch(recipe->net.minecraft.potion.PotionUtil.getPotion(recipe.getPotionOutput())==potion && recipe.getPotionOutput().isOf(Items.POTION)))return false;
+            if(potion!=ModBrewing.MANURE && recipes.stream().noneMatch(recipe->net.minecraft.potion.PotionUtil.getPotion(recipe.getPotionOutput())==potion && recipe.getPotionOutput().isOf(Items.SPLASH_POTION)))return false;
+        }
+        return true;
+    }
+    public static boolean hasCaltropRecipe() { return activeRuntime.getRecipeManager().createRecipeLookup(mezz.jei.api.constants.RecipeTypes.CRAFTING).includeHidden().get().anyMatch(recipe->recipe.getId().equals(TetanusMod.id("caltrops"))); }
+    public static void showCaltropRecipe() { activeRuntime.getRecipesGui().show(List.of(activeRuntime.getJeiHelpers().getFocusFactory().createFocus(RecipeIngredientRole.OUTPUT,VanillaTypes.ITEM_STACK,new ItemStack(ModBlocks.CALTROPS)))); }
     public static void showRustingRecipes() { if(activeRuntime!=null) activeRuntime.getRecipesGui().showTypes(List.of(RUSTING)); }
     @Override public void onRuntimeAvailable(mezz.jei.api.runtime.IJeiRuntime runtime) {
         activeRuntime=runtime;
@@ -51,7 +61,7 @@ public final class RustRuinJeiPlugin implements IModPlugin {
     private static final class RustCategory implements IRecipeCategory<RustRecipe> {
         private final IDrawable background,icon;
         private RustCategory(IGuiHelper helper) {
-            background=helper.createBlankDrawable(150,52);
+            background=helper.createBlankDrawable(178,70);
             icon=helper.createDrawableItemStack(new ItemStack(ModItems.RUSTED_NAIL));
         }
         @Override public RecipeType<RustRecipe> getRecipeType() { return RUSTING; }
@@ -59,14 +69,14 @@ public final class RustRuinJeiPlugin implements IModPlugin {
         @Override public IDrawable getBackground() { return background; }
         @Override public IDrawable getIcon() { return icon; }
         @Override public void setRecipe(IRecipeLayoutBuilder builder,RustRecipe recipe,IFocusGroup focuses) {
-            builder.addSlot(RecipeIngredientRole.INPUT,4,5).addItemStack(new ItemStack(recipe.input()));
-            builder.addSlot(RecipeIngredientRole.OUTPUT,125,5).addItemStack(new ItemStack(recipe.output()));
+            builder.addSlot(RecipeIngredientRole.INPUT,8,14).addItemStack(new ItemStack(recipe.input()));
+            builder.addSlot(RecipeIngredientRole.OUTPUT,150,14).addItemStack(new ItemStack(recipe.output()));
         }
         @Override public void draw(RustRecipe recipe,IRecipeSlotsView slots,DrawContext context,double mouseX,double mouseY) {
             var font=MinecraftClient.getInstance().textRenderer;
-            context.drawText(font,Text.translatable("jei.tetanusmod.water",TetanusMod.CONFIG.waterRustTicks/20.0),26,8,0xFF6E3924,false);
-            context.drawText(font,Text.translatable("jei.tetanusmod.drop"),4,29,0xFF444444,false);
-            if (TetanusMod.CONFIG.rainRusting) context.drawText(font,Text.translatable("jei.tetanusmod.rain",TetanusMod.CONFIG.rainRustTicks/20.0),4,41,0xFF444444,false);
+            context.drawText(font,Text.translatable("jei.tetanusmod.water",TetanusMod.CONFIG.waterRustTicks/20.0),35,12,0xFF6E3924,false);
+            context.drawText(font,Text.translatable("jei.tetanusmod.drop"),8,51,0xFF444444,false);
+            if (TetanusMod.CONFIG.rainRusting) context.drawText(font,Text.translatable("jei.tetanusmod.rain",TetanusMod.CONFIG.rainRustTicks/20.0),35,27,0xFF444444,false);
         }
     }
 }

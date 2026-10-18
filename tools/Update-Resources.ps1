@@ -24,7 +24,7 @@ foreach ($type in @('smelting','smoking','campfire_cooking')) {
     $time=200; if ($type -eq 'smoking') {$time=100}; if ($type -eq 'campfire_cooking') {$time=600}
     Write-Json "data/tetanusmod/recipes/cooked_infected_meat_$type.json" @{type="minecraft:$type";category='food';ingredient=(Ingredient 'tetanusmod:infected_meat');result='tetanusmod:cooked_infected_meat';experience=0.35;cookingtime=$time}
 }
-$lang=@{}; (Get-Content (Join-Path $resourceRoot 'assets/tetanusmod/lang/en_us.json') -Raw|ConvertFrom-Json).PSObject.Properties|ForEach-Object {$lang[$_.Name]=$_.Value}
+$lang=@{}; (Get-Content -Encoding UTF8 (Join-Path $resourceRoot 'assets/tetanusmod/lang/en_us.json') -Raw|ConvertFrom-Json).PSObject.Properties|ForEach-Object {$lang[$_.Name]=$_.Value}
 $newNames=@{tetanized_arrow='Tetanized Arrow';infected_meat='Infected Meat';cooked_infected_meat='Cooked Infected Meat';rusted_iron_sword='Rusted Iron Sword';rusted_iron_pickaxe='Rusted Iron Pickaxe';rusted_iron_axe='Rusted Iron Axe';rusted_iron_shovel='Rusted Iron Shovel';rusted_iron_hoe='Rusted Iron Hoe'}
 foreach ($name in $newNames.Keys) { $lang["item.tetanusmod.$name"]=$newNames[$name] }
 $messages=@{
@@ -78,7 +78,9 @@ Write-Json 'data/tetanusmod/advancements/nice_one.json' @{parent='tetanusmod:inf
 Write-Json 'data/tetanusmod/advancements/rusty_hook.json' @{parent='tetanusmod:rusty_business';display=(Display 'tetanusmod:rusty_fishing_hook' 'advancements.tetanusmod.rusty_hook.title' 'advancements.tetanusmod.rusty_hook.description');criteria=@{find_hook=@{trigger='minecraft:inventory_changed';conditions=@{items=@(@{items=@('tetanusmod:rusty_fishing_hook')})}}}}
 $recipes+=@('tetanized_soul_sand')
 Write-Json 'data/tetanusmod/advancements/recipes/unlock.json' @{parent='minecraft:recipes/root';criteria=@{has_iron=@{trigger='minecraft:inventory_changed';conditions=@{items=@(@{items=@('minecraft:iron_ingot')})}}};rewards=@{recipes=@($recipes|ForEach-Object {"tetanusmod:$_"})}}
-$sounds=@{};(Get-Content (Join-Path $resourceRoot 'assets/tetanusmod/sounds.json') -Raw|ConvertFrom-Json).PSObject.Properties|ForEach-Object {$sounds[$_.Name]=$_.Value}
+$sounds=@{};(Get-Content -Encoding UTF8 (Join-Path $resourceRoot 'assets/tetanusmod/sounds.json') -Raw|ConvertFrom-Json).PSObject.Properties|ForEach-Object {$sounds[$_.Name]=$_.Value}
 $sounds.vomit=@{subtitle='subtitles.tetanusmod.vomit';sounds=@(@{name='minecraft:entity.player.burp';type='event';pitch=0.7;volume=0.8})}
 Write-Json 'assets/tetanusmod/sounds.json' $sounds
 Write-Host 'Updated recipes, advancements, item models and localization.'
+
+& (Join-Path $PSScriptRoot 'Update-Progression.ps1')

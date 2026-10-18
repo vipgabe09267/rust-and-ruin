@@ -1,0 +1,7 @@
+{
+    "variants":  {
+                     "":  {
+                              "model":  "tetanusmod:block/tetanized_beacon"
+                          }
+                 }
+}

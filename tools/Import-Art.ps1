@@ -1,8 +1,9 @@
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.Drawing
+if (-not ('SpriteIsolator' -as [type])) { Add-Type -Path (Join-Path $PSScriptRoot 'SpriteIsolator.cs') -ReferencedAssemblies System.Drawing }
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $textureRoot=Join-Path $projectRoot 'src/main/resources/assets/tetanusmod/textures'
-$atlasPath=Join-Path $projectRoot 'assets-source/art/inventory-atlas.png'
+$atlasPath=Join-Path $projectRoot 'assets-source/art/inventory-atlas-v2.png'
 if (-not (Test-Path -LiteralPath $atlasPath)) { throw 'The inventory art atlas is missing.' }
 $atlas=[Drawing.Bitmap]::FromFile($atlasPath)
 function Save-Sprite($source,$rectangle,$relative,$width,$height) {
@@ -10,10 +11,19 @@ function Save-Sprite($source,$rectangle,$relative,$width,$height) {
     [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($path)) | Out-Null
     $bitmap=New-Object Drawing.Bitmap($width,$height)
     $graphics=[Drawing.Graphics]::FromImage($bitmap)
-    if ($relative -like 'block/*') { $graphics.Clear([Drawing.Color]::FromArgb(255,71,44,32)) }
+    if ($relative -like 'block/*' -and $relative -ne 'block/cracked_glass.png') { $graphics.Clear([Drawing.Color]::FromArgb(255,71,44,32)) }
     $graphics.InterpolationMode=[Drawing.Drawing2D.InterpolationMode]::NearestNeighbor
     $graphics.PixelOffsetMode=[Drawing.Drawing2D.PixelOffsetMode]::Half
-    $graphics.DrawImage($source,([Drawing.Rectangle]::new(0,0,$width,$height)),$rectangle,[Drawing.GraphicsUnit]::Pixel)
+    if ($relative -like 'item/*' -or $relative -like 'mob_effect/*') {
+        $isolated=[SpriteIsolator]::Extract($source,$rectangle)
+        $scale=[Math]::Min(($width-6)/$isolated.Width,($height-6)/$isolated.Height)
+        $sw=[int][Math]::Round($isolated.Width*$scale);$sh=[int][Math]::Round($isolated.Height*$scale)
+        $dest=[Drawing.Rectangle]::new([int](($width-$sw)/2),[int](($height-$sh)/2),$sw,$sh)
+        $graphics.DrawImage($isolated,$dest,([Drawing.Rectangle]::new(0,0,$isolated.Width,$isolated.Height)),[Drawing.GraphicsUnit]::Pixel)
+        $isolated.Dispose()
+    } else {
+        $graphics.DrawImage($source,([Drawing.Rectangle]::new(0,0,$width,$height)),$rectangle,[Drawing.GraphicsUnit]::Pixel)
+    }
     $graphics.Dispose()
     $bitmap.Save($path,[Drawing.Imaging.ImageFormat]::Png)
     $bitmap.Dispose()
@@ -69,3 +79,21 @@ if (Test-Path -LiteralPath $salvagePath) {
     $salvage.Dispose()
 }
 Write-Host 'Imported inventory art, salvage art, skins, arrow texture and rusty hearts.'
+$progression=[Drawing.Bitmap]::FromFile((Join-Path $projectRoot 'assets-source/art/progression-atlas.png'))
+$cw=[int][Math]::Floor($progression.Width/2);$ch=[int][Math]::Floor($progression.Height/2)
+Save-Sprite $progression ([Drawing.Rectangle]::new(0,0,$cw,$ch)) 'item/rusty_hookline.png' 64 64
+Save-Sprite $progression ([Drawing.Rectangle]::new($cw,0,$cw,$ch)) 'item/tetanized_wither_star.png' 64 64
+Save-Sprite $progression ([Drawing.Rectangle]::new(0,$ch,$cw,$ch)) 'item/cow_manure.png' 64 64
+$glass=[SpriteIsolator]::Extract($progression,([Drawing.Rectangle]::new($cw,$ch,$cw,$ch)))
+for($x=0;$x -lt $glass.Width;$x++){for($y=0;$y -lt $glass.Height;$y++){
+    $c=$glass.GetPixel($x,$y)
+    if($c.A -eq 0){continue}
+    $alpha=210;if($c.R -gt 115 -and [Math]::Abs($c.R-$c.G) -lt 35){$alpha=45}
+    $glass.SetPixel($x,$y,[Drawing.Color]::FromArgb($alpha,$c.R,$c.G,$c.B))
+}}
+Save-Sprite $glass ([Drawing.Rectangle]::new(0,0,$glass.Width,$glass.Height)) 'block/cracked_glass.png' 64 64
+$glass.Dispose();$progression.Dispose()
+Copy-Item -LiteralPath (Join-Path $textureRoot 'block/tetanized_soul_sand.png') -Destination (Join-Path $textureRoot 'block/beacon_core.png')
+$jaw=[Drawing.Bitmap]::FromFile((Join-Path $projectRoot 'assets-source/art/lockjaw.png'))
+Save-Sprite $jaw ([Drawing.Rectangle]::new(0,0,$jaw.Width,$jaw.Height)) 'mob_effect/lockjaw.png' 64 64
+$jaw.Dispose()

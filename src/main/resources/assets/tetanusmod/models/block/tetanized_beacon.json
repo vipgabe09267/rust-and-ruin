@@ -1,0 +1,8 @@
+{
+    "textures":  {
+                     "obsidian":  "minecraft:block/obsidian",
+                     "glass":  "tetanusmod:block/cracked_glass",
+                     "beacon":  "tetanusmod:block/beacon_core"
+                 },
+    "parent":  "minecraft:block/beacon"
+}

@@ -2,6 +2,7 @@
     "replace":  false,
     "values":  [
                    "tetanusmod:caltrops",
-                   "tetanusmod:rusted_caltrops"
+                   "tetanusmod:rusted_caltrops",
+                   "tetanusmod:tetanized_beacon"
                ]
 }

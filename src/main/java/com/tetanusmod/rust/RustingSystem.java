@@ -21,11 +21,18 @@ public final class RustingSystem {
                 ModBlocks.CALTROPS.asItem(), ModBlocks.RUSTED_CALTROPS.asItem());
     }
 
+    public static boolean touchingWater(net.minecraft.entity.ItemEntity item) {
+        if(item.isTouchingWater())return true;
+        var pos=net.minecraft.util.math.BlockPos.ofFloored(item.getX(),item.getBoundingBox().minY-0.2,item.getZ());
+        var fluid=item.getWorld().getFluidState(pos);
+        return fluid.isIn(net.minecraft.registry.tag.FluidTags.WATER) && pos.getY()+fluid.getHeight(item.getWorld(),pos)>=item.getBoundingBox().minY-0.2;
+    }
     public static Item rusted(Item item) {
         Item normal = Pairs.ITEMS.get(item);
         return normal != null ? normal : com.tetanusmod.registry.ModIronTools.PAIRS.get(item);
     }
     public static Item clean(Item item) {
+        if(item==ModItems.TETANIZED_WITHER_STAR)return net.minecraft.item.Items.NETHER_STAR;
         for (var entry : Pairs.ITEMS.entrySet()) if (entry.getValue() == item) return entry.getKey();
         for (var entry : com.tetanusmod.registry.ModIronTools.PAIRS.entrySet()) if (entry.getValue() == item) return entry.getKey();
         return null;

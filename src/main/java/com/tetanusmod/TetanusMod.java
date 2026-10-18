@@ -29,6 +29,7 @@ public final class TetanusMod implements ModInitializer {
     public static final Identifier CONFIG_PACKET = id("config");
     public static final StatusEffect TETANUS = Registry.register(
             Registries.STATUS_EFFECT, id("tetanus"), new TetanusEffect());
+    public static final StatusEffect LOCKJAW=Registry.register(Registries.STATUS_EFFECT,id("lockjaw"),new com.tetanusmod.effect.LockjawEffect());
     public static final StatusEffect SALMONELLA=Registry.register(Registries.STATUS_EFFECT,id("salmonella"),new com.tetanusmod.effect.SalmonellaEffect());
     public static final Item NAIL = ModItems.NAIL;
     public static final Item RUSTED_NAIL = ModItems.RUSTED_NAIL;
@@ -58,6 +59,10 @@ public final class TetanusMod implements ModInitializer {
     @Override
     public void onInitialize() {
         ModItems.initialize();
+        com.tetanusmod.registry.ModBrewing.initialize();
+        com.tetanusmod.beacon.ModBeacons.initialize();
+        com.tetanusmod.entity.RustGolems.initialize();
+        com.tetanusmod.effect.InfectionPresence.initialize();
         com.tetanusmod.command.RustRuinCommands.initialize();
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
             if (entity instanceof net.minecraft.entity.LivingEntity living) com.tetanusmod.entity.MobVariants.loaded(living);
@@ -71,7 +76,8 @@ public final class TetanusMod implements ModInitializer {
         });
         UseItemCallback.EVENT.register((player, world, hand) -> {
             var stack = player.getStackInHand(hand);
-            if (!world.isClient && stack.isFood() && ((InfectionState) player).tetanus$getLockjaw() > 0) {
+            if (stack.isFood() && (player.hasStatusEffect(LOCKJAW) || ((InfectionState) player).tetanus$getLockjaw() > 0)) {
+                if(!world.isClient)player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.lockjaw"),true);
                 return net.minecraft.util.TypedActionResult.fail(stack);
             }
             return net.minecraft.util.TypedActionResult.pass(stack);

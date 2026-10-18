@@ -42,6 +42,7 @@ public final class Infection {
         int max = TetanusMod.CONFIG.maxDurationSeconds;
         int ticks = (min + target.getRandom().nextInt(max - min + 1)) * 20;
         target.removeStatusEffect(TetanusMod.TETANUS);
+        target.removeStatusEffect(TetanusMod.LOCKJAW);
         if (target.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, ticks, 0), source)) {
             InfectionState state = (InfectionState) target;
             state.tetanus$setInfection(0, ticks);

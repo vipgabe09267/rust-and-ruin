@@ -1,0 +1,30 @@
+{
+    "criteria":  {
+                     "get_lockjaw":  {
+                                         "trigger":  "minecraft:effects_changed",
+                                         "conditions":  {
+                                                            "effects":  {
+                                                                            "tetanusmod:lockjaw":  {
+
+                                                                                                   }
+                                                                        }
+                                                        }
+                                     }
+                 },
+    "parent":  "tetanusmod:infected",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.lockjaw_sonata.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "minecraft:bone"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.lockjaw_sonata.title"
+                              },
+                    "frame":  "task"
+                }
+}

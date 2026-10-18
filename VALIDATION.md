@@ -1,68 +1,81 @@
-﻿# Rust & Ruin 0.1 validation
+# Rust & Ruin 0.1 validation
 
-Validated October 17, 2026 with Minecraft 1.20.1, Java 17, Fabric Loader 0.16.14, Fabric API 0.92.6+1.20.1, Loom 1.6.12, and Gradle 8.6. Release version: **0.1.0-beta**.
+Validated October 17, 2026 with Minecraft 1.20.1, Java 17, Fabric Loader 0.16.14, Fabric API 0.92.6+1.20.1, Loom 1.6.12, and Gradle 8.6. Release version remains **0.1.0-beta**.
 
 ## Results
 
-- `tools/Build.ps1 -Test`: **BUILD SUCCESSFUL; all 38 required GameTests passed**, in a dedicated server environment without JEI.
-- `gradlew.bat build -PwithJei runClientSmoke --console plain`: **BUILD SUCCESSFUL**. Actual graphical client and integrated server loaded Fabric JEI 15.3.0.4, displayed all 11 Rusting recipes, captured screenshots, and exited normally.
-- Resource checks passed for JSON, model references, texture dimensions, recipe outputs, the icon, and OGG audio.
-- The graphical log contains no ERROR entries. Two missing vanilla goat sound warnings remain; neither references a mod sound.
+- `tools/Build.ps1 -Test`: **BUILD SUCCESSFUL; all 53 required GameTests passed**, in a dedicated server environment with neither recipe viewer installed.
+- `gradlew.bat -PwithJei runClientSmoke --console plain`: **BUILD SUCCESSFUL**, with Fabric JEI 15.3.0.4.
+- `gradlew.bat -PwithRei runClientSmoke --console plain`: **BUILD SUCCESSFUL**, with Fabric REI 12.1.725 and its development dependencies.
+- The two graphical runs independently displayed all 11 Rusting recipes, the repaired caltrop recipe, potions, species skins, the custom beacon screen, and rusty tab-list hearts.
+- Both clients checked that all five requested brewing outputs appear in their viewer: manure base, Tetanus, Salmonella, and both disease splash potions.
+- The final clients received the player infection flag and visible Lockjaw Sonata status; the game awarded its advancement and showed its action-bar message.
+- Full resource regeneration (`tools/Generate-Resources.ps1`) and a final release build succeeded. JSON, model/texture references, recipe outputs, all three effect icons, and OGG checks passed.
+
+The test report is retained at [validation/gametest-results.xml](validation/gametest-results.xml). Local full logs are ignored files under `.tools/`.
 
 ## Gameplay coverage
 
-The suite covers crafting layouts and container returns; nail damage, consumption and recovery; melee damage and durability; continuous/interrupted water exposure, rain and roofs; enchantment/NBT preservation; timed infections, stages, refresh and persistence; traps; brushing, grindstones, medicine, and milk.
+The original suite still covers nail/rebar damage, consumption and recovery, crafting, container returns, water and rain timing, roofs and interrupted exposure, durability/enchantment/NBT preservation, infection progression and refresh, traps, brushing, grindstones, medicine, and milk.
 
-Expansion coverage includes all five rusted iron tools, 20% melee infection, Tetanus I anvil application, Infinity ammunition consumption, physical arrow and enderman hits, permanent mutation persistence, nonlethal periodic mob damage, doubled Wither health and bonus loot, food safety, and player advancements.
+Expansion and progression checks cover:
 
-The updated balance checks verify:
+- All five iron tool variants, 20% infection, Tetanus I anvil application, Infinity ammunition consumption, physical arrow hits, and the enderman exception.
+- Every creatable vanilla mob type can receive permanent mutation state; animals use the 15% boundary. Withers retain separate ritual rules.
+- Permanent attribute persistence without stacking, gentle nonlethal periodic mob damage, animal-only infected meat, hostile salvage, safe cooking, and Salmonella symptoms.
+- Floating nails rust at the water surface. Rod salvage timing, its 15% hook chance, and duplication prevention remain covered.
+- Cow manure collection and cooldown, the complete brewing chain, and gunpowder splash conversions.
+- Hookline pull velocity, infection, durability, and cooldown.
+- Shapeless caltrop crafting produces four, and the special beacon recipe uses the corrupted star.
+- Both new infection advancements and permanent mob conversion credit.
+- Lockjaw Sonata is a visible four-second effect independent of random spasms, blocks food use, recurs after 20 seconds, clears when Tetanus is cured, and grants its advancement.
+- Rusted golem conversion has exact 18% success/failure boundaries, consumes Rust appropriately, grants both advancements, has 200 health, and persists across saves.
+- The special star cleans into a normal Nether Star.
+- Ordinary and special Wither structures, failed mutation rolls, doubled boss health, drops, and the consumed netherite-upgraded structure.
+- Beacon bases accept gold, netherite, full copper, and waxed/oxidized copper, while rejecting iron/diamond/emerald. The block entity saves and loads with its custom registry identity.
+- Beacon payment slots accept only netherite; confirming consumes it and activates effects. An invalid payment cannot change powers.
+- Beacon Haste II plus Regeneration II, the Haste III upgrade, and actual placed-block ticks producing Speed III.
+- Arrow infection sound plays once at impact, never on bow firing; caltrops use their block position. Custom sound IDs are registered for playsound.
 
-- 5% hostile and 2% animal conversion boundaries.
-- Normal Withers never randomly mutate when loaded; special rolls run only once.
-- Tetanized animals replace ordinary item loot with infected meat only.
-- Hostiles drop 1–3 iron nuggets and Rust.
-- A brush operation returns exactly one Rust and preserves the cleaned stack.
-- Fishing salvage returns two sticks/two string, has the correct 15% hook boundary, and cannot duplicate a destroyed rod.
-- A rod survives before five seconds in water and breaks after five seconds.
-- Salmonella probability endpoints, hunger loss, light nonlethal damage, update interval, and safe cooked meat.
-- The special soul sand recipe matches with one each of Rust, soul sand, and an iron ingot.
-- Actual Wither structures: four special blocks can summon a 600-health mutant; ordinary soul sand always summons an ordinary Wither; a failed special roll summons a normal Wither.
-- Namespaced summon commands create permanent variants, reject non-mobs, and grant the Wither kill and fishing hook advancements.
-- Sound observation in the server: bow firing emits no infection sound; arrow impact emits exactly one at impact; rusty caltrops emit exactly one at their block position. All three custom sound IDs are registered.
+## Visual evidence
 
-Report: `build/gametest-results.xml`. Build logs are local ignored files in `.tools/`.
+Screenshots were visually inspected after the graphical runs:
 
-## Client and artwork
+- [HUD with Lockjaw Sonata](validation/screenshots/rust-and-ruin-jei-hud.png)
+- [Rusty tab-list hearts](validation/screenshots/rust-and-ruin-jei-tab-hearts.png)
+- [Inventory sprites and potions](validation/screenshots/rust-and-ruin-jei-inventory.png)
+- [JEI caltrop recipe](validation/screenshots/rust-and-ruin-jei-caltrops.png)
+- [REI caltrop recipe](validation/screenshots/rust-and-ruin-rei-caltrops.png)
+- [JEI Rusting category](validation/screenshots/rust-and-ruin-jei-rusting.png)
+- [REI Rusting category](validation/screenshots/rust-and-ruin-rei-rusting.png)
+- [Netherite-only beacon interface](validation/screenshots/rust-and-ruin-jei-beacon.png)
 
-The graphical test displayed custom skins on a cow, zombie, and Wither; the boss bar and rusty player hearts; the Salmonella icon; the placed Tetanized Soul Sand block; all inventory items; and the JEI Rusting category. These screenshots were visually inspected:
+All item sprites have transparent outer borders. The importer removes neighboring atlas fragments and preserves aspect ratio. Species skins preserve original texture dimensions and UV layouts; sheep wool is tinted separately. Source artwork and exact prompts are retained in [assets-source/art](assets-source/art/PROMPTS.md).
 
-- [HUD, skins, special soul sand, and boss bar](validation/screenshots/rust-and-ruin-hud.png)
-- [Inventory sprites, effects, and JEI](validation/screenshots/rust-and-ruin-jei.png)
-- [JEI Rusting category](validation/screenshots/rust-and-ruin-rusting-jei.png)
+The supplied audio remains normalized, peak-limited mono Vorbis. Sound origins and resource loading were checked; subjective loudness on the user's speakers was not measured.
 
-Source atlases and the exact built-in image-generation prompts are retained in [assets-source/art](assets-source/art). The supplied mod icon is unchanged. The special soul sand texture is fully opaque; item sprites preserve transparency.
+## Reproduce the client checks
 
-The original MP3 is retained. The game uses normalized, peak-limited mono Vorbis audio; volume defaults to 2.5 and is configurable. Sound resource loading and event origins were checked. Loudness on the user's speakers was not subjectively evaluated.
-
-## Reproduce the graphical test
-
-Run the headless GameTests first. Copy `build/gametest/world` into `build/client-smoke/saves/smoke-world-final` if no smoke world exists. With JDK 17 configured, run:
+Run the GameTests first. If needed, copy `build/gametest/world` to `build/client-smoke/saves/smoke-world-final`. With JDK 17 configured, run one viewer configuration at a time:
 
 ```powershell
 .\gradlew.bat -PwithJei runClientSmoke --console plain
+.\gradlew.bat -PwithRei runClientSmoke --console plain
 ```
 
-The test prepares its scene, opens the inventory and Rusting recipes, writes `build/client-smoke/client-smoke-result.txt`, saves screenshots, and closes the client.
+The harness enters the copied world, prepares the scene, forces late-stage disease for the Lockjaw Sonata check, opens viewer pages and the beacon screen, writes a result file, captures screenshots, and closes Minecraft.
 
 ## Release inspection
 
 `build/libs/rust-and-ruin-0.1.0-beta.jar`:
 
-- Name and version match Rust & Ruin 0.1.0-beta.
-- Contains 36 PNG assets, normalized audio, recipes, advancements, block tags, and mixins.
-- No GameTest, sound-probe, or smoke-test classes are included.
-- Fabric API is the only required mod dependency. JEI implementation classes are not bundled.
-- Size: 2,843,875 bytes.
-- SHA-256: `B865D0FA617CCFC47E37BB888160A836E89C83395EB93C2461937EDE9C218191`.
+- Display name and version match Rust & Ruin 0.1.0-beta.
+- Includes 42 PNGs, normalized audio, recipes, advancements, custom block tags, and required mixins.
+- Contains no GameTest, sound-probe, smoke-test, JEI implementation, REI implementation, or Architectury classes.
+- Fabric API is the only required mod dependency. JEI and REI are optional integrations.
+- Size: 2930021 bytes.
+- SHA-256: `93B1E0681A2161033200F066E8D975D76E96F033B3176463152FCDD8E703476B`.
 
-The tests cover an integrated client/server and a dedicated server environment. Real network latency and compatibility with arbitrary HUD, skin, combat, and loot mods have not been established. Controlled probabilities and ritual tests do not substitute for a long multiplayer balance session.
+## Practical limits
+
+Tests cover a dedicated server environment and graphical integrated-server clients. They do not establish arbitrary modpack compatibility or real-network latency behavior. Dynamic third-party textures use a tint fallback when a source PNG is unavailable. Armor and other covering layers can conceal parts of a skin. Actual probabilities were checked with controlled boundaries rather than thousands of naturally summoned bosses. Subjective multiplayer balance still benefits from playtesting.

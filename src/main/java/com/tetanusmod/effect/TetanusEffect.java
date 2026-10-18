@@ -32,7 +32,7 @@ public final class TetanusEffect extends StatusEffect {
         int stage = Infection.stage(elapsed, state.tetanus$getTotal());
         state.tetanus$setInfection(elapsed + 1, state.tetanus$getTotal());
         if (!(entity instanceof net.minecraft.entity.player.PlayerEntity) && elapsed > 0 && elapsed % 200 == 0) {
-            float floor = com.tetanusmod.entity.MobVariants.permanent(entity) && !(entity instanceof net.minecraft.entity.passive.AnimalEntity)
+            float floor = com.tetanusmod.entity.MobVariants.permanent(entity) && !com.tetanusmod.entity.MobVariants.isAnimal(entity)
                     ? entity.getMaxHealth() * 0.5F : 1.0F;
             float damage = Math.min(1.0F, Math.max(0,entity.getHealth()-floor));
             if (damage > 0) entity.damage(entity.getDamageSources().magic(), damage);
@@ -53,6 +53,14 @@ public final class TetanusEffect extends StatusEffect {
             entity.setVelocity(0, entity.getVelocity().y, 0);
             entity.velocityModified = true;
         }
+        // Visible lockjaw episodes occur independently of the randomized spasm roll.
+        int lateStart=(int)((state.tetanus$getTotal()*2L+2)/3);
+        if(stage==2 && entity instanceof net.minecraft.entity.player.PlayerEntity player && (elapsed-lateStart)%400==0) {
+            state.tetanus$setLockjaw(80);
+
+
+            if(entity.isUsingItem()&&entity.getActiveItem().isFood())entity.stopUsingItem();
+        }
         // Randomized bursts, rolled once per second, keep symptoms intermittent.
         if (elapsed % 20 != 0 || entity.getRandom().nextDouble()
                 >= Math.min(0.8, (0.10 + stage * 0.10) * TetanusMod.CONFIG.spasmFrequency)) return;
@@ -69,7 +77,7 @@ public final class TetanusEffect extends StatusEffect {
                     SoundCategory.PLAYERS, 0.15F, 0.8F + entity.getRandom().nextFloat() * 0.2F);
         }
         if (stage == 2 && entity instanceof net.minecraft.entity.player.PlayerEntity) {
-            if (entity.getRandom().nextBoolean()) state.tetanus$setLockjaw(30);
+
             if (entity.getRandom().nextFloat() < 0.25F) {
                 float damage = TetanusMod.CONFIG.periodicDamage;
                 if (!TetanusMod.CONFIG.tetanusCanKill) damage = Math.min(damage, Math.max(0, entity.getHealth() - 1.0F));

@@ -21,10 +21,10 @@ public final class ModConfig {
     public boolean tetanusCanKill = false;
     public float infectionSoundVolume = 2.5F;
     public float mobConversionChance = 0.05F;
-    public float animalConversionChance = 0.02F;
+    public float animalConversionChance = 0.15F;
     public float witherConversionChance = 0.05F;
     public float salmonellaChance = 0.10F;
-    public int balanceRevision = 2;
+    public int balanceRevision = 3;
 
     public static ModConfig load() {
         Path path = FabricLoader.getInstance().getConfigDir().resolve("tetanusmod.json");
@@ -36,10 +36,10 @@ public final class ModConfig {
                 ModConfig read = gson.fromJson(json, ModConfig.class);
                 if(read!=null&&!com.google.gson.JsonParser.parseString(json).getAsJsonObject().has("balanceRevision")) {
                     if(read.mobConversionChance==0.25F)read.mobConversionChance=0.05F;
-                    if(read.animalConversionChance==0.15F)read.animalConversionChance=0.02F;
+
                     if(read.witherConversionChance==0.02F)read.witherConversionChance=0.05F;
                 }
-                if (read != null) config = read;
+                if (read != null) { if(read.balanceRevision < 3 && read.animalConversionChance == 0.02F) read.animalConversionChance=0.15F; config = read; }
             }
             config.validate();
             Files.createDirectories(path.getParent());
@@ -62,10 +62,10 @@ public final class ModConfig {
         spasmFrequency = Double.isFinite(spasmFrequency) ? Math.max(0, Math.min(5, spasmFrequency)) : 1;
         infectionSoundVolume = finite(infectionSoundVolume, 2.5F, 4);
         mobConversionChance = finite(mobConversionChance, 0.05F, 1);
-        animalConversionChance = finite(animalConversionChance, 0.02F, 1);
+        animalConversionChance = finite(animalConversionChance, 0.15F, 1);
         witherConversionChance = finite(witherConversionChance, 0.05F, 1);
         salmonellaChance=finite(salmonellaChance,0.10F,1);
-        balanceRevision=2;
+        balanceRevision=3;
     }
     private static float finite(float value, float fallback, float max) { return Float.isFinite(value) ? Math.max(0,Math.min(max,value)) : fallback; }
 

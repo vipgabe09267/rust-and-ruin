@@ -1,0 +1,22 @@
+{
+    "ingredients":  [
+                        {
+                            "item":  "tetanusmod:rusty_fishing_hook"
+                        },
+                        {
+                            "item":  "minecraft:chain"
+                        },
+                        {
+                            "item":  "minecraft:string"
+                        },
+                        {
+                            "item":  "minecraft:stick"
+                        }
+                    ],
+    "category":  "equipment",
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:rusty_hookline"
+               },
+    "type":  "minecraft:crafting_shapeless"
+}

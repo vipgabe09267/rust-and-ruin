@@ -73,7 +73,8 @@ public class BalanceGameTests implements FabricGameTest {
         MobVariants.makePermanent(zombie);zombie.damage(ctx.getWorld().getDamageSources().genericKill(),1000);
         var drops=drops(ctx,zombie.getPos());
         int iron=drops.stream().filter(e->e.getStack().isOf(Items.IRON_NUGGET)).mapToInt(e->e.getStack().getCount()).sum();
-        ctx.assertTrue(iron>=1&&iron<=3,"Mutant iron reward must be one to three nuggets");
+        ctx.assertTrue(iron<=3,"Mutant iron reward exceeds three nuggets");
+        ctx.assertTrue(drops.stream().anyMatch(e->java.util.Set.of(Items.IRON_NUGGET,Items.COPPER_INGOT,Items.FLINT,Items.STRING,Items.COAL,Items.BONE).contains(e.getStack().getItem())),"Mutant salvage missing");
         ctx.assertTrue(drops.stream().anyMatch(e->e.getStack().isOf(ModItems.RUST)),"Rust reward missing");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)

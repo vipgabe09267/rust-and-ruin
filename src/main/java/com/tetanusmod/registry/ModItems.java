@@ -28,7 +28,10 @@ public final class ModItems {
     public static final Item ANTITOXIN = register("tetanus_antitoxin", new AntitoxinItem(new FabricItemSettings().maxCount(16)));
     public static final Item TETANIZED_ARROW = register("tetanized_arrow", new TetanizedArrowItem(new FabricItemSettings()));
     public static final Item RUST=register("rust",new Item(new FabricItemSettings()));
-    public static final Item RUSTY_FISHING_HOOK=register("rusty_fishing_hook",new Item(new FabricItemSettings()));
+    public static final Item RUSTY_FISHING_HOOK=register("rusty_fishing_hook",new com.tetanusmod.item.DescribedItem(new FabricItemSettings(),"hook"));
+    public static final Item COW_MANURE=register("cow_manure",new com.tetanusmod.item.DescribedItem(new FabricItemSettings(),"manure"));
+    public static final Item TETANIZED_WITHER_STAR=register("tetanized_wither_star",new com.tetanusmod.item.DescribedItem(new FabricItemSettings().rarity(net.minecraft.util.Rarity.EPIC),"star"));
+    public static final Item RUSTY_HOOKLINE=register("rusty_hookline",new com.tetanusmod.item.HooklineItem(new FabricItemSettings().maxDamage(96)));
     public static final Item INFECTED_MEAT = register("infected_meat", new InfectedMeatItem(new FabricItemSettings().food(
             new net.minecraft.item.FoodComponent.Builder().hunger(3).saturationModifier(0.3F).meat().build())));
     public static final Item COOKED_INFECTED_MEAT = register("cooked_infected_meat", new Item(new FabricItemSettings().food(

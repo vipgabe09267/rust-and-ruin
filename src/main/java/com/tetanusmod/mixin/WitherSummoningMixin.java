@@ -14,8 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(WitherSkullBlock.class)
 public abstract class WitherSummoningMixin {
     @Unique private static final ThreadLocal<Boolean> rustruin$special=ThreadLocal.withInitial(()->false);
-    @Inject(method="onPlaced(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/SkullBlockEntity;)V",at=@At("HEAD"))
-    private static void rustruin$begin(World world,BlockPos pos,SkullBlockEntity skull,CallbackInfo ci){rustruin$special.remove();}
+    @Inject(method="onPlaced(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/SkullBlockEntity;)V",at=@At("HEAD"),cancellable=true)
+    private static void rustruin$begin(World world,BlockPos pos,SkullBlockEntity skull,CallbackInfo ci){rustruin$special.remove();if(com.tetanusmod.entity.EnhancedWitherRitual.trySummon(world,pos))ci.cancel();}
     @Redirect(method="onPlaced(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/SkullBlockEntity;)V",
             at=@At(value="INVOKE",target="Lnet/minecraft/block/CarvedPumpkinBlock;breakPatternBlocks(Lnet/minecraft/world/World;Lnet/minecraft/block/pattern/BlockPattern$Result;)V"))
     private static void rustruin$checkSand(World world,BlockPattern.Result pattern) {

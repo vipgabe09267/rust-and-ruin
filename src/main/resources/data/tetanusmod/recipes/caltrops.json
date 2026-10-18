@@ -1,21 +1,25 @@
 {
-    "key":  {
-                "N":  {
-                          "item":  "tetanusmod:nail"
-                      },
-                "S":  {
-                          "item":  "minecraft:string"
-                      }
-            },
+    "ingredients":  [
+                        {
+                            "item":  "tetanusmod:nail"
+                        },
+                        {
+                            "item":  "tetanusmod:nail"
+                        },
+                        {
+                            "item":  "tetanusmod:nail"
+                        },
+                        {
+                            "item":  "tetanusmod:nail"
+                        },
+                        {
+                            "item":  "minecraft:iron_nugget"
+                        }
+                    ],
     "category":  "equipment",
-    "pattern":  [
-                    " N ",
-                    "NSN",
-                    " N "
-                ],
     "result":  {
-                   "count":  1,
+                   "count":  4,
                    "item":  "tetanusmod:caltrops"
                },
-    "type":  "minecraft:crafting_shaped"
+    "type":  "minecraft:crafting_shapeless"
 }

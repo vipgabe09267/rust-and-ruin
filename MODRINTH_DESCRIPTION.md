@@ -1,39 +1,58 @@
-﻿# Rust & Ruin
+# Rust & Ruin
 
-Craft iron weapons, let them rust, and turn a small injury into a much bigger problem. Rust & Ruin adds throwable nails, industrial melee weapons, infected creatures, and a stronger Wither to **Minecraft 1.20.1 Fabric**.
+Craft iron weapons, let them rust, and turn a small injury into a much bigger problem. Rust & Ruin brings throwable nails, industrial melee weapons, diseases, and tetanized creatures to **Minecraft 1.20.1 Fabric**.
 
 ## Weapons that weather
 
-Throw nails, swing rebar and metal pipes, or leave caltrops for something to step on. Dropped metal rusts after five seconds submerged in water or fifteen seconds exposed to rain. All five iron tools have rusted variants that retain their durability and enchantments.
+Throw nails, swing rebar and metal pipes, or set caltrops. Dropped metal rusts after **five seconds in water, including at the surface**, or fifteen seconds exposed to rain. Iron tools keep their durability and enchantments when they rust.
 
-Rusty weapons can inflict **Tetanus**, lasting two to five minutes. Expect muscle stiffness, spasms, movement disturbances, and rusty brown hearts. Carry antitoxin, or clean your equipment with a wire brush. Cleaning leaves behind Rust, an ingredient for Tetanized Soul Sand.
+A wire brush cleans equipment and collects Rust. Fishing rods left in water break into sticks and string, with a chance to recover a **Rusty Fishing Hook**. Craft it with chain, string, and a stick to make a **Rusty Hookline** that pulls and infects creatures up to 12 blocks away.
 
-## Infected creatures
+## Tetanus and Salmonella
 
-Rusty projectile hits have a **5% chance** to permanently tetanize supported hostile mobs and villagers, or a **2% chance** for animals. Mutated hostiles are tougher, wear a rusted skin overlay, and drop a little iron and Rust alongside their usual loot.
+Tetanus lasts two to five minutes, with stiffness, spasms, and late-stage lockjaw. Lockjaw Sonata has a visible icon and countdown, and briefly prevents eating. Experiencing it earns the **Lockjaw Sonata** advancement. Infected hearts turn rusty brown on both the HUD and tab-list health display.
 
-Tetanized animals move slower and drop **only infected meat**. Cook it before eating: raw infected meat causes Tetanus and has a low chance of **Salmonella**, with periodic vomiting, hunger loss, and light damage.
+Tetanized animals drop only infected meat. Cook it before eating: raw meat causes Tetanus and has a low chance of Salmonella, with vomiting, hunger loss, and light damage.
 
-## A different Wither fight
+You can also brew both diseases:
 
-Craft **Tetanized Soul Sand** from Rust, soul sand, and an iron ingot. Use four blocks in the usual Wither structure for a **5% chance** of summoning a Tetanized Wither.
+1. Use a glass bottle on a cow to collect **Cow Manure**.
+2. Brew manure with water bottles to make **Cow Manure Potion**.
+3. Add **Rust** for Tetanus, or **Infected Meat** for Salmonella.
+4. Add **gunpowder** to turn either disease potion into a splash potion.
 
-It has **double the health**, a custom appearance and boss bar, and bonus loot alongside the Nether Star. Its **Tetanus I** book can be applied at an anvil to infect targets with melee hits. Win the fight to earn **Tetanus. Nice One!**
+## Tetanized creatures
+
+All vanilla mob types can be tetanized, including spiders. Rusty projectile and hookline hits have a **15% chance for animals** and **5% for other mobs**. Their textures preserve the original creature's faces, fur, scales, and other details.
+
+Hostile variants are tougher and drop a small mix of useful salvage. Animals are slower and drop infected meat instead of their ordinary items.
+
+Right-click an iron golem with Rust for an **18% chance** to create a **200-health Tetanized Iron Golem**, earning **Rusty Guardian**.
+
+## A stronger Wither and beacon
+
+Build the usual Wither structure using four **Tetanized Soul Sand** blocks for a **5% chance** of a Tetanized Wither. Replace the upper center soul sand with a **netherite block** to raise the default chance to **30%**.
+
+The special Wither has double the health, a custom boss bar, bonus loot, **Tetanus I**, and a **Tetanized Wither Star**. Use that star in the normal beacon recipe to craft a cracked-glass **Tetanized Beacon**.
+
+- Its pyramid accepts **gold, copper, and netherite blocks**.
+- Power selections require **netherite ingot payments**.
+- Primary powers start at **level II**.
+- A full pyramid offers **Regeneration II**, or a **level III** upgrade of the primary power.
+- A wire brush can turn the special star back into an ordinary Nether Star.
 
 ## Also included
 
-- Tetanized arrows that work with bows and crossbows. Infinity still consumes them.
-- Fishing rod salvage: water breaks dropped rods into sticks and string, with a 15% chance of a Rusty Fishing Hook and its advancement.
-- Advancements for contracting Tetanus, rusting a nail, finding a hook, and defeating the special Wither.
-- Short tooltips with extra details on Shift.
-- JEI crafting, cooking, and a dedicated Rusting category.
-- Operator commands to summon or convert tetanized mobs.
-- Configurable infection duration, rust timing, damage, sound volume, and mutation rates.
+- Advancements including **Strange Meat**, **Tetanized Mob**, **Rusty Guardian**, and **Tetanus. Nice One!**
+- Tetanized arrows that work with bows and crossbows and consume ammunition even with Infinity.
+- Short tooltips, configurable infection settings, and commands to summon variants.
+- JEI and REI support for crafting, cooking, brewing, and rusting.
+- Corrected caltrop crafting: **four nails + one iron nugget, shapeless, makes four**.
 
-## Requirements
+**Minecraft 1.20.1 · Fabric Loader 0.16.14+ · Fabric API · Java 17**
 
-**Minecraft Java 1.20.1 · Fabric Loader 0.16.14+ · Fabric API · Java 17**
+Required on **both client and server**. JEI or REI is optional; install your chosen viewer with its own dependencies.
 
-Install on **both the client and server**. **JEI is optional**; no other mod dependencies are required.
+[Source code and full recipe guide](https://github.com/vipgabe09267/rust-and-ruin)
 
-This release remains **0.1.0-beta**. Replace the previous mod JAR when updating.
+This update remains **0.1.0-beta**. Replace the old JAR when updating.

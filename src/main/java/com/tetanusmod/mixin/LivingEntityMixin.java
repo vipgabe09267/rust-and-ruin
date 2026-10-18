@@ -17,7 +17,7 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     @Inject(method="drop",at=@At("HEAD"),cancellable=true)
     private void rustruin$infectedAnimalOnlyMeat(net.minecraft.entity.damage.DamageSource source,CallbackInfo ci) {
         LivingEntity self=(LivingEntity)(Object)this;
-        if(self instanceof net.minecraft.entity.passive.AnimalEntity&&com.tetanusmod.entity.MobVariants.permanent(self)) {
+        if(com.tetanusmod.entity.MobVariants.isAnimal(self)&&com.tetanusmod.entity.MobVariants.permanent(self)) {
             com.tetanusmod.entity.MobVariants.drops(self);
             dropXp();
             ci.cancel();
@@ -103,8 +103,10 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     private void tetanus$clearRecoveredState(CallbackInfo ci) {
         LivingEntity self = (LivingEntity) (Object) this;
         com.tetanusmod.entity.MobVariants.tick(self);
+        com.tetanusmod.effect.LockjawEffect.flush(self);
         if (!self.getWorld().isClient && !self.hasStatusEffect(TetanusMod.TETANUS)) {
             tetanus$elapsed = tetanus$total = tetanus$lockjaw = tetanus$freeze = 0;
+            self.removeStatusEffect(TetanusMod.LOCKJAW);
         }
     }
 
@@ -122,7 +124,7 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     private void tetanus$load(NbtCompound nbt, CallbackInfo ci) {
         tetanus$elapsed = Math.max(0, nbt.getInt("TetanusElapsed"));
         tetanus$total = Math.max(0, nbt.getInt("TetanusTotal"));
-        tetanus$lockjaw = Math.max(0, Math.min(40, nbt.getInt("TetanusLockjaw")));
+        tetanus$lockjaw = Math.max(0, Math.min(80, nbt.getInt("TetanusLockjaw")));
         tetanus$freeze = Math.max(0, Math.min(10, nbt.getInt("TetanusFreeze")));
         rustruin$setPermanent(nbt.getBoolean("RustRuinPermanent"));
         rustruin$rolled = nbt.getBoolean("RustRuinRolled");

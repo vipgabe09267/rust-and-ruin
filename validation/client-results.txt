@@ -1,0 +1,3 @@
+PASS: JEI Rusting (11 recipes), caltrop crafting, corrected item sprites, species skins, potions, and custom beacon screen rendered
+
+PASS: REI Rusting (11 recipes), caltrop crafting, corrected item sprites, species skins, potions, and custom beacon screen rendered

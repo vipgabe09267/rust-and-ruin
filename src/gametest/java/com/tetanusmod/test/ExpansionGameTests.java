@@ -66,7 +66,7 @@ public class ExpansionGameTests implements FabricGameTest {
         var animal=cow(ctx); double speed=animal.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
         MobVariants.makePermanent(animal);
         ctx.assertTrue(animal.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED)<speed,"Tetanized animal is not slower");
-        ctx.assertTrue(MobVariants.eligibleRoll(animal,0.019F)&&!MobVariants.eligibleRoll(animal,0.02F),"Animal 2% boundary wrong");
+        ctx.assertTrue(MobVariants.eligibleRoll(animal,0.149F)&&!MobVariants.eligibleRoll(animal,0.15F),"Animal 15% boundary wrong");
         ctx.assertTrue(MobVariants.eligibleRoll(zombie,0.049F)&&!MobVariants.eligibleRoll(zombie,0.05F),"Mob 5% boundary wrong");
         ctx.complete();
     }

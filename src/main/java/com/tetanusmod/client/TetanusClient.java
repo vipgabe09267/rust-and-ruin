@@ -12,12 +12,25 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.util.Hand;
 
 public final class TetanusClient implements ClientModInitializer {
+    @SuppressWarnings({"rawtypes","unchecked"})
+    private static void registerBeacon() {
+        net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry.register((net.minecraft.block.entity.BlockEntityType)com.tetanusmod.beacon.ModBeacons.ENTITY,(net.minecraft.client.render.block.entity.BlockEntityRendererFactory<net.minecraft.block.entity.BeaconBlockEntity>)net.minecraft.client.render.block.entity.BeaconBlockEntityRenderer::new);
+        net.minecraft.client.gui.screen.ingame.HandledScreens.<net.minecraft.screen.BeaconScreenHandler,TetanizedBeaconScreen>register((net.minecraft.screen.ScreenHandlerType<net.minecraft.screen.BeaconScreenHandler>)(Object)com.tetanusmod.beacon.ModBeacons.SCREEN,
+            (handler,inventory,title)->new TetanizedBeaconScreen((com.tetanusmod.beacon.TetanizedBeaconScreenHandler)handler,inventory,title));
+    }
     private int twitchTicks;
     private float previousOffset;
     private float amplitude;
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.register(TetanusMod.NAIL_ENTITY, FlyingItemEntityRenderer::new);
+        registerBeacon();
+        InfectedPlayerList.initialize();
+        net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlock(com.tetanusmod.beacon.ModBeacons.BLOCK,net.minecraft.client.render.RenderLayer.getTranslucent());
+        net.fabricmc.fabric.api.resource.ResourceManagerHelper.get(net.minecraft.resource.ResourceType.CLIENT_RESOURCES).registerReloadListener(new net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener() {
+            public net.minecraft.util.Identifier getFabricId(){return TetanusMod.id("tetanized_textures");}
+            public void reload(net.minecraft.resource.ResourceManager manager){TetanizedTextures.clear();}
+        });
         EntityRendererRegistry.register(TetanusMod.TETANIZED_ARROW_ENTITY,TetanizedArrowRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback.EVENT.register(
                 (type,renderer,helper,context) -> helper.register(new RustedSkinFeature<>(renderer)));

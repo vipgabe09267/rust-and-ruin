@@ -24,7 +24,7 @@ public abstract class ItemEntityMixin {
         if (entity.getWorld().isClient || !entity.isAlive()) return;
         ItemStack stack = entity.getStack();
         if(stack.isOf(net.minecraft.item.Items.FISHING_ROD)) {
-            if(entity.isTouchingWater()){
+            if(RustingSystem.touchingWater(entity)){
                 if(++rustruin$rodTicks>=TetanusMod.CONFIG.waterRustTicks)
                     com.tetanusmod.rust.FishingSalvage.breakRod(entity,entity.getWorld().random.nextFloat());
             }else rustruin$rodTicks=0;
@@ -35,7 +35,7 @@ public abstract class ItemEntityMixin {
         boolean convert = false;
         if (rusty == null) {
             tetanus$waterTicks = tetanus$rainTicks = 0;
-        } else if (entity.isSubmergedInWater()) {
+        } else if (RustingSystem.touchingWater(entity)) {
             tetanus$rainTicks = 0;
             convert = ++tetanus$waterTicks >= TetanusMod.CONFIG.waterRustTicks;
         } else {

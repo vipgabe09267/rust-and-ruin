@@ -1,8 +1,32 @@
 {
-  "required": true,
-  "package": "com.tetanusmod.mixin",
-  "compatibilityLevel": "JAVA_17",
-  "mixins": ["ItemEntityMixin", "LivingEntityMixin", "ServerPlayNetworkHandlerMixin", "GrindstoneScreenHandlerMixin", "GrindstoneInputSlotMixin", "CreeperAccessor", "WitherEntityMixin", "ItemEntityAccessor", "WitherSummoningMixin"],
-  "client": ["InGameHudMixin", "BossBarHudMixin"],
-  "injectors": { "defaultRequire": 1 }
+    "required":  true,
+    "package":  "com.tetanusmod.mixin",
+    "compatibilityLevel":  "JAVA_17",
+    "mixins":  [
+                   "ItemEntityMixin",
+                   "LivingEntityMixin",
+                   "ServerPlayNetworkHandlerMixin",
+                   "GrindstoneScreenHandlerMixin",
+                   "GrindstoneInputSlotMixin",
+                   "CreeperAccessor",
+                   "WitherEntityMixin",
+                   "ItemEntityAccessor",
+                   "WitherSummoningMixin",
+                   "SalmonellaAdvancementMixin",
+                   "BeaconBlockEntityMixin",
+                   "BeaconAccessor",
+                   "BlockEntityTypeAccessor",
+                   "ManurePotionColorMixin"
+               ],
+    "client":  [
+                   "InGameHudMixin",
+                   "BossBarHudMixin",
+                   "BeaconButtonMixin",
+                   "DragonTextureMixin",
+                   "PlayerListHeartsMixin",
+                   "SheepWoolTintMixin"
+               ],
+    "injectors":  {
+                      "defaultRequire":  1
+                  }
 }

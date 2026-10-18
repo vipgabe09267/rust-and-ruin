@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/rusty_hookline"
+                 },
+    "parent":  "minecraft:item/generated"
+}

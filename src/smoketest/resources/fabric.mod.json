@@ -1,9 +1,15 @@
 {
-  "schemaVersion": 1,
-  "id": "tetanusmod_smoketest",
-  "version": "1.0.0",
-  "name": "Rust & Ruin Client Smoke Test",
-  "environment": "client",
-  "entrypoints": {"client":["com.tetanusmod.test.ClientSmokeTest"]},
-  "depends": {"tetanusmod":"*","jei":"*"}
+    "schemaVersion":  1,
+    "id":  "tetanusmod_smoketest",
+    "version":  "1.0.0",
+    "name":  "Rust \u0026 Ruin Client Smoke Test",
+    "environment":  "client",
+    "entrypoints":  {
+                        "client":  [
+                                       "com.tetanusmod.test.ClientSmokeTest"
+                                   ]
+                    },
+    "depends":  {
+                    "tetanusmod":  "*"
+                }
 }
