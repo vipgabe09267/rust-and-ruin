@@ -1,64 +1,72 @@
 # Rust & Ruin
 
-Craft iron weapons, let them rust, and turn a small injury into a much bigger problem. Rust & Ruin brings throwable nails, industrial melee weapons, diseases, and tetanized creatures to **Minecraft 1.20.1 Fabric**.
+Throw nails, set traps, and put rusty metal to use. **Rust & Ruin** adds weapons, diseases, infected creatures, village medics, and a tougher Wither to **Minecraft 1.20.1 Fabric**.
 
-## Prepare before exposure
+## Weapons, rust, and traps
 
-Drink a **Tetanus Vaccine** for 20 minutes of protection that reduces infection risk by 80%. It does not cure an existing case or protect against Salmonella. **Protective Gloves** in the offhand reduce rusty-contact risk by 50%, with durability loss. Together they provide 90% contact protection by default; attacks still deal their normal damage.
+Fight with throwable nails, rebar, metal pipes, and spears. Leave metal equipment in water for five seconds or exposed to rain for fifteen seconds to rust it. Rusty weapons can spread Tetanus; a wire brush cleans them and gives you Rust for crafting or placing on floors and walls.
 
-Craft the **Rust & Ruin Field Guide** from a book, Rust and a feather. Its ten scrollable chapters cover recipes, diseases, prevention, mobs, brewing, salvage and boss progression. No additional mod dependency is needed.
+Set caltrops and barbed wire, or catch enemies in **bear traps**. Bear traps snap shut, apply Slowness X, and must be rearmed with a Trap Reset Tool. Rusted traps can infect their victims.
 
-## Weapons that weather
+The Iron Spear has a slower swing than an iron sword, seven base damage, and a right-click thrust with extra reach.
 
-Throw nails, swing rebar and metal pipes, or set caltrops. Dropped metal rusts after **five seconds in water, including at the surface**, or fifteen seconds exposed to rain. Iron tools keep their durability and enchantments when they rust.
+## Three diseases, different problems
 
-A wire brush cleans equipment and collects Rust. Fishing rods left in water break into sticks and string, with a chance to recover a **Rusty Fishing Hook**. Craft it with chain, string, and a stick to make a **Rusty Hookline** that pulls and infects creatures up to 12 blocks away.
+- **Tetanus** lasts 5-10 minutes and causes stiffness, spasms, and rusty brown hearts. During the final 2-4 minutes, **Lockjaw Sonata** prevents eating. Antitoxin cures both; milk cannot.
+- **Salmonella** causes vomiting, nausea, hunger loss, and light damage. Cooking infected meat makes it safe to eat.
+- **Rabies** lasts until death or treatment with Rabies Cure. It removes one heart of maximum health each minute until only two hearts remain, then causes recurring nausea. Your health hearts turn purple-red.
 
-## Tetanus and Salmonella
+Equip **Protective Gloves** in their dedicated inventory slot, carry antitoxin, and vaccinate before a fight. Tetanus and Rabies have separate vaccines. The **Tetanus Protection** shield enchantment reduces infection risk from Tetanus I by 65% and Tetanus II by 40%.
 
-Tetanus lasts **5–10 minutes**, with stiffness, spasms, and late-stage lockjaw. **Lockjaw Sonata** continuously prevents eating during the final randomly chosen **2–4 minutes**, with a visible icon and countdown. **Milk cannot cure either effect: drink Tetanus Antitoxin**, or wait for natural recovery. Experiencing it earns the **Lockjaw Sonata** advancement. Infected hearts turn rusty brown on both the HUD and tab-list health display.
+## Infected creatures
 
-Animals with Tetanus, including temporary infections, drop only infected meat. Collecting it unlocks **Strange Meat**; contracting Salmonella earns **Why did I eat that?**. Cook it before eating: raw meat causes Tetanus and has a low chance of Salmonella, with vomiting, nausea, hunger loss, and light damage.
+Tetanized mobs have rusty skins, increased strength, and extra salvage drops. Tetanized animals move slower and drop only **Infected Meat**. Ordinary animals with temporary Tetanus keep their normal drops.
 
-You can also brew both diseases:
+Naturally spawned creatures have a **10% / 15% / 20%** chance of being tetanized on Easy / Normal / Hard. Mob spawners use **25% / 35% / 45%**. Some mammals and undead can also become rarer **rabid variants**, with sickly skins, extra health, armor, and aggressive attacks. Only rabid animals drop Rabid Meat.
 
-1. Use a glass bottle on a cow to collect **Cow Manure**.
-2. Brew manure with water bottles to make **Cow Manure Potion**.
-3. Add **Rust** for Tetanus, or **Infected Meat** for Salmonella.
-4. Add **gunpowder** to turn either disease potion into a splash potion.
+Creative spawn eggs let you choose specific variants.
 
-## Tetanized creatures
+## Village medics
 
-All vanilla mob types can be tetanized, including spiders. Rusty attacks, including melee, traps, projectiles and hooklines, have a **15% chance for animals** and **5% for other mobs**. Their textures preserve the original creature's faces, fur, scales, and other details.
+Find a medic in a village clinic or place a crafted **Medicine Cabinet** to give an unemployed villager the job. Medics sell vaccines, antitoxin, Rabies Cure, and protective gloves.
 
-Hostile variants are tougher and drop a small mix of useful salvage. Animals are slower and drop infected meat instead of their ordinary items.
+Clinics have timber roofs, lantern-lit porches, treatment beds, and medicine storage. Smiths and fishermen also offer selected equipment and salvage. A reusable **Field Guide** explains recipes and progression in-game.
 
-Right-click an iron golem with Rust for an **18% chance** to create a **200-health Tetanized Iron Golem**, earning **Rusty Guardian**.
+## Brewing and enchanted weapons
 
-## A stronger Wither and beacon
+Collect Cow Manure using a glass bottle on a cow, then brew it with water. The resulting potion causes five seconds of nausea and serves as a disease-potion base.
 
-Build the usual Wither structure using four **Tetanized Soul Sand** blocks for a **5% chance** of a Tetanized Wither. Replace the upper center soul sand with a **netherite block** to raise the default chance to **30%**.
+| Base potion | Ingredient | Result |
+| --- | --- | --- |
+| Cow Manure | Rust | Tetanus |
+| Cow Manure | Infected Meat | Salmonella |
+| Cow Manure | Rabid Meat | Rabies |
+| Tetanus | Pufferfish | Lockjaw Sonata |
 
-The special Wither has double the health, a custom boss bar, bonus loot, **Tetanus I**, and a **Tetanized Wither Star**. Use that star in the normal beacon recipe to craft a cracked-glass **Tetanized Beacon**.
+Add gunpowder for splash potions or dragon's breath for lingering versions.
 
-- Its pyramid accepts **gold, copper, and netherite blocks**.
-- Power selections require **netherite ingot payments**.
-- Primary powers start at **level II**.
-- A full pyramid offers **Regeneration II**, or a **level III** upgrade of the primary power.
-- A wire brush can turn the special star back into an ordinary Nether Star.
+Make **Tetanized Arrows** at a smithing table: leave the template slot empty, add ordinary arrows and one Rust, and convert up to 64 arrows at once. They cause one minute of Tetanus and are consumed even with Infinity.
 
-## Also included
+**Tetanus I and II** apply to combat weapons, including swords, axes, spears, rebar, pipes, bows, crossbows, and tridents. Enchanted ranged weapons apply full-duration infection; combining them with Tetanized Arrows extends it by 25%. Tetanus II adds disorientation, erratic mob movement, missed attacks, and periodic damage throughout the infection.
 
-- Advancements including **Strange Meat**, **Tetanized Mob**, **Rusty Guardian**, and **Tetanus. Nice One!**
-- Tetanized arrows that work with bows and crossbows and consume ammunition even with Infinity.
-- Short tooltips, configurable infection settings, and commands to summon variants.
-- JEI and REI support for crafting, cooking, brewing, and rusting.
-- Corrected caltrop crafting: **four nails + one iron nugget, shapeless, makes four**.
+## The Tetanized Wither
 
-**Minecraft 1.20.1 · Fabric Loader 0.16.14+ · Fabric API · Java 17**
+Build a Wither using four **Tetanized Soul Sand** blocks for a **5%** chance of the special variant. Replacing the upper center block with netherite raises the default chance to **30%**.
 
-Required on **both client and server**. JEI or REI is optional; install your chosen viewer with its own dependencies.
+The Tetanized Wither has **600 health**, a custom appearance and boss bar, bonus loot, a normal Nether Star, and a **Tetanized Wither Star**. It guarantees a Tetanus I book and has an additional **50% chance** to drop Tetanus II.
 
-[Source code and full recipe guide](https://github.com/vipgabe09267/rust-and-ruin)
+Use its special star to craft a **Tetanized Beacon**. Build the pyramid from **Rusted Iron Blocks** and pay with netherite ingots. Primary powers start at level II; a full pyramid offers Regeneration II or an upgrade to level III. An active beacon also grants Tetanus Resistance automatically.
 
-This update remains **0.1.0-beta**. Replace the old JAR when updating.
+## Advancements
+
+Earn advancements for preventing infection with gloves or a protected shield, recovering with antitoxin, contracting and curing Rabies, and completing the Wither and beacon progression.
+
+Pick up Infected Meat for **Strange Meat**, contract Salmonella for **Why did I eat that?**, or die to your own upward-thrown rusty nail for **Why did I do that?**
+
+## Requirements
+
+**Minecraft Java 1.20.1 | Fabric Loader 0.16.14+ | Fabric API | Java 17**
+
+Install on **both client and server**. **JEI and REI are optional alternatives**, with crafting, cooking, brewing, rusting, and arrow smithing displays. Install your chosen viewer's dependencies too. Rust & Ruin itself requires no additional mod beyond Fabric API.
+
+[Source code and recipe guide](https://github.com/vipgabe09267/rust-and-ruin) | [Modrinth downloads](https://modrinth.com/mod/rust-ruin)

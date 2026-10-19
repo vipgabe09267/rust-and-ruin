@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "cure_rabies":  {
+                                         "trigger":  "minecraft:impossible"
+                                     }
+                 },
+    "parent":  "tetanusmod:rabies",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.rabies_cured.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:rabies_cure"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.rabies_cured.title"
+                              },
+                    "frame":  "goal"
+                }
+}

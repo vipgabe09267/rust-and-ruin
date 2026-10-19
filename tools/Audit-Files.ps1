@@ -12,7 +12,8 @@ try {
     if($LASTEXITCODE-ne 0){throw 'Cannot inventory tracked files'}
     $paths+=@(& git ls-files --others --exclude-standard)
     if($LASTEXITCODE-ne 0){throw 'Cannot inventory new project files'}
-    $paths=@($paths|Sort-Object -Unique)
+    $deleted=@(& git ls-files --deleted)
+    $paths=@($paths|Sort-Object -Unique|Where-Object {$_ -notin $deleted})
     $inventory=@()
     $lang=Get-Content -LiteralPath 'src/main/resources/assets/tetanusmod/lang/en_us.json' -Raw -Encoding UTF8|ConvertFrom-Json
     foreach($relative in $paths) {
@@ -20,7 +21,7 @@ try {
         if(!(Test-Path -LiteralPath $path -PathType Leaf)){throw "Missing tracked file: $relative"}
         $extension=[IO.Path]::GetExtension($relative).ToLowerInvariant()
         $check='Build/configuration review'
-        if($extension-notin@('.png','.mp3','.ogg','.jar')) {
+        if($extension-notin@('.png','.mp3','.ogg','.jar','.nbt')) {
             $contents=$utf8.GetString([IO.File]::ReadAllBytes($path))
             if($contents.Contains([char]0)){throw "NUL in text file: $relative"}
             if($contents-match'(?m)^(<<<<<<< |=======\s*$|>>>>>>> )'){throw "Conflict marker: $relative"}
@@ -52,6 +53,11 @@ try {
                     }
                 }finally{$image.Dispose()}
                 $check='Decoded image; runtime item/status sprite margins checked'
+            }
+            '.nbt' {
+                $bytes=[IO.File]::ReadAllBytes($path)
+                if($bytes.Length-lt 3-or$bytes[0]-ne 31-or$bytes[1]-ne 139){throw "Structure is not gzip NBT: $relative"}
+                $check='Compressed NBT; clinic structure loaded and placed by GameTest'
             }
             '.mp3' {$check='Source audio; decoded separately with FFprobe/FFmpeg'}
             '.ogg' {$check='Packaged audio; decoded separately with FFprobe/FFmpeg'}

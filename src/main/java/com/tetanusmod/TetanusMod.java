@@ -59,14 +59,18 @@ public final class TetanusMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        com.tetanusmod.expansion.ExpansionEffects.initialize();
         ModItems.initialize();
+        com.tetanusmod.expansion.RustArrowSmithingRecipe.initialize();
+        com.tetanusmod.expansion.MedicVillage.initialize();
         com.tetanusmod.registry.ModBrewing.initialize();
         com.tetanusmod.beacon.ModBeacons.initialize();
         com.tetanusmod.entity.RustGolems.initialize();
         com.tetanusmod.effect.InfectionPresence.initialize();
+        com.tetanusmod.expansion.RabiesPresence.initialize();
         com.tetanusmod.command.RustRuinCommands.initialize();
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
-            if (entity instanceof net.minecraft.entity.LivingEntity living) com.tetanusmod.entity.MobVariants.loaded(living);
+            if (entity instanceof net.minecraft.entity.LivingEntity living) {com.tetanusmod.entity.MobVariants.loaded(living);com.tetanusmod.expansion.Rabies.loaded(living);}
         });
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             if (ServerPlayNetworking.canSend(handler.player, CONFIG_PACKET)) {

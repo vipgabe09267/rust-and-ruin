@@ -29,15 +29,18 @@ public final class BeaconPower {
         return result;
     }
     public static void apply(World world,BlockPos pos,int level,StatusEffect primary,StatusEffect secondary) {
-        if(world.isClient||!primaryAllowed(level,primary))return;
+        if(world.isClient||level<=0)return;
+        boolean validPrimary=primaryAllowed(level,primary);
         if(!selectionAllowed(level,primary,secondary))secondary=null;
         double range=level*10+10;
         var box=new Box(pos).expand(range).stretch(0,world.getHeight(),0);
         int duration=(9+level*2)*20;
         int amplifier=level>=4&&primary==secondary?2:1;
         for(var player:world.getNonSpectatingEntities(PlayerEntity.class,box)) {
-            player.addStatusEffect(new StatusEffectInstance(primary,duration,amplifier,true,true));
-            if(level>=4&&secondary!=null&&secondary!=primary)player.addStatusEffect(new StatusEffectInstance(secondary,duration,1,true,true));
+            player.addStatusEffect(new StatusEffectInstance(com.tetanusmod.TetanusMod.VACCINATED,duration,0,true,true));
+            if(validPrimary)player.addStatusEffect(new StatusEffectInstance(primary,duration,amplifier,true,true));
+            if(level>=4&&validPrimary&&player instanceof net.minecraft.server.network.ServerPlayerEntity serverPlayer)com.tetanusmod.registry.ModAdvancements.award(serverPlayer,"beacon_full","activate_full");
+            if(validPrimary&&level>=4&&secondary!=null&&secondary!=primary)player.addStatusEffect(new StatusEffectInstance(secondary,duration,1,true,true));
         }
     }
 }

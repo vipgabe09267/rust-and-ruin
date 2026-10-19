@@ -1,0 +1,19 @@
+{
+    "ingredients":  [
+                        {
+                            "item":  "tetanusmod:tetanus_vaccine"
+                        },
+                        {
+                            "item":  "tetanusmod:rabid_meat"
+                        },
+                        {
+                            "item":  "minecraft:golden_carrot"
+                        }
+                    ],
+    "category":  "misc",
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:rabies_vaccine"
+               },
+    "type":  "minecraft:crafting_shapeless"
+}

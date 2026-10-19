@@ -1,0 +1,24 @@
+{
+    "key":  {
+                "C":  {
+                          "item":  "minecraft:copper_ingot"
+                      },
+                "S":  {
+                          "item":  "minecraft:stick"
+                      },
+                "I":  {
+                          "item":  "minecraft:iron_nugget"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "I I",
+                    "ICI",
+                    " S "
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:trap_reset_tool"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

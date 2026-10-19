@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "prevent_tetanus":  {
+                                             "trigger":  "minecraft:impossible"
+                                         }
+                 },
+    "parent":  "tetanusmod:infected",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.glove_protection.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:protective_gloves"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.glove_protection.title"
+                              },
+                    "frame":  "task"
+                }
+}

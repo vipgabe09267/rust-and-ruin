@@ -85,12 +85,13 @@ public class ExpansionGameTests implements FabricGameTest {
         ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void allIronToolsConvertAndPreserveNbt(TestContext ctx) {
+    public void legacyIronToolsPreserveNbtAndCanBeCleaned(TestContext ctx) {
         ctx.assertTrue(ModIronTools.PAIRS.size()==5,"Missing vanilla iron tool variants");
         for(var entry:ModIronTools.PAIRS.entrySet()) {
             ItemStack stack=new ItemStack(entry.getKey()); stack.setDamage(93); stack.addEnchantment(Enchantments.UNBREAKING,2);
-            var rusty=RustingSystem.convert(stack,RustingSystem.rusted(stack.getItem()));
+            var rusty=RustingSystem.convert(stack,entry.getValue());
             ctx.assertTrue(rusty.isOf(entry.getValue())&&rusty.getDamage()==93&&rusty.hasEnchantments(),"Iron rust conversion lost data");
+            ctx.assertTrue(RustingSystem.rusted(entry.getKey())==null,"Retired iron tools still acquired rust variants");
             ctx.assertTrue(RustingSystem.clean(rusty.getItem())==entry.getKey(),"Brush cannot restore iron tool");
             ctx.assertTrue(rusty.getMaxDamage()==250,"Rusted iron durability changed");
         }

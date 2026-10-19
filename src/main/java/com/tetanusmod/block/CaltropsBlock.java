@@ -33,7 +33,7 @@ public final class CaltropsBlock extends BlockWithEntity implements Waterloggabl
     public boolean isRusty() { return rusty; }
     @Override protected void appendProperties(StateManager.Builder<Block, BlockState> builder) { builder.add(WATERLOGGED); }
     @Override public BlockRenderType getRenderType(BlockState state) { return BlockRenderType.MODEL; }
-    @Override public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) { return SHAPE; }
+    @Override public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) { return this==ModBlocks.BARBED_WIRE||this==ModBlocks.RUSTED_BARBED_WIRE?Block.createCuboidShape(1,0,1,15,8,15):SHAPE; }
     @Override public BlockState getPlacementState(ItemPlacementContext context) {
         return getDefaultState().with(WATERLOGGED, context.getWorld().getFluidState(context.getBlockPos()).getFluid() == Fluids.WATER);
     }

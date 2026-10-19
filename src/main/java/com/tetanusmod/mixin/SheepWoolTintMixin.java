@@ -12,6 +12,7 @@ public abstract class SheepWoolTintMixin {
     @Redirect(method="render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/entity/passive/SheepEntity;FFFFFF)V",at=@At(value="INVOKE",target="Lnet/minecraft/entity/passive/SheepEntity;getRgbColor(Lnet/minecraft/util/DyeColor;)[F"))
     private float[] wool(DyeColor dye,MatrixStack matrices,VertexConsumerProvider vertices,int light,SheepEntity sheep,float angle,float distance,float delta,float progress,float yaw,float pitch) {
         float[] color=SheepEntity.getRgbColor(dye);
+        if(com.tetanusmod.expansion.Rabies.rabid(sheep))return new float[]{0.65F,0.25F,0.43F};
         return MobVariants.permanent(sheep)?new float[]{Math.max(0.35F,color[0]*0.8F),color[1]*0.47F,color[2]*0.3F}:color;
     }
 }

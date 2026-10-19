@@ -1,0 +1,30 @@
+{
+    "variants":  {
+                     "facing=north":  {
+                                          "model":  "tetanusmod:block/rust",
+                                          "x":  90
+                                      },
+                     "facing=east":  {
+                                         "y":  90,
+                                         "model":  "tetanusmod:block/rust",
+                                         "x":  90
+                                     },
+                     "facing=south":  {
+                                          "y":  180,
+                                          "model":  "tetanusmod:block/rust",
+                                          "x":  90
+                                      },
+                     "facing=up":  {
+                                       "model":  "tetanusmod:block/rust"
+                                   },
+                     "facing=west":  {
+                                         "y":  270,
+                                         "model":  "tetanusmod:block/rust",
+                                         "x":  90
+                                     },
+                     "facing=down":  {
+                                         "model":  "tetanusmod:block/rust",
+                                         "x":  180
+                                     }
+                 }
+}

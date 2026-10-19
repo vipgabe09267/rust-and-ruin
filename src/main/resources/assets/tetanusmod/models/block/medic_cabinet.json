@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "all":  "tetanusmod:block/medic_cabinet"
+                 },
+    "parent":  "minecraft:block/cube_all"
+}

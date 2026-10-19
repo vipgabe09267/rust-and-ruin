@@ -14,7 +14,7 @@ public final class TetanizedArrowEntity extends PersistentProjectileEntity {
     @Override protected ItemStack asItemStack() { return new ItemStack(ModItems.TETANIZED_ARROW); }
     @Override protected void onHit(LivingEntity target) {
         super.onHit(target);
-        if (!getWorld().isClient) { Infection.expose(target,getOwner()); }
+
     }
     @Override protected void onEntityHit(EntityHitResult hit) {
         if(!getWorld().isClient) {
@@ -25,7 +25,7 @@ public final class TetanizedArrowEntity extends PersistentProjectileEntity {
     private void hitTarget(EntityHitResult hit) {
         // Vanilla endermen reject projectile damage before the infection callback can run.
         if (!getWorld().isClient && hit.getEntity() instanceof EndermanEntity enderman) {
-            if (enderman.damage(getDamageSources().magic(), (float)Math.ceil(getVelocity().length()*getDamage()))) onHit(enderman);
+            if (enderman.damage(new net.minecraft.entity.damage.DamageSource(getWorld().getRegistryManager().get(net.minecraft.registry.RegistryKeys.DAMAGE_TYPE).entryOf(net.minecraft.entity.damage.DamageTypes.MAGIC),this,getOwner()), (float)Math.ceil(getVelocity().length()*getDamage()))) onHit(enderman);
             discard();
         } else super.onEntityHit(hit);
     }

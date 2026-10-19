@@ -1,0 +1,31 @@
+{
+    "criteria":  {
+                     "place":  {
+                                   "trigger":  "minecraft:placed_block",
+                                   "conditions":  {
+                                                      "location":  [
+                                                                       {
+                                                                           "condition":  "minecraft:block_state_property",
+                                                                           "block":  "tetanusmod:medic_cabinet"
+                                                                       }
+                                                                   ]
+                                                  }
+                               }
+                 },
+    "parent":  "tetanusmod:medic",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.clinic.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:medic_cabinet"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.clinic.title"
+                              },
+                    "frame":  "task"
+                }
+}

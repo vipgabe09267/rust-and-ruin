@@ -27,6 +27,8 @@ public final class TetanusClient implements ClientModInitializer {
         registerBeacon();
         com.tetanusmod.item.FieldGuideItem.open=()->net.minecraft.client.MinecraftClient.getInstance().setScreen(new FieldGuideScreen());
         InfectedPlayerList.initialize();
+        RabidPlayerList.initialize();
+        net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry.ITEM.register((stack,tint)->((com.tetanusmod.expansion.VariantSpawnEggItem)stack.getItem()).rabid()?(tint==0?0x6D315D:0xE6AAAD):(tint==0?0x61412B:0xBD723B),com.tetanusmod.registry.ModItems.ALL.stream().filter(item->item instanceof com.tetanusmod.expansion.VariantSpawnEggItem).toArray(net.minecraft.item.Item[]::new));
         net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlock(com.tetanusmod.beacon.ModBeacons.BLOCK,net.minecraft.client.render.RenderLayer.getTranslucent());
         net.fabricmc.fabric.api.resource.ResourceManagerHelper.get(net.minecraft.resource.ResourceType.CLIENT_RESOURCES).registerReloadListener(new net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener() {
             public net.minecraft.util.Identifier getFabricId(){return TetanusMod.id("tetanized_textures");}

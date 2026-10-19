@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "cure_tetanus":  {
+                                          "trigger":  "minecraft:impossible"
+                                      }
+                 },
+    "parent":  "tetanusmod:infected",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.antitoxin.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:tetanus_antitoxin"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.antitoxin.title"
+                              },
+                    "frame":  "task"
+                }
+}

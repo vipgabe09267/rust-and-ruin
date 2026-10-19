@@ -1,0 +1,27 @@
+{
+    "key":  {
+                "P":  {
+                          "item":  "minecraft:birch_planks"
+                      },
+                "F":  {
+                          "item":  "minecraft:fermented_spider_eye"
+                      },
+                "B":  {
+                          "item":  "minecraft:barrel"
+                      },
+                "H":  {
+                          "item":  "minecraft:honey_bottle"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "PPP",
+                    "HBF",
+                    "PPP"
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:medic_cabinet"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

@@ -35,7 +35,7 @@ public final class TetanusEffect extends StatusEffect {
             float floor = com.tetanusmod.entity.MobVariants.permanent(entity) && !com.tetanusmod.entity.MobVariants.isAnimal(entity)
                     ? entity.getMaxHealth() * 0.5F : 1.0F;
             float damage = Math.min(1.0F, Math.max(0,entity.getHealth()-floor));
-            if (damage > 0) entity.damage(entity.getDamageSources().magic(), damage);
+            if (damage > 0) entity.damage(com.tetanusmod.expansion.ModDamage.source(entity,com.tetanusmod.expansion.ModDamage.TETANUS), damage);
         }
         var speed = entity.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
         double slowdown = stage == 2 ? -0.30 : -0.15;
@@ -80,7 +80,7 @@ public final class TetanusEffect extends StatusEffect {
             if (entity.getRandom().nextFloat() < 0.25F) {
                 float damage = TetanusMod.CONFIG.periodicDamage;
                 if (!TetanusMod.CONFIG.tetanusCanKill) damage = Math.min(damage, Math.max(0, entity.getHealth() - 1.0F));
-                if (damage > 0) entity.damage(entity.getDamageSources().magic(), damage);
+                if (damage > 0) entity.damage(com.tetanusmod.expansion.ModDamage.source(entity,com.tetanusmod.expansion.ModDamage.TETANUS), damage);
             }
         }
     }

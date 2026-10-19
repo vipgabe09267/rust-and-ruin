@@ -20,4 +20,7 @@ public abstract class BeaconBlockEntityMixin {
     private static void powers(World world,BlockPos pos,int level,StatusEffect primary,StatusEffect secondary,CallbackInfo ci) {
         if(world.getBlockState(pos).isOf(ModBeacons.BLOCK)) { BeaconPower.apply(world,pos,level,primary,secondary);ci.cancel(); }
     }
-}
+    @Redirect(method="tick",at=@At(value="INVOKE",target="Lnet/minecraft/advancement/criterion/ConstructBeaconCriterion;trigger(Lnet/minecraft/server/network/ServerPlayerEntity;I)V"))
+    private static void separateAdvancements(net.minecraft.advancement.criterion.ConstructBeaconCriterion criterion,net.minecraft.server.network.ServerPlayerEntity player,int level,World world,BlockPos pos,net.minecraft.block.BlockState state,BeaconBlockEntity entity){
+        if(!state.isOf(ModBeacons.BLOCK))criterion.trigger(player,level);
+    }}

@@ -1,0 +1,27 @@
+{
+    "key":  {
+                "C":  {
+                          "item":  "minecraft:chain"
+                      },
+                "P":  {
+                          "item":  "minecraft:heavy_weighted_pressure_plate"
+                      },
+                "I":  {
+                          "item":  "minecraft:iron_ingot"
+                      },
+                "N":  {
+                          "item":  "tetanusmod:nail"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "INI",
+                    "IPI",
+                    " C "
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:bear_trap"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

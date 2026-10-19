@@ -1,0 +1,6 @@
+Run 1: 157 tests; 0 failures
+[18:58:36] [Server thread/INFO] (Minecraft) All 157 required tests passed :)
+BUILD SUCCESSFUL in 26s
+Run 2: 157 tests; 0 failures
+[18:59:01] [Server thread/INFO] (Minecraft) All 157 required tests passed :)
+BUILD SUCCESSFUL in 24s

@@ -1,3 +1,20 @@
+# 0.1.0-beta — diseases, medics, traps, and progression
+
+- Add persistent Rabies, rabid creatures and meat, a cure, vaccine, purple-red HUD/tab hearts, and disease brewing.
+- Add village medics, five village clinic pool entries, a craftable workstation, and selected smith/fisherman trades.
+- Add Iron/Rusted Iron Spears, bear traps, barbed wire, a reset tool, wall/floor Rust piles, and Rusted Iron Blocks.
+- Retire new acquisition and Creative listings of rusty iron tools while retaining existing item IDs and behavior.
+- Add Tetanus II and shield-only Tetanus Protection, snapshot ranged enchantments at firing, and replace arrow crafting with batch smithing.
+- Add a synchronized glove inventory slot with save migration, death/respawn handling, and Creative support.
+- Add difficulty-based natural and spawner variants plus specific variant spawn eggs.
+- Replace beacon base materials with Rusted Iron Blocks, add automatic resistance, exact effect labels, a rusty menu, and separate advancements.
+- Add protection, cure, Rabies, self-nail death, clinic/medic, trap, smithing, and progression advancements and custom death messages.
+- Restore variant-only animal meat drops; temporary Tetanus no longer changes ordinary animal loot.
+- Add standalone Lockjaw brewing and five-second manure nausea. Expand optional JEI/REI integration.
+- Fix batch shift-click duplication, preserve a trapped victim through rusting, and cover direct Rabies potion exposure with its vaccine.
+- Restrict Tetanus I/II to combat weapons; nails, hooklines, and mining tools cannot accept them. Keep II symptoms for the infection duration and cure them with antitoxin.
+- Preserve the clinic medic profession through AI ticks and fail client smoke tests on queued server-task errors.
+- Keep version 0.1.0-beta. The owner authorized committing this expansion on October 18, 2026; playtesting remains recommended.
 # 0.1.0-beta - final stability audit
 
 - Validate beacon pyramid tiers and secondary choices on the server before consuming netherite; reject invalid saved powers.

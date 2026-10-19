@@ -14,6 +14,9 @@ public abstract class MobConversionMixin {
     private <T extends MobEntity> void rustruin$preserveMutation(EntityType<T> type, boolean keepEquipment, CallbackInfoReturnable<T> result) {
         MobEntity original=(MobEntity)(Object)this;
         T converted=result.getReturnValue();
-        if(converted!=null&&!original.getWorld().isClient&&MobVariants.permanent(original))MobVariants.makePermanent(converted);
+        if(converted!=null&&!original.getWorld().isClient){
+            if(MobVariants.permanent(original))MobVariants.makePermanent(converted);
+            else if(com.tetanusmod.expansion.Rabies.rabid(original))com.tetanusmod.expansion.Rabies.makeRabid(converted);
+        }
     }
 }

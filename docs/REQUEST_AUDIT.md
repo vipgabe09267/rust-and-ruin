@@ -1,36 +1,63 @@
-# Requested feature audit — 0.1.0-beta
+# Requested feature audit — 0.1.0-beta expansion
 
-Checked against the requested changes on October 17, 2026. Later requests take precedence over earlier probabilities and durations. This records the implemented behavior; detailed test results and limits are in [VALIDATION.md](../VALIDATION.md).
+The latest instructions take precedence over earlier versions of a feature. In particular, temporary animal infections no longer change drops, the beacon now uses only Rusted Iron Blocks, and rusty iron tools are preserved for old saves but retired from new acquisition.
 
-| Request | Implemented behavior and verification |
+## Gameplay
+
+| Request | Implementation and verification |
 | --- | --- |
-| Rust & Ruin, Fabric 1.20.1, still version 0.1 | Project branding, mod metadata, JAR name, logo, README and Modrinth copy agree. Internal `tetanusmod` IDs remain for existing saves. Both sides require the mod and Fabric API; JEI/REI are optional. |
-| Craftable throwable nails and melee rebar | Nails use two iron plus flint, deal one heart and consume ammunition. Rebar deals half a heart on a fully charged ordinary hit without armor. Crafting, damage and projectile recovery have GameTests. |
-| Rust in water; iron tools also rust in rain | Five consecutive seconds touching water, including floating at the surface; 15 seconds exposed to rain. Stack count and item data survive conversion. Floating nails, interrupted exposure and roofs are tested. |
-| Disease lasting 5–10 minutes and affecting mobs | Rusty hits refresh a random duration in that range. Disease potions and clouds use that range too. Symptoms progress through stiffness and spasms. Mobs take mild nonlethal periodic damage. Permanent variants retain an infinite effect after additional hits. |
-| Visible Lockjaw Sonata and advancement | A separate icon/timer and action-bar message appear throughout the final randomly chosen 2–4 minutes. Food is blocked, drinks remain usable. Milk preserves both effects; antitoxin clears them immediately. Server assertions and both graphical clients check onset. |
-| Louder supplied sound, correct positions, playsound | Normalized audio and increased default volume; mobs play the sound too. Arrows play it at impact and caltrops at the trap. All three sound events are registered. Subjective speaker loudness remains a playtest judgment. |
-| Rusty health hearts, including player list | HUD and tab-list health objectives use rusty hearts while infected. Infection presence is synchronized and checked by both graphical runs. |
-| Less tooltip clutter, clearer artwork and logo | Short item descriptions, hook details, isolated inventory sprites with transparent padding, dedicated disease icons, retained user logo. Screenshots and texture references were inspected. |
-| JEI/REI and more distinctive recipes | Native crafting/cooking/brewing plus 11 Rusting displays. Caltrops use four nails and an iron nugget, shapeless. Both actual viewer clients check the recipe and brewing outputs. Full layouts are in [RECIPES.md](RECIPES.md). |
-| Brushing returns Rust | One Rust per cleaning action, durability charged per cleaned item. Special stars can also be cleaned. Regression checks cover conversion and item preservation. Rust gained later requested crafting and golem uses. |
-| More mob types, better textures and varied drops | All creatable vanilla mob types support permanent mutation, including spiders. Species textures preserve original UV layouts; special layers have additional handling. Hostile salvage includes Rust plus iron nuggets, copper, flint, string, coal or bone. |
-| Animal frequency and infected meat | Latest rate is 15% per eligible rusty attack; other mobs use 5%. Permanent animal variants are slower; both temporary and permanent infections replace ordinary item drops with infected meat only. Cooking makes the meat safe; raw meat has a 10% Salmonella chance. |
-| Salmonella and Strange Meat | Vomiting, nausea, hunger loss and light nonlethal damage; Why did I eat that? is awarded only on Salmonella infection; Strange Meat is awarded on infected-meat pickup. Cooking and symptom behavior are tested. |
-| Rusty fishing hook and something useful to craft | Water breaks a fishing rod after five seconds into sticks/string, with a 15% hook chance and advancement. Hook + chain + string + stick makes a 12-block Rusty Hookline with pull, infection, cooldown and durability. |
-| Commands to summon variants | Operator `/rustandruin summon` and `/rustandruin tetanize` support vanilla mobs. Withers can be forced by command without a ritual roll. |
-| Rust-driven iron golem conversion | 18% per Survival Rust use, double health to 200, rusty texture and Rusty Guardian advancement. Old 150-health saves migrate without modifier stacking. Spectators cannot perform conversion or cow collection. |
-| Tetanized Wither ritual and upgrade | Four Tetanized Soul Sand blocks give 5%; a netherite block replacing upper center adds 25 percentage points, for 30% by default. Ordinary soul sand gives no mutation. Structure consumption, 600 health, drops and ritual paths are tested. |
-| Wither rewards and advancement | Normal star plus Tetanized Wither Star, Tetanus I, bonus loot and experience bottles; Tetanus. Nice One! advancement. The special star has normal Nether Star explosion protection. |
-| Tetanus I and arrows | Treasure enchantment applies Tetanus through melee hits. Tetanized arrows use normal bow/crossbow mechanics, infect on impact and consume ammo even with Infinity. Rusted iron tools have a 20% melee infection chance. |
-| Cow manure and both disease potion chains | Bottle a cow; water + manure gives base potion; add Rust for Tetanus or infected meat for Salmonella; gunpowder makes splash potions. All five brewing outputs are checked in JEI and REI. |
-| Tetanized Beacon | Normal beacon recipe with corrupted star, cracked glass, gold/copper/netherite bases, netherite-only payment, primary II and full-pyramid Regeneration II or primary III. Actual block ticks, payment consumption, saves and GUI are checked. The server also rejects forged power tiers/secondary choices without taking payment. |
-| Infection and rust advancements | A Painful Lesson, Rusty Business, Hook, Line and Tetanus, Strange Meat, Why did I eat that?, Tetanized Mob, Rusty Guardian, Lockjaw Sonata and Tetanus. Nice One! are present with corresponding award paths. |
-| Potion symptoms and advancement wallpaper | All six drinkable/splash/lingering disease tooltips explain actual symptoms and the random Tetanus duration. The advancement tab uses the existing rusty metal tile and is opened in both graphical checks. |
-| Vaccination, gloves and field guide | Craftable vaccine gives 80% protection for 20 minutes; offhand gloves give 50% contact protection with durability; combined 90%. No cure or Salmonella protection. A reusable ten-chapter guide provides recipes and progression. Both clients check equipment/effect sync, every chapter and the new recipes. |
-| Security and final repeat check | Malformed-packet bounds/fuzz tests, scoped prevention, command permissions, finite coordinates, cooldowns, container accounting, item NBT and release packaging are reviewed in [SECURITY_AUDIT.md](SECURITY_AUDIT.md). The complete suite is repeated before user testing; the owner authorized committing these fixes on October 18, 2026. |
-| Repository and Modrinth text | Public source, logo, recipe guide, version changelog and [paste-ready description](../MODRINTH_DESCRIPTION.md); README links the supplied Modrinth page. |
+| Custom Tetanus death messages | Custom damage types/translations for Tetanus, rusty nails, traps, wire, and disorientation; self-nail has a unique message. Default disease damage remains nonlethal where documented. |
+| Upward rusty-nail death advancement | `why_did_i_do_that`, “Why did I do that?”; records upward toss in projectile NBT and awards on actual player death to that owned projectile. Regression checks positive and negative cases. Server PvP rules still apply to player-owned projectiles. |
+| Correct beacon III labels and themed screen | Dedicated rust/copper menu; selected upgraded primary displays III. Visually checked in graphical clients. |
+| Separate beacon advancements | `beacon_placed` and `beacon_full`; real beacon ticking test confirms custom completion and absence of both vanilla beacon advancements. |
+| Automatic beacon resistance | Active custom beam grants Tetanus Resistance even without a selected primary; tests cover passive-only and full Haste III behavior. |
+| New beacon pyramid | Only `rusted_iron_block`; iron block plus four Rust in a cross. Old materials fail validation; payments remain netherite. |
+| Variant-only infected meat | Permanent tetanized animals replace normal loot with Infected Meat; temporary Tetanus leaves normal loot unchanged. Tests cover animal families and ordinary versus permanent variants. |
+| Five-second manure nausea | Actual Nausea status for 100 ticks, verified by drinking and ticking through expiration. |
+| `/give` discovery | Canonical `tetanusmod` IDs retained; matching item paths are additionally suggested without a typed namespace. Real dispatcher suggestion/command tests. |
+| Tetanus II | Additional 50% Wither book drop; I remains guaranteed. Anvil tests cover swords, axes, spears, rebar, pipes, bows, crossbows, and tridents; nails, hooklines, and mining tools are rejected. II causes disorientation, random wandering/missed mob attacks, and 2 HP nonlethal damage every ten seconds. |
+| Enchanted ranged weapons | Bow, crossbow, and trident snapshot enchantment level when fired and save it in projectile NBT. Tests fire each weapon and verify infection after switching weapons. |
+| Dedicated glove slot | Native survival and Creative inventory slots, server synchronization, right-click/shift-click equip, persistence, old offhand migration, and death/respawn rules. Creative packets validate mode, item, and count. No added dependency. |
+| Batch arrows in smithing table | Empty template, ordinary arrow base, Rust addition; one Rust for up to 64. Tests cover 1/16/64, shift-click, partial/full inventories, invalid inputs, and advancement timing. JEI/REI custom displays are opened in real clients. |
+| Standalone Lockjaw potion | Tetanus + pufferfish; sixty seconds before vanilla splash/cloud scaling. Milk cannot cure it; antitoxin can. Ordinary Tetanus still includes its final random 2–4 minute Lockjaw phase. |
+| Villager items and medic | Medic novice always offers both vaccines, Rabies Cure, antitoxin, and gloves. Smiths/armorer/fisherman gain selected equipment offers. Medicine Cabinet is a registered acquirable job site. |
+| Clinic generation and medic skin | Compressed 9x11x13 timber-and-calcite clinic with a gabled spruce roof, covered porch, chimney, hanging medical banner, two beds, supplies, workstation, and medic; added to all five village house pools. Tests load/place the template and inspect its medic and cabinet. Custom profession clothing renders through vanilla villager features. Clinics are weighted, not guaranteed per village. |
+| Natural/dungeon variants | Accepted Easy/Normal/Hard natural rates 10/15/20%; spawner rates 25/35/45%; Peaceful 0%. All spawners use the difficulty-based rule, including dungeon spawners. Boss rituals excluded. Initialization tests verify the hook and exempt command/egg/breeding spawns. |
+| Persistent Rabies | Infinite effect, saved progression, one heart of maximum health lost per minute down to two hearts, then periodic ten-second nausea. Rabies Cure or death removes it. Milk/antitoxin do not. Save, cure, vaccine, duration, and respawn tests. |
+| Rabid variants | Eligible mammals and undead gain +30 HP, +7 armor, aggressive 5 HP melee, species-aligned sickly skins, and persistence. Rare additional natural rolls are 1/2/3% on Easy/Normal/Hard. Native mob conversions retain the variant. |
+| Rabid meat and potions | Rabid animals alone drop Rabid Meat; rabid hostiles keep ordinary loot. Manure + Rabid Meat brews Rabies; native splash/lingering conversions. Cooked meat is safe. Rabies vaccine is craftable and traded. |
+| Purple-red Rabies hearts | HUD, tab-list hearts, and numeric health coloring; client flags synchronize separately from Tetanus and clear on disconnect. Real client checks and screenshots. |
+| Spear replacing new rusty tools | Seven base damage, slower attack, 4.5-block right-click thrust blocked by walls; costlier iron/chain/stick recipe. Rusted spear infects. Existing rusty iron tool IDs, NBT, use, and cleaning preserved; absent from new rusting/creative lists. |
+| More traps and reset tool | Barbed Wire/Rusted Barbed Wire; Bear Trap/Rusted Bear Trap; one snap, Slowness X, reset/rearm, rusting, and captured-victim persistence. |
+| Placeable Rust | Existing item ID becomes a floor/wall BlockItem. Placement, consumption, and support shapes checked. |
+| Shield protection enchantment | Shields only, described in book/item tooltip; held shield prevents 65% of I exposure or 40% of II exposure, combining with applicable vaccine/glove protection. Boundary and actual blocking tests. |
+| Items in creative tab | All current items, diseases, books, and variant eggs included. Legacy rusty iron tools excluded per owner's answer. Client checks every registered mod item against the tab. |
+| Spawn eggs | Tetanized vanilla creature variants, including Wither and dragon, plus eligible rabid variants; native tinted egg models. Specific variant is created before spawning. |
+| Recipe viewers | Crafting/cooking/brewing plus nine current Rusting conversions and dedicated batch arrow smithing. JEI and REI are optional alternatives; Fabric API remains the only required mod dependency. |
 
-Permanent mutations also survive the vanilla mob conversion path, such as a zombie becoming a drowned. This does not promise support for arbitrary transformations implemented by other mods.
+## Advancements
 
-The audit combines code/resource inspection, dedicated-server GameTests and graphical clients with each recipe viewer. It cannot prove every modpack, network condition or emergent encounter bug-free. No version bump beyond 0.1 was made.
+All additions appear under the existing rusty-background Rust & Ruin tab; vanilla beacon advancements remain separate.
+
+| Name | Trigger |
+| --- | --- |
+| Why did I do that? | Die to your own upward-thrown rusty nail |
+| Not Today | Block a Tetanus-enchanted attack with a protected shield, or have its infection prevented by shield protection |
+| Hands Off | Gloves actually prevent a contact infection; simply equipping them does not count |
+| Foaming at the Mouth | Contract Rabies, including potion exposure |
+| A Dose of Common Sense | Use antitoxin while Tetanus and/or Lockjaw is present |
+| Back to Yourself | Use Rabies Cure while infected |
+| A Beacon of Bad Ideas | Place a Tetanized Beacon |
+| Rust Never Sleeps | Receive a selected power from a full-strength active custom beacon |
+| A Pointed Upgrade | Successfully collect a smithing arrow batch |
+| Keep Your Distance | Land a spear thrust |
+| Mind Your Fingers | Reset a closed bear trap |
+| Bad Egg | Spawn a variant with its egg |
+| Doctor's Orders | Trade with a medic |
+| The Doctor Is In | Place a Medicine Cabinet |
+
+Earlier milestones remain: A Painful Lesson, Rusty Business, Hook, Line and Tetanus, Lockjaw Sonata, Strange Meat for collecting Infected Meat, Why did I eat that? for Salmonella, Tetanized Mob, Rusty Guardian, and Tetanus. Nice One!
+
+## Delivery
+
+Version remains **0.1.0-beta**. The updated summary is in [MODRINTH_SUMMARY.txt](../MODRINTH_SUMMARY.txt); the full listing is in [MODRINTH_DESCRIPTION.md](../MODRINTH_DESCRIPTION.md). Expanded crafting and trade details are in [RECIPES.md](RECIPES.md). Check [VALIDATION.md](../VALIDATION.md) for actual results and limits. This expansion is not committed or pushed yet.

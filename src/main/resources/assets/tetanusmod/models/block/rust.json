@@ -1,0 +1,104 @@
+{
+    "textures":  {
+                     "rust":  "tetanusmod:block/rusted_metal",
+                     "particle":  "tetanusmod:block/rusted_metal"
+                 },
+    "elements":  [
+                     {
+                         "faces":  {
+                                       "south":  {
+                                                     "texture":  "#rust"
+                                                 },
+                                       "north":  {
+                                                     "texture":  "#rust"
+                                                 },
+                                       "up":  {
+                                                  "texture":  "#rust"
+                                              },
+                                       "west":  {
+                                                    "texture":  "#rust"
+                                                },
+                                       "down":  {
+                                                    "texture":  "#rust"
+                                                },
+                                       "east":  {
+                                                    "texture":  "#rust"
+                                                }
+                                   },
+                         "from":  [
+                                      3,
+                                      0,
+                                      3
+                                  ],
+                         "to":  [
+                                    13,
+                                    1,
+                                    13
+                                ]
+                     },
+                     {
+                         "faces":  {
+                                       "south":  {
+                                                     "texture":  "#rust"
+                                                 },
+                                       "north":  {
+                                                     "texture":  "#rust"
+                                                 },
+                                       "up":  {
+                                                  "texture":  "#rust"
+                                              },
+                                       "west":  {
+                                                    "texture":  "#rust"
+                                                },
+                                       "down":  {
+                                                    "texture":  "#rust"
+                                                },
+                                       "east":  {
+                                                    "texture":  "#rust"
+                                                }
+                                   },
+                         "from":  [
+                                      5,
+                                      1,
+                                      5
+                                  ],
+                         "to":  [
+                                    12,
+                                    2,
+                                    11
+                                ]
+                     },
+                     {
+                         "faces":  {
+                                       "south":  {
+                                                     "texture":  "#rust"
+                                                 },
+                                       "north":  {
+                                                     "texture":  "#rust"
+                                                 },
+                                       "up":  {
+                                                  "texture":  "#rust"
+                                              },
+                                       "west":  {
+                                                    "texture":  "#rust"
+                                                },
+                                       "down":  {
+                                                    "texture":  "#rust"
+                                                },
+                                       "east":  {
+                                                    "texture":  "#rust"
+                                                }
+                                   },
+                         "from":  [
+                                      7,
+                                      2,
+                                      6
+                                  ],
+                         "to":  [
+                                    10,
+                                    3,
+                                    9
+                                ]
+                     }
+                 ]
+}

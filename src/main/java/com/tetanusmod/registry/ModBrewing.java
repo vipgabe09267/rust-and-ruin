@@ -12,11 +12,15 @@ import net.minecraft.util.ActionResult;
 import java.util.WeakHashMap;
 
 public final class ModBrewing {
-    public static final Potion MANURE=Registry.register(Registries.POTION,TetanusMod.id("cow_manure"),new Potion());
+    public static final Potion MANURE=Registry.register(Registries.POTION,TetanusMod.id("cow_manure"),new Potion(new StatusEffectInstance(net.minecraft.entity.effect.StatusEffects.NAUSEA,100)));
     public static final Potion TETANUS=Registry.register(Registries.POTION,TetanusMod.id("tetanus"),new Potion(new StatusEffectInstance(TetanusMod.TETANUS,9000)));
     public static final Potion SALMONELLA=Registry.register(Registries.POTION,TetanusMod.id("salmonella"),new Potion(new StatusEffectInstance(TetanusMod.SALMONELLA,1200)));
+    public static final Potion LOCKJAW=Registry.register(Registries.POTION,TetanusMod.id("lockjaw"),new Potion(new StatusEffectInstance(TetanusMod.LOCKJAW,1200)));
+    public static final Potion RABIES=Registry.register(Registries.POTION,TetanusMod.id("rabies"),new Potion(new StatusEffectInstance(com.tetanusmod.expansion.ExpansionEffects.RABIES,-1)));
     private static final WeakHashMap<CowEntity,Long> COLLECTED=new WeakHashMap<>();
     public static void initialize() {
+        BrewingRecipeRegistry.registerPotionRecipe(TETANUS,Items.PUFFERFISH,LOCKJAW);
+        BrewingRecipeRegistry.registerPotionRecipe(MANURE,com.tetanusmod.expansion.ExpansionItems.RABID_MEAT,RABIES);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.WATER,ModItems.COW_MANURE,MANURE);
         BrewingRecipeRegistry.registerPotionRecipe(MANURE,ModItems.RUST,TETANUS);
         BrewingRecipeRegistry.registerPotionRecipe(MANURE,ModItems.INFECTED_MEAT,SALMONELLA);

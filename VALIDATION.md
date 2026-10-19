@@ -1,88 +1,84 @@
 # Rust & Ruin 0.1 validation
 
-Validated October 17, 2026 with Minecraft 1.20.1, Java 17, Fabric Loader 0.16.14, Fabric API 0.92.6+1.20.1, Loom 1.6.12, and Gradle 8.6. Version remains **0.1.0-beta**.
+Validated October 18, 2026 with Minecraft 1.20.1, Java 17, Fabric Loader 0.16.14, Fabric API 0.92.6+1.20.1, Loom 1.6.12, and Gradle 8.6. Version remains **0.1.0-beta**. The owner authorized committing this tested expansion on October 18, 2026. It is ready for owner playtesting.
 
 ## Results
 
-- Dedicated server: **all 103 required GameTests passed**; including the requested complete repeat before user testing, with neither recipe viewer installed.
-- Graphical JEI 15.3.0.4, REI 12.1.725, and plain clients without either viewer: **PASS**.
-- All three clients verify the vaccine status and offhand glove synchronization, item-driven guide opening, all ten guide chapters, server protection values, bounded chapter/scroll selection, the three synchronized crafting recipes. JEI and REI additionally open actual vaccine recipe pages.
-- All three clients receive four deliberately malformed messages through the real custom network handlers, log one warning, and continue all feature checks.
-- Retained checks cover all 11 Rusting displays, caltrop crafting, five brewing outputs, 78 vanilla mob base skin layers, six disease potion tooltips, minutes-long Lockjaw, rusty HUD/tab hearts, the custom beacon and rusty advancement wallpaper.
-- Release build, resource references, official wrapper checksum, pinned Gradle download, packaging and every runtime item/status sprite border pass. All 289 project files pass the file-format/integrity scan; see [complete audit](docs/FULL_AUDIT.md).
+- Dedicated server: **157 required GameTests passed in each of two consecutive final runs**, with zero failures.
+- Graphical clients: **PASS** without a recipe viewer, with JEI 15.3.0.4, and with REI 12.1.725.
+- Release build and resource validation: **PASS**. All source resources match the packaged artifact, including the redesigned medic and clinic.
+- File audit: all tracked and new nonignored project files pass their applicable format, encoding, image, translation-reference, or local-link checks. The complete inventory is retained locally at `.tools/expansion-file-audit.json`.
+- Package auditor rejects deliberately altered resources, duplicate entries, and absolute archive paths. No test classes, recipe-viewer implementations, private files, or unsafe paths are bundled.
 
-Reports: [GameTests](validation/gametest-results.xml), [client summaries](validation/client-results.txt), [release integrity](validation/release-audit.json), [requested features](docs/REQUEST_AUDIT.md), and [security review](docs/SECURITY_AUDIT.md). Full logs remain ignored under `.tools/`.
+Evidence: [first server run](validation/gametest-results.xml), [repeat server run](validation/gametest-results-repeat.xml), [server run summary](validation/server-runs.txt), [client results](validation/client-results.txt), [release integrity](validation/release-audit.json), and [negative package tests](validation/package-negative.json). Logs remain under ignored `.tools/final-expansion-*.log` files.
 
-## Prevention and security tests
+## Functional coverage
 
-The existing 73 checks retain weapon damage and ammunition, crafting, containers, water/rain rusting, floating nails, roofs, interrupted exposure, data preservation, brushing/grindstones, cures, iron tools, Infinity arrows, permanent variants, animals and salvage, cooking, disease timing, Lockjaw, rituals, commands, advancements, sound positions and beacon powers/payment rules.
+The 157 tests cover diseases, treatment, protection, item use, damage, rusting, recipes, variants, loot, projectiles, advancements, commands, saved state, traps, villagers, and beacon behavior. Specific expansion regressions include:
 
-Twenty-three additional tests cover:
+- Native anvil application of Tetanus I/II to combat weapons; rejection of nails, hooklines, and mining tools. Actual bow, crossbow, and trident projectiles retain the weapon infection level.
+- Tetanus II symptoms throughout the infection, antitoxin cleanup, milk resistance, standalone Lockjaw persistence, Rabies progression/cure/vaccination, and infected versus permanently mutated animal loot.
+- Actual shield prevention, glove prevention, antitoxin recovery, and upward rusty-nail death advancement conditions, including negative cases.
+- Batch arrow smithing for 1, 16, and 64 arrows; partial and full inventory handling without duplication or undeserved ingredient consumption.
+- Dedicated glove-slot synchronization, persistence, death handling, and validation of native Creative inventory packets. Incorrect items, counts, and player modes are rejected.
+- Bear-trap capture/reset, captured-victim persistence across rusting, and spectator exclusion from barbed-wire effects.
+- Natural mutation difficulty rates, initialization, variant eggs, attributes, drops, saved state, native mob conversion, and Rabid attacks against a real server-player fixture.
+- Clinic template loading and placement, road-connector replacement, workstation and medic presence, profession retention after 160 AI ticks, village pool entries, and trades.
+- A physically built full beacon, level III selection, automatic resistance, payment and base rules, and separate mod advancements.
 
-- Vaccine use consumes exactly one dose, returns one bottle, does not cure or refresh an existing illness, and creates no extra containers in Creative.
-- Empty/wrong items, spectators and forged item-duration NBT cannot grant unauthorized vaccination.
-- Actual 32-tick drinking completes during Lockjaw, and full Survival inventories drop exactly one bottle.
-- Exact 80% vaccine, 50% glove and 90% combined boundaries; glove durability is charged once per exposure.
-- Gloves require the offhand, do not protect food/potions, break on their final use and stop protecting once broken.
-- Guaranteed prevention rejects direct Tetanus status/potion application and prevents a permanent mutation roll. Blocked refreshes preserve existing disease counters.
-- Vaccination does not prevent Salmonella. Saved vaccine status, glove damage and enchantments survive loading; milk removes protection while retaining Tetanus. Vaccination expires naturally.
-- Entity-specific checked scopes isolate nested callbacks and restore state after exceptions.
-- All three crafting recipes match; vaccine crafting returns exactly two ingredient bottles.
-- Reading a guide has no server gameplay effect and consumes no book.
-- Hookline cooldown cannot be bypassed by immediate repeated calls, and a solid wall prevents hits.
-- Exact presence/symptom payload bounds, strict booleans, invalid stages and valid decoder round trips.
-- Bounded configuration parsing, field clamping, escaped quotes/braces, malformed/scalar/null JSON, deeply nested input, oversized/trailing data and **2,000 deterministic random payloads**.
-- Non-operators cannot use command helpers or the command tree; non-finite coordinates are rejected.
-
-Seven final-audit regressions add forged beacon primary/secondary/tier checks, legitimate tier unlocks, invalid saved-power rejection, a single offhand hookline exposure, nested damage-scope cleanup, invalid/spectator antitoxin rejection, container/full-inventory handling, and reflected Thorns exclusion. The full suite totals 103 tests. The owner authorized committing these audit fixes on October 18, 2026.
-
-The real-server-player fixture is used for full-inventory drops. The hookline fixture explicitly clears its positive-test sightline; a separate wall test verifies that obstruction remains enforced. Trap cooldown assertions account for the intended healing when an animal permanently mutates.
+Earlier regression coverage remains for bounded configuration and network messages, malformed payloads, command permissions, prevention boundaries, vaccine bottles, damage attribution, scoped callbacks, recipe outputs, salvage, vomiting, floating nails, interrupted water/rain exposure, and item-data preservation.
 
 ## Graphical verification
 
-The harness enters a real integrated-server world, checks the existing mod scene and recipes, opens the advancement tab, closes its container correctly, drinks a vaccine in the server setup, equips a guide/gloves, waits for synchronization, opens the guide using its item action, checks every chapter and displays the vaccine recipe in the installed viewer.
+Each client harness enters a real integrated-server world, checks synchronized state, opens relevant screens, captures images, and exits with a fresh assertion result. Gradle removes stale result files before launch and rejects missing or failed results. Queued server-task failures propagate into the harness result.
 
-Representative creatures are visually rendered. The harness additionally resolves generated base texture layers for 78 vanilla mob types; the dragon retains its separate hook. It verifies actual symptoms in drinkable, splash and lingering Tetanus/Salmonella tooltips.
+Checks include nine Rusting displays, crafting and brewing, caltrops, batch arrow smithing, 78 vanilla mob base skin layers, 22 Rabid skins, twelve disease potion tooltips, rusty and Rabies HUD/tab hearts, Lockjaw, the custom beacon, advancements, the dedicated glove slot, Creative item coverage and synchronization, vaccination, and all ten field-guide chapters. Deliberately malformed custom messages are rejected while subsequent checks continue.
 
-Malformed config, deeply nested config, short presence and invalid-stage symptom packets are delivered through Fabric networking. Their handlers reject them and normal gameplay checks continue. Gradle deletes stale result files and fails on a missing/failed fresh result.
+The redesigned medic and clinic were inspected in-game. The medic has a white coat, green cuffs/gloves and a cap, with visible eyes. The clinic has a timber gable roof, covered porch, lanterns, chimney, glazed windows, a medical banner, beds, a basin, and medicine storage.
 
-Fresh screenshots include:
+Screenshots:
 
-- [Field guide and server prevention values](validation/screenshots/rust-and-ruin-jei-field-guide.png)
-- [REI field guide](validation/screenshots/rust-and-ruin-rei-field-guide.png)
-- [JEI vaccine recipe](validation/screenshots/rust-and-ruin-jei-vaccine-recipe.png)
-- [REI vaccine recipe](validation/screenshots/rust-and-ruin-rei-vaccine-recipe.png)
-- [Lockjaw and rusty hearts](validation/screenshots/rust-and-ruin-jei-hud.png)
-- [Rusty advancement wallpaper](validation/screenshots/rust-and-ruin-rei-advancements.png)
-- [Custom beacon](validation/screenshots/rust-and-ruin-rei-beacon.png)
+- [Medic](validation/screenshots/rust-and-ruin-plain-medic.png)
+- [Clinic exterior](validation/screenshots/rust-and-ruin-plain-clinic-traps.png)
+- [Clinic interior](validation/screenshots/rust-and-ruin-plain-clinic-interior.png)
+- [JEI arrow smithing](validation/screenshots/rust-and-ruin-jei-arrow-smithing.png)
+- [REI arrow smithing](validation/screenshots/rust-and-ruin-rei-arrow-smithing.png)
+- [Beacon](validation/screenshots/rust-and-ruin-rei-beacon.png)
+- [Creative glove slot](validation/screenshots/rust-and-ruin-plain-creative-gloves.png)
+- [Rabies hearts](validation/screenshots/rust-and-ruin-plain-rabies-hud.png)
+- [Advancements](validation/screenshots/rust-and-ruin-rei-advancements.png)
+- [Field guide](validation/screenshots/rust-and-ruin-jei-field-guide.png)
 
 ## Reproduce
 
-With JDK 17, from the project root:
+With JDK 17 from the project root:
 
 ```powershell
-.\tools\Build.ps1 -Test
-.\gradlew.bat -PwithJei runClientSmoke --console plain
-.\gradlew.bat -PwithRei runClientSmoke --console plain
-.\gradlew.bat runClientSmoke --console plain # No recipe viewer
+.\gradlew.bat --offline build runGameTest --console plain
+.\gradlew.bat --offline build runGameTest --console plain
+.\gradlew.bat --offline runClientSmoke --console plain
+.\gradlew.bat --offline -PwithJei runClientSmoke --console plain
+.\gradlew.bat --offline -PwithRei runClientSmoke --console plain
 .\tools\Audit-Release.ps1
-.\tools\Audit-Files.ps1 -Report .tools/final-file-inventory.json
+.\tools\Audit-Files.ps1 -Report .tools/expansion-file-audit.json
 ```
 
-Run viewers sequentially. The client harness uses `build/client-smoke/saves/smoke-world-final`; if absent, first copy the generated GameTest world there. It prepares the scene, checks assertions, captures screenshots and closes Minecraft.
+Offline commands require cached dependencies; omit `--offline` for an initial setup. Run viewers sequentially. The harness uses `build/client-smoke/saves/smoke-world-final`; if absent, first copy the generated GameTest world there.
 
-## Release inspection
+## Artifact
 
 `build/libs/rust-and-ruin-0.1.0-beta.jar`:
 
-- Rust & Ruin 0.1.0-beta; Minecraft 1.20.1, Java 17 and Fabric API on both sides. No added mandatory mod dependency.
-- Includes 46 PNGs, audio, recipes, advancements, tags, item models and required mixins.
-- No test classes, viewer implementations, private files or unsafe archive paths were found.
-- Every runtime item/status sprite has transparent margins. Original artwork and exact built-in imagegen prompts are retained under [assets-source/art/prevention](assets-source/art/prevention/PROMPTS.md).
-- Strange Meat requires infected-meat pickup; Why did I eat that? requires Salmonella infection.
-- Size: 2986095 bytes.
-- SHA-256: `16C8AF244DA6B88E20D1EB9116C9834A8E67849D439E5F2D1ED9DE07F698A6E3`.
+- Size: **3,152,316 bytes**.
+- SHA-256: `70B313EBAE18A27FC32200BF3733AECD4F87671E260ECFD3A88F361658302A87`.
+- Includes 61 PNGs, audio, recipes, advancements, tags, item/block models, the clinic structure, and required mixins.
+- Requires Minecraft 1.20.1, Java 17, Fabric Loader 0.16.14+, and Fabric API on both client and server. JEI and REI are optional.
+- Runtime item/status sprites have transparent margins. Editable expansion artwork and building sources are documented in [art provenance](assets-source/art/EXPANSION_ART.md).
 
-## Practical limits
+## Limits and next testing
 
-This is a dedicated/integrated-server functional suite, a source/protocol security review, and adversarial packet testing. It does not prove 100% correctness/security, audit every upstream Minecraft/JVM dependency, or establish arbitrary modpack/network compatibility. Texture assertions verify base layers, with representative species visually inspected; third-party renderers that bypass vanilla paths may need compatibility work. Subjective balance and loudness still benefit from multiplayer playtesting.
+These are dedicated/integrated-server functional tests, source/protocol review, adversarial packet tests, and separate release-package checks. They do not establish 100% correctness, arbitrary modpack compatibility, every village terrain layout, or long-running public-server stability. Development runtime tests and the packaged release audit serve different purposes; owner playtesting of this JAR is still required.
+
+Prioritize multiplayer combat, full-duration diseases, glove logout/death handling, naturally generated clinics, trap reset/rusting, partial-inventory smithing, and beacon payment. Subjective appearance, sound volume, and difficulty balance also benefit from playtesting.
+
+See [request audit](docs/REQUEST_AUDIT.md), [security review](docs/SECURITY_AUDIT.md), and [complete audit](docs/FULL_AUDIT.md).

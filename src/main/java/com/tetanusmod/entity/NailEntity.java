@@ -22,6 +22,9 @@ import net.minecraft.world.World;
 
 public final class NailEntity extends ThrownItemEntity {
     private boolean recoverable;
+    private boolean thrownUpward;
+    public void setThrownUpward(boolean value){thrownUpward=value;}
+    public boolean wasThrownUpward(){return thrownUpward;}
     public NailEntity(EntityType<? extends NailEntity> type, World world) { super(type, world); }
     public NailEntity(World world, LivingEntity owner) { super(TetanusMod.NAIL_ENTITY, owner, world); }
     public void setRecoverable(boolean value) { recoverable = value; }
@@ -34,7 +37,7 @@ public final class NailEntity extends ThrownItemEntity {
         super.onEntityHit(hit);
         if (!getWorld().isClient && getStack().getItem() instanceof NailItem nail
                 && hit.getEntity().damage(nail.isRusty() && hit.getEntity() instanceof net.minecraft.entity.mob.EndermanEntity
-                        ? getDamageSources().magic() : getDamageSources().thrown(this, getOwner()), nail.isBent() ? 1 : TetanusMod.CONFIG.nailDamage)
+                        ? getDamageSources().magic() : (nail.isRusty()?com.tetanusmod.expansion.ModDamage.nail(this,getOwner()):getDamageSources().thrown(this, getOwner())), nail.isBent() ? 1 : TetanusMod.CONFIG.nailDamage)
                 && nail.isRusty() && hit.getEntity() instanceof LivingEntity living) {
             Infection.expose(living, getOwner());
 
@@ -63,11 +66,11 @@ public final class NailEntity extends ThrownItemEntity {
 
     @Override public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
-        nbt.putBoolean("Recoverable", recoverable);
+        nbt.putBoolean("Recoverable", recoverable);nbt.putBoolean("ThrownUpward",thrownUpward);
     }
     @Override public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        recoverable = nbt.getBoolean("Recoverable");
+        recoverable = nbt.getBoolean("Recoverable");thrownUpward=nbt.getBoolean("ThrownUpward");
     }
 
     @Override

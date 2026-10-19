@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/cooked_rabid_meat"
+                 },
+    "parent":  "minecraft:item/generated"
+}

@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "returned_nail":  {
+                                           "trigger":  "minecraft:impossible"
+                                       }
+                 },
+    "parent":  "tetanusmod:infected",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.why_did_i_do_that.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:rusted_nail"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.why_did_i_do_that.title"
+                              },
+                    "frame":  "challenge"
+                }
+}

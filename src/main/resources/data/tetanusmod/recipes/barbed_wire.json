@@ -1,0 +1,24 @@
+{
+    "key":  {
+                "C":  {
+                          "item":  "minecraft:chain"
+                      },
+                "S":  {
+                          "item":  "minecraft:string"
+                      },
+                "N":  {
+                          "item":  "tetanusmod:nail"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "NNN",
+                    "CSC",
+                    "NNN"
+                ],
+    "result":  {
+                   "count":  2,
+                   "item":  "tetanusmod:barbed_wire"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

@@ -12,6 +12,6 @@ public abstract class LivingTextureMixin {
     @Redirect(method="getRenderLayer",at=@At(value="INVOKE",target="Lnet/minecraft/client/render/entity/LivingEntityRenderer;getTexture(Lnet/minecraft/entity/Entity;)Lnet/minecraft/util/Identifier;"))
     private Identifier rustruin$baseSkin(LivingEntityRenderer renderer,Entity entity) {
         Identifier original=renderer.getTexture(entity);
-        return entity instanceof LivingEntity living&&MobVariants.permanent(living)?TetanizedTextures.get(original):original;
+        if(entity instanceof LivingEntity living){if(com.tetanusmod.expansion.Rabies.rabid(living))return TetanizedTextures.rabid(original);if(MobVariants.permanent(living))return TetanizedTextures.get(original);}return original;
     }
 }

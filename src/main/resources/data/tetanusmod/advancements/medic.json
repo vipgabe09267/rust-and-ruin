@@ -1,0 +1,29 @@
+{
+    "criteria":  {
+                     "trade":  {
+                                   "trigger":  "minecraft:villager_trade",
+                                   "conditions":  {
+                                                      "villager":  {
+                                                                       "type":  "minecraft:villager",
+                                                                       "nbt":  "{VillagerData:{profession:\"tetanusmod:medic\"}}"
+                                                                   }
+                                                  }
+                               }
+                 },
+    "parent":  "tetanusmod:root",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.medic.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:medic_cabinet"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.medic.title"
+                              },
+                    "frame":  "task"
+                }
+}

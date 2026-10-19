@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "block_tetanus":  {
+                                           "trigger":  "minecraft:impossible"
+                                       }
+                 },
+    "parent":  "tetanusmod:infected",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.shield_protection.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "minecraft:shield"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.shield_protection.title"
+                              },
+                    "frame":  "goal"
+                }
+}

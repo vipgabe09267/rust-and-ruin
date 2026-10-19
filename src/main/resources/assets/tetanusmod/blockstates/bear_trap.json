@@ -1,0 +1,10 @@
+{
+    "variants":  {
+                     "closed=true":  {
+                                         "model":  "tetanusmod:block/bear_trap_closed"
+                                     },
+                     "closed=false":  {
+                                          "model":  "tetanusmod:block/bear_trap"
+                                      }
+                 }
+}

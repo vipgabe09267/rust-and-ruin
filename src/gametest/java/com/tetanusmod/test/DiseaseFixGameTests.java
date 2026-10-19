@@ -63,7 +63,7 @@ public class DiseaseFixGameTests implements FabricGameTest {
         ctx.assertTrue(bottle.isOf(Items.GLASS_BOTTLE)&&!player.hasStatusEffect(TetanusMod.TETANUS)&&!player.hasStatusEffect(TetanusMod.LOCKJAW)&&state.tetanus$getLockjaw()==0,"Antitoxin did not immediately clear both diseases");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void temporaryInfectedAnimalsDropOnlyMeat(TestContext ctx) {
+    public void temporaryInfectionsDoNotChangeAnimalLoot(TestContext ctx) {
         int count=0;
         for(var type:net.minecraft.registry.Registries.ENTITY_TYPE) {
             if(!(type.create(ctx.getWorld()) instanceof MobEntity animal)||!MobVariants.isAnimal(animal))continue;
@@ -71,7 +71,7 @@ public class DiseaseFixGameTests implements FabricGameTest {
             Infection.apply(animal,null);ctx.assertFalse(MobVariants.permanent(animal),"Temporary fixture mutated");
             animal.damage(ctx.getWorld().getDamageSources().genericKill(),10000);
             var drops=ctx.getWorld().getEntitiesByClass(ItemEntity.class,animal.getBoundingBox().expand(2),e->true);
-            ctx.assertTrue(!drops.isEmpty()&&drops.stream().allMatch(item->item.getStack().isOf(ModItems.INFECTED_MEAT)),"Wrong infected drops for "+type);
+            ctx.assertTrue(drops.stream().noneMatch(item->item.getStack().isOf(ModItems.INFECTED_MEAT)),"Temporary infection changed ordinary loot for "+type);
             drops.forEach(Entity::discard);animal.discard();count++;
         }
         ctx.assertTrue(count>=30,"Too few animal types tested: "+count);ctx.complete();

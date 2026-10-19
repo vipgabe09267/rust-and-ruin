@@ -12,20 +12,39 @@
                    "WitherEntityMixin",
                    "ItemEntityAccessor",
                    "WitherSummoningMixin",
-
                    "BeaconBlockEntityMixin",
                    "BeaconAccessor",
                    "BlockEntityTypeAccessor",
                    "ManurePotionColorMixin",
-                   "MobConversionMixin", "SalmonellaAdvancementMixin", "MilkBucketItemMixin", "DiseasePotionItemMixin", "DiseaseSplashPotionMixin", "DiseaseCloudMixin"
+                   "MobConversionMixin",
+                   "SalmonellaAdvancementMixin",
+                   "MilkBucketItemMixin",
+                   "DiseasePotionItemMixin",
+                   "DiseaseSplashPotionMixin",
+                   "DiseaseCloudMixin",
+                   "ExpansionLivingMixin",
+                   "ExpansionMobMixin",
+                   "EnchantedProjectileMixin",
+                   "EnchantedBowMixin",
+                   "EnchantedCrossbowMixin",
+                   "GlovePlayerMixin",
+                   "GloveRespawnMixin",
+                   "GloveScreenHandlerMixin",
+                   "StructurePoolAccessor",
+                   "BatchSmithingMixin",
+                   "ItemSuggestionsMixin",
+                   "MedicTradesMixin", "CreativeGloveNetworkMixin", "ReturningNailAdvancementMixin"
                ],
     "client":  [
                    "InGameHudMixin",
                    "BossBarHudMixin",
-                   "BeaconButtonMixin",
                    "DragonTextureMixin",
                    "PlayerListHeartsMixin",
-                   "SheepWoolTintMixin", "LivingTextureMixin", "DiseasePotionTooltipMixin"
+                   "SheepWoolTintMixin",
+                   "LivingTextureMixin",
+                   "DiseasePotionTooltipMixin",
+                   "GloveInventoryScreenMixin", "CreativeGloveScreenMixin", "SlotPositionAccessor",
+                   "EnchantmentTooltipMixin"
                ],
     "injectors":  {
                       "defaultRequire":  1

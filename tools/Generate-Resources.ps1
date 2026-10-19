@@ -144,3 +144,5 @@ Write-Json 'data/minecraft/tags/blocks/mineable/pickaxe.json' @{replace=$false; 
 Write-Host 'Generated item textures, status icon, trap models, localization, recipes, loot and sounds.'
 & (Join-Path $PSScriptRoot 'Update-Resources.ps1')
 & (Join-Path $PSScriptRoot 'Import-Art.ps1')
+
+& (Join-Path $PSScriptRoot 'Generate-Expansion.ps1')

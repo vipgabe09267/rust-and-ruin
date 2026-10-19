@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "reset_trap":  {
+                                        "trigger":  "minecraft:impossible"
+                                    }
+                 },
+    "parent":  "tetanusmod:rusty_business",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.trap_reset.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:trap_reset_tool"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.trap_reset.title"
+                              },
+                    "frame":  "task"
+                }
+}

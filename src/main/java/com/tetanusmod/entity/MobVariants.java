@@ -26,7 +26,7 @@ public final class MobVariants {
 
     public static boolean permanent(LivingEntity entity) { return ((TetanizedState) entity).rustruin$isPermanent(); }
     public static boolean isAnimal(LivingEntity entity) { return entity instanceof AnimalEntity || entity instanceof net.minecraft.entity.mob.WaterCreatureEntity || entity instanceof net.minecraft.entity.mob.AmbientEntity; }
-    public static boolean infectedAnimal(LivingEntity entity){return isAnimal(entity)&&(permanent(entity)||entity.hasStatusEffect(TetanusMod.TETANUS));}
+    public static boolean infectedAnimal(LivingEntity entity){return isAnimal(entity)&&permanent(entity);}
     public static boolean susceptible(LivingEntity entity) {
         return entity instanceof MobEntity && !(entity instanceof WitherEntity);
     }
@@ -36,7 +36,7 @@ public final class MobVariants {
     }
     public static void projectileExposure(LivingEntity target) { projectileExposure(target,null); }
     public static void projectileExposure(LivingEntity target, net.minecraft.entity.Entity source) {
-        if (!target.getWorld().isClient && target.isAlive() && !permanent(target) && eligibleRoll(target, target.getRandom().nextFloat())) {
+        if (!target.getWorld().isClient && target.isAlive() && !permanent(target) && !com.tetanusmod.expansion.Rabies.rabid(target) && eligibleRoll(target, target.getRandom().nextFloat())) {
             makePermanent(target);
             if(source instanceof net.minecraft.server.network.ServerPlayerEntity player)com.tetanusmod.registry.ModAdvancements.award(player,"tetanized_mob","convert_mob");
         }
@@ -57,7 +57,7 @@ public final class MobVariants {
         if(wither.getRandom().nextFloat()<Math.min(1,TetanusMod.CONFIG.witherConversionChance+bonus))makePermanent(wither);
     }
     public static void makePermanent(LivingEntity entity) {
-        if (entity.getWorld().isClient || !entity.isAlive() || permanent(entity)) return;
+        if (entity.getWorld().isClient || !entity.isAlive() || permanent(entity) || com.tetanusmod.expansion.Rabies.rabid(entity)) return;
         ((TetanizedState) entity).rustruin$setPermanent(true);
         applyAttributes(entity, true);
         if (entity instanceof MobEntity mob) mob.setPersistent();
@@ -107,6 +107,7 @@ public final class MobVariants {
             ItemStack book=EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(ModItems.TETANUS_ENCHANTMENT, 1));
             book.setCustomName(Text.translatable("item.tetanusmod.tetanus_book"));
             entity.dropStack(book);
+            if(entity.getRandom().nextFloat()<0.5F)entity.dropStack(com.tetanusmod.expansion.ExpansionItems.tetanusBook(2));
             entity.dropStack(new ItemStack(ModItems.TETANIZED_WITHER_STAR));
             ItemStack[] loot = {new ItemStack(Items.DIAMOND, 2 + entity.getRandom().nextInt(4)),
                     new ItemStack(Items.NETHERITE_SCRAP, 1 + entity.getRandom().nextInt(2)),

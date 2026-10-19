@@ -26,7 +26,7 @@ public final class RustRuinJeiPlugin implements IModPlugin {
     private static mezz.jei.api.runtime.IJeiRuntime activeRuntime;
     public static boolean hasDiseaseBrewing() {
         var recipes=activeRuntime.getRecipeManager().createRecipeLookup(mezz.jei.api.constants.RecipeTypes.BREWING).includeHidden().get().toList();
-        for(var potion:List.of(ModBrewing.MANURE,ModBrewing.TETANUS,ModBrewing.SALMONELLA)) {
+        for(var potion:List.of(ModBrewing.MANURE,ModBrewing.TETANUS,ModBrewing.SALMONELLA,ModBrewing.LOCKJAW,ModBrewing.RABIES)) {
             if(recipes.stream().noneMatch(recipe->net.minecraft.potion.PotionUtil.getPotion(recipe.getPotionOutput())==potion && recipe.getPotionOutput().isOf(Items.POTION)))return false;
             if(potion!=ModBrewing.MANURE && recipes.stream().noneMatch(recipe->net.minecraft.potion.PotionUtil.getPotion(recipe.getPotionOutput())==potion && recipe.getPotionOutput().isOf(Items.SPLASH_POTION)))return false;
         }
@@ -50,8 +50,12 @@ public final class RustRuinJeiPlugin implements IModPlugin {
     public record RustRecipe(Item input,Item output) { }
     public static final RecipeType<RustRecipe> RUSTING = RecipeType.create("tetanusmod","rusting",RustRecipe.class);
     @Override public Identifier getPluginUid() { return TetanusMod.id("jei"); }
+    public static final RecipeType<com.tetanusmod.expansion.RustArrowSmithingRecipe> ARROW_SMITHING=RecipeType.create("tetanusmod","rust_arrows",com.tetanusmod.expansion.RustArrowSmithingRecipe.class);
+    public static boolean hasArrowSmithing(){return activeRuntime!=null&&activeRuntime.getRecipeManager().createRecipeLookup(ARROW_SMITHING).get().count()==1;}
+    public static void showArrowSmithing(){activeRuntime.getRecipesGui().showTypes(List.of(ARROW_SMITHING));}
+    @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration){registration.addRecipeCatalyst(new ItemStack(Items.SMITHING_TABLE),ARROW_SMITHING);}
     @Override public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new RustCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new RustCategory(registration.getJeiHelpers().getGuiHelper()),new ArrowCategory(registration.getJeiHelpers().getGuiHelper()));
     }
     @Override public void registerRecipes(IRecipeRegistration registration) {
         List<RustRecipe> recipes = new ArrayList<>();
@@ -60,6 +64,7 @@ public final class RustRuinJeiPlugin implements IModPlugin {
             if (rusty != null) recipes.add(new RustRecipe(item,rusty));
         }
         registration.addRecipes(RUSTING,recipes);
+        registration.addRecipes(ARROW_SMITHING,List.of(new com.tetanusmod.expansion.RustArrowSmithingRecipe(TetanusMod.id("tetanized_arrow"))));
         registration.addIngredientInfo(new ItemStack(ModItems.WIRE_BRUSH),VanillaTypes.ITEM_STACK,Text.translatable("jei.tetanusmod.brush"));
         registration.addIngredientInfo(new ItemStack(ModItems.INFECTED_MEAT),VanillaTypes.ITEM_STACK,Text.translatable("jei.tetanusmod.meat"));
     }
@@ -84,4 +89,21 @@ public final class RustRuinJeiPlugin implements IModPlugin {
             if (TetanusMod.CONFIG.rainRusting) context.drawText(font,Text.translatable("jei.tetanusmod.rain",TetanusMod.CONFIG.rainRustTicks/20.0),35,27,0xFF444444,false);
         }
     }
-}
+    private static final class ArrowCategory implements IRecipeCategory<com.tetanusmod.expansion.RustArrowSmithingRecipe> {
+        private final IDrawable background,icon;
+        ArrowCategory(IGuiHelper helper){background=helper.createBlankDrawable(178,74);icon=helper.createDrawableItemStack(new ItemStack(Items.SMITHING_TABLE));}
+        @Override public RecipeType<com.tetanusmod.expansion.RustArrowSmithingRecipe> getRecipeType(){return ARROW_SMITHING;}
+        @Override public Text getTitle(){return Text.translatable("jei.tetanusmod.batch_smithing");}
+        @Override public IDrawable getBackground(){return background;}
+        @Override public IDrawable getIcon(){return icon;}
+        @Override public void setRecipe(IRecipeLayoutBuilder builder,com.tetanusmod.expansion.RustArrowSmithingRecipe recipe,IFocusGroup focuses){
+            builder.addSlot(RecipeIngredientRole.INPUT,9,13).addItemStack(new ItemStack(Items.ARROW,64));
+            builder.addSlot(RecipeIngredientRole.INPUT,73,13).addItemStack(new ItemStack(ModItems.RUST));
+            builder.addSlot(RecipeIngredientRole.OUTPUT,149,13).addItemStack(new ItemStack(ModItems.TETANIZED_ARROW,64));
+        }
+        @Override public void draw(com.tetanusmod.expansion.RustArrowSmithingRecipe recipe,IRecipeSlotsView slots,DrawContext context,double mouseX,double mouseY){
+            var font=MinecraftClient.getInstance().textRenderer;
+            context.drawText(font,Text.translatable("jei.tetanusmod.batch_hint"),8,42,0xFF694026,false);
+            context.drawText(font,Text.translatable("jei.tetanusmod.no_template"),8,57,0xFF444444,false);
+        }
+    }}

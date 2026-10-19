@@ -23,6 +23,10 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     @Inject(method="drop",at=@At("HEAD"),cancellable=true)
     private void rustruin$infectedAnimalOnlyMeat(net.minecraft.entity.damage.DamageSource source,CallbackInfo ci) {
         LivingEntity self=(LivingEntity)(Object)this;
+        if(com.tetanusmod.entity.MobVariants.isAnimal(self)&&com.tetanusmod.expansion.Rabies.rabid(self)) {
+            if(!self.getWorld().isClient&&self.getWorld().getGameRules().getBoolean(net.minecraft.world.GameRules.DO_MOB_LOOT))self.dropStack(new net.minecraft.item.ItemStack(com.tetanusmod.expansion.ExpansionItems.RABID_MEAT,1+self.getRandom().nextInt(3)));
+            dropXp();ci.cancel();return;
+        }
         if(com.tetanusmod.entity.MobVariants.infectedAnimal(self)) {
             com.tetanusmod.entity.MobVariants.drops(self);
             dropXp();
@@ -59,9 +63,10 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
                 || !(source.getAttacker() instanceof LivingEntity attacker) || source.getSource() != attacker) return;
         var stack = attacker.getMainHandStack();
         boolean rusty = stack.getItem() instanceof com.tetanusmod.item.RebarItem rebar && rebar.isRusty();
-        boolean enchanted = net.minecraft.enchantment.EnchantmentHelper.getLevel(com.tetanusmod.registry.ModItems.TETANUS_ENCHANTMENT,stack)>0;
+        int enchantment = net.minecraft.enchantment.EnchantmentHelper.getLevel(com.tetanusmod.registry.ModItems.TETANUS_ENCHANTMENT,stack);
+        boolean enchanted=enchantment>0;
         boolean tool = com.tetanusmod.registry.ModIronTools.isRusted(stack.getItem()) && target.getRandom().nextFloat()<0.2F;
-        if (rusty || enchanted || tool) com.tetanusmod.effect.Infection.expose(target,attacker);
+        if (rusty || enchanted || tool || stack.getItem() instanceof com.tetanusmod.expansion.SpearItem spear&&spear.rusty()) com.tetanusmod.expansion.CombatInfection.expose(target,attacker,enchantment,false);
     }
     @Inject(method = "dropLoot", at = @At("TAIL"))
     private void rustruin$variantDrops(net.minecraft.entity.damage.DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
@@ -85,7 +90,7 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
         if (!((LivingEntity) (Object) this).getWorld().isClient) {
             tetanus$elapsed = tetanus$lockjaw = tetanus$freeze = 0;
             tetanus$total = effect.getDuration();
-            tetanus$lockjawWindow = (120 + ((LivingEntity)(Object)this).getRandom().nextInt(121)) * 20;
+            tetanus$lockjawWindow = effect.getDuration()>0&&effect.getDuration()<6000?Math.max(20,effect.getDuration()/3):(120 + ((LivingEntity)(Object)this).getRandom().nextInt(121)) * 20;
         }
         LivingEntity self=(LivingEntity)(Object)this;
         if (!self.getWorld().isClient && rustruin$lastAudioTick != self.getWorld().getTime()) {
@@ -117,8 +122,9 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
         com.tetanusmod.effect.LockjawEffect.flush(self);
         com.tetanusmod.effect.SalmonellaEffect.flush(self);
         if (!self.getWorld().isClient && !self.hasStatusEffect(TetanusMod.TETANUS)) {
+            boolean linked=tetanus$total>0||tetanus$elapsed>0;
             tetanus$elapsed = tetanus$total = tetanus$lockjaw = tetanus$freeze = tetanus$lockjawWindow = 0;
-            self.removeStatusEffect(TetanusMod.LOCKJAW);
+            if(linked){self.removeStatusEffect(TetanusMod.LOCKJAW);self.removeStatusEffect(com.tetanusmod.expansion.ExpansionEffects.DISORIENTED);}
         }
     }
 

@@ -11,9 +11,11 @@ import java.util.Map;
 public final class TetanizedTextures {
     private static final Map<Identifier,Identifier> CACHE=new HashMap<>();
     public static Identifier get(Identifier original) {
-        return CACHE.computeIfAbsent(original,TetanizedTextures::create);
+        return CACHE.computeIfAbsent(original,id->create(id,false));
     }
-    private static Identifier create(Identifier original) {
+    private static final Map<Identifier,Identifier> RABID_CACHE=new HashMap<>();
+    public static Identifier rabid(Identifier original){return RABID_CACHE.computeIfAbsent(original,id->create(id,true));}
+    private static Identifier create(Identifier original,boolean rabid) {
         var client=MinecraftClient.getInstance();
         var resource=client.getResourceManager().getResource(original);
         if(resource.isEmpty())return original;
@@ -29,9 +31,15 @@ public final class TetanizedTextures {
                 int nr=rust?Math.min(230,60+value*3/4):(r+value*2)/3;
                 int ng=rust?25+value/3:(g+value*2)/4;
                 int nb=rust?12+value/8:(b+value)/3;
+                if(rabid){
+                    nr=(r*2+value*3)/5;ng=(g*2+value*3)*17/100;nb=(b*2+value*3)*17/100;
+                    int patch=Math.floorMod((x/3)*83492791^(y/3)*297121507^original.hashCode(),101);
+                    if(patch<18&&value>45){nr=Math.min(220,40+value*4/5);ng=value*3/10;nb=value/4;}
+                    if(value>215&&patch>=18){nr=230;ng=222;nb=194;}
+                }
                 image.setColor(x,y,(alpha<<24)|(nb<<16)|(ng<<8)|nr);
             }
-            Identifier id=TetanusMod.id("tetanized/"+original.getNamespace()+"/"+original.getPath());
+            Identifier id=TetanusMod.id((rabid?"rabid/":"tetanized/")+original.getNamespace()+"/"+original.getPath());
             client.getTextureManager().registerTexture(id,new NativeImageBackedTexture(image));
             return id;
         }catch(Exception exception) {
@@ -43,5 +51,6 @@ public final class TetanizedTextures {
         var manager=MinecraftClient.getInstance().getTextureManager();
         CACHE.forEach((source,generated)->{if(!source.equals(generated))manager.destroyTexture(generated);});
         CACHE.clear();
+        RABID_CACHE.forEach((source,generated)->{if(!source.equals(generated))manager.destroyTexture(generated);});RABID_CACHE.clear();
     }
 }

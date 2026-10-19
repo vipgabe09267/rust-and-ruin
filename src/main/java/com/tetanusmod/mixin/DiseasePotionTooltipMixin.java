@@ -23,6 +23,8 @@ public abstract class DiseasePotionTooltipMixin {
             lines.add(Text.translatable("tooltip.tetanusmod.potion_cure").formatted(Formatting.DARK_GREEN));
         }else {
             PotionUtil.buildTooltip(stack,lines,multiplier);
+            if(potion==ModBrewing.LOCKJAW)lines.add(Text.translatable("tooltip.tetanusmod.lockjaw_potion").formatted(Formatting.GRAY));
+            if(potion==ModBrewing.RABIES){lines.add(Text.translatable("tooltip.tetanusmod.rabies_potion").formatted(Formatting.GRAY));lines.add(Text.translatable("tooltip.tetanusmod.rabies_potion_sick").formatted(Formatting.DARK_GREEN));}
             if(potion==ModBrewing.SALMONELLA) {
                 lines.add(Text.translatable("tooltip.tetanusmod.potion_salmonella").formatted(Formatting.GRAY));
                 lines.add(Text.translatable("tooltip.tetanusmod.potion_sickness").formatted(Formatting.GRAY));

@@ -51,23 +51,23 @@ public class PreventionGameTests implements FabricGameTest {
     public void exactProtectionBoundaries(TestContext ctx) {
         var player=ctx.createMockSurvivalPlayer();player.addStatusEffect(new StatusEffectInstance(TetanusMod.VACCINATED,24000));
         ctx.assertFalse(InfectionProtection.allows(player,false,0.799F),"Vaccine failed below 80%");ctx.assertTrue(InfectionProtection.allows(player,false,0.80F),"Vaccine blocked above its chance");
-        player.setStackInHand(Hand.OFF_HAND,new ItemStack(ModItems.PROTECTIVE_GLOVES));
+        ((com.tetanusmod.expansion.GloveInventory)player).rustruin$gloves().setStack(0,new ItemStack(ModItems.PROTECTIVE_GLOVES));
         ctx.assertFalse(InfectionProtection.allows(player,true,0.899F),"Combined prevention failed below 90%");ctx.assertTrue(InfectionProtection.allows(player,true,0.90F),"Combined prevention exceeded 90%");
-        ctx.assertTrue(player.getOffHandStack().getDamage()==2,"Combined exposure did not charge gloves once each");ctx.complete();
+        ctx.assertTrue(com.tetanusmod.expansion.GloveInventory.equipped(player).getDamage()==2,"Combined exposure did not charge gloves once each");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void glovesRequireOffhandAndPhysicalContact(TestContext ctx) {
-        var player=ctx.createMockSurvivalPlayer();var gloves=new ItemStack(ModItems.PROTECTIVE_GLOVES);player.setStackInHand(Hand.OFF_HAND,gloves);
+    public void glovesRequireDedicatedSlotAndPhysicalContact(TestContext ctx) {
+        var player=ctx.createMockSurvivalPlayer();var gloves=new ItemStack(ModItems.PROTECTIVE_GLOVES);((com.tetanusmod.expansion.GloveInventory)player).rustruin$gloves().setStack(0,gloves);
         ctx.assertFalse(InfectionProtection.allows(player,true,0.499F),"Gloves failed below 50%");ctx.assertTrue(InfectionProtection.allows(player,true,0.5F),"Gloves exceeded 50%");
         ctx.assertTrue(InfectionProtection.allows(player,false,0)&&gloves.getDamage()==2,"Gloves protected chemical exposure or charged durability");
-        player.setStackInHand(Hand.OFF_HAND,ItemStack.EMPTY);player.setStackInHand(Hand.MAIN_HAND,gloves);
+        ((com.tetanusmod.expansion.GloveInventory)player).rustruin$gloves().setStack(0,ItemStack.EMPTY);player.setStackInHand(Hand.MAIN_HAND,gloves);
         ctx.assertTrue(InfectionProtection.allows(player,true,0)&&gloves.getDamage()==2,"Main-hand gloves gave protection");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void lastGloveUseBreaksAndStopsProtection(TestContext ctx) {
-        var player=ctx.createMockSurvivalPlayer();var gloves=new ItemStack(ModItems.PROTECTIVE_GLOVES);gloves.setDamage(gloves.getMaxDamage()-1);player.setStackInHand(Hand.OFF_HAND,gloves);
+        var player=ctx.createMockSurvivalPlayer();var gloves=new ItemStack(ModItems.PROTECTIVE_GLOVES);gloves.setDamage(gloves.getMaxDamage()-1);((com.tetanusmod.expansion.GloveInventory)player).rustruin$gloves().setStack(0,gloves);
         ctx.assertFalse(InfectionProtection.allows(player,true,0),"Last glove durability gave no protection");
-        ctx.assertTrue(player.getOffHandStack().isEmpty()&&InfectionProtection.allows(player,true,0),"Broken gloves still protected or did not break");ctx.complete();
+        ctx.assertTrue(com.tetanusmod.expansion.GloveInventory.equipped(player).isEmpty()&&InfectionProtection.allows(player,true,0),"Broken gloves still protected or did not break");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void preventionStopsPotionAndPermanentMutation(TestContext ctx) {
@@ -94,18 +94,18 @@ public class PreventionGameTests implements FabricGameTest {
         float glove=TetanusMod.CONFIG.gloveProtectionChance,salmonella=TetanusMod.CONFIG.salmonellaChance;
         try {
             TetanusMod.CONFIG.gloveProtectionChance=1;TetanusMod.CONFIG.salmonellaChance=1;
-            var player=ctx.createMockSurvivalPlayer();player.setStackInHand(Hand.OFF_HAND,new ItemStack(ModItems.PROTECTIVE_GLOVES));
+            var player=ctx.createMockSurvivalPlayer();((com.tetanusmod.expansion.GloveInventory)player).rustruin$gloves().setStack(0,new ItemStack(ModItems.PROTECTIVE_GLOVES));
             Infection.expose(player,null);ctx.assertFalse(player.hasStatusEffect(TetanusMod.TETANUS),"Gloves did not prevent contact infection");
             ModItems.INFECTED_MEAT.finishUsing(new ItemStack(ModItems.INFECTED_MEAT),ctx.getWorld(),player);
-            ctx.assertTrue(player.hasStatusEffect(TetanusMod.TETANUS)&&player.hasStatusEffect(TetanusMod.SALMONELLA)&&player.getOffHandStack().getDamage()==1,"Gloves prevented food infection or charged twice");
+            ctx.assertTrue(player.hasStatusEffect(TetanusMod.TETANUS)&&player.hasStatusEffect(TetanusMod.SALMONELLA)&&com.tetanusmod.expansion.GloveInventory.equipped(player).getDamage()==1,"Gloves prevented food infection or charged twice");
         }finally{TetanusMod.CONFIG.gloveProtectionChance=glove;TetanusMod.CONFIG.salmonellaChance=salmonella;}ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void protectionPersistsAndMilkRemovesOnlyPrevention(TestContext ctx) {
         var player=ctx.createMockSurvivalPlayer();Infection.apply(player,null);player.addStatusEffect(new StatusEffectInstance(TetanusMod.VACCINATED,12000));
-        var gloves=new ItemStack(ModItems.PROTECTIVE_GLOVES);gloves.setDamage(31);gloves.addEnchantment(Enchantments.UNBREAKING,1);player.setStackInHand(Hand.OFF_HAND,gloves);
+        var gloves=new ItemStack(ModItems.PROTECTIVE_GLOVES);gloves.setDamage(31);gloves.addEnchantment(Enchantments.UNBREAKING,1);((com.tetanusmod.expansion.GloveInventory)player).rustruin$gloves().setStack(0,gloves);
         var copy=ctx.createMockSurvivalPlayer();copy.readNbt(player.writeNbt(new NbtCompound()));
-        ctx.assertTrue(copy.hasStatusEffect(TetanusMod.VACCINATED)&&copy.getStatusEffect(TetanusMod.VACCINATED).getDuration()==12000&&copy.getOffHandStack().getDamage()==31&&copy.getOffHandStack().hasEnchantments(),"Saved protection or equipment data was lost");
+        ctx.assertTrue(copy.hasStatusEffect(TetanusMod.VACCINATED)&&copy.getStatusEffect(TetanusMod.VACCINATED).getDuration()==12000&&com.tetanusmod.expansion.GloveInventory.equipped(copy).getDamage()==31&&com.tetanusmod.expansion.GloveInventory.equipped(copy).hasEnchantments(),"Saved protection or equipment data was lost");
         Items.MILK_BUCKET.finishUsing(new ItemStack(Items.MILK_BUCKET),ctx.getWorld(),copy);
         ctx.assertTrue(!copy.hasStatusEffect(TetanusMod.VACCINATED)&&copy.hasStatusEffect(TetanusMod.TETANUS),"Milk cure rules changed");ctx.complete();
     }

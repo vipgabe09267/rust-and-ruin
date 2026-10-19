@@ -63,9 +63,14 @@ public final class Infection {
         int max = TetanusMod.CONFIG.maxDurationSeconds;
         boolean permanent=com.tetanusmod.entity.MobVariants.permanent(target);
         int ticks = permanent ? -1 : (min + target.getRandom().nextInt(max - min + 1)) * 20;
+        return applyDurationChecked(target,source,ticks,0);
+    }
+    public static boolean applyDurationChecked(LivingEntity target,Entity source,int duration,int amplifier) {
+        boolean permanent=com.tetanusmod.entity.MobVariants.permanent(target);
+        int ticks=permanent?-1:Math.max(20,Math.min(18000,duration));
         target.removeStatusEffect(TetanusMod.TETANUS);
         target.removeStatusEffect(TetanusMod.LOCKJAW);
-        if (InfectionProtection.checked(target,()->target.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, ticks, 0), source))) {
+        if (InfectionProtection.checked(target,()->target.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, ticks, amplifier), source))) {
             InfectionState state = (InfectionState) target;
             state.tetanus$setInfection(0, permanent ? 6000 : ticks);
             state.tetanus$setLockjaw(0);

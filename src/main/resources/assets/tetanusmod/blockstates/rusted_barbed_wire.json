@@ -1,0 +1,10 @@
+{
+    "variants":  {
+                     "waterlogged=false":  {
+                                               "model":  "tetanusmod:block/rusted_barbed_wire"
+                                           },
+                     "waterlogged=true":  {
+                                              "model":  "tetanusmod:block/rusted_barbed_wire"
+                                          }
+                 }
+}

@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "contract_rabies":  {
+                                             "trigger":  "minecraft:impossible"
+                                         }
+                 },
+    "parent":  "tetanusmod:root",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.rabies.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:rabid_meat"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.rabies.title"
+                              },
+                    "frame":  "task"
+                }
+}

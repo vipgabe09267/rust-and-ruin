@@ -13,7 +13,8 @@ public abstract class MilkBucketItemMixin {
         boolean removed=false;
         for(var effect:java.util.List.copyOf(user.getStatusEffects())) {
             var type=effect.getEffectType();
-            if(type!=TetanusMod.TETANUS&&type!=TetanusMod.LOCKJAW)removed|=user.removeStatusEffect(type);
+            boolean strongerSymptom=type==com.tetanusmod.expansion.ExpansionEffects.DISORIENTED&&user.getStatusEffect(TetanusMod.TETANUS)!=null&&user.getStatusEffect(TetanusMod.TETANUS).getAmplifier()>=1;
+            if(!strongerSymptom&&type!=TetanusMod.TETANUS&&type!=TetanusMod.LOCKJAW&&type!=com.tetanusmod.expansion.ExpansionEffects.RABIES)removed|=user.removeStatusEffect(type);
         }
         return removed;
     }

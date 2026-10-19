@@ -3,6 +3,11 @@
     "values":  [
                    "tetanusmod:caltrops",
                    "tetanusmod:rusted_caltrops",
+                   "tetanusmod:barbed_wire",
+                   "tetanusmod:rusted_barbed_wire",
+                   "tetanusmod:bear_trap",
+                   "tetanusmod:rusted_bear_trap",
+                   "tetanusmod:rusted_iron_block",
                    "tetanusmod:tetanized_beacon"
                ]
 }

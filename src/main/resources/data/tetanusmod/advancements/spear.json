@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "use_spear":  {
+                                       "trigger":  "minecraft:impossible"
+                                   }
+                 },
+    "parent":  "tetanusmod:root",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.spear.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:iron_spear"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.spear.title"
+                              },
+                    "frame":  "task"
+                }
+}

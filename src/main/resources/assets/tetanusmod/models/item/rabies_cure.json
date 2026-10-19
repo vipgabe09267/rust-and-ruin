@@ -1,0 +1,6 @@
+{
+    "textures":  {
+                     "layer0":  "tetanusmod:item/rabies_cure"
+                 },
+    "parent":  "minecraft:item/generated"
+}

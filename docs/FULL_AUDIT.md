@@ -1,33 +1,38 @@
 # Complete project audit for user testing
 
-This audit covers every tracked project file and every new nonignored file in this working copy. It began from commit `ffe5e1c5da80e685cf6e90ee6c6c49e00dd94ad0`. The owner authorized committing these audit changes on October 18, 2026.
+This audit covers the Rust & Ruin 0.1.0-beta expansion based on local commit `e2a2b39`. The owner authorized committing the tested expansion on October 18, 2026.
 
-## Findings fixed
+## Issues found and corrected
 
-- **Beacon selections:** a modified client could submit powers above its pyramid tier, or select an unrelated secondary power. The server now validates the primary tier and secondary choice before spending netherite. Runtime application also rejects invalid saved powers. Valid tier II/III behavior remains tested.
-- **Offhand hookline:** a rusty weapon in the main hand could also trigger its melee infection callback during hookline damage, rolling exposure twice and charging the victim's gloves twice. Active-item damage now scopes out the extra callback, with nested/exception cleanup tested.
-- **Reflected damage:** Thorns damage could inherit Tetanus from the armor wearer's held rusty weapon. Reflected armor damage no longer counts as a rusty melee strike; real melee still infects.
-- **Antitoxin accounting:** wrong/empty stacks and spectator consumption are rejected; consumption is server-authoritative. Stacked, final-dose, and full-inventory bottle returns are verified.
-- **Test stability:** the exact melee-damage fixture now isolates mutation healing, and the hookline cooldown fixture has an explicit unobstructed sightline. These changes keep genuine damage/cooldown assertions rather than accepting the wrong result.
-- **Release inspection:** checks now decode the packaged PNGs, check every item/status sprite border, detect duplicate ZIP names, and compare every packaged resource to the source. Version expansion and Loom's added refmap are checked structurally. The old recipe-guide claim of a visible 7:30 Tetanus duration was corrected.
+- Batch arrow shift-click initially left arrows in the base slot. It now consumes only the transferred arrows and one Rust, including partial inventory space; a full inventory consumes nothing.
+- Rusting a closed bear trap discarded its captured victim. Conversion now carries the block entity's saved state across, allowing the reset tool to release the original victim.
+- A Rabies vaccine check on ordinary attacks alone missed direct potion effects. Prevention now runs once at status application, including drinkable/splash exposure.
+- The upward-nail advancement was attached to the general living-entity death method. Server players use a separate method; the advancement now runs on actual player death and has positive/negative regressions.
+- Creative inventory positioned the extra glove slot over the hotbar and rejected its synchronization. The extra slot now has a dedicated position and a strictly validated native Creative packet extension.
+- Standalone Lockjaw needed to survive cleanup that was intended for recovered Tetanus. It now persists until its own timer or antitoxin treatment; milk preserves it.
+- Tetanus II now retains its stronger symptoms for the infection duration. Antitoxin clears them, and milk cannot remove those symptoms while Tetanus II remains.
+- Tetanus I/II are restricted to combat weapons. Native anvil tests reject nails, hooklines, pickaxes, shovels, and hoes.
+- Rabid mutations now survive native mob conversion without stacking their extra health.
+- Barbed wire cannot apply Slowness to spectators. Nail item use enforces its cooldown internally.
+- Clinic medics now retain their profession while finding their workstation. The server test checks after 160 AI ticks, and the graphical test follows the same medic by UUID.
+- The client harness now reports failures from every queued server task, preventing a later screenshot or shutdown from masking a failed asynchronous assertion.
 
-## File coverage
+Earlier beacon selection validation, scoped hookline infection, reflected Thorns exclusions, antitoxin bottle accounting, bounded custom packets, and command permission checks remain covered.
 
-`tools/Audit-Files.ps1` inventories every tracked and new nonignored file, records SHA-256 and size, and validates the applicable format. The full per-file report is generated locally at `.tools/final-file-inventory.json`; it stays outside its own input inventory to avoid a self-referential hash.
+## Coverage
 
-- All **81 production Java files** were reviewed across initialization, registries, diseases, state persistence, prevention, items, projectiles, traps, mobs, commands, beacons, networking, rendering and viewer integration. Production and test Java are compiled by the final build.
-- All test Java, test descriptors and test mixins were reviewed for meaningful assertions, fixture isolation and failure handling. Development code stays outside the distributable JAR.
-- Every JSON file is parsed. Gradle and live Minecraft reloads check resource references, recipes, loot, tags, advancement criteria, models, metadata and mixins. Regeneration rebuilt every generated resource; all localization values remained identical.
-- Every retained PNG, including source art, logo and screenshots, is decoded. Every runtime item/status sprite has transparent outer margins. Both original MP3 and packaged Vorbis audio are checked with FFprobe and fully decoded with FFmpeg.
-- Every PowerShell script is syntax-parsed and its file operations reviewed. The C# sprite isolator is compiled and exercised by full regeneration. Gradle configuration and Windows wrapper are exercised by builds; the POSIX wrapper is source-reviewed on this Windows host. Wrapper JAR and distribution hashes are checked.
-- Documentation, prompt provenance, Git attributes/ignores, properties, validation XML and release metadata are inspected. UTF-8 decoding is strict and local Markdown links are checked. Build caches, downloaded tools, `.git` internals and generated game saves are excluded from the project-file inventory.
+`tools/Audit-Files.ps1` reads every tracked and new nonignored file, validates its applicable format, and records size and SHA-256. Intentionally deleted source files are listed separately. Generated caches, downloaded tools, Git internals, and game saves are excluded. The per-file report stays at `.tools/expansion-file-audit.json` to avoid hashing its own changing inventory.
 
-## Final verification
+The source review covers initialization, diseases, saved state, prevention, items, projectiles, native and Creative glove synchronization, loot, mutation, AI, trades, village pools, traps, beacon validation/UI, commands, rendering, and optional viewers. All production and test Java is compiled. Automated file checks are format/integrity checks; they are not a proof of semantic correctness for every possible execution.
 
-Results are recorded in [VALIDATION.md](../VALIDATION.md), [server XML](../validation/gametest-results.xml), [client summaries](../validation/client-results.txt) and [release audit](../validation/release-audit.json). Final checks include the complete dedicated-server suite twice, graphical clients separately with JEI, with REI, and with neither viewer, then packaging/file checks again. The release auditor rejects deliberately altered disposable JAR copies, duplicate ZIP entry names and an absolute Windows drive path. The final server suite passes all 103 tests on both complete runs. The file inventory covers 289 files.
+Every JSON is parsed; Gradle and live Minecraft check recipes, tags, loot, advancements, models, metadata, and mixins. PNGs decode successfully, and all item/status sprites have transparent borders. Original MP3 and packaged Vorbis audio decode with FFmpeg. PowerShell syntax and UTF-8 are checked, local Markdown links resolve, and full resource regeneration exercises the sprite isolator. The compressed clinic template loads and places in Minecraft, replaces its road connector, and regenerates deterministically.
 
-## User playtest
+The release auditor compares every source resource to the JAR, validates processed metadata/refmaps, checks archive paths and duplicates, verifies the official Gradle wrapper and pinned distribution, and rejects test/viewer implementation classes and private files. Disposable altered, duplicate-entry, and absolute-path JARs are rejected as expected; see [negative checks](../validation/package-negative.json).
 
-Use the JAR linked in VALIDATION.md on both client and server with Fabric API. Test in a copy of a world first. Prioritize real multiplayer: nail/rebar damage, floating-water rusting, vaccine/glove prevention, long Lockjaw and milk/antitoxin handling, infected animal drops and both meat advancements, potion symptoms, hookline cooldown, Wither rituals and beacon payments. Check your own resource pack and other mods, if any.
+## Evidence and limits
 
-A file audit and passing regression suite reduce risk; they cannot establish absolute freedom from bugs, every network condition, long-running world behavior or compatibility with every modpack. The recorded final checks passed. These changes are committed at the owner's request; further multiplayer playtesting remains useful.
+See [VALIDATION.md](../VALIDATION.md), [server XML](../validation/gametest-results.xml), [repeat XML](../validation/gametest-results-repeat.xml), [client results](../validation/client-results.txt), and [release audit](../validation/release-audit.json).
+
+Automated tests and review reduce risk. They do not prove 100% correctness or cover arbitrary modpacks, every village terrain layout, every network condition, or long-running public-server load. Development runtime tests exercise the mod on dedicated and integrated servers; the remapped release JAR receives separate packaging/integrity checks. User playtesting of the release artifact remains the next step.
+
+Prioritize multiplayer combat and prevention, full-duration Tetanus II, Rabies progression/cure, glove death/logout behavior, naturally generated clinics, trap reset/rusting, batch smithing, and beacon payments. These playtesting priorities remain after the authorized commit.

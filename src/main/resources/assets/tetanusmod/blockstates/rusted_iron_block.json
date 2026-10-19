@@ -1,0 +1,7 @@
+{
+    "variants":  {
+                     "":  {
+                              "model":  "tetanusmod:block/rusted_iron_block"
+                          }
+                 }
+}

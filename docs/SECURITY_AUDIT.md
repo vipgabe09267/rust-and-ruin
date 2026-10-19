@@ -1,69 +1,35 @@
-# Rust & Ruin 0.1 security review
+# Security and stability review
 
-Review date: October 17, 2026. Scope: this mod's Java code, custom protocol, prevention mechanics, commands, crafting/container behavior, retained resources and distributable JAR. Minecraft, Java, Fabric internals and arbitrary third-party mods are not a complete dependency penetration-test target here.
+Review scope: Rust & Ruin 0.1.0-beta expansion on Minecraft 1.20.1 Fabric. Automated checks support the findings below; this is not a claim that every possible mod combination or gameplay sequence is bug-free.
 
-## Results and fixes
+## Network and authority
 
-| Area | Finding or risk checked | Implemented control and evidence |
-| --- | --- | --- |
-| Client packet handling | Malformed server messages could throw while reading fields. | Decoder enforces lengths, flags and stage bounds; handlers reject RuntimeExceptions. Tests cover valid/invalid shapes, truncated input, trailing bytes and 2,000 deterministic random payloads. Graphical clients receive four malformed messages through actual networking handlers. |
-| Configuration JSON | Unvalidated synchronized configuration could carry invalid probabilities or deeply nested input. | 8 KiB payload ceiling, flat primitive-only JSON, quoted-string-aware depth checks, no trailing bytes, and normal ModConfig validation. Tests include deeply nested JSON, invalid VarInts, scalar/null inputs and out-of-range settings. |
-| Client state growth and logging | Unbounded infection UUID entries and repeated warning logs could grow under a hostile server. | Infection cache is capped at 4,096 UUIDs and cleared on disconnect. Invalid-packet warnings are limited to one per connection. The graphical run checks continued normal operation after rejected packets. |
-| Prevention authority | Client-controlled duration or chance would permit cheating. | Server reads its own validated configuration. The vaccine ignores forged item NBT duration. Gloves must actually occupy the offhand and lose durability on the server. No new client-to-server gameplay messages exist. |
-| Nested infection callbacks | A global bypass flag could accidentally skip prevention for another entity. | Checked scopes are keyed to one entity, restore nested parent scopes and clear in finally blocks. Regression asserts cross-entity isolation and exception cleanup. |
-| Mutation and refresh | A blocked infection must not cure, refresh or permanently mutate a creature. | Exposure checks happen before replacing the illness; blocked contact does not roll mutation. Tests preserve existing timers and reject mutation under guaranteed prevention. Status-immune mob types retain the ordinary mutation path after an allowed exposure. |
-| Container accounting | Crafting/consuming doses could duplicate or lose bottles. | Vaccine crafting returns exactly the antitoxin and honey containers. Each Survival drink consumes one dose and returns one bottle. Creative, empty/wrong-item, full-inventory and normal use-tick cases are tested. |
-| Commands | A helper called outside the command tree could bypass permissions or accept non-finite coordinates. | Both tree and summon helper enforce operator level 2. Helpers reject NaN/infinity and invalid world positions. Tests cover non-operators and all non-finite coordinate cases. No arbitrary NBT command argument is accepted. |
-| Hookline | Repeated direct use could bypass reliance on the interaction manager's cooldown. | Item use checks cooldown, spectator state, life state and held item; raycast respects solid walls. Tests reset damage immunity and attempt repeated use, plus a blocked-wall hit. |
-| Field guide | A book must not execute NBT commands, URLs or scripts. | The guide is a local read-only screen from trusted localization text. It sends no gameplay packets, parses no user book NBT, never consumes its item and bounds chapter/scroll indices. Every chapter and extreme indices are exercised graphically. |
-| Release and build integrity | Development classes, private files or altered wrappers must not enter the release. | Audit-Release.ps1 checks archive paths/content, metadata, mandatory dependencies, required assets, sprite borders, advancement conditions and the official wrapper checksum. The Gradle distribution checksum is pinned. |
+- Existing configuration, symptom, and infection-presence decoders retain strict length/range/shape checks. Deliberately malformed messages pass through real client receivers during every smoke run without ending the run.
+- Rabies presence reuses the fixed 17-byte UUID/boolean decoder, with a separate bounded 4,096-entry client cache and disconnect cleanup. Servers clear cached states on disconnect and stop.
+- No new arbitrary client-to-server custom payload is introduced. Gloves use native inventory synchronization. The Creative extension accepts only slot 46, only from an actual Creative player, and only an empty stack or one Protective Gloves item; it enforces the server thread before mutation. Tests reject Survival, wrong-item, and oversized-stack updates.
+- Operator mutation commands retain permission level 2, finite coordinate and world checks. `/give` changes only autocomplete; it does not change command permissions.
+- Beacon selections remain server-validated for pyramid tier, primary/secondary pairing, and netherite payment. Invalid requests cannot consume payment or select stronger powers.
+- Medicine, equip, rusting, mutation, loot, traps, and recipe consumption run on the server. Tonics reject wrong/empty stacks and spectator use, preserve Creative behavior, and account for bottles.
 
-## Additional final-audit controls
+## Persistence and item integrity
 
-The [complete-file audit](FULL_AUDIT.md) adds beacon selection validation on the server: clients cannot select locked powers or unrelated secondaries, and invalid requests do not consume payment. Runtime application rejects invalid saved powers. Offhand hookline damage cannot inherit a second exposure from the main-hand weapon, and reflected Thorns damage cannot inherit rusty melee infection. Antitoxin consumption now rejects wrong/empty items and spectators and handles full inventories on the server.
+- Enchantment level is captured when a projectile is fired, bounded to 0–2, and persisted. Switching held items after firing cannot change an in-flight shot's disease level.
+- Rabies progression counters and loaded heart penalties are bounded. Modifier UUIDs prevent stacking from repeated save/load or conversion; the cure removes the temporary penalty. Death respawn clears Rabies.
+- Glove storage is limited to one validated item, migrates old offhand saves, and handles keep-inventory, death drops, and Vanishing. Regression tests check duplication and NBT preservation.
+- Batch arrow smithing checks ordinary arrows, Rust, and an empty template. Shift-click handles partial inventory space; full inventory consumes no ingredients. Normal take, repeated shift-click, and counts 1/16/64 are covered.
+- Captured bear-trap victims survive conversion to the rusty block entity. Closed traps cannot retrigger until reset.
+- Temporary Tetanus no longer changes ordinary animal loot. Permanent tetanized and rabid animal drop overrides respect `doMobLoot`; hostile drops retain their own path.
+- Existing item IDs and legacy rusty iron tool behavior remain compatible. Natural mutation excludes command/egg/breeding spawns and special boss rituals.
 
-The release auditor compares every source resource with its packaged bytes, accounting explicitly for version expansion and Loom's refmap field. It decodes all packaged PNGs, checks all item/status margins and rejects duplicate ZIP entry names. Disposable copies with altered PNG data and duplicate entries are rejected as expected. The file auditor covers every tracked/new nonignored project file; the complete resource generator is exercised, all PNGs decoded, and both audio files fully decoded.
+## Build and package checks
 
-## Protocol limits
+- Official Gradle 8.6 wrapper checksum and distribution SHA-256 are pinned and verified.
+- Every current source resource must match the packaged resource byte-for-byte, apart from deliberate version/refmap processing.
+- Archive paths reject traversal, absolute paths, backslashes, duplicate entries, credential filenames, and bundled test/viewer implementation classes.
+- JSON, PowerShell syntax, strict UTF-8, local documentation links, translation keys, compressed structure headers, model/texture references, and every item/status sprite margin are scanned.
+- Clinic structure data is loaded and placed by a live server test; its generator is deterministic on repeat runs.
+- No additional required mod dependency was introduced. JEI and REI each receive their own graphical runtime test; plain startup checks optional integration isolation.
 
-- Infection presence: exactly 17 bytes, UUID plus strict 0/1 flag.
-- Symptom: exactly 2 bytes, stage 0–2 plus strict 0/1 flag.
-- Configuration: at most 8,192 payload bytes, a bounded string, flat JSON object and validated scalar fields.
-- Only the client registers mod packet receivers. No new custom client-to-server channel is introduced by the vaccine, gloves or guide.
+## Practical limits
 
-Malformed payload tests exercise the real decoder, not a second implementation. Parser fuzzing catches RuntimeExceptions as expected rejections; fatal Errors are not swallowed by the test. In the graphical runs the client receives malformed config, nested config, short presence and invalid-stage symptom messages, logs one warning, and then continues its normal feature checks.
-
-## Prevention and abuse invariants
-
-Default vaccine protection is 80% for 1,200 seconds; gloves provide 50% contact protection with 192 base durability. Combined contact prevention is 90%, calculated without independent double rolls. Tests cover exact boundaries, the final glove durability use, main-hand/inventory exclusions, food/potion exclusions for gloves, saved equipment/status state and natural vaccine expiry.
-
-Vaccine duration is bounded to 1–7,200 seconds; protection chances are finite and clamped to 0–1. Vaccination does not cure Tetanus/Lockjaw, block Salmonella or reduce weapon damage. Milk removes the beneficial vaccine status while retaining the existing Tetanus cure restriction. Ordinary enchantment durability rules remain applicable.
-
-## Tooling and upstream lookup
-
-The checked-in Gradle 8.6 wrapper JAR matches the official SHA-256:
-
-`d3b261c2820e9e3d8d639ed084900f11f4a86050a8f83342ade7b6bc9b0d2bdd`
-
-The distribution download is pinned to:
-
-`9631d53cf3e74bfa726893aee1f8994fee4e060c401335946dba2156f440f24c`
-
-Both values come from the [official Gradle checksum reference](https://gradle.org/release-checksums/). The download pin applies to wrapper downloads; it is not a claim that every external cached file was independently re-downloaded and audited.
-
-The [Fabric Loader](https://github.com/FabricMC/fabric-loader/security/advisories) and [Fabric API](https://github.com/FabricMC/fabric-api/security/advisories) maintainer advisory pages showed no published advisories when checked. That limited lookup does not establish that Minecraft, Java, transitive libraries or every mod are vulnerability-free; it is not a full software-composition scan.
-
-No runtime process execution, arbitrary remote HTTP calls, Java object deserialization, or executable book links were found in this mod's production source review. Configuration file access uses the fixed local mod config path. Normal Minecraft/Fabric networking and resource APIs remain in use.
-
-## Reproduce and limits
-
-```powershell
-.\tools\Build.ps1 -Test
-.\gradlew.bat -PwithJei runClientSmoke --console plain
-.\gradlew.bat -PwithRei runClientSmoke --console plain
-.\tools\Audit-Release.ps1
-```
-
-The complete functional suite is run again before user testing. The owner authorized committing the final audit fixes on October 18, 2026. Read [VALIDATION.md](../VALIDATION.md) for exact results, screenshots and artifact hash.
-
-This review reduces specific identified risks. It cannot prove 100% correctness or security, replace independent penetration testing, or establish compatibility with arbitrary modpacks and network conditions. No known unresolved issue was observed in the reviewed mod paths after the recorded checks; upstream game/runtime vulnerabilities require separate monitoring.
+The review does not cover arbitrary third-party mixins, oversized external resource packs, every possible village terrain collision, or long-running public-server load. Clinics are weighted village house entries, so their presence is not guaranteed in a particular village. Existing generated terrain is unchanged. World-generation variety and combat balance still benefit from the owner's in-game testing. Player-owned projectiles continue to obey the server's PvP rules.

@@ -1,0 +1,10 @@
+{
+    "cookingtime":  200,
+    "experience":  0.35,
+    "ingredient":  {
+                       "item":  "tetanusmod:rabid_meat"
+                   },
+    "type":  "minecraft:smelting",
+    "category":  "food",
+    "result":  "tetanusmod:cooked_rabid_meat"
+}

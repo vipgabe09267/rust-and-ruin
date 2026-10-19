@@ -18,7 +18,9 @@ public final class RustingSystem {
         private static final Map<Item, Item> ITEMS = Map.of(ModItems.NAIL, ModItems.RUSTED_NAIL, ModItems.REBAR, ModItems.RUSTED_REBAR,
                 ModItems.SHARPENED_REBAR, ModItems.RUSTED_SHARPENED_REBAR,
                 ModItems.BENT_NAIL, ModItems.RUSTED_BENT_NAIL, ModItems.METAL_PIPE, ModItems.RUSTED_METAL_PIPE,
-                ModBlocks.CALTROPS.asItem(), ModBlocks.RUSTED_CALTROPS.asItem());
+                ModBlocks.CALTROPS.asItem(), ModBlocks.RUSTED_CALTROPS.asItem(), com.tetanusmod.expansion.ExpansionItems.SPEAR, com.tetanusmod.expansion.ExpansionItems.RUSTED_SPEAR,
+                com.tetanusmod.expansion.ExpansionBlocks.BEAR_TRAP.asItem(), com.tetanusmod.expansion.ExpansionBlocks.RUSTED_BEAR_TRAP.asItem(),
+                ModBlocks.BARBED_WIRE.asItem(),ModBlocks.RUSTED_BARBED_WIRE.asItem());
     }
 
     public static boolean touchingWater(net.minecraft.entity.ItemEntity item) {
@@ -29,7 +31,7 @@ public final class RustingSystem {
     }
     public static Item rusted(Item item) {
         Item normal = Pairs.ITEMS.get(item);
-        return normal != null ? normal : com.tetanusmod.registry.ModIronTools.PAIRS.get(item);
+        return normal;
     }
     public static Item clean(Item item) {
         if(item==ModItems.TETANIZED_WITHER_STAR)return net.minecraft.item.Items.NETHER_STAR;

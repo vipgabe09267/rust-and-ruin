@@ -4,7 +4,7 @@
     "version":  "${version}",
     "name":  "Rust \u0026 Ruin",
     "icon":  "assets/tetanusmod/icon.png",
-    "description":  "Rusting iron weapons, Tetanus infections, mutated mobs, and a stronger Wither. Minecraft 1.20.1 Fabric.",
+    "description":  "Weathering weapons, rusty traps, Tetanus, Rabies, village medics, and a stronger Wither. Minecraft 1.20.1 Fabric.",
     "contact":  {
                     "homepage":  "https://modrinth.com/mod/rust-ruin",
                     "sources":  "https://github.com/vipgabe09267/rust-and-ruin",

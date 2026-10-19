@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "activate_full":  {
+                                           "trigger":  "minecraft:impossible"
+                                       }
+                 },
+    "parent":  "tetanusmod:beacon_placed",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.beacon_full.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:rusted_iron_block"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.beacon_full.title"
+                              },
+                    "frame":  "challenge"
+                }
+}

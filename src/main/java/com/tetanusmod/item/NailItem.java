@@ -29,13 +29,15 @@ public final class NailItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
+        if(user.isSpectator()||!user.isAlive()||!stack.isOf(this)||user.getItemCooldownManager().isCoolingDown(this))return TypedActionResult.pass(stack);
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW,
                 SoundCategory.PLAYERS, 0.6F, 0.85F + world.random.nextFloat() * 0.25F);
         if (!world.isClient) {
             NailEntity nail = new NailEntity(world, user);
-            nail.setItem(stack);
+            nail.setItem(stack);nail.setThrownUpward(user.getPitch()<-60);
             nail.setRecoverable(!user.getAbilities().creativeMode);
             nail.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, bent ? 1.3F : 1.5F, bent ? 4.0F : 1.0F);
+
             world.spawnEntity(nail);
         }
         for (Item nailItem : new Item[]{com.tetanusmod.registry.ModItems.NAIL, com.tetanusmod.registry.ModItems.RUSTED_NAIL,

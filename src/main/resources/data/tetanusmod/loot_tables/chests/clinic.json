@@ -1,0 +1,44 @@
+{
+    "pools":  [
+                  {
+                      "entries":  [
+                                      {
+                                          "functions":  [
+                                                            {
+                                                                "function":  "minecraft:set_count",
+                                                                "count":  {
+                                                                              "min":  1,
+                                                                              "type":  "minecraft:uniform",
+                                                                              "max":  3
+                                                                          }
+                                                            }
+                                                        ],
+                                          "weight":  4,
+                                          "name":  "minecraft:glass_bottle",
+                                          "type":  "minecraft:item"
+                                      },
+                                      {
+                                          "weight":  2,
+                                          "name":  "minecraft:honey_bottle",
+                                          "type":  "minecraft:item"
+                                      },
+                                      {
+                                          "weight":  3,
+                                          "name":  "minecraft:paper",
+                                          "type":  "minecraft:item"
+                                      },
+                                      {
+                                          "weight":  1,
+                                          "name":  "tetanusmod:tetanus_antitoxin",
+                                          "type":  "minecraft:item"
+                                      }
+                                  ],
+                      "rolls":  {
+                                    "min":  2,
+                                    "type":  "minecraft:uniform",
+                                    "max":  4
+                                }
+                  }
+              ],
+    "type":  "minecraft:chest"
+}

@@ -23,7 +23,7 @@ public final class RustRuinReiPlugin implements REIClientPlugin {
     public static volatile int registeredCount;
     public static boolean hasDiseaseBrewing() {
         var outputs=DisplayRegistry.getInstance().getAll().values().stream().flatMap(List::stream).flatMap(display->display.getOutputEntries().stream()).flatMap(List::stream).map(entry->entry.getValue()).filter(value->value instanceof ItemStack).map(value->(ItemStack)value).toList();
-        for(var potion:List.of(com.tetanusmod.registry.ModBrewing.MANURE,com.tetanusmod.registry.ModBrewing.TETANUS,com.tetanusmod.registry.ModBrewing.SALMONELLA)) {
+        for(var potion:List.of(com.tetanusmod.registry.ModBrewing.MANURE,com.tetanusmod.registry.ModBrewing.TETANUS,com.tetanusmod.registry.ModBrewing.SALMONELLA,com.tetanusmod.registry.ModBrewing.LOCKJAW,com.tetanusmod.registry.ModBrewing.RABIES)) {
             if(outputs.stream().noneMatch(stack->net.minecraft.potion.PotionUtil.getPotion(stack)==potion && stack.isOf(Items.POTION)))return false;
             if(potion!=com.tetanusmod.registry.ModBrewing.MANURE && outputs.stream().noneMatch(stack->net.minecraft.potion.PotionUtil.getPotion(stack)==potion && stack.isOf(Items.SPLASH_POTION)))return false;
         }
@@ -36,11 +36,11 @@ public final class RustRuinReiPlugin implements REIClientPlugin {
         public RustDisplay(Item input,Item output) { super(List.of(EntryIngredient.of(EntryStacks.of(input))),List.of(EntryIngredient.of(EntryStacks.of(output)))); }
         @Override public CategoryIdentifier<RustDisplay> getCategoryIdentifier() { return RUSTING; }
     }
-    @Override public void registerCategories(CategoryRegistry registry) { registry.add(new RustCategory()); }
+    @Override public void registerCategories(CategoryRegistry registry) { registry.add(new RustCategory());registry.add(new ArrowCategory());registry.addWorkstations(ARROW_SMITHING,EntryStacks.of(Items.SMITHING_TABLE)); }
     @Override public void registerDisplays(DisplayRegistry registry) {
         int count=0;
         for(Item item:Registries.ITEM) { Item rusty=RustingSystem.rusted(item);if(rusty!=null){registry.add(new RustDisplay(item,rusty));count++;} }
-        registeredCount=count;
+        registeredCount=count;registry.add(new ArrowDisplay());
     }
     private static final class RustCategory implements DisplayCategory<RustDisplay> {
         @Override public CategoryIdentifier<RustDisplay> getCategoryIdentifier() { return RUSTING; }
@@ -58,4 +58,25 @@ public final class RustRuinReiPlugin implements REIClientPlugin {
             return widgets;
         }
     }
-}
+    public static final CategoryIdentifier<ArrowDisplay> ARROW_SMITHING=CategoryIdentifier.of(TetanusMod.id("rust_arrows"));
+    public static boolean hasArrowSmithing(){return DisplayRegistry.getInstance().getAll().getOrDefault(ARROW_SMITHING,List.of()).size()==1;}
+    public static boolean showArrowSmithing(){return me.shedaniel.rei.api.client.view.ViewSearchBuilder.builder().addCategory(ARROW_SMITHING).open();}
+    public static final class ArrowDisplay extends BasicDisplay {
+        ArrowDisplay(){super(List.of(EntryIngredient.of(EntryStacks.of(new ItemStack(Items.ARROW,64))),EntryIngredient.of(EntryStacks.of(ModItems.RUST))),List.of(EntryIngredient.of(EntryStacks.of(new ItemStack(ModItems.TETANIZED_ARROW,64)))));}
+        @Override public CategoryIdentifier<ArrowDisplay> getCategoryIdentifier(){return ARROW_SMITHING;}
+    }
+    private static final class ArrowCategory implements DisplayCategory<ArrowDisplay> {
+        @Override public CategoryIdentifier<ArrowDisplay> getCategoryIdentifier(){return ARROW_SMITHING;}
+        @Override public Text getTitle(){return Text.translatable("jei.tetanusmod.batch_smithing");}
+        @Override public Renderer getIcon(){return EntryStacks.of(Items.SMITHING_TABLE);}
+        @Override public int getDisplayHeight(){return 74;}
+        @Override public int getDisplayWidth(ArrowDisplay display){return 178;}
+        @Override public List<Widget> setupDisplay(ArrowDisplay display,Rectangle bounds){
+            var widgets=new ArrayList<Widget>();widgets.add(Widgets.createRecipeBase(bounds));
+            widgets.add(Widgets.createSlot(new Point(bounds.x+9,bounds.y+13)).entries(display.getInputEntries().get(0)).markInput());
+            widgets.add(Widgets.createSlot(new Point(bounds.x+73,bounds.y+13)).entries(display.getInputEntries().get(1)).markInput());
+            widgets.add(Widgets.createSlot(new Point(bounds.x+149,bounds.y+13)).entries(display.getOutputEntries().get(0)).markOutput());
+            widgets.add(Widgets.createLabel(new Point(bounds.x+8,bounds.y+42),Text.translatable("jei.tetanusmod.batch_hint")).leftAligned().noShadow());
+            widgets.add(Widgets.createLabel(new Point(bounds.x+8,bounds.y+57),Text.translatable("jei.tetanusmod.no_template")).leftAligned().noShadow());return widgets;
+        }
+    }}

@@ -64,6 +64,16 @@ try {
             }finally{$bitmap.Dispose()}
         }finally{$stream.Dispose()}
     }
+    foreach($name in @('iron_spear','rusted_iron_block','bear_trap','trap_reset_tool','barbed_wire','medic_cabinet','rabies_vaccine')){$null=Read-JsonEntry "data/tetanusmod/recipes/$name.json"}
+    $arrow=Read-JsonEntry 'data/tetanusmod/recipes/tetanized_arrow.json'
+    if($arrow.type-ne'tetanusmod:rust_arrows'){throw 'Arrow recipe is not batch smithing'}
+    $bases=Read-JsonEntry 'data/tetanusmod/tags/blocks/tetanized_beacon_base_blocks.json'
+    if(@($bases.values).Count-ne 1-or$bases.values[0]-ne'tetanusmod:rusted_iron_block'){throw 'Incorrect special beacon base materials'}
+    foreach($name in @('why_did_i_do_that','beacon_placed','beacon_full','shield_protection','glove_protection','rabies','rabies_cured','antitoxin','trap_reset','spear','variant_egg','rust_arrows','medic','clinic')){$null=Read-JsonEntry "data/tetanusmod/advancements/$name.json"}
+    foreach($name in @('rabies','rabies_resistance','disoriented')){if(!$archive.GetEntry("assets/tetanusmod/textures/mob_effect/$name.png")){throw "Missing expansion effect icon: $name"}}
+    if(!$archive.GetEntry('data/tetanusmod/structures/village/clinic.nbt')-or!$archive.GetEntry('assets/tetanusmod/textures/entity/villager/profession/medic.png')){throw 'Clinic or medic artwork missing'}
+    $eggs=@($archive.Entries|Where-Object FullName -match '^assets/tetanusmod/models/item/(tetanized|rabid)_.+_spawn_egg.json$')
+    if($eggs.Count-lt 100){throw 'Variant egg models missing'}
     $why=Read-JsonEntry 'data/tetanusmod/advancements/why_did_i_eat_that.json'
     $strange=Read-JsonEntry 'data/tetanusmod/advancements/strange_meat.json'
     if(!$why.criteria.get_salmonella-or!$strange.criteria.obtain_infected_meat){throw 'Advancement triggers changed'}

@@ -170,10 +170,10 @@ public class ProgressionGameTests implements FabricGameTest {
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void beaconAllowedBasesAndPersistence(TestContext ctx) {
         var pos=new BlockPos(4,6,4);ctx.setBlockState(pos,ModBeacons.BLOCK);
-        for(Block block:List.of(Blocks.GOLD_BLOCK,Blocks.COPPER_BLOCK,Blocks.NETHERITE_BLOCK,Blocks.EXPOSED_COPPER,Blocks.WAXED_OXIDIZED_COPPER)) {
+        for(Block block:List.of(com.tetanusmod.expansion.ExpansionBlocks.RUSTED_IRON_BLOCK)) {
             pyramid(ctx,pos,block,4);ctx.assertTrue(BeaconPower.level(ctx.getWorld(),ctx.getAbsolutePos(pos))==4,"Rejected valid beacon base "+block);
         }
-        for(Block block:List.of(Blocks.IRON_BLOCK,Blocks.DIAMOND_BLOCK,Blocks.EMERALD_BLOCK)) {
+        for(Block block:List.of(Blocks.IRON_BLOCK,Blocks.DIAMOND_BLOCK,Blocks.EMERALD_BLOCK,Blocks.GOLD_BLOCK,Blocks.COPPER_BLOCK,Blocks.NETHERITE_BLOCK)) {
             pyramid(ctx,pos,block,1);ctx.assertTrue(BeaconPower.level(ctx.getWorld(),ctx.getAbsolutePos(pos))==0,"Accepted invalid beacon base "+block);
         }
         var beacon=ctx.getWorld().getBlockEntity(ctx.getAbsolutePos(pos));
@@ -201,7 +201,7 @@ public class ProgressionGameTests implements FabricGameTest {
     }
     @GameTest(templateName=EMPTY_STRUCTURE,tickLimit=180)
     public void actualBeaconTicksApplyPowers(TestContext ctx) {
-        var pos=new BlockPos(4,6,4);pyramid(ctx,pos,Blocks.COPPER_BLOCK,4);ctx.setBlockState(pos,ModBeacons.BLOCK);
+        var pos=new BlockPos(4,6,4);pyramid(ctx,pos,com.tetanusmod.expansion.ExpansionBlocks.RUSTED_IRON_BLOCK,4);ctx.setBlockState(pos,ModBeacons.BLOCK);
         var beacon=(TetanizedBeaconEntity)ctx.getWorld().getBlockEntity(ctx.getAbsolutePos(pos));
         var nbt=beacon.createNbt();nbt.putInt("Primary",net.minecraft.registry.Registries.STATUS_EFFECT.getRawId(StatusEffects.SPEED));nbt.putInt("Secondary",net.minecraft.registry.Registries.STATUS_EFFECT.getRawId(StatusEffects.SPEED));beacon.readNbt(nbt);
         var player=ctx.createMockCreativeServerPlayerInWorld();player.setPosition(ctx.getAbsolute(new Vec3d(3,6,3)));

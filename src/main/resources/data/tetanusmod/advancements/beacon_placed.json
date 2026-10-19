@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "place_beacon":  {
+                                          "trigger":  "minecraft:impossible"
+                                      }
+                 },
+    "parent":  "tetanusmod:nice_one",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.beacon_placed.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:tetanized_beacon"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.beacon_placed.title"
+                              },
+                    "frame":  "task"
+                }
+}

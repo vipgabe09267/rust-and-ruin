@@ -229,6 +229,7 @@ public class TetanusGameTests implements FabricGameTest {
         ModItems.NAIL.use(ctx.getWorld(), player, Hand.MAIN_HAND);
         ctx.assertTrue(player.getMainHandStack().getCount() == 3, "Survival throw did not consume one nail");
         player.getAbilities().creativeMode = true;
+        player.getItemCooldownManager().remove(ModItems.NAIL);
         ModItems.NAIL.use(ctx.getWorld(), player, Hand.MAIN_HAND);
         ctx.assertTrue(player.getMainHandStack().getCount() == 3, "Creative throw consumed nail");
         ctx.getWorld().getEntitiesByType(TetanusMod.NAIL_ENTITY, player.getBoundingBox().expand(4), e -> true).forEach(NailEntity::discard);

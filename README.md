@@ -2,119 +2,108 @@
 
 # Rust & Ruin
 
-Rusting weapons, infected creatures, and a Wither worth preparing for. A Minecraft **1.20.1 Fabric** mod, version **0.1.0-beta**.
+Throw nails, set rusty traps, and fight infected creatures. Rust & Ruin adds weathering weapons, three diseases, village medics, and a tougher Wither with its own beacon.
 
-[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes and progression](docs/RECIPES.md) · [Test results](VALIDATION.md) · [Security review](docs/SECURITY_AUDIT.md) · [Requested feature audit](docs/REQUEST_AUDIT.md) · [Complete file audit](docs/FULL_AUDIT.md)
+**Minecraft 1.20.1 Fabric · version 0.1.0-beta**
+
+[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes](docs/RECIPES.md) · [Validation](VALIDATION.md) · [Requested features](docs/REQUEST_AUDIT.md) · [Security review](docs/SECURITY_AUDIT.md) · [File audit](docs/FULL_AUDIT.md)
 
 ![Rust & Ruin in Minecraft](validation/screenshots/rust-and-ruin-hud.png)
 
 ## Install
 
-Put `rust-and-ruin-0.1.0-beta.jar` in the `mods` folder on **both the client and server**. Requires **Java 17**, **Fabric Loader 0.16.14+**, and **Fabric API for 1.20.1**. Replace older copies of the mod.
+Put `rust-and-ruin-0.1.0-beta.jar` in `mods` on **both client and server**, replacing older copies. Requires **Java 17, Fabric Loader 0.16.14+, and Fabric API for 1.20.1**.
 
-**JEI and REI are optional alternatives.** Each supports crafting, cooking, brewing, and all 11 Rusting recipes. Install one recipe viewer with its own dependencies. Rust & Ruin itself only requires Fabric API.
+JEI and REI are optional alternatives. Both display crafting, cooking, disease brewing, nine rusting conversions, and batch arrow smithing. Install your chosen viewer with its own dependencies; Rust & Ruin itself only requires Fabric API.
 
-## Prevention and field guide
+## Weapons and rust
 
-**Tetanus Vaccine** grants Tetanus Resistance for **20 minutes**, reducing new Tetanus infection risk by **80%**. It prevents rather than cures: existing Tetanus and Lockjaw remain. It does not prevent Salmonella. Milk removes this beneficial protection.
+Nails deal one heart per throw; rebar deals half a heart on a fully charged unarmored hit. Metal pipes, sharpened rebar, hooklines, and a new **Iron Spear** offer other options. The spear has seven base damage, a slower attack than an iron sword, and a right-click thrust reaching 4.5 blocks. Solid walls block the thrust.
 
-Equip **Protective Gloves in your offhand** for **50% lower risk from rusty contact**. Each exposure costs one base durability out of 192; ordinary enchantment rules still apply. Gloves do not prevent infected-food or potion exposure and do not reduce weapon damage. Vaccine and gloves combine to give **90% contact protection** by default.
+Dropped supported metal rusts after **five consecutive seconds touching water** or **fifteen seconds in exposed rain**. Conversion preserves item names, damage, enchantments, and stack counts. Brush it clean to collect Rust, or place Rust on floors and walls. Existing rusty iron tools retain their IDs and behavior, but are retired from new rusting and the Creative tab in favor of the spear.
 
-Craft a **Rust & Ruin Field Guide** from a book, Rust and a feather. Right-click to open its ten chapters, then use the mouse wheel or arrow buttons to scroll. It covers recipes, symptoms, prevention, creatures, salvage, brewing, commands and Wither/beacon progression. Prevention values use the connected server settings. Reading never consumes the book.
+Caltrops and barbed wire damage creatures that step through them. **Bear Traps** close after one activation, inflicting Slowness X; use a **Trap Reset Tool** to release the victim and rearm them. Rusty traps spread Tetanus. Traps play infection sounds at their position.
 
-## Weapons, rust, and salvage
+Fishing rods left in water break into two sticks and two string, with a 15% Rusty Fishing Hook chance. Craft a hookline from the hook, chain, string, and a stick to pull and infect creatures up to twelve blocks away.
 
-Throw nails, swing rebar and metal pipes, or place caltrops. A nail deals one heart per throw; rebar deals half a heart on a fully charged hit against an unarmored target. Armor, enchantments, critical hits, and attack cooldowns still apply.
+## Diseases and protection
 
-Dropped metal rusts after **five consecutive seconds touching water, including the surface**, or **15 seconds exposed to rain**. The five iron tools have rusted variants. Rusting preserves names, durability, enchantments, and stack counts; inventories do not rust.
+| Disease | Symptoms | Treatment |
+| --- | --- | --- |
+| Tetanus | Random 5–10 minutes; stiffness, spasms, rusty HUD and tab-list hearts | Tetanus Antitoxin; milk cannot cure it |
+| Lockjaw Sonata | Blocks eating during the final random 2–4 minutes of ordinary Tetanus; standalone potion lasts one minute | Tetanus Antitoxin; milk cannot cure it |
+| Salmonella | Vomiting, nausea, hunger loss, and light nonlethal damage | Natural recovery or ordinary milk treatment |
+| Rabies | Permanent; loses one heart of maximum health per minute down to two hearts, then ten seconds of nausea per minute; purple-red hearts | Rabies Cure from a medic, or death; milk and Tetanus Antitoxin do not cure it |
 
-Rusted industrial weapons inflict Tetanus. Rusted iron tools have a 20% infection chance on melee hits. Tetanized arrows work with bows and crossbows and **consume ammunition even with Infinity**. Their infection sound plays at impact; caltrops play it at the trap.
+The Tetanus Vaccine grants twenty minutes of 80% prevention. Gloves halve rusty-contact risk and have 192 durability. Equip them by right-clicking or using their **dedicated inventory slot** above the offhand slot. Combined vaccine/glove protection is 90% by default. Gloves do not protect against contaminated food or potions.
 
-Use a wire brush with rusty equipment in the opposite hand to clean it. Cleaning costs one brush durability per item and returns one Rust per action. A grindstone also removes rust, with normal enchantment removal rules.
+**Tetanus Protection** is shield-only: a held enchanted shield adds 65% prevention against Tetanus I or 40% against II. Blocking the attack still prevents its normal damage. **Rabies Vaccine** provides twenty minutes of 90% prevention and is craftable or sold by medics. Vaccines prevent new infections; they do not cure existing ones. Milk clears beneficial vaccine effects.
 
-Dropped fishing rods break after five seconds in water, returning two sticks and two string, with a **15% chance of a Rusty Fishing Hook**. Craft the hook into a **Rusty Hookline** to pull and infect creatures up to 12 blocks away.
+Craft the reusable **Field Guide** from a book, Rust, and a feather. Its ten scrollable chapters include the connected server's prevention settings.
 
-## Infections and variants
+## Creatures and village medics
 
-Ordinary Tetanus lasts **5–10 minutes** per hit. Symptoms develop in stages: stiffness, spasms, and stronger movement disturbances. Player hearts turn rusty brown on the HUD and in tab-list health objectives.
+Permanent tetanized hostiles gain 50% maximum health and extra attack damage where supported. Animals move slower. Skins retain each creature's original texture layout. Only **permanently tetanized animal variants** replace their ordinary drops with 1–3 Infected Meat; temporary Tetanus does not change animal loot. Hostiles keep normal drops and add Rust plus a modest randomized salvage reward.
 
-**Lockjaw Sonata** has a visible status icon and timer. It continuously blocks eating during the final randomly selected **2–4 minutes** of the infection. An action-bar message explains the restriction. **Milk cannot cure Tetanus or Lockjaw Sonata; drink Tetanus Antitoxin.** Natural recovery clears both effects.
+| Difficulty | Natural or world-generation Tetanized chance | Spawner chance |
+| --- | --- | --- |
+| Peaceful | 0% | 0% |
+| Easy | 10% | 25% |
+| Normal | 15% | 35% |
+| Hard | 20% | 45% |
 
-Rusty attacks (including melee, traps, projectiles, and hooklines) have a **15% mutation chance for animals** and **5% for other mobs**. All vanilla mob types can be tetanized, including spiders. Withers retain their separate ritual rules. Skins preserve each creature's own texture layout and details instead of applying a shared texture across unrelated models.
+Withers and the Ender Dragon are excluded from these automatic rolls. Rusty contact retains the configurable default mutation chances of 15% for animals and 5% for other ordinary mobs. Certain unconverted mammals and undead can instead become rabid, at 1%/2%/3% on Easy/Normal/Hard. Rabid creatures have thirty extra health points, seven extra armor points, custom skins, and five-point melee attacks before armor. Only rabid animals drop Rabid Meat. Both contaminated meats become safe when cooked.
 
-Permanent hostile variants gain 50% maximum health and additional attack damage where supported. Permanent animal variants move slower. **Any animal with Tetanus**, temporary or permanent, replaces its ordinary item drops with **only 1–3 Infected Meat**. Hostiles retain normal loot and add Rust plus a small random reward: iron nuggets, a copper ingot, flint, string, coal, or a bone.
+A **medic** sells antitoxin, both vaccines, Rabies Cure, and gloves from novice level. Small clinics can appear in plains, desert, savanna, snowy, and taiga villages. A crafted **Medicine Cabinet** also gives an unemployed villager the profession without a clinic. Other trades offer selected weapons, traps, tools, and hooks. Creative variant spawn eggs are available in the Rust & Ruin tab.
 
-Raw infected meat causes Tetanus and has a **10% chance of Salmonella**. Salmonella causes periodic vomiting, nausea, hunger loss, and light nonlethal damage. Cooking the meat makes it safe. Collect cow manure with a glass bottle and use it as the base for **Tetanus and Salmonella potions**, including splash variants.
+## Brewing and enchanted arrows
 
-## Golems, Withers, and beacons
+Bottle cow manure and brew it with water for a five-second Nausea potion. Add Rust for Tetanus, Infected Meat for Salmonella, or Rabid Meat for Rabies. Brew Tetanus with a pufferfish for Lockjaw Sonata. Gunpowder and dragon's breath make splash and lingering variants. [Exact recipes](docs/RECIPES.md).
 
-Use Rust on an iron golem for an **18% chance** to create a rusty, **200-health** guardian. Each Survival attempt consumes one Rust.
+Tetanized Arrows now use a **smithing table**: empty template, ordinary arrows as base, one Rust as addition. One Rust coats up to 64 arrows. They cause one minute of Tetanus alone and consume ammunition even with Infinity. **Tetanus I/II** books work on swords, axes, spears, industrial melee weapons, bows, crossbows, and tridents. Nails, hooklines, and mining tools cannot accept them. Enchanted shots cause full-duration infection; combining them with infected arrows adds 25% duration. Tetanus II keeps its stronger symptoms for the infection duration: it disorients targets, makes mobs wander and sometimes miss attacks, and deals two points of nonlethal damage every ten seconds.
 
-Summon a Wither with four **Tetanized Soul Sand** blocks for a **5% chance** of a Tetanized Wither. Replacing the upper center block with netherite raises the default chance to **30%**. The variant has 600 health, a custom boss bar, bonus loot, Tetanus I, and a **Tetanized Wither Star**.
+## Wither and beacon progression
 
-Use that special star in the normal beacon recipe to craft a **Tetanized Beacon** with cracked glass. It needs a gold/copper/netherite pyramid and accepts **only netherite ingot payments**. Powers start at level II; a full pyramid offers Regeneration II or a level III upgrade of the primary power. Wire-brush the special star if you prefer an ordinary Nether Star.
+Use Rust on an iron golem for an 18% conversion chance; the rusty guardian has 200 maximum health. Each Survival attempt consumes one Rust.
 
-Exact crafting layouts, brewing ingredients, ritual diagrams, and beacon rules are in the **[recipe guide](docs/RECIPES.md)**.
+Four Tetanized Soul Sand blocks in the ordinary Wither ritual give a 5% Tetanized Wither chance. A netherite block replacing the upper center soul sand raises the default chance to 30%. A failed roll still summons an ordinary Wither and consumes the ritual.
 
-## Advancements
+The special Wither has 600 health, a custom boss bar and appearance, extra loot, its normal star, a Tetanized Wither Star, guaranteed Tetanus I, and a 50% additional Tetanus II book chance. Wire-brush the special star for an ordinary Nether Star, or craft it into a Tetanized Beacon.
 
-The Rust & Ruin tab uses a rusty metal background.
+The beacon requires a pyramid made **only of Rusted Iron Blocks** and netherite ingot payments. Its rusty menu selects level II powers; a full pyramid offers Regeneration II or a level III primary upgrade. An active beam automatically grants Tetanus Resistance. Placement and full-strength activation have separate mod advancements and do not award vanilla beacon advancements.
 
-- **A Painful Lesson:** contract Tetanus.
-- **Rusty Business:** make a dropped nail rust.
-- **Hook, Line and Tetanus:** recover a rusty fishing hook.
-- **Lockjaw Sonata:** experience late-stage lockjaw.
-- **Strange Meat:** collect Infected Meat.
-- **Why did I eat that?:** contract Salmonella.
-- **Tetanized Mob:** permanently convert a creature through a rusty attack.
-- **Rusty Guardian:** convert an iron golem with Rust.
-- **Tetanus. Nice One!:** defeat a Tetanized Wither.
+## Advancements, commands, and sounds
 
-## Commands and sounds
+The rusty advancement tab includes disease milestones, Strange Meat for collecting Infected Meat, Why did I eat that? for Salmonella, shield/glove prevention, medicine use, the medic, traps, variant eggs, and boss/beacon progression. Why did I do that? requires dying to your own upward-thrown rusty nail and has its own death message.
 
 Operator permission level 2:
 
 ```mcfunction
 /rustandruin summon minecraft:spider ~ ~ ~
-/rustandruin summon minecraft:iron_golem ~ ~ ~
 /rustandruin summon minecraft:wither ~ ~ ~
 /rustandruin tetanize @e[type=minecraft:zombie,distance=..10]
-```
-
-Summon commands bypass random conversion chances. Existing mob AI and models remain in use.
-
-```mcfunction
+/give @s tetanusmod:iron_spear
+/give @s tetanusmod:rabid_cow_spawn_egg
 /playsound tetanusmod:tetanus_effect master @a ~ ~ ~ 1 1
 /playsound tetanusmod:spasm master @a ~ ~ ~ 1 1
 /playsound tetanusmod:vomit master @a ~ ~ ~ 1 1
 ```
 
-## Configuration
+The canonical save namespace remains `tetanusmod`; `/give` also suggests matching mod item paths without needing the namespace typed first.
 
-Launch once to create `config/tetanusmod.json`. Stop the instance before editing it. Settings include infection duration, rust timing, damage, camera shaking, audio volume, mutation probabilities, vaccine duration, and both protection chances. Defaults: hostile 0.05, animal 0.15, special Wither 0.05, raw-meat Salmonella 0.10. The netherite ritual adds 0.25 to the Wither probability, capped at 1.
+## Configure, build, and test
 
-Previous default animal rates migrate to 15%, and the old default 120–300 second duration migrates to 300–600 seconds. Custom settings are retained. Internal IDs remain `tetanusmod` for save compatibility.
-
-## Build and test
+Launch once to create `config/tetanusmod.json`. Stop the instance before editing it. Existing settings control rust timing, disease duration, damage, sound volume, camera shaking, rusty-contact mutation chances, and Tetanus vaccine/glove protection. Automatic spawn rates and Rabies behavior are the fixed defaults documented above. Custom duration settings remain intact; older default durations migrate to 300–600 seconds.
 
 With JDK 17:
 
 ```powershell
-.\tools\Build.ps1 -Test
-# Or:
-.\gradlew.bat build runGameTest --console plain
+.\gradlew.bat build runGameTest
+.\gradlew.bat runClientSmoke
+.\gradlew.bat -PwithJei runClientSmoke
+.\gradlew.bat -PwithRei runClientSmoke
+.\tools\Audit-Files.ps1 -Report .tools/file-audit.json
+.\tools\Audit-Release.ps1
 ```
 
-Linux/macOS: `./gradlew build runGameTest`. The release JAR is written to `build/libs/`.
-
-Graphical test configurations are separate:
-
-```powershell
-.\gradlew.bat -PwithJei runClientSmoke --console plain
-.\gradlew.bat -PwithRei runClientSmoke --console plain
-.\gradlew.bat runClientSmoke --console plain # Neither viewer installed
-```
-
-See [VALIDATION.md](VALIDATION.md) for setup and results. Development test classes are excluded from the release JAR.
-
-`tools/Generate-Resources.ps1` rebuilds data and imports retained artwork. [Source art and prompts](assets-source/art/PROMPTS.md) document the generated sprites; the supplied logo and audio are preserved.
+Use `--offline` if dependencies are already cached. The distributable is `build/libs/rust-and-ruin-0.1.0-beta.jar`; test helpers and recipe viewer implementations are excluded. See [validation](VALIDATION.md) for the checks actually run and their limits.

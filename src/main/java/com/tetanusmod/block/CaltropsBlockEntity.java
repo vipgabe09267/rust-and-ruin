@@ -23,10 +23,13 @@ public final class CaltropsBlockEntity extends BlockEntity {
     public CaltropsBlockEntity(BlockPos pos, BlockState state) { super(ModBlocks.CALTROPS_ENTITY, pos, state); }
 
     public void stepOn(LivingEntity entity, boolean rusty) {
+        if(world==null||world.isClient||!entity.isAlive()||entity.isSpectator())return;
         long now = world.getTime();
         if (now < nextHit.getOrDefault(entity.getUuid(), 0L)) return;
         nextHit.put(entity.getUuid(), now + 20);
-        if (entity.damage(world.getDamageSources().cactus(), 1.0F) && rusty) {
+        boolean wire=getCachedState().isOf(ModBlocks.BARBED_WIRE)||getCachedState().isOf(ModBlocks.RUSTED_BARBED_WIRE);
+        if(wire)entity.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(net.minecraft.entity.effect.StatusEffects.SLOWNESS,60,1));
+        if (entity.damage(wire?com.tetanusmod.expansion.ModDamage.source(entity,com.tetanusmod.expansion.ModDamage.BARBED_WIRE):world.getDamageSources().cactus(), wire?2.0F:1.0F) && rusty) {
             Infection.at(world,Vec3d.ofCenter(pos),net.minecraft.sound.SoundCategory.BLOCKS,()->Infection.expose(entity,null));
             RustingSystem.particles(world, entity.getPos());
         }
@@ -46,7 +49,7 @@ public final class CaltropsBlockEntity extends BlockEntity {
         }
         if (world.getTime() % 20 == 0) trap.markDirty();
         if (convert) {
-            world.setBlockState(pos, ModBlocks.RUSTED_CALTROPS.getDefaultState()
+            world.setBlockState(pos, (state.isOf(ModBlocks.BARBED_WIRE)?ModBlocks.RUSTED_BARBED_WIRE:ModBlocks.RUSTED_CALTROPS).getDefaultState()
                     .with(CaltropsBlock.WATERLOGGED, state.get(CaltropsBlock.WATERLOGGED)), 3);
             RustingSystem.rustFeedback(world, Vec3d.ofCenter(pos));
         }
