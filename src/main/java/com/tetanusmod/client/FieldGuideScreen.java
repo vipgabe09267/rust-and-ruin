@@ -29,11 +29,16 @@ public final class FieldGuideScreen extends Screen {
         var cfg=TetanusMod.CONFIG;
         return switch(chapter) {
             case 1->Text.translatable("guide.tetanusmod.diseases.body",cfg.minDurationSeconds,cfg.maxDurationSeconds);
-            case 2->Text.translatable("guide.tetanusmod.prevention.body",Math.round(cfg.vaccineProtectionChance*100),(cfg.vaccineDurationSeconds%60==0?cfg.vaccineDurationSeconds/60+" minutes":cfg.vaccineDurationSeconds+" seconds"),Math.round(cfg.gloveProtectionChance*100),Math.round((1-(1-cfg.vaccineProtectionChance)*(1-cfg.gloveProtectionChance))*100));
-            case 6->Text.translatable("guide.tetanusmod.creatures.body",Math.round(cfg.animalConversionChance*100),Math.round(cfg.mobConversionChance*100));
+            case 2->Text.translatable("guide.tetanusmod.prevention.body",percent(cfg.vaccineProtectionChance),(cfg.vaccineDurationSeconds%60==0?cfg.vaccineDurationSeconds/60+" minutes":cfg.vaccineDurationSeconds+" seconds"),percent(cfg.gloveProtectionChance),percent(1-(1-cfg.vaccineProtectionChance)*(1-cfg.gloveProtectionChance)));
+            case 6->Text.translatable("guide.tetanusmod.creatures.body",
+                    percent(cfg.animalConversionChance),percent(cfg.mobConversionChance),
+                    percent(cfg.naturalAnimalEasy),percent(cfg.naturalAnimalNormal),percent(cfg.naturalAnimalHard),
+                    percent(cfg.naturalMobEasy),percent(cfg.naturalMobNormal),percent(cfg.naturalMobHard),
+                    percent(cfg.spawnerEasy),percent(cfg.spawnerNormal),percent(cfg.spawnerHard));
             default->Text.translatable("guide.tetanusmod."+CHAPTERS[chapter]+".body");
         };
     }
+    private static String percent(float chance){return new java.math.BigDecimal(Float.toString(chance)).movePointRight(2).stripTrailingZeros().toPlainString();}
     private List<OrderedText> lines(){return textRenderer.wrapLines(body(),panelWidth-132);}
     private int visibleLines(){return Math.max(1,(panelHeight-90)/11);}
     private void scrollBy(int amount){scroll=MathHelper.clamp(scroll+amount,0,Math.max(0,lines().size()-visibleLines()));}

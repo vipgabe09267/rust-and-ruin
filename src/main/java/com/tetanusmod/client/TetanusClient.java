@@ -24,11 +24,20 @@ public final class TetanusClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.register(TetanusMod.NAIL_ENTITY, FlyingItemEntityRenderer::new);
+        TetanusMod.LOCKJAW_GESTURE=LockjawAttempt::begin;
         registerBeacon();
+        net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback.EVENT.register((type,renderer,helper,context)->{
+            if(renderer instanceof net.minecraft.client.render.entity.PlayerEntityRenderer player)helper.register(new GlovesFeatureRenderer(player));
+        });
+        net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlock(com.tetanusmod.expansion.ExpansionBlocks.MEDIC_CABINET,net.minecraft.client.render.RenderLayer.getCutout());
+        net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
+            int coating = com.tetanusmod.rust.RustCoating.remaining(stack);
+            if (coating > 0) lines.add(net.minecraft.text.Text.translatable("tooltip.tetanusmod.coating", (coating + 19) / 20).formatted(net.minecraft.util.Formatting.GOLD));
+        });
         com.tetanusmod.item.FieldGuideItem.open=()->net.minecraft.client.MinecraftClient.getInstance().setScreen(new FieldGuideScreen());
         InfectedPlayerList.initialize();
         RabidPlayerList.initialize();
-        net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry.ITEM.register((stack,tint)->((com.tetanusmod.expansion.VariantSpawnEggItem)stack.getItem()).rabid()?(tint==0?0x6D315D:0xE6AAAD):(tint==0?0x61412B:0xBD723B),com.tetanusmod.registry.ModItems.ALL.stream().filter(item->item instanceof com.tetanusmod.expansion.VariantSpawnEggItem).toArray(net.minecraft.item.Item[]::new));
+        net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry.ITEM.register((stack,tint)->((com.tetanusmod.expansion.VariantSpawnEggItem)stack.getItem()).color(tint),com.tetanusmod.registry.ModItems.ALL.stream().filter(item->item instanceof com.tetanusmod.expansion.VariantSpawnEggItem).toArray(net.minecraft.item.Item[]::new));
         net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlock(com.tetanusmod.beacon.ModBeacons.BLOCK,net.minecraft.client.render.RenderLayer.getTranslucent());
         net.fabricmc.fabric.api.resource.ResourceManagerHelper.get(net.minecraft.resource.ResourceType.CLIENT_RESOURCES).registerReloadListener(new net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener() {
             public net.minecraft.util.Identifier getFabricId(){return TetanusMod.id("tetanized_textures");}
@@ -41,7 +50,7 @@ public final class TetanusClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(TetanusMod.CONFIG_PACKET, (client, handler, packet, sender) -> {
             try {
                 var config=com.tetanusmod.network.ModPacketDecoder.config(packet);
-                client.execute(()->TetanusMod.CONFIG=config);
+                client.execute(()->{if(client.getNetworkHandler()==handler)TetanusMod.CONFIG=config;});
             }catch(RuntimeException invalid){ClientPacketWarnings.invalid();}
         });
         ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
@@ -49,13 +58,14 @@ public final class TetanusClient implements ClientModInitializer {
             ClientPacketWarnings.reset();
             twitchTicks = 0;
             previousOffset = 0;
+            LockjawAttempt.clear();
         });
         ClientPlayNetworking.registerGlobalReceiver(Infection.SYMPTOM_PACKET, (client, handler, packet, sender) -> {
             final com.tetanusmod.network.ModPacketDecoder.Symptom symptom;
             try{symptom=com.tetanusmod.network.ModPacketDecoder.symptom(packet);}catch(RuntimeException invalid){ClientPacketWarnings.invalid();return;}
             int stage=symptom.stage();boolean enabled=symptom.shaking();
             client.execute(() -> {
-                if (client.player == null) return;
+                if (client.getNetworkHandler()!=handler || client.player == null) return;
                 client.player.swingHand(Hand.MAIN_HAND);
                 if (enabled && local.cameraShaking && twitchTicks == 0) {
                     amplitude = (0.15F + Math.min(stage, 2) * 0.15F) * (client.player.getRandom().nextBoolean() ? 1 : -1);
@@ -64,7 +74,8 @@ public final class TetanusClient implements ClientModInitializer {
             });
         });
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (client.player == null) { twitchTicks = 0; previousOffset = 0; return; }
+            LockjawAttempt.tick();
+            if (client.player == null) { twitchTicks = 0; previousOffset = 0; LockjawAttempt.clear(); return; }
             if (twitchTicks > 0 || previousOffset != 0) {
                 float offset = twitchTicks > 0 ? (float) Math.sin((6 - twitchTicks) * Math.PI / 3) * amplitude : 0;
                 client.player.setYaw(client.player.getYaw() + offset - previousOffset);

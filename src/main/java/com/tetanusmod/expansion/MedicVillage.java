@@ -17,7 +17,7 @@ import net.minecraft.world.poi.PointOfInterestType;
 
 public final class MedicVillage {
     public static final RegistryKey<PointOfInterestType> JOB_KEY=RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE,TetanusMod.id("medic"));
-    public static final PointOfInterestType JOB=PointOfInterestHelper.register(TetanusMod.id("medic"),1,1,ExpansionBlocks.MEDIC_CABINET);
+    public static final PointOfInterestType JOB=PointOfInterestHelper.register(TetanusMod.id("medic"),1,1,ExpansionBlocks.MEDIC_CABINET.getStateManager().getStates().stream().filter(state->state.get(net.minecraft.block.DoorBlock.HALF)==net.minecraft.block.enums.DoubleBlockHalf.LOWER).toList());
     public static final VillagerProfession MEDIC=Registry.register(Registries.VILLAGER_PROFESSION,TetanusMod.id("medic"),new VillagerProfession("medic",entry->entry.matchesKey(JOB_KEY),entry->entry.matchesKey(JOB_KEY),ImmutableSet.of(Items.HONEY_BOTTLE,Items.PAPER),ImmutableSet.of(),SoundEvents.BLOCK_BREWING_STAND_BREW));
     private static TradeOffers.Factory sell(Item item,int price,int count,int xp){return (entity,random)->new TradeOffer(new ItemStack(Items.EMERALD,price),new ItemStack(item,count),12,xp,0.05F);}
     public static void initialize(){
@@ -31,17 +31,7 @@ public final class MedicVillage {
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH,2,trades->{trades.add(sell(ExpansionItems.SPEAR,7,1,5));trades.add(sell(ExpansionItems.RUSTED_SPEAR,9,1,5));trades.add(sell(ModItems.REBAR,3,1,5));trades.add(sell(ModItems.RUSTED_REBAR,4,1,5));});
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER,2,trades->{trades.add(sell(ExpansionBlocks.BEAR_TRAP.asItem(),6,1,5));trades.add(sell(ExpansionBlocks.RUSTED_BEAR_TRAP.asItem(),7,1,5));});
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FISHERMAN,2,trades->trades.add(sell(ModItems.RUSTY_FISHING_HOOK,3,1,5)));
-        ServerLifecycleEvents.SERVER_STARTING.register(server->{
-            var registry=server.getRegistryManager().get(RegistryKeys.TEMPLATE_POOL);
-            for(String biome:new String[]{"plains","desert","savanna","snowy","taiga"}){
-                var pool=registry.get(new net.minecraft.util.Identifier("minecraft","village/"+biome+"/houses"));if(pool==null)continue;
-                var access=(StructurePoolAccessor)pool;
-                if(access.rustruin$counts().stream().anyMatch(pair->pair.getFirst().toString().contains("tetanusmod:village/clinic")))continue;
-                var clinic=StructurePoolElement.ofSingle("tetanusmod:village/clinic").apply(StructurePool.Projection.RIGID);
-                var entries=new java.util.ArrayList<>(access.rustruin$counts());entries.add(Pair.of(clinic,2));access.rustruin$counts(entries);
-                access.rustruin$elements().add(clinic);access.rustruin$elements().add(clinic);access.rustruin$highest(Integer.MIN_VALUE);
-            }
-        });
+        // Clinics now use a separately locatable structure with a 55% village-grid roll.
     }
     public static void ensureStarterTrades(net.minecraft.entity.passive.VillagerEntity medic){
         if(medic.getVillagerData().getProfession()!=MEDIC||medic.getVillagerData().getLevel()!=1)return;

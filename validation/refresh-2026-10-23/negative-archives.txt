@@ -1,0 +1,8 @@
+
+Case      Result               Reason                                                                           
+----      ------               ------                                                                           
+tamper    REJECTED_AS_EXPECTED Stale or altered packaged resource: assets/tetanusmod/models/item/iron_spear.json
+duplicate REJECTED_AS_EXPECTED Duplicate archive entry: assets/tetanusmod/models/item/iron_spear.json           
+absolute  REJECTED_AS_EXPECTED Unsafe archive path: C:/unexpected.txt                                           
+
+

@@ -20,7 +20,7 @@ try {
         $path=Join-Path $projectRoot $relative
         if(!(Test-Path -LiteralPath $path -PathType Leaf)){throw "Missing tracked file: $relative"}
         $extension=[IO.Path]::GetExtension($relative).ToLowerInvariant()
-        $check='Build/configuration review'
+        $check='File inventory and encoding; execution reviewed separately'
         if($extension-notin@('.png','.mp3','.ogg','.jar','.nbt')) {
             $contents=$utf8.GetString([IO.File]::ReadAllBytes($path))
             if($contents.Contains([char]0)){throw "NUL in text file: $relative"}
@@ -34,14 +34,14 @@ try {
                 $tokens=$null;$errors=$null
                 $null=[Management.Automation.Language.Parser]::ParseInput($contents,[ref]$tokens,[ref]$errors)
                 if($errors.Count){throw "PowerShell syntax error in ${relative}: $($errors[0].Message)"}
-                $check='PowerShell syntax parsed; reviewed file operations'
+                $check='PowerShell syntax parsed; manual review recorded separately'
             }
             '.java' {
                 foreach($match in [regex]::Matches($contents,'Text\.translatable\("((?:tooltip|message|guide|commands|gui|advancements|effect|item|block|entity|jei|enchantment)\.tetanusmod\.[^"\r\n]+)"')) {
                     $key=$match.Groups[1].Value
                     if(!$key.EndsWith('.')-and!$lang.PSObject.Properties[$key]){throw "Missing translation $key used by $relative"}
                 }
-                $check='Compiled; source review; server/client regression suite'
+                $check='UTF-8 and static translation keys; compilation and manual review recorded separately'
             }
             '.png' {
                 $image=[Drawing.Bitmap]::FromFile($path)
@@ -57,12 +57,12 @@ try {
             '.nbt' {
                 $bytes=[IO.File]::ReadAllBytes($path)
                 if($bytes.Length-lt 3-or$bytes[0]-ne 31-or$bytes[1]-ne 139){throw "Structure is not gzip NBT: $relative"}
-                $check='Compressed NBT; clinic structure loaded and placed by GameTest'
+                $check='Gzip NBT header; structure runtime checks recorded separately'
             }
             '.mp3' {$check='Source audio; decoded separately with FFprobe/FFmpeg'}
             '.ogg' {$check='Packaged audio; decoded separately with FFprobe/FFmpeg'}
             '.jar' {$check='Official Gradle wrapper checksum checked by Audit-Release'}
-            '.cs' {$check='Compiled and exercised by resource regeneration'}
+            '.cs' {$check='UTF-8; compilation and resource-generation results recorded separately'}
             '.md' {
                 foreach($match in [regex]::Matches($contents,'!?\[[^\]]*\]\(([^)]+)\)')) {
                     $target=$match.Groups[1].Value
@@ -70,7 +70,7 @@ try {
                     $target=($target-split'#',2)[0]
                     if($target-and!(Test-Path -LiteralPath (Join-Path ([IO.Path]::GetDirectoryName($path)) $target))){throw "Broken local link $target in $relative"}
                 }
-                $check='UTF-8 and local links checked; documentation reviewed against implementation'
+                $check='UTF-8 and local links checked; prose reviewed separately'
             }
         }
         $inventory+=[pscustomobject]@{Path=$relative;Bytes=(Get-Item -LiteralPath $path).Length;SHA256=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash;Check=$check}

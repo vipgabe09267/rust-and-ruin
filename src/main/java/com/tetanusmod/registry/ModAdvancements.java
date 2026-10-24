@@ -5,7 +5,12 @@ import net.minecraft.server.network.ServerPlayerEntity;
 public final class ModAdvancements {
     public static void award(ServerPlayerEntity player,String id,String criterion) {
         var advancement=player.getServer().getAdvancementLoader().get(TetanusMod.id(id));
-        if(advancement!=null)player.getAdvancementTracker().grantCriterion(advancement,criterion);
+        if(advancement!=null) {
+            // Creative players and infected travelers may never have picked up an iron ingot.
+            var root=player.getServer().getAdvancementLoader().get(TetanusMod.id("root"));
+            if(root!=null)player.getAdvancementTracker().grantCriterion(root,"obtain_iron");
+            player.getAdvancementTracker().grantCriterion(advancement,criterion);
+        }
     }
     public static void fishingHook(ItemEntity item) {
         var thrower=((com.tetanusmod.mixin.ItemEntityAccessor)item).rustruin$getThrower();

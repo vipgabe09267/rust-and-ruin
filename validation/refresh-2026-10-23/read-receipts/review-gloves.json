@@ -1,0 +1,86 @@
+[
+    {
+        "Path":  "src/main/java/com/tetanusmod/client/GlovesFeatureRenderer.java",
+        "Start":  1,
+        "End":  36,
+        "TotalLines":  36,
+        "SHA256AtRead":  "59A95A6FD876D3E7EF05FC516804FD6415724F2AB4C3A819E873EB8B54EFBF49"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/client/GloveSlotFrame.java",
+        "Start":  1,
+        "End":  13,
+        "TotalLines":  13,
+        "SHA256AtRead":  "C9E0AB960E151E0ADDE7BA33D7F4558421787898AF8F49BFC3798A7355423E39"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/client/LockjawAttempt.java",
+        "Start":  1,
+        "End":  22,
+        "TotalLines":  22,
+        "SHA256AtRead":  "E32A00375FD4F8E549D297BB1C0C85F0A3D5D2D837E55785E8FFAB8AFE89D699"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/FirstPersonGlovesMixin.java",
+        "Start":  1,
+        "End":  19,
+        "TotalLines":  19,
+        "SHA256AtRead":  "1FCBFB11656867ABAF092B3C26159C98343F5C179C9BB938F5D900234ED6B4F6"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/GlovePlayerMixin.java",
+        "Start":  1,
+        "End":  48,
+        "TotalLines":  48,
+        "SHA256AtRead":  "56AF226DDFBF440FA1C3C82BAAE5CFB5D869C273201E12C182E2AF247704812A"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/GloveMendingMixin.java",
+        "Start":  1,
+        "End":  16,
+        "TotalLines":  16,
+        "SHA256AtRead":  "634E6A511C7FB1BA2E5A898952A7764E27EC2D9FF1D7581E2B5B42B18DCCBA56"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/LockjawHandMixin.java",
+        "Start":  1,
+        "End":  18,
+        "TotalLines":  18,
+        "SHA256AtRead":  "5D822C877906E5C0816CA30CB1644FFF90A5D599D2B896054D2F894A9A48A386"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/MedicClothingMixin.java",
+        "Start":  1,
+        "End":  27,
+        "TotalLines":  27,
+        "SHA256AtRead":  "9095486B24670884FD34A177F9D14C3B62D0A0A12D60EBE20D08063F6AACA489"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/SkeletonEquipmentMixin.java",
+        "Start":  1,
+        "End":  13,
+        "TotalLines":  13,
+        "SHA256AtRead":  "93CC68D446AA2AB6353BB1ADD2AFF9F7917003FF1B7DFBC0E89AEA4C96D2DB17"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/GloveMending.java",
+        "Start":  1,
+        "End":  21,
+        "TotalLines":  21,
+        "SHA256AtRead":  "947AE10AD8B2719ECC7DD068D90BDF56A3590D85C2CFCAE117790151CAAC8448"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/GloveInventory.java",
+        "Start":  1,
+        "End":  17,
+        "TotalLines":  17,
+        "SHA256AtRead":  "9CE693E315E3A8A4C691AC120AAC52D0A9926B88B9763F4CA572A0E06E5EF672"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/GlovesItem.java",
+        "Start":  1,
+        "End":  18,
+        "TotalLines":  18,
+        "SHA256AtRead":  "C258A505E38E6F371C09FA0C156D4DB0D6B319DC8FF2EE04FD5F953A133B52ED"
+    }
+]

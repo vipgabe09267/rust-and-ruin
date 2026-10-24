@@ -1,0 +1,17 @@
+{
+    "max_distance_from_center":  80,
+    "spawn_overrides":  {
+
+                        },
+    "start_height":  {
+                         "absolute":  0
+                     },
+    "type":  "minecraft:jigsaw",
+    "step":  "surface_structures",
+    "size":  1,
+    "use_expansion_hack":  false,
+    "biomes":  "#tetanusmod:has_workshop",
+    "terrain_adaptation":  "beard_thin",
+    "project_start_to_heightmap":  "WORLD_SURFACE_WG",
+    "start_pool":  "tetanusmod:workshop"
+}

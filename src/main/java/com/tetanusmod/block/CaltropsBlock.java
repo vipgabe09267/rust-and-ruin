@@ -46,6 +46,7 @@ public final class CaltropsBlock extends BlockWithEntity implements Waterloggabl
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
     @Override public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+        if(!entity.getBoundingBox().intersects(getOutlineShape(state,world,pos,ShapeContext.of(entity)).getBoundingBox().offset(pos).expand(0,0.0001,0)))return;
         if (!world.isClient && entity instanceof LivingEntity living && world.getBlockEntity(pos) instanceof CaltropsBlockEntity trap) {
             trap.stepOn(living, rusty);
         }

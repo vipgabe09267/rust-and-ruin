@@ -1,8 +1,24 @@
 $ErrorActionPreference='Stop'
 $resourceRoot=Join-Path $PSScriptRoot '../src/main/resources'
-# A village-scale apothecary: porch, steep gabled roof, chimney and two treatment beds.
+function GenerateClinic($biome){
+    $materials=@{}
+    $wood=if($biome-eq'desert'){'acacia'}elseif($biome-eq'savanna'){'acacia'}else{'spruce'}
+    foreach($part in @('stairs','slab','planks','fence','door')){$materials["minecraft:spruce_$part"]="minecraft:${wood}_$part"}
+    if($biome-eq'desert'){
+        $materials['minecraft:calcite']='minecraft:sandstone';$materials['minecraft:stone_bricks']='minecraft:cut_sandstone'
+        $materials['minecraft:spruce_stairs']='minecraft:smooth_sandstone_stairs';$materials['minecraft:spruce_slab']='minecraft:smooth_sandstone_slab'
+        $materials['minecraft:birch_planks']='minecraft:smooth_sandstone';$materials['minecraft:stripped_spruce_log']='minecraft:stripped_jungle_log'
+    }elseif($biome-eq'savanna'){
+        $materials['minecraft:calcite']='minecraft:terracotta';$materials['minecraft:birch_planks']='minecraft:acacia_planks'
+        $materials['minecraft:stripped_spruce_log']='minecraft:stripped_acacia_log';$materials['minecraft:light_blue_stained_glass']='minecraft:orange_stained_glass'
+    }elseif($biome-eq'snowy'){
+        $materials['minecraft:calcite']='minecraft:snow_block';$materials['minecraft:stone_bricks']='minecraft:polished_andesite';$materials['minecraft:birch_planks']='minecraft:spruce_planks'
+    }elseif($biome-eq'taiga'){
+        $materials['minecraft:calcite']='minecraft:white_terracotta';$materials['minecraft:birch_planks']='minecraft:spruce_planks';$materials['minecraft:potted_azure_bluet']='minecraft:potted_fern'
+    }
 $palette=[Collections.Generic.List[object]]::new();$paletteIds=@{};$placed=@{}
 function State($name,$properties=@{}){
+    if($materials.ContainsKey($name)){$name=$materials[$name]}
     $signature=$name+':'+(($properties.Keys|Sort-Object|ForEach-Object {$_+'='+$properties[$_]})-join',')
     if(!$paletteIds.ContainsKey($signature)){$state=@{Name=$name};if($properties.Count){$state.Properties=$properties};$paletteIds[$signature]=$palette.Count;$palette.Add($state)}
     return [int]$paletteIds[$signature]
@@ -42,8 +58,8 @@ foreach($z in @(6,9)){Block 2 2 $z 'minecraft:white_bed' @{part='foot';facing='e
 Block 2 2 7 'minecraft:birch_trapdoor' @{facing='south';half='bottom';open='true';powered='false';waterlogged='false'}
 Block 3 2 7 'minecraft:birch_trapdoor' @{facing='south';half='bottom';open='true';powered='false';waterlogged='false'}
 for($z=5;$z-le10;$z++){Block 4 2 $z 'minecraft:moss_carpet'}
-Block 6 2 6 'tetanusmod:medic_cabinet';Block 6 2 8 'minecraft:water_cauldron' @{level='3'}
-Block 6 2 10 'minecraft:barrel' @{facing='up';open='false'} @{id='minecraft:barrel';LootTable='tetanusmod:chests/clinic'}
+Block 6 2 6 'tetanusmod:medic_cabinet' @{complete='true';half='lower';facing='north';hinge='left';open='false';powered='false'};Block 6 3 6 'tetanusmod:medic_cabinet' @{complete='true';half='upper';facing='north';hinge='left';open='false';powered='false'};Block 6 2 8 'minecraft:water_cauldron' @{level='3'}
+Block 6 2 10 'minecraft:chest' @{facing='north';type='single';waterlogged='false'} @{id='minecraft:chest';LootTable='tetanusmod:chests/clinic'}
 Block 6 3 10 'minecraft:brewing_stand' @{has_bottle_0='false';has_bottle_1='false';has_bottle_2='false'}
 Block 2 2 4 'minecraft:spruce_stairs' @{facing='west';half='top';shape='straight';waterlogged='false'}
 Block 2 3 4 'minecraft:potted_poppy';Block 6 2 4 'minecraft:bookshelf'
@@ -52,26 +68,12 @@ Block 5 5 7 'minecraft:lantern' @{hanging='true';waterlogged='false'}
 # A little masonry chimney breaks up the roof silhouette without an oversized sign.
 for($y=6;$y-le9;$y++){Block 6 $y 10 'minecraft:stone_bricks'}
 Block 6 10 10 'minecraft:campfire' @{facing='north';lit='true';signal_fire='false';waterlogged='false'}
-$entity=@{pos=@([double]4.5,[double]2,[double]5.5);blockPos=@([int]4,[int]2,[int]5);nbt=@{id='minecraft:villager';Health=[single]20;PersistenceRequired=[byte]1;VillagerData=@{profession='tetanusmod:medic';type='minecraft:plains';level=[int]1};Xp=[int]1;Age=[int]0}}
+$entity=@{pos=@([double]4.5,[double]2,[double]5.5);blockPos=@([int]4,[int]2,[int]5);nbt=@{id='minecraft:villager';Health=[single]20;PersistenceRequired=[byte]1;VillagerData=@{profession='tetanusmod:medic';type=('minecraft:'+$(if($biome-eq'snowy'){'snow'}else{$biome}));level=[int]1};Xp=[int]1;Age=[int]0}}
 $structure=@{DataVersion=[int]3465;size=@([int]9,[int]11,[int]13);palette=$palette.ToArray();blocks=@($placed.Keys|Sort-Object|ForEach-Object {$placed[$_]});entities=@($entity)}
-function NbtType($value){if($value-is[byte]-or$value-is[bool]){return [byte]1};if($value-is[int]){return [byte]3};if($value-is[long]){return [byte]4};if($value-is[single]){return [byte]5};if($value-is[double]){return [byte]6};if($value-is[string]){return [byte]8};if($value-is[Collections.IDictionary]){return [byte]10};if($value-is[array]){return [byte]9};throw "Unsupported NBT type: $($value.GetType())"}
-function Big($bytes){[Array]::Reverse($bytes);$writer.Write([byte[]]$bytes)}
-function String($text){$bytes=[Text.Encoding]::UTF8.GetBytes($text);Big ([BitConverter]::GetBytes([uint16]$bytes.Length));$writer.Write($bytes)}
-function Payload($value,$type){
-    switch($type){
-        1 {$writer.Write([byte]$value)}
-        3 {Big ([BitConverter]::GetBytes([int]$value))}
-        4 {Big ([BitConverter]::GetBytes([long]$value))}
-        5 {Big ([BitConverter]::GetBytes([single]$value))}
-        6 {Big ([BitConverter]::GetBytes([double]$value))}
-        8 {String $value}
-        9 {$elementType=[byte]10;if($value.Length){$elementType=NbtType $value[0]};$writer.Write($elementType);Big ([BitConverter]::GetBytes([int]$value.Length));foreach($element in $value){Payload $element $elementType}}
-        10 {foreach($key in ($value.Keys|Sort-Object)){$tag=NbtType $value[$key];$writer.Write([byte]$tag);String $key;Payload $value[$key] $tag};$writer.Write([byte]0)}
-    }
-}
-$path=Join-Path $resourceRoot 'data/tetanusmod/structures/village/clinic.nbt';[IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($path))|Out-Null
-$file=[IO.File]::Create($path);$gzip=[IO.Compression.GZipStream]::new($file,[IO.Compression.CompressionMode]::Compress);$writer=[IO.BinaryWriter]::new($gzip)
-try{$writer.Write([byte]10);String '';Payload $structure ([byte]10)}finally{$writer.Dispose();$gzip.Dispose();$file.Dispose()}
+& (Join-Path $PSScriptRoot 'Write-StructureNbt.ps1') -Structure $structure -Path (Join-Path $resourceRoot "data/tetanusmod/structures/village/${biome}_clinic.nbt")
 $loot=@{type='minecraft:chest';pools=@(@{rolls=@{type='minecraft:uniform';min=2;max=4};entries=@(@{type='minecraft:item';name='minecraft:glass_bottle';weight=4;functions=@(@{function='minecraft:set_count';count=@{type='minecraft:uniform';min=1;max=3}})},@{type='minecraft:item';name='minecraft:honey_bottle';weight=2},@{type='minecraft:item';name='minecraft:paper';weight=3},@{type='minecraft:item';name='tetanusmod:tetanus_antitoxin';weight=1})})}
 $path=Join-Path $resourceRoot 'data/tetanusmod/loot_tables/chests/clinic.json';[IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($path))|Out-Null;[IO.File]::WriteAllText($path,($loot|ConvertTo-Json -Depth 30)+"`n",[Text.UTF8Encoding]::new($false))
 Write-Output 'Generated the village clinic structure and balanced supply barrel.'
+}
+foreach($biome in @('plains','desert','savanna','snowy','taiga')){GenerateClinic $biome}
+Copy-Item -LiteralPath (Join-Path $resourceRoot 'data/tetanusmod/structures/village/plains_clinic.nbt') -Destination (Join-Path $resourceRoot 'data/tetanusmod/structures/village/clinic.nbt')

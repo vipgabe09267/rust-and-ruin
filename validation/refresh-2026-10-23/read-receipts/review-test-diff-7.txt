@@ -1,0 +1,6 @@
+FILE src/gametest/java/com/tetanusmod/test/PreventionGameTests.java LINES 98-102 OF 180
+  98:             Infection.expose(player,null);ctx.assertFalse(player.hasStatusEffect(TetanusMod.TETANUS),"Gloves did not prevent contact infection");
+  99:             ModItems.INFECTED_MEAT.finishUsing(new ItemStack(ModItems.INFECTED_MEAT),ctx.getWorld(),player);
+ 100:             ctx.assertTrue(!player.hasStatusEffect(TetanusMod.TETANUS)&&player.hasStatusEffect(TetanusMod.SALMONELLA)&&com.tetanusmod.expansion.GloveInventory.equipped(player).getDamage()==1,"Gloves prevented food infection or charged twice");
+ 101:         }finally{TetanusMod.CONFIG.gloveProtectionChance=glove;TetanusMod.CONFIG.salmonellaChance=salmonella;}ctx.complete();
+ 102:     }

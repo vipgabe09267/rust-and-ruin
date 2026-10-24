@@ -27,12 +27,19 @@ public final class InfectionProtection {
         float shieldChance=shield?(weaponLevel>=2?0.40F:0.65F):0;
         var gloves=GloveInventory.equipped(target);
         float gloveChance=contact&&gloves.isOf(ModItems.PROTECTIVE_GLOVES)?TetanusMod.CONFIG.gloveProtectionChance:0;
-        if(contact&&gloves.isOf(ModItems.PROTECTIVE_GLOVES))gloves.damage(1,target,e->e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
+        if(contact&&gloves.isOf(ModItems.PROTECTIVE_GLOVES))gloves.damage(1,target,e->glovesBroken(e,gloves));
         float shieldThreshold=(float)(vaccine+(1.0-vaccine)*shieldChance);
         float combined=(float)(shieldThreshold+(1.0-shieldThreshold)*gloveChance);
         if(roll<vaccine)return false;
         if(roll<shieldThreshold){if(target instanceof ServerPlayerEntity player)ModAdvancements.award(player,"shield_protection","block_tetanus");return false;}
         if(roll<combined){if(target instanceof ServerPlayerEntity player)ModAdvancements.award(player,"glove_protection","prevent_tetanus");return false;}
         return true;
+    }
+    private static void glovesBroken(LivingEntity wearer,ItemStack gloves){
+        if(!(wearer instanceof net.minecraft.entity.player.PlayerEntity)){wearer.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND);return;}
+        // The dedicated player slot has no vanilla equipment status; OFFHAND would animate a shield instead.
+        wearer.playSound(net.minecraft.sound.SoundEvents.ENTITY_ITEM_BREAK,0.8F,0.8F+wearer.getRandom().nextFloat()*0.4F);
+        if(wearer.getWorld() instanceof net.minecraft.server.world.ServerWorld world)
+            world.spawnParticles(new net.minecraft.particle.ItemStackParticleEffect(net.minecraft.particle.ParticleTypes.ITEM,gloves.copyWithCount(1)),wearer.getX(),wearer.getBodyY(0.65),wearer.getZ(),8,0.18,0.14,0.18,0.02);
     }
 }

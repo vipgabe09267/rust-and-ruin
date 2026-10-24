@@ -1,0 +1,7 @@
+FILE src/main/java/com/tetanusmod/item/InfectedMeatItem.java LINES 14-19 OF 19
+  14:             if(user.getRandom().nextFloat()<com.tetanusmod.TetanusMod.CONFIG.salmonellaChance)
+  15:                 user.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(com.tetanusmod.TetanusMod.SALMONELLA,1200));
+  16:         }
+  17:         return result;
+  18:     }
+  19: }

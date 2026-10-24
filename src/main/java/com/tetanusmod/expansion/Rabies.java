@@ -30,7 +30,7 @@ public final class Rabies {
     }
     public static void makeRabid(MobEntity mob) {
         if(mob.getWorld().isClient||!mob.isAlive()||rabid(mob)||MobVariants.permanent(mob))return;
-        ((ExpansionState)mob).rustruin$setRabid(true);attributes(mob);mob.setHealth(mob.getMaxHealth());mob.setPersistent();installGoal(mob);
+        ((ExpansionState)mob).rustruin$setRabid(true);attributes(mob);mob.setHealth(mob.getMaxHealth());installGoal(mob);
     }
     private static void add(LivingEntity entity,EntityAttribute attribute,UUID id,double value) {
         var instance=entity.getAttributeInstance(attribute);
@@ -49,14 +49,32 @@ public final class Rabies {
     private static void installGoal(MobEntity mob) {
         if(GOALS.add(mob))((MobGoals)mob).rustruin$goals().add(0,new RabidHuntGoal(mob));
     }
+    public static boolean cureAnimal(MobEntity mob) {
+        if (mob.getWorld().isClient || !mob.isAlive() || !MobVariants.isAnimal(mob) || !rabid(mob)) return false;
+        ((ExpansionState) mob).rustruin$setRabid(false);
+        for (var attribute : new EntityAttribute[]{EntityAttributes.GENERIC_MAX_HEALTH, EntityAttributes.GENERIC_ARMOR}) {
+            var instance = mob.getAttributeInstance(attribute);
+            if (instance != null) instance.removeModifier(attribute == EntityAttributes.GENERIC_MAX_HEALTH ? HEALTH : ARMOR);
+        }
+        var selector = ((MobGoals) mob).rustruin$goals();
+        var hunts = selector.getGoals().stream().map(net.minecraft.entity.ai.goal.PrioritizedGoal::getGoal)
+                .filter(goal -> goal instanceof RabidHuntGoal).toList();
+        hunts.forEach(selector::remove);
+        GOALS.remove(mob);
+        mob.setTarget(null);
+        mob.getNavigation().stop();
+        RabiesEffect.cure(mob);
+        mob.setHealth(Math.min(mob.getHealth(), mob.getMaxHealth()));
+        return true;
+    }
     public interface MobGoals {net.minecraft.entity.ai.goal.GoalSelector rustruin$goals();}
     public static final class RabidHuntGoal extends net.minecraft.entity.ai.goal.Goal {
         private final MobEntity mob;private PlayerEntity target;private int cooldown;
         public RabidHuntGoal(MobEntity mob){this.mob=mob;setControls(EnumSet.of(Control.MOVE,Control.LOOK,Control.TARGET));}
-        @Override public boolean canStart(){target=mob.getWorld().getClosestPlayer(mob.getX(),mob.getY(),mob.getZ(),16,p->p instanceof PlayerEntity player&&player.isAlive()&&!player.isSpectator()&&!player.isCreative());return target!=null;}
-        @Override public boolean shouldContinue(){return target!=null&&target.isAlive()&&!target.isSpectator()&&!target.isCreative()&&mob.squaredDistanceTo(target)<576;}
+        @Override public boolean canStart(){if(!mob.isAlive()||!rabid(mob))return false;target=mob.getWorld().getClosestPlayer(mob.getX(),mob.getY(),mob.getZ(),16,p->p instanceof PlayerEntity player&&player.isAlive()&&!player.isSpectator()&&!player.isCreative());return target!=null;}
+        @Override public boolean shouldContinue(){return mob.isAlive()&&rabid(mob)&&target!=null&&target.getWorld()==mob.getWorld()&&target.isAlive()&&!target.isSpectator()&&!target.isCreative()&&mob.squaredDistanceTo(target)<576;}
         @Override public void tick(){
-            if(target==null)return;mob.getLookControl().lookAt(target,30,30);mob.getNavigation().startMovingTo(target,1.15);
+            if(!shouldContinue())return;mob.getLookControl().lookAt(target,30,30);mob.getNavigation().startMovingTo(target,1.15);
             if(mob instanceof net.minecraft.entity.passive.BatEntity)mob.getMoveControl().moveTo(target.getX(),target.getEyeY(),target.getZ(),1);
             if(cooldown>0)cooldown--;
             if(cooldown==0&&mob.squaredDistanceTo(target)<4&&mob.canSee(target)) {

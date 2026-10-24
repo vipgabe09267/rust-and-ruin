@@ -1,0 +1,16 @@
+{
+    "placement":  {
+                      "separation":  128,
+                      "type":  "minecraft:random_spread",
+                      "frequency":  0.15,
+                      "frequency_reduction_method":  "default",
+                      "salt":  813260217,
+                      "spacing":  160
+                  },
+    "structures":  [
+                       {
+                           "structure":  "tetanusmod:medic_tent",
+                           "weight":  1
+                       }
+                   ]
+}

@@ -1,0 +1,72 @@
+[
+    {
+        "Path":  "src/main/java/com/tetanusmod/command/DiseaseCommands.java",
+        "Start":  1,
+        "End":  40,
+        "TotalLines":  40,
+        "SHA256AtRead":  "01D91C5BBD2F4B9F420C6A85A2C22C9DE270DA6F1F5905A74E3047EB10544C73"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/CommandEffects.java",
+        "Start":  1,
+        "End":  16,
+        "TotalLines":  16,
+        "SHA256AtRead":  "9FC022F9B6782B82AE9B7E9726DC4FC2C7CE9B3A19F4C01DE5B1F8877CA5EAF5"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/EffectCommandMixin.java",
+        "Start":  1,
+        "End":  16,
+        "TotalLines":  16,
+        "SHA256AtRead":  "AC6E00006BCD6715C8155D52E5CA4CD36BAD94E331DA991E9662020B968A46F5"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionLivingMixin.java",
+        "Start":  1,
+        "End":  43,
+        "TotalLines":  43,
+        "SHA256AtRead":  "2D0C2779F2A8F65B33309BA48CEB546732476FA6C4391A80C3615C6FCEFE8966"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionMobMixin.java",
+        "Start":  1,
+        "End":  28,
+        "TotalLines":  28,
+        "SHA256AtRead":  "78ECEC50FC295C9E23800D4991D7FA9AB50671871FCFD5264BBD094D5B6F3808"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/MedicVillage.java",
+        "Start":  1,
+        "End":  40,
+        "TotalLines":  40,
+        "SHA256AtRead":  "DE46AB4871DA743885644D0CBFF211945279E59306A98B99F45C6421F4BCF052"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/registry/ModAdvancements.java",
+        "Start":  1,
+        "End":  28,
+        "TotalLines":  28,
+        "SHA256AtRead":  "4447D642941A234B041873FE15D19DEEA5F04B2AF8366ACE378ED18A106C1ADB"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/entity/RustGolems.java",
+        "Start":  1,
+        "End":  32,
+        "TotalLines":  32,
+        "SHA256AtRead":  "92765C2CDEF175BA54DF5A86F9F08EBE64DA89D79A0952F395C74622F0154648"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/VeterinaryKitItem.java",
+        "Start":  1,
+        "End":  43,
+        "TotalLines":  43,
+        "SHA256AtRead":  "B87D978F3A6DC461EF76F285FBBD43E407476F59B51E50FDBA36ED9BB34522CA"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/item/NailItem.java",
+        "Start":  1,
+        "End":  59,
+        "TotalLines":  59,
+        "SHA256AtRead":  "22DF529E413D654709471147DF2FEE3DF065F6090B7D6F85580FC9D8E719AF71"
+    }
+]

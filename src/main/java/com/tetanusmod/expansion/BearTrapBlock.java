@@ -17,7 +17,7 @@ public final class BearTrapBlock extends BlockWithEntity {
     @Override protected void appendProperties(StateManager.Builder<Block,BlockState> builder){builder.add(CLOSED);}
     @Override public BlockRenderType getRenderType(BlockState state){return BlockRenderType.MODEL;}
     @Override public VoxelShape getOutlineShape(BlockState state,BlockView world,BlockPos pos,ShapeContext context){return createCuboidShape(1,0,1,15,state.get(CLOSED)?6:2,15);}
-    @Override public void onEntityCollision(BlockState state,World world,BlockPos pos,Entity entity){if(!world.isClient&&!state.get(CLOSED)&&entity instanceof LivingEntity living&&world.getBlockEntity(pos) instanceof BearTrapBlockEntity trap)trap.trigger(living);}
+    @Override public void onEntityCollision(BlockState state,World world,BlockPos pos,Entity entity){if(!entity.getBoundingBox().intersects(getOutlineShape(state,world,pos,ShapeContext.of(entity)).getBoundingBox().offset(pos).expand(0,0.0001,0)))return;if(!world.isClient&&!state.get(CLOSED)&&entity instanceof LivingEntity living&&world.getBlockEntity(pos) instanceof BearTrapBlockEntity trap)trap.trigger(living);}
     @Override public BlockEntity createBlockEntity(BlockPos pos,BlockState state){return new BearTrapBlockEntity(pos,state);}
     @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world,BlockState state,BlockEntityType<T> type){return world.isClient?null:checkType(type,ExpansionBlocks.BEAR_TRAP_ENTITY,BearTrapBlockEntity::tick);}
 }

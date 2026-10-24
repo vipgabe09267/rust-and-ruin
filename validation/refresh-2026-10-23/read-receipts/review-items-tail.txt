@@ -1,0 +1,13 @@
+FILE src/main/java/com/tetanusmod/registry/ModItems.java LINES 60-71 OF 71
+  60:                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(
+  61:                             new net.minecraft.enchantment.EnchantmentLevelEntry(TETANUS_ENCHANTMENT,1)));
+  62:                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(TETANUS_ENCHANTMENT,2)));
+  63:                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(com.tetanusmod.expansion.ExpansionItems.TETANUS_PROTECTION,1)));
+  64:                     for(var potion:java.util.List.of(ModBrewing.MANURE,ModBrewing.TETANUS,ModBrewing.SALMONELLA,ModBrewing.LOCKJAW,ModBrewing.RABIES))for(var bottle:java.util.List.of(net.minecraft.item.Items.POTION,net.minecraft.item.Items.SPLASH_POTION,net.minecraft.item.Items.LINGERING_POTION))entries.add(net.minecraft.potion.PotionUtil.setPotion(new ItemStack(bottle),potion));
+  65:                 }).build());
+  66:         Registry.register(Registries.ITEM_GROUP,TetanusMod.id("spawn_eggs"),FabricItemGroup.builder()
+  67:                 .displayName(Text.translatable("itemGroup.tetanusmod.spawn_eggs"))
+  68:                 .icon(()->new ItemStack(Registries.ITEM.get(TetanusMod.id("tetanized_zombie_spawn_egg"))))
+  69:                 .entries((context,entries)->ALL.stream().filter(item->item instanceof com.tetanusmod.expansion.VariantSpawnEggItem).forEach(entries::add)).build());
+  70:     }
+  71: }

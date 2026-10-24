@@ -1,0 +1,9 @@
+{
+    "spawn_overrides":  {
+
+                        },
+    "step":  "underground_structures",
+    "terrain_adaptation":  "none",
+    "type":  "tetanusmod:medic_tent",
+    "biomes":  "#tetanusmod:has_medic_tent"
+}

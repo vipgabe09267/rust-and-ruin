@@ -1,0 +1,68 @@
+FILE tools/Generate-Expansion.ps1 LINES 75-141 OF 141
+  75: # Models/loot for new blocks.
+  76: foreach($id in @('rusted_iron_block','medic_cabinet')){Json "assets/tetanusmod/blockstates/$id.json" @{variants=@{''=@{model="tetanusmod:block/$id"}}};Json "assets/tetanusmod/models/block/$id.json" @{parent='minecraft:block/cube_all';textures=@{all="tetanusmod:block/$id"}}}
+  77: function Faces($texture){$faces=@{};foreach($side in @('up','down','north','south','east','west')){$faces[$side]=@{texture=$texture}};return $faces}
+  78: foreach($id in @('bear_trap','rusted_bear_trap','barbed_wire','rusted_barbed_wire')){
+  79:     $rusty=$id.StartsWith('rusted_');$texture=if($rusty){'rusted_metal'}else{'metal'}
+  80:     $variants=@{}
+  81:     $states=if($id-like'*bear_trap'){@($false,$true)}else{@($false)}
+  82:     foreach($closed in $states){
+  83:         $name=$id;if($closed){$name+='_closed'};$elements=@();$boxes=@()
+  84:         if($id-like'*bear_trap'){
+  85:             $boxes+=,@(2,0,2,14,1,14);$boxes+=,@(6,1,6,10,2,10)
+  86:             if(!$closed){$boxes+=,@(1,1,1,3,2,15);$boxes+=,@(13,1,1,15,2,15);$boxes+=,@(3,1,1,13,2,3);$boxes+=,@(3,1,13,13,2,15);foreach($v in @(3,6,9,12)){$boxes+=,@($v,2,3,($v+1),4,4);$boxes+=,@($v,2,12,($v+1),4,13)}}
+  87:             else{$boxes+=,@(5,1,2,7,7,14);$boxes+=,@(9,1,2,11,7,14);foreach($v in @(3,6,9,12)){$boxes+=,@(7,5,$v,9,7,($v+1))}}
+  88:         }else{
+  89:             foreach($z in @(3,8,13)){$boxes+=,@(1,3,$z,15,4,($z+1));foreach($x in @(3,7,11)){$boxes+=,@($x,2,($z-1),($x+1),6,($z+2))}}
+  90:             $boxes+=,@(1,0,1,3,8,3);$boxes+=,@(13,0,13,15,8,15)
+  91:         }
+  92:         foreach($b in $boxes){$elements+=@{from=@($b[0],$b[1],$b[2]);to=@($b[3],$b[4],$b[5]);faces=(Faces '#metal')}}
+  93:         Json "assets/tetanusmod/models/block/$name.json" @{parent='minecraft:block/block';textures=@{metal="tetanusmod:block/$texture";particle="tetanusmod:block/$texture"};elements=$elements}
+  94:         if($id-like'*bear_trap'){$variants['closed='+$closed.ToString().ToLowerInvariant()]=@{model="tetanusmod:block/$name"}}
+  95:     }
+  96:     if($id-like'*barbed_wire'){$variants=@{'waterlogged=false'=@{model="tetanusmod:block/$id"};'waterlogged=true'=@{model="tetanusmod:block/$id"}}}
+  97:     Json "assets/tetanusmod/blockstates/$id.json" @{variants=$variants}
+  98: }
+  99: $pileElements=@();foreach($b in @(@(3,0,3,13,1,13),@(5,1,5,12,2,11),@(7,2,6,10,3,9))){$pileElements+=@{from=@($b[0],$b[1],$b[2]);to=@($b[3],$b[4],$b[5]);faces=(Faces '#rust')}}
+ 100: Json 'assets/tetanusmod/models/block/rust.json' @{textures=@{rust='tetanusmod:block/rusted_metal';particle='tetanusmod:block/rusted_metal'};elements=$pileElements}
+ 101: Json 'assets/tetanusmod/blockstates/rust.json' @{variants=@{'facing=up'=@{model='tetanusmod:block/rust'};'facing=down'=@{model='tetanusmod:block/rust';x=180};'facing=north'=@{model='tetanusmod:block/rust';x=90};'facing=south'=@{model='tetanusmod:block/rust';x=90;y=180};'facing=east'=@{model='tetanusmod:block/rust';x=90;y=90};'facing=west'=@{model='tetanusmod:block/rust';x=90;y=270}}}
+ 102: foreach($id in $blocks.Keys){Json "data/tetanusmod/loot_tables/blocks/$id.json" @{type='minecraft:block';pools=@(@{rolls=1;entries=@(@{type='minecraft:item';name="tetanusmod:$id"});conditions=@(@{condition='minecraft:survives_explosion'})})}}
+ 103: Json 'data/minecraft/tags/blocks/mineable/pickaxe.json' @{replace=$false;values=@('tetanusmod:caltrops','tetanusmod:rusted_caltrops','tetanusmod:barbed_wire','tetanusmod:rusted_barbed_wire','tetanusmod:bear_trap','tetanusmod:rusted_bear_trap','tetanusmod:rusted_iron_block','tetanusmod:tetanized_beacon')}
+ 104: Json 'data/minecraft/tags/blocks/mineable/axe.json' @{replace=$false;values=@('tetanusmod:medic_cabinet')}
+ 105: # All variant egg models inherit the native tinted egg template.
+ 106: $mc=Get-ChildItem (Join-Path $projectRoot '.gradle/loom-cache/minecraftMaven') -Recurse -Filter '*build.10-v2.jar'|Select-Object -First 1
+ 107: $archive=[IO.Compression.ZipFile]::OpenRead($mc.FullName)
+ 108: try{$eggTypes=@($archive.Entries|Where-Object FullName -match '^assets/minecraft/models/item/[a-z_]+_spawn_egg.json$'|ForEach-Object {$_.Name.Replace('_spawn_egg.json','')}|Where-Object {$_-ne'template'})+@('giant','illusioner','wither','ender_dragon')}finally{$archive.Dispose()}
+ 109: $rabidTypes=@('wolf','fox','cat','bat','rabbit','cow','pig','sheep','goat','horse','donkey','mule','llama','trader_llama','camel','panda','polar_bear','hoglin','zoglin','zombie','husk','drowned')
+ 110: foreach($type in ($eggTypes|Sort-Object -Unique)){Json "assets/tetanusmod/models/item/tetanized_${type}_spawn_egg.json" @{parent='minecraft:item/template_spawn_egg'}}
+ 111: foreach($type in $rabidTypes){Json "assets/tetanusmod/models/item/rabid_${type}_spawn_egg.json" @{parent='minecraft:item/template_spawn_egg'}}
+ 112: # Advancements use custom IDs/criteria. No vanilla beacon criterion is reused.
+ 113: $adv=@(
+ 114:  @('why_did_i_do_that','Why did I do that?','Throw a rusty nail into the air and die to its return.','tetanusmod:rusted_nail','returned_nail','challenge','infected'),
+ 115:  @('beacon_placed','A Beacon of Bad Ideas','Place a Tetanized Beacon.','tetanusmod:tetanized_beacon','place_beacon','task','nice_one'),
+ 116:  @('beacon_full','Rust Never Sleeps','Activate a Tetanized Beacon on a complete rusty iron pyramid.','tetanusmod:rusted_iron_block','activate_full','challenge','beacon_placed'),
+ 117:  @('shield_protection','Not Today','Prevent a Tetanus attack with a Tetanus Protection shield.','minecraft:shield','block_tetanus','goal','infected'),
+ 118:  @('glove_protection','Hands Off','Prevent an infection with your equipped gloves.','tetanusmod:protective_gloves','prevent_tetanus','task','infected'),
+ 119:  @('rabies','Foaming at the Mouth','Contract Rabies.','tetanusmod:rabid_meat','contract_rabies','task','root'),
+ 120:  @('rabies_cured','Back to Yourself','Use Rabies Cure while infected.','tetanusmod:rabies_cure','cure_rabies','goal','rabies'),
+ 121:  @('antitoxin','A Dose of Common Sense','Cure Tetanus or Lockjaw Sonata with antitoxin.','tetanusmod:tetanus_antitoxin','cure_tetanus','task','infected'),
+ 122:  @('trap_reset','Mind Your Fingers','Reset a closed bear trap.','tetanusmod:trap_reset_tool','reset_trap','task','rusty_business'),
+ 123:  @('spear','Keep Your Distance','Land a spear thrust.','tetanusmod:iron_spear','use_spear','task','root'),
+ 124:  @('variant_egg','Bad Egg','Spawn a tetanized or rabid creature with its variant egg.','minecraft:zombie_spawn_egg','spawn_variant','task','tetanized_mob'),
+ 125:  @('rust_arrows','A Pointed Upgrade','Coat an arrow batch with Rust at a smithing table.','tetanusmod:tetanized_arrow','smith_arrows','task','rusty_business')
+ 126: )
+ 127: foreach($a in $adv){$id=$a[0];$lang["advancements.tetanusmod.$id.title"]=$a[1];$lang["advancements.tetanusmod.$id.description"]=$a[2];Json "data/tetanusmod/advancements/$id.json" @{parent="tetanusmod:$($a[6])";display=@{icon=@{item=$a[3]};title=@{translate="advancements.tetanusmod.$id.title"};description=@{translate="advancements.tetanusmod.$id.description"};frame=$a[5];show_toast=$true;announce_to_chat=$true;hidden=$false};criteria=@{$a[4]=@{trigger='minecraft:impossible'}}}}
+ 128: $lang['advancements.tetanusmod.medic.title']="Doctor's Orders";$lang['advancements.tetanusmod.medic.description']='Trade with a village medic.'
+ 129: Json 'data/tetanusmod/advancements/medic.json' @{parent='tetanusmod:root';display=@{icon=@{item='tetanusmod:medic_cabinet'};title=@{translate='advancements.tetanusmod.medic.title'};description=@{translate='advancements.tetanusmod.medic.description'};frame='task';show_toast=$true;announce_to_chat=$true;hidden=$false};criteria=@{trade=@{trigger='minecraft:villager_trade';conditions=@{villager=@{type='minecraft:villager';nbt='{VillagerData:{profession:"tetanusmod:medic"}}'}}}}}
+ 130: $lang['advancements.tetanusmod.clinic.title']='The Doctor Is In';$lang['advancements.tetanusmod.clinic.description']='Place a Medicine Cabinet to offer a villager a medical career.'
+ 131: Json 'data/tetanusmod/advancements/clinic.json' @{parent='tetanusmod:medic';display=@{icon=@{item='tetanusmod:medic_cabinet'};title=@{translate='advancements.tetanusmod.clinic.title'};description=@{translate='advancements.tetanusmod.clinic.description'};frame='task';show_toast=$true;announce_to_chat=$true;hidden=$false};criteria=@{place=@{trigger='minecraft:placed_block';conditions=@{location=@(@{condition='minecraft:block_state_property';block='tetanusmod:medic_cabinet'})}}}}
+ 132: & (Join-Path $PSScriptRoot 'Generate-Maintenance.ps1') -Language $lang
+ 133: $orderedLang=[ordered]@{}
+ 134: foreach($key in ($lang.Keys|Sort-Object)){$orderedLang[$key]=$lang[$key]}
+ 135: Json 'assets/tetanusmod/lang/en_us.json' $orderedLang
+ 136: $recipes=@(Get-ChildItem -LiteralPath (Join-Path $resourceRoot 'data/tetanusmod/recipes') -Filter '*.json'|ForEach-Object {'tetanusmod:'+$_.BaseName})
+ 137: Json 'data/tetanusmod/advancements/recipes/unlock.json' @{parent='minecraft:recipes/root';criteria=@{has_iron=@{trigger='minecraft:inventory_changed';conditions=@{items=@(@{items=@('minecraft:iron_ingot')})}}};rewards=@{recipes=$recipes}}
+ 138: & (Join-Path $PSScriptRoot 'Draw-Expansion-Art.ps1')
+ 139: & (Join-Path $PSScriptRoot 'Generate-Clinic.ps1')
+ 140: Write-Output 'Generated expansion recipes, models, variant eggs, disease text, custom advancements, artwork and clinic.'
+ 141: & (Join-Path $PSScriptRoot 'Generate-Refresh.ps1')

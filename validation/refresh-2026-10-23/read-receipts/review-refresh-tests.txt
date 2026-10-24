@@ -1,0 +1,122 @@
+FILE src/gametest/java/com/tetanusmod/test/RefreshGameTests.java LINES 1-121 OF 121
+   1: package com.tetanusmod.test;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import com.tetanusmod.config.ModConfig;
+   5: import com.tetanusmod.effect.*;
+   6: import com.tetanusmod.entity.*;
+   7: import com.tetanusmod.expansion.*;
+   8: import com.tetanusmod.registry.*;
+   9: import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
+  10: import net.minecraft.block.*;
+  11: import net.minecraft.block.enums.DoubleBlockHalf;
+  12: import net.minecraft.enchantment.*;
+  13: import net.minecraft.entity.*;
+  14: import net.minecraft.entity.attribute.EntityAttributes;
+  15: import net.minecraft.entity.effect.*;
+  16: import net.minecraft.item.*;
+  17: import net.minecraft.nbt.NbtCompound;
+  18: import net.minecraft.registry.*;
+  19: import net.minecraft.screen.AnvilScreenHandler;
+  20: import net.minecraft.test.*;
+  21: import net.minecraft.util.Hand;
+  22: import net.minecraft.util.hit.BlockHitResult;
+  23: import net.minecraft.util.math.*;
+  24: import net.minecraft.world.GameMode;
+  25: 
+  26: public class RefreshGameTests implements FabricGameTest {
+  27:     @GameTest(templateName=EMPTY_STRUCTURE)
+  28:     public void oldDefaultsMigrateAndCustomRatesRemain(TestContext ctx){
+  29:         var c=ModConfig.fromJson("{\"balanceRevision\":4,\"naturalAnimalEasy\":0.1,\"naturalMobNormal\":0.15,\"spawnerHard\":0.45}");
+  30:         ctx.assertTrue(c.balanceRevision==5&&c.naturalAnimalEasy==0.005F&&c.naturalMobNormal==0.01F&&c.spawnerHard==0.08F,"Old high spawn defaults did not migrate");
+  31:         var custom=ModConfig.fromJson("{\"balanceRevision\":4,\"naturalAnimalEasy\":0.123,\"spawnerHard\":0.222}");
+  32:         ctx.assertTrue(custom.naturalAnimalEasy==0.123F&&custom.spawnerHard==0.222F,"Customized spawn values were overwritten");ctx.complete();
+  33:     }
+  34:     @GameTest(templateName=EMPTY_STRUCTURE)
+  35:     public void rawMeatDiseasesAndCookedSafety(TestContext ctx){
+  36:         var p=ctx.createMockSurvivalPlayer();float chance=TetanusMod.CONFIG.salmonellaChance;
+  37:         try{TetanusMod.CONFIG.salmonellaChance=1;ModItems.INFECTED_MEAT.finishUsing(new ItemStack(ModItems.INFECTED_MEAT),ctx.getWorld(),p);
+  38:             ctx.assertTrue(p.hasStatusEffect(TetanusMod.SALMONELLA)&&!p.hasStatusEffect(TetanusMod.TETANUS),"Raw infected meat must cause Salmonella only");
+  39:             p.clearStatusEffects();ExpansionItems.RABID_MEAT.finishUsing(new ItemStack(ExpansionItems.RABID_MEAT),ctx.getWorld(),p);
+  40:             ctx.assertTrue(p.hasStatusEffect(ExpansionEffects.RABIES)&&p.hasStatusEffect(StatusEffects.NAUSEA),"Raw rabid meat has no immediate disease/sickness");
+  41:             RabiesEffect.cure(p);p.clearStatusEffects();ModItems.COOKED_INFECTED_MEAT.finishUsing(new ItemStack(ModItems.COOKED_INFECTED_MEAT),ctx.getWorld(),p);ExpansionItems.COOKED_RABID_MEAT.finishUsing(new ItemStack(ExpansionItems.COOKED_RABID_MEAT),ctx.getWorld(),p);
+  42:             ctx.assertTrue(!p.hasStatusEffect(TetanusMod.SALMONELLA)&&!p.hasStatusEffect(TetanusMod.TETANUS)&&!p.hasStatusEffect(ExpansionEffects.RABIES),"Cooked meat caused disease");
+  43:         }finally{TetanusMod.CONFIG.salmonellaChance=chance;}ctx.complete();
+  44:     }
+  45:     @GameTest(templateName=EMPTY_STRUCTURE)
+  46:     public void rabiesAloneCannotKillAcrossThirtyMinutes(TestContext ctx){
+  47:         var p=ctx.createMockSurvivalPlayer();p.setHealth(20);Rabies.expose(p,null);
+  48:         for(int tick=0;tick<36000;tick++){ExpansionEffects.RABIES.applyUpdateEffect(p,0);ctx.assertTrue(p.getHealth()>=4&&p.getMaxHealth()>=4&&p.isAlive(),"Rabies crossed its nonlethal floor at "+tick);}
+  49:         ctx.assertTrue(p.getMaxHealth()==4,"Rabies capacity loss never reached its two-heart limit");RabiesEffect.cure(p);ctx.assertTrue(p.getMaxHealth()==20,"Cure did not restore capacity");ctx.complete();
+  50:     }
+  51:     @GameTest(templateName=EMPTY_STRUCTURE)
+  52:     public void commandsForceDiseasesWithoutLeakingVaccineBypass(TestContext ctx)throws Exception{
+  53:         var p=ctx.createMockCreativeServerPlayerInWorld();
+  54:         try{var source=p.getCommandSource().withLevel(2);var dispatcher=p.getServer().getCommandManager().getDispatcher();
+  55:             p.addStatusEffect(new StatusEffectInstance(TetanusMod.VACCINATED,1200));p.addStatusEffect(new StatusEffectInstance(ExpansionEffects.RABIES_RESISTANCE,1200));
+  56:             ctx.assertTrue(dispatcher.execute("effect give @s tetanusmod:tetanus 300",source)==1&&p.hasStatusEffect(TetanusMod.TETANUS),"Native effect command was blocked by vaccine");
+  57:             ctx.assertTrue(dispatcher.execute("effect give @s rabies infinite",source)==1&&p.hasStatusEffect(ExpansionEffects.RABIES),"Short Rabies command failed");
+  58:             ctx.assertTrue(dispatcher.execute("effect give "+p.getUuidAsString()+" salmonella 30",source)==1&&p.hasStatusEffect(TetanusMod.SALMONELLA),"Targeted disease command failed");
+  59:             ctx.assertFalse(CommandEffects.forced(),"Command bypass leaked onto server thread");
+  60:             int rejected=0;try{dispatcher.execute("effect give @s rabies",source.withLevel(0));}catch(com.mojang.brigadier.exceptions.CommandSyntaxException expected){rejected++;}
+  61:             ctx.assertTrue(rejected==1,"Short command bypassed operator permission");
+  62:         }finally{p.discard();}ctx.complete();
+  63:     }
+  64:     @GameTest(templateName=EMPTY_STRUCTURE)
+  65:     public void golemAndRabiesRevealAdvancementsWithoutPriorIron(TestContext ctx){
+  66:         var p=ctx.createMockCreativeServerPlayerInWorld();
+  67:         try{p.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModItems.RUST));var golem=EntityType.IRON_GOLEM.create(ctx.getWorld());
+  68:             ctx.assertTrue(RustGolems.attempt(p,Hand.MAIN_HAND,golem,0)&&golem.getMaxHealth()==200,"Guaranteed golem conversion failed");
+  69:             for(String id:new String[]{"root","rusty_guardian"})ctx.assertTrue(p.getAdvancementTracker().getProgress(p.getServer().getAdvancementLoader().get(TetanusMod.id(id))).isDone(),"Missing visible advancement "+id);
+  70:             Rabies.expose(p,null);ctx.assertTrue(p.getAdvancementTracker().getProgress(p.getServer().getAdvancementLoader().get(TetanusMod.id("rabies"))).isDone(),"Rabies advancement failed");
+  71:         }finally{p.discard();}ctx.complete();
+  72:     }
+  73:     @GameTest(templateName=EMPTY_STRUCTURE)
+  74:     public void glovesAcceptMendingAndRepairFromExperience(TestContext ctx){
+  75:         var p=ctx.createMockCreativeServerPlayerInWorld();
+  76:         try{p.changeGameMode(GameMode.SURVIVAL);var menu=new AnvilScreenHandler(1,p.getInventory());menu.getSlot(0).setStack(new ItemStack(ModItems.PROTECTIVE_GLOVES));menu.getSlot(1).setStack(EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(Enchantments.MENDING,1)));
+  77:             var gloves=menu.getSlot(2).getStack().copy();ctx.assertTrue(EnchantmentHelper.getLevel(Enchantments.MENDING,gloves)==1,"Gloves reject Mending at anvil");
+  78:             gloves.setDamage(40);((GloveInventory)p).rustruin$gloves().setStack(0,gloves);p.experiencePickUpDelay=0;
+  79:             var orb=new ExperienceOrbEntity(ctx.getWorld(),p.getX(),p.getY(),p.getZ(),5);ctx.getWorld().spawnEntity(orb);orb.onPlayerCollision(p);
+  80:             ctx.assertTrue(gloves.getDamage()==30,"Experience did not repair equipped gloves: "+gloves.getDamage());
+  81:         }finally{p.discard();}ctx.complete();
+  82:     }
+  83:     @GameTest(templateName=EMPTY_STRUCTURE)
+  84:     public void gloveVisualStateTracksDurabilityAndRemoval(TestContext ctx){
+  85:         var p=ctx.createMockSurvivalPlayer();var gloves=new ItemStack(ModItems.PROTECTIVE_GLOVES);gloves.setDamage(22);((GloveInventory)p).rustruin$gloves().setStack(0,gloves);p.tick();
+  86:         ctx.assertTrue(((GloveInventory)p).rustruin$visualGloves().getDamage()==22,"Remote glove appearance lacks item/durability state");
+  87:         ((GloveInventory)p).rustruin$gloves().clear();p.tick();ctx.assertTrue(((GloveInventory)p).rustruin$visualGloves().isEmpty(),"Removed gloves remain visible");ctx.complete();
+  88:     }
+  89:     @GameTest(templateName=EMPTY_STRUCTURE)
+  90:     public void eggsRetainSpeciesColorsAndRetireCreativeAdvancement(TestContext ctx){
+  91:         var cow=(VariantSpawnEggItem)Registries.ITEM.get(TetanusMod.id("tetanized_cow_spawn_egg"));var zombie=(VariantSpawnEggItem)Registries.ITEM.get(TetanusMod.id("tetanized_zombie_spawn_egg"));var rabid=(VariantSpawnEggItem)Registries.ITEM.get(TetanusMod.id("rabid_cow_spawn_egg"));
+  92:         ctx.assertTrue(cow.color(0)!=zombie.color(0)&&cow.color(0)!=rabid.color(0),"Species/variant egg colors are identical");
+  93:         ctx.assertTrue(ctx.getWorld().getServer().getAdvancementLoader().get(TetanusMod.id("variant_egg")).getDisplay()==null,"Creative-only advancement is still visible");ctx.complete();
+  94:     }
+  95:     @GameTest(templateName=EMPTY_STRUCTURE)
+  96:     public void cabinetUsesOneJobSiteAndUpgradesLegacyBlock(TestContext ctx){
+  97:         var pos=ctx.getAbsolutePos(new BlockPos(3,3,3));ctx.getWorld().setBlockState(pos.down(),Blocks.STONE.getDefaultState());ctx.getWorld().setBlockState(pos.up(),Blocks.AIR.getDefaultState());ctx.getWorld().setBlockState(pos,ExpansionBlocks.MEDIC_CABINET.getDefaultState());
+  98:         var p=ctx.createMockSurvivalPlayer();ExpansionBlocks.MEDIC_CABINET.onUse(ctx.getWorld().getBlockState(pos),ctx.getWorld(),pos,p,Hand.MAIN_HAND,new BlockHitResult(Vec3d.ofCenter(pos),Direction.NORTH,pos,false));
+  99:         var lower=ctx.getWorld().getBlockState(pos);var upper=ctx.getWorld().getBlockState(pos.up());
+ 100:         ctx.assertTrue(lower.get(MedicineCabinetBlock.COMPLETE)&&upper.isOf(ExpansionBlocks.MEDIC_CABINET)&&upper.get(DoorBlock.HALF)==DoubleBlockHalf.UPPER,"Legacy cabinet did not become two blocks tall: "+lower+" / "+upper);
+ 101:         ctx.assertTrue(MedicVillage.JOB.contains(lower)&&!MedicVillage.JOB.contains(upper),"One cabinet exposes two medic job sites");ctx.complete();
+ 102:     }
+ 103:     @GameTest(templateName=EMPTY_STRUCTURE)
+ 104:     public void bothMedicStructuresAreSavedAndLocateable(TestContext ctx){
+ 105:         var structures=ctx.getWorld().getRegistryManager().get(RegistryKeys.STRUCTURE);var sets=ctx.getWorld().getRegistryManager().get(RegistryKeys.STRUCTURE_SET);
+ 106:         ctx.assertTrue(structures.containsId(TetanusMod.id("medic_clinic"))&&structures.containsId(TetanusMod.id("medic_tent")),"Native locate registry lacks medics");
+ 107:         ctx.assertTrue(sets.get(TetanusMod.id("medic_clinics")).placement().getType()==net.minecraft.world.gen.chunk.placement.StructurePlacementType.RANDOM_SPREAD,"Clinic placement is not a native saved grid");
+ 108:         var template=ctx.getWorld().getStructureTemplateManager().getTemplate(TetanusMod.id("medic_tent")).orElseThrow();ctx.assertTrue(template.getSize().equals(new Vec3i(13,8,13)),"Cave tent template missing");ctx.complete();
+ 109:     }
+ 110:     @GameTest(templateName=EMPTY_STRUCTURE)
+ 111:     public void themedClinicsContainCorrectVillagerTypesAndLoot(TestContext ctx){
+ 112:         var manager=ctx.getWorld().getStructureTemplateManager();
+ 113:         for(String type:new String[]{"plains","desert","savanna","snowy","taiga"}){
+ 114:             var template=manager.getTemplate(TetanusMod.id("village/"+type+"_clinic")).orElseThrow();var nbt=template.writeNbt(new NbtCompound());var entities=nbt.getList("entities",10);
+ 115:             ctx.assertTrue(entities.size()==1,"Clinic lacks one medic");String expected=type.equals("snowy")?"snow":type;
+ 116:             ctx.assertTrue(entities.getCompound(0).getCompound("nbt").getCompound("VillagerData").getString("type").equals("minecraft:"+expected),"Wrong medic biome for "+type);
+ 117:             boolean chest=false;for(var block:nbt.getList("blocks",10))if(((NbtCompound)block).getCompound("nbt").getString("LootTable").equals("tetanusmod:chests/clinic"))chest=true;
+ 118:             ctx.assertTrue(chest,"Themed clinic lacks its loot chest");
+ 119:         }ctx.complete();
+ 120:     }
+ 121: }

@@ -1,0 +1,6 @@
+FILE src/gametest/java/com/tetanusmod/test/DiseaseFixGameTests.java LINES 26-30 OF 185
+  26:         ctx.assertTrue(custom.minDurationSeconds==400&&custom.maxDurationSeconds==700,"Custom duration was overwritten");
+  27:         var legacy=ModConfig.fromJson("{\"minDurationSeconds\":120,\"maxDurationSeconds\":300}");
+  28:         ctx.assertTrue(legacy.minDurationSeconds==300&&legacy.balanceRevision==5,"Unversioned config migration failed");ctx.complete();
+  29:     }
+  30:     @GameTest(templateName=EMPTY_STRUCTURE)

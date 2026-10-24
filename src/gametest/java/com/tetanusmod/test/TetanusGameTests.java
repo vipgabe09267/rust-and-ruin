@@ -148,6 +148,7 @@ public class TetanusGameTests implements FabricGameTest {
         InfectionState state = (InfectionState) target;
         int min = Integer.MAX_VALUE, max = 0;
         for (int i = 0; i < 256; i++) {
+            target.removeStatusEffect(TetanusMod.TETANUS); // Sample independent infections, not cumulative refreshes.
             Infection.apply(target, null);
             int duration = target.getStatusEffect(TetanusMod.TETANUS).getDuration();
             ctx.assertTrue(duration >= 6000 && duration <= 12000 && duration % 20 == 0, "Duration outside 300-600 seconds");

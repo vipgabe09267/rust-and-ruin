@@ -1,0 +1,6 @@
+FILE src/main/java/com/tetanusmod/mixin/ExpansionMobMixin.java LINES 24-28 OF 28
+  24:     }
+  25:     public GoalSelector rustruin$goals(){return goalSelector;}
+  26:     @Inject(method="initialize",at=@At("RETURN"))private void natural(ServerWorldAccess world,LocalDifficulty difficulty,SpawnReason reason,EntityData data,NbtCompound nbt,CallbackInfoReturnable<EntityData> result){NaturalVariants.spawned((MobEntity)(Object)this,reason);}
+  27:     @Inject(method="tryAttack",at=@At("HEAD"),cancellable=true)private void miss(Entity target,CallbackInfoReturnable<Boolean> result){var self=(MobEntity)(Object)this;if(self.hasStatusEffect(ExpansionEffects.DISORIENTED)&&self.getRandom().nextFloat()<0.45F)result.setReturnValue(false);}
+  28: }

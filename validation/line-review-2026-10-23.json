@@ -1,0 +1,1523 @@
+{
+    "Date":  "2026-10-23",
+    "Method":  "Fresh manual numbered reads of every source/build/test/generator line, followed by complete rereads of modified source. Range and SHA256 checks establish coverage, not correctness.",
+    "StartingFiles":  166,
+    "StartingLines":  8958,
+    "FinalFiles":  167,
+    "FinalLines":  9159,
+    "Files":  [
+                  {
+                      "Path":  "build.gradle",
+                      "Lines":  148,
+                      "SHA256":  "DAD67DDC9A2EC4B53FF28E398284AF82216E07DA00C6A31B0A6BB358D8CEB44A",
+                      "ReviewedLines":  148,
+                      "NumberedReadReceipts":  [
+                                                   "40-final-build-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "gradle.properties",
+                      "Lines":  9,
+                      "SHA256":  "F6784B77E09264D9CCF3F05410A9F380EB380FE03FAEF314E722A77DA88BD596",
+                      "ReviewedLines":  9,
+                      "NumberedReadReceipts":  [
+                                                   "18-build-validation-scripts"
+                                               ]
+                  },
+                  {
+                      "Path":  "gradle/wrapper/gradle-wrapper.properties",
+                      "Lines":  9,
+                      "SHA256":  "151D1CE7B6C98B28F62895583752D888F5980C9C2BBDE1D15395A34CAF912EF5",
+                      "ReviewedLines":  9,
+                      "NumberedReadReceipts":  [
+                                                   "39-final-build-validation"
+                                               ]
+                  },
+                  {
+                      "Path":  "gradlew",
+                      "Lines":  249,
+                      "SHA256":  "FC977A94723AF68AAFFA4E5D60496FB4AEED1884B6B19E5E2F2FD7612673313D",
+                      "ReviewedLines":  249,
+                      "NumberedReadReceipts":  [
+                                                   "19-wrapper-launchers"
+                                               ]
+                  },
+                  {
+                      "Path":  "gradlew.bat",
+                      "Lines":  92,
+                      "SHA256":  "FD4AEA9A06D9E3CDA333A0E256CA5E6F08FA5D7AAAA3DA3E4CBACBB7DCE6BBA1",
+                      "ReviewedLines":  92,
+                      "NumberedReadReceipts":  [
+                                                   "19-wrapper-launchers"
+                                               ]
+                  },
+                  {
+                      "Path":  "settings.gradle",
+                      "Lines":  8,
+                      "SHA256":  "52D5DDF551C3ECD071A2EAD84249FB8E28EBE64F06EB478499BED3794ACD6C35",
+                      "ReviewedLines":  8,
+                      "NumberedReadReceipts":  [
+                                                   "18-build-validation-scripts"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/AuditGameTests.java",
+                      "Lines":  68,
+                      "SHA256":  "B22E4023811E096D3077C5E753A25E66E932AD2CA062AF76F880997397515AF3",
+                      "ReviewedLines":  68,
+                      "NumberedReadReceipts":  [
+                                                   "20-test-security-persistence"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/BalanceGameTests.java",
+                      "Lines":  197,
+                      "SHA256":  "CBFCD9C3C81D7B8E324150385A77420A47A37E318DB71AD231B9F9B9B8202DBF",
+                      "ReviewedLines":  197,
+                      "NumberedReadReceipts":  [
+                                                   "27-balance-expansion"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/DespawnAuditGameTests.java",
+                      "Lines":  127,
+                      "SHA256":  "10CD92734FD8BB83FA3FB0ECFB003FFE4594021BB1C867060173DC44DDFEA795",
+                      "ReviewedLines":  127,
+                      "NumberedReadReceipts":  [
+                                                   "20-test-security-persistence"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/DiseaseExpansionGameTests.java",
+                      "Lines":  178,
+                      "SHA256":  "179AE137C85366869E626631D8F3D3C4CCDC75FB222DB4C790A1EF09B4725924",
+                      "ReviewedLines":  178,
+                      "NumberedReadReceipts":  [
+                                                   "21a-disease-expansion-truncation-followup",
+                                                   "21-tests-disease-lifecycle"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/DiseaseFixGameTests.java",
+                      "Lines":  185,
+                      "SHA256":  "117D63CFB25FB83EF6FB67E8CF95F745278FA8F49320F783587A5833CAB809B7",
+                      "ReviewedLines":  185,
+                      "NumberedReadReceipts":  [
+                                                   "21b-disease-fix-truncation-followup",
+                                                   "21-tests-disease-lifecycle"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/ExpansionGameTests.java",
+                      "Lines":  183,
+                      "SHA256":  "B016264AD7FD8BF0A1DFC5A3BFEB7554FCC18C6EDDDF757A5A494FCBB6AACAB3",
+                      "ReviewedLines":  183,
+                      "NumberedReadReceipts":  [
+                                                   "27-balance-expansion"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/ExpansionRegressionGameTests.java",
+                      "Lines":  126,
+                      "SHA256":  "4AA1CAFA4173258067F8D65F152852D8E8E55B941AF1EB3A7B86AA08D6BBFED0",
+                      "ReviewedLines":  126,
+                      "NumberedReadReceipts":  [
+                                                   "26-final-and-regression-tests"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/FinalAuditGameTests.java",
+                      "Lines":  131,
+                      "SHA256":  "C5D2855AC6F45B56A3CCBCB682BEF903BD1F68899A40C881250EF16C7EAC33CA",
+                      "ReviewedLines":  131,
+                      "NumberedReadReceipts":  [
+                                                   "26-final-and-regression-tests"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/MaintenanceGameTests.java",
+                      "Lines":  251,
+                      "SHA256":  "3F0FF94FE334E4332C97FA32BDF55E503DA9280E84C13CB6833CFC0659F942B3",
+                      "ReviewedLines":  251,
+                      "NumberedReadReceipts":  [
+                                                   "22-maintenance-tests-first",
+                                                   "23-maintenance-tests-rest"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/mixin/ServerPlayerTestAccessor.java",
+                      "Lines":  8,
+                      "SHA256":  "9378BEA719A60DBC3DC2AB181BFE19DE1040D96579CD2CA4084CDE272857258D",
+                      "ReviewedLines":  8,
+                      "NumberedReadReceipts":  [
+                                                   "23a-fixture-probes"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/mixin/SoundProbeMixin.java",
+                      "Lines":  27,
+                      "SHA256":  "45E0504DFB58C813FDB3814A34983F41694E1080FE0F593F182FAD758FCCE51E",
+                      "ReviewedLines":  27,
+                      "NumberedReadReceipts":  [
+                                                   "23a-fixture-probes"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/PreventionGameTests.java",
+                      "Lines":  180,
+                      "SHA256":  "FFA0A9F11A76526566BADFA279456CBDEC9882CEE3A57902B98AF043E2260FE5",
+                      "ReviewedLines":  180,
+                      "NumberedReadReceipts":  [
+                                                   "24-prevention-tests"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/ProgressionExpansionGameTests.java",
+                      "Lines":  159,
+                      "SHA256":  "433F398B3C3062698A1F3006D7270AA9D6EF4B66415A4210BF1C1711376ECBE6",
+                      "ReviewedLines":  159,
+                      "NumberedReadReceipts":  [
+                                                   "25-progression-expansion-tests"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/ProgressionGameTests.java",
+                      "Lines":  226,
+                      "SHA256":  "D1630966A56BA21BADE64B16FA2411A5541E625E0BEAA82758F2D82751CB6779",
+                      "ReviewedLines":  226,
+                      "NumberedReadReceipts":  [
+                                                   "28-progression"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/SecurityGameTests.java",
+                      "Lines":  58,
+                      "SHA256":  "8C0E9E17139F0A5535E140685F89900CB0D1591078C1DDB9D64A4EA530A9B261",
+                      "ReviewedLines":  58,
+                      "NumberedReadReceipts":  [
+                                                   "20-test-security-persistence"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/SoundProbe.java",
+                      "Lines":  16,
+                      "SHA256":  "F3A7C3020E788A96FCB759EF496930D013EA1BD592A6B1E7D58F230D686AC75F",
+                      "ReviewedLines":  16,
+                      "NumberedReadReceipts":  [
+                                                   "23a-fixture-probes"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/TetanusGameTests.java",
+                      "Lines":  326,
+                      "SHA256":  "347634F1B36AA31BA34F2414873551D8AF8D12AF04DEE04C601401DA091C0E37",
+                      "ReviewedLines":  326,
+                      "NumberedReadReceipts":  [
+                                                   "29a-core-tests",
+                                                   "29b-core-tests"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/beacon/BeaconPower.java",
+                      "Lines":  46,
+                      "SHA256":  "84620BC85BE8AB2553E866CF38DED43CF1136FD34D675E7C00A12C27A7A4FBC4",
+                      "ReviewedLines":  46,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/beacon/ModBeacons.java",
+                      "Lines":  21,
+                      "SHA256":  "34B23F87B7963E188D146F7416E95B6D16CBCE6F432AC2D5B6A3B2BF614C3EC0",
+                      "ReviewedLines":  21,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/beacon/TetanizedBeaconBlock.java",
+                      "Lines":  17,
+                      "SHA256":  "006258DD268374EC4CFC54104AA9FF80EA05F5F1D71E017D84F506E1925A5C46",
+                      "ReviewedLines":  17,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/beacon/TetanizedBeaconEntity.java",
+                      "Lines":  21,
+                      "SHA256":  "C483C9FB754222AA38AC85FA7731937D6FDB4B82A46971E40BBA97F801A96AEA",
+                      "ReviewedLines":  21,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/beacon/TetanizedBeaconScreenHandler.java",
+                      "Lines":  48,
+                      "SHA256":  "8033DDC111BCC1EB51B4E44B19A479BFAD145716C6A1C5E9F2C6DB496AF246AD",
+                      "ReviewedLines":  48,
+                      "NumberedReadReceipts":  [
+                                                   "36-final-health-eggs-beacon-nails"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/block/CaltropsBlock.java",
+                      "Lines":  57,
+                      "SHA256":  "D5E491BC10D4F3DFF3571BB29ADEB60406660F864091012507BD865A677A069C",
+                      "ReviewedLines":  57,
+                      "NumberedReadReceipts":  [
+                                                   "10-traps-blocks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/block/CaltropsBlockEntity.java",
+                      "Lines":  70,
+                      "SHA256":  "058D05E21628D94433C1F0FE5F5B8338FDC30B7125740141C252AE30FB6A3249",
+                      "ReviewedLines":  70,
+                      "NumberedReadReceipts":  [
+                                                   "37-final-traps-hooks-jei"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/ClientPacketWarnings.java",
+                      "Lines":  6,
+                      "SHA256":  "627B892EDEB970F032983C75146A24F660B1A24F3F2EBA6F77075B484179F1B8",
+                      "ReviewedLines":  6,
+                      "NumberedReadReceipts":  [
+                                                   "14-client-state-rendering"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/FieldGuideScreen.java",
+                      "Lines":  58,
+                      "SHA256":  "7A1480DE6062FCCC1B9B7E95344986B1034D481F4BA54CC08875B3EBEA48D063",
+                      "ReviewedLines":  58,
+                      "NumberedReadReceipts":  [
+                                                   "14-client-state-rendering"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/InfectedPlayerList.java",
+                      "Lines":  19,
+                      "SHA256":  "459B9CF4BCF28941D6292066DA2815CD82CEC067FB50B6BAB1C6125EBBC7F0D4",
+                      "ReviewedLines":  19,
+                      "NumberedReadReceipts":  [
+                                                   "14-client-state-rendering"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/RabidPlayerList.java",
+                      "Lines":  19,
+                      "SHA256":  "EA777F0B5E798E4BE614CC288338B50AD8192AFFA80CD6E7097EC5791B5BE4C3",
+                      "ReviewedLines":  19,
+                      "NumberedReadReceipts":  [
+                                                   "14-client-state-rendering"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/RustedSkinFeature.java",
+                      "Lines":  27,
+                      "SHA256":  "860F9EBABE46D4CD0F236F803900FC9BFF9A52C17028338A5EF8F61F38E6F54F",
+                      "ReviewedLines":  27,
+                      "NumberedReadReceipts":  [
+                                                   "14-client-state-rendering"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/TetanizedArrowRenderer.java",
+                      "Lines":  9,
+                      "SHA256":  "3ECDC8D8D7A0DE5F750155D1E9210B795924B11E2A067949A1A32A8834677E22",
+                      "ReviewedLines":  9,
+                      "NumberedReadReceipts":  [
+                                                   "14-client-state-rendering"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/TetanizedBeaconScreen.java",
+                      "Lines":  70,
+                      "SHA256":  "103E07EB332CBDC41C7BB8E790CAF08E69B1881B696C88CDBF6E6B22652382F5",
+                      "ReviewedLines":  70,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/TetanizedTextures.java",
+                      "Lines":  56,
+                      "SHA256":  "1AB4A8EB5D1EAAA26F2D345EAF7C746A801C20A916B1DB3C896A22ECCFA30021",
+                      "ReviewedLines":  56,
+                      "NumberedReadReceipts":  [
+                                                   "14-client-state-rendering"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/TetanusClient.java",
+                      "Lines":  80,
+                      "SHA256":  "FC970772213E95203E47F86548768522FDEDE96248557A3C11A613C506693772",
+                      "ReviewedLines":  80,
+                      "NumberedReadReceipts":  [
+                                                   "14-client-state-rendering"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/command/MobInspector.java",
+                      "Lines":  46,
+                      "SHA256":  "8FA0F89674DA106109A00CD04982F9B34CC214E66C6FAD3B11E6F7FE6A16C936",
+                      "ReviewedLines":  46,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/command/RustRuinCommands.java",
+                      "Lines":  48,
+                      "SHA256":  "B805825EF72505B6632EFADD51C65E9CD37A21E165C4B3899BB795E8D1699871",
+                      "ReviewedLines":  48,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/compat/RustRuinJeiPlugin.java",
+                      "Lines":  139,
+                      "SHA256":  "98AA3A2F919F87468757B6148B6DE9725842225DBD872F18B3527ACD38350358",
+                      "ReviewedLines":  139,
+                      "NumberedReadReceipts":  [
+                                                   "37-final-traps-hooks-jei"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/compat/RustRuinReiPlugin.java",
+                      "Lines":  118,
+                      "SHA256":  "7054C64E01FEBD58BA55987764487BCBCCAC4C79D2AA33AC6ACA2D9F7220F9D5",
+                      "ReviewedLines":  118,
+                      "NumberedReadReceipts":  [
+                                                   "17-optional-recipe-integrations"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/config/ModConfig.java",
+                      "Lines":  107,
+                      "SHA256":  "380BF642521A8786C4D50CF19C83FD5296AF46A64103B16FEE05EDB231400133",
+                      "ReviewedLines":  107,
+                      "NumberedReadReceipts":  [
+                                                   "01-bootstrap-config-network"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/effect/Infection.java",
+                      "Lines":  105,
+                      "SHA256":  "A2C851D1926CFCDF354FBB2776A22D3CBA9C0EBE35E2688BE3152CC83890E6BB",
+                      "ReviewedLines":  105,
+                      "NumberedReadReceipts":  [
+                                                   "02-disease-protection"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/effect/InfectionPresence.java",
+                      "Lines":  39,
+                      "SHA256":  "0A88958AA9054F2820CDE34F87EB5CEA4E3127A6575E37DEBFA091C2E055886B",
+                      "ReviewedLines":  39,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/effect/InfectionProtection.java",
+                      "Lines":  38,
+                      "SHA256":  "B20464F40BCB204D86B24097649E8C9EF3BF945FFC81B824DB5CBBF7230D95A8",
+                      "ReviewedLines":  38,
+                      "NumberedReadReceipts":  [
+                                                   "02-disease-protection"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/effect/InfectionState.java",
+                      "Lines":  13,
+                      "SHA256":  "06EB9EDF893E0790BD50C7B7FFE1A9A3518A1269487E3DF1A74A55D38D7B1320",
+                      "ReviewedLines":  13,
+                      "NumberedReadReceipts":  [
+                                                   "02-disease-protection"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/effect/LockjawEffect.java",
+                      "Lines":  22,
+                      "SHA256":  "508609874A84DE93A729CC0AB358612E7CBE1112F35B9AFB098145AE24772DB6",
+                      "ReviewedLines":  22,
+                      "NumberedReadReceipts":  [
+                                                   "02-disease-protection"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/effect/SalmonellaEffect.java",
+                      "Lines":  33,
+                      "SHA256":  "364AC0A61F012E1D10A2E17DCDF2B16F16FC0BF26662DF498AB2D4F5A5CD668D",
+                      "ReviewedLines":  33,
+                      "NumberedReadReceipts":  [
+                                                   "02-disease-protection"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/effect/TetanusEffect.java",
+                      "Lines":  87,
+                      "SHA256":  "863F1844411D9768D99F29CF841A172EB6AFCC4AFD88F38F9F5F4E92DAFD277A",
+                      "ReviewedLines":  87,
+                      "NumberedReadReceipts":  [
+                                                   "02-disease-protection"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/effect/VaccinationEffect.java",
+                      "Lines":  5,
+                      "SHA256":  "37DFC177D73F7AEA3DE248EBF862679E0A3D5EE46D8F721B2C48E84F3087E7F8",
+                      "ReviewedLines":  5,
+                      "NumberedReadReceipts":  [
+                                                   "02-disease-protection"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/entity/EnhancedWitherRitual.java",
+                      "Lines":  32,
+                      "SHA256":  "97DE577D0F8004B7203877B71F3755200F31BE3B965B4A6278B4B549D1C65940",
+                      "ReviewedLines":  32,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/entity/MobVariants.java",
+                      "Lines":  131,
+                      "SHA256":  "54CD947B8843F7DF52BA5EF78D1A3E5529B61DE2EAD439050C3051803890FB97",
+                      "ReviewedLines":  131,
+                      "NumberedReadReceipts":  [
+                                                   "04-mutations-rabies-symptoms"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/entity/NailEntity.java",
+                      "Lines":  91,
+                      "SHA256":  "19613504CAA75C127110A63C40BC60AE9E3277BA2D57DDEB554190A8F4F23A7F",
+                      "ReviewedLines":  91,
+                      "NumberedReadReceipts":  [
+                                                   "36-final-health-eggs-beacon-nails"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/entity/RustGolems.java",
+                      "Lines":  32,
+                      "SHA256":  "272D6A65922F54CE67E0CFFC84BFF60F7691B310DB1C2855217EA335DB654985",
+                      "ReviewedLines":  32,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/entity/TetanizedArrowEntity.java",
+                      "Lines":  36,
+                      "SHA256":  "3B1A426C556E1078B569FE0383EEA53EE1DCD90306FF2A8A49A4344E5F763596",
+                      "ReviewedLines":  36,
+                      "NumberedReadReceipts":  [
+                                                   "06-weapons-projectiles"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/entity/TetanizedState.java",
+                      "Lines":  8,
+                      "SHA256":  "FFFE3785EF509894C8CB340EC0D1DA0CC070ADB55FC833DF078C0FBBBAE4E328",
+                      "ReviewedLines":  8,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/entity/VariantPersistence.java",
+                      "Lines":  31,
+                      "SHA256":  "E96FA91F5D560CE18D69C14B22A4034C359B857BE15DC13267736366AEC4324B",
+                      "ReviewedLines":  31,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/BearTrapBlock.java",
+                      "Lines":  23,
+                      "SHA256":  "2F32599651594F025EA514273FECFEDBF3E49098C58A3C5A9871B1E5C8751ABB",
+                      "ReviewedLines":  23,
+                      "NumberedReadReceipts":  [
+                                                   "10-traps-blocks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/BearTrapBlockEntity.java",
+                      "Lines":  43,
+                      "SHA256":  "A1D7BFDC82A0F3357B10A1AB5FD7559C8F7E1532FCA9EBA5F6788829AF332EE1",
+                      "ReviewedLines":  43,
+                      "NumberedReadReceipts":  [
+                                                   "37-final-traps-hooks-jei"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/CombatInfection.java",
+                      "Lines":  45,
+                      "SHA256":  "CF68551FDD574BE643E0D6386F64D27C8A6933B80A96586AC70955035BEEA7FE",
+                      "ReviewedLines":  45,
+                      "NumberedReadReceipts":  [
+                                                   "03-living-combat-milk"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/DisorientedEffect.java",
+                      "Lines":  24,
+                      "SHA256":  "CD680E30507A1AB43E86DD5A1F18847C5F3B38D4C0B194D28F94BED564564D8F",
+                      "ReviewedLines":  24,
+                      "NumberedReadReceipts":  [
+                                                   "04-mutations-rabies-symptoms"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionBlocks.java",
+                      "Lines":  21,
+                      "SHA256":  "260FBEDB681D9DDFB09EF1F83D0818F270AD681F3FFB42A3B4F8D9022B59B9EF",
+                      "ReviewedLines":  21,
+                      "NumberedReadReceipts":  [
+                                                   "10-traps-blocks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionEffects.java",
+                      "Lines":  12,
+                      "SHA256":  "CF539D40F6C1CADAC3C321E3D4E5CDDCF13EDDFDC5E91F83A90B7556EA8F4C6B",
+                      "ReviewedLines":  12,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionItems.java",
+                      "Lines":  28,
+                      "SHA256":  "E0B8164C686F16E8BC3C4CF00AD20D3DDC86C39E96D366940B5394A89C85FB25",
+                      "ReviewedLines":  28,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionState.java",
+                      "Lines":  12,
+                      "SHA256":  "A2C3C71003C4AEC167677BB8FA2EC790EFAB4F4634398A3A568C3AA78B170801",
+                      "ReviewedLines":  12,
+                      "NumberedReadReceipts":  [
+                                                   "04-mutations-rabies-symptoms"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/GloveInventory.java",
+                      "Lines":  11,
+                      "SHA256":  "657FDA26F60D1BDC379F8BABB9EAA012CB7755B9D3A3B020B6C08235B27AE3BC",
+                      "ReviewedLines":  11,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/GlovesItem.java",
+                      "Lines":  17,
+                      "SHA256":  "47F2C967035F59E382ECC3E18F338CCA7CC303E648F3A68CF65314017890B141",
+                      "ReviewedLines":  17,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/MedicSupplies.java",
+                      "Lines":  67,
+                      "SHA256":  "D61AEDEA0E8B5A4A158500BA5075DDA5717212E0660404D590AEB11DF24F1FA4",
+                      "ReviewedLines":  67,
+                      "NumberedReadReceipts":  [
+                                                   "12a-villagers-full-reread",
+                                                   "12-villagers-treatment-advancements"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/MedicVillage.java",
+                      "Lines":  50,
+                      "SHA256":  "95F6B0DA68BD43831461DD60DA06665A5771AE0489B51025A18E1F29455407F0",
+                      "ReviewedLines":  50,
+                      "NumberedReadReceipts":  [
+                                                   "12a-villagers-full-reread",
+                                                   "12-villagers-treatment-advancements"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/ModDamage.java",
+                      "Lines":  26,
+                      "SHA256":  "63B1220D15F7E0C41C8D9579CB9E3A3DBB5CD7208474BC20E0AD7FDD432E7E88",
+                      "ReviewedLines":  26,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/NaturalVariants.java",
+                      "Lines":  28,
+                      "SHA256":  "487AB765DE9F6A79C94CB5F8F2A4EB1659688C564FD3377E7B96BE34FF6346B5",
+                      "ReviewedLines":  28,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/Rabies.java",
+                      "Lines":  87,
+                      "SHA256":  "ED6C8E736563BA32421C9983C8B8EDBE2646E41C7D2B827EAB6433B1A34BB07C",
+                      "ReviewedLines":  87,
+                      "NumberedReadReceipts":  [
+                                                   "04-mutations-rabies-symptoms"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/RabiesEffect.java",
+                      "Lines":  57,
+                      "SHA256":  "603A123505979888E61F6228A30680DC89BDA5901F8DC973DCF71B9ED60C91C5",
+                      "ReviewedLines":  57,
+                      "NumberedReadReceipts":  [
+                                                   "36-final-health-eggs-beacon-nails"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/RabiesPresence.java",
+                      "Lines":  39,
+                      "SHA256":  "7186ED71B17EC61C384E807D0B29D80816D4E0D264AF53CA842CAC05980D146D",
+                      "ReviewedLines":  39,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/RabiesTonicItem.java",
+                      "Lines":  33,
+                      "SHA256":  "8FB9489D86AFD47DE52C832B6CF62CF7B66861B4C156772E5845840B68B54570",
+                      "ReviewedLines":  33,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/RustArrowSmithingRecipe.java",
+                      "Lines":  29,
+                      "SHA256":  "9AEDC248C92480CF241617DBBA9BDAEAC52C50E22F20C51D37BBC8B7246FBEBD",
+                      "ReviewedLines":  29,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/RustPileBlock.java",
+                      "Lines":  23,
+                      "SHA256":  "C95449139CD7A91F219D3D8E5A45624CE8ADFE9A384F8346A966F5F68FEB07D3",
+                      "ReviewedLines":  23,
+                      "NumberedReadReceipts":  [
+                                                   "10-traps-blocks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/SpearItem.java",
+                      "Lines":  35,
+                      "SHA256":  "8AE889D48449701AFE185500277E206E936BCBDEC095D609CDD4D993D77FA214",
+                      "ReviewedLines":  35,
+                      "NumberedReadReceipts":  [
+                                                   "06-weapons-projectiles"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/TetanusProtectionEnchantment.java",
+                      "Lines":  13,
+                      "SHA256":  "AFEBE6041D47B2416B4EB99B1A928586F16558BAA5D1EB19DFEFF5EFCC29C279",
+                      "ReviewedLines":  13,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/TrapResetToolItem.java",
+                      "Lines":  19,
+                      "SHA256":  "201904A3E954D844051300E70761F74022E6FF2F69DDC9A69421FC15EDE89374",
+                      "ReviewedLines":  19,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/VariantSpawnEggItem.java",
+                      "Lines":  55,
+                      "SHA256":  "7A0E652B1F72EC91A64B21D43FDD693FC7DF912C115F38B8D23C84F12477B01A",
+                      "ReviewedLines":  55,
+                      "NumberedReadReceipts":  [
+                                                   "36-final-health-eggs-beacon-nails"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/VeterinaryKitItem.java",
+                      "Lines":  39,
+                      "SHA256":  "A1ABA52C9D11D278D15C1DAF08BCA0159A51EBD415DDE760095896496A92A5E9",
+                      "ReviewedLines":  39,
+                      "NumberedReadReceipts":  [
+                                                   "12a-villagers-full-reread",
+                                                   "12-villagers-treatment-advancements"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/AntitoxinItem.java",
+                      "Lines":  57,
+                      "SHA256":  "1387497F6D407312E8E1CF199283B6F09BD3062B2B602A3EA285CEED21D0A209",
+                      "ReviewedLines":  57,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/DescribedItem.java",
+                      "Lines":  16,
+                      "SHA256":  "4D5114CC8EC20D4C0C0BC9735D61F795F79ABFEF39FAEBF05006686E9599ECA6",
+                      "ReviewedLines":  16,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/FieldGuideItem.java",
+                      "Lines":  13,
+                      "SHA256":  "BC34B5E096638189361094D38089745ED7DF7A4E3DEDC64D6E55A9C406B5568A",
+                      "ReviewedLines":  13,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/HooklineItem.java",
+                      "Lines":  39,
+                      "SHA256":  "9B8FAC2C9EBD12516B4987D52521207B8DCF9637A9490296F31AA74AFB776B44",
+                      "ReviewedLines":  39,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/InfectedMeatItem.java",
+                      "Lines":  18,
+                      "SHA256":  "B15302EF77F472DECFC2F592D47DF53A3ED21C4B6842B6D94DE2D3C7CBD00BC5",
+                      "ReviewedLines":  18,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/NailItem.java",
+                      "Lines":  59,
+                      "SHA256":  "4B26A36E9F70B9594AABCE4BBC220CCD74355ADBACF8CDE2F978056782154D8E",
+                      "ReviewedLines":  59,
+                      "NumberedReadReceipts":  [
+                                                   "06-weapons-projectiles"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/RebarItem.java",
+                      "Lines":  71,
+                      "SHA256":  "EA0CE5CDE51274002DFD103FBE2944093CD6F77CED4962C23ADF47F1DCF8244A",
+                      "ReviewedLines":  71,
+                      "NumberedReadReceipts":  [
+                                                   "06-weapons-projectiles"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/TetanizedArrowItem.java",
+                      "Lines":  14,
+                      "SHA256":  "3FB6AB1543B9C3B0A5381E4DA179B72CF948EA9DDFEE89AAD2924D6431C58839",
+                      "ReviewedLines":  14,
+                      "NumberedReadReceipts":  [
+                                                   "06-weapons-projectiles"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/TetanusEnchantment.java",
+                      "Lines":  19,
+                      "SHA256":  "5719615763D062DDD195B072721992A5751CBE8D30E49266308E00749102C16F",
+                      "ReviewedLines":  19,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/TooltipHelper.java",
+                      "Lines":  24,
+                      "SHA256":  "6264A2F71735C2D70F376A7DC809793D172DBB3083B47E3DD2732E6453C2DC2B",
+                      "ReviewedLines":  24,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/VaccineItem.java",
+                      "Lines":  32,
+                      "SHA256":  "EAA0AD90A5F42968A86EEB2AAB16A1FC20A8A8DC39420C801583EB05C11887DD",
+                      "ReviewedLines":  32,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/WireBrushItem.java",
+                      "Lines":  49,
+                      "SHA256":  "D3CA67F1C541F4DB9F2666FF474C2D1C0B04A3B0A74D8E65E212B1694AD3E55E",
+                      "ReviewedLines":  49,
+                      "NumberedReadReceipts":  [
+                                                   "08-rust-salvage-item-integrity"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/BatchSmithingMixin.java",
+                      "Lines":  34,
+                      "SHA256":  "80C74079037159A9C4DDC9D61101DC151846B23C5C402E50D0640DE510E53EE1",
+                      "ReviewedLines":  34,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/BeaconAccessor.java",
+                      "Lines":  9,
+                      "SHA256":  "2761347387CDA5C327CF316A0528A6E27A0AB3350F88B137D5AA1F370C5A9702",
+                      "ReviewedLines":  9,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/BeaconBlockEntityMixin.java",
+                      "Lines":  26,
+                      "SHA256":  "715A96F46758199634964126D0483F6AA29990066DD5CE09138826B8FBF629EA",
+                      "ReviewedLines":  26,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/BlockEntityTypeAccessor.java",
+                      "Lines":  8,
+                      "SHA256":  "A079C6FE2737B4610C2A775E73B19DB4F4C02A1068D1B4EE55DB5BF44CC9E73E",
+                      "ReviewedLines":  8,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/BossBarHudMixin.java",
+                      "Lines":  24,
+                      "SHA256":  "FDCD406486DF857BE2EB2479618B500F57460BC6A53CEA677179A4BBB5B42780",
+                      "ReviewedLines":  24,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/CoatingWearMixin.java",
+                      "Lines":  19,
+                      "SHA256":  "6444483CD7AA195A5C51F8CB06B6D7263547FD5F3E283F62A37E0CA113FF0352",
+                      "ReviewedLines":  19,
+                      "NumberedReadReceipts":  [
+                                                   "08-rust-salvage-item-integrity"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/CreativeGloveNetworkMixin.java",
+                      "Lines":  25,
+                      "SHA256":  "35B8B69963502574F2FABD5E8EDB0BC2DDEAFD6BA2E990372896B4EACD1A2C83",
+                      "ReviewedLines":  25,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/CreativeGloveScreenMixin.java",
+                      "Lines":  29,
+                      "SHA256":  "200BD9EEBC0DD5AB3B7C5EAD0895BAE000603E752818B8279543929825A35E72",
+                      "ReviewedLines":  29,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/CreeperAccessor.java",
+                      "Lines":  8,
+                      "SHA256":  "33E33DB656FCD0A44D4B1595293E5F2699639BD089562D8317770C7C182AB5B7",
+                      "ReviewedLines":  8,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DiseaseCloudMixin.java",
+                      "Lines":  11,
+                      "SHA256":  "8A926822C66E76353AEDE23BF6C1F19AFC0CE4A6A8F364F5EB0DED2758AD4306",
+                      "ReviewedLines":  11,
+                      "NumberedReadReceipts":  [
+                                                   "16-potion-projectile-advancement-hooks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DiseasePotionItemMixin.java",
+                      "Lines":  11,
+                      "SHA256":  "08AACB49A0A877F87D8A47FDA52E06912A2F4E2F0F878B54640EA5ED8A039348",
+                      "ReviewedLines":  11,
+                      "NumberedReadReceipts":  [
+                                                   "16-potion-projectile-advancement-hooks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DiseasePotionTooltipMixin.java",
+                      "Lines":  34,
+                      "SHA256":  "0552943798ACB320ACD5DF1D1AE36D24456BB6B5F20D704E69D90B370D91F7B4",
+                      "ReviewedLines":  34,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DiseaseSplashPotionMixin.java",
+                      "Lines":  11,
+                      "SHA256":  "9FB0D1AEE3E785DE2D16C4DEF5016A582AC147BE319D731C7F6FC67F31D0E4EA",
+                      "ReviewedLines":  11,
+                      "NumberedReadReceipts":  [
+                                                   "16-potion-projectile-advancement-hooks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonTextureMixin.java",
+                      "Lines":  24,
+                      "SHA256":  "B59B131DC0593B5EC3C06E8C4062F9EA60D20EDD976C63FBF221D56E3DA466CF",
+                      "ReviewedLines":  24,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EnchantedBowMixin.java",
+                      "Lines":  14,
+                      "SHA256":  "99CD83F34446E817B1171C6AB1BCAC3C227BA7AD5B5623DD89A91D43381FF0D0",
+                      "ReviewedLines":  14,
+                      "NumberedReadReceipts":  [
+                                                   "16-potion-projectile-advancement-hooks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EnchantedCrossbowMixin.java",
+                      "Lines":  15,
+                      "SHA256":  "7882649D6B1129ADAC80B5757E23A883A5DB308554326A43E3F1EE32FD86FB51",
+                      "ReviewedLines":  15,
+                      "NumberedReadReceipts":  [
+                                                   "16-potion-projectile-advancement-hooks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EnchantedProjectileMixin.java",
+                      "Lines":  16,
+                      "SHA256":  "C7B497391D79E7AF28AE8B2C25F004570D086694079ED6EC27EDEFB31F548FA7",
+                      "ReviewedLines":  16,
+                      "NumberedReadReceipts":  [
+                                                   "16-potion-projectile-advancement-hooks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EnchantmentTooltipMixin.java",
+                      "Lines":  25,
+                      "SHA256":  "0F6ADB1FE127F454FE3F1328247731EBDE2C9EBF6BACA1FED91499A2FEF461E3",
+                      "ReviewedLines":  25,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionLivingMixin.java",
+                      "Lines":  43,
+                      "SHA256":  "1BEE0328D25466FA8CEAB3F5F1084394BC31FC1031C0DE63AAD01CF63C883214",
+                      "ReviewedLines":  43,
+                      "NumberedReadReceipts":  [
+                                                   "37-final-traps-hooks-jei"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionMobMixin.java",
+                      "Lines":  28,
+                      "SHA256":  "F837057A9AFC73AC9E52EE0C84BF87CD9ED7C5A53761B06E9043B86EBAA7BE88",
+                      "ReviewedLines":  28,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/GloveInventoryScreenMixin.java",
+                      "Lines":  18,
+                      "SHA256":  "A2FC4E47E84D971AB5FB57D9AC61071E8344BBBDB5B8C8CA1848093CC54B82A4",
+                      "ReviewedLines":  18,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/GlovePlayerMixin.java",
+                      "Lines":  37,
+                      "SHA256":  "8BE19D5B8614BF12932A43B34118D0258FC006A510B21A2BF18AC2F5A0208FCC",
+                      "ReviewedLines":  37,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/GloveRespawnMixin.java",
+                      "Lines":  18,
+                      "SHA256":  "D67B0D85DC14F963D243D5FC344464D0858745550340A622799F7121E814CE34",
+                      "ReviewedLines":  18,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/GloveScreenHandlerMixin.java",
+                      "Lines":  34,
+                      "SHA256":  "6B3AADBFF9E957523A696AB57D3B72B08C11BF04BB0CDD2C83BB0689B7CBB4D5",
+                      "ReviewedLines":  34,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/GrindstoneInputSlotMixin.java",
+                      "Lines":  16,
+                      "SHA256":  "EDAECE72FFED377D17A96DAE6805E10530C03AA803081E6648343857434CFC24",
+                      "ReviewedLines":  16,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/GrindstoneScreenHandlerMixin.java",
+                      "Lines":  35,
+                      "SHA256":  "205206EAF37C5289A64DEFCECD63BE0FE2AB3B797CD7591BE9C5EB899E35C45B",
+                      "ReviewedLines":  35,
+                      "NumberedReadReceipts":  [
+                                                   "09-crafting-consumption-medicine"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/InGameHudMixin.java",
+                      "Lines":  23,
+                      "SHA256":  "05A79D07276D571E487E5B77BC53B442D3EB222129E1560C7F60FB5FFDC6C014",
+                      "ReviewedLines":  23,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ItemEntityAccessor.java",
+                      "Lines":  8,
+                      "SHA256":  "7C30B86716D304B22FED0CF940B534AF37F25A8531242E48641446635905C903",
+                      "ReviewedLines":  8,
+                      "NumberedReadReceipts":  [
+                                                   "08-rust-salvage-item-integrity"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ItemEntityMixin.java",
+                      "Lines":  82,
+                      "SHA256":  "76AC8F840C3D3F740FDA07D1121DA2A28EA690464E4C56ACE308058A585F3361",
+                      "ReviewedLines":  82,
+                      "NumberedReadReceipts":  [
+                                                   "08-rust-salvage-item-integrity"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ItemSuggestionsMixin.java",
+                      "Lines":  25,
+                      "SHA256":  "4D5110128F3B5F22DC0E9D75871CF9D6744109CBB68D68491180B12184E60EBF",
+                      "ReviewedLines":  25,
+                      "NumberedReadReceipts":  [
+                                                   "11-beacon-command-authority"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/LivingEntityMixin.java",
+                      "Lines":  152,
+                      "SHA256":  "E14331BAE740A4A26093E5045C942979C6E7AA066A98DA5AC42EFAD0D2A4DAB0",
+                      "ReviewedLines":  152,
+                      "NumberedReadReceipts":  [
+                                                   "03-living-combat-milk"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/LivingTextureMixin.java",
+                      "Lines":  17,
+                      "SHA256":  "FC91797A02440A94E8A7CD5B53C4A42F104122AF4C6C6E9EFE45EA76664ED177",
+                      "ReviewedLines":  17,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ManurePotionColorMixin.java",
+                      "Lines":  17,
+                      "SHA256":  "BA4183E37AFCE9A4AAC3009FB5304A2137461FBBCD5950F9E43BC881AE36B194",
+                      "ReviewedLines":  17,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/MedicTradesMixin.java",
+                      "Lines":  26,
+                      "SHA256":  "7028D2B81A94FE09B153BAF663EB5E1785E81F4786D51C644C69AD378FC258CD",
+                      "ReviewedLines":  26,
+                      "NumberedReadReceipts":  [
+                                                   "12a-villagers-full-reread",
+                                                   "12-villagers-treatment-advancements"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/MilkBucketItemMixin.java",
+                      "Lines":  21,
+                      "SHA256":  "C98666AAD9DF7DFF45126F7133A2FE031F4AC7477F62FE5CFFFC3337F634CBBD",
+                      "ReviewedLines":  21,
+                      "NumberedReadReceipts":  [
+                                                   "03-living-combat-milk"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/MobConversionMixin.java",
+                      "Lines":  22,
+                      "SHA256":  "5CA96798DACDA67B6239753059953A0A778F0E74A3BE9B007DE7877C6B673C2C",
+                      "ReviewedLines":  22,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/PlayerListHeartsMixin.java",
+                      "Lines":  34,
+                      "SHA256":  "FCF6E318556D9F5CF7401290C58460861FA573E7A26DC079526C1D9D02375D0E",
+                      "ReviewedLines":  34,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ReturningNailAdvancementMixin.java",
+                      "Lines":  17,
+                      "SHA256":  "E289FDB9EB204B5E0B7A1F592F06377E7EA3477660F0D5BB51796F174E4CCD7B",
+                      "ReviewedLines":  17,
+                      "NumberedReadReceipts":  [
+                                                   "16-potion-projectile-advancement-hooks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/SalmonellaAdvancementMixin.java",
+                      "Lines":  18,
+                      "SHA256":  "56339CBF86067AED5687C3AF9C32DC58EB07C8A8BB05295CC830EEFF1BE38CCA",
+                      "ReviewedLines":  18,
+                      "NumberedReadReceipts":  [
+                                                   "16-potion-projectile-advancement-hooks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ServerPlayNetworkHandlerMixin.java",
+                      "Lines":  31,
+                      "SHA256":  "FAD83EA89BDDFCB25DA8ADFCA6A4D2AA5B157A3C167FA5448F0C381362857022",
+                      "ReviewedLines":  31,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/SheepWoolTintMixin.java",
+                      "Lines":  18,
+                      "SHA256":  "3101CA8771D358BED24F0891457D514ED1C9B5E62D3755D1B6F7B3FD3CE585FF",
+                      "ReviewedLines":  18,
+                      "NumberedReadReceipts":  [
+                                                   "15-gui-hud-texture-mixins"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/SlotPositionAccessor.java",
+                      "Lines":  9,
+                      "SHA256":  "3931ABEE437692B07359221618B250F037003EC017D64012B9FCF209D0DC6726",
+                      "ReviewedLines":  9,
+                      "NumberedReadReceipts":  [
+                                                   "07-network-inventory-gloves"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/StructurePoolAccessor.java",
+                      "Lines":  15,
+                      "SHA256":  "A840F568588AEA592D50AFB64EB324C88E55666032CB5068AF39877886CD5EAE",
+                      "ReviewedLines":  15,
+                      "NumberedReadReceipts":  [
+                                                   "16-potion-projectile-advancement-hooks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/WitherEntityMixin.java",
+                      "Lines":  19,
+                      "SHA256":  "76B1EE5031AF423D42727BC00817CF9777F33577EEF4393CFE275A7D3F9E1A83",
+                      "ReviewedLines":  19,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/WitherSummoningMixin.java",
+                      "Lines":  33,
+                      "SHA256":  "E0AB870515BC40BE52BBEFF7B4B5C2D39EDF04533AC562CEE3339B2261FDBDA6",
+                      "ReviewedLines":  33,
+                      "NumberedReadReceipts":  [
+                                                   "05-lifecycle-spawning-bosses"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/network/ModPacketDecoder.java",
+                      "Lines":  36,
+                      "SHA256":  "6E8B2A0FD2A0D68AE7FB390F9480597321D6CD2B0A040305BF2955A054DF127B",
+                      "ReviewedLines":  36,
+                      "NumberedReadReceipts":  [
+                                                   "01-bootstrap-config-network"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/registry/ModAdvancements.java",
+                      "Lines":  23,
+                      "SHA256":  "581BBA2E068817150FDE506FC2BAEA86E7B0FC9163343DBABEC454F9A16AA969",
+                      "ReviewedLines":  23,
+                      "NumberedReadReceipts":  [
+                                                   "12a-villagers-full-reread",
+                                                   "12-villagers-treatment-advancements"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/registry/ModBlocks.java",
+                      "Lines":  47,
+                      "SHA256":  "977190CA4CDBDA6E5CA9FFD90FA8A136ABD6F16B17241A4996496CE64BB8A74B",
+                      "ReviewedLines":  47,
+                      "NumberedReadReceipts":  [
+                                                   "10-traps-blocks"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/registry/ModBrewing.java",
+                      "Lines":  44,
+                      "SHA256":  "110AE31D5FB2817E18B266A2A089C9FA08096C84766123D9C5BB6276EAC53B5D",
+                      "ReviewedLines":  44,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/registry/ModIronTools.java",
+                      "Lines":  13,
+                      "SHA256":  "E0ADE07759607C6507447961DAD5467F19BC2235CBDC1AF34625EACB49CD6A37",
+                      "ReviewedLines":  13,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/registry/ModItems.java",
+                      "Lines":  67,
+                      "SHA256":  "5E993A94439CF3D2EFD21E43F147F47DFDF6E67B0F6A8391FD74FC34A65DE54D",
+                      "ReviewedLines":  67,
+                      "NumberedReadReceipts":  [
+                                                   "13-registry-enchantments-item-metadata"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/rust/FishingSalvage.java",
+                      "Lines":  24,
+                      "SHA256":  "CB973FBB1876A14A1BF1D5B02B805A67D0C9542AF4119626A9E7F21C874AC3C9",
+                      "ReviewedLines":  24,
+                      "NumberedReadReceipts":  [
+                                                   "08-rust-salvage-item-integrity"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/rust/RustCoating.java",
+                      "Lines":  45,
+                      "SHA256":  "61A104A02D5A39ACF87B38864049F2A0A545B62798AC89E4A922C9FF9C58D468",
+                      "ReviewedLines":  45,
+                      "NumberedReadReceipts":  [
+                                                   "08-rust-salvage-item-integrity"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/rust/RustingSystem.java",
+                      "Lines":  60,
+                      "SHA256":  "19471B4E1B4E99CFF81ABD7F611CE8DD666CA18E2EFADC76A510FF089710B3C9",
+                      "ReviewedLines":  60,
+                      "NumberedReadReceipts":  [
+                                                   "08-rust-salvage-item-integrity"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/TetanusMod.java",
+                      "Lines":  93,
+                      "SHA256":  "A12FFDD8DB49EE10772F4C4E2AE3B56E2BF16C1EE7E21ACFEE744F66CF75FFFE",
+                      "ReviewedLines":  93,
+                      "NumberedReadReceipts":  [
+                                                   "01-bootstrap-config-network"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/smoketest/java/com/tetanusmod/test/ClientSmokeTest.java",
+                      "Lines":  287,
+                      "SHA256":  "6627766C710A88B3E6456B193C211B2C8D39842D84C3C04CA162FD12200C57B3",
+                      "ReviewedLines":  287,
+                      "NumberedReadReceipts":  [
+                                                   "30a-client-tests",
+                                                   "30b-client-tests"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Audit-Files.ps1",
+                      "Lines":  86,
+                      "SHA256":  "ED06207919B76804CA3EB04E5F1693B50A90E18490AD3648234A08DC379F5ACA",
+                      "ReviewedLines":  86,
+                      "NumberedReadReceipts":  [
+                                                   "18-build-validation-scripts"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Audit-Release.ps1",
+                      "Lines":  82,
+                      "SHA256":  "1F0456C33F0F988CAC54FF9DF6A70A9ABE25110E60D0A1C81FB5CE451BBA9C41",
+                      "ReviewedLines":  82,
+                      "NumberedReadReceipts":  [
+                                                   "39-final-build-validation"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Build.ps1",
+                      "Lines":  21,
+                      "SHA256":  "C345EF2B60C2045E36E4B5BAE244727665B09FA1745C9F1E3FDC5C92F3E2BA82",
+                      "ReviewedLines":  21,
+                      "NumberedReadReceipts":  [
+                                                   "18-build-validation-scripts"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Draw-Expansion-Art.ps1",
+                      "Lines":  142,
+                      "SHA256":  "4DF67D805B8D916349E5F6300BC68BC2BF76AB27DA4E93019F3C3C531A0D7631",
+                      "ReviewedLines":  142,
+                      "NumberedReadReceipts":  [
+                                                   "34-art-generator"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Generate-Clinic.ps1",
+                      "Lines":  60,
+                      "SHA256":  "4D44656CA4C98D300A9B0C21FFB758E1ED22CF33C5E9AE90740CEFE8F771D4E5",
+                      "ReviewedLines":  60,
+                      "NumberedReadReceipts":  [
+                                                   "31-resource-generators"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Generate-Expansion.ps1",
+                      "Lines":  140,
+                      "SHA256":  "3F34FBD04A0C47D31B01EB8334B25726FE87CFBB673750B8D77662FE2C65587E",
+                      "ReviewedLines":  140,
+                      "NumberedReadReceipts":  [
+                                                   "32-expansion-generator"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Generate-Maintenance.ps1",
+                      "Lines":  30,
+                      "SHA256":  "BCD2841256FADFF533374A36F67B5AA63565932004D532730D8C98CB3DC4649F",
+                      "ReviewedLines":  30,
+                      "NumberedReadReceipts":  [
+                                                   "31-resource-generators"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Generate-Resources.ps1",
+                      "Lines":  148,
+                      "SHA256":  "A3EEA8F0D342D8C57D12A3D04F80E4E5393766E8D4225DBFBBA6F4607178F10E",
+                      "ReviewedLines":  148,
+                      "NumberedReadReceipts":  [
+                                                   "31-resource-generators"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Generate-Workshop.ps1",
+                      "Lines":  49,
+                      "SHA256":  "B4D856343DB33E2E3124D37793661CF1B893D0F03F90B3D07BED570A1CBC4C61",
+                      "ReviewedLines":  49,
+                      "NumberedReadReceipts":  [
+                                                   "31-resource-generators"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Import-Art.ps1",
+                      "Lines":  107,
+                      "SHA256":  "9CF4EA8022A998087C86F8FF6D9E5AC246C1FE8B31DC4ADFA88F9521362A4F24",
+                      "ReviewedLines":  107,
+                      "NumberedReadReceipts":  [
+                                                   "35-art-nbt"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/SpriteIsolator.cs",
+                      "Lines":  31,
+                      "SHA256":  "9ECD529AEBCCC29312B29951574D9104ACC57A605F69F6B80B31279353EF3719",
+                      "ReviewedLines":  31,
+                      "NumberedReadReceipts":  [
+                                                   "35-art-nbt"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Update-Progression.ps1",
+                      "Lines":  99,
+                      "SHA256":  "9A0048BBFE9A56DA2A1938EE47DA12C236A6B29C68FC59E0135DC364D99CD9C4",
+                      "ReviewedLines":  99,
+                      "NumberedReadReceipts":  [
+                                                   "33-resource-updates"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Update-Resources.ps1",
+                      "Lines":  86,
+                      "SHA256":  "16F8656929F57E0DABBC1AE991DBF88B504426A2DADC713D4EF649C7E63E7D93",
+                      "ReviewedLines":  86,
+                      "NumberedReadReceipts":  [
+                                                   "33-resource-updates"
+                                               ]
+                  },
+                  {
+                      "Path":  "tools/Write-StructureNbt.ps1",
+                      "Lines":  22,
+                      "SHA256":  "F3EA40494FF49912C1A781F637017D611154C2A69183677F6C5D479911CCCA41",
+                      "ReviewedLines":  22,
+                      "NumberedReadReceipts":  [
+                                                   "35-art-nbt"
+                                               ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/DeepAuditGameTests.java",
+                      "Lines":  165,
+                      "SHA256":  "33C1E94796F5CDA36EBECBF73EC5374966D7CAFD3D6DDADD61CA4F7CD8B1C749",
+                      "ReviewedLines":  165,
+                      "NumberedReadReceipts":  [
+                                                   "38-final-regression-tests"
+                                               ]
+                  }
+              ]
+}

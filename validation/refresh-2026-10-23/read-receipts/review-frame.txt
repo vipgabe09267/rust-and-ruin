@@ -1,0 +1,18 @@
+FILE src/main/java/com/tetanusmod/mixin/GloveInventoryScreenMixin.java LINES 1-17 OF 17
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import net.minecraft.client.gui.DrawContext;
+   4: import net.minecraft.client.gui.screen.ingame.InventoryScreen;
+   5: import org.spongepowered.asm.mixin.*;
+   6: import org.spongepowered.asm.mixin.injection.*;
+   7: import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+   8: 
+   9: @Mixin(InventoryScreen.class)
+  10: public abstract class GloveInventoryScreenMixin extends net.minecraft.client.gui.screen.ingame.HandledScreen<net.minecraft.screen.PlayerScreenHandler> {
+  11:     protected GloveInventoryScreenMixin(){super(null,null,net.minecraft.text.Text.empty());}
+  12:     @Inject(method="drawBackground",at=@At("TAIL"))
+  13:     private void gloveSlot(DrawContext context,float delta,int mouseX,int mouseY,CallbackInfo ci){
+  14:         int left=x+76,top=y+43;
+  15:         com.tetanusmod.client.GloveSlotFrame.draw(context,left,top,handler.getSlot(46).getStack().isEmpty());
+  16:     }
+  17: }

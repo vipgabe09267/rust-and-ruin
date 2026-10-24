@@ -1,0 +1,17 @@
+[
+    {
+        "Case":  "tamper",
+        "Result":  "REJECTED_AS_EXPECTED",
+        "Reason":  "Stale or altered packaged resource: assets/tetanusmod/models/item/iron_spear.json"
+    },
+    {
+        "Case":  "duplicate",
+        "Result":  "REJECTED_AS_EXPECTED",
+        "Reason":  "Duplicate archive entry: assets/tetanusmod/models/item/iron_spear.json"
+    },
+    {
+        "Case":  "absolute",
+        "Result":  "REJECTED_AS_EXPECTED",
+        "Reason":  "Unsafe archive path: C:/unexpected.txt"
+    }
+]

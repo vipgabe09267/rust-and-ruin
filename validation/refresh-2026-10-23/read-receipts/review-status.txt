@@ -1,0 +1,225 @@
+FILE src/main/java/com/tetanusmod/registry/ModItems.java LINES 1-71 OF 71
+   1: package com.tetanusmod.registry;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import com.tetanusmod.item.*;
+   5: import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+   6: import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+   7: import net.minecraft.item.Item;
+   8: import net.minecraft.item.ItemStack;
+   9: import net.minecraft.registry.Registries;
+  10: import net.minecraft.registry.Registry;
+  11: import net.minecraft.text.Text;
+  12: import java.util.ArrayList;
+  13: import java.util.List;
+  14: 
+  15: public final class ModItems {
+  16:     public static final List<Item> ALL = new ArrayList<>();
+  17:     public static final Item NAIL = register("nail", new NailItem(false, false, new FabricItemSettings()));
+  18:     public static final Item RUSTED_NAIL = register("rusted_nail", new NailItem(true, false, new FabricItemSettings()));
+  19:     public static final Item REBAR = register("rebar", new RebarItem(false, 1, false, new FabricItemSettings().maxDamage(250)));
+  20:     public static final Item RUSTED_REBAR = register("rusted_rebar", new RebarItem(true, 1, false, new FabricItemSettings().maxDamage(250)));
+  21:     public static final Item SHARPENED_REBAR = register("sharpened_rebar", new RebarItem(false, 3, false, new FabricItemSettings().maxDamage(200)));
+  22:     public static final Item RUSTED_SHARPENED_REBAR = register("rusted_sharpened_rebar", new RebarItem(true, 3, false, new FabricItemSettings().maxDamage(200)));
+  23:     public static final Item BENT_NAIL = register("bent_nail", new NailItem(false, true, new FabricItemSettings()));
+  24:     public static final Item RUSTED_BENT_NAIL = register("rusted_bent_nail", new NailItem(true, true, new FabricItemSettings()));
+  25:     public static final Item METAL_PIPE = register("metal_pipe", new RebarItem(false, 2, true, new FabricItemSettings().maxDamage(160)));
+  26:     public static final Item RUSTED_METAL_PIPE = register("rusted_metal_pipe", new RebarItem(true, 2, true, new FabricItemSettings().maxDamage(160)));
+  27:     public static final Item WIRE_BRUSH = register("wire_brush", new WireBrushItem(new FabricItemSettings().maxDamage(128)));
+  28:     public static final Item ANTITOXIN = register("tetanus_antitoxin", new AntitoxinItem(new FabricItemSettings().maxCount(16).recipeRemainder(net.minecraft.item.Items.GLASS_BOTTLE)));
+  29:     public static final Item VACCINE=register("tetanus_vaccine",new VaccineItem(new FabricItemSettings().maxCount(16)));
+  30:     public static final Item PROTECTIVE_GLOVES=register("protective_gloves",new com.tetanusmod.expansion.GlovesItem(new FabricItemSettings().maxDamage(192)));
+  31:     public static final Item FIELD_GUIDE=register("field_guide",new FieldGuideItem(new FabricItemSettings().maxCount(1)));
+  32:     public static final Item TETANIZED_ARROW = register("tetanized_arrow", new TetanizedArrowItem(new FabricItemSettings()));
+  33:     public static final Item RUST=register("rust",new net.minecraft.item.BlockItem(com.tetanusmod.expansion.ExpansionBlocks.RUST_PILE,new FabricItemSettings()));
+  34:     public static final Item RUSTY_FISHING_HOOK=register("rusty_fishing_hook",new com.tetanusmod.item.DescribedItem(new FabricItemSettings(),"hook"));
+  35:     public static final Item COW_MANURE=register("cow_manure",new com.tetanusmod.item.DescribedItem(new FabricItemSettings(),"manure"));
+  36:     public static final Item TETANIZED_WITHER_STAR=register("tetanized_wither_star",new com.tetanusmod.item.DescribedItem(new FabricItemSettings().rarity(net.minecraft.util.Rarity.EPIC),"star"));
+  37:     public static final Item RUSTY_HOOKLINE=register("rusty_hookline",new com.tetanusmod.item.HooklineItem(new FabricItemSettings().maxDamage(96)));
+  38:     public static final Item INFECTED_MEAT = register("infected_meat", new InfectedMeatItem(new FabricItemSettings().food(
+  39:             new net.minecraft.item.FoodComponent.Builder().hunger(3).saturationModifier(0.3F).meat().build())));
+  40:     public static final Item COOKED_INFECTED_MEAT = register("cooked_infected_meat", new Item(new FabricItemSettings().food(
+  41:             new net.minecraft.item.FoodComponent.Builder().hunger(7).saturationModifier(0.8F).meat().build())));
+  42:     public static final net.minecraft.enchantment.Enchantment TETANUS_ENCHANTMENT = Registry.register(
+  43:             Registries.ENCHANTMENT, TetanusMod.id("tetanus"), new TetanusEnchantment());
+  44: 
+  45:     public static <T extends Item> T register(String name, T item) {
+  46:         Registry.register(Registries.ITEM, TetanusMod.id(name), item);
+  47:         ALL.add(item);
+  48:         return item;
+  49:     }
+  50: 
+  51:     public static void initialize() {
+  52:         ModIronTools.initialize();
+  53:         ModBlocks.initialize();
+  54:         com.tetanusmod.expansion.ExpansionItems.initialize();
+  55:         Registry.register(Registries.ITEM_GROUP, TetanusMod.id("items"), FabricItemGroup.builder()
+  56:                 .displayName(Text.translatable("itemGroup.tetanusmod"))
+  57:                 .icon(() -> new ItemStack(RUSTED_NAIL))
+  58:                 .entries((context, entries) -> {
+  59:                     ALL.stream().filter(item->!ModIronTools.isRusted(item)&&!(item instanceof com.tetanusmod.expansion.VariantSpawnEggItem)).forEach(entries::add);
+  60:                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(
+  61:                             new net.minecraft.enchantment.EnchantmentLevelEntry(TETANUS_ENCHANTMENT,1)));
+  62:                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(TETANUS_ENCHANTMENT,2)));
+  63:                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(com.tetanusmod.expansion.ExpansionItems.TETANUS_PROTECTION,1)));
+  64:                     for(var potion:java.util.List.of(ModBrewing.MANURE,ModBrewing.TETANUS,ModBrewing.SALMONELLA,ModBrewing.LOCKJAW,ModBrewing.RABIES))for(var bottle:java.util.List.of(net.minecraft.item.Items.POTION,net.minecraft.item.Items.SPLASH_POTION,net.minecraft.item.Items.LINGERING_POTION))entries.add(net.minecraft.potion.PotionUtil.setPotion(new ItemStack(bottle),potion));
+  65:                 }).build());
+  66:         Registry.register(Registries.ITEM_GROUP,TetanusMod.id("spawn_eggs"),FabricItemGroup.builder()
+  67:                 .displayName(Text.translatable("itemGroup.tetanusmod.spawn_eggs"))
+  68:                 .icon(()->new ItemStack(Registries.ITEM.get(TetanusMod.id("tetanized_zombie_spawn_egg"))))
+  69:                 .entries((context,entries)->ALL.stream().filter(item->item instanceof com.tetanusmod.expansion.VariantSpawnEggItem).forEach(entries::add)).build());
+  70:     }
+  71: }
+FILE src/main/java/com/tetanusmod/mixin/LivingEntityMixin.java LINES 1-152 OF 152
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import com.tetanusmod.effect.InfectionState;
+   5: import net.minecraft.entity.LivingEntity;
+   6: import net.minecraft.nbt.NbtCompound;
+   7: import org.spongepowered.asm.mixin.Mixin;
+   8: import org.spongepowered.asm.mixin.Unique;
+   9: import org.spongepowered.asm.mixin.injection.At;
+  10: import org.spongepowered.asm.mixin.injection.Inject;
+  11: import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+  12: 
+  13: @Mixin(LivingEntity.class)
+  14: public abstract class LivingEntityMixin implements InfectionState, com.tetanusmod.entity.TetanizedState {
+  15:     @Inject(method="addStatusEffect(Lnet/minecraft/entity/effect/StatusEffectInstance;Lnet/minecraft/entity/Entity;)Z",at=@At("HEAD"),cancellable=true)
+  16:     private void rustruin$preventDisease(net.minecraft.entity.effect.StatusEffectInstance effect,net.minecraft.entity.Entity source,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<Boolean> result) {
+  17:         LivingEntity self=(LivingEntity)(Object)this;
+  18:         if(!self.getWorld().isClient && effect.getEffectType()==TetanusMod.TETANUS && !com.tetanusmod.expansion.CommandEffects.forced() && !com.tetanusmod.effect.InfectionProtection.checked(self)
+  19:                 && !com.tetanusmod.effect.InfectionProtection.allows(self,false))result.setReturnValue(false);
+  20:     }
+  21:     @org.spongepowered.asm.mixin.Shadow protected abstract void dropXp();
+  22:     @org.spongepowered.asm.mixin.Shadow protected net.minecraft.entity.player.PlayerEntity attackingPlayer;
+  23:     @Inject(method="drop",at=@At("HEAD"),cancellable=true)
+  24:     private void rustruin$infectedAnimalOnlyMeat(net.minecraft.entity.damage.DamageSource source,CallbackInfo ci) {
+  25:         LivingEntity self=(LivingEntity)(Object)this;
+  26:         if(com.tetanusmod.entity.MobVariants.isAnimal(self)&&com.tetanusmod.expansion.Rabies.rabid(self)) {
+  27:             if(!self.getWorld().isClient&&self.getWorld().getGameRules().getBoolean(net.minecraft.world.GameRules.DO_MOB_LOOT))self.dropStack(new net.minecraft.item.ItemStack(com.tetanusmod.expansion.ExpansionItems.RABID_MEAT,1+self.getRandom().nextInt(3)));
+  28:             dropXp();ci.cancel();return;
+  29:         }
+  30:         if(com.tetanusmod.entity.MobVariants.infectedAnimal(self)) {
+  31:             com.tetanusmod.entity.MobVariants.drops(self);
+  32:             dropXp();
+  33:             ci.cancel();
+  34:         }
+  35:     }
+  36:     @Inject(method="onDeath",at=@At("TAIL"))
+  37:     private void rustruin$niceOne(net.minecraft.entity.damage.DamageSource source,CallbackInfo ci) {
+  38:         LivingEntity self=(LivingEntity)(Object)this;
+  39:         if(self instanceof net.minecraft.entity.boss.WitherEntity&&com.tetanusmod.entity.MobVariants.permanent(self)) {
+  40:             var killer=source.getAttacker() instanceof net.minecraft.server.network.ServerPlayerEntity player?player:attackingPlayer;
+  41:             if(killer instanceof net.minecraft.server.network.ServerPlayerEntity player)
+  42:                 com.tetanusmod.registry.ModAdvancements.award(player,"nice_one","defeat_wither");
+  43:         }
+  44:     }
+  45:     @Unique private static final net.minecraft.entity.data.TrackedData<Boolean> RUST_RUIN_PERMANENT =
+  46:             net.minecraft.entity.data.DataTracker.registerData(LivingEntity.class, net.minecraft.entity.data.TrackedDataHandlerRegistry.BOOLEAN);
+  47:     @Unique private boolean rustruin$rolled;
+  48:     @Inject(method = "initDataTracker", at = @At("TAIL"))
+  49:     private void rustruin$initTracker(CallbackInfo ci) {
+  50:         ((LivingEntity)(Object)this).getDataTracker().startTracking(RUST_RUIN_PERMANENT,false);
+  51:     }
+  52:     public boolean rustruin$isPermanent() { return ((LivingEntity)(Object)this).getDataTracker().get(RUST_RUIN_PERMANENT); }
+  53:     public void rustruin$setPermanent(boolean value) { ((LivingEntity)(Object)this).getDataTracker().set(RUST_RUIN_PERMANENT,value); }
+  54:     public boolean rustruin$hasRolled() { return rustruin$rolled; }
+  55:     public void rustruin$setRolled(boolean value) { rustruin$rolled=value; }
+  56: 
+  57:     @Inject(method = "damage", at = @At("RETURN"))
+  58:     private void rustruin$meleeInfection(net.minecraft.entity.damage.DamageSource source, float amount,
+  59:             org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<Boolean> cir) {
+  60:         LivingEntity target = (LivingEntity)(Object)this;
+  61:         if (!cir.getReturnValue() || target.getWorld().isClient || amount <= 0 || com.tetanusmod.effect.Infection.meleeSuppressed()
+  62:                 || source.isOf(net.minecraft.entity.damage.DamageTypes.THORNS)
+  63:                 || !(source.getAttacker() instanceof LivingEntity attacker) || source.getSource() != attacker) return;
+  64:         var stack = attacker.getMainHandStack();
+  65:         boolean rusty = stack.getItem() instanceof com.tetanusmod.item.RebarItem rebar && rebar.isRusty();
+  66:         int enchantment = net.minecraft.enchantment.EnchantmentHelper.getLevel(com.tetanusmod.registry.ModItems.TETANUS_ENCHANTMENT,stack);
+  67:         boolean enchanted=enchantment>0;
+  68:         boolean tool = com.tetanusmod.registry.ModIronTools.isRusted(stack.getItem()) && target.getRandom().nextFloat()<0.2F;
+  69:         if (rusty || enchanted || tool || stack.getItem() instanceof com.tetanusmod.expansion.SpearItem spear&&spear.rusty()) com.tetanusmod.expansion.CombatInfection.expose(target,attacker,enchantment,false);
+  70:     }
+  71:     @Inject(method = "dropLoot", at = @At("TAIL"))
+  72:     private void rustruin$variantDrops(net.minecraft.entity.damage.DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
+  73:         com.tetanusmod.entity.MobVariants.drops((LivingEntity)(Object)this);
+  74:     }
+  75:     @Inject(method = "onStatusEffectApplied", at = @At("TAIL"))
+  76:     private void tetanus$infectionAudio(net.minecraft.entity.effect.StatusEffectInstance effect,
+  77:             net.minecraft.entity.Entity source, CallbackInfo ci) {
+  78:         tetanus$playInfectionAudio(effect);
+  79:     }
+  80: 
+  81:     @Inject(method = "onStatusEffectUpgraded", at = @At("TAIL"))
+  82:     private void tetanus$refreshedAudio(net.minecraft.entity.effect.StatusEffectInstance effect,
+  83:             boolean reapplyEffect, net.minecraft.entity.Entity source, CallbackInfo ci) {
+  84:         if (reapplyEffect) tetanus$playInfectionAudio(effect);
+  85:     }
+  86: 
+  87:     @Unique
+  88:     private void tetanus$playInfectionAudio(net.minecraft.entity.effect.StatusEffectInstance effect) {
+  89:         if (effect.getEffectType() != TetanusMod.TETANUS) return;
+  90:         if (!((LivingEntity) (Object) this).getWorld().isClient) {
+  91:             tetanus$elapsed = tetanus$lockjaw = tetanus$freeze = 0;
+  92:             tetanus$total = effect.getDuration();
+  93:             tetanus$lockjawWindow = effect.getDuration()>0&&effect.getDuration()<6000?Math.max(20,effect.getDuration()/3):(120 + ((LivingEntity)(Object)this).getRandom().nextInt(121)) * 20;
+  94:         }
+  95:         LivingEntity self=(LivingEntity)(Object)this;
+  96:         if (!self.getWorld().isClient && rustruin$lastAudioTick != self.getWorld().getTime()) {
+  97:             rustruin$lastAudioTick=self.getWorld().getTime();
+  98:             com.tetanusmod.effect.Infection.playSound(self);
+  99:         }
+ 100:     }
+ 101:     @Unique private long rustruin$lastAudioTick=Long.MIN_VALUE;
+ 102: 
+ 103:     @Unique private int tetanus$elapsed;
+ 104:     @Unique private int tetanus$total;
+ 105:     @Unique private int tetanus$lockjaw;
+ 106:     @Unique private int tetanus$freeze;
+ 107:     @Unique private int tetanus$lockjawWindow;
+ 108:     public int tetanus$getLockjawWindow(){return tetanus$lockjawWindow;}
+ 109:     public void tetanus$setLockjawWindow(int ticks){tetanus$lockjawWindow=ticks;}
+ 110:     public int tetanus$getElapsed() { return tetanus$elapsed; }
+ 111:     public int tetanus$getTotal() { return tetanus$total; }
+ 112:     public int tetanus$getLockjaw() { return tetanus$lockjaw; }
+ 113:     public int tetanus$getFreeze() { return tetanus$freeze; }
+ 114:     public void tetanus$setInfection(int elapsed, int total) { tetanus$elapsed = elapsed; tetanus$total = total; }
+ 115:     public void tetanus$setLockjaw(int ticks) { tetanus$lockjaw = ticks; }
+ 116:     public void tetanus$setFreeze(int ticks) { tetanus$freeze = ticks; }
+ 117: 
+ 118:     @Inject(method = "tick", at = @At("TAIL"))
+ 119:     private void tetanus$clearRecoveredState(CallbackInfo ci) {
+ 120:         LivingEntity self = (LivingEntity) (Object) this;
+ 121:         com.tetanusmod.entity.MobVariants.tick(self);
+ 122:         com.tetanusmod.effect.LockjawEffect.flush(self);
+ 123:         com.tetanusmod.effect.SalmonellaEffect.flush(self);
+ 124:         if (!self.getWorld().isClient && !self.hasStatusEffect(TetanusMod.TETANUS)) {
+ 125:             boolean linked=tetanus$total>0||tetanus$elapsed>0;
+ 126:             tetanus$elapsed = tetanus$total = tetanus$lockjaw = tetanus$freeze = tetanus$lockjawWindow = 0;
+ 127:             if(linked){self.removeStatusEffect(TetanusMod.LOCKJAW);self.removeStatusEffect(com.tetanusmod.expansion.ExpansionEffects.DISORIENTED);}
+ 128:         }
+ 129:     }
+ 130: 
+ 131:     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
+ 132:     private void tetanus$save(NbtCompound nbt, CallbackInfo ci) {
+ 133:         nbt.putInt("TetanusElapsed", tetanus$elapsed);
+ 134:         nbt.putInt("TetanusTotal", tetanus$total);
+ 135:         nbt.putInt("TetanusLockjaw", tetanus$lockjaw);
+ 136:         nbt.putInt("TetanusLockjawWindow",tetanus$lockjawWindow);
+ 137:         nbt.putInt("TetanusFreeze", tetanus$freeze);
+ 138:         nbt.putBoolean("RustRuinPermanent",rustruin$isPermanent());
+ 139:         nbt.putBoolean("RustRuinRolled",rustruin$rolled);
+ 140:     }
+ 141: 
+ 142:     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
+ 143:     private void tetanus$load(NbtCompound nbt, CallbackInfo ci) {
+ 144:         tetanus$elapsed = Math.max(0, nbt.getInt("TetanusElapsed"));
+ 145:         tetanus$total = Math.max(0, nbt.getInt("TetanusTotal"));
+ 146:         tetanus$lockjaw = Math.max(0, Math.min(4800, nbt.getInt("TetanusLockjaw")));
+ 147:         tetanus$lockjawWindow=Math.max(0,Math.min(4800,nbt.getInt("TetanusLockjawWindow")));
+ 148:         tetanus$freeze = Math.max(0, Math.min(10, nbt.getInt("TetanusFreeze")));
+ 149:         rustruin$setPermanent(nbt.getBoolean("RustRuinPermanent"));
+ 150:         rustruin$rolled = nbt.getBoolean("RustRuinRolled");
+ 151:     }
+ 152: }

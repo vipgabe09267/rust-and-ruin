@@ -1,0 +1,21 @@
+{
+    "Result":  "PASS",
+    "ServerCases":  251,
+    "CleanServerPasses":  2,
+    "AddedServerCases":  20,
+    "ReproducedDefectsFixed":  17,
+    "ManualExecutableFiles":  193,
+    "ManualLines":  10632,
+    "ClientConfigurations":  [
+                                 "jei",
+                                 "plain",
+                                 "rei-light",
+                                 "rei-dark"
+                             ],
+    "IdenticalResourceFiles":  357,
+    "ResourceGenerationPasses":  2,
+    "RepeatedJarIdentical":  true,
+    "JarSHA256":  "7A70FE36AA01ECB3A2869B7761309C918B2EB33DA12745E313E5F4CEF7E8943A",
+    "JarBytes":  3280210,
+    "CommitOrPushPerformed":  false
+}

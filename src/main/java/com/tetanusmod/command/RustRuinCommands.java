@@ -17,12 +17,17 @@ public final class RustRuinCommands {
     public static void initialize() {
         CommandRegistrationCallback.EVENT.register((dispatcher,access,environment)->dispatcher.register(literal("rustandruin")
             .requires(source->source.hasPermissionLevel(2))
+            .then(literal("inspect").then(argument("target",EntityArgumentType.entity())
+                .executes(ctx->MobInspector.inspect(ctx.getSource(),EntityArgumentType.getEntity(ctx,"target")))))
+            .then(literal("population").executes(ctx->MobInspector.population(ctx.getSource(),64))
+                .then(argument("radius",com.mojang.brigadier.arguments.IntegerArgumentType.integer(1,128))
+                    .executes(ctx->MobInspector.population(ctx.getSource(),com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(ctx,"radius")))))
             .then(literal("summon").then(argument("mob",IdentifierArgumentType.identifier())
                 .suggests((ctx,builder)->CommandSource.suggestIdentifiers(Registries.ENTITY_TYPE.getIds(),builder))
                 .executes(ctx->summon(ctx.getSource(),IdentifierArgumentType.getIdentifier(ctx,"mob").toString(),ctx.getSource().getPosition()))
                 .then(argument("pos",Vec3ArgumentType.vec3()).executes(ctx->summon(ctx.getSource(),IdentifierArgumentType.getIdentifier(ctx,"mob").toString(),Vec3ArgumentType.getVec3(ctx,"pos"))))))
             .then(literal("tetanize").then(argument("targets",EntityArgumentType.entities()).executes(ctx->{
-                int changed=0;for(var entity:EntityArgumentType.getEntities(ctx,"targets"))if(entity instanceof MobEntity mob&&!MobVariants.permanent(mob)){MobVariants.makePermanent(mob);changed++;}
+                int changed=0;for(var entity:EntityArgumentType.getEntities(ctx,"targets"))if(entity instanceof MobEntity mob&&!MobVariants.permanent(mob)){MobVariants.makePermanent(mob);if(MobVariants.permanent(mob))changed++;}
                 final int count=changed;ctx.getSource().sendFeedback(()->Text.translatable("commands.tetanusmod.tetanized",count),true);return changed;
             })))));
     }

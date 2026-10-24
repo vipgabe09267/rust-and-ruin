@@ -1,0 +1,982 @@
+{
+    "Date":  "2026-10-23",
+    "Method":  "Manual numbered reads. Every required final line compared case-sensitively against read-receipt content at that exact path/line. Existing test changes compared against hash-matched earlier numbered reads. Inspection coverage does not prove correctness.",
+    "CodeFiles":  55,
+    "InspectedLines":  2496,
+    "Files":  [
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/DiseaseFixGameTests.java",
+                      "Lines":  185,
+                      "SHA256":  "402C56A5DCD547495F57E21BA964F318C09610579A8B323B2150FA49F34D3ECF",
+                      "Review":  "Changed hunks with context",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  26,
+                                                 "End":  30
+                                             }
+                                         ],
+                      "RequiredLines":  5,
+                      "MatchingReviewedLines":  5,
+                      "Receipts":  [
+                                       "review-test-diff-1"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/ExpansionGameTests.java",
+                      "Lines":  183,
+                      "SHA256":  "FB8D6E8F62B6B9404DDA5CB7F080809EF3E77A93E422B8B56BC96E5321A2F1A8",
+                      "Review":  "Changed hunks with context",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  67,
+                                                 "End":  72
+                                             },
+                                             {
+                                                 "Start":  161,
+                                                 "End":  168
+                                             }
+                                         ],
+                      "RequiredLines":  14,
+                      "MatchingReviewedLines":  14,
+                      "Receipts":  [
+                                       "review-final-eof-ExpansionGameTests",
+                                       "review-test-diff-2",
+                                       "review-test-diff-3",
+                                       "review-test-diff-4"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/MaintenanceGameTests.java",
+                      "Lines":  251,
+                      "SHA256":  "82C761CF84BEDFA0EC188CB2F914E34F991C65C3000326D485F04EB81C066D3E",
+                      "Review":  "Changed hunks with context",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  24,
+                                                 "End":  31
+                                             },
+                                             {
+                                                 "Start":  37,
+                                                 "End":  42
+                                             }
+                                         ],
+                      "RequiredLines":  14,
+                      "MatchingReviewedLines":  14,
+                      "Receipts":  [
+                                       "review-test-diff-5",
+                                       "review-test-diff-6"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/PreventionGameTests.java",
+                      "Lines":  180,
+                      "SHA256":  "18E1CBD2B8F5A26642173D23DB6C6A86E9B4C3E37DDC5391AA1CFCF96F54795D",
+                      "Review":  "Changed hunks with context",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  98,
+                                                 "End":  102
+                                             }
+                                         ],
+                      "RequiredLines":  5,
+                      "MatchingReviewedLines":  5,
+                      "Receipts":  [
+                                       "review-test-diff-7"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/ProgressionExpansionGameTests.java",
+                      "Lines":  160,
+                      "SHA256":  "F3642C935593138DC9B561F7A77A019E41CCD701C23400AC7BC2A2D7C3D1A3EA",
+                      "Review":  "Changed hunks with context",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  119,
+                                                 "End":  132
+                                             }
+                                         ],
+                      "RequiredLines":  14,
+                      "MatchingReviewedLines":  14,
+                      "Receipts":  [
+                                       "review-final-eof-ProgressionExpansionGameTests",
+                                       "review-test-diff-8",
+                                       "review-test-diff-9"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/ProgressionGameTests.java",
+                      "Lines":  226,
+                      "SHA256":  "C2AE5A2F52CD68E2DEDE51F4A6E05B224260790E15C78540D9CC660C723440F1",
+                      "Review":  "Changed hunks with context",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  86,
+                                                 "End":  90
+                                             }
+                                         ],
+                      "RequiredLines":  5,
+                      "MatchingReviewedLines":  5,
+                      "Receipts":  [
+                                       "review-test-diff-10"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/RefreshGameTests.java",
+                      "Lines":  121,
+                      "SHA256":  "7517241588D6ADFA9A43D14623AE6FD6344080489EDFFED85D2BAA6E380A9E8E",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  121
+                                             }
+                                         ],
+                      "RequiredLines":  121,
+                      "MatchingReviewedLines":  121,
+                      "Receipts":  [
+                                       "review-refresh-tests"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/gametest/java/com/tetanusmod/test/RefreshWorldGameTests.java",
+                      "Lines":  199,
+                      "SHA256":  "849D85FD5B0B3FEB07307AFDA15E75E921B132CAB117A25ED93209B329EFAA09",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  199
+                                             }
+                                         ],
+                      "RequiredLines":  199,
+                      "MatchingReviewedLines":  199,
+                      "Receipts":  [
+                                       "review-cabinet-item-test",
+                                       "review-world-tests-a",
+                                       "review-world-tests-b"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/GlovesFeatureRenderer.java",
+                      "Lines":  36,
+                      "SHA256":  "59A95A6FD876D3E7EF05FC516804FD6415724F2AB4C3A819E873EB8B54EFBF49",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  36
+                                             }
+                                         ],
+                      "RequiredLines":  36,
+                      "MatchingReviewedLines":  36,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/GloveSlotFrame.java",
+                      "Lines":  13,
+                      "SHA256":  "C9E0AB960E151E0ADDE7BA33D7F4558421787898AF8F49BFC3798A7355423E39",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  13
+                                             }
+                                         ],
+                      "RequiredLines":  13,
+                      "MatchingReviewedLines":  13,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/LockjawAttempt.java",
+                      "Lines":  22,
+                      "SHA256":  "E32A00375FD4F8E549D297BB1C0C85F0A3D5D2D837E55785E8FFAB8AFE89D699",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  22
+                                             }
+                                         ],
+                      "RequiredLines":  22,
+                      "MatchingReviewedLines":  22,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/TetanusClient.java",
+                      "Lines":  87,
+                      "SHA256":  "BBFE2D7C27628D45E5F28511E859BDBF2962CD48D4045CBC949EDDFD2AF548AA",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  87
+                                             }
+                                         ],
+                      "RequiredLines":  87,
+                      "MatchingReviewedLines":  87,
+                      "Receipts":  [
+                                       "review-final-eof-TetanusClient",
+                                       "review-registration"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/command/DiseaseCommands.java",
+                      "Lines":  40,
+                      "SHA256":  "01D91C5BBD2F4B9F420C6A85A2C22C9DE270DA6F1F5905A74E3047EB10544C73",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  40
+                                             }
+                                         ],
+                      "RequiredLines":  40,
+                      "MatchingReviewedLines":  40,
+                      "Receipts":  [
+                                       "review-gameplay"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/config/ModConfig.java",
+                      "Lines":  127,
+                      "SHA256":  "CBCF7C35E88F88A0EC904BA722F48C87A174C0C3DCE61F3B4CD53A55BF994778",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  127
+                                             }
+                                         ],
+                      "RequiredLines":  127,
+                      "MatchingReviewedLines":  127,
+                      "Receipts":  [
+                                       "review-balance",
+                                       "review-final-eof-ModConfig"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/entity/RustGolems.java",
+                      "Lines":  32,
+                      "SHA256":  "92765C2CDEF175BA54DF5A86F9F08EBE64DA89D79A0952F395C74622F0154648",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  32
+                                             }
+                                         ],
+                      "RequiredLines":  32,
+                      "MatchingReviewedLines":  32,
+                      "Receipts":  [
+                                       "review-gameplay"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/CombatInfection.java",
+                      "Lines":  55,
+                      "SHA256":  "C554DF2BBF5EC0D5CC5A5DA6AB8ECB83CAD4A6981704C336F5C7C02E011E93A7",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  55
+                                             }
+                                         ],
+                      "RequiredLines":  55,
+                      "MatchingReviewedLines":  55,
+                      "Receipts":  [
+                                       "review-registration"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/CommandEffects.java",
+                      "Lines":  16,
+                      "SHA256":  "9FC022F9B6782B82AE9B7E9726DC4FC2C7CE9B3A19F4C01DE5B1F8877CA5EAF5",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  16
+                                             }
+                                         ],
+                      "RequiredLines":  16,
+                      "MatchingReviewedLines":  16,
+                      "Receipts":  [
+                                       "review-gameplay"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionBlocks.java",
+                      "Lines":  21,
+                      "SHA256":  "AE076E7EE4911CF14264F0686F8864DB426CDD03B49A789EEEA023028CA956A2",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  21
+                                             }
+                                         ],
+                      "RequiredLines":  21,
+                      "MatchingReviewedLines":  21,
+                      "Receipts":  [
+                                       "review-spawn-order"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionItems.java",
+                      "Lines":  28,
+                      "SHA256":  "DC7D78D53F8FB0B3B5D91D5F1A9E1028B6712C274D003629C8B1057293925FE3",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  28
+                                             }
+                                         ],
+                      "RequiredLines":  28,
+                      "MatchingReviewedLines":  28,
+                      "Receipts":  [
+                                       "review-balance"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/GloveInventory.java",
+                      "Lines":  17,
+                      "SHA256":  "9CE693E315E3A8A4C691AC120AAC52D0A9926B88B9763F4CA572A0E06E5EF672",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  17
+                                             }
+                                         ],
+                      "RequiredLines":  17,
+                      "MatchingReviewedLines":  17,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/GloveMending.java",
+                      "Lines":  21,
+                      "SHA256":  "947AE10AD8B2719ECC7DD068D90BDF56A3590D85C2CFCAE117790151CAAC8448",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  21
+                                             }
+                                         ],
+                      "RequiredLines":  21,
+                      "MatchingReviewedLines":  21,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/GlovesItem.java",
+                      "Lines":  18,
+                      "SHA256":  "C258A505E38E6F371C09FA0C156D4DB0D6B319DC8FF2EE04FD5F953A133B52ED",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  18
+                                             }
+                                         ],
+                      "RequiredLines":  18,
+                      "MatchingReviewedLines":  18,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/MedicineCabinetBlock.java",
+                      "Lines":  33,
+                      "SHA256":  "D90EFB87C4B6F11581F55CEE9ACE2EC065A086ED6B517A08A32FCDCE0D01292B",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  33
+                                             }
+                                         ],
+                      "RequiredLines":  33,
+                      "MatchingReviewedLines":  33,
+                      "Receipts":  [
+                                       "review-world"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/MedicVillage.java",
+                      "Lines":  40,
+                      "SHA256":  "DE46AB4871DA743885644D0CBFF211945279E59306A98B99F45C6421F4BCF052",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  40
+                                             }
+                                         ],
+                      "RequiredLines":  40,
+                      "MatchingReviewedLines":  40,
+                      "Receipts":  [
+                                       "review-gameplay",
+                                       "review-registration"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/MobEquipment.java",
+                      "Lines":  60,
+                      "SHA256":  "79DDA9627F23612F50E5F7EE0B3BF3C21E375BD4F074350DA3AA84ECEF7D0E51",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  60
+                                             }
+                                         ],
+                      "RequiredLines":  60,
+                      "MatchingReviewedLines":  60,
+                      "Receipts":  [
+                                       "review-world"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/NaturalVariants.java",
+                      "Lines":  28,
+                      "SHA256":  "C138E50D6554CE0CF2FEF1DFF0674D88FBADA731785DA5D1F262AD2CDC305FFA",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  28
+                                             }
+                                         ],
+                      "RequiredLines":  28,
+                      "MatchingReviewedLines":  28,
+                      "Receipts":  [
+                                       "review-balance"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/VariantSpawnEggItem.java",
+                      "Lines":  67,
+                      "SHA256":  "2FB30D89B4770D9092865935B17D5D542942CCD726C0DD0879B37C7B45C2347C",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  67
+                                             }
+                                         ],
+                      "RequiredLines":  67,
+                      "MatchingReviewedLines":  67,
+                      "Receipts":  [
+                                       "review-balance"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/expansion/VeterinaryKitItem.java",
+                      "Lines":  43,
+                      "SHA256":  "B87D978F3A6DC461EF76F285FBBD43E407476F59B51E50FDBA36ED9BB34522CA",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  43
+                                             }
+                                         ],
+                      "RequiredLines":  43,
+                      "MatchingReviewedLines":  43,
+                      "Receipts":  [
+                                       "review-gameplay"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/InfectedMeatItem.java",
+                      "Lines":  19,
+                      "SHA256":  "D54FB8011F743E9A746B41052FBCC77546229C37897DCC96D19ED0A9F006F963",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  19
+                                             }
+                                         ],
+                      "RequiredLines":  19,
+                      "MatchingReviewedLines":  19,
+                      "Receipts":  [
+                                       "review-balance",
+                                       "review-final-eof-InfectedMeatItem"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/item/NailItem.java",
+                      "Lines":  59,
+                      "SHA256":  "22DF529E413D654709471147DF2FEE3DF065F6090B7D6F85580FC9D8E719AF71",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  59
+                                             }
+                                         ],
+                      "RequiredLines":  59,
+                      "MatchingReviewedLines":  59,
+                      "Receipts":  [
+                                       "review-gameplay"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/CreativeGloveScreenMixin.java",
+                      "Lines":  29,
+                      "SHA256":  "6EB109CD1E6B72AAF8AE04886E0AD62A136979F56C0D7382CF6D445806F6FA2F",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  29
+                                             }
+                                         ],
+                      "RequiredLines":  29,
+                      "MatchingReviewedLines":  29,
+                      "Receipts":  [
+                                       "review-registration"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EffectCommandMixin.java",
+                      "Lines":  16,
+                      "SHA256":  "AC6E00006BCD6715C8155D52E5CA4CD36BAD94E331DA991E9662020B968A46F5",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  16
+                                             }
+                                         ],
+                      "RequiredLines":  16,
+                      "MatchingReviewedLines":  16,
+                      "Receipts":  [
+                                       "review-gameplay"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionLivingMixin.java",
+                      "Lines":  43,
+                      "SHA256":  "2D0C2779F2A8F65B33309BA48CEB546732476FA6C4391A80C3615C6FCEFE8966",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  43
+                                             }
+                                         ],
+                      "RequiredLines":  43,
+                      "MatchingReviewedLines":  43,
+                      "Receipts":  [
+                                       "review-gameplay"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionMobMixin.java",
+                      "Lines":  28,
+                      "SHA256":  "C7E3821C5552CA9EDE4CD33FBED7CFBF458FF024C04D50D4C7F1739A5EFAF972",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  28
+                                             }
+                                         ],
+                      "RequiredLines":  28,
+                      "MatchingReviewedLines":  28,
+                      "Receipts":  [
+                                       "review-gameplay",
+                                       "review-registration",
+                                       "review-spawn-order-final"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/FirstPersonGlovesMixin.java",
+                      "Lines":  19,
+                      "SHA256":  "1FCBFB11656867ABAF092B3C26159C98343F5C179C9BB938F5D900234ED6B4F6",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  19
+                                             }
+                                         ],
+                      "RequiredLines":  19,
+                      "MatchingReviewedLines":  19,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/GloveInventoryScreenMixin.java",
+                      "Lines":  17,
+                      "SHA256":  "CF03525FB6770D30D734CE0FEBC98010846B7049D0CD426128B564110624D473",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  17
+                                             }
+                                         ],
+                      "RequiredLines":  17,
+                      "MatchingReviewedLines":  17,
+                      "Receipts":  [
+                                       "review-frame",
+                                       "review-registration"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/GloveMendingMixin.java",
+                      "Lines":  16,
+                      "SHA256":  "634E6A511C7FB1BA2E5A898952A7764E27EC2D9FF1D7581E2B5B42B18DCCBA56",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  16
+                                             }
+                                         ],
+                      "RequiredLines":  16,
+                      "MatchingReviewedLines":  16,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/GlovePlayerMixin.java",
+                      "Lines":  48,
+                      "SHA256":  "56AF226DDFBF440FA1C3C82BAAE5CFB5D869C273201E12C182E2AF247704812A",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  48
+                                             }
+                                         ],
+                      "RequiredLines":  48,
+                      "MatchingReviewedLines":  48,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/LivingEntityMixin.java",
+                      "Lines":  152,
+                      "SHA256":  "1BFE056A00DFAAB7DF3D476B8D32CCA959CDF0F4EC4909D68ACEE92F63038146",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  152
+                                             }
+                                         ],
+                      "RequiredLines":  152,
+                      "MatchingReviewedLines":  152,
+                      "Receipts":  [
+                                       "review-status",
+                                       "review-status-head",
+                                       "review-vaccine"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/LockjawHandMixin.java",
+                      "Lines":  18,
+                      "SHA256":  "5D822C877906E5C0816CA30CB1644FFF90A5D599D2B896054D2F894A9A48A386",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  18
+                                             }
+                                         ],
+                      "RequiredLines":  18,
+                      "MatchingReviewedLines":  18,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/MedicClothingMixin.java",
+                      "Lines":  27,
+                      "SHA256":  "9095486B24670884FD34A177F9D14C3B62D0A0A12D60EBE20D08063F6AACA489",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  27
+                                             }
+                                         ],
+                      "RequiredLines":  27,
+                      "MatchingReviewedLines":  27,
+                      "Receipts":  [
+                                       "review-gloves"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/SkeletonEquipmentMixin.java",
+                      "Lines":  15,
+                      "SHA256":  "E00BD62615F827EFFCA30963ECA05E15D43006D978ADDCF3F651C0E58E4DCED8",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  15
+                                             }
+                                         ],
+                      "RequiredLines":  15,
+                      "MatchingReviewedLines":  15,
+                      "Receipts":  [
+                                       "review-gloves",
+                                       "review-spawn-order"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/ZombieEquipmentMixin.java",
+                      "Lines":  16,
+                      "SHA256":  "2E7EA746B81B3531946879D821CD7E2307962A91E167E4DE442112FB29B92076",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  16
+                                             }
+                                         ],
+                      "RequiredLines":  16,
+                      "MatchingReviewedLines":  16,
+                      "Receipts":  [
+                                       "review-spawn-order"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/registry/ModAdvancements.java",
+                      "Lines":  28,
+                      "SHA256":  "4447D642941A234B041873FE15D19DEEA5F04B2AF8366ACE378ED18A106C1ADB",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  28
+                                             }
+                                         ],
+                      "RequiredLines":  28,
+                      "MatchingReviewedLines":  28,
+                      "Receipts":  [
+                                       "review-gameplay"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/registry/ModItems.java",
+                      "Lines":  71,
+                      "SHA256":  "6A83E1DC063374DE8D9D4B214AB515C698CC3CEB8C16709DDF442266B74450E1",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  71
+                                             }
+                                         ],
+                      "RequiredLines":  71,
+                      "MatchingReviewedLines":  71,
+                      "Receipts":  [
+                                       "review-items-tail",
+                                       "review-status"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/TetanusMod.java",
+                      "Lines":  97,
+                      "SHA256":  "25C08E8525382623B164F39E7000BB3AACB98584B3ECED626D075B8341E8E4F9",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  97
+                                             }
+                                         ],
+                      "RequiredLines":  97,
+                      "MatchingReviewedLines":  97,
+                      "Receipts":  [
+                                       "review-final-eof-TetanusMod",
+                                       "review-registration"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/world/CaveMedicStructure.java",
+                      "Lines":  45,
+                      "SHA256":  "E2F1FB37F38A208C38D79FE27351DEE49AEACF1EB3D8122A2F1FA291352231E6",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  45
+                                             }
+                                         ],
+                      "RequiredLines":  45,
+                      "MatchingReviewedLines":  45,
+                      "Receipts":  [
+                                       "review-world"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/world/ClinicStructure.java",
+                      "Lines":  56,
+                      "SHA256":  "A2E1A97334ACBF20A6E59AAC9D3DE044418AE26E9ECF2B257E35CAB0ACA6B574",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  56
+                                             }
+                                         ],
+                      "RequiredLines":  56,
+                      "MatchingReviewedLines":  56,
+                      "Receipts":  [
+                                       "review-world"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/world/MedicStructurePiece.java",
+                      "Lines":  40,
+                      "SHA256":  "B37835370BCAF45EA0843A1FA11DE0B08B312A53D380E6438FEF21CEFC3062D7",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  40
+                                             }
+                                         ],
+                      "RequiredLines":  40,
+                      "MatchingReviewedLines":  40,
+                      "Receipts":  [
+                                       "review-world"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/world/MedicStructures.java",
+                      "Lines":  13,
+                      "SHA256":  "4A097392D56E9099CA26367A268D693E00EA156D1808F3E345FCE687A023FC2D",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  13
+                                             }
+                                         ],
+                      "RequiredLines":  13,
+                      "MatchingReviewedLines":  13,
+                      "Receipts":  [
+                                       "review-world"
+                                   ]
+                  },
+                  {
+                      "Path":  "src/smoketest/java/com/tetanusmod/test/ClientSmokeTest.java",
+                      "Lines":  353,
+                      "SHA256":  "0D724CAA3022C3BB11FF77B9081A401A4C8B2811B663882EA82F1F7415AA5451",
+                      "Review":  "Changed hunks with context",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  169,
+                                                 "End":  184
+                                             },
+                                             {
+                                                 "Start":  186,
+                                                 "End":  190
+                                             },
+                                             {
+                                                 "Start":  204,
+                                                 "End":  268
+                                             }
+                                         ],
+                      "RequiredLines":  86,
+                      "MatchingReviewedLines":  86,
+                      "Receipts":  [
+                                       "review-client-new"
+                                   ]
+                  },
+                  {
+                      "Path":  "tools/Audit-Refresh.ps1",
+                      "Lines":  51,
+                      "SHA256":  "43784A77E8DF33D3A2B0F70EB7EB315D78C52EA6D4D2E4BE33B1D63D1CA3882B",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  51
+                                             }
+                                         ],
+                      "RequiredLines":  51,
+                      "MatchingReviewedLines":  51,
+                      "Receipts":  [
+                                       "review-package-validator"
+                                   ]
+                  },
+                  {
+                      "Path":  "tools/Generate-Clinic.ps1",
+                      "Lines":  79,
+                      "SHA256":  "69CCC1BD7909A69796D851302917B5C4830473536CA6FC4BF5588D2F0478C4B1",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  79
+                                             }
+                                         ],
+                      "RequiredLines":  79,
+                      "MatchingReviewedLines":  79,
+                      "Receipts":  [
+                                       "review-clinic-generator",
+                                       "review-final-eof-Generate-Clinic"
+                                   ]
+                  },
+                  {
+                      "Path":  "tools/Generate-Expansion.ps1",
+                      "Lines":  141,
+                      "SHA256":  "6D4F3DF64A2F2130B2100A364DD94F7D70ECF33087ECA2204277EEA6E697476B",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  141
+                                             }
+                                         ],
+                      "RequiredLines":  141,
+                      "MatchingReviewedLines":  141,
+                      "Receipts":  [
+                                       "review-expansion-generator-a",
+                                       "review-expansion-generator-b",
+                                       "review-generator-gap"
+                                   ]
+                  },
+                  {
+                      "Path":  "tools/Generate-Refresh.ps1",
+                      "Lines":  86,
+                      "SHA256":  "D9F7F25EB8C9F9C9F9A8E072238DF0C52B2258AE7D78BF6892CB44CF8768523B",
+                      "Review":  "Full changed/new file",
+                      "RequiredRanges":  [
+                                             {
+                                                 "Start":  1,
+                                                 "End":  86
+                                             }
+                                         ],
+                      "RequiredLines":  86,
+                      "MatchingReviewedLines":  86,
+                      "Receipts":  [
+                                       "review-resource-generator"
+                                   ]
+                  }
+              ]
+}

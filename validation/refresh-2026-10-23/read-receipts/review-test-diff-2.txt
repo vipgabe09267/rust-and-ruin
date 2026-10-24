@@ -1,0 +1,7 @@
+FILE src/gametest/java/com/tetanusmod/test/ExpansionGameTests.java LINES 67-72 OF 184
+  67:         MobVariants.makePermanent(animal);
+  68:         ctx.assertTrue(animal.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED)<speed,"Tetanized animal is not slower");
+  69:         ctx.assertTrue(MobVariants.eligibleRoll(animal,0.019F)&&!MobVariants.eligibleRoll(animal,0.02F),"Animal 2% boundary wrong");
+  70:         ctx.assertTrue(MobVariants.eligibleRoll(zombie,0.009F)&&!MobVariants.eligibleRoll(zombie,0.01F),"Mob 1% boundary wrong");
+  71:         ctx.complete();
+  72:     }

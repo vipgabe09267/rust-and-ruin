@@ -118,15 +118,16 @@ public class ProgressionExpansionGameTests implements FabricGameTest {
         ctx.runAtTick(160,()->{ctx.assertTrue(medic.isAlive()&&medic.getVillagerData().getProfession()==MedicVillage.MEDIC,"Clinic medic lost its profession after AI ticks");ctx.complete();});
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void clinicsAreInAllVillageHousePools(TestContext ctx){
-        var registry=ctx.getWorld().getRegistryManager().get(RegistryKeys.TEMPLATE_POOL);
-        for(String biome:new String[]{"plains","desert","savanna","snowy","taiga"}){var pool=registry.get(new net.minecraft.util.Identifier("minecraft","village/"+biome+"/houses"));ctx.assertTrue(pool!=null&&((com.tetanusmod.mixin.StructurePoolAccessor)pool).rustruin$counts().stream().anyMatch(pair->pair.getFirst().toString().contains("tetanusmod:village/clinic")),"Clinic missing from village pool "+biome);}ctx.complete();
+    public void clinicsUseNativeLocatableStructures(TestContext ctx){
+        var registry=ctx.getWorld().getRegistryManager().get(RegistryKeys.STRUCTURE);
+        ctx.assertTrue(registry.get(TetanusMod.id("medic_clinic")) instanceof com.tetanusmod.world.ClinicStructure,"Clinic is not a locatable structure");
+        for(String biome:new String[]{"plains","desert","savanna","snowy","taiga"})ctx.assertTrue(ctx.getWorld().getStructureTemplateManager().getTemplate(TetanusMod.id("village/"+biome+"_clinic")).isPresent(),"Missing themed clinic "+biome);ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void naturalAndSpawnerMutationRatesRespectDifficulty(TestContext ctx){
-        ctx.assertTrue(NaturalVariants.chance(Difficulty.EASY,false)==0.10F&&NaturalVariants.chance(Difficulty.NORMAL,false)==0.15F&&NaturalVariants.chance(Difficulty.HARD,false)==0.20F,"Natural difficulty defaults wrong");
-        ctx.assertTrue(NaturalVariants.chance(Difficulty.EASY,true)==0.25F&&NaturalVariants.chance(Difficulty.NORMAL,true)==0.35F&&NaturalVariants.chance(Difficulty.HARD,true)==0.45F,"Dungeon/spawner defaults wrong");
-        var difficulty=ctx.getWorld().getDifficulty();int converted=0;var random=new java.util.Random(103);try{ctx.getWorld().getServer().setDifficulty(Difficulty.NORMAL,true);for(int i=0;i<300;i++){var mob=EntityType.ZOMBIE.create(ctx.getWorld());mob.getRandom().setSeed(random.nextLong());mob.initialize(ctx.getWorld(),ctx.getWorld().getLocalDifficulty(mob.getBlockPos()),SpawnReason.NATURAL,null,null);if(MobVariants.permanent(mob))converted++;}}finally{ctx.getWorld().getServer().setDifficulty(difficulty,true);}ctx.assertTrue(converted>=25&&converted<=70,"Natural initialize hook did not apply the seeded rate: "+converted);ctx.complete();
+        ctx.assertTrue(NaturalVariants.chance(Difficulty.EASY,false)==0.005F&&NaturalVariants.chance(Difficulty.NORMAL,false)==0.01F&&NaturalVariants.chance(Difficulty.HARD,false)==0.02F,"Natural difficulty defaults wrong");
+        ctx.assertTrue(NaturalVariants.chance(Difficulty.EASY,true)==0.03F&&NaturalVariants.chance(Difficulty.NORMAL,true)==0.05F&&NaturalVariants.chance(Difficulty.HARD,true)==0.08F,"Dungeon/spawner defaults wrong");
+        var difficulty=ctx.getWorld().getDifficulty();int converted=0;var random=new java.util.Random(103);try{ctx.getWorld().getServer().setDifficulty(Difficulty.NORMAL,true);for(int i=0;i<300;i++){var mob=EntityType.ZOMBIE.create(ctx.getWorld());mob.getRandom().setSeed(random.nextLong());mob.initialize(ctx.getWorld(),ctx.getWorld().getLocalDifficulty(mob.getBlockPos()),SpawnReason.NATURAL,null,null);if(MobVariants.permanent(mob))converted++;}}finally{ctx.getWorld().getServer().setDifficulty(difficulty,true);}ctx.assertTrue(converted>0&&converted<=12,"Natural initialize hook did not apply the seeded rate: "+converted);ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void commandAndEggSpawnsDoNotRollNaturalMutation(TestContext ctx){

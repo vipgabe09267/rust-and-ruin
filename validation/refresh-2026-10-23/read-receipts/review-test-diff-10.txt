@@ -1,0 +1,6 @@
+FILE src/gametest/java/com/tetanusmod/test/ProgressionGameTests.java LINES 86-90 OF 226
+  86:             MobVariants.makePermanent(mob);
+  87:             ctx.assertTrue(MobVariants.permanent(mob),"Cannot tetanize "+type);
+  88:             if(!(mob instanceof WitherEntity))ctx.assertTrue(MobVariants.eligibleRoll(mob,0),"Mob ineligible for mutation: "+type);
+  89:             count++;
+  90:         }

@@ -1,0 +1,97 @@
+FILE src/gametest/java/com/tetanusmod/test/RefreshWorldGameTests.java LINES 1-96 OF 186
+   1: package com.tetanusmod.test;
+   2: 
+   3: import com.google.gson.JsonParser;
+   4: import com.mojang.serialization.JsonOps;
+   5: import com.tetanusmod.TetanusMod;
+   6: import com.tetanusmod.entity.MobVariants;
+   7: import com.tetanusmod.expansion.*;
+   8: import com.tetanusmod.registry.*;
+   9: import com.tetanusmod.world.*;
+  10: import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
+  11: import net.minecraft.block.*;
+  12: import net.minecraft.entity.*;
+  13: import net.minecraft.entity.effect.*;
+  14: import net.minecraft.item.*;
+  15: import net.minecraft.registry.*;
+  16: import net.minecraft.test.*;
+  17: import net.minecraft.util.Hand;
+  18: import net.minecraft.util.math.*;
+  19: import net.minecraft.world.*;
+  20: import net.minecraft.world.gen.chunk.*;
+  21: import net.minecraft.world.gen.chunk.placement.*;
+  22: import net.minecraft.world.gen.noise.NoiseConfig;
+  23: import java.util.*;
+  24: 
+  25: public class RefreshWorldGameTests implements FabricGameTest {
+  26:     @GameTest(templateName=EMPTY_STRUCTURE)
+  27:     public void tentPlacementGridEnforcesTwoThousandBlockMinimum(TestContext ctx){
+  28:         var set=ctx.getWorld().getRegistryManager().get(RegistryKeys.STRUCTURE_SET).get(TetanusMod.id("medic_tents"));
+  29:         var placement=(RandomSpreadStructurePlacement)set.placement();
+  30:         var encoded=StructurePlacement.TYPE_CODEC.encodeStart(JsonOps.INSTANCE,placement).result().orElseThrow().getAsJsonObject();
+  31:         ctx.assertTrue(Math.abs(encoded.get("frequency").getAsFloat()-0.15F)<0.00001,"Tent candidate frequency is not 15%");
+  32:         for(long seed:new long[]{0,1,918731,Long.MAX_VALUE,-741}){
+  33:             var points=new ArrayList<ChunkPos>();
+  34:             for(int x=-3;x<=3;x++)for(int z=-3;z<=3;z++)points.add(placement.getStartChunk(seed,x*placement.getSpacing(),z*placement.getSpacing()));
+  35:             for(int i=0;i<points.size();i++)for(int j=0;j<i;j++){
+  36:                 long dx=(long)(points.get(i).x-points.get(j).x)*16,dz=(long)(points.get(i).z-points.get(j).z)*16;
+  37:                 ctx.assertTrue(dx*dx+dz*dz>=2000L*2000,"Tent candidates can spawn within 2,000 blocks");
+  38:             }
+  39:         }ctx.complete();
+  40:     }
+  41:     @GameTest(templateName=EMPTY_STRUCTURE)
+  42:     public void clinicFrequencyMatchesVillageGrid(TestContext ctx){
+  43:         var sets=ctx.getWorld().getRegistryManager().get(RegistryKeys.STRUCTURE_SET);
+  44:         var clinic=(RandomSpreadStructurePlacement)sets.get(TetanusMod.id("medic_clinics")).placement();var vanilla=(RandomSpreadStructurePlacement)sets.get(new net.minecraft.util.Identifier("minecraft","villages")).placement();
+  45:         var encoded=StructurePlacement.TYPE_CODEC.encodeStart(JsonOps.INSTANCE,clinic).result().orElseThrow().getAsJsonObject();
+  46:         ctx.assertTrue(Math.abs(encoded.get("frequency").getAsFloat()-0.55F)<0.00001,"Clinic candidate frequency is not 55%");
+  47:         for(int x=-5;x<=5;x++)for(int z=-5;z<=5;z++)ctx.assertTrue(clinic.getStartChunk(8132,x*34,z*34).equals(vanilla.getStartChunk(8132,x*34,z*34)),"Clinic candidates drift from villages");ctx.complete();
+  48:     }
+  49:     @GameTest(templateName=EMPTY_STRUCTURE,tickLimit=1200)
+  50:     public void clinicCanGenerateInRealOverworldNoise(TestContext ctx){
+  51:         var world=ctx.getWorld();var registries=world.getRegistryManager();
+  52:         var ops=RegistryOps.of(JsonOps.INSTANCE,registries);
+  53:         var generator=ChunkGenerator.CODEC.parse(ops,JsonParser.parseString("{\"type\":\"minecraft:noise\",\"settings\":\"minecraft:overworld\",\"biome_source\":{\"type\":\"minecraft:multi_noise\",\"preset\":\"minecraft:overworld\"}}")).result().orElseThrow();
+  54:         long seed=246813579L;var settings=registries.get(RegistryKeys.CHUNK_GENERATOR_SETTINGS).get(ChunkGeneratorSettings.OVERWORLD);
+  55:         var noise=NoiseConfig.create(settings,registries.getWrapperOrThrow(RegistryKeys.NOISE_PARAMETERS),seed);
+  56:         var placement=(RandomSpreadStructurePlacement)registries.get(RegistryKeys.STRUCTURE_SET).get(TetanusMod.id("medic_clinics")).placement();
+  57:         var clinic=registries.get(RegistryKeys.STRUCTURE).get(TetanusMod.id("medic_clinic"));boolean found=false;
+  58:         for(int region=0;region<40&&!found;region++){
+  59:             var chunk=placement.getStartChunk(seed,(region%8-4)*34,(region/8-2)*34);
+  60:             var start=clinic.createStructureStart(registries,generator,generator.getBiomeSource(),noise,world.getStructureTemplateManager(),seed,chunk,0,world,clinic.getValidBiomes()::contains);
+  61:             if(start.hasChildren()){
+  62:                 found=true;ctx.assertTrue(start.getChildren().size()==1&&start.getChildren().get(0) instanceof MedicStructurePiece,"Clinic did not create a saved native structure piece");
+  63:                 ctx.assertTrue(start.getChildren().get(0).getBoundingBox().getBlockCountY()==11,"Generated clinic height wrong");
+  64:             }
+  65:         }
+  66:         ctx.assertTrue(found,"No clinic generated in 40 deterministic vanilla village candidates");ctx.complete();
+  67:     }
+  68:     @GameTest(templateName=EMPTY_STRUCTURE)
+  69:     public void tentGuardMarkerCreatesOneTetanizedDefender(TestContext ctx)throws Exception{
+  70:         var pos=ctx.getAbsolutePos(new BlockPos(3,3,3));
+  71:         var piece=new MedicStructurePiece(ctx.getWorld().getStructureTemplateManager(),TetanusMod.id("medic_tent"),pos,net.minecraft.util.BlockRotation.NONE);
+  72:         var method=MedicStructurePiece.class.getDeclaredMethod("handleMetadata",String.class,BlockPos.class,ServerWorldAccess.class,net.minecraft.util.math.random.Random.class,BlockBox.class);method.setAccessible(true);
+  73:         var bounds=new BlockBox(pos.getX(),pos.getY(),pos.getZ(),pos.getX()+12,pos.getY()+7,pos.getZ()+12);
+  74:         method.invoke(piece,"guard",pos,ctx.getWorld(),ctx.getWorld().random,bounds);
+  75:         var golems=ctx.getWorld().getEntitiesByClass(net.minecraft.entity.passive.IronGolemEntity.class,new Box(pos).expand(2),e->true);
+  76:         ctx.assertTrue(golems.size()==1&&MobVariants.permanent(golems.get(0))&&golems.get(0).getMaxHealth()==200&&golems.get(0).isPlayerCreated(),"Tent defender is missing, weak or hostile to its visitors");
+  77:         method.invoke(piece,"guard",pos.add(100,0,0),ctx.getWorld(),ctx.getWorld().random,bounds);
+  78:         ctx.assertTrue(ctx.getWorld().getEntitiesByClass(net.minecraft.entity.passive.IronGolemEntity.class,new Box(pos.add(100,0,0)).expand(2),e->true).isEmpty(),"Out-of-chunk metadata spawned a duplicate guard");ctx.complete();
+  79:     }
+  80:     @GameTest(templateName=EMPTY_STRUCTURE)
+  81:     public void breakingEitherCabinetHalfDropsExactlyOne(TestContext ctx){
+  82:         var pos=ctx.getAbsolutePos(new BlockPos(3,3,3));ctx.getWorld().setBlockState(pos.down(),Blocks.STONE.getDefaultState());
+  83:         var lower=ExpansionBlocks.MEDIC_CABINET.getDefaultState().with(MedicineCabinetBlock.COMPLETE,true);
+  84:         ctx.getWorld().setBlockState(pos,lower,2);ctx.getWorld().setBlockState(pos.up(),lower.with(DoorBlock.HALF,net.minecraft.block.enums.DoubleBlockHalf.UPPER),3);
+  85:         ctx.getWorld().breakBlock(pos.up(),true);
+  86:         var items=ctx.getWorld().getEntitiesByClass(ItemEntity.class,new Box(pos).expand(3),e->e.getStack().isOf(ExpansionBlocks.MEDIC_CABINET.asItem()));
+  87:         ctx.assertTrue(ctx.getWorld().isAir(pos)&&ctx.getWorld().isAir(pos.up()),"Breaking upper cabinet left an orphan half");
+  88:         ctx.assertTrue(items.stream().mapToInt(e->e.getStack().getCount()).sum()==1,"Cabinet dropped duplicate items or no item");ctx.complete();
+  89:     }
+  90:     @GameTest(templateName=EMPTY_STRUCTURE)
+  91:     public void gloveUnbreakingReducesWear(TestContext ctx){
+  92:         var p=ctx.createMockSurvivalPlayer();var gloves=new ItemStack(ModItems.PROTECTIVE_GLOVES);gloves.addEnchantment(net.minecraft.enchantment.Enchantments.UNBREAKING,3);((GloveInventory)p).rustruin$gloves().setStack(0,gloves);p.getRandom().setSeed(937461);
+  93:         for(int i=0;i<64;i++)com.tetanusmod.effect.InfectionProtection.allows(p,true,1);
+  94:         ctx.assertTrue(gloves.getDamage()>0&&gloves.getDamage()<40,"Unbreaking did not reduce wear in dedicated glove slot");ctx.complete();
+  95:     }
+  96:     @GameTest(templateName=EMPTY_STRUCTURE)

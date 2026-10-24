@@ -32,10 +32,11 @@ public final class BearTrapBlockEntity extends BlockEntity {
     public static void tick(World world,BlockPos pos,BlockState state,BearTrapBlockEntity trap){
         if(state.get(BearTrapBlock.CLOSED)&&trap.captured!=null&&world.getTime()%20==0&&world instanceof ServerWorld server&&server.getEntity(trap.captured) instanceof LivingEntity target&&target.isAlive()&&target.getBoundingBox().intersects(new Box(pos).expand(0.35)))target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,100,9));
         if(((BearTrapBlock)state.getBlock()).rusty())return;
+        int oldWater=trap.water,oldRain=trap.rain;
         boolean wet=world.getFluidState(pos).isIn(net.minecraft.registry.tag.FluidTags.WATER)||world.getFluidState(pos.up()).isIn(net.minecraft.registry.tag.FluidTags.WATER);
         if(wet){trap.rain=0;trap.water++;}else{trap.water=0;trap.rain=TetanusMod.CONFIG.rainRusting&&world.hasRain(pos)?trap.rain+1:0;}
         if(trap.water>=TetanusMod.CONFIG.waterRustTicks||trap.rain>=TetanusMod.CONFIG.rainRustTicks){NbtCompound saved=trap.createNbt();world.setBlockState(pos,ExpansionBlocks.RUSTED_BEAR_TRAP.getDefaultState().with(BearTrapBlock.CLOSED,state.get(BearTrapBlock.CLOSED)),3);if(world.getBlockEntity(pos) instanceof BearTrapBlockEntity rusty){rusty.readNbt(saved);rusty.markDirty();}RustingSystem.rustFeedback(world,Vec3d.ofCenter(pos));}
-        if(world.getTime()%20==0)trap.markDirty();
+        if((oldWater!=trap.water||oldRain!=trap.rain)&&(world.getTime()%20==0||trap.water==0&&trap.rain==0))trap.markDirty();
     }
     @Override protected void writeNbt(NbtCompound nbt){super.writeNbt(nbt);if(captured!=null)nbt.putUuid("Captured",captured);nbt.putInt("Water",water);nbt.putInt("Rain",rain);}
     @Override public void readNbt(NbtCompound nbt){super.readNbt(nbt);captured=nbt.containsUuid("Captured")?nbt.getUuid("Captured"):null;water=Math.max(0,Math.min(72000,nbt.getInt("Water")));rain=Math.max(0,Math.min(72000,nbt.getInt("Rain")));}

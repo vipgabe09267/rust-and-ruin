@@ -36,7 +36,7 @@ public final class RustRuinJeiPlugin implements IModPlugin {
     public static void showCaltropRecipe() { activeRuntime.getRecipesGui().show(List.of(activeRuntime.getJeiHelpers().getFocusFactory().createFocus(RecipeIngredientRole.OUTPUT,VanillaTypes.ITEM_STACK,new ItemStack(ModBlocks.CALTROPS)))); }
     public static boolean hasPreventionRecipes() {
         var recipes=activeRuntime.getRecipeManager().createRecipeLookup(mezz.jei.api.constants.RecipeTypes.CRAFTING).includeHidden().get().toList();
-        return List.of("tetanus_vaccine","protective_gloves","field_guide").stream().allMatch(id->recipes.stream().anyMatch(recipe->recipe.getId().equals(TetanusMod.id(id))));
+        return List.of("tetanus_vaccine","protective_gloves","field_guide","veterinary_kit").stream().allMatch(id->recipes.stream().anyMatch(recipe->recipe.getId().equals(TetanusMod.id(id))));
     }
     public static void showVaccineRecipe(){activeRuntime.getRecipesGui().show(List.of(activeRuntime.getJeiHelpers().getFocusFactory().createFocus(RecipeIngredientRole.OUTPUT,VanillaTypes.ITEM_STACK,new ItemStack(ModItems.VACCINE))));}
     public static void showRustingRecipes() { if(activeRuntime!=null) activeRuntime.getRecipesGui().showTypes(List.of(RUSTING)); }
@@ -48,6 +48,12 @@ public final class RustRuinJeiPlugin implements IModPlugin {
     }
     @Override public void onRuntimeUnavailable() { activeRuntime=null;runtimeReady=false; }
     public record RustRecipe(Item input,Item output) { }
+    public record WaxRecipe(Item input) {
+        ItemStack output(){var stack=new ItemStack(input);com.tetanusmod.rust.RustCoating.coat(stack);return stack;}
+    }
+    public static final RecipeType<WaxRecipe> COATING=RecipeType.create("tetanusmod","coating",WaxRecipe.class);
+    public static void showCoating(){activeRuntime.getRecipesGui().showTypes(List.of(COATING));}
+    public static boolean hasCoating(){return activeRuntime!=null&&activeRuntime.getRecipeManager().createRecipeLookup(COATING).get().count()==9;}
     public static final RecipeType<RustRecipe> RUSTING = RecipeType.create("tetanusmod","rusting",RustRecipe.class);
     @Override public Identifier getPluginUid() { return TetanusMod.id("jei"); }
     public static final RecipeType<com.tetanusmod.expansion.RustArrowSmithingRecipe> ARROW_SMITHING=RecipeType.create("tetanusmod","rust_arrows",com.tetanusmod.expansion.RustArrowSmithingRecipe.class);
@@ -55,7 +61,7 @@ public final class RustRuinJeiPlugin implements IModPlugin {
     public static void showArrowSmithing(){activeRuntime.getRecipesGui().showTypes(List.of(ARROW_SMITHING));}
     @Override public void registerRecipeCatalysts(IRecipeCatalystRegistration registration){registration.addRecipeCatalyst(new ItemStack(Items.SMITHING_TABLE),ARROW_SMITHING);}
     @Override public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new RustCategory(registration.getJeiHelpers().getGuiHelper()),new ArrowCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new RustCategory(registration.getJeiHelpers().getGuiHelper()),new ArrowCategory(registration.getJeiHelpers().getGuiHelper()),new WaxCategory(registration.getJeiHelpers().getGuiHelper()));
     }
     @Override public void registerRecipes(IRecipeRegistration registration) {
         List<RustRecipe> recipes = new ArrayList<>();
@@ -64,6 +70,8 @@ public final class RustRuinJeiPlugin implements IModPlugin {
             if (rusty != null) recipes.add(new RustRecipe(item,rusty));
         }
         registration.addRecipes(RUSTING,recipes);
+        registration.addRecipes(COATING,recipes.stream().map(recipe->new WaxRecipe(recipe.input())).toList());
+        registration.addIngredientInfo(new ItemStack(Items.HONEYCOMB),VanillaTypes.ITEM_STACK,Text.translatable("jei.tetanusmod.coating"));
         registration.addRecipes(ARROW_SMITHING,List.of(new com.tetanusmod.expansion.RustArrowSmithingRecipe(TetanusMod.id("tetanized_arrow"))));
         registration.addIngredientInfo(new ItemStack(ModItems.WIRE_BRUSH),VanillaTypes.ITEM_STACK,Text.translatable("jei.tetanusmod.brush"));
         registration.addIngredientInfo(new ItemStack(ModItems.INFECTED_MEAT),VanillaTypes.ITEM_STACK,Text.translatable("jei.tetanusmod.meat"));
@@ -71,7 +79,7 @@ public final class RustRuinJeiPlugin implements IModPlugin {
     private static final class RustCategory implements IRecipeCategory<RustRecipe> {
         private final IDrawable background,icon;
         private RustCategory(IGuiHelper helper) {
-            background=helper.createBlankDrawable(178,70);
+            background=helper.createBlankDrawable(178,84);
             icon=helper.createDrawableItemStack(new ItemStack(ModItems.RUSTED_NAIL));
         }
         @Override public RecipeType<RustRecipe> getRecipeType() { return RUSTING; }
@@ -85,7 +93,8 @@ public final class RustRuinJeiPlugin implements IModPlugin {
         @Override public void draw(RustRecipe recipe,IRecipeSlotsView slots,DrawContext context,double mouseX,double mouseY) {
             var font=MinecraftClient.getInstance().textRenderer;
             context.drawText(font,Text.translatable("jei.tetanusmod.water",TetanusMod.CONFIG.waterRustTicks/20.0),35,12,0xFF6E3924,false);
-            context.drawText(font,Text.translatable("jei.tetanusmod.drop"),8,51,0xFF444444,false);
+            int lineY=51;
+            for(var line:font.wrapLines(Text.translatable("jei.tetanusmod.drop"),162)){context.drawText(font,line,8,lineY,0xFF444444,false);lineY+=font.fontHeight+1;}
             if (TetanusMod.CONFIG.rainRusting) context.drawText(font,Text.translatable("jei.tetanusmod.rain",TetanusMod.CONFIG.rainRustTicks/20.0),35,27,0xFF444444,false);
         }
     }
@@ -106,4 +115,25 @@ public final class RustRuinJeiPlugin implements IModPlugin {
             context.drawText(font,Text.translatable("jei.tetanusmod.batch_hint"),8,42,0xFF694026,false);
             context.drawText(font,Text.translatable("jei.tetanusmod.no_template"),8,57,0xFF444444,false);
         }
-    }}
+    }
+    private static final class WaxCategory implements IRecipeCategory<WaxRecipe> {
+        private final IDrawable background,icon;
+        WaxCategory(IGuiHelper helper){background=helper.createBlankDrawable(178,90);icon=helper.createDrawableItemStack(new ItemStack(Items.HONEYCOMB));}
+        public RecipeType<WaxRecipe> getRecipeType(){return COATING;}
+        public Text getTitle(){return Text.translatable("jei.tetanusmod.coating_title");}
+        public IDrawable getBackground(){return background;}
+        public IDrawable getIcon(){return icon;}
+        public void setRecipe(IRecipeLayoutBuilder builder,WaxRecipe recipe,IFocusGroup focuses){
+            builder.addSlot(RecipeIngredientRole.INPUT,8,8).addItemStack(new ItemStack(Items.HONEYCOMB));
+            builder.addSlot(RecipeIngredientRole.INPUT,70,8).addItemStack(new ItemStack(recipe.input()));
+            builder.addSlot(RecipeIngredientRole.OUTPUT,150,8).addItemStack(recipe.output());
+        }
+        public void draw(WaxRecipe recipe,IRecipeSlotsView slots,DrawContext context,double x,double y){
+            var font=MinecraftClient.getInstance().textRenderer;
+            context.drawText(font,Text.translatable("jei.tetanusmod.coating_use"),4,36,0xFF694026,false);
+            context.drawText(font,Text.translatable("jei.tetanusmod.coating_cost"),4,49,0xFF444444,false);
+            int lineY=62;
+            for(var line:font.wrapLines(Text.translatable("jei.tetanusmod.coating_wear",TetanusMod.CONFIG.coatingWeatherTicks/20),170)){context.drawText(font,line,4,lineY,0xFF444444,false);lineY+=font.fontHeight+1;}
+        }
+    }
+}

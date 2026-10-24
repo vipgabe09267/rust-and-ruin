@@ -1,0 +1,7 @@
+{
+    "Path":  "src/main/java/com/tetanusmod/mixin/GloveInventoryScreenMixin.java",
+    "Start":  1,
+    "End":  17,
+    "TotalLines":  17,
+    "SHA256AtRead":  "CF03525FB6770D30D734CE0FEBC98010846B7049D0CD426128B564110624D473"
+}

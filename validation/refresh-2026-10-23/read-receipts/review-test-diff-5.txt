@@ -1,0 +1,9 @@
+FILE src/gametest/java/com/tetanusmod/test/MaintenanceGameTests.java LINES 24-31 OF 251
+  24:         var before=TetanusMod.CONFIG;
+  25:         try {
+  26:             var config=ModConfig.fromJson("{\"naturalAnimalEasy\":0.9,\"naturalMobEasy\":0.123,\"spawnerEasy\":0.4,\"naturalAnimalHard\":4,\"naturalMobNormal\":-1,\"coatingWeatherTicks\":0}");
+  27:             TetanusMod.CONFIG=config;
+  28:             ctx.assertTrue(NaturalVariants.chance(Difficulty.EASY,false,true)==0.9F,"Animal rate ignored");
+  29:             ctx.assertTrue(NaturalVariants.chance(Difficulty.EASY,false,false)==0.123F,"Other mob rate changed");
+  30:             ctx.assertTrue(NaturalVariants.chance(Difficulty.EASY,true,true)==0.4F,"Spawner rate ignored");
+  31:             ctx.assertTrue(NaturalVariants.chance(Difficulty.PEACEFUL,true,true)==0,"Peaceful mutation enabled");

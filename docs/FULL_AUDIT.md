@@ -1,5 +1,7 @@
 # Complete project audit for user testing
 
+The October 19 follow-up reviewed all project source again and fixed the variant despawn fault, legacy saved persistence, weaker infection replacement, duration limits, movement validation, and command accounting. See the [follow-up audit](DESPAWN_AUDIT.md) and [source inventory](../validation/source-review.json).
+
 This audit covers the Rust & Ruin 0.1.0-beta expansion based on local commit `e2a2b39`. The owner authorized committing the tested expansion on October 18, 2026.
 
 ## Issues found and corrected
@@ -36,3 +38,8 @@ See [VALIDATION.md](../VALIDATION.md), [server XML](../validation/gametest-resul
 Automated tests and review reduce risk. They do not prove 100% correctness or cover arbitrary modpacks, every village terrain layout, every network condition, or long-running public-server load. Development runtime tests exercise the mod on dedicated and integrated servers; the remapped release JAR receives separate packaging/integrity checks. User playtesting of the release artifact remains the next step.
 
 Prioritize multiplayer combat and prevention, full-duration Tetanus II, Rabies progression/cure, glove death/logout behavior, naturally generated clinics, trap reset/rusting, batch smithing, and beacon payments. These playtesting priorities remain after the authorized commit.
+
+
+## Fresh numbered review and maintenance features
+
+The current review covers 166 source/build files and 8,950 lines. See [LINE_AUDIT.md](LINE_AUDIT.md) for actual read ranges, new findings, feature behavior and limits, plus [line-review.json](../validation/line-review.json) for the per-file hashes and read receipts. Automated file-format checks are recorded separately.

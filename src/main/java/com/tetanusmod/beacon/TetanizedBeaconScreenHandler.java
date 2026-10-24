@@ -24,8 +24,22 @@ public final class TetanizedBeaconScreenHandler extends BeaconScreenHandler {
         return location.get((world,pos)->world.getBlockState(pos).isOf(ModBeacons.BLOCK)&&player.squaredDistanceTo(pos.getX()+0.5,pos.getY()+0.5,pos.getZ()+0.5)<=64,true);
     }
     @Override public ItemStack quickMove(PlayerEntity player,int slot) {
-        if(slot>0 && !getSlot(slot).getStack().isOf(Items.NETHERITE_INGOT))return ItemStack.EMPTY;
-        return super.quickMove(player,slot);
+        if(slot<0||slot>=slots.size())return ItemStack.EMPTY;
+        Slot source=getSlot(slot);
+        if(!source.hasStack())return ItemStack.EMPTY;
+        ItemStack stack=source.getStack(),original=stack.copy();
+        if(slot==0){
+            if(!insertItem(stack,1,37,true))return ItemStack.EMPTY;
+        }else if(!getSlot(0).hasStack()&&getSlot(0).canInsert(stack)){
+            // The superclass keeps a private reference to its old payment slot. Use our actual slot.
+            if(!insertItem(stack,0,1,false))return ItemStack.EMPTY;
+        }else if(slot<28){
+            if(!insertItem(stack,28,37,false))return ItemStack.EMPTY;
+        }else if(!insertItem(stack,1,28,false))return ItemStack.EMPTY;
+        if(stack.isEmpty())source.setStack(ItemStack.EMPTY);else source.markDirty();
+        if(stack.getCount()==original.getCount())return ItemStack.EMPTY;
+        source.onTakeItem(player,stack);
+        return original;
     }
     @Override public void setEffects(Optional<StatusEffect> primary,Optional<StatusEffect> secondary) {
         if(getSlot(0).getStack().isOf(Items.NETHERITE_INGOT)

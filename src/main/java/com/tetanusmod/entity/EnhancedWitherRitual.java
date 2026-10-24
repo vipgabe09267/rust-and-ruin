@@ -11,13 +11,11 @@ public final class EnhancedWitherRitual {
         if(world.isClient||world.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL)return false;
         for(var axis:new Direction[]{Direction.EAST,Direction.SOUTH})for(int offset=-1;offset<=1;offset++) {
             BlockPos center=skull.down().offset(axis,offset);
-            if(!world.getBlockState(center).isOf(Blocks.NETHERITE_BLOCK)||!world.getBlockState(center.down()).isOf(ModBlocks.TETANIZED_SOUL_SAND))continue;
-            if(!world.getBlockState(center.offset(axis)).isOf(ModBlocks.TETANIZED_SOUL_SAND)||!world.getBlockState(center.offset(axis,-1)).isOf(ModBlocks.TETANIZED_SOUL_SAND))continue;
+            if(!baseMatches(world,center,axis))continue;
             boolean heads=true;
-            for(int x=-1;x<=1;x++)if(!world.getBlockState(center.up().offset(axis,x)).isOf(Blocks.WITHER_SKELETON_SKULL))heads=false;
+            for(int x=-1;x<=1;x++){var head=world.getBlockState(center.up().offset(axis,x));if(!head.isOf(Blocks.WITHER_SKELETON_SKULL)&&!head.isOf(Blocks.WITHER_SKELETON_WALL_SKULL))heads=false;}
             if(!heads)continue;
-            // The two lower corners must remain empty, as in the ordinary Wither ritual.
-            if(!world.isAir(center.down().offset(axis))||!world.isAir(center.down().offset(axis,-1)))continue;
+
             var wither=EntityType.WITHER.create(world);if(wither==null)return false;
             for(int x=-1;x<=1;x++){world.breakBlock(center.offset(axis,x),false);world.breakBlock(center.up().offset(axis,x),false);}
             world.breakBlock(center.down(),false);
@@ -28,5 +26,19 @@ public final class EnhancedWitherRitual {
             return true;
         }
         return false;
+    }
+    /** Mirrors the native dispenser's base-only check before it places the last skull. */
+    public static boolean canDispense(World world,BlockPos skull){
+        if(world.isClient||world.getDifficulty()==net.minecraft.world.Difficulty.PEACEFUL)return false;
+        for(var axis:new Direction[]{Direction.EAST,Direction.SOUTH})for(int offset=-1;offset<=1;offset++)
+            if(baseMatches(world,skull.down().offset(axis,offset),axis))return true;
+        return false;
+    }
+    private static boolean baseMatches(World world,BlockPos center,Direction axis){
+        return world.getBlockState(center).isOf(Blocks.NETHERITE_BLOCK)
+                &&world.getBlockState(center.down()).isOf(ModBlocks.TETANIZED_SOUL_SAND)
+                &&world.getBlockState(center.offset(axis)).isOf(ModBlocks.TETANIZED_SOUL_SAND)
+                &&world.getBlockState(center.offset(axis,-1)).isOf(ModBlocks.TETANIZED_SOUL_SAND)
+                &&world.isAir(center.down().offset(axis))&&world.isAir(center.down().offset(axis,-1));
     }
 }

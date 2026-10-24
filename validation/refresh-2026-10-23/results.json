@@ -1,0 +1,24 @@
+{
+    "Result":  "PASS",
+    "Version":  "0.1.0-beta",
+    "ServerTests":  231,
+    "PassingFullRuns":  2,
+    "Failures":  0,
+    "Errors":  0,
+    "Skipped":  0,
+    "ReviewedCodeFiles":  55,
+    "ManuallyInspectedLines":  2496,
+    "ResourcesRegeneratedIdentically":  357,
+    "Clients":  [
+                    "JEI",
+                    "REI light",
+                    "REI dark",
+                    "plain"
+                ],
+    "AudioDecode":  "source MP3 and packaged OGG passed",
+    "Whitespace":  "PASS",
+    "CommitOrPush":  false,
+    "Jar":  "build/libs/rust-and-ruin-0.1.0-beta.jar",
+    "JarSHA256":  "DFA231BD0A3462776FF5157C96DA3F2F91CCCCF8D03510AFF1D7971F00DC96F4",
+    "OwnerTesting":  "Required: actual multiplayer server and backed-up survival world; no 100% bug-free guarantee"
+}

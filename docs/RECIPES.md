@@ -136,3 +136,32 @@ Non-novice offers participate in ordinary random trade selection. Clinics are we
 Apply **Tetanus Protection** to a shield at an anvil. While held, it reduces infection risk from Tetanus I by 65% or Tetanus II by 40%, stacking with other applicable prevention. An actual shield block prevents the attack itself. Tetanus I/II can be applied to swords, axes, spears, industrial melee weapons, bows, crossbows, and tridents.
 
 The active Tetanized Beacon grants Tetanus Resistance automatically, independent of the selected effect. Its normal II powers and full-pyramid III upgrade use netherite payments. It has separate placement/full-activation advancements and does not complete vanilla beacon advancements.
+## Veterinary care and wax coating
+
+Veterinary Kit, crafting table:
+
+```text
+Leather        Golden Apple   Leather
+Antitoxin      Rabies Cure    Antitoxin
+(empty)        String         (empty)
+```
+
+Produces one single-use kit. Right-click a permanently tetanized or rabid animal to cure its mutation and earn **Clean Bill of Health**. Healthy animals, hostile mobs, players, spectators, and empty kits cannot consume treatment. Existing names, ownership, and vanilla persistence rules remain.
+
+Waxing uses no crafting station: hold honeycomb in one hand and clean, supported metal in the other, then use the honeycomb. Cost: one honeycomb per item in the metal stack. Protection: 12000 wet-weather ticks by default, plus 20 ticks spent per point of durability use. Only dropped equipment weathers; coatings do not transfer to placed traps. View both inputs and the coated output in JEI/REI's Wax coating category.
+
+## Medic supply requests and workshop salvage
+
+Each medic rotates among 16 paper, 3 honey bottles, 8 glow berries, and 8 white wool, offset by its UUID. Sneak and right-click to view or hand in the request. One delivery is accepted per medic per 24000 world ticks, shared between players. Honey bottles return their glass bottles. The reward is 30 minor-positive reputation with that medic, used by vanilla trade discounts and decay. Discounts do not refresh daily stock or bypass ordinary trade limits.
+
+Abandoned workshop barrels roll 3-5 rewards from Rust, copper, string, coal, rusty nails, a worn rusty rebar, or rare antitoxin/veterinary kits. Naturally placed workshops use a 32-chunk random-spread grid with 16-chunk separation in eight temperate Overworld biomes. Like other structures, exploration availability depends on seed and previously generated chunks.
+
+## Current disease and medic behavior
+
+Raw Infected Meat causes Salmonella only (100% by default, configurable); raw Rabid Meat causes Rabies and immediate nausea unless a Rabies vaccine prevents infection. Cooking either is safe. Temporary Tetanus never changes animal drops. Rabies itself deals no damage and will not reduce maximum health below two hearts.
+
+Medicine Cabinet crafting is unchanged. The placed block is now two blocks tall; leave headroom. Right-click a legacy one-block cabinet to upgrade it if the space above is empty. Both halves form one villager job site and breaking either returns one cabinet.
+
+Gloves still have 192 durability; Unbreaking reduces wear, and Mending repairs them from XP while in the dedicated slot. A Veterinary Kit now produces treatment particles and a sound.
+
+Village clinic chests roll 3-5 ordinary supplies: apples, bread, torches, paper, iron, emeralds, or occasional golden apples. Cave camps use the same modest supply pool. Their medic has the ordinary medic trades; the golem is a defender, not an extra loot reward.

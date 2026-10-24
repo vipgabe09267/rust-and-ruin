@@ -14,6 +14,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class GlovePlayerMixin implements GloveInventory {
     @Unique private SimpleInventory rustruin$gloveInventory;
+    @Unique private static final net.minecraft.entity.data.TrackedData<ItemStack> RUST_RUIN_GLOVES=
+            net.minecraft.entity.data.DataTracker.registerData(PlayerEntity.class,net.minecraft.entity.data.TrackedDataHandlerRegistry.ITEM_STACK);
+    public ItemStack rustruin$visualGloves(){return ((PlayerEntity)(Object)this).getDataTracker().get(RUST_RUIN_GLOVES);}
+    @Inject(method="initDataTracker",at=@At("TAIL"))
+    private void trackGloves(CallbackInfo ci){((PlayerEntity)(Object)this).getDataTracker().startTracking(RUST_RUIN_GLOVES,ItemStack.EMPTY);}
+    @Inject(method="tick",at=@At("TAIL"))
+    private void syncGloves(CallbackInfo ci){
+        var self=(PlayerEntity)(Object)this;if(self.getWorld().isClient)return;
+        var equipped=rustruin$gloves().getStack(0);
+        if(!ItemStack.areEqual(equipped,rustruin$visualGloves()))self.getDataTracker().set(RUST_RUIN_GLOVES,equipped.copy());
+    }
     public SimpleInventory rustruin$gloves(){
         if(rustruin$gloveInventory==null)rustruin$gloveInventory=new SimpleInventory(1);
         return rustruin$gloveInventory;

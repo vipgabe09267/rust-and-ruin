@@ -32,6 +32,7 @@ public final class AntitoxinItem extends Item {
     }
     @Override public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if(world.isClient || stack.isEmpty() || !stack.isOf(this) || !user.isAlive() || user.isSpectator())return stack;
+        MedicineConsumption.record(user,stack);
         {
             boolean ill=user.hasStatusEffect(TetanusMod.TETANUS)||user.hasStatusEffect(TetanusMod.LOCKJAW);
             if(ill&&user instanceof net.minecraft.server.network.ServerPlayerEntity player)com.tetanusmod.registry.ModAdvancements.award(player,"antitoxin","cure_tetanus");

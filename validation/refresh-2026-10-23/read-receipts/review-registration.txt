@@ -1,0 +1,362 @@
+FILE src/main/java/com/tetanusmod/mixin/ExpansionMobMixin.java LINES 1-28 OF 28
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.expansion.*;
+   4: import net.minecraft.entity.*;
+   5: import net.minecraft.entity.ai.goal.GoalSelector;
+   6: import net.minecraft.entity.mob.MobEntity;
+   7: import net.minecraft.nbt.NbtCompound;
+   8: import net.minecraft.world.*;
+   9: import org.spongepowered.asm.mixin.*;
+  10: import org.spongepowered.asm.mixin.injection.*;
+  11: import org.spongepowered.asm.mixin.injection.callback.*;
+  12: 
+  13: @Mixin(MobEntity.class)
+  14: public abstract class ExpansionMobMixin implements Rabies.MobGoals {
+  15:     @Shadow protected GoalSelector goalSelector;
+  16:     @Shadow private boolean persistent;
+  17:     @Inject(method="readCustomDataFromNbt",at=@At("TAIL"))
+  18:     private void repairLegacyPersistence(NbtCompound nbt,CallbackInfo ci) {
+  19:         if (com.tetanusmod.entity.VariantPersistence.repairLegacy((MobEntity)(Object)this,nbt)) persistent=false;
+  20:     }
+  21:     @Inject(method="writeCustomDataToNbt",at=@At("TAIL"))
+  22:     private void saveDespawnRules(NbtCompound nbt,CallbackInfo ci) {
+  23:         nbt.putInt(com.tetanusmod.entity.VariantPersistence.RULES_KEY,com.tetanusmod.entity.VariantPersistence.RULES_VERSION);
+  24:     }
+  25:     public GoalSelector rustruin$goals(){return goalSelector;}
+  26:     @Inject(method="initialize",at=@At("RETURN"))private void natural(ServerWorldAccess world,LocalDifficulty difficulty,SpawnReason reason,EntityData data,NbtCompound nbt,CallbackInfoReturnable<EntityData> result){NaturalVariants.spawned((MobEntity)(Object)this,reason);MobEquipment.spawned((MobEntity)(Object)this,reason);}
+  27:     @Inject(method="tryAttack",at=@At("HEAD"),cancellable=true)private void miss(Entity target,CallbackInfoReturnable<Boolean> result){var self=(MobEntity)(Object)this;if(self.hasStatusEffect(ExpansionEffects.DISORIENTED)&&self.getRandom().nextFloat()<0.45F)result.setReturnValue(false);}
+  28: }
+FILE src/main/java/com/tetanusmod/expansion/MedicVillage.java LINES 1-40 OF 40
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import com.google.common.collect.ImmutableSet;
+   4: import com.mojang.datafixers.util.Pair;
+   5: import com.tetanusmod.TetanusMod;
+   6: import com.tetanusmod.registry.ModItems;
+   7: import com.tetanusmod.mixin.StructurePoolAccessor;
+   8: import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
+   9: import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+  10: import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+  11: import net.minecraft.item.*;
+  12: import net.minecraft.registry.*;
+  13: import net.minecraft.sound.SoundEvents;
+  14: import net.minecraft.structure.pool.*;
+  15: import net.minecraft.village.*;
+  16: import net.minecraft.world.poi.PointOfInterestType;
+  17: 
+  18: public final class MedicVillage {
+  19:     public static final RegistryKey<PointOfInterestType> JOB_KEY=RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE,TetanusMod.id("medic"));
+  20:     public static final PointOfInterestType JOB=PointOfInterestHelper.register(TetanusMod.id("medic"),1,1,ExpansionBlocks.MEDIC_CABINET.getStateManager().getStates().stream().filter(state->state.get(net.minecraft.block.DoorBlock.HALF)==net.minecraft.block.enums.DoubleBlockHalf.LOWER).toList());
+  21:     public static final VillagerProfession MEDIC=Registry.register(Registries.VILLAGER_PROFESSION,TetanusMod.id("medic"),new VillagerProfession("medic",entry->entry.matchesKey(JOB_KEY),entry->entry.matchesKey(JOB_KEY),ImmutableSet.of(Items.HONEY_BOTTLE,Items.PAPER),ImmutableSet.of(),SoundEvents.BLOCK_BREWING_STAND_BREW));
+  22:     private static TradeOffers.Factory sell(Item item,int price,int count,int xp){return (entity,random)->new TradeOffer(new ItemStack(Items.EMERALD,price),new ItemStack(item,count),12,xp,0.05F);}
+  23:     public static void initialize(){
+  24:         TradeOfferHelper.registerVillagerOffers(MEDIC,1,trades->{
+  25:             trades.add(sell(ModItems.ANTITOXIN,6,1,2));trades.add(sell(ModItems.VACCINE,8,1,2));trades.add(sell(ModItems.PROTECTIVE_GLOVES,6,1,2));
+  26:             trades.add(sell(ExpansionItems.RABIES_CURE,10,1,2));trades.add(sell(ExpansionItems.RABIES_VACCINE,12,1,2));
+  27:         });
+  28:         TradeOfferHelper.registerVillagerOffers(MEDIC,2,trades->{trades.add(sell(ExpansionBlocks.MEDIC_CABINET.asItem(),5,1,10));trades.add((entity,random)->new TradeOffer(new ItemStack(Items.HONEY_BOTTLE,3),new ItemStack(Items.EMERALD),12,5,0.05F));});
+  29:         TradeOfferHelper.registerVillagerOffers(MEDIC,3,trades->trades.add((entity,random)->new TradeOffer(new ItemStack(Items.EMERALD,16),EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(ExpansionItems.TETANUS_PROTECTION,1)),5,15,0.2F)));
+  30:         TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH,2,trades->{trades.add(sell(ModItems.WIRE_BRUSH,4,1,5));trades.add(sell(ExpansionItems.TRAP_RESET_TOOL,4,1,5));});
+  31:         TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH,2,trades->{trades.add(sell(ExpansionItems.SPEAR,7,1,5));trades.add(sell(ExpansionItems.RUSTED_SPEAR,9,1,5));trades.add(sell(ModItems.REBAR,3,1,5));trades.add(sell(ModItems.RUSTED_REBAR,4,1,5));});
+  32:         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER,2,trades->{trades.add(sell(ExpansionBlocks.BEAR_TRAP.asItem(),6,1,5));trades.add(sell(ExpansionBlocks.RUSTED_BEAR_TRAP.asItem(),7,1,5));});
+  33:         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FISHERMAN,2,trades->trades.add(sell(ModItems.RUSTY_FISHING_HOOK,3,1,5)));
+  34:         // Clinics now use a separately locatable structure with a 55% village-grid roll.
+  35:     }
+  36:     public static void ensureStarterTrades(net.minecraft.entity.passive.VillagerEntity medic){
+  37:         if(medic.getVillagerData().getProfession()!=MEDIC||medic.getVillagerData().getLevel()!=1)return;
+  38:         var offers=medic.getOffers();Item[] items={ModItems.ANTITOXIN,ModItems.VACCINE,ModItems.PROTECTIVE_GLOVES,ExpansionItems.RABIES_CURE,ExpansionItems.RABIES_VACCINE};int[] prices={6,8,6,10,12};
+  39:         for(int i=0;i<items.length;i++){Item item=items[i];if(offers.stream().noneMatch(offer->offer.getSellItem().isOf(item)))offers.add(new TradeOffer(new ItemStack(Items.EMERALD,prices[i]),new ItemStack(item),12,2,0.05F));}
+  40:     }}
+FILE src/main/java/com/tetanusmod/expansion/CombatInfection.java LINES 1-55 OF 55
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import com.tetanusmod.effect.*;
+   5: import com.tetanusmod.entity.*;
+   6: import com.tetanusmod.registry.ModItems;
+   7: import net.minecraft.enchantment.EnchantmentHelper;
+   8: import net.minecraft.entity.*;
+   9: import net.minecraft.entity.damage.DamageSource;
+  10: import net.minecraft.entity.effect.StatusEffectInstance;
+  11: import net.minecraft.entity.projectile.ProjectileEntity;
+  12: import net.minecraft.item.ItemStack;
+  13: 
+  14: public final class CombatInfection {
+  15:     public interface RangedCarrier {int rustruin$weaponLevel();void rustruin$weaponLevel(int level);}
+  16:     public static void prepare(Entity projectile,ItemStack weapon){if(projectile instanceof RangedCarrier carrier)carrier.rustruin$weaponLevel(EnchantmentHelper.getLevel(ModItems.TETANUS_ENCHANTMENT,weapon));}
+  17:     public static boolean infectious(DamageSource source){
+  18:         if(level(source)>0||source.getSource() instanceof TetanizedArrowEntity)return true;
+  19:         if(source.getSource() instanceof NailEntity nail&&nail.getStack().getItem() instanceof com.tetanusmod.item.NailItem item)return item.isRusty();
+  20:         if(source.getSource()==source.getAttacker()&&source.getAttacker() instanceof LivingEntity attacker){
+  21:             var item=attacker.getMainHandStack().getItem();
+  22:             return item instanceof com.tetanusmod.item.RebarItem rebar&&rebar.isRusty()
+  23:                     ||item instanceof SpearItem spear&&spear.rusty()||com.tetanusmod.registry.ModIronTools.isRusted(item);
+  24:         }
+  25:         return false;
+  26:     }
+  27:     public static int level(DamageSource source){
+  28:         if(source.getSource() instanceof RangedCarrier carrier)return carrier.rustruin$weaponLevel();
+  29:         return source.getAttacker() instanceof LivingEntity attacker?EnchantmentHelper.getLevel(ModItems.TETANUS_ENCHANTMENT,attacker.getMainHandStack()):0;
+  30:     }
+  31:     public static boolean expose(LivingEntity target,Entity source,int level,boolean weakArrow){
+  32:         return expose(target,source,level,weakArrow,false);
+  33:     }
+  34:     private static boolean expose(LivingEntity target,Entity source,int level,boolean weakArrow,boolean combined){
+  35:         if(target.getWorld().isClient||!target.isAlive()||!InfectionProtection.allows(target,true,target.getRandom().nextFloat(),level))return false;
+  36:         int ticks=(TetanusMod.CONFIG.minDurationSeconds+target.getRandom().nextInt(TetanusMod.CONFIG.maxDurationSeconds-TetanusMod.CONFIG.minDurationSeconds+1))*20;
+  37:         if(weakArrow)ticks=1200;
+  38:         // Extend this hit's rolled duration, never repeatedly multiply the existing infection.
+  39:         if(combined)ticks+=ticks/4;
+  40:         boolean applied=Infection.applyDurationChecked(target,source,ticks,level>=2?1:0);
+  41:         var infection=target.getStatusEffect(TetanusMod.TETANUS);
+  42:         if(applied&&infection!=null&&infection.getAmplifier()>=1){
+  43:             target.addStatusEffect(new StatusEffectInstance(ExpansionEffects.DISORIENTED,infection.getDuration()),source);
+  44:         }
+  45:         if(applied)MobVariants.projectileExposure(target,source);
+  46:         return applied;
+  47:     }
+  48:     public static void rangedHit(LivingEntity target,DamageSource source){
+  49:         if(!(source.getSource() instanceof ProjectileEntity projectile))return;
+  50:         int level=projectile instanceof RangedCarrier carrier?carrier.rustruin$weaponLevel():0;
+  51:         boolean rusty=projectile instanceof TetanizedArrowEntity;
+  52:         if(level==0&&!rusty)return;
+  53:         expose(target,projectile.getOwner(),level,level==0,rusty&&level>0);
+  54:     }
+  55: }
+FILE src/main/java/com/tetanusmod/mixin/CreativeGloveScreenMixin.java LINES 1-29 OF 29
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import net.minecraft.client.gui.DrawContext;
+   4: import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
+   5: import net.minecraft.client.MinecraftClient;
+   6: import net.minecraft.item.ItemGroup;
+   7: import net.minecraft.screen.slot.Slot;
+   8: import org.spongepowered.asm.mixin.*;
+   9: import org.spongepowered.asm.mixin.injection.*;
+  10: import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+  11: 
+  12: @Mixin(CreativeInventoryScreen.class)
+  13: public abstract class CreativeGloveScreenMixin {
+  14:     @Shadow public abstract boolean isInventoryTabSelected();
+  15: 
+  16:     @Inject(method="setSelectedTab",at=@At("TAIL"))
+  17:     private void placeGloves(ItemGroup group,CallbackInfo ci){
+  18:         var player=MinecraftClient.getInstance().player;
+  19:         if(group.getType()!=ItemGroup.Type.INVENTORY||player==null)return;
+  20:         // Vanilla positions every extra slot as another hotbar slot. Reposition just our wrapper.
+  21:         var slots=((CreativeInventoryScreen)(Object)this).getScreenHandler().slots;if(slots.size()>46){Slot slot=slots.get(46);((SlotPositionAccessor)slot).rustruin$x(136);((SlotPositionAccessor)slot).rustruin$y(20);}
+  22:     }
+  23:     @Inject(method="drawBackground",at=@At("TAIL"))
+  24:     private void frame(DrawContext context,float delta,int mouseX,int mouseY,CallbackInfo ci){
+  25:         if(!isInventoryTabSelected())return;
+  26:         var self=(CreativeInventoryScreen)(Object)this;int left=(self.width-195)/2+135,top=(self.height-136)/2+19;
+  27:         com.tetanusmod.client.GloveSlotFrame.draw(context,left,top,self.getScreenHandler().getSlot(46).getStack().isEmpty());
+  28:     }
+  29: }
+FILE src/main/java/com/tetanusmod/mixin/GloveInventoryScreenMixin.java LINES 1-17 OF 17
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import net.minecraft.client.gui.DrawContext;
+   4: import net.minecraft.client.gui.screen.ingame.InventoryScreen;
+   5: import org.spongepowered.asm.mixin.*;
+   6: import org.spongepowered.asm.mixin.injection.*;
+   7: import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+   8: 
+   9: @Mixin(InventoryScreen.class)
+  10: public abstract class GloveInventoryScreenMixin extends net.minecraft.client.gui.screen.ingame.HandledScreen<net.minecraft.screen.PlayerScreenHandler> {
+  11:     protected GloveInventoryScreenMixin(){super(null,null,net.minecraft.text.Text.empty());}
+  12:     @Inject(method="drawBackground",at=@At("TAIL"))
+  13:     private void gloveSlot(DrawContext context,float delta,int mouseX,int mouseY,CallbackInfo ci){
+  14:         int left=x+76,top=y+43;
+  15:         com.tetanusmod.client.GloveSlotFrame.draw(context,left,top,handler.getSlot(46).getStack().isEmpty());
+  16:     }
+  17: }
+FILE src/main/java/com/tetanusmod/client/TetanusClient.java LINES 1-88 OF 88
+   1: package com.tetanusmod.client;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import net.fabricmc.api.ClientModInitializer;
+   5: import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+   6: import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+   7: import com.tetanusmod.config.ModConfig;
+   8: import com.tetanusmod.effect.Infection;
+   9: import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+  10: import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+  11: import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+  12: import net.minecraft.util.Hand;
+  13: 
+  14: public final class TetanusClient implements ClientModInitializer {
+  15:     @SuppressWarnings({"rawtypes","unchecked"})
+  16:     private static void registerBeacon() {
+  17:         net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry.register((net.minecraft.block.entity.BlockEntityType)com.tetanusmod.beacon.ModBeacons.ENTITY,(net.minecraft.client.render.block.entity.BlockEntityRendererFactory<net.minecraft.block.entity.BeaconBlockEntity>)net.minecraft.client.render.block.entity.BeaconBlockEntityRenderer::new);
+  18:         net.minecraft.client.gui.screen.ingame.HandledScreens.<net.minecraft.screen.BeaconScreenHandler,TetanizedBeaconScreen>register((net.minecraft.screen.ScreenHandlerType<net.minecraft.screen.BeaconScreenHandler>)(Object)com.tetanusmod.beacon.ModBeacons.SCREEN,
+  19:             (handler,inventory,title)->new TetanizedBeaconScreen((com.tetanusmod.beacon.TetanizedBeaconScreenHandler)handler,inventory,title));
+  20:     }
+  21:     private int twitchTicks;
+  22:     private float previousOffset;
+  23:     private float amplitude;
+  24:     @Override
+  25:     public void onInitializeClient() {
+  26:         EntityRendererRegistry.register(TetanusMod.NAIL_ENTITY, FlyingItemEntityRenderer::new);
+  27:         TetanusMod.LOCKJAW_GESTURE=LockjawAttempt::begin;
+  28:         registerBeacon();
+  29:         net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback.EVENT.register((type,renderer,helper,context)->{
+  30:             if(renderer instanceof net.minecraft.client.render.entity.PlayerEntityRenderer player)helper.register(new GlovesFeatureRenderer(player));
+  31:         });
+  32:         net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlock(com.tetanusmod.expansion.ExpansionBlocks.MEDIC_CABINET,net.minecraft.client.render.RenderLayer.getCutout());
+  33:         net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
+  34:             int coating = com.tetanusmod.rust.RustCoating.remaining(stack);
+  35:             if (coating > 0) lines.add(net.minecraft.text.Text.translatable("tooltip.tetanusmod.coating", (coating + 19) / 20).formatted(net.minecraft.util.Formatting.GOLD));
+  36:         });
+  37:         com.tetanusmod.item.FieldGuideItem.open=()->net.minecraft.client.MinecraftClient.getInstance().setScreen(new FieldGuideScreen());
+  38:         InfectedPlayerList.initialize();
+  39:         RabidPlayerList.initialize();
+  40:         net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry.ITEM.register((stack,tint)->((com.tetanusmod.expansion.VariantSpawnEggItem)stack.getItem()).color(tint),com.tetanusmod.registry.ModItems.ALL.stream().filter(item->item instanceof com.tetanusmod.expansion.VariantSpawnEggItem).toArray(net.minecraft.item.Item[]::new));
+  41:         net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlock(com.tetanusmod.beacon.ModBeacons.BLOCK,net.minecraft.client.render.RenderLayer.getTranslucent());
+  42:         net.fabricmc.fabric.api.resource.ResourceManagerHelper.get(net.minecraft.resource.ResourceType.CLIENT_RESOURCES).registerReloadListener(new net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener() {
+  43:             public net.minecraft.util.Identifier getFabricId(){return TetanusMod.id("tetanized_textures");}
+  44:             public void reload(net.minecraft.resource.ResourceManager manager){TetanizedTextures.clear();}
+  45:         });
+  46:         EntityRendererRegistry.register(TetanusMod.TETANIZED_ARROW_ENTITY,TetanizedArrowRenderer::new);
+  47: 
+  48: 
+  49:         ModConfig local = TetanusMod.CONFIG;
+  50:         ClientPlayNetworking.registerGlobalReceiver(TetanusMod.CONFIG_PACKET, (client, handler, packet, sender) -> {
+  51:             try {
+  52:                 var config=com.tetanusmod.network.ModPacketDecoder.config(packet);
+  53:                 client.execute(()->TetanusMod.CONFIG=config);
+  54:             }catch(RuntimeException invalid){ClientPacketWarnings.invalid();}
+  55:         });
+  56:         ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> {
+  57:             TetanusMod.CONFIG = local;
+  58:             ClientPacketWarnings.reset();
+  59:             twitchTicks = 0;
+  60:             previousOffset = 0;
+  61:             LockjawAttempt.clear();
+  62:         });
+  63:         ClientPlayNetworking.registerGlobalReceiver(Infection.SYMPTOM_PACKET, (client, handler, packet, sender) -> {
+  64:             final com.tetanusmod.network.ModPacketDecoder.Symptom symptom;
+  65:             try{symptom=com.tetanusmod.network.ModPacketDecoder.symptom(packet);}catch(RuntimeException invalid){ClientPacketWarnings.invalid();return;}
+  66:             int stage=symptom.stage();boolean enabled=symptom.shaking();
+  67:             client.execute(() -> {
+  68:                 if (client.player == null) return;
+  69:                 client.player.swingHand(Hand.MAIN_HAND);
+  70:                 if (enabled && local.cameraShaking && twitchTicks == 0) {
+  71:                     amplitude = (0.15F + Math.min(stage, 2) * 0.15F) * (client.player.getRandom().nextBoolean() ? 1 : -1);
+  72:                     twitchTicks = 6;
+  73:                 }
+  74:             });
+  75:         });
+  76:         ClientTickEvents.END_CLIENT_TICK.register(client -> {
+  77:             LockjawAttempt.tick();
+  78:             if (client.player == null) { twitchTicks = 0; previousOffset = 0; LockjawAttempt.clear(); return; }
+  79:             if (twitchTicks > 0 || previousOffset != 0) {
+  80:                 float offset = twitchTicks > 0 ? (float) Math.sin((6 - twitchTicks) * Math.PI / 3) * amplitude : 0;
+  81:                 client.player.setYaw(client.player.getYaw() + offset - previousOffset);
+  82:                 previousOffset = offset;
+  83:                 if (twitchTicks > 0) twitchTicks--;
+  84:             }
+  85:         });
+  86:     }
+  87: }
+  88: 
+FILE src/main/java/com/tetanusmod/TetanusMod.java LINES 1-98 OF 98
+   1: package com.tetanusmod;
+   2: 
+   3: import com.tetanusmod.effect.TetanusEffect;
+   4: import com.tetanusmod.entity.NailEntity;
+   5: import com.tetanusmod.item.NailItem;
+   6: import com.tetanusmod.item.RebarItem;
+   7: import net.fabricmc.api.ModInitializer;
+   8: import com.tetanusmod.config.ModConfig;
+   9: import com.tetanusmod.effect.InfectionState;
+  10: import com.tetanusmod.registry.ModItems;
+  11: import net.fabricmc.fabric.api.event.player.UseItemCallback;
+  12: import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+  13: import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+  14: import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+  15: import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+  16: import net.minecraft.entity.EntityDimensions;
+  17: import net.minecraft.entity.EntityType;
+  18: import net.minecraft.entity.SpawnGroup;
+  19: import net.minecraft.entity.effect.StatusEffect;
+  20: import net.minecraft.item.Item;
+  21: import net.minecraft.item.ItemGroups;
+  22: import net.minecraft.registry.Registries;
+  23: import net.minecraft.registry.Registry;
+  24: import net.minecraft.util.Identifier;
+  25: 
+  26: public final class TetanusMod implements ModInitializer {
+  27:     public static final String MOD_ID = "tetanusmod";
+  28:     public static ModConfig CONFIG = ModConfig.load();
+  29:     public static final Identifier CONFIG_PACKET = id("config");
+  30:     public static final StatusEffect TETANUS = Registry.register(
+  31:             Registries.STATUS_EFFECT, id("tetanus"), new TetanusEffect());
+  32:     public static final StatusEffect VACCINATED=Registry.register(Registries.STATUS_EFFECT,id("tetanus_resistance"),new com.tetanusmod.effect.VaccinationEffect());
+  33:     public static final StatusEffect LOCKJAW=Registry.register(Registries.STATUS_EFFECT,id("lockjaw"),new com.tetanusmod.effect.LockjawEffect());
+  34:     public static final StatusEffect SALMONELLA=Registry.register(Registries.STATUS_EFFECT,id("salmonella"),new com.tetanusmod.effect.SalmonellaEffect());
+  35:     public static java.util.function.Consumer<net.minecraft.util.Hand> LOCKJAW_GESTURE=hand->{};
+  36:     public static final Item NAIL = ModItems.NAIL;
+  37:     public static final Item RUSTED_NAIL = ModItems.RUSTED_NAIL;
+  38:     public static final Item REBAR = ModItems.REBAR;
+  39:     public static final Item RUSTED_REBAR = ModItems.RUSTED_REBAR;
+  40:     public static final net.minecraft.sound.SoundEvent SPASM_SOUND = Registry.register(Registries.SOUND_EVENT,
+  41:             id("spasm"), net.minecraft.sound.SoundEvent.of(id("spasm")));
+  42:     public static final net.minecraft.sound.SoundEvent INFECTION_SOUND = Registry.register(Registries.SOUND_EVENT,
+  43:             id("tetanus_effect"), net.minecraft.sound.SoundEvent.of(id("tetanus_effect")));
+  44:     public static final net.minecraft.sound.SoundEvent VOMIT_SOUND=Registry.register(Registries.SOUND_EVENT,id("vomit"),net.minecraft.sound.SoundEvent.of(id("vomit")));
+  45:     public static final EntityType<NailEntity> NAIL_ENTITY = Registry.register(
+  46:             Registries.ENTITY_TYPE, id("nail"),
+  47:             FabricEntityTypeBuilder.<NailEntity>create(SpawnGroup.MISC, NailEntity::new)
+  48:                     .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+  49:                     .trackRangeBlocks(64).trackedUpdateRate(10).build());
+  50:     public static final EntityType<com.tetanusmod.entity.TetanizedArrowEntity> TETANIZED_ARROW_ENTITY = Registry.register(
+  51:             Registries.ENTITY_TYPE, id("tetanized_arrow"), FabricEntityTypeBuilder
+  52:                     .<com.tetanusmod.entity.TetanizedArrowEntity>create(SpawnGroup.MISC, com.tetanusmod.entity.TetanizedArrowEntity::new)
+  53:                     .dimensions(EntityDimensions.fixed(0.5F,0.5F)).trackRangeBlocks(64).trackedUpdateRate(20).build());
+  54: 
+  55:     public static Identifier id(String path) { return new Identifier(MOD_ID, path); }
+  56: 
+  57:     private static Item register(String name, Item item) {
+  58:         return Registry.register(Registries.ITEM, id(name), item);
+  59:     }
+  60: 
+  61:     @Override
+  62:     public void onInitialize() {
+  63:         com.tetanusmod.expansion.ExpansionEffects.initialize();
+  64:         ModItems.initialize();
+  65:         com.tetanusmod.world.MedicStructures.initialize();
+  66:         com.tetanusmod.command.DiseaseCommands.initialize();
+  67:         com.tetanusmod.rust.RustCoating.initialize();
+  68:         com.tetanusmod.expansion.MedicSupplies.initialize();
+  69:         com.tetanusmod.expansion.RustArrowSmithingRecipe.initialize();
+  70:         com.tetanusmod.expansion.MedicVillage.initialize();
+  71:         com.tetanusmod.registry.ModBrewing.initialize();
+  72:         com.tetanusmod.beacon.ModBeacons.initialize();
+  73:         com.tetanusmod.entity.RustGolems.initialize();
+  74:         com.tetanusmod.effect.InfectionPresence.initialize();
+  75:         com.tetanusmod.expansion.RabiesPresence.initialize();
+  76:         com.tetanusmod.command.RustRuinCommands.initialize();
+  77:         net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
+  78:             if (entity instanceof net.minecraft.entity.LivingEntity living) {com.tetanusmod.entity.MobVariants.loaded(living);com.tetanusmod.expansion.Rabies.loaded(living);}
+  79:         });
+  80:         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+  81:             if (ServerPlayNetworking.canSend(handler.player, CONFIG_PACKET)) {
+  82:                 var packet = PacketByteBufs.create();
+  83:                 packet.writeString(new com.google.gson.Gson().toJson(CONFIG));
+  84:                 ServerPlayNetworking.send(handler.player, CONFIG_PACKET, packet);
+  85:             }
+  86:         });
+  87:         UseItemCallback.EVENT.register((player, world, hand) -> {
+  88:             var stack = player.getStackInHand(hand);
+  89:             if (stack.isFood() && (player.hasStatusEffect(LOCKJAW) || ((InfectionState) player).tetanus$getLockjaw() > 0)) {
+  90:                 if(world.isClient)LOCKJAW_GESTURE.accept(hand);
+  91:                 if(!world.isClient)player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.lockjaw"),true);
+  92:                 return net.minecraft.util.TypedActionResult.fail(stack);
+  93:             }
+  94:             return net.minecraft.util.TypedActionResult.pass(stack);
+  95:         });
+  96:     }
+  97: }
+  98: 

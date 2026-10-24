@@ -1,0 +1,1 @@
+PASS: restored exact original REI smoke-test config bytes

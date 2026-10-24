@@ -12,7 +12,7 @@ public final class InfectedPlayerList {
             final com.tetanusmod.network.ModPacketDecoder.Presence presence;
             try{presence=com.tetanusmod.network.ModPacketDecoder.presence(buffer);}catch(RuntimeException invalid){ClientPacketWarnings.invalid();return;}
             UUID uuid=presence.player();boolean infected=presence.infected();
-            client.execute(()->{if(infected){if(INFECTED.size()<4096)INFECTED.add(uuid);}else INFECTED.remove(uuid);});
+            client.execute(()->{if(client.getNetworkHandler()!=handler)return;if(infected){if(INFECTED.size()<4096)INFECTED.add(uuid);}else INFECTED.remove(uuid);});
         });
         ClientPlayConnectionEvents.DISCONNECT.register((handler,client)->INFECTED.clear());
     }

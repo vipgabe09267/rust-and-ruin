@@ -13,7 +13,7 @@ public final class SalmonellaEffect extends StatusEffect {
             entity.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA,160));
     }
     public SalmonellaEffect(){super(StatusEffectCategory.HARMFUL,0x79833A);}
-    @Override public boolean canApplyUpdateEffect(int duration,int amplifier){return duration>0&&duration<1200&&duration%200==0;}
+    @Override public boolean canApplyUpdateEffect(int duration,int amplifier){return duration>0&&duration%200==0;}
     @Override public void applyUpdateEffect(LivingEntity entity,int amplifier) {
         if(!(entity.getWorld() instanceof ServerWorld world))return;
         if(entity instanceof PlayerEntity player) {

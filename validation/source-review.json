@@ -1,0 +1,2019 @@
+{
+    "Date":  "2026-10-19",
+    "Method":  "Numbered manual review; see line-review.json for ranges, notes and receipts",
+    "Files":  166,
+    "Lines":  8950,
+    "Inventory":  [
+                      {
+                          "Path":  "build.gradle",
+                          "Lines":  147,
+                          "ReviewedRanges":  [
+                                                 "1-147"
+                                             ],
+                          "SHA256":  "1CD1BBD2394D4B9E4BCDD82108F030816FE8474CDEB81C27C7C1A1593DB3ECE4",
+                          "Notes":  "Reviewed Java/dependency versions, optional viewer separation, test exclusion, checksum pins, native exit propagation and release/resource validation.",
+                          "ReadTranscripts":  [
+                                                  "28-build-release-auditors.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "gradle.properties",
+                          "Lines":  9,
+                          "ReviewedRanges":  [
+                                                 "1-9"
+                                             ],
+                          "SHA256":  "F6784B77E09264D9CCF3F05410A9F380EB380FE03FAEF314E722A77DA88BD596",
+                          "Notes":  "Reviewed Java/dependency versions, optional viewer separation, test exclusion, checksum pins, native exit propagation and release/resource validation.",
+                          "ReadTranscripts":  [
+                                                  "33-wrappers-properties.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "gradle/wrapper/gradle-wrapper.properties",
+                          "Lines":  9,
+                          "ReviewedRanges":  [
+                                                 "1-9"
+                                             ],
+                          "SHA256":  "EDC9BC67CE86D74FF593EF8018FDA5E9BFFDDD8F844C24ECE62AEEEC17BF517F",
+                          "Notes":  "Reviewed Java/dependency versions, optional viewer separation, test exclusion, checksum pins, native exit propagation and release/resource validation.",
+                          "ReadTranscripts":  [
+                                                  "33-wrappers-properties.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "gradlew",
+                          "Lines":  249,
+                          "ReviewedRanges":  [
+                                                 "1-249"
+                                             ],
+                          "SHA256":  "FC977A94723AF68AAFFA4E5D60496FB4AEED1884B6B19E5E2F2FD7612673313D",
+                          "Notes":  "Reviewed Java/dependency versions, optional viewer separation, test exclusion, checksum pins, native exit propagation and release/resource validation.",
+                          "ReadTranscripts":  [
+                                                  "33-wrappers-properties.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "gradlew.bat",
+                          "Lines":  92,
+                          "ReviewedRanges":  [
+                                                 "1-92"
+                                             ],
+                          "SHA256":  "FD4AEA9A06D9E3CDA333A0E256CA5E6F08FA5D7AAAA3DA3E4CBACBB7DCE6BBA1",
+                          "Notes":  "Reviewed Java/dependency versions, optional viewer separation, test exclusion, checksum pins, native exit propagation and release/resource validation.",
+                          "ReadTranscripts":  [
+                                                  "33-wrappers-properties.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "settings.gradle",
+                          "Lines":  8,
+                          "ReviewedRanges":  [
+                                                 "1-8"
+                                             ],
+                          "SHA256":  "52D5DDF551C3ECD071A2EAD84249FB8E28EBE64F06EB478499BED3794ACD6C35",
+                          "Notes":  "Reviewed Java/dependency versions, optional viewer separation, test exclusion, checksum pins, native exit propagation and release/resource validation.",
+                          "ReadTranscripts":  [
+                                                  "28-build-release-auditors.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/AuditGameTests.java",
+                          "Lines":  68,
+                          "ReviewedRanges":  [
+                                                 "1-68"
+                                             ],
+                          "SHA256":  "B22E4023811E096D3077C5E753A25E66E932AD2CA062AF76F880997397515AF3",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "18-tests-audit-balance.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/BalanceGameTests.java",
+                          "Lines":  197,
+                          "ReviewedRanges":  [
+                                                 "1-197"
+                                             ],
+                          "SHA256":  "CBFCD9C3C81D7B8E324150385A77420A47A37E318DB71AD231B9F9B9B8202DBF",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "18-tests-audit-balance.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/DespawnAuditGameTests.java",
+                          "Lines":  127,
+                          "ReviewedRanges":  [
+                                                 "1-127"
+                                             ],
+                          "SHA256":  "10CD92734FD8BB83FA3FB0ECFB003FFE4594021BB1C867060173DC44DDFEA795",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "19-tests-despawn-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/DiseaseExpansionGameTests.java",
+                          "Lines":  178,
+                          "ReviewedRanges":  [
+                                                 "1-178"
+                                             ],
+                          "SHA256":  "179AE137C85366869E626631D8F3D3C4CCDC75FB222DB4C790A1EF09B4725924",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "19-tests-despawn-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/DiseaseFixGameTests.java",
+                          "Lines":  185,
+                          "ReviewedRanges":  [
+                                                 "1-185"
+                                             ],
+                          "SHA256":  "117D63CFB25FB83EF6FB67E8CF95F745278FA8F49320F783587A5833CAB809B7",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "20-tests-disease-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/ExpansionGameTests.java",
+                          "Lines":  183,
+                          "ReviewedRanges":  [
+                                                 "1-183"
+                                             ],
+                          "SHA256":  "B016264AD7FD8BF0A1DFC5A3BFEB7554FCC18C6EDDDF757A5A494FCBB6AACAB3",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "20-tests-disease-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/ExpansionRegressionGameTests.java",
+                          "Lines":  126,
+                          "ReviewedRanges":  [
+                                                 "1-126"
+                                             ],
+                          "SHA256":  "4AA1CAFA4173258067F8D65F152852D8E8E55B941AF1EB3A7B86AA08D6BBFED0",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "21-tests-regression-security.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/FinalAuditGameTests.java",
+                          "Lines":  131,
+                          "ReviewedRanges":  [
+                                                 "1-131"
+                                             ],
+                          "SHA256":  "C5D2855AC6F45B56A3CCBCB682BEF903BD1F68899A40C881250EF16C7EAC33CA",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "21-tests-regression-security.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/MaintenanceGameTests.java",
+                          "Lines":  251,
+                          "ReviewedRanges":  [
+                                                 "1-251"
+                                             ],
+                          "SHA256":  "3F0FF94FE334E4332C97FA32BDF55E503DA9280E84C13CB6833CFC0659F942B3",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "22-tests-maintenance-packets.txt",
+                                                  "35-reread-cure-loot-test.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/mixin/ServerPlayerTestAccessor.java",
+                          "Lines":  8,
+                          "ReviewedRanges":  [
+                                                 "1-8"
+                                             ],
+                          "SHA256":  "9378BEA719A60DBC3DC2AB181BFE19DE1040D96579CD2CA4084CDE272857258D",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "22-tests-maintenance-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/mixin/SoundProbeMixin.java",
+                          "Lines":  27,
+                          "ReviewedRanges":  [
+                                                 "1-27"
+                                             ],
+                          "SHA256":  "45E0504DFB58C813FDB3814A34983F41694E1080FE0F593F182FAD758FCCE51E",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "22-tests-maintenance-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/PreventionGameTests.java",
+                          "Lines":  180,
+                          "ReviewedRanges":  [
+                                                 "1-180"
+                                             ],
+                          "SHA256":  "FFA0A9F11A76526566BADFA279456CBDEC9882CEE3A57902B98AF043E2260FE5",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "23-tests-prevention-progression.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/ProgressionExpansionGameTests.java",
+                          "Lines":  159,
+                          "ReviewedRanges":  [
+                                                 "1-159"
+                                             ],
+                          "SHA256":  "433F398B3C3062698A1F3006D7270AA9D6EF4B66415A4210BF1C1711376ECBE6",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "23-tests-prevention-progression.txt",
+                                                  "24-reread-progression-start.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/ProgressionGameTests.java",
+                          "Lines":  226,
+                          "ReviewedRanges":  [
+                                                 "1-226"
+                                             ],
+                          "SHA256":  "D1630966A56BA21BADE64B16FA2411A5541E625E0BEAA82758F2D82751CB6779",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "25-tests-progression.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/SecurityGameTests.java",
+                          "Lines":  58,
+                          "ReviewedRanges":  [
+                                                 "1-58"
+                                             ],
+                          "SHA256":  "8C0E9E17139F0A5535E140685F89900CB0D1591078C1DDB9D64A4EA530A9B261",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "22-tests-maintenance-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/SoundProbe.java",
+                          "Lines":  16,
+                          "ReviewedRanges":  [
+                                                 "1-16"
+                                             ],
+                          "SHA256":  "F3A7C3020E788A96FCB759EF496930D013EA1BD592A6B1E7D58F230D686AC75F",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "22-tests-maintenance-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/gametest/java/com/tetanusmod/test/TetanusGameTests.java",
+                          "Lines":  326,
+                          "ReviewedRanges":  [
+                                                 "1-326"
+                                             ],
+                          "SHA256":  "347634F1B36AA31BA34F2414873551D8AF8D12AF04DEE04C601401DA091C0E37",
+                          "Notes":  "Reviewed test setup, real versus mock player behavior, expected outcomes, negative cases, mutation of global settings and cleanup/restoration.",
+                          "ReadTranscripts":  [
+                                                  "26-tests-base-a.txt",
+                                                  "27-tests-base-b.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/beacon/BeaconPower.java",
+                          "Lines":  46,
+                          "ReviewedRanges":  [
+                                                 "1-46"
+                                             ],
+                          "SHA256":  "84620BC85BE8AB2553E866CF38DED43CF1136FD34D675E7C00A12C27A7A4FBC4",
+                          "Notes":  "Reviewed pyramid materials, tier/secondary validation, payment consumption, native ticking, range and separate advancements.",
+                          "ReadTranscripts":  [
+                                                  "01-beacons-traps.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/beacon/ModBeacons.java",
+                          "Lines":  21,
+                          "ReviewedRanges":  [
+                                                 "1-21"
+                                             ],
+                          "SHA256":  "34B23F87B7963E188D146F7416E95B6D16CBCE6F432AC2D5B6A3B2BF614C3EC0",
+                          "Notes":  "Reviewed pyramid materials, tier/secondary validation, payment consumption, native ticking, range and separate advancements.",
+                          "ReadTranscripts":  [
+                                                  "01-beacons-traps.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/beacon/TetanizedBeaconBlock.java",
+                          "Lines":  17,
+                          "ReviewedRanges":  [
+                                                 "1-17"
+                                             ],
+                          "SHA256":  "006258DD268374EC4CFC54104AA9FF80EA05F5F1D71E017D84F506E1925A5C46",
+                          "Notes":  "Reviewed pyramid materials, tier/secondary validation, payment consumption, native ticking, range and separate advancements.",
+                          "ReadTranscripts":  [
+                                                  "01-beacons-traps.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/beacon/TetanizedBeaconEntity.java",
+                          "Lines":  21,
+                          "ReviewedRanges":  [
+                                                 "1-21"
+                                             ],
+                          "SHA256":  "C483C9FB754222AA38AC85FA7731937D6FDB4B82A46971E40BBA97F801A96AEA",
+                          "Notes":  "Reviewed pyramid materials, tier/secondary validation, payment consumption, native ticking, range and separate advancements.",
+                          "ReadTranscripts":  [
+                                                  "01-beacons-traps.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/beacon/TetanizedBeaconScreenHandler.java",
+                          "Lines":  34,
+                          "ReviewedRanges":  [
+                                                 "1-34"
+                                             ],
+                          "SHA256":  "073EBE1747C67944C88941FD4EE3595EB498FC328C89A78F90C09A86D530F990",
+                          "Notes":  "Reviewed pyramid materials, tier/secondary validation, payment consumption, native ticking, range and separate advancements.",
+                          "ReadTranscripts":  [
+                                                  "01-beacons-traps.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/block/CaltropsBlock.java",
+                          "Lines":  57,
+                          "ReviewedRanges":  [
+                                                 "1-57"
+                                             ],
+                          "SHA256":  "D5E491BC10D4F3DFF3571BB29ADEB60406660F864091012507BD865A677A069C",
+                          "Notes":  "Reviewed waterlogged state, damage cooldown, positional infection audio, timer reset and NBT bounds.",
+                          "ReadTranscripts":  [
+                                                  "01-beacons-traps.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/block/CaltropsBlockEntity.java",
+                          "Lines":  68,
+                          "ReviewedRanges":  [
+                                                 "1-68"
+                                             ],
+                          "SHA256":  "1B6C52CC3B4DF2D11EC3B3BF2E330C10142C323BE2B960EEA61DDA23FFD5C742",
+                          "Notes":  "Reviewed waterlogged state, damage cooldown, positional infection audio, timer reset and NBT bounds.",
+                          "ReadTranscripts":  [
+                                                  "01-beacons-traps.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/client/ClientPacketWarnings.java",
+                          "Lines":  6,
+                          "ReviewedRanges":  [
+                                                 "1-6"
+                                             ],
+                          "SHA256":  "627B892EDEB970F032983C75146A24F660B1A24F3F2EBA6F77075B484179F1B8",
+                          "Notes":  "Reviewed screen selection/scroll bounds, real effect labels, texture UV preservation, reload cleanup and client packet scheduling.",
+                          "ReadTranscripts":  [
+                                                  "02-client-ui.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/client/FieldGuideScreen.java",
+                          "Lines":  58,
+                          "ReviewedRanges":  [
+                                                 "1-58"
+                                             ],
+                          "SHA256":  "7A1480DE6062FCCC1B9B7E95344986B1034D481F4BA54CC08875B3EBEA48D063",
+                          "Notes":  "Reviewed screen selection/scroll bounds, real effect labels, texture UV preservation, reload cleanup and client packet scheduling.",
+                          "ReadTranscripts":  [
+                                                  "02-client-ui.txt",
+                                                  "34-reread-fixes.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/client/InfectedPlayerList.java",
+                          "Lines":  19,
+                          "ReviewedRanges":  [
+                                                 "1-19"
+                                             ],
+                          "SHA256":  "459B9CF4BCF28941D6292066DA2815CD82CEC067FB50B6BAB1C6125EBBC7F0D4",
+                          "Notes":  "Reviewed screen selection/scroll bounds, real effect labels, texture UV preservation, reload cleanup and client packet scheduling.",
+                          "ReadTranscripts":  [
+                                                  "02-client-ui.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/client/RabidPlayerList.java",
+                          "Lines":  19,
+                          "ReviewedRanges":  [
+                                                 "1-19"
+                                             ],
+                          "SHA256":  "EA777F0B5E798E4BE614CC288338B50AD8192AFFA80CD6E7097EC5791B5BE4C3",
+                          "Notes":  "Reviewed screen selection/scroll bounds, real effect labels, texture UV preservation, reload cleanup and client packet scheduling.",
+                          "ReadTranscripts":  [
+                                                  "02-client-ui.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/client/RustedSkinFeature.java",
+                          "Lines":  27,
+                          "ReviewedRanges":  [
+                                                 "1-27"
+                                             ],
+                          "SHA256":  "860F9EBABE46D4CD0F236F803900FC9BFF9A52C17028338A5EF8F61F38E6F54F",
+                          "Notes":  "Reviewed screen selection/scroll bounds, real effect labels, texture UV preservation, reload cleanup and client packet scheduling.",
+                          "ReadTranscripts":  [
+                                                  "02-client-ui.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/client/TetanizedArrowRenderer.java",
+                          "Lines":  9,
+                          "ReviewedRanges":  [
+                                                 "1-9"
+                                             ],
+                          "SHA256":  "3ECDC8D8D7A0DE5F750155D1E9210B795924B11E2A067949A1A32A8834677E22",
+                          "Notes":  "Reviewed screen selection/scroll bounds, real effect labels, texture UV preservation, reload cleanup and client packet scheduling.",
+                          "ReadTranscripts":  [
+                                                  "02-client-ui.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/client/TetanizedBeaconScreen.java",
+                          "Lines":  70,
+                          "ReviewedRanges":  [
+                                                 "1-70"
+                                             ],
+                          "SHA256":  "103E07EB332CBDC41C7BB8E790CAF08E69B1881B696C88CDBF6E6B22652382F5",
+                          "Notes":  "Reviewed screen selection/scroll bounds, real effect labels, texture UV preservation, reload cleanup and client packet scheduling.",
+                          "ReadTranscripts":  [
+                                                  "02-client-ui.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/client/TetanizedTextures.java",
+                          "Lines":  56,
+                          "ReviewedRanges":  [
+                                                 "1-56"
+                                             ],
+                          "SHA256":  "1AB4A8EB5D1EAAA26F2D345EAF7C746A801C20A916B1DB3C896A22ECCFA30021",
+                          "Notes":  "Reviewed screen selection/scroll bounds, real effect labels, texture UV preservation, reload cleanup and client packet scheduling.",
+                          "ReadTranscripts":  [
+                                                  "03-textures-client-commands.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/client/TetanusClient.java",
+                          "Lines":  80,
+                          "ReviewedRanges":  [
+                                                 "1-80"
+                                             ],
+                          "SHA256":  "FC970772213E95203E47F86548768522FDEDE96248557A3C11A613C506693772",
+                          "Notes":  "Reviewed screen selection/scroll bounds, real effect labels, texture UV preservation, reload cleanup and client packet scheduling.",
+                          "ReadTranscripts":  [
+                                                  "03-textures-client-commands.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/command/MobInspector.java",
+                          "Lines":  46,
+                          "ReviewedRanges":  [
+                                                 "1-46"
+                                             ],
+                          "SHA256":  "8FA0F89674DA106109A00CD04982F9B34CC214E66C6FAD3B11E6F7FE6A16C936",
+                          "Notes":  "Reviewed operator gates, entity validation, finite positions, bounded population radius and loaded-entity-only queries.",
+                          "ReadTranscripts":  [
+                                                  "03-textures-client-commands.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/command/RustRuinCommands.java",
+                          "Lines":  48,
+                          "ReviewedRanges":  [
+                                                 "1-48"
+                                             ],
+                          "SHA256":  "B805825EF72505B6632EFADD51C65E9CD37A21E165C4B3899BB795E8D1699871",
+                          "Notes":  "Reviewed operator gates, entity validation, finite positions, bounded population radius and loaded-entity-only queries.",
+                          "ReadTranscripts":  [
+                                                  "03-textures-client-commands.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/compat/RustRuinJeiPlugin.java",
+                          "Lines":  137,
+                          "ReviewedRanges":  [
+                                                 "1-137"
+                                             ],
+                          "SHA256":  "6F0ED0CF6FDB4040AEA0B36AA02F7A905902C663D606F13F634088D7E1AD6BFD",
+                          "Notes":  "Reviewed optional-only loading, all nine rust/coating inputs and outputs, batch smithing amounts and synchronized coating durations.",
+                          "ReadTranscripts":  [
+                                                  "04-viewers-config.txt",
+                                                  "36-reread-jei.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/compat/RustRuinReiPlugin.java",
+                          "Lines":  110,
+                          "ReviewedRanges":  [
+                                                 "1-110"
+                                             ],
+                          "SHA256":  "6A66F35EED348B45A1FCDBAB826CBDE35319E55C624033D6FCE50CE14A6F91A9",
+                          "Notes":  "Reviewed optional-only loading, all nine rust/coating inputs and outputs, batch smithing amounts and synchronized coating durations.",
+                          "ReadTranscripts":  [
+                                                  "04-viewers-config.txt",
+                                                  "37-reread-rei.txt",
+                                                  "42-reread-viewer-contrast.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/config/ModConfig.java",
+                          "Lines":  107,
+                          "ReviewedRanges":  [
+                                                 "1-107"
+                                             ],
+                          "SHA256":  "380BF642521A8786C4D50CF19C83FD5296AF46A64103B16FEE05EDB231400133",
+                          "Notes":  "Reviewed old-config migration, retained custom values, finite/clamped chances, duration bounds and new independent spawn settings.",
+                          "ReadTranscripts":  [
+                                                  "04-viewers-config.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/effect/Infection.java",
+                          "Lines":  105,
+                          "ReviewedRanges":  [
+                                                 "1-105"
+                                             ],
+                          "SHA256":  "A2C851D1926CFCDF354FBB2776A22D3CBA9C0EBE35E2688BE3152CC83890E6BB",
+                          "Notes":  "Reviewed infection merging and infinite durations, protection scopes, symptom progression, queued effects, milk/cure behavior and Salmonella intervals.",
+                          "ReadTranscripts":  [
+                                                  "05-diseases.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/effect/InfectionPresence.java",
+                          "Lines":  39,
+                          "ReviewedRanges":  [
+                                                 "1-39"
+                                             ],
+                          "SHA256":  "0A88958AA9054F2820CDE34F87EB5CEA4E3127A6575E37DEBFA091C2E055886B",
+                          "Notes":  "Reviewed infection merging and infinite durations, protection scopes, symptom progression, queued effects, milk/cure behavior and Salmonella intervals.",
+                          "ReadTranscripts":  [
+                                                  "05-diseases.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/effect/InfectionProtection.java",
+                          "Lines":  38,
+                          "ReviewedRanges":  [
+                                                 "1-38"
+                                             ],
+                          "SHA256":  "B20464F40BCB204D86B24097649E8C9EF3BF945FFC81B824DB5CBBF7230D95A8",
+                          "Notes":  "Reviewed infection merging and infinite durations, protection scopes, symptom progression, queued effects, milk/cure behavior and Salmonella intervals.",
+                          "ReadTranscripts":  [
+                                                  "05-diseases.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/effect/InfectionState.java",
+                          "Lines":  13,
+                          "ReviewedRanges":  [
+                                                 "1-13"
+                                             ],
+                          "SHA256":  "06EB9EDF893E0790BD50C7B7FFE1A9A3518A1269487E3DF1A74A55D38D7B1320",
+                          "Notes":  "Reviewed infection merging and infinite durations, protection scopes, symptom progression, queued effects, milk/cure behavior and Salmonella intervals.",
+                          "ReadTranscripts":  [
+                                                  "05-diseases.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/effect/LockjawEffect.java",
+                          "Lines":  22,
+                          "ReviewedRanges":  [
+                                                 "1-22"
+                                             ],
+                          "SHA256":  "508609874A84DE93A729CC0AB358612E7CBE1112F35B9AFB098145AE24772DB6",
+                          "Notes":  "Reviewed infection merging and infinite durations, protection scopes, symptom progression, queued effects, milk/cure behavior and Salmonella intervals.",
+                          "ReadTranscripts":  [
+                                                  "05-diseases.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/effect/SalmonellaEffect.java",
+                          "Lines":  33,
+                          "ReviewedRanges":  [
+                                                 "1-33"
+                                             ],
+                          "SHA256":  "364AC0A61F012E1D10A2E17DCDF2B16F16FC0BF26662DF498AB2D4F5A5CD668D",
+                          "Notes":  "Found and fixed the under-1200-tick symptom gate; reviewed native infinite-effect age scheduling, hunger/saturation clamp, nonlethal damage and queued nausea.",
+                          "ReadTranscripts":  [
+                                                  "05-diseases.txt",
+                                                  "34-reread-fixes.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/effect/TetanusEffect.java",
+                          "Lines":  87,
+                          "ReviewedRanges":  [
+                                                 "1-87"
+                                             ],
+                          "SHA256":  "863F1844411D9768D99F29CF841A172EB6AFCC4AFD88F38F9F5F4E92DAFD277A",
+                          "Notes":  "Reviewed infection merging and infinite durations, protection scopes, symptom progression, queued effects, milk/cure behavior and Salmonella intervals.",
+                          "ReadTranscripts":  [
+                                                  "05-diseases.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/effect/VaccinationEffect.java",
+                          "Lines":  5,
+                          "ReviewedRanges":  [
+                                                 "1-5"
+                                             ],
+                          "SHA256":  "37DFC177D73F7AEA3DE248EBF862679E0A3D5EE46D8F721B2C48E84F3087E7F8",
+                          "Notes":  "Reviewed infection merging and infinite durations, protection scopes, symptom progression, queued effects, milk/cure behavior and Salmonella intervals.",
+                          "ReadTranscripts":  [
+                                                  "05-diseases.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/entity/EnhancedWitherRitual.java",
+                          "Lines":  32,
+                          "ReviewedRanges":  [
+                                                 "1-32"
+                                             ],
+                          "SHA256":  "97DE577D0F8004B7203877B71F3755200F31BE3B965B4A6278B4B549D1C65940",
+                          "Notes":  "Reviewed variant eligibility, native despawn/mob-cap rules, conservative legacy migration, attribute idempotence, drops and projectile lifetime/consumption.",
+                          "ReadTranscripts":  [
+                                                  "06-entities.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/entity/MobVariants.java",
+                          "Lines":  131,
+                          "ReviewedRanges":  [
+                                                 "1-131"
+                                             ],
+                          "SHA256":  "54CD947B8843F7DF52BA5EF78D1A3E5529B61DE2EAD439050C3051803890FB97",
+                          "Notes":  "Reviewed mutation attributes/drops, no forced persistence, cure movement/effect cleanup, native drops after treatment and Wither rewards.",
+                          "ReadTranscripts":  [
+                                                  "06-entities.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/entity/NailEntity.java",
+                          "Lines":  91,
+                          "ReviewedRanges":  [
+                                                 "1-91"
+                                             ],
+                          "SHA256":  "DFAC97A51145B3529ECE7B6E02CB248BE796A066F4F438C92ED2CE9A1D9AB43F",
+                          "Notes":  "Reviewed variant eligibility, native despawn/mob-cap rules, conservative legacy migration, attribute idempotence, drops and projectile lifetime/consumption.",
+                          "ReadTranscripts":  [
+                                                  "06-entities.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/entity/RustGolems.java",
+                          "Lines":  32,
+                          "ReviewedRanges":  [
+                                                 "1-32"
+                                             ],
+                          "SHA256":  "272D6A65922F54CE67E0CFFC84BFF60F7691B310DB1C2855217EA335DB654985",
+                          "Notes":  "Reviewed variant eligibility, native despawn/mob-cap rules, conservative legacy migration, attribute idempotence, drops and projectile lifetime/consumption.",
+                          "ReadTranscripts":  [
+                                                  "06-entities.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/entity/TetanizedArrowEntity.java",
+                          "Lines":  36,
+                          "ReviewedRanges":  [
+                                                 "1-36"
+                                             ],
+                          "SHA256":  "3B1A426C556E1078B569FE0383EEA53EE1DCD90306FF2A8A49A4344E5F763596",
+                          "Notes":  "Reviewed variant eligibility, native despawn/mob-cap rules, conservative legacy migration, attribute idempotence, drops and projectile lifetime/consumption.",
+                          "ReadTranscripts":  [
+                                                  "06-entities.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/entity/TetanizedState.java",
+                          "Lines":  8,
+                          "ReviewedRanges":  [
+                                                 "1-8"
+                                             ],
+                          "SHA256":  "FFFE3785EF509894C8CB340EC0D1DA0CC070ADB55FC833DF078C0FBBBAE4E328",
+                          "Notes":  "Reviewed variant eligibility, native despawn/mob-cap rules, conservative legacy migration, attribute idempotence, drops and projectile lifetime/consumption.",
+                          "ReadTranscripts":  [
+                                                  "06-entities.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/entity/VariantPersistence.java",
+                          "Lines":  31,
+                          "ReviewedRanges":  [
+                                                 "1-31"
+                                             ],
+                          "SHA256":  "E96FA91F5D560CE18D69C14B22A4034C359B857BE15DC13267736366AEC4324B",
+                          "Notes":  "Reviewed one-time legacy repair guard and preservation of named, owned, leashed, mounted, bucketed, NoAI and guaranteed-equipment-drop mobs.",
+                          "ReadTranscripts":  [
+                                                  "06-entities.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/BearTrapBlock.java",
+                          "Lines":  23,
+                          "ReviewedRanges":  [
+                                                 "1-23"
+                                             ],
+                          "SHA256":  "2F32599651594F025EA514273FECFEDBF3E49098C58A3C5A9871B1E5C8751ABB",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/BearTrapBlockEntity.java",
+                          "Lines":  42,
+                          "ReviewedRanges":  [
+                                                 "1-42"
+                                             ],
+                          "SHA256":  "55CEAAB26CDF4D7D57C37E26ED3B3D230005093E3A9DB36D072373F12989BE88",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/CombatInfection.java",
+                          "Lines":  45,
+                          "ReviewedRanges":  [
+                                                 "1-45"
+                                             ],
+                          "SHA256":  "CF68551FDD574BE643E0D6386F64D27C8A6933B80A96586AC70955035BEEA7FE",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/DisorientedEffect.java",
+                          "Lines":  24,
+                          "ReviewedRanges":  [
+                                                 "1-24"
+                                             ],
+                          "SHA256":  "CD680E30507A1AB43E86DD5A1F18847C5F3B38D4C0B194D28F94BED564564D8F",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionBlocks.java",
+                          "Lines":  21,
+                          "ReviewedRanges":  [
+                                                 "1-21"
+                                             ],
+                          "SHA256":  "260FBEDB681D9DDFB09EF1F83D0818F270AD681F3FFB42A3B4F8D9022B59B9EF",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionEffects.java",
+                          "Lines":  12,
+                          "ReviewedRanges":  [
+                                                 "1-12"
+                                             ],
+                          "SHA256":  "CF539D40F6C1CADAC3C321E3D4E5CDDCF13EDDFDC5E91F83A90B7556EA8F4C6B",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionItems.java",
+                          "Lines":  28,
+                          "ReviewedRanges":  [
+                                                 "1-28"
+                                             ],
+                          "SHA256":  "E0B8164C686F16E8BC3C4CF00AD20D3DDC86C39E96D366940B5394A89C85FB25",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt",
+                                                  "40-reread-whitespace.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionState.java",
+                          "Lines":  12,
+                          "ReviewedRanges":  [
+                                                 "1-12"
+                                             ],
+                          "SHA256":  "A2C3C71003C4AEC167677BB8FA2EC790EFAB4F4634398A3A568C3AA78B170801",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/GloveInventory.java",
+                          "Lines":  11,
+                          "ReviewedRanges":  [
+                                                 "1-11"
+                                             ],
+                          "SHA256":  "657FDA26F60D1BDC379F8BABB9EAA012CB7755B9D3A3B020B6C08235B27AE3BC",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/GlovesItem.java",
+                          "Lines":  17,
+                          "ReviewedRanges":  [
+                                                 "1-17"
+                                             ],
+                          "SHA256":  "47F2C967035F59E382ECC3E18F338CCA7CC303E648F3A68CF65314017890B141",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "07-expansion-combat.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/MedicSupplies.java",
+                          "Lines":  67,
+                          "ReviewedRanges":  [
+                                                 "1-67"
+                                             ],
+                          "SHA256":  "D61AEDEA0E8B5A4A158500BA5075DDA5717212E0660404D590AEB11DF24F1FA4",
+                          "Notes":  "Reviewed daily rotation, one accepted delivery per medic/day, server-side validation, exact material/bottle accounting, saved cooldown and real native reputation discounts.",
+                          "ReadTranscripts":  [
+                                                  "08-medic-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/MedicVillage.java",
+                          "Lines":  50,
+                          "ReviewedRanges":  [
+                                                 "1-50"
+                                             ],
+                          "SHA256":  "95F6B0DA68BD43831461DD60DA06665A5771AE0489B51025A18E1F29455407F0",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "08-medic-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/ModDamage.java",
+                          "Lines":  26,
+                          "ReviewedRanges":  [
+                                                 "1-26"
+                                             ],
+                          "SHA256":  "63B1220D15F7E0C41C8D9579CB9E3A3DBB5CD7208474BC20E0AD7FDD432E7E88",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "08-medic-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/NaturalVariants.java",
+                          "Lines":  28,
+                          "ReviewedRanges":  [
+                                                 "1-28"
+                                             ],
+                          "SHA256":  "487AB765DE9F6A79C94CB5F8F2A4EB1659688C564FD3377E7B96BE34FF6346B5",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "08-medic-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/Rabies.java",
+                          "Lines":  87,
+                          "ReviewedRanges":  [
+                                                 "1-87"
+                                             ],
+                          "SHA256":  "ED6C8E736563BA32421C9983C8B8EDBE2646E41C7D2B827EAB6433B1A34BB07C",
+                          "Notes":  "Reviewed exclusive variant flags, non-forced persistence, attribute installation, hunt-goal lifecycle and veterinary removal of goals/modifiers.",
+                          "ReadTranscripts":  [
+                                                  "08-medic-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/RabiesEffect.java",
+                          "Lines":  43,
+                          "ReviewedRanges":  [
+                                                 "1-43"
+                                             ],
+                          "SHA256":  "0FBB8D4F3D747B0C87EB1ED98A2062C9328236EFF5137F502E2D76A19A456184",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "08-medic-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/RabiesPresence.java",
+                          "Lines":  39,
+                          "ReviewedRanges":  [
+                                                 "1-39"
+                                             ],
+                          "SHA256":  "7186ED71B17EC61C384E807D0B29D80816D4E0D264AF53CA842CAC05980D146D",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "08-medic-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/RabiesTonicItem.java",
+                          "Lines":  33,
+                          "ReviewedRanges":  [
+                                                 "1-33"
+                                             ],
+                          "SHA256":  "8FB9489D86AFD47DE52C832B6CF62CF7B66861B4C156772E5845840B68B54570",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "08-medic-rabies.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/RustArrowSmithingRecipe.java",
+                          "Lines":  29,
+                          "ReviewedRanges":  [
+                                                 "1-29"
+                                             ],
+                          "SHA256":  "9AEDC248C92480CF241617DBBA9BDAEAC52C50E22F20C51D37BBC8B7246FBEBD",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/RustPileBlock.java",
+                          "Lines":  23,
+                          "ReviewedRanges":  [
+                                                 "1-23"
+                                             ],
+                          "SHA256":  "C95449139CD7A91F219D3D8E5A45624CE8ADFE9A384F8346A966F5F68FEB07D3",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/SpearItem.java",
+                          "Lines":  35,
+                          "ReviewedRanges":  [
+                                                 "1-35"
+                                             ],
+                          "SHA256":  "8AE889D48449701AFE185500277E206E936BCBDEC095D609CDD4D993D77FA214",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/TetanusProtectionEnchantment.java",
+                          "Lines":  13,
+                          "ReviewedRanges":  [
+                                                 "1-13"
+                                             ],
+                          "SHA256":  "AFEBE6041D47B2416B4EB99B1A928586F16558BAA5D1EB19DFEFF5EFCC29C279",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/TrapResetToolItem.java",
+                          "Lines":  19,
+                          "ReviewedRanges":  [
+                                                 "1-19"
+                                             ],
+                          "SHA256":  "201904A3E954D844051300E70761F74022E6FF2F69DDC9A69421FC15EDE89374",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/VariantSpawnEggItem.java",
+                          "Lines":  53,
+                          "ReviewedRanges":  [
+                                                 "1-53"
+                                             ],
+                          "SHA256":  "440F1BACCEB1ADF1499AA1AC007E616824941A5EB0CCCD9DB26729A6D9D0C47C",
+                          "Notes":  "Reviewed server authority, NBT/attribute lifecycle, combat inheritance, mutation exclusivity, inventory accounting and vanilla integration.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/expansion/VeterinaryKitItem.java",
+                          "Lines":  39,
+                          "ReviewedRanges":  [
+                                                 "1-39"
+                                             ],
+                          "SHA256":  "A1ABA52C9D11D278D15C1DAF08BCA0159A51EBD415DDE760095896496A92A5E9",
+                          "Notes":  "Reviewed empty/wrong-stack, healthy/hostile/spectator/range exclusions, one-use consumption and cure advancement.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/AntitoxinItem.java",
+                          "Lines":  57,
+                          "ReviewedRanges":  [
+                                                 "1-57"
+                                             ],
+                          "SHA256":  "1387497F6D407312E8E1CF199283B6F09BD3062B2B602A3EA285CEED21D0A209",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/DescribedItem.java",
+                          "Lines":  16,
+                          "ReviewedRanges":  [
+                                                 "1-16"
+                                             ],
+                          "SHA256":  "4D5114CC8EC20D4C0C0BC9735D61F795F79ABFEF39FAEBF05006686E9599ECA6",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/FieldGuideItem.java",
+                          "Lines":  13,
+                          "ReviewedRanges":  [
+                                                 "1-13"
+                                             ],
+                          "SHA256":  "BC34B5E096638189361094D38089745ED7DF7A4E3DEDC64D6E55A9C406B5568A",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "09-equipment-medicine.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/HooklineItem.java",
+                          "Lines":  39,
+                          "ReviewedRanges":  [
+                                                 "1-39"
+                                             ],
+                          "SHA256":  "9B8FAC2C9EBD12516B4987D52521207B8DCF9637A9490296F31AA74AFB776B44",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "10-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/InfectedMeatItem.java",
+                          "Lines":  18,
+                          "ReviewedRanges":  [
+                                                 "1-18"
+                                             ],
+                          "SHA256":  "B15302EF77F472DECFC2F592D47DF53A3ED21C4B6842B6D94DE2D3C7CBD00BC5",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "10-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/NailItem.java",
+                          "Lines":  59,
+                          "ReviewedRanges":  [
+                                                 "1-59"
+                                             ],
+                          "SHA256":  "4B26A36E9F70B9594AABCE4BBC220CCD74355ADBACF8CDE2F978056782154D8E",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "10-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/RebarItem.java",
+                          "Lines":  71,
+                          "ReviewedRanges":  [
+                                                 "1-71"
+                                             ],
+                          "SHA256":  "EA0CE5CDE51274002DFD103FBE2944093CD6F77CED4962C23ADF47F1DCF8244A",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "10-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/TetanizedArrowItem.java",
+                          "Lines":  14,
+                          "ReviewedRanges":  [
+                                                 "1-14"
+                                             ],
+                          "SHA256":  "3FB6AB1543B9C3B0A5381E4DA179B72CF948EA9DDFEE89AAD2924D6431C58839",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "10-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/TetanusEnchantment.java",
+                          "Lines":  19,
+                          "ReviewedRanges":  [
+                                                 "1-19"
+                                             ],
+                          "SHA256":  "5719615763D062DDD195B072721992A5751CBE8D30E49266308E00749102C16F",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "10-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/TooltipHelper.java",
+                          "Lines":  24,
+                          "ReviewedRanges":  [
+                                                 "1-24"
+                                             ],
+                          "SHA256":  "6264A2F71735C2D70F376A7DC809793D172DBB3083B47E3DD2732E6453C2DC2B",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "10-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/VaccineItem.java",
+                          "Lines":  32,
+                          "ReviewedRanges":  [
+                                                 "1-32"
+                                             ],
+                          "SHA256":  "EAA0AD90A5F42968A86EEB2AAB16A1FC20A8A8DC39420C801583EB05C11887DD",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "10-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/item/WireBrushItem.java",
+                          "Lines":  49,
+                          "ReviewedRanges":  [
+                                                 "1-49"
+                                             ],
+                          "SHA256":  "D3CA67F1C541F4DB9F2666FF474C2D1C0B04A3B0A74D8E65E212B1694AD3E55E",
+                          "Notes":  "Reviewed use/cooldown gates, raycast walls/ranges, durability, medicine containers and preservation of unrelated item/effect data.",
+                          "ReadTranscripts":  [
+                                                  "10-items.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/BatchSmithingMixin.java",
+                          "Lines":  34,
+                          "ReviewedRanges":  [
+                                                 "1-34"
+                                             ],
+                          "SHA256":  "80C74079037159A9C4DDC9D61101DC151846B23C5C402E50D0640DE510E53EE1",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/BeaconAccessor.java",
+                          "Lines":  9,
+                          "ReviewedRanges":  [
+                                                 "1-9"
+                                             ],
+                          "SHA256":  "2761347387CDA5C327CF316A0528A6E27A0AB3350F88B137D5AA1F370C5A9702",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/BeaconBlockEntityMixin.java",
+                          "Lines":  26,
+                          "ReviewedRanges":  [
+                                                 "1-26"
+                                             ],
+                          "SHA256":  "715A96F46758199634964126D0483F6AA29990066DD5CE09138826B8FBF629EA",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/BlockEntityTypeAccessor.java",
+                          "Lines":  8,
+                          "ReviewedRanges":  [
+                                                 "1-8"
+                                             ],
+                          "SHA256":  "A079C6FE2737B4610C2A775E73B19DB4F4C02A1068D1B4EE55DB5BF44CC9E73E",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/BossBarHudMixin.java",
+                          "Lines":  24,
+                          "ReviewedRanges":  [
+                                                 "1-24"
+                                             ],
+                          "SHA256":  "FDCD406486DF857BE2EB2479618B500F57460BC6A53CEA677179A4BBB5B42780",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/CoatingWearMixin.java",
+                          "Lines":  19,
+                          "ReviewedRanges":  [
+                                                 "1-19"
+                                             ],
+                          "SHA256":  "6444483CD7AA195A5C51F8CB06B6D7263547FD5F3E283F62A37E0CA113FF0352",
+                          "Notes":  "Reviewed native damage descriptor, positive bounded wear cost, server/creative gates and unchanged equipment durability logic.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/CreativeGloveNetworkMixin.java",
+                          "Lines":  25,
+                          "ReviewedRanges":  [
+                                                 "1-25"
+                                             ],
+                          "SHA256":  "35B8B69963502574F2FABD5E8EDB0BC2DDEAFD6BA2E990372896B4EACD1A2C83",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/CreativeGloveScreenMixin.java",
+                          "Lines":  29,
+                          "ReviewedRanges":  [
+                                                 "1-29"
+                                             ],
+                          "SHA256":  "200BD9EEBC0DD5AB3B7C5EAD0895BAE000603E752818B8279543929825A35E72",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/CreeperAccessor.java",
+                          "Lines":  8,
+                          "ReviewedRanges":  [
+                                                 "1-8"
+                                             ],
+                          "SHA256":  "33E33DB656FCD0A44D4B1595293E5F2699639BD089562D8317770C7C182AB5B7",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/DiseaseCloudMixin.java",
+                          "Lines":  11,
+                          "ReviewedRanges":  [
+                                                 "1-11"
+                                             ],
+                          "SHA256":  "8A926822C66E76353AEDE23BF6C1F19AFC0CE4A6A8F364F5EB0DED2758AD4306",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/DiseasePotionItemMixin.java",
+                          "Lines":  11,
+                          "ReviewedRanges":  [
+                                                 "1-11"
+                                             ],
+                          "SHA256":  "08AACB49A0A877F87D8A47FDA52E06912A2F4E2F0F878B54640EA5ED8A039348",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/DiseasePotionTooltipMixin.java",
+                          "Lines":  34,
+                          "ReviewedRanges":  [
+                                                 "1-34"
+                                             ],
+                          "SHA256":  "0552943798ACB320ACD5DF1D1AE36D24456BB6B5F20D704E69D90B370D91F7B4",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/DiseaseSplashPotionMixin.java",
+                          "Lines":  11,
+                          "ReviewedRanges":  [
+                                                 "1-11"
+                                             ],
+                          "SHA256":  "9FB0D1AEE3E785DE2D16C4DEF5016A582AC147BE319D731C7F6FC67F31D0E4EA",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "11-network-potions-smithing.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/DragonTextureMixin.java",
+                          "Lines":  24,
+                          "ReviewedRanges":  [
+                                                 "1-24"
+                                             ],
+                          "SHA256":  "B59B131DC0593B5EC3C06E8C4062F9EA60D20EDD976C63FBF221D56E3DA466CF",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/EnchantedBowMixin.java",
+                          "Lines":  14,
+                          "ReviewedRanges":  [
+                                                 "1-14"
+                                             ],
+                          "SHA256":  "99CD83F34446E817B1171C6AB1BCAC3C227BA7AD5B5623DD89A91D43381FF0D0",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/EnchantedCrossbowMixin.java",
+                          "Lines":  15,
+                          "ReviewedRanges":  [
+                                                 "1-15"
+                                             ],
+                          "SHA256":  "7882649D6B1129ADAC80B5757E23A883A5DB308554326A43E3F1EE32FD86FB51",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/EnchantedProjectileMixin.java",
+                          "Lines":  16,
+                          "ReviewedRanges":  [
+                                                 "1-16"
+                                             ],
+                          "SHA256":  "C7B497391D79E7AF28AE8B2C25F004570D086694079ED6EC27EDEFB31F548FA7",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/EnchantmentTooltipMixin.java",
+                          "Lines":  25,
+                          "ReviewedRanges":  [
+                                                 "1-25"
+                                             ],
+                          "SHA256":  "0F6ADB1FE127F454FE3F1328247731EBDE2C9EBF6BACA1FED91499A2FEF461E3",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionLivingMixin.java",
+                          "Lines":  43,
+                          "ReviewedRanges":  [
+                                                 "1-43"
+                                             ],
+                          "SHA256":  "58FB4D8DAECEBCF91E4D17C656802E28F720346B0E601EFFFB0AE2F18437845C",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionMobMixin.java",
+                          "Lines":  28,
+                          "ReviewedRanges":  [
+                                                 "1-28"
+                                             ],
+                          "SHA256":  "F837057A9AFC73AC9E52EE0C84BF87CD9ED7C5A53761B06E9043B86EBAA7BE88",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/GloveInventoryScreenMixin.java",
+                          "Lines":  18,
+                          "ReviewedRanges":  [
+                                                 "1-18"
+                                             ],
+                          "SHA256":  "A2FC4E47E84D971AB5FB57D9AC61071E8344BBBDB5B8C8CA1848093CC54B82A4",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/GlovePlayerMixin.java",
+                          "Lines":  37,
+                          "ReviewedRanges":  [
+                                                 "1-37"
+                                             ],
+                          "SHA256":  "8BE19D5B8614BF12932A43B34118D0258FC006A510B21A2BF18AC2F5A0208FCC",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/GloveRespawnMixin.java",
+                          "Lines":  18,
+                          "ReviewedRanges":  [
+                                                 "1-18"
+                                             ],
+                          "SHA256":  "D67B0D85DC14F963D243D5FC344464D0858745550340A622799F7121E814CE34",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/GloveScreenHandlerMixin.java",
+                          "Lines":  34,
+                          "ReviewedRanges":  [
+                                                 "1-34"
+                                             ],
+                          "SHA256":  "6B3AADBFF9E957523A696AB57D3B72B08C11BF04BB0CDD2C83BB0689B7CBB4D5",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "12-mutation-equipment-mixins.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/GrindstoneInputSlotMixin.java",
+                          "Lines":  16,
+                          "ReviewedRanges":  [
+                                                 "1-16"
+                                             ],
+                          "SHA256":  "EDAECE72FFED377D17A96DAE6805E10530C03AA803081E6648343857434CFC24",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "13-living-rusting-grindstone.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/GrindstoneScreenHandlerMixin.java",
+                          "Lines":  35,
+                          "ReviewedRanges":  [
+                                                 "1-35"
+                                             ],
+                          "SHA256":  "205206EAF37C5289A64DEFCECD63BE0FE2AB3B797CD7591BE9C5EB899E35C45B",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "13-living-rusting-grindstone.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/InGameHudMixin.java",
+                          "Lines":  23,
+                          "ReviewedRanges":  [
+                                                 "1-23"
+                                             ],
+                          "SHA256":  "05A79D07276D571E487E5B77BC53B442D3EB222129E1560C7F60FB5FFDC6C014",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "13-living-rusting-grindstone.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/ItemEntityAccessor.java",
+                          "Lines":  8,
+                          "ReviewedRanges":  [
+                                                 "1-8"
+                                             ],
+                          "SHA256":  "7C30B86716D304B22FED0CF940B534AF37F25A8531242E48641446635905C903",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "13-living-rusting-grindstone.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/ItemEntityMixin.java",
+                          "Lines":  82,
+                          "ReviewedRanges":  [
+                                                 "1-82"
+                                             ],
+                          "SHA256":  "76AC8F840C3D3F740FDA07D1121DA2A28EA690464E4C56ACE308058A585F3361",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "13-living-rusting-grindstone.txt",
+                                                  "34-reread-fixes.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/ItemSuggestionsMixin.java",
+                          "Lines":  25,
+                          "ReviewedRanges":  [
+                                                 "1-25"
+                                             ],
+                          "SHA256":  "4D5110128F3B5F22DC0E9D75871CF9D6744109CBB68D68491180B12184E60EBF",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "13-living-rusting-grindstone.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/LivingEntityMixin.java",
+                          "Lines":  152,
+                          "ReviewedRanges":  [
+                                                 "1-152"
+                                             ],
+                          "SHA256":  "E14331BAE740A4A26093E5045C942979C6E7AA066A98DA5AC42EFAD0D2A4DAB0",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "13-living-rusting-grindstone.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/LivingTextureMixin.java",
+                          "Lines":  17,
+                          "ReviewedRanges":  [
+                                                 "1-17"
+                                             ],
+                          "SHA256":  "FC91797A02440A94E8A7CD5B53C4A42F104122AF4C6C6E9EFE45EA76664ED177",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/ManurePotionColorMixin.java",
+                          "Lines":  17,
+                          "ReviewedRanges":  [
+                                                 "1-17"
+                                             ],
+                          "SHA256":  "BA4183E37AFCE9A4AAC3009FB5304A2137461FBBCD5950F9E43BC881AE36B194",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/MedicTradesMixin.java",
+                          "Lines":  26,
+                          "ReviewedRanges":  [
+                                                 "1-26"
+                                             ],
+                          "SHA256":  "7028D2B81A94FE09B153BAF663EB5E1785E81F4786D51C644C69AD378FC258CD",
+                          "Notes":  "Reviewed absence-compatible long NBT cooldown storage and novice medicine availability.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/MilkBucketItemMixin.java",
+                          "Lines":  21,
+                          "ReviewedRanges":  [
+                                                 "1-21"
+                                             ],
+                          "SHA256":  "C98666AAD9DF7DFF45126F7133A2FE031F4AC7477F62FE5CFFFC3337F634CBBD",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/MobConversionMixin.java",
+                          "Lines":  22,
+                          "ReviewedRanges":  [
+                                                 "1-22"
+                                             ],
+                          "SHA256":  "5CA96798DACDA67B6239753059953A0A778F0E74A3BE9B007DE7877C6B673C2C",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/PlayerListHeartsMixin.java",
+                          "Lines":  34,
+                          "ReviewedRanges":  [
+                                                 "1-34"
+                                             ],
+                          "SHA256":  "FCF6E318556D9F5CF7401290C58460861FA573E7A26DC079526C1D9D02375D0E",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/ReturningNailAdvancementMixin.java",
+                          "Lines":  17,
+                          "ReviewedRanges":  [
+                                                 "1-17"
+                                             ],
+                          "SHA256":  "E289FDB9EB204B5E0B7A1F592F06377E7EA3477660F0D5BB51796F174E4CCD7B",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/SalmonellaAdvancementMixin.java",
+                          "Lines":  18,
+                          "ReviewedRanges":  [
+                                                 "1-18"
+                                             ],
+                          "SHA256":  "56339CBF86067AED5687C3AF9C32DC58EB07C8A8BB05295CC830EEFF1BE38CCA",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/ServerPlayNetworkHandlerMixin.java",
+                          "Lines":  31,
+                          "ReviewedRanges":  [
+                                                 "1-31"
+                                             ],
+                          "SHA256":  "FAD83EA89BDDFCB25DA8ADFCA6A4D2AA5B157A3C167FA5448F0C381362857022",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/SheepWoolTintMixin.java",
+                          "Lines":  18,
+                          "ReviewedRanges":  [
+                                                 "1-18"
+                                             ],
+                          "SHA256":  "3101CA8771D358BED24F0891457D514ED1C9B5E62D3755D1B6F7B3FD3CE585FF",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/SlotPositionAccessor.java",
+                          "Lines":  9,
+                          "ReviewedRanges":  [
+                                                 "1-9"
+                                             ],
+                          "SHA256":  "3931ABEE437692B07359221618B250F037003EC017D64012B9FCF209D0DC6726",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/StructurePoolAccessor.java",
+                          "Lines":  15,
+                          "ReviewedRanges":  [
+                                                 "1-15"
+                                             ],
+                          "SHA256":  "A840F568588AEA592D50AFB64EB324C88E55666032CB5068AF39877886CD5EAE",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/WitherEntityMixin.java",
+                          "Lines":  19,
+                          "ReviewedRanges":  [
+                                                 "1-19"
+                                             ],
+                          "SHA256":  "76B1EE5031AF423D42727BC00817CF9777F33577EEF4393CFE275A7D3F9E1A83",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/mixin/WitherSummoningMixin.java",
+                          "Lines":  33,
+                          "ReviewedRanges":  [
+                                                 "1-33"
+                                             ],
+                          "SHA256":  "E0AB870515BC40BE52BBEFF7B4B5C2D39EDF04533AC562CEE3339B2261FDBDA6",
+                          "Notes":  "Reviewed mapped native targets, injection/cancellation conditions, side/thread guards, save/load bounds and reachable regression paths.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/network/ModPacketDecoder.java",
+                          "Lines":  36,
+                          "ReviewedRanges":  [
+                                                 "1-36"
+                                             ],
+                          "SHA256":  "6E8B2A0FD2A0D68AE7FB390F9480597321D6CD2B0A040305BF2955A054DF127B",
+                          "Notes":  "Reviewed exact packet lengths, strict booleans, bounded flat JSON, nesting/escape handling and malformed-input rejection.",
+                          "ReadTranscripts":  [
+                                                  "14-mixins-packets.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/registry/ModAdvancements.java",
+                          "Lines":  23,
+                          "ReviewedRanges":  [
+                                                 "1-23"
+                                             ],
+                          "SHA256":  "581BBA2E068817150FDE506FC2BAEA86E7B0FC9163343DBABEC454F9A16AA969",
+                          "Notes":  "Reviewed initialization order, registry IDs, creative coverage, brewing registration, advancement criteria and preserved legacy item IDs.",
+                          "ReadTranscripts":  [
+                                                  "15-registry-rust-init.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/registry/ModBlocks.java",
+                          "Lines":  47,
+                          "ReviewedRanges":  [
+                                                 "1-47"
+                                             ],
+                          "SHA256":  "977190CA4CDBDA6E5CA9FFD90FA8A136ABD6F16B17241A4996496CE64BB8A74B",
+                          "Notes":  "Reviewed initialization order, registry IDs, creative coverage, brewing registration, advancement criteria and preserved legacy item IDs.",
+                          "ReadTranscripts":  [
+                                                  "15-registry-rust-init.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/registry/ModBrewing.java",
+                          "Lines":  44,
+                          "ReviewedRanges":  [
+                                                 "1-44"
+                                             ],
+                          "SHA256":  "110AE31D5FB2817E18B266A2A089C9FA08096C84766123D9C5BB6276EAC53B5D",
+                          "Notes":  "Reviewed initialization order, registry IDs, creative coverage, brewing registration, advancement criteria and preserved legacy item IDs.",
+                          "ReadTranscripts":  [
+                                                  "15-registry-rust-init.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/registry/ModIronTools.java",
+                          "Lines":  13,
+                          "ReviewedRanges":  [
+                                                 "1-13"
+                                             ],
+                          "SHA256":  "E0ADE07759607C6507447961DAD5467F19BC2235CBDC1AF34625EACB49CD6A37",
+                          "Notes":  "Reviewed initialization order, registry IDs, creative coverage, brewing registration, advancement criteria and preserved legacy item IDs.",
+                          "ReadTranscripts":  [
+                                                  "15-registry-rust-init.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/registry/ModItems.java",
+                          "Lines":  67,
+                          "ReviewedRanges":  [
+                                                 "1-67"
+                                             ],
+                          "SHA256":  "5E993A94439CF3D2EFD21E43F147F47DFDF6E67B0F6A8391FD74FC34A65DE54D",
+                          "Notes":  "Reviewed initialization order, registry IDs, creative coverage, brewing registration, advancement criteria and preserved legacy item IDs.",
+                          "ReadTranscripts":  [
+                                                  "15-registry-rust-init.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/rust/FishingSalvage.java",
+                          "Lines":  24,
+                          "ReviewedRanges":  [
+                                                 "1-24"
+                                             ],
+                          "SHA256":  "CB973FBB1876A14A1BF1D5B02B805A67D0C9542AF4119626A9E7F21C874AC3C9",
+                          "Notes":  "Reviewed conversion NBT/count preservation, floating-water detection, salvage single-use rules and coating charges/expiry.",
+                          "ReadTranscripts":  [
+                                                  "15-registry-rust-init.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/rust/RustCoating.java",
+                          "Lines":  45,
+                          "ReviewedRanges":  [
+                                                 "1-45"
+                                             ],
+                          "SHA256":  "61A104A02D5A39ACF87B38864049F2A0A545B62798AC89E4A922C9FF9C58D468",
+                          "Notes":  "Reviewed supported clean-item eligibility, one honeycomb per item, bounded saved remaining time, safe wear arithmetic and authority.",
+                          "ReadTranscripts":  [
+                                                  "15-registry-rust-init.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/rust/RustingSystem.java",
+                          "Lines":  60,
+                          "ReviewedRanges":  [
+                                                 "1-60"
+                                             ],
+                          "SHA256":  "19471B4E1B4E99CFF81ABD7F611CE8DD666CA18E2EFADC76A510FF089710B3C9",
+                          "Notes":  "Reviewed conversion NBT/count preservation, floating-water detection, salvage single-use rules and coating charges/expiry.",
+                          "ReadTranscripts":  [
+                                                  "15-registry-rust-init.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/main/java/com/tetanusmod/TetanusMod.java",
+                          "Lines":  93,
+                          "ReviewedRanges":  [
+                                                 "1-93"
+                                             ],
+                          "SHA256":  "A12FFDD8DB49EE10772F4C4E2AE3B56E2BF16C1EE7E21ACFEE744F66CF75FFFE",
+                          "Notes":  "Reviewed Java/dependency versions, optional viewer separation, test exclusion, checksum pins, native exit propagation and release/resource validation.",
+                          "ReadTranscripts":  [
+                                                  "15-registry-rust-init.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "src/smoketest/java/com/tetanusmod/test/ClientSmokeTest.java",
+                          "Lines":  287,
+                          "ReviewedRanges":  [
+                                                 "1-287"
+                                             ],
+                          "SHA256":  "6627766C710A88B3E6456B193C211B2C8D39842D84C3C04CA162FD12200C57B3",
+                          "Notes":  "Reviewed asynchronous server failure propagation, timeout/fresh PASS requirements, viewer lookups, rendered screens, species textures, synchronization and screenshot fixtures.",
+                          "ReadTranscripts":  [
+                                                  "16-client-test-a.txt",
+                                                  "17-client-test-b.txt",
+                                                  "39-reread-client-coverage.txt",
+                                                  "43-reread-workshop-fixture.txt",
+                                                  "44-reread-client-suffix.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Audit-Files.ps1",
+                          "Lines":  86,
+                          "ReviewedRanges":  [
+                                                 "1-86"
+                                             ],
+                          "SHA256":  "ED06207919B76804CA3EB04E5F1693B50A90E18490AD3648234A08DC379F5ACA",
+                          "Notes":  "Corrected labels that implied automated format scans proved manual review/compilation. Reviewed parser, encoding, references, image margins and local-link checks.",
+                          "ReadTranscripts":  [
+                                                  "28-build-release-auditors.txt",
+                                                  "34-reread-fixes.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Audit-Release.ps1",
+                          "Lines":  82,
+                          "ReviewedRanges":  [
+                                                 "1-82"
+                                             ],
+                          "SHA256":  "BFC8948F9658A5B9D00AB6CACAD47536C45435EB3514E2344E42CB3B3BC491D9",
+                          "Notes":  "Reviewed Java/dependency versions, optional viewer separation, test exclusion, checksum pins, native exit propagation and release/resource validation.",
+                          "ReadTranscripts":  [
+                                                  "28-build-release-auditors.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Build.ps1",
+                          "Lines":  21,
+                          "ReviewedRanges":  [
+                                                 "1-21"
+                                             ],
+                          "SHA256":  "C345EF2B60C2045E36E4B5BAE244727665B09FA1745C9F1E3FDC5C92F3E2BA82",
+                          "Notes":  "Found and reproduced invalid JAVA_HOME surviving the PATH fallback. Fixed environment selection; retained native Gradle exit checking.",
+                          "ReadTranscripts":  [
+                                                  "28-build-release-auditors.txt",
+                                                  "34-reread-fixes.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Draw-Expansion-Art.ps1",
+                          "Lines":  142,
+                          "ReviewedRanges":  [
+                                                 "1-142"
+                                             ],
+                          "SHA256":  "4DF67D805B8D916349E5F6300BC68BC2BF76AB27DA4E93019F3C3C531A0D7631",
+                          "Notes":  "Reviewed fixed output paths, recipe/model references, palette bounds, NBT numeric types, deterministic art and repeat generation behavior.",
+                          "ReadTranscripts":  [
+                                                  "29-generators-world-art.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Generate-Clinic.ps1",
+                          "Lines":  60,
+                          "ReviewedRanges":  [
+                                                 "1-60"
+                                             ],
+                          "SHA256":  "4D44656CA4C98D300A9B0C21FFB758E1ED22CF33C5E9AE90740CEFE8F771D4E5",
+                          "Notes":  "Reviewed fixed output paths, recipe/model references, palette bounds, NBT numeric types, deterministic art and repeat generation behavior.",
+                          "ReadTranscripts":  [
+                                                  "29-generators-world-art.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Generate-Expansion.ps1",
+                          "Lines":  140,
+                          "ReviewedRanges":  [
+                                                 "1-140"
+                                             ],
+                          "SHA256":  "3F34FBD04A0C47D31B01EB8334B25726FE87CFBB673750B8D77662FE2C65587E",
+                          "Notes":  "Reviewed all generated recipes/models/advancements and ordering. Added actual spawn-setting placeholders and stable language-key output; repeated resources are byte-identical.",
+                          "ReadTranscripts":  [
+                                                  "30-expansion-resource-generator.txt",
+                                                  "38-reread-guide-generator.txt",
+                                                  "41-reread-stable-language-output.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Generate-Maintenance.ps1",
+                          "Lines":  30,
+                          "ReviewedRanges":  [
+                                                 "1-30"
+                                             ],
+                          "SHA256":  "BCD2841256FADFF533374A36F67B5AA63565932004D532730D8C98CB3DC4649F",
+                          "Notes":  "Found repeated command-guide appending; replaced with a complete assigned chapter. Reviewed kit recipe, advancement IDs, text and workshop invocation.",
+                          "ReadTranscripts":  [
+                                                  "29-generators-world-art.txt",
+                                                  "34-reread-fixes.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Generate-Resources.ps1",
+                          "Lines":  148,
+                          "ReviewedRanges":  [
+                                                 "1-148"
+                                             ],
+                          "SHA256":  "A3EEA8F0D342D8C57D12A3D04F80E4E5393766E8D4225DBFBBA6F4607178F10E",
+                          "Notes":  "Reviewed fixed output paths, recipe/model references, palette bounds, NBT numeric types, deterministic art and repeat generation behavior.",
+                          "ReadTranscripts":  [
+                                                  "31-base-resource-generators.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Generate-Workshop.ps1",
+                          "Lines":  49,
+                          "ReviewedRanges":  [
+                                                 "1-49"
+                                             ],
+                          "SHA256":  "B4D856343DB33E2E3124D37793661CF1B893D0F03F90B3D07BED570A1CBC4C61",
+                          "Notes":  "Reviewed fixed output paths, recipe/model references, palette bounds, NBT numeric types, deterministic art and repeat generation behavior.",
+                          "ReadTranscripts":  [
+                                                  "29-generators-world-art.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Import-Art.ps1",
+                          "Lines":  107,
+                          "ReviewedRanges":  [
+                                                 "1-107"
+                                             ],
+                          "SHA256":  "9CF4EA8022A998087C86F8FF6D9E5AC246C1FE8B31DC4ADFA88F9521362A4F24",
+                          "Notes":  "Reviewed fixed output paths, recipe/model references, palette bounds, NBT numeric types, deterministic art and repeat generation behavior.",
+                          "ReadTranscripts":  [
+                                                  "32-art-import-and-base-updates.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/SpriteIsolator.cs",
+                          "Lines":  31,
+                          "ReviewedRanges":  [
+                                                 "1-31"
+                                             ],
+                          "SHA256":  "9ECD529AEBCCC29312B29951574D9104ACC57A605F69F6B80B31279353EF3719",
+                          "Notes":  "Reviewed fixed output paths, recipe/model references, palette bounds, NBT numeric types, deterministic art and repeat generation behavior.",
+                          "ReadTranscripts":  [
+                                                  "32-art-import-and-base-updates.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Update-Progression.ps1",
+                          "Lines":  99,
+                          "ReviewedRanges":  [
+                                                 "1-99"
+                                             ],
+                          "SHA256":  "9A0048BBFE9A56DA2A1938EE47DA12C236A6B29C68FC59E0135DC364D99CD9C4",
+                          "Notes":  "Reviewed fixed output paths, recipe/model references, palette bounds, NBT numeric types, deterministic art and repeat generation behavior.",
+                          "ReadTranscripts":  [
+                                                  "31-base-resource-generators.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Update-Resources.ps1",
+                          "Lines":  86,
+                          "ReviewedRanges":  [
+                                                 "1-86"
+                                             ],
+                          "SHA256":  "16F8656929F57E0DABBC1AE991DBF88B504426A2DADC713D4EF649C7E63E7D93",
+                          "Notes":  "Reviewed fixed output paths, recipe/model references, palette bounds, NBT numeric types, deterministic art and repeat generation behavior.",
+                          "ReadTranscripts":  [
+                                                  "32-art-import-and-base-updates.txt"
+                                              ]
+                      },
+                      {
+                          "Path":  "tools/Write-StructureNbt.ps1",
+                          "Lines":  22,
+                          "ReviewedRanges":  [
+                                                 "1-22"
+                                             ],
+                          "SHA256":  "F3EA40494FF49912C1A781F637017D611154C2A69183677F6C5D479911CCCA41",
+                          "Notes":  "Reviewed fixed output paths, recipe/model references, palette bounds, NBT numeric types, deterministic art and repeat generation behavior.",
+                          "ReadTranscripts":  [
+                                                  "29-generators-world-art.txt"
+                                              ]
+                      }
+                  ]
+}

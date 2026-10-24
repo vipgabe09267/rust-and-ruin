@@ -1,0 +1,280 @@
+FILE src/main/java/com/tetanusmod/client/GlovesFeatureRenderer.java LINES 1-36 OF 36
+   1: package com.tetanusmod.client;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import com.tetanusmod.expansion.GloveInventory;
+   5: import net.minecraft.client.model.*;
+   6: import net.minecraft.client.network.AbstractClientPlayerEntity;
+   7: import net.minecraft.client.render.*;
+   8: import net.minecraft.client.render.entity.PlayerEntityRenderer;
+   9: import net.minecraft.client.render.entity.feature.FeatureRenderer;
+  10: import net.minecraft.client.render.entity.model.PlayerEntityModel;
+  11: import net.minecraft.client.render.item.ItemRenderer;
+  12: import net.minecraft.client.util.math.MatrixStack;
+  13: import net.minecraft.util.Arm;
+  14: 
+  15: public final class GlovesFeatureRenderer extends FeatureRenderer<AbstractClientPlayerEntity,PlayerEntityModel<AbstractClientPlayerEntity>> {
+  16:     private static final ModelPart RIGHT=part(false,false),LEFT=part(true,false),SLIM_RIGHT=part(false,true),SLIM_LEFT=part(true,true);
+  17:     public GlovesFeatureRenderer(PlayerEntityRenderer renderer){super(renderer);}
+  18:     private static ModelPart part(boolean left,boolean slim){
+  19:         var data=new ModelData();
+  20:         data.getRoot().addChild("glove",ModelPartBuilder.create().uv(0,0).cuboid(left?-1:slim?-2:-3,4,-2,slim?3:4,6,4,new Dilation(0.18F)),ModelTransform.NONE);
+  21:         return TexturedModelData.of(data,32,32).createModel().getChild("glove");
+  22:     }
+  23:     @Override public void render(MatrixStack matrices,VertexConsumerProvider vertices,int light,AbstractClientPlayerEntity player,float limbAngle,float limbDistance,float delta,float progress,float headYaw,float headPitch){
+  24:         if(player.isInvisible()||GloveInventory.equipped(player).isEmpty())return;
+  25:         renderArm(matrices,vertices,light,player,getContextModel(),Arm.RIGHT);
+  26:         renderArm(matrices,vertices,light,player,getContextModel(),Arm.LEFT);
+  27:     }
+  28:     public static void renderArm(MatrixStack matrices,VertexConsumerProvider vertices,int light,AbstractClientPlayerEntity player,PlayerEntityModel<AbstractClientPlayerEntity> model,Arm arm){
+  29:         var gloves=GloveInventory.equipped(player);if(gloves.isEmpty()||player.isInvisible())return;
+  30:         boolean left=arm==Arm.LEFT,slim=player.getModel().equals("slim");
+  31:         var glove=left?(slim?SLIM_LEFT:LEFT):(slim?SLIM_RIGHT:RIGHT);
+  32:         var layer=RenderLayer.getArmorCutoutNoCull(TetanusMod.id("textures/entity/gloves.png"));
+  33:         var consumer=ItemRenderer.getArmorGlintConsumer(vertices,layer,false,gloves.hasGlint());
+  34:         matrices.push();try{(left?model.leftArm:model.rightArm).rotate(matrices);glove.render(matrices,consumer,light,OverlayTexture.DEFAULT_UV);}finally{matrices.pop();}
+  35:     }
+  36: }
+FILE src/main/java/com/tetanusmod/client/GloveSlotFrame.java LINES 1-13 OF 13
+   1: package com.tetanusmod.client;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import net.minecraft.client.gui.DrawContext;
+   5: 
+   6: public final class GloveSlotFrame {
+   7:     public static void draw(DrawContext context,int x,int y,boolean empty){
+   8:         context.fill(x,y,x+18,y+18,0xFF8B8B8B);
+   9:         context.fill(x,y,x+18,y+1,0xFF373737);context.fill(x,y,x+1,y+18,0xFF373737);
+  10:         context.fill(x+1,y+17,x+18,y+18,0xFFFFFFFF);context.fill(x+17,y+1,x+18,y+18,0xFFFFFFFF);
+  11:         if(empty)context.drawTexture(TetanusMod.id("textures/gui/empty_glove_slot.png"),x+1,y+1,0,0,16,16,16,16);
+  12:     }
+  13: }
+FILE src/main/java/com/tetanusmod/client/LockjawAttempt.java LINES 1-22 OF 22
+   1: package com.tetanusmod.client;
+   2: 
+   3: import net.minecraft.util.Hand;
+   4: import net.minecraft.client.util.math.MatrixStack;
+   5: import net.minecraft.util.math.RotationAxis;
+   6: 
+   7: /** A short failed eating gesture; it never starts item use or consumes food. */
+   8: public final class LockjawAttempt {
+   9:     private static Hand hand=Hand.MAIN_HAND;
+  10:     private static int ticks;
+  11:     public static void begin(Hand attempted){hand=attempted;ticks=14;}
+  12:     public static void tick(){if(ticks>0)ticks--;}
+  13:     public static void clear(){ticks=0;}
+  14:     public static boolean active(){return ticks>0;}
+  15:     public static void pose(Hand rendered,net.minecraft.util.Arm arm,float delta,MatrixStack matrices){
+  16:         if(ticks<=0||hand!=rendered)return;
+  17:         float lift=(float)Math.sin(Math.PI*(14-ticks+Math.min(1,Math.max(0,delta)))/14);
+  18:         int side=arm==net.minecraft.util.Arm.RIGHT?1:-1;
+  19:         matrices.translate(-side*0.22F*lift,0.48F*lift,-0.12F*lift);
+  20:         matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(side*18*lift));
+  21:     }
+  22: }
+FILE src/main/java/com/tetanusmod/mixin/FirstPersonGlovesMixin.java LINES 1-19 OF 19
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.client.GlovesFeatureRenderer;
+   4: import net.minecraft.client.network.AbstractClientPlayerEntity;
+   5: import net.minecraft.client.render.VertexConsumerProvider;
+   6: import net.minecraft.client.render.entity.PlayerEntityRenderer;
+   7: import net.minecraft.client.util.math.MatrixStack;
+   8: import net.minecraft.util.Arm;
+   9: import org.spongepowered.asm.mixin.Mixin;
+  10: import org.spongepowered.asm.mixin.injection.*;
+  11: import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+  12: 
+  13: @Mixin(PlayerEntityRenderer.class)
+  14: public abstract class FirstPersonGlovesMixin {
+  15:     @Inject(method="renderRightArm",at=@At("TAIL"))
+  16:     private void right(MatrixStack matrices,VertexConsumerProvider vertices,int light,AbstractClientPlayerEntity player,CallbackInfo ci){GlovesFeatureRenderer.renderArm(matrices,vertices,light,player,((PlayerEntityRenderer)(Object)this).getModel(),Arm.RIGHT);}
+  17:     @Inject(method="renderLeftArm",at=@At("TAIL"))
+  18:     private void left(MatrixStack matrices,VertexConsumerProvider vertices,int light,AbstractClientPlayerEntity player,CallbackInfo ci){GlovesFeatureRenderer.renderArm(matrices,vertices,light,player,((PlayerEntityRenderer)(Object)this).getModel(),Arm.LEFT);}
+  19: }
+FILE src/main/java/com/tetanusmod/mixin/GlovePlayerMixin.java LINES 1-48 OF 48
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.expansion.GloveInventory;
+   4: import com.tetanusmod.registry.ModItems;
+   5: import net.minecraft.entity.player.PlayerEntity;
+   6: import net.minecraft.inventory.SimpleInventory;
+   7: import net.minecraft.item.ItemStack;
+   8: import net.minecraft.nbt.NbtCompound;
+   9: import net.minecraft.util.Hand;
+  10: import org.spongepowered.asm.mixin.*;
+  11: import org.spongepowered.asm.mixin.injection.*;
+  12: import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+  13: 
+  14: @Mixin(PlayerEntity.class)
+  15: public abstract class GlovePlayerMixin implements GloveInventory {
+  16:     @Unique private SimpleInventory rustruin$gloveInventory;
+  17:     @Unique private static final net.minecraft.entity.data.TrackedData<ItemStack> RUST_RUIN_GLOVES=
+  18:             net.minecraft.entity.data.DataTracker.registerData(PlayerEntity.class,net.minecraft.entity.data.TrackedDataHandlerRegistry.ITEM_STACK);
+  19:     public ItemStack rustruin$visualGloves(){return ((PlayerEntity)(Object)this).getDataTracker().get(RUST_RUIN_GLOVES);}
+  20:     @Inject(method="initDataTracker",at=@At("TAIL"))
+  21:     private void trackGloves(CallbackInfo ci){((PlayerEntity)(Object)this).getDataTracker().startTracking(RUST_RUIN_GLOVES,ItemStack.EMPTY);}
+  22:     @Inject(method="tick",at=@At("TAIL"))
+  23:     private void syncGloves(CallbackInfo ci){
+  24:         var self=(PlayerEntity)(Object)this;if(self.getWorld().isClient)return;
+  25:         var equipped=rustruin$gloves().getStack(0);
+  26:         if(!ItemStack.areEqual(equipped,rustruin$visualGloves()))self.getDataTracker().set(RUST_RUIN_GLOVES,equipped.copy());
+  27:     }
+  28:     public SimpleInventory rustruin$gloves(){
+  29:         if(rustruin$gloveInventory==null)rustruin$gloveInventory=new SimpleInventory(1);
+  30:         return rustruin$gloveInventory;
+  31:     }
+  32:     @Inject(method="writeCustomDataToNbt",at=@At("TAIL"))
+  33:     private void save(NbtCompound nbt,CallbackInfo ci){nbt.put("RustRuinGloves",rustruin$gloves().getStack(0).writeNbt(new NbtCompound()));}
+  34:     @Inject(method="readCustomDataFromNbt",at=@At("TAIL"))
+  35:     private void load(NbtCompound nbt,CallbackInfo ci){
+  36:         var self=(PlayerEntity)(Object)this;
+  37:         var saved=ItemStack.fromNbt(nbt.getCompound("RustRuinGloves"));
+  38:         rustruin$gloves().setStack(0,saved.isOf(ModItems.PROTECTIVE_GLOVES)?saved.copyWithCount(1):ItemStack.EMPTY);
+  39:         if(rustruin$gloves().isEmpty()&&self.getOffHandStack().isOf(ModItems.PROTECTIVE_GLOVES)){
+  40:             rustruin$gloves().setStack(0,self.getOffHandStack());self.setStackInHand(Hand.OFF_HAND,ItemStack.EMPTY);
+  41:         }
+  42:     }
+  43:     @Inject(method="dropInventory",at=@At("TAIL"))
+  44:     private void drop(CallbackInfo ci){
+  45:         var self=(PlayerEntity)(Object)this;var stack=rustruin$gloves().removeStack(0);
+  46:         if(!stack.isEmpty()&&!net.minecraft.enchantment.EnchantmentHelper.hasVanishingCurse(stack))self.dropItem(stack,true,false);
+  47:     }
+  48: }
+FILE src/main/java/com/tetanusmod/mixin/GloveMendingMixin.java LINES 1-16 OF 16
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.expansion.GloveMending;
+   4: import net.minecraft.enchantment.Enchantment;
+   5: import net.minecraft.entity.*;
+   6: import net.minecraft.item.ItemStack;
+   7: import org.spongepowered.asm.mixin.Mixin;
+   8: import org.spongepowered.asm.mixin.injection.*;
+   9: import java.util.Map;
+  10: import java.util.function.Predicate;
+  11: 
+  12: @Mixin(ExperienceOrbEntity.class)
+  13: public abstract class GloveMendingMixin {
+  14:     @Redirect(method="repairPlayerGears",at=@At(value="INVOKE",target="Lnet/minecraft/enchantment/EnchantmentHelper;chooseEquipmentWith(Lnet/minecraft/enchantment/Enchantment;Lnet/minecraft/entity/LivingEntity;Ljava/util/function/Predicate;)Ljava/util/Map$Entry;"))
+  15:     private Map.Entry<EquipmentSlot,ItemStack> gloves(Enchantment enchantment,LivingEntity entity,Predicate<ItemStack> predicate){return GloveMending.choose(enchantment,entity,predicate);}
+  16: }
+FILE src/main/java/com/tetanusmod/mixin/LockjawHandMixin.java LINES 1-18 OF 18
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.client.LockjawAttempt;
+   4: import net.minecraft.client.network.AbstractClientPlayerEntity;
+   5: import net.minecraft.client.render.VertexConsumerProvider;
+   6: import net.minecraft.client.render.item.HeldItemRenderer;
+   7: import net.minecraft.client.util.math.MatrixStack;
+   8: import net.minecraft.item.ItemStack;
+   9: import net.minecraft.util.Hand;
+  10: import org.spongepowered.asm.mixin.Mixin;
+  11: import org.spongepowered.asm.mixin.injection.*;
+  12: import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+  13: 
+  14: @Mixin(HeldItemRenderer.class)
+  15: public abstract class LockjawHandMixin {
+  16:     @Inject(method="renderFirstPersonItem",at=@At(value="INVOKE",target="Lnet/minecraft/client/util/math/MatrixStack;push()V",ordinal=0,shift=At.Shift.AFTER))
+  17:     private void failedBite(AbstractClientPlayerEntity player,float delta,float pitch,Hand hand,float swing,ItemStack stack,float equip,MatrixStack matrices,VertexConsumerProvider vertices,int light,CallbackInfo ci){if(stack.isFood())LockjawAttempt.pose(hand,hand==Hand.MAIN_HAND?player.getMainArm():player.getMainArm().getOpposite(),delta,matrices);}
+  18: }
+FILE src/main/java/com/tetanusmod/mixin/MedicClothingMixin.java LINES 1-27 OF 27
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import com.tetanusmod.expansion.MedicVillage;
+   5: import net.minecraft.client.render.VertexConsumerProvider;
+   6: import net.minecraft.client.render.entity.feature.VillagerClothingFeatureRenderer;
+   7: import net.minecraft.client.util.math.MatrixStack;
+   8: import net.minecraft.entity.LivingEntity;
+   9: import net.minecraft.registry.Registries;
+  10: import net.minecraft.util.Identifier;
+  11: import net.minecraft.village.VillagerDataContainer;
+  12: import org.spongepowered.asm.mixin.*;
+  13: import org.spongepowered.asm.mixin.injection.*;
+  14: import org.spongepowered.asm.mixin.injection.callback.*;
+  15: 
+  16: @Mixin(VillagerClothingFeatureRenderer.class)
+  17: public abstract class MedicClothingMixin {
+  18:     @Unique private LivingEntity rustruin$wearer;
+  19:     @Inject(method="render(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/entity/LivingEntity;FFFFFF)V",at=@At("HEAD"))
+  20:     private void wearer(MatrixStack matrices,VertexConsumerProvider vertices,int light,LivingEntity entity,float a,float b,float c,float d,float e,float f,CallbackInfo ci){rustruin$wearer=entity;}
+  21:     @Inject(method="findTexture",at=@At("RETURN"),cancellable=true)
+  22:     private void uniform(String layer,Identifier id,CallbackInfoReturnable<Identifier> result){
+  23:         if(!layer.equals("profession")||!id.equals(TetanusMod.id("medic"))||!(rustruin$wearer instanceof VillagerDataContainer villager)||villager.getVillagerData().getProfession()!=MedicVillage.MEDIC)return;
+  24:         String type=Registries.VILLAGER_TYPE.getId(villager.getVillagerData().getType()).getPath();
+  25:         if(java.util.Set.of("plains","desert","savanna","snow","taiga","swamp","jungle").contains(type))result.setReturnValue(TetanusMod.id("textures/entity/villager/profession/medic_"+type+".png"));
+  26:     }
+  27: }
+FILE src/main/java/com/tetanusmod/mixin/SkeletonEquipmentMixin.java LINES 1-13 OF 13
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.expansion.MobEquipment;
+   4: import net.minecraft.entity.mob.AbstractSkeletonEntity;
+   5: import org.spongepowered.asm.mixin.Mixin;
+   6: import org.spongepowered.asm.mixin.injection.*;
+   7: import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+   8: 
+   9: @Mixin(AbstractSkeletonEntity.class)
+  10: public abstract class SkeletonEquipmentMixin {
+  11:     @Inject(method="updateAttackType",at=@At("TAIL"))
+  12:     private void rustyNails(CallbackInfo ci){MobEquipment.refreshSkeleton((AbstractSkeletonEntity)(Object)this);}
+  13: }
+FILE src/main/java/com/tetanusmod/expansion/GloveMending.java LINES 1-21 OF 21
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import net.minecraft.enchantment.*;
+   4: import net.minecraft.entity.*;
+   5: import net.minecraft.item.ItemStack;
+   6: import java.util.*;
+   7: import java.util.function.Predicate;
+   8: 
+   9: public final class GloveMending {
+  10:     public static Map.Entry<EquipmentSlot,ItemStack> choose(Enchantment enchantment,LivingEntity entity,Predicate<ItemStack> filter){
+  11:         var vanilla=EnchantmentHelper.chooseEquipmentWith(enchantment,entity,filter);
+  12:         var gloves=GloveInventory.equipped(entity);
+  13:         if(gloves.isEmpty()||EnchantmentHelper.getLevel(enchantment,gloves)==0||!filter.test(gloves))return vanilla;
+  14:         int count=0;
+  15:         for(EquipmentSlot slot:EquipmentSlot.values()){
+  16:             var stack=entity.getEquippedStack(slot);
+  17:             if(!stack.isEmpty()&&EnchantmentHelper.getLevel(enchantment,stack)>0&&filter.test(stack))count++;
+  18:         }
+  19:         return entity.getRandom().nextInt(count+1)==0?new AbstractMap.SimpleImmutableEntry<>(EquipmentSlot.OFFHAND,gloves):vanilla;
+  20:     }
+  21: }
+FILE src/main/java/com/tetanusmod/expansion/GloveInventory.java LINES 1-17 OF 17
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import net.minecraft.entity.LivingEntity;
+   4: import net.minecraft.entity.player.PlayerEntity;
+   5: import net.minecraft.inventory.SimpleInventory;
+   6: import net.minecraft.item.ItemStack;
+   7: 
+   8: public interface GloveInventory {
+   9:     SimpleInventory rustruin$gloves();
+  10:     ItemStack rustruin$visualGloves();
+  11:     static ItemStack equipped(LivingEntity entity){
+  12:         if(!(entity instanceof PlayerEntity))return entity.getOffHandStack();
+  13:         var inventory=(GloveInventory)entity;
+  14:         var visual=inventory.rustruin$visualGloves();
+  15:         return entity.getWorld().isClient&&!visual.isEmpty()?visual:inventory.rustruin$gloves().getStack(0);
+  16:     }
+  17: }
+FILE src/main/java/com/tetanusmod/expansion/GlovesItem.java LINES 1-18 OF 18
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import com.tetanusmod.item.DescribedItem;
+   4: import net.minecraft.entity.player.PlayerEntity;
+   5: import net.minecraft.item.ItemStack;
+   6: import net.minecraft.util.*;
+   7: import net.minecraft.world.World;
+   8: 
+   9: public final class GlovesItem extends DescribedItem {
+  10:     public GlovesItem(Settings settings){super(settings,"gloves");}
+  11:     @Override public int getEnchantability(){return 12;}
+  12:     @Override public TypedActionResult<ItemStack> use(World world,PlayerEntity user,Hand hand) {
+  13:         var held=user.getStackInHand(hand);var inventory=((GloveInventory)user).rustruin$gloves();
+  14:         if(user.isSpectator()||!inventory.getStack(0).isEmpty())return TypedActionResult.pass(held);
+  15:         if(!world.isClient){inventory.setStack(0,held.copyWithCount(1));held.decrement(1);user.playerScreenHandler.sendContentUpdates();}
+  16:         return TypedActionResult.success(held,world.isClient);
+  17:     }
+  18: }

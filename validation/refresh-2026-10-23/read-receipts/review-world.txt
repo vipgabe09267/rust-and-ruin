@@ -1,0 +1,253 @@
+FILE src/main/java/com/tetanusmod/world/CaveMedicStructure.java LINES 1-45 OF 45
+   1: package com.tetanusmod.world;
+   2: 
+   3: import com.mojang.serialization.Codec;
+   4: import com.tetanusmod.TetanusMod;
+   5: import net.minecraft.util.BlockRotation;
+   6: import net.minecraft.util.math.*;
+   7: import net.minecraft.world.Heightmap;
+   8: import net.minecraft.world.gen.chunk.VerticalBlockSample;
+   9: import net.minecraft.world.gen.structure.*;
+  10: import java.util.*;
+  11: 
+  12: /** Native structure grid: 15% candidate frequency, minimum horizontal spacing above 2,000 blocks. */
+  13: public final class CaveMedicStructure extends Structure {
+  14:     public static final Codec<CaveMedicStructure> CODEC=createCodec(CaveMedicStructure::new);
+  15:     public CaveMedicStructure(Config config){super(config);}
+  16:     @Override public StructureType<?> getType(){return MedicStructures.TENT;}
+  17:     @Override protected Optional<StructurePosition> getStructurePosition(Context context){
+  18:         int x=context.chunkPos().getStartX()+2,z=context.chunkPos().getStartZ()+2;
+  19:         var center=context.chunkGenerator().getColumnSample(x+6,z+6,context.world(),context.noiseConfig());
+  20:         int surface=context.chunkGenerator().getHeight(x+6,z+6,Heightmap.Type.WORLD_SURFACE_WG,context.world(),context.noiseConfig());
+  21:         int max=Math.min(45,surface-18),min=Math.max(-48,context.world().getBottomY()+8);
+  22:         VerticalBlockSample[] columns=null;
+  23:         for(int y=max;y>=min;y--){
+  24:             if(!clear(center,y))continue;
+  25:             var biome=context.biomeSource().getBiome((x+6)>>2,(y+3)>>2,(z+6)>>2,context.noiseConfig().getMultiNoiseSampler());
+  26:             if(!getValidBiomes().contains(biome))continue;
+  27:             if(columns==null){
+  28:                 columns=new VerticalBlockSample[9];int i=0;
+  29:                 for(int dx:new int[]{1,6,11})for(int dz:new int[]{1,6,11})columns[i++]=context.chunkGenerator().getColumnSample(x+dx,z+dz,context.world(),context.noiseConfig());
+  30:             }
+  31:             boolean fits=true;for(var column:columns)if(!clear(column,y)){fits=false;break;}
+  32:             if(!fits)continue;
+  33:             var pos=new BlockPos(x,y,z);
+  34:             return Optional.of(new StructurePosition(pos.add(6,2,6),collector->collector.addPiece(new MedicStructurePiece(context.structureTemplateManager(),TetanusMod.id("medic_tent"),pos,BlockRotation.NONE))));
+  35:         }
+  36:         return Optional.empty();
+  37:     }
+  38:     private static boolean clear(VerticalBlockSample column,int floor){
+  39:         boolean support=false;
+  40:         for(int depth=0;depth<4;depth++)if(column.getState(floor-depth).isSolidBlock(net.minecraft.world.EmptyBlockView.INSTANCE,new BlockPos(0,floor-depth,0))){support=true;break;}
+  41:         if(!support)return false;
+  42:         for(int dy=1;dy<=7;dy++)if(!column.getState(floor+dy).isAir())return false;
+  43:         return true;
+  44:     }
+  45: }
+FILE src/main/java/com/tetanusmod/world/ClinicStructure.java LINES 1-56 OF 56
+   1: package com.tetanusmod.world;
+   2: 
+   3: import com.mojang.serialization.Codec;
+   4: import com.tetanusmod.TetanusMod;
+   5: import net.minecraft.registry.*;
+   6: import net.minecraft.structure.StructurePiece;
+   7: import net.minecraft.structure.StructureStart;
+   8: import net.minecraft.util.BlockRotation;
+   9: import net.minecraft.util.Identifier;
+  10: import net.minecraft.util.math.*;
+  11: import net.minecraft.world.Heightmap;
+  12: import net.minecraft.world.gen.structure.*;
+  13: import java.util.*;
+  14: 
+  15: /** Shares vanilla village candidate chunks; its structure-set frequency is 55%. */
+  16: public final class ClinicStructure extends Structure {
+  17:     public static final Codec<ClinicStructure> CODEC=createCodec(ClinicStructure::new);
+  18:     private static final String[] TYPES={"plains","desert","savanna","snowy","taiga"};
+  19:     public ClinicStructure(Config config){super(config);}
+  20:     @Override public StructureType<?> getType(){return MedicStructures.CLINIC;}
+  21:     @Override protected Optional<StructurePosition> getStructurePosition(Context context){
+  22:         var structures=context.dynamicRegistryManager().get(RegistryKeys.STRUCTURE);
+  23:         for(String type:TYPES){
+  24:             var village=structures.get(new Identifier("minecraft","village_"+type));
+  25:             if(village==null)continue;
+  26:             // Reconstruct the deterministic village layout without reading or generating neighbor chunks.
+  27:             StructureStart parent=village.createStructureStart(context.dynamicRegistryManager(),context.chunkGenerator(),context.biomeSource(),
+  28:                     context.noiseConfig(),context.structureTemplateManager(),context.seed(),context.chunkPos(),0,context.world(),village.getValidBiomes()::contains);
+  29:             if(!parent.hasChildren())continue;
+  30:             var position=findSite(context,parent.getChildren());
+  31:             if(position.isEmpty())return Optional.empty();
+  32:             var pos=position.get();var template=TetanusMod.id("village/"+type+"_clinic");
+  33:             return Optional.of(new StructurePosition(pos,collector->collector.addPiece(new MedicStructurePiece(context.structureTemplateManager(),template,pos,BlockRotation.NONE))));
+  34:         }
+  35:         return Optional.empty();
+  36:     }
+  37:     private Optional<BlockPos> findSite(Context context,List<StructurePiece> pieces){
+  38:         var root=pieces.get(0).getBoundingBox().getCenter();
+  39:         // Prefer a vacant plot close to existing paths, then try the village's outer edge.
+  40:         for(int radius:new int[]{24,36,48,64,80,96}){
+  41:             for(int side=0;side<8;side++){
+  42:                 int[][] offsets={{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
+  43:                 int x=root.getX()+offsets[side][0]*radius-4,z=root.getZ()+offsets[side][1]*radius-6;
+  44:                 int y=context.chunkGenerator().getHeightOnGround(x+4,z+6,Heightmap.Type.WORLD_SURFACE_WG,context.world(),context.noiseConfig());
+  45:                 var pos=new BlockPos(x,y-1,z);var box=new BlockBox(x-1,y-1,z-1,x+9,y+11,z+13);
+  46:                 if(y<context.chunkGenerator().getSeaLevel()||StructurePiece.firstIntersecting(pieces,box)!=null)continue;
+  47:                 int corner=context.chunkGenerator().getHeightOnGround(x+8,z+12,Heightmap.Type.WORLD_SURFACE_WG,context.world(),context.noiseConfig());
+  48:                 if(Math.abs(corner-y)>4)continue;
+  49:                 var floor=context.chunkGenerator().getColumnSample(x+4,z+6,context.world(),context.noiseConfig()).getState(y-1);
+  50:                 if(!floor.getFluidState().isEmpty())continue;
+  51:                 return Optional.of(pos);
+  52:             }
+  53:         }
+  54:         return Optional.empty();
+  55:     }
+  56: }
+FILE src/main/java/com/tetanusmod/world/MedicStructurePiece.java LINES 1-40 OF 40
+   1: package com.tetanusmod.world;
+   2: 
+   3: import com.tetanusmod.entity.MobVariants;
+   4: import net.minecraft.entity.*;
+   5: import net.minecraft.nbt.NbtCompound;
+   6: import net.minecraft.structure.*;
+   7: import net.minecraft.structure.processor.*;
+   8: import net.minecraft.util.*;
+   9: import net.minecraft.util.math.*;
+  10: import net.minecraft.util.math.random.Random;
+  11: import net.minecraft.world.ServerWorldAccess;
+  12: 
+  13: /** Uses native clipped structure placement and entity spawning; no chunk-load placement hooks. */
+  14: public final class MedicStructurePiece extends SimpleStructurePiece {
+  15:     public MedicStructurePiece(StructureTemplateManager manager,Identifier template,BlockPos pos,BlockRotation rotation){
+  16:         super(MedicStructures.PIECE,0,manager,template,template.toString(),data(rotation),pos);
+  17:     }
+  18:     public MedicStructurePiece(StructureTemplateManager manager,NbtCompound nbt){
+  19:         super(MedicStructures.PIECE,nbt,manager,id->data(rotation(nbt)));
+  20:     }
+  21:     private static BlockRotation rotation(NbtCompound nbt){
+  22:         try{return BlockRotation.valueOf(nbt.getString("MedicRotation"));}catch(IllegalArgumentException invalid){return BlockRotation.NONE;}
+  23:     }
+  24:     private static StructurePlacementData data(BlockRotation rotation){
+  25:         return new StructurePlacementData().setRotation(rotation).setIgnoreEntities(false)
+  26:                 .addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS)
+  27:                 .addProcessor(JigsawReplacementStructureProcessor.INSTANCE);
+  28:     }
+  29:     @Override protected void writeNbt(StructureContext context,NbtCompound nbt){super.writeNbt(context,nbt);nbt.putString("MedicRotation",placementData.getRotation().name());}
+  30:     @Override protected void handleMetadata(String metadata,BlockPos pos,ServerWorldAccess world,Random random,BlockBox bounds){
+  31:         if(!metadata.equals("guard")||!bounds.contains(pos))return;
+  32:         var golem=EntityType.IRON_GOLEM.create(world.toServerWorld());
+  33:         if(golem==null)return;
+  34:         golem.refreshPositionAndAngles(pos.getX()+0.5,pos.getY(),pos.getZ()+0.5,0,0);
+  35:         golem.initialize(world,world.getLocalDifficulty(pos),SpawnReason.STRUCTURE,null,null);
+  36:         golem.setPlayerCreated(true);
+  37:         MobVariants.makePermanent(golem);
+  38:         world.spawnEntity(golem);
+  39:     }
+  40: }
+FILE src/main/java/com/tetanusmod/world/MedicStructures.java LINES 1-13 OF 13
+   1: package com.tetanusmod.world;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import net.minecraft.registry.*;
+   5: import net.minecraft.structure.*;
+   6: import net.minecraft.world.gen.structure.StructureType;
+   7: 
+   8: public final class MedicStructures {
+   9:     public static final StructureType<ClinicStructure> CLINIC=Registry.register(Registries.STRUCTURE_TYPE,TetanusMod.id("medic_clinic"),()->ClinicStructure.CODEC);
+  10:     public static final StructureType<CaveMedicStructure> TENT=Registry.register(Registries.STRUCTURE_TYPE,TetanusMod.id("medic_tent"),()->CaveMedicStructure.CODEC);
+  11:     public static final StructurePieceType PIECE=Registry.register(Registries.STRUCTURE_PIECE,TetanusMod.id("medic_piece"),(context,nbt)->new MedicStructurePiece(context.structureTemplateManager(),nbt));
+  12:     public static void initialize(){}
+  13: }
+FILE src/main/java/com/tetanusmod/expansion/MedicineCabinetBlock.java LINES 1-33 OF 33
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import net.minecraft.block.*;
+   4: import net.minecraft.block.enums.DoubleBlockHalf;
+   5: import net.minecraft.entity.player.PlayerEntity;
+   6: import net.minecraft.state.StateManager;
+   7: import net.minecraft.state.property.BooleanProperty;
+   8: import net.minecraft.util.*;
+   9: import net.minecraft.util.hit.BlockHitResult;
+  10: import net.minecraft.util.math.*;
+  11: import net.minecraft.util.shape.VoxelShape;
+  12: import net.minecraft.world.*;
+  13: 
+  14: /** Native door lifecycle plus an explicit migration state for older, one-block cabinets. */
+  15: public final class MedicineCabinetBlock extends DoorBlock {
+  16:     public static final BooleanProperty COMPLETE=BooleanProperty.of("complete");
+  17:     private static final VoxelShape SHAPE=Block.createCuboidShape(1,0,2,15,16,15);
+  18:     public MedicineCabinetBlock(Settings settings){super(settings.nonOpaque(),BlockSetType.BIRCH);setDefaultState(getDefaultState().with(COMPLETE,false));}
+  19:     @Override protected void appendProperties(StateManager.Builder<Block,BlockState> builder){super.appendProperties(builder);builder.add(COMPLETE);}
+  20:     @Override public BlockState getPlacementState(net.minecraft.item.ItemPlacementContext context){var state=super.getPlacementState(context);return state==null?null:state.with(COMPLETE,true);}
+  21:     @Override public VoxelShape getOutlineShape(BlockState state,BlockView world,BlockPos pos,ShapeContext context){return SHAPE;}
+  22:     @Override public BlockState getStateForNeighborUpdate(BlockState state,Direction side,BlockState neighbor,WorldAccess world,BlockPos pos,BlockPos neighborPos){
+  23:         if(!state.get(COMPLETE)&&state.get(HALF)==DoubleBlockHalf.LOWER&&side==Direction.UP&&!neighbor.isOf(this))return state;
+  24:         return super.getStateForNeighborUpdate(state,side,neighbor,world,pos,neighborPos);
+  25:     }
+  26:     @Override public ActionResult onUse(BlockState state,World world,BlockPos pos,PlayerEntity player,Hand hand,BlockHitResult hit){
+  27:         if(player.isSpectator())return ActionResult.PASS;
+  28:         if(!world.isClient&&!state.get(COMPLETE)&&state.get(HALF)==DoubleBlockHalf.LOWER&&world.isAir(pos.up())){
+  29:             state=state.with(COMPLETE,true);world.setBlockState(pos.up(),state.with(HALF,DoubleBlockHalf.UPPER),18);world.setBlockState(pos,state,18);world.updateNeighborsAlways(pos,this);world.updateNeighborsAlways(pos.up(),this);
+  30:         }
+  31:         return super.onUse(state,world,pos,player,hand,hit);
+  32:     }
+  33: }
+FILE src/main/java/com/tetanusmod/expansion/MobEquipment.java LINES 1-60 OF 60
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import com.tetanusmod.entity.NailEntity;
+   4: import com.tetanusmod.registry.ModItems;
+   5: import net.minecraft.entity.*;
+   6: import net.minecraft.entity.ai.goal.*;
+   7: import net.minecraft.entity.mob.*;
+   8: import net.minecraft.item.ItemStack;
+   9: import net.minecraft.util.Hand;
+  10: import net.minecraft.world.Difficulty;
+  11: import java.util.EnumSet;
+  12: 
+  13: public final class MobEquipment {
+  14:     public static float chance(Difficulty difficulty){return switch(difficulty){case PEACEFUL->0;case EASY->0.02F;case NORMAL->0.04F;case HARD->0.06F;};}
+  15:     public static void spawned(MobEntity mob,SpawnReason reason){
+  16:         if(mob.getWorld().isClient||reason!=SpawnReason.NATURAL&&reason!=SpawnReason.CHUNK_GENERATION&&reason!=SpawnReason.SPAWNER)return;
+  17:         if(mob.getRandom().nextFloat()>=chance(mob.getWorld().getDifficulty()))return;
+  18:         if(mob instanceof SkeletonEntity||mob instanceof StrayEntity){
+  19:             mob.equipStack(EquipmentSlot.MAINHAND,new ItemStack(ModItems.RUSTED_NAIL));
+  20:             ((AbstractSkeletonEntity)mob).updateAttackType();
+  21:         }else if(mob instanceof ZombieEntity){
+  22:             var weapons=new net.minecraft.item.Item[]{ModItems.REBAR,ModItems.RUSTED_METAL_PIPE,ExpansionItems.RUSTED_SPEAR};
+  23:             mob.equipStack(EquipmentSlot.MAINHAND,new ItemStack(weapons[mob.getRandom().nextInt(weapons.length)]));
+  24:         }
+  25:     }
+  26:     public static void refreshSkeleton(AbstractSkeletonEntity skeleton){
+  27:         if(skeleton.getWorld().isClient)return;
+  28:         var selector=((Rabies.MobGoals)skeleton).rustruin$goals();
+  29:         selector.getGoals().stream().map(PrioritizedGoal::getGoal).filter(goal->goal instanceof NailThrowGoal).toList().forEach(selector::remove);
+  30:         if(!skeleton.getMainHandStack().isOf(ModItems.RUSTED_NAIL))return;
+  31:         selector.getGoals().stream().map(PrioritizedGoal::getGoal).filter(goal->goal instanceof MeleeAttackGoal||goal instanceof BowAttackGoal).toList().forEach(selector::remove);
+  32:         selector.add(3,new NailThrowGoal(skeleton));
+  33:     }
+  34:     public static final class NailThrowGoal extends Goal {
+  35:         private final AbstractSkeletonEntity skeleton;
+  36:         private int cooldown;
+  37:         public NailThrowGoal(AbstractSkeletonEntity skeleton){this.skeleton=skeleton;setControls(EnumSet.of(Control.MOVE,Control.LOOK));}
+  38:         @Override public boolean canStart(){var target=skeleton.getTarget();return skeleton.getMainHandStack().isOf(ModItems.RUSTED_NAIL)&&target!=null&&target.isAlive()&&target.getWorld()==skeleton.getWorld()&&!(target instanceof net.minecraft.entity.player.PlayerEntity player&&(player.isCreative()||player.isSpectator()));}
+  39:         @Override public boolean shouldContinue(){return canStart();}
+  40:         @Override public void tick(){
+  41:             var target=skeleton.getTarget();if(target==null)return;
+  42:             skeleton.getLookControl().lookAt(target,30,30);
+  43:             double distance=skeleton.squaredDistanceTo(target);
+  44:             if(distance>64||!skeleton.canSee(target))skeleton.getNavigation().startMovingTo(target,1);else skeleton.getNavigation().stop();
+  45:             if(cooldown>0)cooldown--;
+  46:             if(cooldown==0&&distance<=144&&skeleton.canSee(target)){
+  47:                 var nail=new NailEntity(skeleton.getWorld(),skeleton);nail.setItem(new ItemStack(ModItems.RUSTED_NAIL));
+  48:                 // Mob ammunition cannot be farmed by collecting missed projectiles.
+  49:                 nail.setRecoverable(false);
+  50:                 double dx=target.getX()-nail.getX(),dz=target.getZ()-nail.getZ();
+  51:                 double dy=target.getBodyY(0.5)-nail.getY()+Math.sqrt(dx*dx+dz*dz)*0.12;
+  52:                 nail.setVelocity(dx,dy,dz,1.35F,5);
+  53:                 skeleton.getWorld().spawnEntity(nail);skeleton.swingHand(Hand.MAIN_HAND);
+  54:                 skeleton.playSound(net.minecraft.sound.SoundEvents.ENTITY_SNOWBALL_THROW,0.8F,0.9F);
+  55:                 cooldown=40;
+  56:             }
+  57:         }
+  58:         @Override public void stop(){skeleton.getNavigation().stop();}
+  59:     }
+  60: }

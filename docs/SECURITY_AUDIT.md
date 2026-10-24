@@ -1,5 +1,7 @@
 # Security and stability review
 
+Latest: [fresh full-project audit](REAUDIT_2026-10-23.md), covering all current executable code, reproduced gameplay defects and additional client-session hardening. The sections below preserve earlier review snapshots.
+
 Review scope: Rust & Ruin 0.1.0-beta expansion on Minecraft 1.20.1 Fabric. Automated checks support the findings below; this is not a claim that every possible mod combination or gameplay sequence is bug-free.
 
 ## Network and authority
@@ -33,3 +35,12 @@ Review scope: Rust & Ruin 0.1.0-beta expansion on Minecraft 1.20.1 Fabric. Autom
 ## Practical limits
 
 The review does not cover arbitrary third-party mixins, oversized external resource packs, every possible village terrain collision, or long-running public-server load. Clinics are weighted village house entries, so their presence is not guaranteed in a particular village. Existing generated terrain is unchanged. World-generation variety and combat balance still benefit from the owner's in-game testing. Player-owned projectiles continue to obey the server's PvP rules.
+
+## October 19 follow-up
+
+The movement-spasm hook now leaves non-finite positions and rotations to vanilla validation instead of canceling validation and issuing a teleport. A native handler regression checks NaN and both infinite rotation values. The full source review, persistence migration and disease-state fixes are documented in [the follow-up audit](DESPAWN_AUDIT.md).
+
+
+## Maintenance-feature review
+
+The [fresh source review](LINE_AUDIT.md) adds server-side delivery and veterinary-consumption checks, saved daily cooldowns, bounded operator diagnostics that do not load chunks, and coating data bounds. Existing packet fuzzing, invalid movement, permission checks and Creative glove-packet regressions are retained. File-audit annotations now describe automatic checks without implying those checks performed the separate manual review. This is not a new third-party dependency CVE assessment.

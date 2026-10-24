@@ -1,0 +1,36 @@
+FILE src/main/java/com/tetanusmod/mixin/LivingEntityMixin.java LINES 1-35 OF 152
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import com.tetanusmod.effect.InfectionState;
+   5: import net.minecraft.entity.LivingEntity;
+   6: import net.minecraft.nbt.NbtCompound;
+   7: import org.spongepowered.asm.mixin.Mixin;
+   8: import org.spongepowered.asm.mixin.Unique;
+   9: import org.spongepowered.asm.mixin.injection.At;
+  10: import org.spongepowered.asm.mixin.injection.Inject;
+  11: import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+  12: 
+  13: @Mixin(LivingEntity.class)
+  14: public abstract class LivingEntityMixin implements InfectionState, com.tetanusmod.entity.TetanizedState {
+  15:     @Inject(method="addStatusEffect(Lnet/minecraft/entity/effect/StatusEffectInstance;Lnet/minecraft/entity/Entity;)Z",at=@At("HEAD"),cancellable=true)
+  16:     private void rustruin$preventDisease(net.minecraft.entity.effect.StatusEffectInstance effect,net.minecraft.entity.Entity source,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<Boolean> result) {
+  17:         LivingEntity self=(LivingEntity)(Object)this;
+  18:         if(!self.getWorld().isClient && effect.getEffectType()==TetanusMod.TETANUS && !com.tetanusmod.expansion.CommandEffects.forced() && !com.tetanusmod.effect.InfectionProtection.checked(self)
+  19:                 && !com.tetanusmod.effect.InfectionProtection.allows(self,false))result.setReturnValue(false);
+  20:     }
+  21:     @org.spongepowered.asm.mixin.Shadow protected abstract void dropXp();
+  22:     @org.spongepowered.asm.mixin.Shadow protected net.minecraft.entity.player.PlayerEntity attackingPlayer;
+  23:     @Inject(method="drop",at=@At("HEAD"),cancellable=true)
+  24:     private void rustruin$infectedAnimalOnlyMeat(net.minecraft.entity.damage.DamageSource source,CallbackInfo ci) {
+  25:         LivingEntity self=(LivingEntity)(Object)this;
+  26:         if(com.tetanusmod.entity.MobVariants.isAnimal(self)&&com.tetanusmod.expansion.Rabies.rabid(self)) {
+  27:             if(!self.getWorld().isClient&&self.getWorld().getGameRules().getBoolean(net.minecraft.world.GameRules.DO_MOB_LOOT))self.dropStack(new net.minecraft.item.ItemStack(com.tetanusmod.expansion.ExpansionItems.RABID_MEAT,1+self.getRandom().nextInt(3)));
+  28:             dropXp();ci.cancel();return;
+  29:         }
+  30:         if(com.tetanusmod.entity.MobVariants.infectedAnimal(self)) {
+  31:             com.tetanusmod.entity.MobVariants.drops(self);
+  32:             dropXp();
+  33:             ci.cancel();
+  34:         }
+  35:     }

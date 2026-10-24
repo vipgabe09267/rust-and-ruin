@@ -36,25 +36,33 @@ public final class RustRuinReiPlugin implements REIClientPlugin {
         public RustDisplay(Item input,Item output) { super(List.of(EntryIngredient.of(EntryStacks.of(input))),List.of(EntryIngredient.of(EntryStacks.of(output)))); }
         @Override public CategoryIdentifier<RustDisplay> getCategoryIdentifier() { return RUSTING; }
     }
-    @Override public void registerCategories(CategoryRegistry registry) { registry.add(new RustCategory());registry.add(new ArrowCategory());registry.addWorkstations(ARROW_SMITHING,EntryStacks.of(Items.SMITHING_TABLE)); }
+    @Override public void registerCategories(CategoryRegistry registry) { registry.add(new RustCategory());registry.add(new ArrowCategory());registry.add(new WaxCategory());registry.addWorkstations(ARROW_SMITHING,EntryStacks.of(Items.SMITHING_TABLE)); }
     @Override public void registerDisplays(DisplayRegistry registry) {
         int count=0;
-        for(Item item:Registries.ITEM) { Item rusty=RustingSystem.rusted(item);if(rusty!=null){registry.add(new RustDisplay(item,rusty));count++;} }
+        for(Item item:Registries.ITEM) { Item rusty=RustingSystem.rusted(item);if(rusty!=null){registry.add(new RustDisplay(item,rusty));registry.add(new WaxDisplay(item));count++;} }
         registeredCount=count;registry.add(new ArrowDisplay());
+    }
+    private static void addWrappedLabel(List<Widget> widgets, int x, int y, int width, Text message) {
+        var handler = net.minecraft.client.MinecraftClient.getInstance().textRenderer.getTextHandler();
+        for (var line : handler.wrapLines(message, width, net.minecraft.text.Style.EMPTY)) {
+            widgets.add(Widgets.createLabel(new Point(x, y), Text.literal(line.getString()))
+                    .leftAligned().noShadow().color(0xFF443328,0xFFF2DEC6));
+            y += 10;
+        }
     }
     private static final class RustCategory implements DisplayCategory<RustDisplay> {
         @Override public CategoryIdentifier<RustDisplay> getCategoryIdentifier() { return RUSTING; }
         @Override public Text getTitle() { return Text.translatable("jei.tetanusmod.rusting"); }
         @Override public Renderer getIcon() { return EntryStacks.of(ModItems.RUSTED_NAIL); }
-        @Override public int getDisplayHeight() { return 70; }
+        @Override public int getDisplayHeight() { return 84; }
         @Override public int getDisplayWidth(RustDisplay display) { return 178; }
         @Override public List<Widget> setupDisplay(RustDisplay display,Rectangle bounds) {
             var widgets=new ArrayList<Widget>();widgets.add(Widgets.createRecipeBase(bounds));
             widgets.add(Widgets.createSlot(new Point(bounds.x+9,bounds.y+15)).entries(display.getInputEntries().get(0)).markInput());
             widgets.add(Widgets.createSlot(new Point(bounds.x+150,bounds.y+15)).entries(display.getOutputEntries().get(0)).markOutput());
-            widgets.add(Widgets.createLabel(new Point(bounds.x+35,bounds.y+12),Text.translatable("jei.tetanusmod.water",TetanusMod.CONFIG.waterRustTicks/20.0)).leftAligned().noShadow());
-            if(TetanusMod.CONFIG.rainRusting)widgets.add(Widgets.createLabel(new Point(bounds.x+35,bounds.y+26),Text.translatable("jei.tetanusmod.rain",TetanusMod.CONFIG.rainRustTicks/20.0)).leftAligned().noShadow());
-            widgets.add(Widgets.createLabel(new Point(bounds.x+9,bounds.y+51),Text.translatable("jei.tetanusmod.drop")).leftAligned().noShadow());
+            widgets.add(Widgets.createLabel(new Point(bounds.x+35,bounds.y+12),Text.translatable("jei.tetanusmod.water",TetanusMod.CONFIG.waterRustTicks/20.0)).leftAligned().noShadow().color(0xFF443328,0xFFF2DEC6));
+            if(TetanusMod.CONFIG.rainRusting)widgets.add(Widgets.createLabel(new Point(bounds.x+35,bounds.y+26),Text.translatable("jei.tetanusmod.rain",TetanusMod.CONFIG.rainRustTicks/20.0)).leftAligned().noShadow().color(0xFF443328,0xFFF2DEC6));
+            addWrappedLabel(widgets,bounds.x+9,bounds.y+51,bounds.width-18,Text.translatable("jei.tetanusmod.drop"));
             return widgets;
         }
     }
@@ -76,7 +84,35 @@ public final class RustRuinReiPlugin implements REIClientPlugin {
             widgets.add(Widgets.createSlot(new Point(bounds.x+9,bounds.y+13)).entries(display.getInputEntries().get(0)).markInput());
             widgets.add(Widgets.createSlot(new Point(bounds.x+73,bounds.y+13)).entries(display.getInputEntries().get(1)).markInput());
             widgets.add(Widgets.createSlot(new Point(bounds.x+149,bounds.y+13)).entries(display.getOutputEntries().get(0)).markOutput());
-            widgets.add(Widgets.createLabel(new Point(bounds.x+8,bounds.y+42),Text.translatable("jei.tetanusmod.batch_hint")).leftAligned().noShadow());
-            widgets.add(Widgets.createLabel(new Point(bounds.x+8,bounds.y+57),Text.translatable("jei.tetanusmod.no_template")).leftAligned().noShadow());return widgets;
+            widgets.add(Widgets.createLabel(new Point(bounds.x+8,bounds.y+42),Text.translatable("jei.tetanusmod.batch_hint")).leftAligned().noShadow().color(0xFF443328,0xFFF2DEC6));
+            widgets.add(Widgets.createLabel(new Point(bounds.x+8,bounds.y+57),Text.translatable("jei.tetanusmod.no_template")).leftAligned().noShadow().color(0xFF443328,0xFFF2DEC6));return widgets;
         }
-    }}
+    }
+    public static final CategoryIdentifier<WaxDisplay> COATING=CategoryIdentifier.of(TetanusMod.id("coating"));
+    public static boolean showCoating(){return me.shedaniel.rei.api.client.view.ViewSearchBuilder.builder().addCategory(COATING).open();}
+    public static boolean hasCoating(){return DisplayRegistry.getInstance().getAll().getOrDefault(COATING,List.of()).size()==9;}
+    public static final class WaxDisplay extends BasicDisplay {
+        private final Item item;
+        WaxDisplay(Item item){super(List.of(EntryIngredient.of(EntryStacks.of(Items.HONEYCOMB)),EntryIngredient.of(EntryStacks.of(item))),List.of(EntryIngredient.of(EntryStacks.of(waxed(item)))));this.item=item;}
+        @Override public List<EntryIngredient> getOutputEntries(){return List.of(EntryIngredient.of(EntryStacks.of(waxed(item))));}
+        private static ItemStack waxed(Item item){var stack=new ItemStack(item);com.tetanusmod.rust.RustCoating.coat(stack);return stack;}
+        public CategoryIdentifier<WaxDisplay> getCategoryIdentifier(){return COATING;}
+    }
+    private static final class WaxCategory implements DisplayCategory<WaxDisplay> {
+        public CategoryIdentifier<WaxDisplay> getCategoryIdentifier(){return COATING;}
+        public Text getTitle(){return Text.translatable("jei.tetanusmod.coating_title");}
+        public Renderer getIcon(){return EntryStacks.of(Items.HONEYCOMB);}
+        public int getDisplayHeight(){return 90;}
+        public int getDisplayWidth(WaxDisplay display){return 178;}
+        public List<Widget> setupDisplay(WaxDisplay display,Rectangle bounds){
+            var widgets=new ArrayList<Widget>();widgets.add(Widgets.createRecipeBase(bounds));
+            widgets.add(Widgets.createSlot(new Point(bounds.x+8,bounds.y+8)).entries(display.getInputEntries().get(0)).markInput());
+            widgets.add(Widgets.createSlot(new Point(bounds.x+70,bounds.y+8)).entries(display.getInputEntries().get(1)).markInput());
+            widgets.add(Widgets.createSlot(new Point(bounds.x+150,bounds.y+8)).entries(display.getOutputEntries().get(0)).markOutput());
+            widgets.add(Widgets.createLabel(new Point(bounds.x+4,bounds.y+36),Text.translatable("jei.tetanusmod.coating_use")).leftAligned().noShadow().color(0xFF443328,0xFFF2DEC6));
+            widgets.add(Widgets.createLabel(new Point(bounds.x+4,bounds.y+49),Text.translatable("jei.tetanusmod.coating_cost")).leftAligned().noShadow().color(0xFF443328,0xFFF2DEC6));
+            addWrappedLabel(widgets,bounds.x+4,bounds.y+62,bounds.width-8,Text.translatable("jei.tetanusmod.coating_wear",TetanusMod.CONFIG.coatingWeatherTicks/20));
+            return widgets;
+        }
+    }
+}

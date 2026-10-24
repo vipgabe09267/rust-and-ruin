@@ -1,0 +1,7 @@
+FILE src/gametest/java/com/tetanusmod/test/ProgressionExpansionGameTests.java LINES 155-160 OF 160
+ 155:     public void beaconAlwaysGrantsResistanceWithoutSelectedPower(TestContext ctx){
+ 156:         var player=ctx.createMockCreativeServerPlayerInWorld();player.setPosition(ctx.getAbsolute(new Vec3d(3,4,3)));BeaconPower.apply(ctx.getWorld(),player.getBlockPos(),1,null,null);ctx.assertTrue(player.hasStatusEffect(TetanusMod.VACCINATED),"Active beacon with no selection lacked passive resistance");
+ 157:         var full=ctx.getWorld().getServer().getAdvancementLoader().get(TetanusMod.id("beacon_full"));ctx.assertFalse(player.getAdvancementTracker().getProgress(full).isDone(),"Incomplete/unselected beacon awarded full activation");
+ 158:         BeaconPower.apply(ctx.getWorld(),player.getBlockPos(),4,StatusEffects.HASTE,StatusEffects.HASTE);ctx.assertTrue(player.getStatusEffect(StatusEffects.HASTE).getAmplifier()==2&&player.getAdvancementTracker().getProgress(full).isDone(),"Full beacon failed Haste III or its custom advancement");player.discard();ctx.complete();
+ 159:     }
+ 160: }

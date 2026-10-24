@@ -60,7 +60,6 @@ public final class MobVariants {
         if (entity.getWorld().isClient || !entity.isAlive() || permanent(entity) || com.tetanusmod.expansion.Rabies.rabid(entity)) return;
         ((TetanizedState) entity).rustruin$setPermanent(true);
         applyAttributes(entity, true);
-        if (entity instanceof MobEntity mob) mob.setPersistent();
         if (entity instanceof WitherEntity wither) {
             wither.setCustomName(Text.translatable("entity.tetanusmod.tetanized_wither"));
             Infection.playSound(entity);
@@ -83,9 +82,25 @@ public final class MobVariants {
             modifier(entity, EntityAttributes.GENERIC_ATTACK_DAMAGE, DAMAGE, 0.5);
             modifier(entity, EntityAttributes.GENERIC_MOVEMENT_SPEED, SPEED, 0.10);
             // Creepers have no melee damage attribute; their variant gets a larger explosion instead.
-            if (entity instanceof CreeperEntity creeper) ((com.tetanusmod.mixin.CreeperAccessor) creeper).rustruin$setExplosionRadius(4);
+            if (entity instanceof CreeperEntity creeper) {
+                var blast=(com.tetanusmod.mixin.CreeperAccessor)creeper;
+                if(blast.rustruin$getExplosionRadius()<4)blast.rustruin$setExplosionRadius(4);
+            }
         }
         if (heal) entity.setHealth(entity.getMaxHealth());
+    }
+    public static boolean cureAnimal(LivingEntity entity) {
+        if (entity.getWorld().isClient || !entity.isAlive() || !isAnimal(entity) || !permanent(entity)) return false;
+        ((TetanizedState) entity).rustruin$setPermanent(false);
+        var speed = entity.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+        if (speed != null) speed.removeModifier(SPEED);
+        entity.removeStatusEffect(TetanusMod.TETANUS);
+        entity.removeStatusEffect(TetanusMod.LOCKJAW);
+        entity.removeStatusEffect(com.tetanusmod.expansion.ExpansionEffects.DISORIENTED);
+        var state = (com.tetanusmod.effect.InfectionState) entity;
+        state.tetanus$setLockjaw(0);
+        state.tetanus$setFreeze(0);
+        return true;
     }
     public static void tick(LivingEntity entity) {
         if (entity.getWorld().isClient || !permanent(entity) || entity.age % 40 != 0) return;

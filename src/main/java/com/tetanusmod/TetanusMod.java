@@ -32,6 +32,7 @@ public final class TetanusMod implements ModInitializer {
     public static final StatusEffect VACCINATED=Registry.register(Registries.STATUS_EFFECT,id("tetanus_resistance"),new com.tetanusmod.effect.VaccinationEffect());
     public static final StatusEffect LOCKJAW=Registry.register(Registries.STATUS_EFFECT,id("lockjaw"),new com.tetanusmod.effect.LockjawEffect());
     public static final StatusEffect SALMONELLA=Registry.register(Registries.STATUS_EFFECT,id("salmonella"),new com.tetanusmod.effect.SalmonellaEffect());
+    public static java.util.function.Consumer<net.minecraft.util.Hand> LOCKJAW_GESTURE=hand->{};
     public static final Item NAIL = ModItems.NAIL;
     public static final Item RUSTED_NAIL = ModItems.RUSTED_NAIL;
     public static final Item REBAR = ModItems.REBAR;
@@ -61,6 +62,10 @@ public final class TetanusMod implements ModInitializer {
     public void onInitialize() {
         com.tetanusmod.expansion.ExpansionEffects.initialize();
         ModItems.initialize();
+        com.tetanusmod.world.MedicStructures.initialize();
+        com.tetanusmod.command.DiseaseCommands.initialize();
+        com.tetanusmod.rust.RustCoating.initialize();
+        com.tetanusmod.expansion.MedicSupplies.initialize();
         com.tetanusmod.expansion.RustArrowSmithingRecipe.initialize();
         com.tetanusmod.expansion.MedicVillage.initialize();
         com.tetanusmod.registry.ModBrewing.initialize();
@@ -82,6 +87,7 @@ public final class TetanusMod implements ModInitializer {
         UseItemCallback.EVENT.register((player, world, hand) -> {
             var stack = player.getStackInHand(hand);
             if (stack.isFood() && (player.hasStatusEffect(LOCKJAW) || ((InfectionState) player).tetanus$getLockjaw() > 0)) {
+                if(world.isClient)LOCKJAW_GESTURE.accept(hand);
                 if(!world.isClient)player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.lockjaw"),true);
                 return net.minecraft.util.TypedActionResult.fail(stack);
             }

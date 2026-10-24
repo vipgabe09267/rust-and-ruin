@@ -42,7 +42,7 @@ public final class NailItem extends Item {
         }
         for (Item nailItem : new Item[]{com.tetanusmod.registry.ModItems.NAIL, com.tetanusmod.registry.ModItems.RUSTED_NAIL,
                 com.tetanusmod.registry.ModItems.BENT_NAIL, com.tetanusmod.registry.ModItems.RUSTED_BENT_NAIL}) {
-            user.getItemCooldownManager().set(nailItem, 10);
+            user.getItemCooldownManager().set(nailItem, rusty ? 14 : 10);
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));
         if (!user.getAbilities().creativeMode) stack.decrement(1);

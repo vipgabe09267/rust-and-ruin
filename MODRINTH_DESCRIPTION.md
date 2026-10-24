@@ -13,24 +13,29 @@ The Iron Spear has a slower swing than an iron sword, seven base damage, and a r
 ## Three diseases, different problems
 
 - **Tetanus** lasts 5-10 minutes and causes stiffness, spasms, and rusty brown hearts. During the final 2-4 minutes, **Lockjaw Sonata** prevents eating. Antitoxin cures both; milk cannot.
-- **Salmonella** causes vomiting, nausea, hunger loss, and light damage. Cooking infected meat makes it safe to eat.
-- **Rabies** lasts until death or treatment with Rabies Cure. It removes one heart of maximum health each minute until only two hearts remain, then causes recurring nausea. Your health hearts turn purple-red.
+- **Salmonella** causes vomiting, nausea, hunger loss, and light damage. Raw Infected Meat causes Salmonella only. Cooking it makes it safe to eat.
+- **Rabies** lasts until death or treatment with Rabies Cure. It removes one heart of maximum health each minute until only two hearts remain, then causes recurring nausea. Rabies deals no direct damage and stops reducing capacity at two hearts. Your hearts turn purple-red.
 
-Equip **Protective Gloves** in their dedicated inventory slot, carry antitoxin, and vaccinate before a fight. Tetanus and Rabies have separate vaccines. The **Tetanus Protection** shield enchantment reduces infection risk from Tetanus I by 65% and Tetanus II by 40%.
+Equip **Protective Gloves** in their dedicated inventory slot, carry antitoxin, and vaccinate before a fight. Tetanus and Rabies have separate vaccines. Gloves have 192 durability, appear on your character, and accept Unbreaking and Mending, including XP repairs while equipped. The **Tetanus Protection** shield enchantment reduces infection risk from Tetanus I by 65% and Tetanus II by 40%.
 
 ## Infected creatures
 
-Tetanized mobs have rusty skins, increased strength, and extra salvage drops. Tetanized animals move slower and drop only **Infected Meat**. Ordinary animals with temporary Tetanus keep their normal drops.
+Tetanized mobs have rusty skins, increased strength, and extra salvage drops. Tetanized animals move slower and drop only **Infected Meat**. Ordinary animals with temporary Tetanus keep their normal drops. Saddles, equipped items, and stored cargo still follow normal drop rules.
 
-Naturally spawned creatures have a **10% / 15% / 20%** chance of being tetanized on Easy / Normal / Hard. Mob spawners use **25% / 35% / 45%**. Some mammals and undead can also become rarer **rabid variants**, with sickly skins, extra health, armor, and aggressive attacks. Only rabid animals drop Rabid Meat.
+Naturally spawned creatures have a **0.5% / 1% / 2%** chance of being tetanized on Easy / Normal / Hard. Mob spawners use **3% / 5% / 8%**. Some mammals and undead can also become rarer **rabid variants**, with sickly skins, extra health, armor, and aggressive attacks. Only rabid animals drop Rabid Meat.
 
-Creative spawn eggs let you choose specific variants.
+Creative variant eggs keep each species recognizable, with rusty or purple tints and their own **Rust & Ruins Spawn Eggs** tab.
 
 ## Village medics
 
 Find a medic in a village clinic or place a crafted **Medicine Cabinet** to give an unemployed villager the job. Medics sell vaccines, antitoxin, Rabies Cure, and protective gloves.
 
-Clinics have timber roofs, lantern-lit porches, treatment beds, and medicine storage. Smiths and fishermen also offer selected equipment and salvage. A reusable **Field Guide** explains recipes and progression in-game.
+New villages roll a **55% clinic chance** where terrain and space allow. Clinics and medic uniforms match plains, desert, savanna, snowy, and taiga villages, with treatment beds, a two-block medicine cabinet, and a loot chest. Smiths and fishermen also offer selected equipment and salvage. A reusable **Field Guide** explains recipes and progression in-game.
+
+
+Explore roomy lush and dripstone caves for rare **medic camps**: a tent, medic, supplies, and a defensive Tetanized Iron Golem. Camp candidates roll 15% and stay more than 2,000 blocks apart; suitable cave space is also required. New structures appear in newly generated terrain.
+
+Operators can find them with `/locate structure tetanusmod:medic_clinic`, `/locate structure tetanusmod:medic_tent`, or `/rustandruin locate medic` and `/rustandruin locate tent`.
 
 ## Brewing and enchanted weapons
 
@@ -48,6 +53,8 @@ Add gunpowder for splash potions or dragon's breath for lingering versions.
 Make **Tetanized Arrows** at a smithing table: leave the template slot empty, add ordinary arrows and one Rust, and convert up to 64 arrows at once. They cause one minute of Tetanus and are consumed even with Infinity.
 
 **Tetanus I and II** apply to combat weapons, including swords, axes, spears, rebar, pipes, bows, crossbows, and tridents. Enchanted ranged weapons apply full-duration infection; combining them with Tetanized Arrows extends it by 25%. Tetanus II adds disorientation, erratic mob movement, missed attacks, and periodic damage throughout the infection.
+
+Skeletons occasionally throw rusty nails in place of shooting a bow, while zombies can carry rebar, rusty pipes, or rusty spears. Equipment chances are **2% / 4% / 6%** on Easy / Normal / Hard. Rusty nails have a slightly longer throwing cooldown.
 
 ## The Tetanized Wither
 
@@ -70,3 +77,11 @@ Pick up Infected Meat for **Strange Meat**, contract Salmonella for **Why did I 
 Install on **both client and server**. **JEI and REI are optional alternatives**, with crafting, cooking, brewing, rusting, and arrow smithing displays. Install your chosen viewer's dependencies too. Rust & Ruin itself requires no additional mod beyond Fabric API.
 
 [Source code and recipe guide](https://github.com/vipgabe09267/rust-and-ruin) | [Modrinth downloads](https://modrinth.com/mod/rust-ruin)
+
+## Keeping the rust under control
+
+Wax clean equipment with honeycomb to delay rust, or use a **Veterinary Kit** to bring a permanently infected animal back to normal. Treating an animal earns **Clean Bill of Health**.
+
+Village medics accept a rotating daily supply delivery. Sneak and right-click one to see what they need; completing the request earns better medicine prices and **Just What the Doctor Ordered**.
+
+Explore **abandoned workshops** for rusty traps, scrap, worn weapons, and occasional medicine. Server owners can configure natural animal, other mob, and spawner mutation rates separately. Operators also have nearby population counts and individual despawn diagnostics.

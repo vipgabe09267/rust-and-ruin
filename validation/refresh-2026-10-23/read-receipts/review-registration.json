@@ -1,0 +1,51 @@
+[
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionMobMixin.java",
+        "Start":  1,
+        "End":  28,
+        "TotalLines":  28,
+        "SHA256AtRead":  "78ECEC50FC295C9E23800D4991D7FA9AB50671871FCFD5264BBD094D5B6F3808"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/MedicVillage.java",
+        "Start":  1,
+        "End":  40,
+        "TotalLines":  40,
+        "SHA256AtRead":  "DE46AB4871DA743885644D0CBFF211945279E59306A98B99F45C6421F4BCF052"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/CombatInfection.java",
+        "Start":  1,
+        "End":  55,
+        "TotalLines":  55,
+        "SHA256AtRead":  "C554DF2BBF5EC0D5CC5A5DA6AB8ECB83CAD4A6981704C336F5C7C02E011E93A7"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/CreativeGloveScreenMixin.java",
+        "Start":  1,
+        "End":  29,
+        "TotalLines":  29,
+        "SHA256AtRead":  "6EB109CD1E6B72AAF8AE04886E0AD62A136979F56C0D7382CF6D445806F6FA2F"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/GloveInventoryScreenMixin.java",
+        "Start":  1,
+        "End":  17,
+        "TotalLines":  17,
+        "SHA256AtRead":  "CF03525FB6770D30D734CE0FEBC98010846B7049D0CD426128B564110624D473"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/client/TetanusClient.java",
+        "Start":  1,
+        "End":  88,
+        "TotalLines":  88,
+        "SHA256AtRead":  "D8B63DF82D343BD5460636531DC66A2A4F6EF8B854F11486D7C7A5DAACCE4A20"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/TetanusMod.java",
+        "Start":  1,
+        "End":  98,
+        "TotalLines":  98,
+        "SHA256AtRead":  "09C6E0415EDA1D4077BC84D86ADF690535AB4809F47553010E0ED0FDC1A23C6D"
+    }
+]

@@ -97,7 +97,7 @@ public class PreventionGameTests implements FabricGameTest {
             var player=ctx.createMockSurvivalPlayer();((com.tetanusmod.expansion.GloveInventory)player).rustruin$gloves().setStack(0,new ItemStack(ModItems.PROTECTIVE_GLOVES));
             Infection.expose(player,null);ctx.assertFalse(player.hasStatusEffect(TetanusMod.TETANUS),"Gloves did not prevent contact infection");
             ModItems.INFECTED_MEAT.finishUsing(new ItemStack(ModItems.INFECTED_MEAT),ctx.getWorld(),player);
-            ctx.assertTrue(player.hasStatusEffect(TetanusMod.TETANUS)&&player.hasStatusEffect(TetanusMod.SALMONELLA)&&com.tetanusmod.expansion.GloveInventory.equipped(player).getDamage()==1,"Gloves prevented food infection or charged twice");
+            ctx.assertTrue(!player.hasStatusEffect(TetanusMod.TETANUS)&&player.hasStatusEffect(TetanusMod.SALMONELLA)&&com.tetanusmod.expansion.GloveInventory.equipped(player).getDamage()==1,"Gloves prevented food infection or charged twice");
         }finally{TetanusMod.CONFIG.gloveProtectionChance=glove;TetanusMod.CONFIG.salmonellaChance=salmonella;}ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)

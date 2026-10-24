@@ -4,6 +4,7 @@
     "compatibilityLevel":  "JAVA_17",
     "mixins":  [
                    "ItemEntityMixin",
+                   "CoatingWearMixin",
                    "LivingEntityMixin",
                    "ServerPlayNetworkHandlerMixin",
                    "GrindstoneScreenHandlerMixin",
@@ -33,7 +34,15 @@
                    "StructurePoolAccessor",
                    "BatchSmithingMixin",
                    "ItemSuggestionsMixin",
-                   "MedicTradesMixin", "CreativeGloveNetworkMixin", "ReturningNailAdvancementMixin"
+                   "MedicTradesMixin",
+                   "CreativeGloveNetworkMixin",
+                   "ReturningNailAdvancementMixin",
+                   "EffectCommandMixin",
+                   "GloveMendingMixin",
+                   "SkeletonEquipmentMixin",
+                   "ZombieEquipmentMixin",
+                   "CabinetPathfindingMixin",
+                   "DiseaseRespawnMixin"
                ],
     "client":  [
                    "InGameHudMixin",
@@ -43,8 +52,13 @@
                    "SheepWoolTintMixin",
                    "LivingTextureMixin",
                    "DiseasePotionTooltipMixin",
-                   "GloveInventoryScreenMixin", "CreativeGloveScreenMixin", "SlotPositionAccessor",
-                   "EnchantmentTooltipMixin"
+                   "GloveInventoryScreenMixin",
+                   "CreativeGloveScreenMixin",
+                   "SlotPositionAccessor",
+                   "EnchantmentTooltipMixin",
+                   "FirstPersonGlovesMixin",
+                   "LockjawHandMixin",
+                   "MedicClothingMixin"
                ],
     "injectors":  {
                       "defaultRequire":  1

@@ -1,0 +1,137 @@
+FILE src/smoketest/java/com/tetanusmod/test/ClientSmokeTest.java LINES 168-303 OF 353
+ 168:                 if(rabiesPrepared&&worldTicks==recipesAt+350)screenshot(client,"clinic-traps");
+ 169:                 if(rabiesPrepared&&worldTicks==recipesAt+410){
+ 170:                     var creative=new net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen(client.player,client.world.getEnabledFeatures(),true);client.setScreen(creative);
+ 171:                     var select=creative.getClass().getDeclaredMethod("setSelectedTab",ItemGroup.class);select.setAccessible(true);var group=net.minecraft.registry.Registries.ITEM_GROUP.get(TetanusMod.id("items"));selectCreative(creative,group);
+ 172:                     for(var item:ModItems.ALL){boolean legacy=com.tetanusmod.registry.ModIronTools.isRusted(item)||item instanceof VariantSpawnEggItem;boolean shown=group.getDisplayStacks().stream().anyMatch(stack->stack.isOf(item));if(shown==legacy)throw new IllegalStateException("Creative item visibility incorrect: "+item);}
+ 173:                     }
+ 174:                 if(rabiesPrepared&&worldTicks==recipesAt+415){
+ 175:                     screenshot(client,"creative-items");
+ 176:                     var creative=(net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen)client.currentScreen;var select=creative.getClass().getDeclaredMethod("setSelectedTab",ItemGroup.class);select.setAccessible(true);
+ 177:                     var eggGroup=net.minecraft.registry.Registries.ITEM_GROUP.get(TetanusMod.id("spawn_eggs"));selectCreative(creative,eggGroup);
+ 178:                     if(eggGroup.getDisplayStacks().size()<100||eggGroup.getDisplayStacks().stream().anyMatch(stack->!(stack.getItem() instanceof VariantSpawnEggItem)))throw new IllegalStateException("Spawn egg tab is incomplete or contains ordinary items");
+ 179:                     }
+ 180:                 if(rabiesPrepared&&worldTicks==recipesAt+420){
+ 181:                     screenshot(client,"spawn-eggs");
+ 182:                     var creative=(net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen)client.currentScreen;var select=creative.getClass().getDeclaredMethod("setSelectedTab",ItemGroup.class);select.setAccessible(true);select.invoke(creative,ItemGroups.getDefaultTab());
+ 183:                     var inventoryGroup=net.minecraft.registry.Registries.ITEM_GROUP.stream().filter(g->g.getType()==ItemGroup.Type.INVENTORY).findFirst().orElseThrow();select.invoke(creative,inventoryGroup);
+ 184:                     var slot=creative.getScreenHandler().getSlot(46);if(slot.x!=136||slot.y!=20)throw new IllegalStateException("Creative glove slot overlaps hotbar");
+ 185:                     var gloves=new ItemStack(ModItems.PROTECTIVE_GLOVES);gloves.setDamage(37);client.interactionManager.clickCreativeStack(gloves,46);
+ 186:                 }
+ 187:                 if(rabiesPrepared&&worldTicks==recipesAt+430){
+ 188:                     if(!client.player.playerScreenHandler.getSlot(46).getStack().isOf(ModItems.PROTECTIVE_GLOVES)||!((net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen)client.currentScreen).getScreenHandler().getSlot(46).getStack().isOf(ModItems.PROTECTIVE_GLOVES))throw new IllegalStateException("Glove slot differs from tracked equipped state: "+client.player.playerScreenHandler.getSlot(46).getStack()+" / "+((net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen)client.currentScreen).getScreenHandler().getSlot(46).getStack());
+ 189:                     if(GloveInventory.equipped(client.player).getDamage()!=37)throw new IllegalStateException("Creative glove packet did not synchronize");screenshot(client,"creative-gloves");
+ 190:                 }
+ 191:                 if(rabiesPrepared&&worldTicks==recipesAt+435){
+ 192:                     if(!plain&&rei){if(!RustRuinReiPlugin.showCoating())throw new IllegalStateException("REI coating screen failed to open");}
+ 193:                     else if(!plain)RustRuinJeiPlugin.showCoating();
+ 194:                 }
+ 195:                 if(rabiesPrepared&&worldTicks==recipesAt+455){
+ 196:                     if(!plain)screenshot(client,"wax-coating");client.setScreen(null);
+ 197:                     onServer(client,()->{
+ 198:                         var world=client.getServer().getOverworld();var pos=new BlockPos(40,3,20);
+ 199:                         for(int x=38;x<=53;x++)for(int z=8;z<=35;z++)world.setBlockState(new BlockPos(x,3,z),Blocks.STONE.getDefaultState());
+ 200:                         var template=world.getStructureTemplateManager().getTemplate(TetanusMod.id("workshop")).orElseThrow();
+ 201:                         if(!template.place(world,pos,pos,new net.minecraft.structure.StructurePlacementData(),world.random,3))throw new IllegalStateException("Workshop client placement failed");
+ 202:                         client.getServer().getPlayerManager().getPlayerList().get(0).teleport(world,45.5,5,10.5,0,-6);
+ 203:                     });
+ 204:                 }
+ 205:                 if(rabiesPrepared&&worldTicks==recipesAt+480){if(client.player.getY()<3)throw new IllegalStateException("Workshop camera fell below the platform");client.options.hudHidden=true;screenshot(client,"workshop");client.options.hudHidden=false;
+ 206:                 }
+ 207:                 if(rabiesPrepared&&worldTicks==recipesAt+500)onServer(client,()->{
+ 208:                     var world=client.getServer().getOverworld();var pos=new BlockPos(61,4,20);for(int x=58;x<=64;x++)for(int z=14;z<=24;z++)world.setBlockState(new BlockPos(x,3,z),Blocks.STONE.getDefaultState());
+ 209:                     var state=ExpansionBlocks.MEDIC_CABINET.getDefaultState().with(MedicineCabinetBlock.COMPLETE,true);
+ 210:                     world.setBlockState(pos,state,18);world.setBlockState(pos.up(),state.with(net.minecraft.block.DoorBlock.HALF,net.minecraft.block.enums.DoubleBlockHalf.UPPER),3);
+ 211:                     client.getServer().getPlayerManager().getPlayerList().get(0).teleport(world,61.5,4,17.5,0,12);
+ 212:                 });
+ 213:                 if(rabiesPrepared&&worldTicks==recipesAt+525){if(client.player.getY()<3)throw new IllegalStateException("Cabinet camera fell below the platform");screenshot(client,"medicine-cabinet");onServer(client,()->{
+ 214:                     var world=client.getServer().getOverworld();var pos=new BlockPos(61,4,20);var player=client.getServer().getPlayerManager().getPlayerList().get(0);
+ 215:                     ExpansionBlocks.MEDIC_CABINET.onUse(world.getBlockState(pos),world,pos,player,net.minecraft.util.Hand.MAIN_HAND,new net.minecraft.util.hit.BlockHitResult(net.minecraft.util.math.Vec3d.ofCenter(pos),net.minecraft.util.math.Direction.NORTH,pos,false));
+ 216:                 });}
+ 217:                 if(rabiesPrepared&&worldTicks==recipesAt+540)screenshot(client,"medicine-cabinet-open");
+ 218:                 if(rabiesPrepared&&worldTicks==recipesAt+550)onServer(client,()->{
+ 219:                     var player=client.getServer().getPlayerManager().getPlayerList().get(0);player.equipStack(EquipmentSlot.MAINHAND,ItemStack.EMPTY);player.teleport(client.getServer().getOverworld(),45.5,4,10.5,180,8);
+ 220:                 });
+ 221:                 if(rabiesPrepared&&worldTicks==recipesAt+565)screenshot(client,"gloves-first-person");
+ 222:                 if(rabiesPrepared&&worldTicks==recipesAt+570)client.options.setPerspective(net.minecraft.client.option.Perspective.THIRD_PERSON_FRONT);
+ 223:                 if(rabiesPrepared&&worldTicks==recipesAt+585)screenshot(client,"gloves-third-person");
+ 224:                 if(rabiesPrepared&&worldTicks==recipesAt+590){client.options.setPerspective(net.minecraft.client.option.Perspective.FIRST_PERSON);onServer(client,()->{
+ 225:                     var player=client.getServer().getPlayerManager().getPlayerList().get(0);player.equipStack(EquipmentSlot.MAINHAND,new ItemStack(Items.BREAD));player.addStatusEffect(new StatusEffectInstance(TetanusMod.LOCKJAW,600));
+ 226:                 });}
+ 227:                 if(rabiesPrepared&&worldTicks==recipesAt+610){
+ 228:                     var result=net.fabricmc.fabric.api.event.player.UseItemCallback.EVENT.invoker().interact(client.player,client.world,net.minecraft.util.Hand.MAIN_HAND);
+ 229:                     if(result.getResult()!=net.minecraft.util.ActionResult.FAIL||!com.tetanusmod.client.LockjawAttempt.active())throw new IllegalStateException("Lockjaw failed eating gesture did not start");
+ 230:                 }
+ 231:                 if(rabiesPrepared&&worldTicks==recipesAt+615){
+ 232:                     if(client.player.isUsingItem()||client.player.getMainHandStack().getCount()!=1)throw new IllegalStateException("Lockjaw gesture started real food consumption");screenshot(client,"lockjaw-attempt");
+ 233:                 }
+ 234:                 if(rabiesPrepared&&worldTicks==recipesAt+620)onServer(client,()->{
+ 235:                     var world=client.getServer().getOverworld();var pos=new BlockPos(70,3,20);
+ 236:                     for(int x=68;x<=85;x++)for(int z=12;z<=35;z++)world.setBlockState(new BlockPos(x,3,z),Blocks.STONE.getDefaultState());
+ 237:                     var template=world.getStructureTemplateManager().getTemplate(TetanusMod.id("medic_tent")).orElseThrow();
+ 238:                     template.place(world,pos,pos,new net.minecraft.structure.StructurePlacementData().addProcessor(net.minecraft.structure.processor.BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS),world.random,3);
+ 239:                     var guard=EntityType.IRON_GOLEM.create(world);guard.setAiDisabled(true);guard.setPlayerCreated(true);guard.setPosition(80.5,4,28.5);MobVariants.makePermanent(guard);world.spawnEntity(guard);
+ 240:                     client.getServer().getPlayerManager().getPlayerList().get(0).teleport(world,76.5,4,14.5,0,-5);
+ 241:                 });
+ 242:                 if(rabiesPrepared&&worldTicks==recipesAt+650)screenshot(client,"medic-tent");
+ 243:                 if(rabiesPrepared&&worldTicks==recipesAt+660)onServer(client,()->{
+ 244:                     var world=client.getServer().getOverworld();for(int x=92;x<=108;x++)for(int z=12;z<=27;z++)world.setBlockState(new BlockPos(x,3,z),Blocks.STONE.getDefaultState());
+ 245:                     String[] types={"plains","desert","savanna","snow","taiga","swamp","jungle"};
+ 246:                     for(int i=0;i<types.length;i++){
+ 247:                         var medic=EntityType.VILLAGER.create(world);medic.setAiDisabled(true);medic.setVillagerData(medic.getVillagerData().withProfession(MedicVillage.MEDIC).withType(net.minecraft.registry.Registries.VILLAGER_TYPE.get(new net.minecraft.util.Identifier("minecraft",types[i]))));
+ 248:                         medic.refreshPositionAndAngles(94.5+i*2,4,25.5,180,0);medic.setHeadYaw(180);medic.bodyYaw=180;world.spawnEntity(medic);
+ 249:                     }
+ 250:                     client.getServer().getPlayerManager().getPlayerList().get(0).teleport(world,100.5,4,14.5,0,2);
+ 251:                 });
+ 252:                 if(rabiesPrepared&&worldTicks==recipesAt+690)screenshot(client,"medic-biomes");
+ 253:                 if(rabiesPrepared&&worldTicks==recipesAt+700){
+ 254:                     finish(client,"PASS: "+(plain?"Plain client without recipe viewers; native recipes":rei?"REI Rusting (9), crafting/brewing":"JEI Rusting (9), crafting/brewing")+", 78 skins, 12 potion tooltips, Rabies HUD/tab and 22 rabid skins, creative item coverage/glove synchronization, Lockjaw/hearts/beacon/advancements; vaccine sync, dedicated glove slot, 10 guide chapters, veterinary kit recipe, nine coating displays, workshop, species egg tab, two-block cabinet, first/third-person gloves, failed Lockjaw gesture, cave tent and seven medic uniforms");
+ 255:                 }
+ 256:             }catch(Throwable failure){finish(client,"FAIL: "+failure);}
+ 257:         });
+ 258:     }
+ 259:     private void selectCreative(net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen screen,ItemGroup group)throws Exception{
+ 260:         var visible=screen.getClass().getDeclaredMethod("fabric_isGroupVisible",ItemGroup.class);visible.setAccessible(true);
+ 261:         var previous=screen.getClass().getMethod("fabric_previousPage");var next=screen.getClass().getMethod("fabric_nextPage");
+ 262:         var page=screen.getClass().getMethod("fabric_currentPage");while((int)page.invoke(screen)>0)previous.invoke(screen);
+ 263:         for(int i=0;i<100&&!(boolean)visible.invoke(screen,group);i++)next.invoke(screen);
+ 264:         if(!(boolean)visible.invoke(screen,group))throw new IllegalStateException("Creative tab page inaccessible: "+group.getDisplayName().getString());
+ 265:         var select=screen.getClass().getDeclaredMethod("setSelectedTab",ItemGroup.class);select.setAccessible(true);select.invoke(screen,group);
+ 266:     }
+ 267:     private void onServer(MinecraftClient client,Runnable action){client.getServer().execute(()->{try{action.run();}catch(Throwable failure){serverFailure="Server smoke task failed: "+failure;}});}
+ 268:     private void prepare(MinecraftClient client) {
+ 269:         try {
+ 270:             var server=client.getServer();var world=server.getOverworld();
+ 271:             var cleanup=new java.util.ArrayList<Entity>();for(var e:world.iterateEntities())if(!(e instanceof net.minecraft.entity.player.PlayerEntity))cleanup.add(e);cleanup.forEach(Entity::discard);
+ 272:             var player=server.getPlayerManager().getPlayerList().get(0);
+ 273:             ModAdvancements.award(player,"root","obtain_iron");
+ 274:             for(int x=-10;x<=10;x++)for(int z=-10;z<=40;z++)world.setBlockState(new BlockPos(x,3,z),Blocks.STONE.getDefaultState());
+ 275:             var board=server.getScoreboard();var objective=board.getNullableObjective("rust_health");
+ 276:             if(objective==null)objective=board.addObjective("rust_health",net.minecraft.scoreboard.ScoreboardCriterion.HEALTH,net.minecraft.text.Text.literal("Health"),net.minecraft.scoreboard.ScoreboardCriterion.RenderType.HEARTS);
+ 277:             board.setObjectiveSlot(0,objective);board.getPlayerScore(player.getEntityName(),objective).setScore(20);
+ 278:             ((GloveInventory)player).rustruin$gloves().clear();player.clearStatusEffects();player.changeGameMode(GameMode.SURVIVAL);player.teleport(world,0.5,4,0.5,0,8);player.setHealth(18);player.getInventory().clear();
+ 279:             int slot=0;for(var item:ModItems.ALL)if(slot<36)player.getInventory().setStack(slot++,new ItemStack(item));
+ 280:             player.getInventory().setStack(32,PotionUtil.setPotion(new ItemStack(Items.POTION),ModBrewing.MANURE));
+ 281:             player.getInventory().setStack(33,PotionUtil.setPotion(new ItemStack(Items.POTION),ModBrewing.TETANUS));
+ 282:             player.getInventory().setStack(34,PotionUtil.setPotion(new ItemStack(Items.SPLASH_POTION),ModBrewing.SALMONELLA));
+ 283:             player.equipStack(EquipmentSlot.MAINHAND,new ItemStack(ModItems.RUSTED_REBAR));Infection.apply(player,null);
+ 284:             player.addStatusEffect(new StatusEffectInstance(TetanusMod.SALMONELLA,1200));world.setTimeOfDay(6000);
+ 285:             EntityType<?>[] types={EntityType.COW,EntityType.PIG,EntityType.SHEEP,EntityType.SPIDER,EntityType.IRON_GOLEM,EntityType.ZOMBIE};
+ 286:             double[] xs={-3,-1.5,1,3.5,5,6.5};
+ 287:             for(int i=0;i<types.length;i++) {
+ 288:                 var mob=(net.minecraft.entity.mob.MobEntity)types[i].create(world);mob.setAiDisabled(true);mob.setPosition(xs[i],4,6);
+ 289:                 if(mob instanceof net.minecraft.entity.mob.ZombieEntity)mob.equipStack(EquipmentSlot.HEAD,new ItemStack(Items.LEATHER_HELMET));
+ 290:                 MobVariants.makePermanent(mob);world.spawnEntity(mob);
+ 291:             }
+ 292:             var wither=EntityType.WITHER.create(world);wither.setAiDisabled(true);wither.setPosition(0,7,24);MobVariants.makePermanent(wither);world.spawnEntity(wither);
+ 293:             for(int layer=1;layer<=4;layer++)for(int x=-layer;x<=layer;x++)for(int z=-layer;z<=layer;z++)world.setBlockState(beaconPos.add(x,-layer,z),ExpansionBlocks.RUSTED_IRON_BLOCK.getDefaultState());
+ 294:             world.setBlockState(beaconPos,ModBeacons.BLOCK.getDefaultState());
+ 295:             var beacon=(TetanizedBeaconEntity)world.getBlockEntity(beaconPos);var nbt=beacon.createNbt();
+ 296:             nbt.putInt("Primary",net.minecraft.registry.Registries.STATUS_EFFECT.getRawId(StatusEffects.HASTE));nbt.putInt("Secondary",net.minecraft.registry.Registries.STATUS_EFFECT.getRawId(StatusEffects.HASTE));beacon.readNbt(nbt);
+ 297:             ModItems.INFECTED_MEAT.finishUsing(new ItemStack(ModItems.INFECTED_MEAT),world,player);
+ 298:             var questionable=server.getAdvancementLoader().get(TetanusMod.id("why_did_i_eat_that"));
+ 299:             if(questionable==null||!player.getAdvancementTracker().getProgress(questionable).isDone())throw new IllegalStateException("Why did I eat that? did not unlock from Salmonella");
+ 300:             var badConfig=net.fabricmc.fabric.api.networking.v1.PacketByteBufs.create();badConfig.writeByte(128);
+ 301:             net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player,TetanusMod.CONFIG_PACKET,badConfig);
+ 302:             var deepConfig=net.fabricmc.fabric.api.networking.v1.PacketByteBufs.create();deepConfig.writeString("[".repeat(256)+"]".repeat(256));
+ 303:             net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player,TetanusMod.CONFIG_PACKET,deepConfig);

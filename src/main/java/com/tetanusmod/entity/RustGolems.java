@@ -21,8 +21,8 @@ public final class RustGolems {
         if(player.isSpectator()||golem.getWorld().isClient||!golem.isAlive()||MobVariants.permanent(golem)||!stack.isOf(ModItems.RUST))return false;
         if(!player.getAbilities().creativeMode)stack.decrement(1);
         com.tetanusmod.rust.RustingSystem.rustFeedback(golem.getWorld(),golem.getPos());
-        if(roll>=CHANCE)return false;
-        MobVariants.makePermanent(golem);
+        if(roll>=CHANCE){player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.golem_failed"),true);return false;}
+        MobVariants.makePermanent(golem);player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.golem_success"),true);
         if(player instanceof ServerPlayerEntity serverPlayer) {
             ModAdvancements.award(serverPlayer,"rusty_guardian","rust_golem");
             ModAdvancements.award(serverPlayer,"tetanized_mob","convert_mob");

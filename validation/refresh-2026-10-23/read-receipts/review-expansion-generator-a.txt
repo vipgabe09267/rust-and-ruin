@@ -1,0 +1,75 @@
+FILE tools/Generate-Expansion.ps1 LINES 1-74 OF 141
+   1: $ErrorActionPreference='Stop'
+   2: $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+   3: $resourceRoot=Join-Path $projectRoot 'src/main/resources'
+   4: $utf8=[Text.UTF8Encoding]::new($false)
+   5: Add-Type -AssemblyName System.Drawing
+   6: Add-Type -AssemblyName System.IO.Compression.FileSystem
+   7: function Json($relative,$value){$path=Join-Path $resourceRoot $relative;[IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($path))|Out-Null;[IO.File]::WriteAllText($path,($value|ConvertTo-Json -Depth 60)+"`n",$utf8)}
+   8: function Item($id){@{item=$id}}
+   9: function Shaped($id,$pattern,$key,$count=1){Json "data/tetanusmod/recipes/$id.json" @{type='minecraft:crafting_shaped';category='equipment';pattern=$pattern;key=$key;result=@{item="tetanusmod:$id";count=$count}}}
+  10: function Shapeless($id,$ingredients,$count=1){Json "data/tetanusmod/recipes/$id.json" @{type='minecraft:crafting_shapeless';category='misc';ingredients=$ingredients;result=@{item="tetanusmod:$id";count=$count}}}
+  11: Shaped 'iron_spear' @(' II',' CI','S  ') @{I=(Item 'minecraft:iron_ingot');C=(Item 'minecraft:chain');S=(Item 'minecraft:stick')}
+  12: Shaped 'rusted_iron_block' @(' R ','RIR',' R ') @{I=(Item 'minecraft:iron_block');R=(Item 'tetanusmod:rust')}
+  13: Shaped 'bear_trap' @('INI','IPI',' C ') @{I=(Item 'minecraft:iron_ingot');N=(Item 'tetanusmod:nail');P=(Item 'minecraft:heavy_weighted_pressure_plate');C=(Item 'minecraft:chain')}
+  14: Shaped 'trap_reset_tool' @('I I','ICI',' S ') @{I=(Item 'minecraft:iron_nugget');C=(Item 'minecraft:copper_ingot');S=(Item 'minecraft:stick')}
+  15: Shaped 'barbed_wire' @('NNN','CSC','NNN') @{N=(Item 'tetanusmod:nail');C=(Item 'minecraft:chain');S=(Item 'minecraft:string')} 2
+  16: Shaped 'medic_cabinet' @('PPP','HBF','PPP') @{P=(Item 'minecraft:birch_planks');H=(Item 'minecraft:honey_bottle');B=(Item 'minecraft:barrel');F=(Item 'minecraft:fermented_spider_eye')}
+  17: Shapeless 'rabies_vaccine' @((Item 'tetanusmod:tetanus_vaccine'),(Item 'tetanusmod:rabid_meat'),(Item 'minecraft:golden_carrot'))
+  18: Json 'data/tetanusmod/recipes/tetanized_arrow.json' @{type='tetanusmod:rust_arrows'}
+  19: foreach($method in @('smelting','smoking','campfire_cooking')){
+  20:     $ticks=200;if($method-eq'smoking'){$ticks=100};if($method-eq'campfire_cooking'){$ticks=600}
+  21:     Json "data/tetanusmod/recipes/cooked_rabid_meat_$method.json" @{type="minecraft:$method";category='food';ingredient=(Item 'tetanusmod:rabid_meat');result='tetanusmod:cooked_rabid_meat';experience=0.35;cookingtime=$ticks}
+  22: }
+  23: Json 'data/tetanusmod/tags/blocks/tetanized_beacon_base_blocks.json' @{replace=$false;values=@('tetanusmod:rusted_iron_block')}
+  24: Json 'data/minecraft/tags/point_of_interest_type/acquirable_job_site.json' @{replace=$false;values=@('tetanusmod:medic')}
+  25: foreach($name in @('tetanus','rabies','rusted_nail','bear_trap','barbed_wire','disorientation')){Json "data/tetanusmod/damage_type/$name.json" @{message_id="tetanusmod.$name";scaling='never';exhaustion=0.1}}
+  26: Json 'data/minecraft/tags/damage_type/bypasses_armor.json' @{replace=$false;values=@('tetanusmod:tetanus','tetanusmod:rabies','tetanusmod:disorientation')}
+  27: Json 'data/minecraft/tags/damage_type/is_projectile.json' @{replace=$false;values=@('tetanusmod:rusted_nail')}
+  28: $names=@{iron_spear='Iron Spear';rusted_iron_spear='Rusted Iron Spear';trap_reset_tool='Trap Reset Tool';rabies_cure='Rabies Cure';rabies_vaccine='Rabies Vaccine';rabid_meat='Rabid Meat';cooked_rabid_meat='Cooked Rabid Meat'}
+  29: $blocks=@{rusted_iron_block='Rusted Iron Block';medic_cabinet='Medicine Cabinet';bear_trap='Bear Trap';rusted_bear_trap='Rusted Bear Trap';barbed_wire='Barbed Wire';rusted_barbed_wire='Rusted Barbed Wire';rust='Rust'}
+  30: $lang=@{};(Get-Content -LiteralPath (Join-Path $resourceRoot 'assets/tetanusmod/lang/en_us.json') -Encoding UTF8 -Raw|ConvertFrom-Json).PSObject.Properties|ForEach-Object {$lang[$_.Name]=$_.Value}
+  31: foreach($id in $names.Keys){$lang["item.tetanusmod.$id"]=$names[$id];$parent='minecraft:item/generated';if($id-like'*spear'){$parent='minecraft:item/handheld'};Json "assets/tetanusmod/models/item/$id.json" @{parent=$parent;textures=@{layer0="tetanusmod:item/$id"}}}
+  32: foreach($id in $blocks.Keys){$lang["block.tetanusmod.$id"]=$blocks[$id];if($id-ne'rust'){Json "assets/tetanusmod/models/item/$id.json" @{parent="tetanusmod:block/$id"}}}
+  33: $extra=@{
+  34:  'effect.tetanusmod.rabies'='Rabies';'effect.tetanusmod.rabies_resistance'='Rabies Resistance';'effect.tetanusmod.disoriented'='Disoriented';
+  35:  'entity.minecraft.villager.tetanusmod.medic'='Village Medic';'entity.minecraft.villager.medic'='Village Medic';
+  36:  'enchantment.tetanusmod.tetanus_protection'='Tetanus Protection';
+  37:  'tooltip.tetanusmod.shield_protection'='Shields only. Protection works while held.';
+  38:  'tooltip.tetanusmod.shield_protection_i'='Tetanus I: 65% infection prevention.';
+  39:  'tooltip.tetanusmod.shield_protection_ii'='Tetanus II: 40% infection prevention.';
+  40:  'item.tetanusmod.tetanus_book_ii'='Tetanus II';
+  41:  'tooltip.tetanusmod.gloves'='Right-click to equip in the glove slot. Reduces rusty contact risk.';
+  42:  'tooltip.tetanusmod.rabies_cure'='Cures Rabies and restores lost heart capacity. Sold by village medics.';
+  43:  'tooltip.tetanusmod.rabies_vaccine'='90% Rabies prevention for 20 minutes. Does not cure an existing infection.';
+  44:  'tooltip.tetanusmod.trap_reset_tool'='Use on a closed bear trap to release it and arm it again.';
+  45:  'item.tetanusmod.tetanized_spawn_egg'='Tetanized %s Spawn Egg';'item.tetanusmod.rabid_spawn_egg'='Rabid %s Spawn Egg';
+  46:  'gui.tetanusmod.primary'='Primary power';'gui.tetanusmod.secondary'='Full pyramid';'gui.tetanusmod.upgrade_iii'='Primary III';
+  47:  'gui.tetanusmod.activate'='Activate';'gui.tetanusmod.passive'='Tetanus Resistance';'gui.tetanusmod.passive_active'='while beam is active';'gui.tetanusmod.netherite_short'='Netherite';
+  48:  'jei.tetanusmod.batch_smithing'='Rust Arrow Smithing';'jei.tetanusmod.batch_hint'='1 Rust coats up to 64 arrows';'jei.tetanusmod.no_template'='Leave the template slot empty';
+  49:  'jei.tetanusmod.meat'='Only permanently tetanized animals drop Infected Meat. A temporary Tetanus infection does not change ordinary animal drops. Cook infected or rabid meat before eating.';
+  50:  'tooltip.tetanusmod.arrow'='60s Tetanus alone. An enchanted bow adds full strength; combining them extends it.';
+  51:  'item.minecraft.potion.effect.lockjaw'='Potion of Lockjaw Sonata';'item.minecraft.splash_potion.effect.lockjaw'='Splash Potion of Lockjaw Sonata';'item.minecraft.lingering_potion.effect.lockjaw'='Lingering Potion of Lockjaw Sonata';
+  52:  'item.minecraft.potion.effect.rabies'='Potion of Rabies';'item.minecraft.splash_potion.effect.rabies'='Splash Potion of Rabies';'item.minecraft.lingering_potion.effect.rabies'='Lingering Potion of Rabies';
+  53:  'death.attack.tetanusmod.tetanus'='%1$s lost the fight with a muscle spasm';'death.attack.tetanusmod.tetanus.player'='%1$s seized up while fighting %2$s';
+  54:  'death.attack.tetanusmod.rusted_nail'='%1$s found the sharp end of a rusty nail';'death.attack.tetanusmod.rusted_nail.player'='%1$s was nailed by %2$s';'death.attack.tetanusmod.rusted_nail.item'='%1$s was nailed by %2$s using %3$s';
+  55:  'death.attack.tetanusmod.returned_nail'='%1$s discovered that rusty nails come back down';
+  56:  'death.attack.tetanusmod.bear_trap'='%1$s took one step too many';'death.attack.tetanusmod.bear_trap.player'='%1$s stepped into a bear trap while fighting %2$s';
+  57:  'death.attack.tetanusmod.barbed_wire'='%1$s got tangled in the wrong wire';'death.attack.tetanusmod.barbed_wire.player'='%1$s got tangled up while fighting %2$s';
+  58:  'death.attack.tetanusmod.disorientation'='%1$s could not keep it together';'death.attack.tetanusmod.disorientation.player'='%1$s lost their bearings while fighting %2$s';
+  59:  'death.attack.tetanusmod.rabies'='%1$s succumbed to Rabies';'death.attack.tetanusmod.rabies.player'='%1$s succumbed to Rabies while fighting %2$s';
+  60:  'tooltip.tetanusmod.lockjaw_potion'='Blocks eating for 60 seconds. Milk cannot cure it; antitoxin can.';
+  61:  'tooltip.tetanusmod.rabies_potion'='Permanent until death or Rabies Cure. Loses heart capacity each minute, down to two hearts.';
+  62:  'tooltip.tetanusmod.rabies_potion_sick'='At two hearts: nausea for 10 seconds each minute. Milk cannot cure Rabies.'
+  63: }
+  64: foreach($key in $extra.Keys){$lang[$key]=$extra[$key]}
+  65: # Update guide chapters that changed, preserving the existing ten-chapter screen and dynamic placeholders.
+  66: $lang['guide.tetanusmod.diseases.body']="Tetanus: random %s-%s seconds per ordinary infection. Muscle stiffness and spasms develop over time.\n\nLockjaw Sonata blocks eating during the final 2-4 minutes. A standalone Lockjaw potion lasts one minute. Milk cures neither; antitoxin cures both.\n\nSalmonella causes vomiting, nausea, hunger loss and mild nonlethal damage. Strange Meat requires picking up infected meat; Why did I eat that? requires Salmonella.\n\nRabies lasts until death or Rabies Cure. Each minute removes one heart of capacity, down to two hearts; nausea then lasts ten seconds every minute. Milk and Tetanus Antitoxin do not cure Rabies."
+  67: $lang['guide.tetanusmod.prevention.body']="Tetanus Vaccine: %s%% lower infection risk for %s. It prevents new Tetanus without curing existing illness or Salmonella.\n\nGloves: right-click to equip in the dedicated glove slot above the offhand slot. %s%% lower contact risk; 192 durability. Shift-click to equip or remove. Gloves do not protect against infected food or potions. Combined vaccine/glove protection: %s%%.\n\nTetanus Protection: a shield enchantment. A held enchanted shield reduces risk from Tetanus I by 65 percent and Tetanus II by 40 percent.\n\nRabies Vaccine: 90 percent prevention for twenty minutes; sold by medics and craftable. Rabies Cure is sold by medics."
+  68: $lang['guide.tetanusmod.weapons.body']="Iron Spear: three iron ingots, a chain and a stick. Seven base damage, slower than an iron sword. Right-click thrusts up to 4.5 blocks; walls obstruct it. A rusted spear inflicts Tetanus.\n\nTetanus I applies to melee weapons, bows, crossbows and tridents. Tetanus II also causes disorientation, erratic movement, missed mob attacks and two points of periodic nonlethal damage.\n\nTetanized arrows alone cause one minute of Tetanus. Enchanted bows cause full-strength infection; using both extends it by 25 percent. Infinity still consumes infected arrows.\n\nOld rusted iron tools keep working in saves but are retired from new acquisition and this creative tab."
+  69: $lang['guide.tetanusmod.crafting.body']="Iron Spear: row 1 empty/iron/iron; row 2 empty/chain/iron; row 3 stick/empty/empty.\n\nRusted Iron Block: iron block surrounded by four Rust in a cross. The Tetanized Beacon accepts only this base block.\n\nBear Trap: iron/nail/iron; iron/heavy pressure plate/iron; chain below center. Reset a closed trap with a Trap Reset Tool. Rusty traps inflict Tetanus.\n\nBarbed Wire: three nails across top and bottom; chain/string/chain across middle.\n\nMedicine Cabinet: birch planks across top/bottom; honey bottle/barrel/fermented spider eye in middle. An unemployed villager can become a medic using it."
+  70: $lang['guide.tetanusmod.brewing.body']="Water + Cow Manure makes Cow Manure Potion, causing five seconds of nausea.\n\nManure Potion + Rust makes Tetanus.\nManure Potion + Infected Meat makes Salmonella.\nManure Potion + Rabid Meat makes Rabies.\nTetanus Potion + Pufferfish makes Lockjaw Sonata.\n\nGunpowder makes splash potions; dragon breath makes lingering versions.\n\nSmithing, not brewing: leave template empty; arrows in the base slot, Rust in addition. One Rust coats the entire arrow stack, up to 64."
+  71: $lang['guide.tetanusmod.creatures.body']="Rusty contact can permanently mutate animals (%s%%) or other ordinary mobs (%s%%). Only permanent tetanized animals replace their ordinary drops with Infected Meat. Temporary Tetanus alone never changes animal loot.\n\nNatural tetanized spawns (Easy/Normal/Hard): animals %s/%s/%s percent; other mobs %s/%s/%s percent. Spawners use %s/%s/%s percent. Withers keep their separate ritual.\n\nSome mammals and undead can be rabid: thirty extra health points, leather-equivalent armor and five-point melee attacks. Rabid animals alone drop Rabid Meat.\n\nUse creative variant spawn eggs for specific creatures, or operator commands for testing."
+  72: $lang['guide.tetanusmod.salvage.body']="Supported dropped metal rusts after five consecutive seconds touching water or fifteen seconds in exposed rain. Roofs protect against rain. Names, enchantments and damage survive conversion.\n\nA wire brush cleans equipment, costing durability per item and returning one Rust per action. Rust is placeable on floors and walls.\n\nFishing rods left in water return two sticks and two string, with a fifteen percent hook chance.\n\nA Rusty Hookline pulls targets up to twelve blocks away with a two-second cooldown.\n\nOnly permanent tetanized animals drop infected meat; only rabid animals drop rabid meat. Cooking either makes it safe."
+  73: $lang['guide.tetanusmod.bosses.body']="Four Tetanized Soul Sand in the usual Wither T: five percent mutation chance. A netherite upper-center block raises the default chance to thirty percent.\n\nA Tetanized Wither has six hundred health, normal and Tetanized Wither Stars, guaranteed Tetanus I, a fifty percent additional Tetanus II book chance, and bonus loot.\n\nCraft its special star into a Tetanized Beacon. Build the pyramid entirely from Rusted Iron Blocks. Payments remain netherite ingots.\n\nPrimary powers start at II; full pyramids offer Regeneration II or a primary upgrade to III. An active beam always grants Tetanus Resistance. Its placement and full activation have separate mod advancements."
+  74: foreach($key in @($lang.Keys)){if($key-like'guide.*'){$lang[$key]=$lang[$key].Replace('\n',"`n")}}

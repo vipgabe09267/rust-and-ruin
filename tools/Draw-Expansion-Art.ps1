@@ -126,3 +126,17 @@ foreach($half in @($false,$true)){
     $name=if($half){'rabies_heart_half.png'}else{'rabies_heart.png'};$dir=Join-Path $textureRoot 'gui';[IO.Directory]::CreateDirectory($dir)|Out-Null;$heart.Save((Join-Path $dir $name),[Drawing.Imaging.ImageFormat]::Png);$heart.Dispose()
 }
 Write-Output 'Drew expansion sprites, medical clothing, block textures, effects and rabies hearts.'
+# Stitched leather veterinary case with brass corners, bottle slots and a paw badge.
+Sprite 'item/veterinary_kit.png' {
+    param($g)
+    Rect $g '#211C19' 4 11 24 16;Rect $g '#70472E' 5 12 22 14
+    Rect $g '#A97647' 6 12 20 3;Rect $g '#492E23' 6 24 20 2
+    Rect $g '#292520' 10 6 12 6;Rect $g '#B79557' 11 7 10 2
+    Rect $g '#70472E' 12 9 8 3;Rect $g '#BC9B62' 5 12 3 3;Rect $g '#BC9B62' 24 12 3 3
+    Rect $g '#BC9B62' 5 23 3 3;Rect $g '#BC9B62' 24 23 3 3
+    foreach($x in @(9,12,15,18,21)){Rect $g '#C39B6A' $x 14 1 1;Rect $g '#AE8759' $x 24 1 1}
+    Rect $g '#304D41' 8 16 16 7;Rect $g '#658168' 9 16 14 1
+    Rect $g '#E5D7AE' 14 20 5 2;Rect $g '#E5D7AE' 15 19 3 1
+    foreach($x in @(12,15,18,21)){Rect $g '#E5D7AE' $x 17 2 2}
+    Rect $g '#D5B36E' 15 12 3 3;Rect $g '#503829' 16 13 1 1
+}

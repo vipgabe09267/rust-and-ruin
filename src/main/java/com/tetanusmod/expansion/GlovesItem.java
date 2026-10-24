@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 
 public final class GlovesItem extends DescribedItem {
     public GlovesItem(Settings settings){super(settings,"gloves");}
+    @Override public int getEnchantability(){return 12;}
     @Override public TypedActionResult<ItemStack> use(World world,PlayerEntity user,Hand hand) {
         var held=user.getStackInHand(hand);var inventory=((GloveInventory)user).rustruin$gloves();
         if(user.isSpectator()||!inventory.getStack(0).isEmpty())return TypedActionResult.pass(held);

@@ -1,0 +1,6 @@
+FILE tools/Generate-Expansion.ps1 LINES 18-22 OF 141
+  18: Json 'data/tetanusmod/recipes/tetanized_arrow.json' @{type='tetanusmod:rust_arrows'}
+  19: foreach($method in @('smelting','smoking','campfire_cooking')){
+  20:     $ticks=200;if($method-eq'smoking'){$ticks=100};if($method-eq'campfire_cooking'){$ticks=600}
+  21:     Json "data/tetanusmod/recipes/cooked_rabid_meat_$method.json" @{type="minecraft:$method";category='food';ingredient=(Item 'tetanusmod:rabid_meat');result='tetanusmod:cooked_rabid_meat';experience=0.35;cookingtime=$ticks}
+  22: }

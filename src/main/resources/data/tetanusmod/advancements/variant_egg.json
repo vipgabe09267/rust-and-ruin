@@ -3,21 +3,5 @@
                      "spawn_variant":  {
                                            "trigger":  "minecraft:impossible"
                                        }
-                 },
-    "parent":  "tetanusmod:tetanized_mob",
-    "display":  {
-                    "description":  {
-                                        "translate":  "advancements.tetanusmod.variant_egg.description"
-                                    },
-                    "show_toast":  true,
-                    "icon":  {
-                                 "item":  "minecraft:zombie_spawn_egg"
-                             },
-                    "hidden":  false,
-                    "announce_to_chat":  true,
-                    "title":  {
-                                  "translate":  "advancements.tetanusmod.variant_egg.title"
-                              },
-                    "frame":  "task"
-                }
+                 }
 }

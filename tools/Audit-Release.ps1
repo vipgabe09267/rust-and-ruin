@@ -5,9 +5,9 @@ if(!$Jar){$Jar=Join-Path $projectRoot 'build/libs/rust-and-ruin-0.1.0-beta.jar'}
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 Add-Type -AssemblyName System.Drawing
 $wrapperHash=(Get-FileHash -LiteralPath (Join-Path $projectRoot 'gradle/wrapper/gradle-wrapper.jar') -Algorithm SHA256).Hash
-if($wrapperHash-ne'D3B261C2820E9E3D8D639ED084900F11F4A86050A8F83342ADE7B6BC9B0D2BDD'){throw 'Wrapper JAR differs from official Gradle 8.6 checksum'}
+if($wrapperHash-ne'AD16BCA46CB71BB5887C546860D93992AEEE35C1FDAF4A242B0A612375D937E0'){throw 'Wrapper JAR differs from official Gradle 8.14.6 checksum'}
 $properties=[IO.File]::ReadAllText((Join-Path $projectRoot 'gradle/wrapper/gradle-wrapper.properties'))
-if(!$properties.Contains('distributionSha256Sum=9631d53cf3e74bfa726893aee1f8994fee4e060c401335946dba2156f440f24c')){throw 'Gradle distribution checksum is not pinned'}
+if(!$properties.Contains('distributionSha256Sum=7988ed071b2a07900e2ec715fca15c6ab72bce6db433af301fa7fa7e9407bd24')){throw 'Gradle distribution checksum is not pinned'}
 $archive=[IO.Compression.ZipFile]::OpenRead([IO.Path]::GetFullPath($Jar))
 function Read-JsonEntry($name){$entry=$archive.GetEntry($name);if(!$entry){throw "Missing $name"};$reader=[IO.StreamReader]::new($entry.Open());try{return($reader.ReadToEnd()|ConvertFrom-Json)}finally{$reader.Dispose()}}
 try {
@@ -64,14 +64,15 @@ try {
             }finally{$bitmap.Dispose()}
         }finally{$stream.Dispose()}
     }
-    foreach($name in @('iron_spear','rusted_iron_block','bear_trap','trap_reset_tool','barbed_wire','medic_cabinet','rabies_vaccine')){$null=Read-JsonEntry "data/tetanusmod/recipes/$name.json"}
+    foreach($name in @('iron_spear','rusted_iron_block','bear_trap','trap_reset_tool','barbed_wire','medic_cabinet','rabies_vaccine','veterinary_kit')){$null=Read-JsonEntry "data/tetanusmod/recipes/$name.json"}
     $arrow=Read-JsonEntry 'data/tetanusmod/recipes/tetanized_arrow.json'
     if($arrow.type-ne'tetanusmod:rust_arrows'){throw 'Arrow recipe is not batch smithing'}
     $bases=Read-JsonEntry 'data/tetanusmod/tags/blocks/tetanized_beacon_base_blocks.json'
     if(@($bases.values).Count-ne 1-or$bases.values[0]-ne'tetanusmod:rusted_iron_block'){throw 'Incorrect special beacon base materials'}
-    foreach($name in @('why_did_i_do_that','beacon_placed','beacon_full','shield_protection','glove_protection','rabies','rabies_cured','antitoxin','trap_reset','spear','variant_egg','rust_arrows','medic','clinic')){$null=Read-JsonEntry "data/tetanusmod/advancements/$name.json"}
+    foreach($name in @('why_did_i_do_that','beacon_placed','beacon_full','shield_protection','glove_protection','rabies','rabies_cured','antitoxin','trap_reset','spear','variant_egg','rust_arrows','medic','clinic','clean_bill_of_health','supply_run')){$null=Read-JsonEntry "data/tetanusmod/advancements/$name.json"}
     foreach($name in @('rabies','rabies_resistance','disoriented')){if(!$archive.GetEntry("assets/tetanusmod/textures/mob_effect/$name.png")){throw "Missing expansion effect icon: $name"}}
     if(!$archive.GetEntry('data/tetanusmod/structures/village/clinic.nbt')-or!$archive.GetEntry('assets/tetanusmod/textures/entity/villager/profession/medic.png')){throw 'Clinic or medic artwork missing'}
+    foreach($resource in @('data/tetanusmod/structures/workshop.nbt','data/tetanusmod/worldgen/structure/workshop.json','data/tetanusmod/worldgen/structure_set/workshops.json','data/tetanusmod/worldgen/template_pool/workshop.json','data/tetanusmod/loot_tables/chests/workshop.json')){if(!$archive.GetEntry($resource)){throw "Missing workshop resource: $resource"}}
     $eggs=@($archive.Entries|Where-Object FullName -match '^assets/tetanusmod/models/item/(tetanized|rabid)_.+_spawn_egg.json$')
     if($eggs.Count-lt 100){throw 'Variant egg models missing'}
     $why=Read-JsonEntry 'data/tetanusmod/advancements/why_did_i_eat_that.json'

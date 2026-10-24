@@ -1,0 +1,277 @@
+FILE src/main/java/com/tetanusmod/config/ModConfig.java LINES 1-129 OF 129
+   1: package com.tetanusmod.config;
+   2: 
+   3: import com.google.gson.Gson;
+   4: import com.google.gson.GsonBuilder;
+   5: import net.fabricmc.loader.api.FabricLoader;
+   6: import org.slf4j.LoggerFactory;
+   7: import java.nio.file.Files;
+   8: import java.nio.file.Path;
+   9: 
+  10: public final class ModConfig {
+  11:     public int minDurationSeconds = 300;
+  12:     public int maxDurationSeconds = 600;
+  13:     public int waterRustTicks = 100;
+  14:     public int rainRustTicks = 300;
+  15:     public float nailDamage = 2.0F;
+  16:     public float rebarDamage = 1.0F;
+  17:     public double spasmFrequency = 1.0;
+  18:     public float periodicDamage = 1.0F;
+  19:     public boolean cameraShaking = true;
+  20:     public boolean rainRusting = true;
+  21:     public boolean tetanusCanKill = false;
+  22:     public float infectionSoundVolume = 2.5F;
+  23:     public float mobConversionChance = 0.01F;
+  24:     public float animalConversionChance = 0.02F;
+  25:     public float witherConversionChance = 0.05F;
+  26:     public float salmonellaChance = 1.0F;
+  27:     public int vaccineDurationSeconds=1200;
+  28:     public float vaccineProtectionChance=0.80F;
+  29:     public float gloveProtectionChance=0.50F;
+  30:     // Natural mutations are separate from infection caused by weapons.
+  31:     public float naturalAnimalEasy = 0.005F;
+  32:     public float naturalAnimalNormal = 0.01F;
+  33:     public float naturalAnimalHard = 0.02F;
+  34:     public float naturalMobEasy = 0.005F;
+  35:     public float naturalMobNormal = 0.01F;
+  36:     public float naturalMobHard = 0.02F;
+  37:     public float spawnerEasy = 0.03F;
+  38:     public float spawnerNormal = 0.05F;
+  39:     public float spawnerHard = 0.08F;
+  40:     public int coatingWeatherTicks = 12000;
+  41:     public float naturalRabiesEasy = 0.003F;
+  42:     public float naturalRabiesNormal = 0.006F;
+  43:     public float naturalRabiesHard = 0.01F;
+  44:     public int balanceRevision = 5;
+  45: 
+  46:     public static ModConfig load() {
+  47:         Path path = FabricLoader.getInstance().getConfigDir().resolve("tetanusmod.json");
+  48:         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+  49:         ModConfig config = new ModConfig();
+  50:         try {
+  51:             if (Files.exists(path)) {
+  52:                 config=fromJson(Files.readString(path));
+  53:             }
+  54:             config.validate();
+  55:             Files.createDirectories(path.getParent());
+  56:             Files.writeString(path, gson.toJson(config) + System.lineSeparator());
+  57:         } catch (Exception e) {
+  58:             LoggerFactory.getLogger("tetanusmod").error("Could not read/write tetanusmod.json", e);
+  59:             config.validate();
+  60:         }
+  61:         return config;
+  62:     }
+  63: 
+  64:     public static ModConfig fromJson(String json) {
+  65:         var object=com.google.gson.JsonParser.parseString(json).getAsJsonObject();
+  66:         ModConfig config=new Gson().fromJson(object,ModConfig.class);
+  67:         int revision=object.has("balanceRevision")?object.get("balanceRevision").getAsInt():0;
+  68:         if(revision==0) {
+  69:             if(config.mobConversionChance==0.25F)config.mobConversionChance=0.05F;
+  70:             if(config.witherConversionChance==0.02F)config.witherConversionChance=0.05F;
+  71:         }
+  72:         if(revision<3&&config.animalConversionChance==0.02F)config.animalConversionChance=0.15F;
+  73:         if(revision<4&&config.minDurationSeconds==120&&config.maxDurationSeconds==300) {
+  74:             config.minDurationSeconds=300;config.maxDurationSeconds=600;
+  75:         }
+  76:         if(revision<5) {
+  77:             if(config.mobConversionChance==0.05F)config.mobConversionChance=0.01F;
+  78:             if(config.animalConversionChance==0.15F)config.animalConversionChance=0.02F;
+  79:             if(config.salmonellaChance==0.10F)config.salmonellaChance=1;
+  80:             if(config.naturalAnimalEasy==0.10F)config.naturalAnimalEasy=0.005F;
+  81:             if(config.naturalAnimalNormal==0.15F)config.naturalAnimalNormal=0.01F;
+  82:             if(config.naturalAnimalHard==0.20F)config.naturalAnimalHard=0.02F;
+  83:             if(config.naturalMobEasy==0.10F)config.naturalMobEasy=0.005F;
+  84:             if(config.naturalMobNormal==0.15F)config.naturalMobNormal=0.01F;
+  85:             if(config.naturalMobHard==0.20F)config.naturalMobHard=0.02F;
+  86:             if(config.spawnerEasy==0.25F)config.spawnerEasy=0.03F;
+  87:             if(config.spawnerNormal==0.35F)config.spawnerNormal=0.05F;
+  88:             if(config.spawnerHard==0.45F)config.spawnerHard=0.08F;
+  89:         }
+  90:         config.validate();return config;
+  91:     }
+  92:     private void validate() {
+  93:         minDurationSeconds = clamp(minDurationSeconds, 1, 3600);
+  94:         maxDurationSeconds = clamp(maxDurationSeconds, minDurationSeconds, 3600);
+  95:         waterRustTicks = clamp(waterRustTicks, 1, 72000);
+  96:         rainRustTicks = clamp(rainRustTicks, 1, 72000);
+  97:         nailDamage = Float.isFinite(nailDamage) ? Math.max(0, Math.min(100, nailDamage)) : 2;
+  98:         rebarDamage = Float.isFinite(rebarDamage) ? Math.max(0, Math.min(100, rebarDamage)) : 1;
+  99:         periodicDamage = Float.isFinite(periodicDamage) ? Math.max(0, Math.min(20, periodicDamage)) : 1;
+ 100:         spasmFrequency = Double.isFinite(spasmFrequency) ? Math.max(0, Math.min(5, spasmFrequency)) : 1;
+ 101:         infectionSoundVolume = finite(infectionSoundVolume, 2.5F, 4);
+ 102:         mobConversionChance = finite(mobConversionChance, 0.01F, 1);
+ 103:         animalConversionChance = finite(animalConversionChance, 0.02F, 1);
+ 104:         witherConversionChance = finite(witherConversionChance, 0.05F, 1);
+ 105:         salmonellaChance=finite(salmonellaChance,1F,1);
+ 106:         vaccineDurationSeconds=clamp(vaccineDurationSeconds,1,7200);
+ 107:         vaccineProtectionChance=finite(vaccineProtectionChance,0.80F,1);
+ 108:         gloveProtectionChance=finite(gloveProtectionChance,0.50F,1);
+ 109:         naturalAnimalEasy=finite(naturalAnimalEasy,0.005F,1);
+ 110:         naturalAnimalNormal=finite(naturalAnimalNormal,0.01F,1);
+ 111:         naturalAnimalHard=finite(naturalAnimalHard,0.02F,1);
+ 112:         naturalMobEasy=finite(naturalMobEasy,0.005F,1);
+ 113:         naturalMobNormal=finite(naturalMobNormal,0.01F,1);
+ 114:         naturalMobHard=finite(naturalMobHard,0.02F,1);
+ 115:         spawnerEasy=finite(spawnerEasy,0.03F,1);
+ 116:         spawnerNormal=finite(spawnerNormal,0.05F,1);
+ 117:         spawnerHard=finite(spawnerHard,0.08F,1);
+ 118:         coatingWeatherTicks=clamp(coatingWeatherTicks,20,72000);
+ 119:         naturalRabiesEasy=finite(naturalRabiesEasy,0.003F,1);
+ 120:         naturalRabiesNormal=finite(naturalRabiesNormal,0.006F,1);
+ 121:         naturalRabiesHard=finite(naturalRabiesHard,0.01F,1);
+ 122:         balanceRevision=5;
+ 123:     }
+ 124:     private static float finite(float value, float fallback, float max) { return Float.isFinite(value) ? Math.max(0,Math.min(max,value)) : fallback; }
+ 125: 
+ 126:     private static int clamp(int value, int min, int max) { return Math.max(min, Math.min(max, value)); }
+ 127: }
+ 128: 
+ 129: 
+FILE src/main/java/com/tetanusmod/expansion/NaturalVariants.java LINES 1-28 OF 28
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import com.tetanusmod.entity.MobVariants;
+   4: import net.minecraft.entity.*;
+   5: import net.minecraft.entity.mob.MobEntity;
+   6: import net.minecraft.world.Difficulty;
+   7: 
+   8: public final class NaturalVariants {
+   9:     public static float chance(Difficulty difficulty, boolean spawner) {
+  10:         return chance(difficulty, spawner, false);
+  11:     }
+  12:     public static float chance(Difficulty difficulty, boolean spawner, boolean animal) {
+  13:         var c = com.tetanusmod.TetanusMod.CONFIG;
+  14:         return switch (difficulty) {
+  15:             case PEACEFUL -> 0;
+  16:             case EASY -> spawner ? c.spawnerEasy : animal ? c.naturalAnimalEasy : c.naturalMobEasy;
+  17:             case NORMAL -> spawner ? c.spawnerNormal : animal ? c.naturalAnimalNormal : c.naturalMobNormal;
+  18:             case HARD -> spawner ? c.spawnerHard : animal ? c.naturalAnimalHard : c.naturalMobHard;
+  19:         };
+  20:     }
+  21:     public static void spawned(MobEntity mob,SpawnReason reason){
+  22:         if(mob.getWorld().isClient||mob instanceof net.minecraft.entity.boss.WitherEntity||mob instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity)return;
+  23:         if(reason!=SpawnReason.NATURAL&&reason!=SpawnReason.CHUNK_GENERATION&&reason!=SpawnReason.SPAWNER)return;
+  24:         float rate=chance(mob.getWorld().getDifficulty(),reason==SpawnReason.SPAWNER,MobVariants.isAnimal(mob));
+  25:         if(mob.getRandom().nextFloat()<rate)MobVariants.makePermanent(mob);
+  26:         else if(Rabies.eligible(mob)&&mob.getRandom().nextFloat()<switch(mob.getWorld().getDifficulty()){case PEACEFUL->0F;case EASY->com.tetanusmod.TetanusMod.CONFIG.naturalRabiesEasy;case NORMAL->com.tetanusmod.TetanusMod.CONFIG.naturalRabiesNormal;case HARD->com.tetanusmod.TetanusMod.CONFIG.naturalRabiesHard;})Rabies.makeRabid(mob);
+  27:     }
+  28: }
+FILE src/main/java/com/tetanusmod/expansion/VariantSpawnEggItem.java LINES 1-67 OF 67
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import com.tetanusmod.registry.ModItems;
+   4: import net.minecraft.entity.*;
+   5: import net.minecraft.entity.mob.MobEntity;
+   6: import net.minecraft.entity.player.PlayerEntity;
+   7: import net.minecraft.item.*;
+   8: import net.minecraft.registry.Registries;
+   9: import net.minecraft.server.world.ServerWorld;
+  10: import net.minecraft.text.Text;
+  11: import net.minecraft.util.*;
+  12: import net.minecraft.util.hit.HitResult;
+  13: import net.minecraft.util.math.*;
+  14: import net.minecraft.world.World;
+  15: import java.util.*;
+  16: 
+  17: public final class VariantSpawnEggItem extends Item {
+  18:     private final EntityType<?> type;private final boolean rabid;
+  19:     public VariantSpawnEggItem(EntityType<?> type,boolean rabid){super(new Item.Settings());this.type=type;this.rabid=rabid;}
+  20:     public boolean rabid(){return rabid;}
+  21:     public EntityType<?> entityType(){return type;}
+  22:     public int color(int tint){
+  23:         var original=SpawnEggItem.forEntity(type);
+  24:         if(original==null)original=SpawnEggItem.forEntity(type==EntityType.WITHER?EntityType.WITHER_SKELETON:type==EntityType.ENDER_DRAGON?EntityType.ENDERMAN:EntityType.ZOMBIE);
+  25:         int base=original==null?0xAAAAAA:original.getColor(tint);
+  26:         int overlay=rabid?0x913C94:0xA85F31;
+  27:         float strength=rabid?(tint==0?0.30F:0.50F):(tint==0?0.24F:0.48F);
+  28:         int r=(int)(((base>>16)&255)*(1-strength)+((overlay>>16)&255)*strength);
+  29:         int g=(int)(((base>>8)&255)*(1-strength)+((overlay>>8)&255)*strength);
+  30:         int b=(int)((base&255)*(1-strength)+(overlay&255)*strength);
+  31:         return r<<16|g<<8|b;
+  32:     }
+  33:     @Override public Text getName(ItemStack stack){return Text.translatable(rabid?"item.tetanusmod.rabid_spawn_egg":"item.tetanusmod.tetanized_spawn_egg",type.getName());}
+  34:     public boolean spawn(ServerWorld world,PlayerEntity player,ItemStack stack,BlockPos pos){
+  35:         if(stack.isEmpty()||!stack.isOf(this)||player.isSpectator()||!world.getWorldBorder().contains(pos)||!world.canPlayerModifyAt(player,pos))return false;
+  36:         var entity=type.create(world);if(!(entity instanceof MobEntity mob))return false;
+  37:         mob.refreshPositionAndAngles(pos.getX()+0.5,pos.getY(),pos.getZ()+0.5,world.random.nextFloat()*360,0);
+  38:         mob.initialize(world,world.getLocalDifficulty(pos),SpawnReason.SPAWN_EGG,null,null);
+  39:         if(rabid)Rabies.makeRabid(mob);else com.tetanusmod.entity.MobVariants.makePermanent(mob);
+  40:         if(!world.spawnEntity(mob))return false;
+  41:         if(!player.getAbilities().creativeMode)stack.decrement(1);
+  42:         // Variant eggs are Creative tools; they no longer award a survival advancement.
+  43:         return true;
+  44:     }
+  45:     @Override public ActionResult useOnBlock(ItemUsageContext context){
+  46:         var player=context.getPlayer();if(player==null||player.isSpectator()||!player.canPlaceOn(context.getBlockPos().offset(context.getSide()),context.getSide(),context.getStack()))return ActionResult.FAIL;
+  47:         if(context.getWorld().isClient)return ActionResult.SUCCESS;
+  48:         var pos=context.getWorld().getBlockState(context.getBlockPos()).isReplaceable()?context.getBlockPos():context.getBlockPos().offset(context.getSide());
+  49:         return spawn((ServerWorld)context.getWorld(),player,context.getStack(),pos)?ActionResult.CONSUME:ActionResult.FAIL;
+  50:     }
+  51:     @Override public TypedActionResult<ItemStack> use(World world,PlayerEntity player,Hand hand){
+  52:         var stack=player.getStackInHand(hand);var hit=raycast(world,player,net.minecraft.world.RaycastContext.FluidHandling.SOURCE_ONLY);
+  53:         if(hit.getType()!=HitResult.Type.BLOCK)return TypedActionResult.pass(stack);
+  54:         if(!(world.getBlockState(hit.getBlockPos()).getBlock() instanceof net.minecraft.block.FluidBlock))return TypedActionResult.pass(stack);
+  55:         if(!world.canPlayerModifyAt(player,hit.getBlockPos())||!player.canPlaceOn(hit.getBlockPos(),hit.getSide(),stack))return TypedActionResult.fail(stack);
+  56:         if(world.isClient)return TypedActionResult.success(stack);
+  57:         return spawn((ServerWorld)world,player,stack,hit.getBlockPos())?TypedActionResult.consume(stack):TypedActionResult.fail(stack);
+  58:     }
+  59:     public static void registerAll(){
+  60:         for(var type:Registries.ENTITY_TYPE){
+  61:             var id=Registries.ENTITY_TYPE.getId(type);if(!id.getNamespace().equals("minecraft"))continue;
+  62:             if(type.getSpawnGroup()==SpawnGroup.MISC&&!Set.of(EntityType.VILLAGER,EntityType.WANDERING_TRADER,EntityType.IRON_GOLEM,EntityType.SNOW_GOLEM,EntityType.WITHER,EntityType.ENDER_DRAGON).contains(type))continue;
+  63:             ModItems.register("tetanized_"+id.getPath()+"_spawn_egg",new VariantSpawnEggItem(type,false));
+  64:             if(Set.of("wolf","fox","cat","bat","rabbit","cow","pig","sheep","goat","horse","donkey","mule","llama","trader_llama","camel","panda","polar_bear","hoglin","zoglin","zombie","husk","drowned").contains(id.getPath()))ModItems.register("rabid_"+id.getPath()+"_spawn_egg",new VariantSpawnEggItem(type,true));
+  65:         }
+  66:     }
+  67: }
+FILE src/main/java/com/tetanusmod/item/InfectedMeatItem.java LINES 1-20 OF 20
+   1: package com.tetanusmod.item;
+   2: import com.tetanusmod.effect.Infection;
+   3: import net.minecraft.entity.LivingEntity;
+   4: import net.minecraft.item.*;
+   5: import net.minecraft.world.World;
+   6: public final class InfectedMeatItem extends Item {
+   7:     public InfectedMeatItem(Settings settings) { super(settings); }
+   8:     @Override public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+   9:         if(stack.isEmpty()||!stack.isOf(this)||!user.isAlive()||user.isSpectator())return stack;
+  10:         ItemStack result = super.finishUsing(stack, world, user);
+  11:         if (!world.isClient) {
+  12: 
+  13:             // Raw contaminated meat causes Salmonella; metal injuries cause Tetanus.
+  14:             if(user.getRandom().nextFloat()<com.tetanusmod.TetanusMod.CONFIG.salmonellaChance)
+  15:                 user.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(com.tetanusmod.TetanusMod.SALMONELLA,1200));
+  16:         }
+  17:         return result;
+  18:     }
+  19: }
+  20: 
+FILE src/main/java/com/tetanusmod/expansion/ExpansionItems.java LINES 1-28 OF 28
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import com.tetanusmod.registry.ModItems;
+   5: import net.minecraft.item.*;
+   6: import net.minecraft.registry.*;
+   7: import net.minecraft.entity.*;
+   8: import net.minecraft.entity.mob.MobEntity;
+   9: import net.minecraft.world.World;
+  10: 
+  11: public final class ExpansionItems {
+  12:     public static final Item VETERINARY_KIT=ModItems.register("veterinary_kit",new VeterinaryKitItem(new Item.Settings().maxCount(16)));
+  13:     public static final Item SPEAR=ModItems.register("iron_spear",new SpearItem(false,new Item.Settings().maxDamage(320)));
+  14:     public static final Item RUSTED_SPEAR=ModItems.register("rusted_iron_spear",new SpearItem(true,new Item.Settings().maxDamage(320)));
+  15:     public static final Item TRAP_RESET_TOOL=ModItems.register("trap_reset_tool",new TrapResetToolItem(new Item.Settings().maxDamage(128)));
+  16:     public static final Item RABIES_CURE=ModItems.register("rabies_cure",new RabiesTonicItem(false,new Item.Settings().maxCount(16)));
+  17:     public static final Item RABIES_VACCINE=ModItems.register("rabies_vaccine",new RabiesTonicItem(true,new Item.Settings().maxCount(16)));
+  18:     public static final Item RABID_MEAT=ModItems.register("rabid_meat",new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.2F).meat().build())){
+  19:         @Override public ItemStack finishUsing(ItemStack stack,World world,LivingEntity user){if(stack.isEmpty()||!stack.isOf(this)||!user.isAlive()||user.isSpectator())return stack;var result=super.finishUsing(stack,world,user);if(!world.isClient){if(Rabies.expose(user,null))user.addStatusEffect(new net.minecraft.entity.effect.StatusEffectInstance(net.minecraft.entity.effect.StatusEffects.NAUSEA,200));}return result;}
+  20:     });
+  21:     public static final Item COOKED_RABID_MEAT=ModItems.register("cooked_rabid_meat",new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6F).meat().build())));
+  22:     public static final net.minecraft.enchantment.Enchantment TETANUS_PROTECTION=Registry.register(Registries.ENCHANTMENT,TetanusMod.id("tetanus_protection"),new TetanusProtectionEnchantment());
+  23:     public static ItemStack tetanusBook(int level){
+  24:         var book=EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(ModItems.TETANUS_ENCHANTMENT,level));
+  25:         book.setCustomName(net.minecraft.text.Text.translatable(level>=2?"item.tetanusmod.tetanus_book_ii":"item.tetanusmod.tetanus_book"));return book;
+  26:     }
+  27:     public static void initialize(){ExpansionBlocks.initialize();VariantSpawnEggItem.registerAll();}
+  28: }

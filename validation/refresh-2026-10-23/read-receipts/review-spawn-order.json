@@ -1,0 +1,23 @@
+[
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/SkeletonEquipmentMixin.java",
+        "Start":  1,
+        "End":  15,
+        "TotalLines":  15,
+        "SHA256AtRead":  "E00BD62615F827EFFCA30963ECA05E15D43006D978ADDCF3F651C0E58E4DCED8"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/ZombieEquipmentMixin.java",
+        "Start":  1,
+        "End":  16,
+        "TotalLines":  16,
+        "SHA256AtRead":  "2E7EA746B81B3531946879D821CD7E2307962A91E167E4DE442112FB29B92076"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionBlocks.java",
+        "Start":  1,
+        "End":  21,
+        "TotalLines":  21,
+        "SHA256AtRead":  "AE076E7EE4911CF14264F0686F8864DB426CDD03B49A789EEEA023028CA956A2"
+    }
+]

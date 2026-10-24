@@ -1,3 +1,39 @@
+# 0.1.0-beta - medics, equipment, and disease fixes (October 23 refresh)
+
+- Add five biome-themed clinics with a 55% eligible village-location roll, supply chests, and seven medic uniform palettes.
+- Add locatable cave medic tents with a 15% candidate roll, over 2,000-block spacing, loot, and a defensive Tetanized Iron Golem.
+- Add native locate entries and /rustandruin locate medic/tent shortcuts.
+- Move species-colored, tinted variant eggs to Rust & Ruins Spawn Eggs; retire the Creative-only Bad Egg advancement.
+- Improve the glove slot, show equipped gloves on players, and support Unbreaking/Mending and XP repairs in the dedicated slot.
+- Replace the medicine cabinet with a two-block model with shelves, glass, vials, and opening doors; migrate old cabinets without overwriting ceilings.
+- Keep Rabies nonlethal with a strict two-heart capacity floor; raw Infected Meat now causes Salmonella only, while raw Rabid Meat causes Rabies and immediate nausea unless vaccination prevents infection.
+- Reveal advancements without first requiring an iron pickup; award protected shield blocks for ordinary rusty weapons too.
+- Add operator disease aliases and ensure /effect bypasses random vaccine prevention.
+- Add a failed eating gesture for Lockjaw and restore native arrow texture transparency.
+- Replace veterinary kit, spear, rusty spear, and trap-reset-tool art; add treatment particles and a positional sound.
+- Add rare skeleton nail throwers and zombies with rebar, rusty pipes, or rusty spears (2%/4%/6% by difficulty); preserve equipment after vanilla spawn initialization.
+- Slightly increase rusty nail cooldown to 14 ticks; keep skeleton ammunition unrecoverable.
+- Lower natural Tetanized rates to 0.5%/1%/2%, spawners to 3%/5%/8%, and eligible natural Rabies rates to 0.3%/0.6%/1%. Rust-contact conversion now defaults to 2% for animals, 1% for other mobs.
+- See docs/REFRESH_2026-10-23.md for verification, findings, and remaining owner-testing limits.
+
+# 0.1.0-beta - animal care, supply requests, and workshops
+
+- Add separate natural animal, other mob, and spawner mutation settings for each difficulty.
+- Add rotating medic supply deliveries with saved daily limits, bottle returns, reputation discounts, and an advancement.
+- Add operator mob inspection and bounded nearby population counts without chunk loading.
+- Add honeycomb rust-proofing with saved wet-weather/use wear, short tooltips, and JEI/REI displays.
+- Add a craftable Veterinary Kit for permanently tetanized/rabid animals and Clean Bill of Health.
+- Add naturally generated abandoned workshops with traps, worn equipment, balanced salvage, and occasional medicine.
+- Fix Salmonella symptoms on effects longer than a minute, keep REI coating output durations current after config sync, and skip weather checks on non-rustable dropped items.
+- Read executable project source in numbered sections; retain per-file ranges, hashes, review notes, test evidence, and stated limitations in the new audit.
+# 0.1.0-beta - despawn and source audit (October 19, 2026)
+
+- Remove forced persistence from tetanized and rabid conversion so wild variants follow native despawn and mob-cap rules.
+- Repair affected legacy variant saves once, preserving recognizable named, owned, leashed, bucketed, mounted/passenger, NoAI and picked-equipment creatures; preserve intentional persistence in new saves.
+- Prevent weaker infections from shortening stronger/infinite Tetanus or clearing its Lockjaw progress, including near recovery. Keep Disorientation aligned with the retained infection.
+- Honor configured infection durations up to one hour, including the arrow combination bonus. Calculate that bonus before merging durations to avoid compounding.
+- Preserve vanilla invalid-movement rejection during spasms and correct the operator conversion command's success count.
+- Add sixteen regressions and a complete source-review inventory. See [despawn audit](docs/DESPAWN_AUDIT.md) for findings, migration details and testing limits.
 # 0.1.0-beta — diseases, medics, traps, and progression
 
 - Add persistent Rabies, rabid creatures and meat, a cure, vaccine, purple-red HUD/tab hearts, and disease brewing.

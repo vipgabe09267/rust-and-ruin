@@ -1,0 +1,15 @@
+{
+    "elements":  [
+                     {
+                         "weight":  1,
+                         "element":  {
+                                         "projection":  "rigid",
+                                         "processors":  "minecraft:empty",
+                                         "location":  "tetanusmod:workshop",
+                                         "element_type":  "minecraft:single_pool_element"
+                                     }
+                     }
+                 ],
+    "name":  "tetanusmod:workshop",
+    "fallback":  "minecraft:empty"
+}

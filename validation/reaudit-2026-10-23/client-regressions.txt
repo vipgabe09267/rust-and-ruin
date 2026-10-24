@@ -1,0 +1,2 @@
+[20:10:17] [Render thread/INFO] (tetanusmod) FAIL: java.lang.IllegalStateException: Field Guide rounds the 0.5 percent default to a whole percent; Tracked glove removal fell back to stale inventory while a container was open
+> FAIL: java.lang.IllegalStateException: Field Guide rounds the 0.5 percent default to a whole percent; Tracked glove 

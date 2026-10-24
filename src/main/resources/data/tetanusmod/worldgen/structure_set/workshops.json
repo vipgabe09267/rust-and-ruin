@@ -1,0 +1,14 @@
+{
+    "placement":  {
+                      "salt":  137642891,
+                      "spacing":  32,
+                      "type":  "minecraft:random_spread",
+                      "separation":  16
+                  },
+    "structures":  [
+                       {
+                           "structure":  "tetanusmod:workshop",
+                           "weight":  1
+                       }
+                   ]
+}

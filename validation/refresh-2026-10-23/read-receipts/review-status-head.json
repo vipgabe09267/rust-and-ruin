@@ -1,0 +1,7 @@
+{
+    "Path":  "src/main/java/com/tetanusmod/mixin/LivingEntityMixin.java",
+    "Start":  1,
+    "End":  35,
+    "TotalLines":  152,
+    "SHA256AtRead":  "1BFE056A00DFAAB7DF3D476B8D32CCA959CDF0F4EC4909D68ACEE92F63038146"
+}

@@ -56,12 +56,16 @@ public final class ModItems {
                 .displayName(Text.translatable("itemGroup.tetanusmod"))
                 .icon(() -> new ItemStack(RUSTED_NAIL))
                 .entries((context, entries) -> {
-                    ALL.stream().filter(item->!ModIronTools.isRusted(item)).forEach(entries::add);
+                    ALL.stream().filter(item->!ModIronTools.isRusted(item)&&!(item instanceof com.tetanusmod.expansion.VariantSpawnEggItem)).forEach(entries::add);
                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(
                             new net.minecraft.enchantment.EnchantmentLevelEntry(TETANUS_ENCHANTMENT,1)));
                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(TETANUS_ENCHANTMENT,2)));
                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(com.tetanusmod.expansion.ExpansionItems.TETANUS_PROTECTION,1)));
                     for(var potion:java.util.List.of(ModBrewing.MANURE,ModBrewing.TETANUS,ModBrewing.SALMONELLA,ModBrewing.LOCKJAW,ModBrewing.RABIES))for(var bottle:java.util.List.of(net.minecraft.item.Items.POTION,net.minecraft.item.Items.SPLASH_POTION,net.minecraft.item.Items.LINGERING_POTION))entries.add(net.minecraft.potion.PotionUtil.setPotion(new ItemStack(bottle),potion));
                 }).build());
+        Registry.register(Registries.ITEM_GROUP,TetanusMod.id("spawn_eggs"),FabricItemGroup.builder()
+                .displayName(Text.translatable("itemGroup.tetanusmod.spawn_eggs"))
+                .icon(()->new ItemStack(Registries.ITEM.get(TetanusMod.id("tetanized_zombie_spawn_egg"))))
+                .entries((context,entries)->ALL.stream().filter(item->item instanceof com.tetanusmod.expansion.VariantSpawnEggItem).forEach(entries::add)).build());
     }
 }

@@ -1,0 +1,7 @@
+FILE src/main/java/com/tetanusmod/config/ModConfig.java LINES 122-127 OF 127
+ 122:         balanceRevision=5;
+ 123:     }
+ 124:     private static float finite(float value, float fallback, float max) { return Float.isFinite(value) ? Math.max(0,Math.min(max,value)) : fallback; }
+ 125: 
+ 126:     private static int clamp(int value, int min, int max) { return Math.max(min, Math.min(max, value)); }
+ 127: }

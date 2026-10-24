@@ -85,7 +85,7 @@ public class ProgressionGameTests implements FabricGameTest {
             if(!(entity instanceof MobEntity mob))continue;
             MobVariants.makePermanent(mob);
             ctx.assertTrue(MobVariants.permanent(mob),"Cannot tetanize "+type);
-            if(!(mob instanceof WitherEntity))ctx.assertTrue(MobVariants.eligibleRoll(mob,0.049F),"Mob ineligible for mutation: "+type);
+            if(!(mob instanceof WitherEntity))ctx.assertTrue(MobVariants.eligibleRoll(mob,0),"Mob ineligible for mutation: "+type);
             count++;
         }
         ctx.assertTrue(count>60,"Vanilla mob coverage unexpectedly low");ctx.complete();

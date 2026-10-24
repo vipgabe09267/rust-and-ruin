@@ -37,6 +37,13 @@ public abstract class ItemEntityMixin {
         }
         rustruin$rodTicks=0;
         Item rusty = RustingSystem.rusted(stack.getItem());
+        boolean wet = rusty != null && (RustingSystem.touchingWater(entity) || (TetanusMod.CONFIG.rainRusting && entity.getWorld().hasRain(entity.getBlockPos())));
+        if (rusty != null && wet && com.tetanusmod.rust.RustCoating.remaining(stack) > 0) {
+            com.tetanusmod.rust.RustCoating.wear(stack, 1);
+            tetanus$waterTicks = tetanus$rainTicks = 0;
+            if (entity.age % 20 == 0 || com.tetanusmod.rust.RustCoating.remaining(stack) == 0) entity.setStack(stack.copy());
+            return;
+        }
         boolean convert = false;
         if (rusty == null) {
             tetanus$waterTicks = tetanus$rainTicks = 0;

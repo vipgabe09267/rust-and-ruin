@@ -1,0 +1,142 @@
+[
+    {
+        "Path":  "src/gametest/java/com/tetanusmod/test/DiseaseFixGameTests.java",
+        "Lines":  185,
+        "SHA256":  "91F3BB57BD06D0E065066311A77174690F0B6CF3D38D29FC95051530BDE9996C"
+    },
+    {
+        "Path":  "src/gametest/java/com/tetanusmod/test/ExpansionGameTests.java",
+        "Lines":  183,
+        "SHA256":  "57E0CAD7E745B6CC1D654311D8938FDD7B45B66792EEADE57EB714FBE3130568"
+    },
+    {
+        "Path":  "src/gametest/java/com/tetanusmod/test/ReauditGameTests.java",
+        "Lines":  218,
+        "SHA256":  "A13EABB8936B5AD66947D4F19542FCAE5EB1D6C7ADFA49A25EAE36D7219B38F1"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/block/CaltropsBlock.java",
+        "Lines":  58,
+        "SHA256":  "1D1F8ABC7E3A8E62FCBB503B5009C4F6AAE4A3975464EC93594ED2AFBF619D7B"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/client/FieldGuideScreen.java",
+        "Lines":  59,
+        "SHA256":  "65A9979E70F07701EC90976ACDA36B48272AF3046D5955AD21FB62B8252C0A7E"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/client/InfectedPlayerList.java",
+        "Lines":  19,
+        "SHA256":  "F2B2B1108575F6AC9D3D54969A6FBB3947382B3614E90ECD8C1837B7AD8BCD52"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/client/RabidPlayerList.java",
+        "Lines":  19,
+        "SHA256":  "BEC6CA4C9BEB28960B4CE67BE14C49FBA40103CC4E74F9BBF02B4B99C6DD3BB5"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/client/TetanusClient.java",
+        "Lines":  87,
+        "SHA256":  "8211E3C7CD61F13457F485040517702560CE314C9A6B44D8805C6B7C0D4A1FA7"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/effect/InfectionProtection.java",
+        "Lines":  45,
+        "SHA256":  "5EF9BDDD43ACE4AA288DAB68F0D239E05CEFFB0B9390DFDD17EBD4A5A6005BA0"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/entity/EnhancedWitherRitual.java",
+        "Lines":  44,
+        "SHA256":  "FBC16635C47542DA65799F19614C5B3B20589D985970F7B6BBBC336287E0EC2B"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/entity/MobVariants.java",
+        "Lines":  134,
+        "SHA256":  "CF57D0FEA100E05E404D67F2AE1BF71FDF9BE1249DFDF5A6EA076B45FE158DBA"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/BearTrapBlock.java",
+        "Lines":  23,
+        "SHA256":  "45F1DDEF7E04D3826FB48E48243037540AC44D76409C8E6BF82CB6F8E09871CE"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/GloveInventory.java",
+        "Lines":  17,
+        "SHA256":  "4DD611108D7C39BD83F434E7088582537B5815E5EB9064DB5C5231CCD491C9C0"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/MedicineCabinetBlock.java",
+        "Lines":  34,
+        "SHA256":  "5095304791909C84A9C51BE897E4FF3AFB4E1BF6D4C4D6BA4760C7CF674F47D6"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/MobEquipment.java",
+        "Lines":  60,
+        "SHA256":  "1927A40A66F4B5E0402618ACC085262C437D24D6D078BC5C3CD5D49C7265400B"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/Rabies.java",
+        "Lines":  87,
+        "SHA256":  "E1C5EB98CB180167ACB4F23E76774E06637120527D3C682CA5D2523B4745EE86"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/RabiesTonicItem.java",
+        "Lines":  34,
+        "SHA256":  "E978789AA952C36198E5C4E3EB2789932A3FF7725F636DCAB88C5406BCF60AB4"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/item/AntitoxinItem.java",
+        "Lines":  58,
+        "SHA256":  "213291D63A9B579C05C7B5E7C25367FC3FE89ED23F644F154DAF692E179627A4"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/item/MedicineConsumption.java",
+        "Lines":  18,
+        "SHA256":  "70ABDE43B06098078C19CA122B9E0A908661A7E7FAD8C136BBAFFA25FC35F58F"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/item/VaccineItem.java",
+        "Lines":  33,
+        "SHA256":  "B7070DA771913FC3059C23EF5C7D6B3A9A0AE2892E9E763B43FF0A940FA21EB0"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/CabinetPathfindingMixin.java",
+        "Lines":  18,
+        "SHA256":  "E9E4DE42F4F3C8249ABCDF120EED302C1671B603593D7FE1820CD55280AAB58D"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/CreeperAccessor.java",
+        "Lines":  9,
+        "SHA256":  "3258AFD87E81A49A8F70742FCE520BB7F430E4AB0656574B9FC3930A5A9109F8"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/DiseaseRespawnMixin.java",
+        "Lines":  40,
+        "SHA256":  "CEBCC36E9D10AEAC6B74B5A6AA4C303184E6DC13F4BCA50BB4DB42EB7945DEE9"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/ItemEntityMixin.java",
+        "Lines":  82,
+        "SHA256":  "60B69F7ABF2AB78C9686FA4AE8538C13635D4D9C97B3963D8C5CE207D93DA95D"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/LivingEntityMixin.java",
+        "Lines":  151,
+        "SHA256":  "ECC0E087CF96EA1A046150720F72C00EE8C40AA9A4B0A98D98337B15ACF840FE"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/mixin/WitherSummoningMixin.java",
+        "Lines":  37,
+        "SHA256":  "DA6201936B82F3C390EC0A6730C8C8BE752DD3BFD2A9740FB800DDBCF49C9A13"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/world/MedicStructurePiece.java",
+        "Lines":  42,
+        "SHA256":  "6D570319DE9CA54A8880FBD6CC3A8FCD3DD5285B4EE14A10D3BD304D1171CF4F"
+    },
+    {
+        "Path":  "src/smoketest/java/com/tetanusmod/test/ClientSmokeTest.java",
+        "Lines":  367,
+        "SHA256":  "4261AB893C8C1BC3A68634B27C1D0C93DEE8E84F08097465C2EA210EB39D928D"
+    }
+]

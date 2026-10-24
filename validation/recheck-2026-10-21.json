@@ -1,0 +1,415 @@
+{
+    "Date":  "2026-10-21",
+    "Version":  "0.1.0-beta",
+    "Result":  "PASS",
+    "Findings":  [
+                     "Fixed low-contrast REI rusting and batch-arrow instructions; all custom recipe labels now choose colors for the active LIGHT/DARK theme.",
+                     "Fixed clipped REI rusting and coating instructions using Minecraft word wrapping; increased the rusting panel height."
+                 ],
+    "SourceReview":  {
+                         "OriginalFullReviewDate":  "2026-10-19",
+                         "OriginalReviewFiles":  166,
+                         "OriginalReviewLines":  8950,
+                         "AllOriginalHashesMatchedAtStart":  true,
+                         "FullManualRereadThisPass":  false,
+                         "CurrentSourceFiles":  166,
+                         "CurrentSourceLines":  8958,
+                         "UnchangedOriginalHashes":  165,
+                         "ChangedFile":  {
+                                             "Path":  "src/main/java/com/tetanusmod/compat/RustRuinReiPlugin.java",
+                                             "PriorSHA256":  "6A66F35EED348B45A1FCDBAB826CBDE35319E55C624033D6FCE50CE14A6F91A9",
+                                             "FinalSHA256":  "7054C64E01FEBD58BA55987764487BCBCCAC4C79D2AA33AC6ACA2D9F7220F9D5",
+                                             "Lines":  118,
+                                             "ManuallyReadRanges":  [
+                                                                        "1-65",
+                                                                        "66-118"
+                                                                    ],
+                                             "Transcript":  ".tools/review-reads/47-recheck-rei-wrapping-final.txt",
+                                             "Notes":  "Read the full edited file in two untruncated sections; reviewed theme selection, font-based wrapping, panel margins and optional loading. Original October 19 review records remain historical snapshots."
+                                         }
+                     },
+    "ResourceChecks":  {
+                           "Files":  330,
+                           "FullGenerationByteIdentical":  true,
+                           "RepeatExpansionGenerationByteIdentical":  true,
+                           "CSharpSpriteHelperExercised":  true
+                       },
+    "ServerRuns":  [
+                       {
+                           "Run":  1,
+                           "Tests":  192,
+                           "Failures":  0,
+                           "Skipped":  0,
+                           "ForcedTasks":  true,
+                           "Report":  ".tools/recheck-2026-10-21-server-1.xml"
+                       },
+                       {
+                           "Run":  2,
+                           "Tests":  192,
+                           "Failures":  0,
+                           "Skipped":  0,
+                           "ForcedTasks":  false,
+                           "Report":  ".tools/recheck-2026-10-21-server-2.xml"
+                       },
+                       {
+                           "Run":  3,
+                           "Tests":  192,
+                           "Failures":  0,
+                           "Skipped":  0,
+                           "ForcedTasks":  false,
+                           "Report":  ".tools/recheck-2026-10-21-server-3.xml"
+                       },
+                       {
+                           "Run":  4,
+                           "Tests":  192,
+                           "Failures":  0,
+                           "Skipped":  0,
+                           "ForcedTasks":  false,
+                           "Report":  ".tools/recheck-2026-10-21-server-4.xml"
+                       },
+                       {
+                           "Run":  5,
+                           "Tests":  192,
+                           "Failures":  0,
+                           "Skipped":  0,
+                           "ForcedTasks":  false,
+                           "Report":  ".tools/recheck-2026-10-21-server-5.xml"
+                       },
+                       {
+                           "Run":  6,
+                           "Tests":  192,
+                           "Failures":  0,
+                           "Skipped":  0,
+                           "ForcedTasks":  false,
+                           "Report":  ".tools/recheck-2026-10-21-server-6.xml"
+                       }
+                   ],
+    "ClientRuns":  [
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-client-jei.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       },
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-client-plain.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       },
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-client-rei.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       },
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-final-client-jei.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       },
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-final-client-plain.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       },
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-final-client-rei-dark.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       },
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-final-client-rei-light.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       },
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-postfix-client-jei.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       },
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-postfix-client-plain.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       },
+                       {
+                           "Log":  ".tools/recheck-2026-10-21-postfix-client-rei.log",
+                           "Result":  "PASS",
+                           "FreshAssertionResultRequiredByGradle":  true
+                       }
+                   ],
+    "ClientVerification":  "Plain and JEI passed three times each. REI passed four times, including the final wrapping/theme implementation in both LIGHT and DARK. Final affected-client retests and server run 6 follow the last source edit.",
+    "FreshScreenshots":  [
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-advancements.png",
+                                 "SHA256":  "84925BFAB40E9AE2F1250EF2F01295824FA02158D1C57DC48C7CAF4D32967F96"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-beacon.png",
+                                 "SHA256":  "657FCA210A7C7DF301B8C886A8EEFE6E8A3407B3A5A778FBAC0E66F80BC0F5CC"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-clinic-interior.png",
+                                 "SHA256":  "46B6131CAF4A06EC2A419E4B08846E1A2C201BF4394D6CD4502CBB22702C54B2"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-clinic-traps.png",
+                                 "SHA256":  "F3E79C1626135F27CB73C70FBD87CFA94B6143F537DDEF23586CFEAA2DEC8E14"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-creative-gloves.png",
+                                 "SHA256":  "CB12F21B92AA810879210DD956202E66FC020336CFBFF356F21F31B384E786C2"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-creative-items.png",
+                                 "SHA256":  "EA1540EDDC56E769054A0B9A7F05E1AF4D13CAE1184E6406F314848B1A567498"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-field-guide.png",
+                                 "SHA256":  "AD70FD88D7F51009EE3E51FADA382ADA2C0D54182617C9AB78D06B202A067ACC"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-hud.png",
+                                 "SHA256":  "946880CEBF567916C4D3F74B36CEEADDCA25726D5952E1C308186F606B8A47F1"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-inventory.png",
+                                 "SHA256":  "C4995FAD1B7F6456AAA96F1EEA9381BAF2EDF9AB513912A651C72CCB9EC9E61F"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-medic.png",
+                                 "SHA256":  "B6DEC6C50BC3E491D6EDAC472872AC055A40982C6988DB0CAF510647A145E8E7"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-rabies-hud.png",
+                                 "SHA256":  "66C0528BB0D4FE1C8A14A24D0F3CF6546BD206BB1D4CB40053467F17F1DE4D32"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-rabies-tab.png",
+                                 "SHA256":  "89B0C0A3F86E926AC7ABC2C1AB1E0A19E12E654F30FDC4E4B97D6D9F24732AB5"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-tab-hearts.png",
+                                 "SHA256":  "6F2CEC3E81A24D83C372FC6B647B5B0358EF73C7F54319B8C5D344074537CBC4"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-plain-workshop.png",
+                                 "SHA256":  "CF77C73EFA4A310141D59724FF4080821D00B0D088EC28495508502FC7E832A6"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-advancements.png",
+                                 "SHA256":  "C0BA88907DFDFF9CE2EDE029EFE2DE00A52B4F45D94A66F1A8B80D5E8E6CD3CF"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-arrow-smithing.png",
+                                 "SHA256":  "A071E84B4215B71EBB46883AC82D4B45292A4788E688AD555AC3A69D5F0AA136"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-beacon.png",
+                                 "SHA256":  "BB31E8B1F97F95DB1AAD99100594FE872A2DFE266EB52E7D68FA38AA39961103"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-caltrops.png",
+                                 "SHA256":  "1AD5B91C0643BEA0946B02B73DDB0ACE6B9E8F04978EDE532A7C4D85A3E7E481"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-clinic-interior.png",
+                                 "SHA256":  "2E038FA0FB16845ECDACF5F1E87FD05BA7E9C971971317A68F7BB955ABF874B8"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-clinic-traps.png",
+                                 "SHA256":  "D99F1A68F26D01EF8DF82A9658777F157EAEB7B1179FD6698C608570827A5F37"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-creative-gloves.png",
+                                 "SHA256":  "3BD87B2058AFA1EF2AE71EBB7C661AD7F5A50FE67FD274895D5BD0FA9C15C980"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-creative-items.png",
+                                 "SHA256":  "8CE41696D17386CB90440722A0973520CF0770E79F87F3F9DEFDE816A9D196D4"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-field-guide.png",
+                                 "SHA256":  "5DA5139557A6813638C2B5C3FC33CE008FA4C4B11033CA2718446FEC4EEE6FEB"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-hud.png",
+                                 "SHA256":  "66F39F4F102F98C71DF2833757AC4D66ADB30AE04198FEEE82ECB13ED3A7420A"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-inventory.png",
+                                 "SHA256":  "7495EA5F7028EF762712A509E4F8ED3E9D855F723C08B34E819ACAFC4D086956"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-medic.png",
+                                 "SHA256":  "0602FE7C2C173C2319520DF7AC719E9E4F92BB7A46C92CAB1E5B242743B6F4E2"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-rabies-hud.png",
+                                 "SHA256":  "0F38B609ECFDDC3BE1E5F4D9955DBB594BDAAD26339E0286A32DDAE2B4D9CE31"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-rabies-tab.png",
+                                 "SHA256":  "106D68B2087D46ABCAC7EFD1928C182CC1171373B3E6DA3A19216DDB2FAC5881"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-rusting.png",
+                                 "SHA256":  "D2DC887F84E27270CCF8314DB540DC7B442CBBFBA2458E2A801248AFFC22AF9A"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-tab-hearts.png",
+                                 "SHA256":  "18B948867D420911C5AAF7FD094FE66875BE3537EEEE63D8504C2433D6FD8497"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-vaccine-recipe.png",
+                                 "SHA256":  "D8F86C6E2E700B7B56D5E1D624F946A443C94017936007FF24A7529FEEB3627C"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-wax-coating.png",
+                                 "SHA256":  "8ADF7B7BF575534048B39EDE96EEE1FCF593FD8B617543502D0FA286924202D2"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-jei-workshop.png",
+                                 "SHA256":  "B0C43E25C7B584D56FA60F68C9B2B1E00834DDC43B3A3A3AFAF699FA6C37A007"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-advancements.png",
+                                 "SHA256":  "E269D8543C2E04DC629D543F6E49844CFB1ACD9071C6F40DF7CCADED1B7A0652"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-arrow-smithing.png",
+                                 "SHA256":  "B09E6D1E00794390C2E526F5810052BC2D1645810225B52307E00BE1FA31C4CB"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-beacon.png",
+                                 "SHA256":  "20C3CB9509D7CFFAC1B6D15E0980717035797A35C95F276F525DFB843F6A9274"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-caltrops.png",
+                                 "SHA256":  "0F9C76CB86DDD18748DBCBD1AC5231A8569794A8E3F40BEED314531F7FDF5969"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-clinic-interior.png",
+                                 "SHA256":  "9BB9263316371ADBEC5B3C1D53EFAAAB03BD2CB2F4C9D27C3472800C99C104AC"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-clinic-traps.png",
+                                 "SHA256":  "6FCCAF72DE6782F9EB192300A23422289E5260AA808B89D132EBF804861C8843"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-creative-gloves.png",
+                                 "SHA256":  "A49B3B9B7E6EBCE711DD846BDB0EB40913318ACCD9AAB30CB21BC0B4817EDB79"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-creative-items.png",
+                                 "SHA256":  "1379D6F3A1A7FA3DBB389108B715E3DD9BA33CE801E2C0659E57292616C5AC50"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-field-guide.png",
+                                 "SHA256":  "10CBDFBCC7C6B51869598E990DF7C330E8AA3C7CA9A00BCDAB74D4BC933CB917"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-hud.png",
+                                 "SHA256":  "137629A83AA5B008FDB2F269C8E0A2FE757778D7A4F51A48F00855C6E4EF2D92"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-inventory.png",
+                                 "SHA256":  "CD7ADED4D1017897BEE47445B358AED05218F94B2ED13507C956173448F0D3DB"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-medic.png",
+                                 "SHA256":  "0C083C0846DB0756FC0F8F398C067E1AA54DB99DD6F18540AB9EB8A7F0546FF3"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-rabies-hud.png",
+                                 "SHA256":  "8FA077D6BF6691E230AEA3E06859FE5DCF611BE227235D0D43A9389A52EF5388"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-rabies-tab.png",
+                                 "SHA256":  "2270B33D05C756BAB0CEC5CD9D020B8BD5094584E108C1224D53042862DAE4AA"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-rusting.png",
+                                 "SHA256":  "3A8986CA70F4892C513A8D1F2198B3FF85E9AB37F3A2DAFE51CD041364AD5A9E"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-tab-hearts.png",
+                                 "SHA256":  "E34B76BAAA72DEA94B4A68BA85BCB343A63508B87A71C497A25A199E46A3968F"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-vaccine-recipe.png",
+                                 "SHA256":  "1B3F7F3AFCB085FD2FA8F51E4A0F4BD8B07B25D616D271BB3D28D893F45D98E3"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-wax-coating.png",
+                                 "SHA256":  "25AC3AE93DDFECCEE8EECABDE2AA180C678ACBDDBCFED55EFEBD46C7D5113D3B"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-workshop.png",
+                                 "SHA256":  "83ED26F9BDD6CCC8F2F0EC4B9E974757D6586D037772E5FA30B7942BAD7E4AF7"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-dark-arrow-smithing.png",
+                                 "SHA256":  "B56DDC390269A0717600B3972C4312C63F30ECB6349575EE1695ECFCDF8C77D1"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-dark-rusting.png",
+                                 "SHA256":  "DF24D4730A5A61CCBE8C3789E9B1AEDCE62791178C19E8C4136F5C0A6F184CA6"
+                             },
+                             {
+                                 "Path":  "validation/screenshots/rust-and-ruin-rei-dark-wax-coating.png",
+                                 "SHA256":  "8BB634AFA12EED4CF4029F8DB154593FE84D4F43130116D192940BE6A42EB54B"
+                             }
+                         ],
+    "Release":  {
+                    "Result":  "PASS",
+                    "Jar":  "C:\\Users\\gwilliamscrypto\\Documents\\Rust \u0026 Ruin\\build\\libs\\rust-and-ruin-0.1.0-beta.jar",
+                    "Bytes":  3185156,
+                    "SHA256":  "646183D6A2927002DA5707AD4F042BBC781432731E31BA81919224DDEADB4CD6",
+                    "OfficialWrapperSHA256":  "D3B261C2820E9E3D8D639ED084900F11F4A86050A8F83342ADE7B6BC9B0D2BDD",
+                    "Pngs":  62,
+                    "MandatoryMods":  "Fabric API",
+                    "DevelopmentCodeBundled":  false
+                },
+    "PackageNegativeCases":  {
+                                 "value":  [
+                                               {
+                                                   "Case":  "tamper",
+                                                   "Result":  "REJECTED_AS_EXPECTED",
+                                                   "Reason":  "Stale or altered packaged resource: assets/tetanusmod/models/item/iron_spear.json"
+                                               },
+                                               {
+                                                   "Case":  "duplicate",
+                                                   "Result":  "REJECTED_AS_EXPECTED",
+                                                   "Reason":  "Duplicate archive entry: assets/tetanusmod/models/item/iron_spear.json"
+                                               },
+                                               {
+                                                   "Case":  "absolute",
+                                                   "Result":  "REJECTED_AS_EXPECTED",
+                                                   "Reason":  "Unsafe archive path: C:/unexpected.txt"
+                                               }
+                                           ],
+                                 "Count":  3
+                             },
+    "Audio":  {
+                  "SourceMP3Decode":  "PASS",
+                  "PackagedOGGDecode":  "PASS",
+                  "FFmpegErrorOutputBytes":  0
+              },
+    "BuildHelperInvalidJavaHomeFallback":  "PASS",
+    "RuntimeLogCount":  16,
+    "UnexpectedRuntimeErrors":  0,
+    "NonfatalWarnings":  [
+                             "Expected malformed-packet rejection warnings from negative tests.",
+                             "Minecraft goat sound definitions and emissive shader sampler warnings.",
+                             "Brief lag during test-world setup and compiler deprecation notes."
+                         ],
+    "FileAudit":  {
+                      "Result":  "PASS",
+                      "Files":  597,
+                      "Report":  ".tools/recheck-2026-10-21-final-files.json"
+                  },
+    "Limits":  [
+                   "Development server/client functionality and separate release integrity checks; owner playtesting and long-running multiplayer testing remain necessary.",
+                   "No new complete manual reread of unchanged sources, third-party dependency CVE assessment, or arbitrary modpack compatibility guarantee."
+               ],
+    "Committed":  false
+}

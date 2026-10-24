@@ -1,0 +1,44 @@
+[
+    {
+        "Path":  "src/main/java/com/tetanusmod/world/CaveMedicStructure.java",
+        "Start":  1,
+        "End":  45,
+        "TotalLines":  45,
+        "SHA256AtRead":  "E2F1FB37F38A208C38D79FE27351DEE49AEACF1EB3D8122A2F1FA291352231E6"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/world/ClinicStructure.java",
+        "Start":  1,
+        "End":  56,
+        "TotalLines":  56,
+        "SHA256AtRead":  "A2E1A97334ACBF20A6E59AAC9D3DE044418AE26E9ECF2B257E35CAB0ACA6B574"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/world/MedicStructurePiece.java",
+        "Start":  1,
+        "End":  40,
+        "TotalLines":  40,
+        "SHA256AtRead":  "B37835370BCAF45EA0843A1FA11DE0B08B312A53D380E6438FEF21CEFC3062D7"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/world/MedicStructures.java",
+        "Start":  1,
+        "End":  13,
+        "TotalLines":  13,
+        "SHA256AtRead":  "4A097392D56E9099CA26367A268D693E00EA156D1808F3E345FCE687A023FC2D"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/MedicineCabinetBlock.java",
+        "Start":  1,
+        "End":  33,
+        "TotalLines":  33,
+        "SHA256AtRead":  "D90EFB87C4B6F11581F55CEE9ACE2EC065A086ED6B517A08A32FCDCE0D01292B"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/MobEquipment.java",
+        "Start":  1,
+        "End":  60,
+        "TotalLines":  60,
+        "SHA256AtRead":  "79DDA9627F23612F50E5F7EE0B3BF3C21E375BD4F074350DA3AA84ECEF7D0E51"
+    }
+]

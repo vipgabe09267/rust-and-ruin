@@ -1,0 +1,92 @@
+FILE src/gametest/java/com/tetanusmod/test/RefreshWorldGameTests.java LINES 96-186 OF 186
+  96:     @GameTest(templateName=EMPTY_STRUCTURE)
+  97:     public void skeletonNailGoalIsRestoredWithoutDuplicating(TestContext ctx){
+  98:         var skeleton=EntityType.SKELETON.create(ctx.getWorld());skeleton.equipStack(EquipmentSlot.MAINHAND,new ItemStack(ModItems.RUSTED_NAIL));
+  99:         skeleton.updateAttackType();skeleton.updateAttackType();
+ 100:         var goals=((Rabies.MobGoals)skeleton).rustruin$goals().getGoals();
+ 101:         ctx.assertTrue(goals.stream().filter(g->g.getGoal() instanceof MobEquipment.NailThrowGoal).count()==1,"Skeleton accumulated duplicate nail goals");
+ 102:         var loaded=EntityType.SKELETON.create(ctx.getWorld());loaded.readNbt(skeleton.writeNbt(new net.minecraft.nbt.NbtCompound()));
+ 103:         ctx.assertTrue(((Rabies.MobGoals)loaded).rustruin$goals().getGoals().stream().filter(g->g.getGoal() instanceof MobEquipment.NailThrowGoal).count()==1,"Skeleton lost throwing behavior after load");ctx.complete();
+ 104:     }
+ 105:     @GameTest(templateName=EMPTY_STRUCTURE)
+ 106:     public void rustyNailCooldownIsSlightlyLonger(TestContext ctx){
+ 107:         var p=ctx.createMockSurvivalPlayer();p.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModItems.RUSTED_NAIL,3));ModItems.RUSTED_NAIL.use(ctx.getWorld(),p,Hand.MAIN_HAND);
+ 108:         for(int i=0;i<10;i++)p.getItemCooldownManager().update();ctx.assertTrue(p.getItemCooldownManager().isCoolingDown(ModItems.RUSTED_NAIL),"Rusty nail still uses old ten-tick cooldown");
+ 109:         for(int i=0;i<4;i++)p.getItemCooldownManager().update();ctx.assertFalse(p.getItemCooldownManager().isCoolingDown(ModItems.RUSTED_NAIL),"Rusty nail cooldown exceeds fourteen ticks");ctx.complete();
+ 110:     }
+ 111:     @GameTest(templateName=EMPTY_STRUCTURE)
+ 112:     public void arrowTextureKeepsVanillaTransparency(TestContext ctx)throws Exception{
+ 113:         var loader=getClass().getClassLoader();
+ 114:         try(var original=loader.getResourceAsStream("assets/minecraft/textures/entity/projectiles/arrow.png");var rusty=loader.getResourceAsStream("assets/tetanusmod/textures/entity/tetanized_arrow.png")){
+ 115:             var a=javax.imageio.ImageIO.read(original);var b=javax.imageio.ImageIO.read(rusty);
+ 116:             ctx.assertTrue(a.getWidth()==b.getWidth()&&a.getHeight()==b.getHeight(),"Arrow texture dimensions changed");
+ 117:             for(int y=0;y<a.getHeight();y++)for(int x=0;x<a.getWidth();x++)ctx.assertTrue((a.getRGB(x,y)>>>24)==(b.getRGB(x,y)>>>24),"Arrow sprite has an oversized opaque plane at "+x+","+y);
+ 118:         }ctx.complete();
+ 119:     }
+ 120:     @GameTest(templateName=EMPTY_STRUCTURE,tickLimit=1200)
+ 121:     public void tentCanGenerateInRealOverworldCaves(TestContext ctx){
+ 122:         var world=ctx.getWorld();var registries=world.getRegistryManager();var ops=RegistryOps.of(JsonOps.INSTANCE,registries);
+ 123:         var generator=ChunkGenerator.CODEC.parse(ops,JsonParser.parseString("{\"type\":\"minecraft:noise\",\"settings\":\"minecraft:overworld\",\"biome_source\":{\"type\":\"minecraft:multi_noise\",\"preset\":\"minecraft:overworld\"}}")).result().orElseThrow();
+ 124:         long seed=246813579L;var settings=registries.get(RegistryKeys.CHUNK_GENERATOR_SETTINGS).get(ChunkGeneratorSettings.OVERWORLD);
+ 125:         var noise=NoiseConfig.create(settings,registries.getWrapperOrThrow(RegistryKeys.NOISE_PARAMETERS),seed);
+ 126:         var placement=(RandomSpreadStructurePlacement)registries.get(RegistryKeys.STRUCTURE_SET).get(TetanusMod.id("medic_tents")).placement();
+ 127:         var tent=registries.get(RegistryKeys.STRUCTURE).get(TetanusMod.id("medic_tent"));boolean found=false;
+ 128:         for(int region=0;region<256&&!found;region++){
+ 129:             var chunk=placement.getStartChunk(seed,(region%16-8)*160,(region/16-8)*160);
+ 130:             var start=tent.createStructureStart(registries,generator,generator.getBiomeSource(),noise,world.getStructureTemplateManager(),seed,chunk,0,world,tent.getValidBiomes()::contains);
+ 131:             if(start.hasChildren()){
+ 132:                 found=true;var box=start.getChildren().get(0).getBoundingBox();ctx.assertTrue(box.getBlockCountY()==8&&box.getMaxY()<64,"Tent generated outside an underground cavern");
+ 133:             }
+ 134:         }
+ 135:         ctx.assertTrue(found,"No cave tent generated in 256 deterministic noise candidates");ctx.complete();
+ 136:     }
+ 137:     @GameTest(templateName=EMPTY_STRUCTURE)
+ 138:     public void protectedShieldAwardsForAnUnenchantedRustyAttack(TestContext ctx){
+ 139:         var player=ctx.createMockCreativeServerPlayerInWorld();
+ 140:         try{
+ 141:             player.changeGameMode(GameMode.SURVIVAL);player.getAbilities().creativeMode=false;player.getAbilities().invulnerable=false;((com.tetanusmod.test.mixin.ServerPlayerTestAccessor)player).rustruin$joinInvulnerability(0);player.setNoGravity(true);player.setPosition(ctx.getAbsolute(new Vec3d(3,4,3)));player.setYaw(0);
+ 142:             var shield=new ItemStack(Items.SHIELD);shield.addEnchantment(ExpansionItems.TETANUS_PROTECTION,1);player.setStackInHand(Hand.OFF_HAND,shield);player.setCurrentHand(Hand.OFF_HAND);
+ 143:             var zombie=ctx.spawnEntity(EntityType.ZOMBIE,new Vec3d(3,4,5));zombie.setAiDisabled(true);zombie.equipStack(EquipmentSlot.MAINHAND,new ItemStack(ModItems.RUSTED_METAL_PIPE));
+ 144:             for(int i=0;i<6;i++)player.playerTick();ctx.assertTrue(player.isBlocking(),"Fixture never raised shield");float health=player.getHealth();player.damage(ctx.getWorld().getDamageSources().mobAttack(zombie),4);
+ 145:             ctx.assertTrue(player.getHealth()==health&&!player.hasStatusEffect(TetanusMod.TETANUS),"Rusty attack crossed shield");
+ 146:             for(String id:new String[]{"root","shield_protection"})ctx.assertTrue(player.getAdvancementTracker().getProgress(player.getServer().getAdvancementLoader().get(TetanusMod.id(id))).isDone(),"Rusty block failed to reveal "+id);
+ 147:         }finally{player.discard();}ctx.complete();
+ 148:     }
+ 149:     @GameTest(templateName=EMPTY_STRUCTURE)
+ 150:     public void nailSkeletonRespectsWallsAndThrowsRealProjectiles(TestContext ctx){
+ 151:         var skeleton=ctx.spawnEntity(EntityType.SKELETON,new Vec3d(2.5,3,2.5));skeleton.setAiDisabled(true);skeleton.equipStack(EquipmentSlot.MAINHAND,new ItemStack(ModItems.RUSTED_NAIL));
+ 152:         var cow=ctx.spawnEntity(EntityType.COW,new Vec3d(2.5,3,6.5));cow.setAiDisabled(true);skeleton.setTarget(cow);var goal=new MobEquipment.NailThrowGoal(skeleton);
+ 153:         ctx.assertTrue(goal.canStart(),"Nail skeleton cannot target a living enemy");
+ 154:         for(int x=1;x<=4;x++)for(int y=2;y<=6;y++)ctx.setBlockState(new BlockPos(x,y,4),Blocks.STONE);
+ 155:         goal.tick();ctx.assertTrue(ctx.getWorld().getEntitiesByClass(com.tetanusmod.entity.NailEntity.class,skeleton.getBoundingBox().expand(10),e->e.getOwner()==skeleton).isEmpty(),"Skeleton shot through a wall");
+ 156:         for(int x=1;x<=4;x++)for(int y=2;y<=6;y++)ctx.setBlockState(new BlockPos(x,y,4),Blocks.AIR);
+ 157:         goal.tick();var shots=ctx.getWorld().getEntitiesByClass(com.tetanusmod.entity.NailEntity.class,skeleton.getBoundingBox().expand(10),e->e.getOwner()==skeleton);
+ 158:         ctx.assertTrue(shots.size()==1&&shots.get(0).getVelocity().length()>1,"Skeleton failed to throw a physical nail");
+ 159:         ctx.assertFalse(shots.get(0).writeNbt(new net.minecraft.nbt.NbtCompound()).getBoolean("Recoverable"),"Skeleton ammunition can be farmed");
+ 160:         goal.tick();ctx.assertTrue(ctx.getWorld().getEntitiesByClass(com.tetanusmod.entity.NailEntity.class,skeleton.getBoundingBox().expand(10),e->e.getOwner()==skeleton).size()==1,"Skeleton ignored its throw cooldown");shots.forEach(Entity::discard);ctx.complete();
+ 161:     }
+ 162:     @GameTest(templateName=EMPTY_STRUCTURE)
+ 163:     public void cabinetMigrationDoesNotOverwriteCeiling(TestContext ctx){
+ 164:         var pos=ctx.getAbsolutePos(new BlockPos(3,3,3));ctx.getWorld().setBlockState(pos.down(),Blocks.STONE.getDefaultState());ctx.getWorld().setBlockState(pos.up(),Blocks.DIAMOND_BLOCK.getDefaultState());ctx.getWorld().setBlockState(pos,ExpansionBlocks.MEDIC_CABINET.getDefaultState());
+ 165:         var p=ctx.createMockSurvivalPlayer();ExpansionBlocks.MEDIC_CABINET.onUse(ctx.getWorld().getBlockState(pos),ctx.getWorld(),pos,p,Hand.MAIN_HAND,new net.minecraft.util.hit.BlockHitResult(Vec3d.ofCenter(pos),Direction.NORTH,pos,false));
+ 166:         ctx.assertTrue(ctx.getWorld().getBlockState(pos.up()).isOf(Blocks.DIAMOND_BLOCK)&&!ctx.getWorld().getBlockState(pos).get(MedicineCabinetBlock.COMPLETE),"Legacy cabinet overwrote ceiling or lost migration state");ctx.complete();
+ 167:     }
+ 168:     @GameTest(templateName=EMPTY_STRUCTURE,tickLimit=600)
+ 169:     public void fullNativeSpawnKeepsRustyWeapons(TestContext ctx){
+ 170:         var world=ctx.getWorld();var old=world.getDifficulty();int nails=0,zombieWeapons=0;var kinds=new java.util.HashSet<Item>();
+ 171:         try{
+ 172:             world.getServer().setDifficulty(Difficulty.HARD,true);
+ 173:             var random=new java.util.Random(934987L);
+ 174:             for(int i=0;i<512;i++){
+ 175:                 var skeleton=EntityType.SKELETON.create(world);skeleton.getRandom().setSeed(random.nextLong());skeleton.initialize(world,world.getLocalDifficulty(skeleton.getBlockPos()),SpawnReason.NATURAL,null,null);
+ 176:                 if(skeleton.getMainHandStack().isOf(ModItems.RUSTED_NAIL))nails++;
+ 177:                 var zombie=EntityType.ZOMBIE.create(world);zombie.getRandom().setSeed(random.nextLong());zombie.initialize(world,world.getLocalDifficulty(zombie.getBlockPos()),SpawnReason.NATURAL,null,null);
+ 178:                 var item=zombie.getMainHandStack().getItem();if(Set.of(ModItems.REBAR,ModItems.RUSTED_METAL_PIPE,ExpansionItems.RUSTED_SPEAR).contains(item)){zombieWeapons++;kinds.add(item);}
+ 179:             }
+ 180:             ctx.assertTrue(nails>=8&&nails<=65,"Native skeleton spawn overwrote nails or used wrong rate: "+nails);
+ 181:             ctx.assertTrue(zombieWeapons>=8&&zombieWeapons<=65&&kinds.size()==3,"Native zombie weapons missing/overwritten: "+zombieWeapons+" / "+kinds.size());
+ 182:             var summoned=EntityType.SKELETON.create(world);summoned.initialize(world,world.getLocalDifficulty(summoned.getBlockPos()),SpawnReason.COMMAND,null,null);ctx.assertTrue(summoned.getMainHandStack().isOf(Items.BOW),"Command skeleton gear was unexpectedly randomized");
+ 183:             ctx.assertTrue(MobEquipment.chance(Difficulty.EASY)==0.02F&&MobEquipment.chance(Difficulty.NORMAL)==0.04F&&MobEquipment.chance(Difficulty.HARD)==0.06F,"Difficulty weapon rates wrong");
+ 184:         }finally{world.getServer().setDifficulty(old,true);}ctx.complete();
+ 185:     }
+ 186: }

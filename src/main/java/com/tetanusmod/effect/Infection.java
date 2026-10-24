@@ -67,12 +67,22 @@ public final class Infection {
     }
     public static boolean applyDurationChecked(LivingEntity target,Entity source,int duration,int amplifier) {
         boolean permanent=com.tetanusmod.entity.MobVariants.permanent(target);
-        int ticks=permanent?-1:Math.max(20,Math.min(18000,duration));
+        int ticks=permanent?-1:Math.max(20,Math.min(90000,duration));
+        var current=target.getStatusEffect(TetanusMod.TETANUS);
+        if(current!=null) {
+            // A weaker or shorter exposure cannot cure an advanced infection or restart Lockjaw.
+            boolean weaker=current.getAmplifier()>amplifier || duration<TetanusMod.CONFIG.minDurationSeconds*20;
+            if(current.getAmplifier()>=amplifier&&(weaker||current.getDuration()==-1))return true;
+            if(current.getDuration()==-1)ticks=-1;
+            else if(ticks!=-1)ticks=Math.max(ticks,current.getDuration());
+            amplifier=Math.max(amplifier,current.getAmplifier());
+        }
         target.removeStatusEffect(TetanusMod.TETANUS);
         target.removeStatusEffect(TetanusMod.LOCKJAW);
-        if (InfectionProtection.checked(target,()->target.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, ticks, amplifier), source))) {
+        var replacement=new StatusEffectInstance(TetanusMod.TETANUS,ticks,amplifier);
+        if (InfectionProtection.checked(target,()->target.addStatusEffect(replacement, source))) {
             InfectionState state = (InfectionState) target;
-            state.tetanus$setInfection(0, permanent ? 6000 : ticks);
+            state.tetanus$setInfection(0, ticks < 0 ? 6000 : ticks);
             state.tetanus$setLockjaw(0);
             state.tetanus$setFreeze(0);
             return true;

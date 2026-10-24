@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "treat_animal":  {
+                                          "trigger":  "minecraft:impossible"
+                                      }
+                 },
+    "parent":  "tetanusmod:tetanized_mob",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.clean_bill_of_health.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:veterinary_kit"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.clean_bill_of_health.title"
+                              },
+                    "frame":  "goal"
+                }
+}

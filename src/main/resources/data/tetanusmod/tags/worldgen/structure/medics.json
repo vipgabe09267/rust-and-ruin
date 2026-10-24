@@ -1,0 +1,7 @@
+{
+    "replace":  false,
+    "values":  [
+                   "tetanusmod:medic_clinic",
+                   "tetanusmod:medic_tent"
+               ]
+}

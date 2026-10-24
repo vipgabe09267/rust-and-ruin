@@ -37,7 +37,7 @@ public final class NailEntity extends ThrownItemEntity {
         super.onEntityHit(hit);
         if (!getWorld().isClient && getStack().getItem() instanceof NailItem nail
                 && hit.getEntity().damage(nail.isRusty() && hit.getEntity() instanceof net.minecraft.entity.mob.EndermanEntity
-                        ? getDamageSources().magic() : (nail.isRusty()?com.tetanusmod.expansion.ModDamage.nail(this,getOwner()):getDamageSources().thrown(this, getOwner())), nail.isBent() ? 1 : TetanusMod.CONFIG.nailDamage)
+                        ? new net.minecraft.entity.damage.DamageSource(getWorld().getRegistryManager().get(net.minecraft.registry.RegistryKeys.DAMAGE_TYPE).entryOf(net.minecraft.entity.damage.DamageTypes.MAGIC),this,getOwner()) : (nail.isRusty()?com.tetanusmod.expansion.ModDamage.nail(this,getOwner()):getDamageSources().thrown(this, getOwner())), nail.isBent() ? 1 : TetanusMod.CONFIG.nailDamage)
                 && nail.isRusty() && hit.getEntity() instanceof LivingEntity living) {
             Infection.expose(living, getOwner());
 

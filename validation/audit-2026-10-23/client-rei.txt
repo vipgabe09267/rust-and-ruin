@@ -1,0 +1,1 @@
+PASS: REI Rusting (9), crafting/brewing, 78 skins, 12 potion tooltips, Rabies HUD/tab and 22 rabid skins, creative item coverage/glove synchronization, Lockjaw/hearts/beacon/advancements; vaccine sync, dedicated glove slot, 10 guide chapters, veterinary kit recipe, nine coating displays and workshop rendering

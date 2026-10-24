@@ -25,7 +25,7 @@ public class DiseaseFixGameTests implements FabricGameTest {
         var custom=ModConfig.fromJson("{\"minDurationSeconds\":400,\"maxDurationSeconds\":700,\"balanceRevision\":3}");
         ctx.assertTrue(custom.minDurationSeconds==400&&custom.maxDurationSeconds==700,"Custom duration was overwritten");
         var legacy=ModConfig.fromJson("{\"minDurationSeconds\":120,\"maxDurationSeconds\":300}");
-        ctx.assertTrue(legacy.minDurationSeconds==300&&legacy.balanceRevision==4,"Unversioned config migration failed");ctx.complete();
+        ctx.assertTrue(legacy.minDurationSeconds==300&&legacy.balanceRevision==5,"Unversioned config migration failed");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void lockjawWindowsRandomizeAndPersist(TestContext ctx) {
@@ -148,7 +148,7 @@ public class DiseaseFixGameTests implements FabricGameTest {
     public void mobLootRuleIsRespected(TestContext ctx) {
         var rule=ctx.getWorld().getGameRules().get(net.minecraft.world.GameRules.DO_MOB_LOOT);boolean original=rule.get();
         try {
-            rule.set(false,ctx.getWorld().getServer());var animal=ctx.spawnEntity(EntityType.COW,new Vec3d(3,4,3));Infection.apply(animal,null);
+            rule.set(false,ctx.getWorld().getServer());var animal=ctx.spawnEntity(EntityType.COW,new Vec3d(3,4,3));MobVariants.makePermanent(animal);
             animal.damage(ctx.getWorld().getDamageSources().genericKill(),10000);
             ctx.assertTrue(ctx.getWorld().getEntitiesByClass(ItemEntity.class,animal.getBoundingBox().expand(2),e->true).isEmpty(),"Infected meat ignored doMobLoot=false");animal.discard();
         }finally{rule.set(original,ctx.getWorld().getServer());}ctx.complete();

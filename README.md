@@ -35,7 +35,7 @@ Fishing rods left in water break into two sticks and two string, with a 15% Rust
 | Salmonella | Vomiting, nausea, hunger loss, and light nonlethal damage | Natural recovery or ordinary milk treatment |
 | Rabies | Permanent; loses one heart of maximum health per minute down to two hearts, then ten seconds of nausea per minute; purple-red hearts | Rabies Cure from a medic, or death; milk and Tetanus Antitoxin do not cure it |
 
-The Tetanus Vaccine grants twenty minutes of 80% prevention. Gloves halve rusty-contact risk and have 192 durability. Equip them by right-clicking or using their **dedicated inventory slot** above the offhand slot. Combined vaccine/glove protection is 90% by default. Gloves do not protect against contaminated food or potions.
+The Tetanus Vaccine grants twenty minutes of 80% prevention. Gloves halve rusty-contact risk and have 192 durability. Equip them by right-clicking or using their **dedicated inventory slot** above the offhand slot. Combined vaccine/glove protection is 90% by default. Gloves appear on your character, support Unbreaking and Mending, and repair from XP while equipped. They do not protect against contaminated food or potions.
 
 **Tetanus Protection** is shield-only: a held enchanted shield adds 65% prevention against Tetanus I or 40% against II. Blocking the attack still prevents its normal damage. **Rabies Vaccine** provides twenty minutes of 90% prevention and is craftable or sold by medics. Vaccines prevent new infections; they do not cure existing ones. Milk clears beneficial vaccine effects.
 
@@ -43,18 +43,18 @@ Craft the reusable **Field Guide** from a book, Rust, and a feather. Its ten scr
 
 ## Creatures and village medics
 
-Permanent tetanized hostiles gain 50% maximum health and extra attack damage where supported. Animals move slower. Skins retain each creature's original texture layout. Only **permanently tetanized animal variants** replace their ordinary drops with 1–3 Infected Meat; temporary Tetanus does not change animal loot. Hostiles keep normal drops and add Rust plus a modest randomized salvage reward.
+Permanent tetanized hostiles gain 50% maximum health and extra attack damage where supported. Animals move slower. Skins retain each creature's original texture layout. Only **permanently tetanized animal variants** replace their ordinary drops with 1–3 Infected Meat; temporary Tetanus does not change animal loot. Equipped items and stored cargo still follow vanilla drop rules. Hostiles keep normal drops and add Rust plus a modest randomized salvage reward.
 
 | Difficulty | Natural or world-generation Tetanized chance | Spawner chance |
 | --- | --- | --- |
 | Peaceful | 0% | 0% |
-| Easy | 10% | 25% |
-| Normal | 15% | 35% |
-| Hard | 20% | 45% |
+| Easy | 0.5% | 3% |
+| Normal | 1% | 5% |
+| Hard | 2% | 8% |
 
-Withers and the Ender Dragon are excluded from these automatic rolls. Rusty contact retains the configurable default mutation chances of 15% for animals and 5% for other ordinary mobs. Certain unconverted mammals and undead can instead become rabid, at 1%/2%/3% on Easy/Normal/Hard. Rabid creatures have thirty extra health points, seven extra armor points, custom skins, and five-point melee attacks before armor. Only rabid animals drop Rabid Meat. Both contaminated meats become safe when cooked.
+Withers and the Ender Dragon are excluded from these automatic rolls. Rusty contact retains the configurable default mutation chances of 2% for animals and 1% for other ordinary mobs. Certain unconverted mammals and undead can instead become rabid, at 0.3%/0.6%/1% on Easy/Normal/Hard. Rabid creatures have thirty extra health points, seven extra armor points, custom skins, and five-point melee attacks before armor. Only rabid animals drop Rabid Meat. Raw Infected Meat causes Salmonella only; raw Rabid Meat causes Rabies and immediate nausea unless vaccination prevents infection. Both meats become safe when cooked.
 
-A **medic** sells antitoxin, both vaccines, Rabies Cure, and gloves from novice level. Small clinics can appear in plains, desert, savanna, snowy, and taiga villages. A crafted **Medicine Cabinet** also gives an unemployed villager the profession without a clinic. Other trades offer selected weapons, traps, tools, and hooks. Creative variant spawn eggs are available in the Rust & Ruin tab.
+A **medic** sells antitoxin, both vaccines, Rabies Cure, and gloves from novice level. New village locations roll a **55% clinic chance**, with suitable terrain and a free plot required. Plains, desert, savanna, snowy, and taiga clinics use local materials and biome-appropriate medics, with food and supply chests. A crafted **Medicine Cabinet** also gives an unemployed villager the profession without a clinic. Other trades offer selected weapons, traps, tools, and hooks. Species-colored variant eggs now have their own **Rust & Ruins Spawn Eggs** tab, with rusty or purple tints.
 
 ## Brewing and enchanted arrows
 
@@ -74,7 +74,7 @@ The beacon requires a pyramid made **only of Rusted Iron Blocks** and netherite 
 
 ## Advancements, commands, and sounds
 
-The rusty advancement tab includes disease milestones, Strange Meat for collecting Infected Meat, Why did I eat that? for Salmonella, shield/glove prevention, medicine use, the medic, traps, variant eggs, and boss/beacon progression. Why did I do that? requires dying to your own upward-thrown rusty nail and has its own death message.
+The rusty advancement tab includes disease milestones, Strange Meat for collecting Infected Meat, Why did I eat that? for Salmonella, shield/glove prevention, medicine use, the medic, traps, and boss/beacon progression. Why did I do that? requires dying to your own upward-thrown rusty nail and has its own death message.
 
 Operator permission level 2:
 
@@ -107,3 +107,31 @@ With JDK 17:
 ```
 
 Use `--offline` if dependencies are already cached. The distributable is `build/libs/rust-and-ruin-0.1.0-beta.jar`; test helpers and recipe viewer implementations are excluded. See [validation](VALIDATION.md) for the checks actually run and their limits.
+
+Wild tetanized and rabid variants use their species' normal despawn and mob-cap rules. Previously affected saves are repaired on load while recognizable player-kept creatures retain persistence. See the [October 19 source and despawn audit](docs/DESPAWN_AUDIT.md).
+
+## Animal care, supplies, and exploration
+
+A single-use **Veterinary Kit** cures a permanently tetanized or rabid animal, restoring its normal movement, attributes, appearance, behavior, and drops. Treating one earns **Clean Bill of Health**. Craft a kit from two leather, a golden apple, two antitoxins, Rabies Cure, and string.
+
+Use **honeycomb** with clean, rustable equipment in your other hand to wax it. Coating costs one honeycomb per item and protects dropped equipment for ten minutes of water/rain exposure by default. Each point of equipment durability use also consumes one second of coating. The coating survives saving and item splitting. It does not clean already rusty items or protect traps after placement. JEI and REI have dedicated coating displays.
+
+Sneak and right-click a **medic** to see the current supply request. Deliver paper, honey bottles, glow berries, or white wool as requested for a reputation discount on medicine. Each medic accepts one delivery per world day; requests rotate daily and completed deliveries survive reloads. Vanilla reputation decay and price limits still apply. Deliveries award **Just What the Doctor Ordered**.
+
+**Abandoned workshops** can generate in new chunks in plains, sunflower plains, forest, birch forest, taiga, meadow, savanna, and dark forest biomes. Their ruined forges contain rusty traps, modest salvage, worn weapons, and occasional medicine. They add no creature spawners.
+
+Natural mutation settings now separate animals, other mobs, and dungeon spawners for each difficulty. Current defaults are 0.5%/1%/2% natural and 3%/5%/8% spawners; matching old defaults migrate automatically, while other customized rates are retained. Configure `naturalAnimalEasy/Normal/Hard`, `naturalMobEasy/Normal/Hard`, and `spawnerEasy/Normal/Hard` in `config/tetanusmod.json` and restart the server. `coatingWeatherTicks` defaults to 12000.
+
+Operators can use `/rustandruin inspect <entity>` to inspect mutation and despawn state, or `/rustandruin population [1-128]` to count nearby loaded mobs. These commands do not load additional chunks. See the [fresh numbered audit](docs/LINE_AUDIT.md) for review coverage, fixes, and limits.
+
+## Medic cave camps and armed monsters
+
+Medic tents can appear in roomy lush or dripstone caves, using a 15% roll at widely spaced candidate locations. Terrain must fit; this is not a 15% chance per cave. Camps remain over 2,000 blocks apart and contain a medic, a loot chest, and a defensive 200-health Tetanized Iron Golem. Clinics and camps generate in new terrain; existing villages are not retrofitted.
+
+Operators can use `/locate structure tetanusmod:medic_clinic`, `/locate structure tetanusmod:medic_tent`, or `/locate structure #tetanusmod:medics`. Shortcuts: `/rustandruin locate medic` and `/rustandruin locate tent`. Disease commands use the same namespace: `/effect give @s tetanusmod:rabies infinite`; short names such as `/effect give @s rabies` also work. These operator commands bypass vaccine prevention.
+
+Skeletons can trade their bow for rusty nails; zombies can carry rebar, a rusty pipe, or a rusty spear. Weapon chances are 2%/4%/6% on Easy/Normal/Hard. Nail skeletons respect line of sight, and their missed shots cannot be collected for free ammunition. Rusty player-thrown nails now have a 0.7-second cooldown.
+
+See the [24-request refresh and audit](docs/REFRESH_2026-10-23.md) for current changes and test limits.
+
+The [fresh full-project audit](docs/REAUDIT_2026-10-23.md) records the next stability fixes, including pack-animal cargo preservation, End-return disease persistence, glove synchronization, trap contact checks, and native Wither ritual compatibility.

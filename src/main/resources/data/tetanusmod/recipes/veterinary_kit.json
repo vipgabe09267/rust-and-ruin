@@ -1,0 +1,29 @@
+{
+    "key":  {
+                "G":  {
+                          "item":  "minecraft:golden_apple"
+                      },
+                "L":  {
+                          "item":  "minecraft:leather"
+                      },
+                "R":  {
+                          "item":  "tetanusmod:rabies_cure"
+                      },
+                "S":  {
+                          "item":  "minecraft:string"
+                      },
+                "A":  {
+                          "item":  "tetanusmod:tetanus_antitoxin"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "LGL",
+                    "ARA",
+                    " S "
+                ],
+    "result":  {
+                   "item":  "tetanusmod:veterinary_kit"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

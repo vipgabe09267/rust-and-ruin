@@ -1,0 +1,37 @@
+[
+    {
+        "Path":  "src/main/java/com/tetanusmod/config/ModConfig.java",
+        "Start":  1,
+        "End":  129,
+        "TotalLines":  129,
+        "SHA256AtRead":  "7ADC0B465606DF078DB2DE422F4E8F8524F08874EA7B134808C5868A197E454D"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/NaturalVariants.java",
+        "Start":  1,
+        "End":  28,
+        "TotalLines":  28,
+        "SHA256AtRead":  "C138E50D6554CE0CF2FEF1DFF0674D88FBADA731785DA5D1F262AD2CDC305FFA"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/VariantSpawnEggItem.java",
+        "Start":  1,
+        "End":  67,
+        "TotalLines":  67,
+        "SHA256AtRead":  "2FB30D89B4770D9092865935B17D5D542942CCD726C0DD0879B37C7B45C2347C"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/item/InfectedMeatItem.java",
+        "Start":  1,
+        "End":  20,
+        "TotalLines":  20,
+        "SHA256AtRead":  "977E7DBE7164F4B6839A351B9709C6827EBFF076B18D2594B84C4E5DFEDADBB1"
+    },
+    {
+        "Path":  "src/main/java/com/tetanusmod/expansion/ExpansionItems.java",
+        "Start":  1,
+        "End":  28,
+        "TotalLines":  28,
+        "SHA256AtRead":  "DC7D78D53F8FB0B3B5D91D5F1A9E1028B6712C274D003629C8B1057293925FE3"
+    }
+]

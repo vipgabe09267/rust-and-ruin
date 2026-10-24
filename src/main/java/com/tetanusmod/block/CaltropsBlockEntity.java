@@ -38,6 +38,7 @@ public final class CaltropsBlockEntity extends BlockEntity {
     public static void tick(World world, BlockPos pos, BlockState state, CaltropsBlockEntity trap) {
         if (world.getTime() % 100 == 0) trap.nextHit.entrySet().removeIf(entry -> entry.getValue() <= world.getTime());
         if (((CaltropsBlock) state.getBlock()).isRusty()) return;
+        int oldWater=trap.waterTicks,oldRain=trap.rainTicks;
         boolean convert;
         if (state.get(CaltropsBlock.WATERLOGGED)) {
             trap.rainTicks = 0;
@@ -47,7 +48,8 @@ public final class CaltropsBlockEntity extends BlockEntity {
             if (TetanusMod.CONFIG.rainRusting && world.hasRain(pos)) convert = ++trap.rainTicks >= TetanusMod.CONFIG.rainRustTicks;
             else { trap.rainTicks = 0; convert = false; }
         }
-        if (world.getTime() % 20 == 0) trap.markDirty();
+        if ((oldWater!=trap.waterTicks||oldRain!=trap.rainTicks)
+                && (world.getTime()%20==0||trap.waterTicks==0&&trap.rainTicks==0)) trap.markDirty();
         if (convert) {
             world.setBlockState(pos, (state.isOf(ModBlocks.BARBED_WIRE)?ModBlocks.RUSTED_BARBED_WIRE:ModBlocks.RUSTED_CALTROPS).getDefaultState()
                     .with(CaltropsBlock.WATERLOGGED, state.get(CaltropsBlock.WATERLOGGED)), 3);

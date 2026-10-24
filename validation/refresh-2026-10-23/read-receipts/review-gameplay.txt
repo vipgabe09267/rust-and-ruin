@@ -1,0 +1,355 @@
+FILE src/main/java/com/tetanusmod/command/DiseaseCommands.java LINES 1-40 OF 40
+   1: package com.tetanusmod.command;
+   2: 
+   3: import com.mojang.brigadier.arguments.IntegerArgumentType;
+   4: import com.tetanusmod.TetanusMod;
+   5: import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+   6: import net.minecraft.command.argument.EntityArgumentType;
+   7: import net.minecraft.entity.LivingEntity;
+   8: import net.minecraft.entity.effect.*;
+   9: import net.minecraft.registry.Registries;
+  10: import net.minecraft.server.command.CommandManager;
+  11: import java.util.*;
+  12: 
+  13: public final class DiseaseCommands {
+  14:     public static final List<String> EFFECTS=List.of("tetanus","lockjaw","salmonella","rabies","tetanus_resistance","rabies_resistance","disoriented");
+  15:     public static void initialize(){
+  16:         CommandRegistrationCallback.EVENT.register((dispatcher,access,environment)->{
+  17:             var targets=CommandManager.argument("targets",EntityArgumentType.entities());
+  18:             for(String name:EFFECTS){
+  19:                 var effect=CommandManager.literal(name).executes(ctx->apply(ctx,name,name.equals("rabies")?-1:300,0));
+  20:                 effect.then(CommandManager.argument("seconds",IntegerArgumentType.integer(1,3600))
+  21:                         .executes(ctx->apply(ctx,name,IntegerArgumentType.getInteger(ctx,"seconds"),0))
+  22:                         .then(CommandManager.argument("amplifier",IntegerArgumentType.integer(0,255)).executes(ctx->apply(ctx,name,IntegerArgumentType.getInteger(ctx,"seconds"),IntegerArgumentType.getInteger(ctx,"amplifier")))));
+  23:                 effect.then(CommandManager.literal("infinite").executes(ctx->apply(ctx,name,-1,0)));
+  24:                 targets.then(effect);
+  25:             }
+  26:             // Adds short names while preserving native namespaced /effect commands and their permissions.
+  27:             dispatcher.register(CommandManager.literal("effect").requires(source->source.hasPermissionLevel(2)).then(CommandManager.literal("give").then(targets)));
+  28:             var locate=CommandManager.literal("locate");
+  29:             for(var entry:Map.of("medic","medic_clinic","tent","medic_tent","workshop","workshop").entrySet()){
+  30:                 locate.then(CommandManager.literal(entry.getKey()).executes(ctx->ctx.getSource().getServer().getCommandManager().executeWithPrefix(ctx.getSource(),"locate structure tetanusmod:"+entry.getValue())));
+  31:             }
+  32:             dispatcher.register(CommandManager.literal("rustandruin").requires(source->source.hasPermissionLevel(2)).then(locate));
+  33:         });
+  34:     }
+  35:     private static int apply(com.mojang.brigadier.context.CommandContext<net.minecraft.server.command.ServerCommandSource> ctx,String name,int seconds,int amplifier)throws com.mojang.brigadier.exceptions.CommandSyntaxException{
+  36:         StatusEffect effect=Registries.STATUS_EFFECT.get(TetanusMod.id(name));int changed=0;
+  37:         for(var target:EntityArgumentType.getEntities(ctx,"targets"))if(target instanceof LivingEntity living&&com.tetanusmod.expansion.CommandEffects.apply(living,new StatusEffectInstance(effect,seconds<0?-1:seconds*20,amplifier),ctx.getSource().getEntity()))changed++;
+  38:         final int count=changed;ctx.getSource().sendFeedback(()->net.minecraft.text.Text.translatable("commands.tetanusmod.effect_applied",name,count),true);return changed;
+  39:     }
+  40: }
+FILE src/main/java/com/tetanusmod/expansion/CommandEffects.java LINES 1-16 OF 16
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import net.minecraft.entity.Entity;
+   4: import net.minecraft.entity.LivingEntity;
+   5: import net.minecraft.entity.effect.StatusEffectInstance;
+   6: 
+   7: /** Only the native permission-checked /effect path bypasses random vaccine prevention. */
+   8: public final class CommandEffects {
+   9:     private static final ThreadLocal<Boolean> FORCED=ThreadLocal.withInitial(()->false);
+  10:     public static boolean forced(){return FORCED.get();}
+  11:     public static boolean apply(LivingEntity target,StatusEffectInstance effect,Entity source){
+  12:         boolean previous=FORCED.get();FORCED.set(true);
+  13:         try{return target.addStatusEffect(effect,source);}
+  14:         finally{if(previous)FORCED.set(true);else FORCED.remove();}
+  15:     }
+  16: }
+FILE src/main/java/com/tetanusmod/mixin/EffectCommandMixin.java LINES 1-16 OF 16
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.expansion.CommandEffects;
+   4: import net.minecraft.entity.Entity;
+   5: import net.minecraft.entity.LivingEntity;
+   6: import net.minecraft.entity.effect.StatusEffectInstance;
+   7: import net.minecraft.server.command.EffectCommand;
+   8: import org.spongepowered.asm.mixin.Mixin;
+   9: import org.spongepowered.asm.mixin.injection.At;
+  10: import org.spongepowered.asm.mixin.injection.Redirect;
+  11: 
+  12: @Mixin(EffectCommand.class)
+  13: public abstract class EffectCommandMixin {
+  14:     @Redirect(method="executeGive",at=@At(value="INVOKE",target="Lnet/minecraft/entity/LivingEntity;addStatusEffect(Lnet/minecraft/entity/effect/StatusEffectInstance;Lnet/minecraft/entity/Entity;)Z"))
+  15:     private static boolean force(LivingEntity target,StatusEffectInstance effect,Entity source){return CommandEffects.apply(target,effect,source);}
+  16: }
+FILE src/main/java/com/tetanusmod/mixin/ExpansionLivingMixin.java LINES 1-43 OF 43
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.TetanusMod;
+   4: import com.tetanusmod.expansion.*;
+   5: import com.tetanusmod.registry.ModAdvancements;
+   6: import net.minecraft.entity.*;
+   7: import net.minecraft.entity.damage.DamageSource;
+   8: import net.minecraft.nbt.NbtCompound;
+   9: import net.minecraft.server.network.ServerPlayerEntity;
+  10: import org.spongepowered.asm.mixin.*;
+  11: import org.spongepowered.asm.mixin.injection.*;
+  12: import org.spongepowered.asm.mixin.injection.callback.*;
+  13: 
+  14: @Mixin(LivingEntity.class)
+  15: public abstract class ExpansionLivingMixin implements ExpansionState {
+  16:     @Unique private static final net.minecraft.entity.data.TrackedData<Boolean> RABID=net.minecraft.entity.data.DataTracker.registerData(LivingEntity.class,net.minecraft.entity.data.TrackedDataHandlerRegistry.BOOLEAN);
+  17:     @Unique private int rabiesTicks,lostHealth,disorientedTicks;
+  18:     public boolean rustruin$isRabid(){return ((LivingEntity)(Object)this).getDataTracker().get(RABID);}
+  19:     public void rustruin$setRabid(boolean value){((LivingEntity)(Object)this).getDataTracker().set(RABID,value);}
+  20:     public int rustruin$getRabiesTicks(){return rabiesTicks;}public void rustruin$setRabiesTicks(int ticks){rabiesTicks=ticks;}
+  21:     public int rustruin$getLostHealth(){return lostHealth;}public void rustruin$setLostHealth(int points){lostHealth=points;}
+  22:     public int rustruin$getDisorientedTicks(){return disorientedTicks;}public void rustruin$setDisorientedTicks(int ticks){disorientedTicks=ticks;}
+  23:     @Inject(method="initDataTracker",at=@At("TAIL"))private void tracker(CallbackInfo ci){((LivingEntity)(Object)this).getDataTracker().startTracking(RABID,false);}
+  24:     @Inject(method="writeCustomDataToNbt",at=@At("TAIL"))private void save(NbtCompound nbt,CallbackInfo ci){nbt.putBoolean("RustRuinRabid",rustruin$isRabid());nbt.putInt("RabiesTicks",rabiesTicks);nbt.putInt("RabiesLostHealth",lostHealth);nbt.putInt("DisorientedTicks",disorientedTicks);}
+  25:     @Inject(method="readCustomDataFromNbt",at=@At("TAIL"))private void load(NbtCompound nbt,CallbackInfo ci){rustruin$setRabid(nbt.getBoolean("RustRuinRabid"));rabiesTicks=Math.max(0,Math.min(1199,nbt.getInt("RabiesTicks")));lostHealth=Math.max(0,Math.min(1020,nbt.getInt("RabiesLostHealth")));disorientedTicks=Math.max(0,Math.min(199,nbt.getInt("DisorientedTicks")));}
+  26:     @Inject(method="tick",at=@At("TAIL"))private void symptoms(CallbackInfo ci){var self=(LivingEntity)(Object)this;if(self.getWorld().isClient)return;Rabies.flush(self);if(!self.hasStatusEffect(ExpansionEffects.DISORIENTED))disorientedTicks=0;if(!self.hasStatusEffect(ExpansionEffects.RABIES)&&(lostHealth>0||rabiesTicks>0))RabiesEffect.cure(self);}
+  27:     @Inject(method="addStatusEffect(Lnet/minecraft/entity/effect/StatusEffectInstance;Lnet/minecraft/entity/Entity;)Z",at=@At("HEAD"),cancellable=true)
+  28:     private void rabiesVaccine(net.minecraft.entity.effect.StatusEffectInstance effect,Entity source,CallbackInfoReturnable<Boolean> result){
+  29:         var self=(LivingEntity)(Object)this;
+  30:         if(!self.getWorld().isClient&&!CommandEffects.forced()&&effect.getEffectType()==ExpansionEffects.RABIES&&self.hasStatusEffect(ExpansionEffects.RABIES_RESISTANCE)&&self.getRandom().nextFloat()<0.9F)result.setReturnValue(false);
+  31:     }
+  32:     @Inject(method="onStatusEffectApplied",at=@At("TAIL"))private void rabiesAdvancement(net.minecraft.entity.effect.StatusEffectInstance effect,Entity source,CallbackInfo ci){if(effect.getEffectType()==ExpansionEffects.RABIES&&(Object)this instanceof ServerPlayerEntity player)ModAdvancements.award(player,"rabies","contract_rabies");}
+  33:     @Inject(method="damage",at=@At("RETURN"))private void hit(DamageSource source,float amount,CallbackInfoReturnable<Boolean> result){
+  34:         var self=(LivingEntity)(Object)this;if(self.getWorld().isClient||!result.getReturnValue()||amount<=0)return;
+  35:         CombatInfection.rangedHit(self,source);
+  36:         if(source.getAttacker() instanceof LivingEntity attacker&&source.getSource()==attacker&&Rabies.rabid(attacker))Rabies.expose(self,attacker);
+  37:     }
+  38:     @Inject(method="damage",at=@At(value="INVOKE",target="Lnet/minecraft/entity/LivingEntity;damageShield(F)V"))
+  39:     private void shieldBlock(DamageSource source,float amount,CallbackInfoReturnable<Boolean> result){
+  40:         var self=(LivingEntity)(Object)this;
+  41:         if(self instanceof ServerPlayerEntity player&&CombatInfection.infectious(source)&&net.minecraft.enchantment.EnchantmentHelper.getLevel(ExpansionItems.TETANUS_PROTECTION,self.getActiveItem())>0)ModAdvancements.award(player,"shield_protection","block_tetanus");
+  42:     }
+  43: }
+FILE src/main/java/com/tetanusmod/mixin/ExpansionMobMixin.java LINES 1-28 OF 28
+   1: package com.tetanusmod.mixin;
+   2: 
+   3: import com.tetanusmod.expansion.*;
+   4: import net.minecraft.entity.*;
+   5: import net.minecraft.entity.ai.goal.GoalSelector;
+   6: import net.minecraft.entity.mob.MobEntity;
+   7: import net.minecraft.nbt.NbtCompound;
+   8: import net.minecraft.world.*;
+   9: import org.spongepowered.asm.mixin.*;
+  10: import org.spongepowered.asm.mixin.injection.*;
+  11: import org.spongepowered.asm.mixin.injection.callback.*;
+  12: 
+  13: @Mixin(MobEntity.class)
+  14: public abstract class ExpansionMobMixin implements Rabies.MobGoals {
+  15:     @Shadow protected GoalSelector goalSelector;
+  16:     @Shadow private boolean persistent;
+  17:     @Inject(method="readCustomDataFromNbt",at=@At("TAIL"))
+  18:     private void repairLegacyPersistence(NbtCompound nbt,CallbackInfo ci) {
+  19:         if (com.tetanusmod.entity.VariantPersistence.repairLegacy((MobEntity)(Object)this,nbt)) persistent=false;
+  20:     }
+  21:     @Inject(method="writeCustomDataToNbt",at=@At("TAIL"))
+  22:     private void saveDespawnRules(NbtCompound nbt,CallbackInfo ci) {
+  23:         nbt.putInt(com.tetanusmod.entity.VariantPersistence.RULES_KEY,com.tetanusmod.entity.VariantPersistence.RULES_VERSION);
+  24:     }
+  25:     public GoalSelector rustruin$goals(){return goalSelector;}
+  26:     @Inject(method="initialize",at=@At("RETURN"))private void natural(ServerWorldAccess world,LocalDifficulty difficulty,SpawnReason reason,EntityData data,NbtCompound nbt,CallbackInfoReturnable<EntityData> result){NaturalVariants.spawned((MobEntity)(Object)this,reason);MobEquipment.spawned((MobEntity)(Object)this,reason);}
+  27:     @Inject(method="tryAttack",at=@At("HEAD"),cancellable=true)private void miss(Entity target,CallbackInfoReturnable<Boolean> result){var self=(MobEntity)(Object)this;if(self.hasStatusEffect(ExpansionEffects.DISORIENTED)&&self.getRandom().nextFloat()<0.45F)result.setReturnValue(false);}
+  28: }
+FILE src/main/java/com/tetanusmod/expansion/MedicVillage.java LINES 1-40 OF 40
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import com.google.common.collect.ImmutableSet;
+   4: import com.mojang.datafixers.util.Pair;
+   5: import com.tetanusmod.TetanusMod;
+   6: import com.tetanusmod.registry.ModItems;
+   7: import com.tetanusmod.mixin.StructurePoolAccessor;
+   8: import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
+   9: import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+  10: import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+  11: import net.minecraft.item.*;
+  12: import net.minecraft.registry.*;
+  13: import net.minecraft.sound.SoundEvents;
+  14: import net.minecraft.structure.pool.*;
+  15: import net.minecraft.village.*;
+  16: import net.minecraft.world.poi.PointOfInterestType;
+  17: 
+  18: public final class MedicVillage {
+  19:     public static final RegistryKey<PointOfInterestType> JOB_KEY=RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE,TetanusMod.id("medic"));
+  20:     public static final PointOfInterestType JOB=PointOfInterestHelper.register(TetanusMod.id("medic"),1,1,ExpansionBlocks.MEDIC_CABINET.getStateManager().getStates().stream().filter(state->state.get(net.minecraft.block.DoorBlock.HALF)==net.minecraft.block.enums.DoubleBlockHalf.LOWER).toList());
+  21:     public static final VillagerProfession MEDIC=Registry.register(Registries.VILLAGER_PROFESSION,TetanusMod.id("medic"),new VillagerProfession("medic",entry->entry.matchesKey(JOB_KEY),entry->entry.matchesKey(JOB_KEY),ImmutableSet.of(Items.HONEY_BOTTLE,Items.PAPER),ImmutableSet.of(),SoundEvents.BLOCK_BREWING_STAND_BREW));
+  22:     private static TradeOffers.Factory sell(Item item,int price,int count,int xp){return (entity,random)->new TradeOffer(new ItemStack(Items.EMERALD,price),new ItemStack(item,count),12,xp,0.05F);}
+  23:     public static void initialize(){
+  24:         TradeOfferHelper.registerVillagerOffers(MEDIC,1,trades->{
+  25:             trades.add(sell(ModItems.ANTITOXIN,6,1,2));trades.add(sell(ModItems.VACCINE,8,1,2));trades.add(sell(ModItems.PROTECTIVE_GLOVES,6,1,2));
+  26:             trades.add(sell(ExpansionItems.RABIES_CURE,10,1,2));trades.add(sell(ExpansionItems.RABIES_VACCINE,12,1,2));
+  27:         });
+  28:         TradeOfferHelper.registerVillagerOffers(MEDIC,2,trades->{trades.add(sell(ExpansionBlocks.MEDIC_CABINET.asItem(),5,1,10));trades.add((entity,random)->new TradeOffer(new ItemStack(Items.HONEY_BOTTLE,3),new ItemStack(Items.EMERALD),12,5,0.05F));});
+  29:         TradeOfferHelper.registerVillagerOffers(MEDIC,3,trades->trades.add((entity,random)->new TradeOffer(new ItemStack(Items.EMERALD,16),EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(ExpansionItems.TETANUS_PROTECTION,1)),5,15,0.2F)));
+  30:         TradeOfferHelper.registerVillagerOffers(VillagerProfession.TOOLSMITH,2,trades->{trades.add(sell(ModItems.WIRE_BRUSH,4,1,5));trades.add(sell(ExpansionItems.TRAP_RESET_TOOL,4,1,5));});
+  31:         TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH,2,trades->{trades.add(sell(ExpansionItems.SPEAR,7,1,5));trades.add(sell(ExpansionItems.RUSTED_SPEAR,9,1,5));trades.add(sell(ModItems.REBAR,3,1,5));trades.add(sell(ModItems.RUSTED_REBAR,4,1,5));});
+  32:         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER,2,trades->{trades.add(sell(ExpansionBlocks.BEAR_TRAP.asItem(),6,1,5));trades.add(sell(ExpansionBlocks.RUSTED_BEAR_TRAP.asItem(),7,1,5));});
+  33:         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FISHERMAN,2,trades->trades.add(sell(ModItems.RUSTY_FISHING_HOOK,3,1,5)));
+  34:         // Clinics now use a separately locatable structure with a 55% village-grid roll.
+  35:     }
+  36:     public static void ensureStarterTrades(net.minecraft.entity.passive.VillagerEntity medic){
+  37:         if(medic.getVillagerData().getProfession()!=MEDIC||medic.getVillagerData().getLevel()!=1)return;
+  38:         var offers=medic.getOffers();Item[] items={ModItems.ANTITOXIN,ModItems.VACCINE,ModItems.PROTECTIVE_GLOVES,ExpansionItems.RABIES_CURE,ExpansionItems.RABIES_VACCINE};int[] prices={6,8,6,10,12};
+  39:         for(int i=0;i<items.length;i++){Item item=items[i];if(offers.stream().noneMatch(offer->offer.getSellItem().isOf(item)))offers.add(new TradeOffer(new ItemStack(Items.EMERALD,prices[i]),new ItemStack(item),12,2,0.05F));}
+  40:     }}
+FILE src/main/java/com/tetanusmod/registry/ModAdvancements.java LINES 1-28 OF 28
+   1: package com.tetanusmod.registry;
+   2: import com.tetanusmod.TetanusMod;
+   3: import net.minecraft.entity.ItemEntity;
+   4: import net.minecraft.server.network.ServerPlayerEntity;
+   5: public final class ModAdvancements {
+   6:     public static void award(ServerPlayerEntity player,String id,String criterion) {
+   7:         var advancement=player.getServer().getAdvancementLoader().get(TetanusMod.id(id));
+   8:         if(advancement!=null) {
+   9:             // Creative players and infected travelers may never have picked up an iron ingot.
+  10:             var root=player.getServer().getAdvancementLoader().get(TetanusMod.id("root"));
+  11:             if(root!=null)player.getAdvancementTracker().grantCriterion(root,"obtain_iron");
+  12:             player.getAdvancementTracker().grantCriterion(advancement,criterion);
+  13:         }
+  14:     }
+  15:     public static void fishingHook(ItemEntity item) {
+  16:         var thrower=((com.tetanusmod.mixin.ItemEntityAccessor)item).rustruin$getThrower();
+  17:         var player=thrower!=null?item.getWorld().getPlayerByUuid(thrower):item.getWorld().getClosestPlayer(item,16);
+  18:         if(player instanceof ServerPlayerEntity serverPlayer)award(serverPlayer,"rusty_hook","find_hook");
+  19:     }
+  20:     public static void rusted(ItemEntity item) {
+  21:         var thrower = ((com.tetanusmod.mixin.ItemEntityAccessor)item).rustruin$getThrower();
+  22:         var closest = thrower != null ? item.getWorld().getPlayerByUuid(thrower) : item.getWorld().getClosestPlayer(item,16);
+  23:         if (closest instanceof ServerPlayerEntity player) {
+  24:             var advancement = player.getServer().getAdvancementLoader().get(TetanusMod.id("rusty_business"));
+  25:             if (advancement != null) player.getAdvancementTracker().grantCriterion(advancement,"rust_a_nail");
+  26:         }
+  27:     }
+  28: }
+FILE src/main/java/com/tetanusmod/entity/RustGolems.java LINES 1-32 OF 32
+   1: package com.tetanusmod.entity;
+   2: 
+   3: import com.tetanusmod.registry.*;
+   4: import net.fabricmc.fabric.api.event.player.UseEntityCallback;
+   5: import net.minecraft.entity.passive.IronGolemEntity;
+   6: import net.minecraft.entity.player.PlayerEntity;
+   7: import net.minecraft.server.network.ServerPlayerEntity;
+   8: import net.minecraft.util.*;
+   9: 
+  10: public final class RustGolems {
+  11:     public static final float CHANCE=0.18F;
+  12:     public static void initialize() {
+  13:         UseEntityCallback.EVENT.register((player,world,hand,entity,hit)->{
+  14:             if(player.isSpectator() || !(entity instanceof IronGolemEntity golem)||!player.getStackInHand(hand).isOf(ModItems.RUST)||MobVariants.permanent(golem))return ActionResult.PASS;
+  15:             if(!world.isClient)attempt(player,hand,golem,golem.getRandom().nextFloat());
+  16:             return ActionResult.success(world.isClient);
+  17:         });
+  18:     }
+  19:     public static boolean attempt(PlayerEntity player,Hand hand,IronGolemEntity golem,float roll) {
+  20:         var stack=player.getStackInHand(hand);
+  21:         if(player.isSpectator()||golem.getWorld().isClient||!golem.isAlive()||MobVariants.permanent(golem)||!stack.isOf(ModItems.RUST))return false;
+  22:         if(!player.getAbilities().creativeMode)stack.decrement(1);
+  23:         com.tetanusmod.rust.RustingSystem.rustFeedback(golem.getWorld(),golem.getPos());
+  24:         if(roll>=CHANCE){player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.golem_failed"),true);return false;}
+  25:         MobVariants.makePermanent(golem);player.sendMessage(net.minecraft.text.Text.translatable("message.tetanusmod.golem_success"),true);
+  26:         if(player instanceof ServerPlayerEntity serverPlayer) {
+  27:             ModAdvancements.award(serverPlayer,"rusty_guardian","rust_golem");
+  28:             ModAdvancements.award(serverPlayer,"tetanized_mob","convert_mob");
+  29:         }
+  30:         return true;
+  31:     }
+  32: }
+FILE src/main/java/com/tetanusmod/expansion/VeterinaryKitItem.java LINES 1-43 OF 43
+   1: package com.tetanusmod.expansion;
+   2: 
+   3: import com.tetanusmod.entity.MobVariants;
+   4: import com.tetanusmod.registry.ModAdvancements;
+   5: import net.minecraft.entity.LivingEntity;
+   6: import net.minecraft.entity.mob.MobEntity;
+   7: import net.minecraft.entity.player.PlayerEntity;
+   8: import net.minecraft.item.Item;
+   9: import net.minecraft.item.ItemStack;
+  10: import net.minecraft.server.network.ServerPlayerEntity;
+  11: import net.minecraft.text.Text;
+  12: import net.minecraft.util.ActionResult;
+  13: import net.minecraft.util.Hand;
+  14: 
+  15: /** A single-use treatment, deliberately limited to mutated animals. */
+  16: public final class VeterinaryKitItem extends Item {
+  17:     public VeterinaryKitItem(Settings settings) { super(settings); }
+  18: 
+  19:     @Override
+  20:     public void appendTooltip(ItemStack stack, net.minecraft.world.World world, java.util.List<Text> tooltip, net.minecraft.client.item.TooltipContext context) {
+  21:         tooltip.add(Text.translatable("tooltip.tetanusmod.veterinary_kit").formatted(net.minecraft.util.Formatting.GRAY));
+  22:     }
+  23: 
+  24:     @Override
+  25:     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity target, Hand hand) {
+  26:         if (stack.isEmpty() || !stack.isOf(this)) return ActionResult.PASS;
+  27:         if (!(target instanceof MobEntity mob) || !target.isAlive() || !MobVariants.isAnimal(target)
+  28:                 || (!MobVariants.permanent(target) && !Rabies.rabid(target))) return ActionResult.PASS;
+  29:         if (user.isSpectator() || user.squaredDistanceTo(target) > 36) return ActionResult.FAIL;
+  30:         if (!user.getWorld().isClient) {
+  31:             boolean cured = MobVariants.cureAnimal(target) || Rabies.cureAnimal(mob);
+  32:             if (!cured) return ActionResult.FAIL;
+  33:             if (target.getWorld() instanceof net.minecraft.server.world.ServerWorld world) {
+  34:                 world.spawnParticles(net.minecraft.particle.ParticleTypes.HAPPY_VILLAGER,target.getX(),target.getBodyY(0.6),target.getZ(),14,0.35,0.35,0.35,0.02);
+  35:                 world.playSound(null,target.getBlockPos(),net.minecraft.sound.SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE,net.minecraft.sound.SoundCategory.NEUTRAL,0.7F,1.25F);
+  36:             }
+  37:             if (!user.getAbilities().creativeMode) stack.decrement(1);
+  38:             if (user instanceof ServerPlayerEntity player) ModAdvancements.award(player,"clean_bill_of_health","treat_animal");
+  39:             user.sendMessage(Text.translatable("message.tetanusmod.animal_treated"), true);
+  40:         }
+  41:         return ActionResult.success(user.getWorld().isClient);
+  42:     }
+  43: }
+FILE src/main/java/com/tetanusmod/item/NailItem.java LINES 1-59 OF 59
+   1: package com.tetanusmod.item;
+   2: 
+   3: import com.tetanusmod.entity.NailEntity;
+   4: import net.minecraft.client.item.TooltipContext;
+   5: import net.minecraft.entity.player.PlayerEntity;
+   6: import net.minecraft.item.Item;
+   7: import net.minecraft.item.ItemStack;
+   8: import net.minecraft.sound.SoundCategory;
+   9: import net.minecraft.sound.SoundEvents;
+  10: import net.minecraft.stat.Stats;
+  11: import net.minecraft.text.Text;
+  12: import net.minecraft.util.Formatting;
+  13: import net.minecraft.util.Hand;
+  14: import net.minecraft.util.TypedActionResult;
+  15: import net.minecraft.world.World;
+  16: import org.jetbrains.annotations.Nullable;
+  17: import java.util.List;
+  18: 
+  19: public final class NailItem extends Item {
+  20:     private final boolean rusty;
+  21:     private final boolean bent;
+  22: 
+  23:     public NailItem(boolean rusty, boolean bent, Settings settings) {
+  24:         super(settings);
+  25:         this.rusty = rusty;
+  26:         this.bent = bent;
+  27:     }
+  28: 
+  29:     @Override
+  30:     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+  31:         ItemStack stack = user.getStackInHand(hand);
+  32:         if(user.isSpectator()||!user.isAlive()||!stack.isOf(this)||user.getItemCooldownManager().isCoolingDown(this))return TypedActionResult.pass(stack);
+  33:         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW,
+  34:                 SoundCategory.PLAYERS, 0.6F, 0.85F + world.random.nextFloat() * 0.25F);
+  35:         if (!world.isClient) {
+  36:             NailEntity nail = new NailEntity(world, user);
+  37:             nail.setItem(stack);nail.setThrownUpward(user.getPitch()<-60);
+  38:             nail.setRecoverable(!user.getAbilities().creativeMode);
+  39:             nail.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, bent ? 1.3F : 1.5F, bent ? 4.0F : 1.0F);
+  40: 
+  41:             world.spawnEntity(nail);
+  42:         }
+  43:         for (Item nailItem : new Item[]{com.tetanusmod.registry.ModItems.NAIL, com.tetanusmod.registry.ModItems.RUSTED_NAIL,
+  44:                 com.tetanusmod.registry.ModItems.BENT_NAIL, com.tetanusmod.registry.ModItems.RUSTED_BENT_NAIL}) {
+  45:             user.getItemCooldownManager().set(nailItem, rusty ? 14 : 10);
+  46:         }
+  47:         user.incrementStat(Stats.USED.getOrCreateStat(this));
+  48:         if (!user.getAbilities().creativeMode) stack.decrement(1);
+  49:         return TypedActionResult.success(stack, world.isClient());
+  50:     }
+  51: 
+  52:     @Override
+  53:     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+  54:         tooltip.add(Text.translatable("tooltip.tetanusmod.damage", bent ? 1 : com.tetanusmod.TetanusMod.CONFIG.nailDamage).formatted(Formatting.GRAY));
+  55:         TooltipHelper.metal(tooltip, rusty);
+  56:     }
+  57:     public boolean isRusty() { return rusty; }
+  58:     public boolean isBent() { return bent; }
+  59: }

@@ -66,8 +66,8 @@ public class ExpansionGameTests implements FabricGameTest {
         var animal=cow(ctx); double speed=animal.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
         MobVariants.makePermanent(animal);
         ctx.assertTrue(animal.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED)<speed,"Tetanized animal is not slower");
-        ctx.assertTrue(MobVariants.eligibleRoll(animal,0.149F)&&!MobVariants.eligibleRoll(animal,0.15F),"Animal 15% boundary wrong");
-        ctx.assertTrue(MobVariants.eligibleRoll(zombie,0.049F)&&!MobVariants.eligibleRoll(zombie,0.05F),"Mob 5% boundary wrong");
+        ctx.assertTrue(MobVariants.eligibleRoll(animal,0.019F)&&!MobVariants.eligibleRoll(animal,0.02F),"Animal 2% boundary wrong");
+        ctx.assertTrue(MobVariants.eligibleRoll(zombie,0.009F)&&!MobVariants.eligibleRoll(zombie,0.01F),"Mob 1% boundary wrong");
         ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
@@ -108,7 +108,7 @@ public class ExpansionGameTests implements FabricGameTest {
         var target=cow(ctx); player.setStackInHand(Hand.MAIN_HAND,enchanted.copy());
         target.damage(ctx.getWorld().getDamageSources().playerAttack(player),1);
         ctx.assertTrue(target.hasStatusEffect(TetanusMod.TETANUS),"Enchanted melee hit failed to infect");
-        player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModIronTools.SWORD)); int infected=0;
+        player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModIronTools.SWORD));target.getRandom().setSeed(61823L); int infected=0;
         for(int i=0;i<200;i++) {
             target.setHealth(10); target.timeUntilRegen=0; target.removeStatusEffect(TetanusMod.TETANUS);
             target.damage(ctx.getWorld().getDamageSources().playerAttack(player),0.1F);
@@ -160,10 +160,10 @@ public class ExpansionGameTests implements FabricGameTest {
                 e->e.getStack().isOf(ModItems.INFECTED_MEAT)).size()>0,"Animal did not drop infected meat");
         var player=ctx.createMockSurvivalPlayer();
         ModItems.INFECTED_MEAT.finishUsing(new ItemStack(ModItems.INFECTED_MEAT),ctx.getWorld(),player);
-        ctx.assertTrue(player.hasStatusEffect(TetanusMod.TETANUS),"Raw infected meat is not infectious");
-        player.removeStatusEffect(TetanusMod.TETANUS);
+        ctx.assertTrue(player.hasStatusEffect(TetanusMod.SALMONELLA)&&!player.hasStatusEffect(TetanusMod.TETANUS),"Raw meat must cause Salmonella only");
+        player.clearStatusEffects();
         ModItems.COOKED_INFECTED_MEAT.finishUsing(new ItemStack(ModItems.COOKED_INFECTED_MEAT),ctx.getWorld(),player);
-        ctx.assertFalse(player.hasStatusEffect(TetanusMod.TETANUS),"Cooked meat still infects");
+        ctx.assertTrue(!player.hasStatusEffect(TetanusMod.TETANUS)&&!player.hasStatusEffect(TetanusMod.SALMONELLA),"Cooked meat still infects");
         ctx.assertTrue(ctx.getWorld().getRecipeManager().get(TetanusMod.id("cooked_infected_meat_smelting")).isPresent(),"Cooking recipe missing");
         ctx.complete();
     }

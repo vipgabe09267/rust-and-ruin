@@ -15,21 +15,20 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     @Inject(method="addStatusEffect(Lnet/minecraft/entity/effect/StatusEffectInstance;Lnet/minecraft/entity/Entity;)Z",at=@At("HEAD"),cancellable=true)
     private void rustruin$preventDisease(net.minecraft.entity.effect.StatusEffectInstance effect,net.minecraft.entity.Entity source,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<Boolean> result) {
         LivingEntity self=(LivingEntity)(Object)this;
-        if(!self.getWorld().isClient && effect.getEffectType()==TetanusMod.TETANUS && !com.tetanusmod.effect.InfectionProtection.checked(self)
+        if(!self.getWorld().isClient && effect.getEffectType()==TetanusMod.TETANUS && !com.tetanusmod.expansion.CommandEffects.forced() && !com.tetanusmod.effect.InfectionProtection.checked(self)
                 && !com.tetanusmod.effect.InfectionProtection.allows(self,false))result.setReturnValue(false);
     }
-    @org.spongepowered.asm.mixin.Shadow protected abstract void dropXp();
     @org.spongepowered.asm.mixin.Shadow protected net.minecraft.entity.player.PlayerEntity attackingPlayer;
-    @Inject(method="drop",at=@At("HEAD"),cancellable=true)
-    private void rustruin$infectedAnimalOnlyMeat(net.minecraft.entity.damage.DamageSource source,CallbackInfo ci) {
+    // Replace ordinary animal resources, retaining vanilla inventory/equipment and XP handling.
+    @Inject(method="dropLoot",at=@At("HEAD"),cancellable=true)
+    private void rustruin$infectedAnimalOnlyMeat(net.minecraft.entity.damage.DamageSource source,boolean causedByPlayer,CallbackInfo ci) {
         LivingEntity self=(LivingEntity)(Object)this;
         if(com.tetanusmod.entity.MobVariants.isAnimal(self)&&com.tetanusmod.expansion.Rabies.rabid(self)) {
             if(!self.getWorld().isClient&&self.getWorld().getGameRules().getBoolean(net.minecraft.world.GameRules.DO_MOB_LOOT))self.dropStack(new net.minecraft.item.ItemStack(com.tetanusmod.expansion.ExpansionItems.RABID_MEAT,1+self.getRandom().nextInt(3)));
-            dropXp();ci.cancel();return;
+            ci.cancel();return;
         }
         if(com.tetanusmod.entity.MobVariants.infectedAnimal(self)) {
             com.tetanusmod.entity.MobVariants.drops(self);
-            dropXp();
             ci.cancel();
         }
     }

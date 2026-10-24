@@ -1,3 +1,22 @@
 {
-    "parent":  "tetanusmod:block/medic_cabinet"
+    "parent":  "tetanusmod:block/medic_cabinet_lower",
+    "display":  {
+                    "gui":  {
+                                "translation":  [
+                                                    0,
+                                                    0,
+                                                    0
+                                                ],
+                                "rotation":  [
+                                                 30,
+                                                 225,
+                                                 0
+                                             ],
+                                "scale":  [
+                                              0.75,
+                                              0.75,
+                                              0.75
+                                          ]
+                            }
+                }
 }

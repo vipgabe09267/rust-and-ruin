@@ -7,5 +7,11 @@ import net.minecraft.item.ItemStack;
 
 public interface GloveInventory {
     SimpleInventory rustruin$gloves();
-    static ItemStack equipped(LivingEntity entity){return entity instanceof PlayerEntity?((GloveInventory)entity).rustruin$gloves().getStack(0):entity.getOffHandStack();}
+    ItemStack rustruin$visualGloves();
+    static ItemStack equipped(LivingEntity entity){
+        if(!(entity instanceof PlayerEntity))return entity.getOffHandStack();
+        var inventory=(GloveInventory)entity;
+        var visual=inventory.rustruin$visualGloves();
+        return entity.getWorld().isClient?visual:inventory.rustruin$gloves().getStack(0);
+    }
 }

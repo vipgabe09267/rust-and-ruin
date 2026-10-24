@@ -12,7 +12,6 @@ public abstract class GloveInventoryScreenMixin extends net.minecraft.client.gui
     @Inject(method="drawBackground",at=@At("TAIL"))
     private void gloveSlot(DrawContext context,float delta,int mouseX,int mouseY,CallbackInfo ci){
         int left=x+76,top=y+43;
-        context.fill(left,top,left+18,top+18,0xFF392920);context.fill(left+1,top+1,left+17,top+17,0xFF80624D);
-        context.drawBorder(left,top,18,18,0xFFB47A45);
+        com.tetanusmod.client.GloveSlotFrame.draw(context,left,top,handler.getSlot(46).getStack().isEmpty());
     }
 }

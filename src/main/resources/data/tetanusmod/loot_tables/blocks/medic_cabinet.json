@@ -11,6 +11,13 @@
                       "conditions":  [
                                          {
                                              "condition":  "minecraft:survives_explosion"
+                                         },
+                                         {
+                                             "properties":  {
+                                                                "half":  "lower"
+                                                            },
+                                             "condition":  "minecraft:block_state_property",
+                                             "block":  "tetanusmod:medic_cabinet"
                                          }
                                      ]
                   }

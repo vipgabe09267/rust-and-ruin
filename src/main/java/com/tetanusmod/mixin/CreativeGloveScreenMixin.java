@@ -24,6 +24,6 @@ public abstract class CreativeGloveScreenMixin {
     private void frame(DrawContext context,float delta,int mouseX,int mouseY,CallbackInfo ci){
         if(!isInventoryTabSelected())return;
         var self=(CreativeInventoryScreen)(Object)this;int left=(self.width-195)/2+135,top=(self.height-136)/2+19;
-        context.fill(left,top,left+18,top+18,0xFF392920);context.fill(left+1,top+1,left+17,top+17,0xFF80624D);context.drawBorder(left,top,18,18,0xFFB47A45);
+        com.tetanusmod.client.GloveSlotFrame.draw(context,left,top,self.getScreenHandler().getSlot(46).getStack().isEmpty());
     }
 }

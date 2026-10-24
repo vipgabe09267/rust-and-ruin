@@ -1,0 +1,7 @@
+FILE src/main/java/com/tetanusmod/TetanusMod.java LINES 92-97 OF 97
+  92:                 return net.minecraft.util.TypedActionResult.fail(stack);
+  93:             }
+  94:             return net.minecraft.util.TypedActionResult.pass(stack);
+  95:         });
+  96:     }
+  97: }

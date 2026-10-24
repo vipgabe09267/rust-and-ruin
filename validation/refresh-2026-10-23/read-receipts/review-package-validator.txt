@@ -1,0 +1,52 @@
+FILE tools/Audit-Refresh.ps1 LINES 1-51 OF 51
+   1: param([string]$Jar='build/libs/rust-and-ruin-0.1.0-beta.jar',[string]$Report)
+   2: $ErrorActionPreference='Stop'
+   3: Add-Type -AssemblyName System.IO.Compression.FileSystem
+   4: Add-Type -AssemblyName System.Drawing
+   5: $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+   6: $path=if([IO.Path]::IsPathRooted($Jar)){$Jar}else{Join-Path $root $Jar}
+   7: $zip=[IO.Compression.ZipFile]::OpenRead($path)
+   8: function Json($name){
+   9:     $entry=$zip.GetEntry($name);if(!$entry){throw "Missing refresh resource: $name"}
+  10:     $reader=[IO.StreamReader]::new($entry.Open());try{return ($reader.ReadToEnd()|ConvertFrom-Json)}finally{$reader.Dispose()}
+  11: }
+  12: try{
+  13:     foreach($id in @('medic_clinic','medic_tent')){
+  14:         $structure=Json "data/tetanusmod/worldgen/structure/$id.json"
+  15:         if($structure.type-ne"tetanusmod:$id"){throw "Incorrect structure type: $id"}
+  16:     }
+  17:     $clinic=Json 'data/tetanusmod/worldgen/structure_set/medic_clinics.json'
+  18:     $tent=Json 'data/tetanusmod/worldgen/structure_set/medic_tents.json'
+  19:     if($clinic.placement.frequency-ne0.55-or$clinic.placement.spacing-ne34-or$clinic.placement.separation-ne8-or$clinic.placement.salt-ne10387312){throw 'Clinic no longer matches the 55% vanilla village grid'}
+  20:     if($tent.placement.frequency-ne0.15-or$tent.placement.spacing-ne160-or$tent.placement.separation-ne128){throw 'Tent frequency or minimum spacing changed'}
+  21:     foreach($type in @('plains','desert','savanna','snowy','taiga')){if(!$zip.GetEntry("data/tetanusmod/structures/village/${type}_clinic.nbt")){throw "Missing themed clinic: $type"}}
+  22:     if(!$zip.GetEntry('data/tetanusmod/structures/medic_tent.nbt')){throw 'Missing camp template'}
+  23:     foreach($biome in @('plains','desert','savanna','snow','taiga','swamp','jungle')){
+  24:         if(!$zip.GetEntry("assets/tetanusmod/textures/entity/villager/profession/medic_$biome.png")){throw "Missing medic uniform: $biome"}
+  25:     }
+  26:     foreach($loot in @('clinic','medic_tent')){
+  27:         $table=Json "data/tetanusmod/loot_tables/chests/$loot.json"
+  28:         if($table.type-ne'minecraft:chest'-or!($table.pools[0].entries|Where-Object name -eq 'minecraft:golden_apple')){throw "Missing generic supply loot: $loot"}
+  29:     }
+  30:     $retired=Json 'data/tetanusmod/advancements/variant_egg.json'
+  31:     if($retired.display-or!$retired.criteria.spawn_variant){throw 'Creative-only advancement was not retired compatibly'}
+  32:     $cabinet=Json 'assets/tetanusmod/blockstates/medic_cabinet.json'
+  33:     if(@($cabinet.variants.PSObject.Properties).Count-ne64){throw 'Cabinet blockstates incomplete'}
+  34:     foreach($half in @('lower','upper')){foreach($suffix in @('','_open')){
+  35:         $model=Json "assets/tetanusmod/models/block/medic_cabinet_${half}$suffix.json"
+  36:         if($model.elements.Count-lt20){throw 'Cabinet shelves or vials missing'}
+  37:     }}
+  38:     foreach($sprite in @('veterinary_kit','iron_spear','rusted_iron_spear','trap_reset_tool')){
+  39:         $entry=$zip.GetEntry("assets/tetanusmod/textures/item/$sprite.png");if(!$entry){throw "Missing sprite: $sprite"}
+  40:         $stream=$entry.Open();try{
+  41:             $image=[Drawing.Bitmap]::new($stream);try{
+  42:                 if($image.Width-ne64-or$image.Height-ne64){throw "Wrong sprite dimensions: $sprite"}
+  43:                 for($i=0;$i-lt64;$i++){if($image.GetPixel($i,0).A-or$image.GetPixel($i,63).A-or$image.GetPixel(0,$i).A-or$image.GetPixel(63,$i).A){throw "Sprite touches edge: $sprite"}}
+  44:             }finally{$image.Dispose()}
+  45:         }finally{$stream.Dispose()}
+  46:     }
+  47:     $result=[pscustomobject]@{Result='PASS';Jar=$path;SHA256=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash;Checks='Native clinic/camp grids, 5 clinic templates, camp, 7 uniforms, generic loot, retired advancement, 64 cabinet variants, 4 transparent sprites'}
+  48:     $json=$result|ConvertTo-Json
+  49:     if($Report){$target=[IO.Path]::GetFullPath($Report);[IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($target))|Out-Null;[IO.File]::WriteAllText($target,$json+"`n",[Text.UTF8Encoding]::new($false))}
+  50:     $json
+  51: }finally{$zip.Dispose()}

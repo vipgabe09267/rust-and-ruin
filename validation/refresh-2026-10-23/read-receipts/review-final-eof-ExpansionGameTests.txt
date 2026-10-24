@@ -1,0 +1,7 @@
+FILE src/gametest/java/com/tetanusmod/test/ExpansionGameTests.java LINES 178-183 OF 183
+ 178:         var rust=player.getServer().getAdvancementLoader().get(TetanusMod.id("rusty_business"));
+ 179:         ctx.assertTrue(rust!=null&&player.getAdvancementTracker().getProgress(rust).isDone(),"Rust advancement not awarded");
+ 180:         ctx.assertTrue(TetanusMod.CONFIG.infectionSoundVolume>0.85F,"Infection sound volume not increased");
+ 181:         player.discard(); ctx.complete();
+ 182:     }
+ 183: }

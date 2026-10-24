@@ -1,0 +1,19 @@
+{
+    "Result":  "PASS",
+    "Files":  816,
+    "Kinds":  [
+                  "66 File inventory and encoding; execution reviewed separately",
+                  "17 UTF-8 and local links checked; prose reviewed separately",
+                  "174 Decoded image; runtime item/status sprite margins checked",
+                  "1 Source audio; decoded separately with FFprobe/FFmpeg",
+                  "1 Official Gradle wrapper checksum checked by Audit-Release",
+                  "172 UTF-8 and static translation keys; compilation and manual review recorded separately",
+                  "344 Parsed JSON; resource references checked by Gradle and runtime",
+                  "1 Packaged audio; decoded separately with FFprobe/FFmpeg",
+                  "8 Gzip NBT header; structure runtime checks recorded separately",
+                  "15 PowerShell syntax parsed; manual review recorded separately",
+                  "1 UTF-8; compilation and resource-generation results recorded separately",
+                  "16 Parsed XML report"
+              ],
+    "FullInventoryLocal":  ".tools/reaudit-2026-10-23/file-audit-final.json"
+}

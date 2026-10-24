@@ -1,6 +1,6 @@
-Run 1: 157 tests; 0 failures
-[18:58:36] [Server thread/INFO] (Minecraft) All 157 required tests passed :)
-BUILD SUCCESSFUL in 26s
-Run 2: 157 tests; 0 failures
-[18:59:01] [Server thread/INFO] (Minecraft) All 157 required tests passed :)
-BUILD SUCCESSFUL in 24s
+Rust & Ruin 0.1.0-beta; Minecraft 1.20.1 Fabric; October 21, 2026.
+192 tests, zero failures and zero skips in each of six fresh dedicated-server runs.
+Run 1 forced all tasks; run 6 follows the final REI text wrapping/theme fixes.
+Reports: .tools/recheck-2026-10-21-server-1.xml through -6.xml.
+Tracked reports retain runs 1 and 6 as gametest-results.xml and gametest-results-repeat.xml.
+Earlier October 19 evidence remains in .tools.

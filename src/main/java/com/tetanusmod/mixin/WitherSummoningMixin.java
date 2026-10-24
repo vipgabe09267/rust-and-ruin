@@ -30,4 +30,8 @@ public abstract class WitherSummoningMixin {
         try{if(entity instanceof WitherEntity wither&&rustruin$special.get())MobVariants.rollSpecialWither(wither);return world.spawnEntity(entity);}
         finally{rustruin$special.remove();}
     }
+    @Inject(method="canDispense",at=@At("HEAD"),cancellable=true)
+    private static void enhancedDispenser(World world,BlockPos pos,net.minecraft.item.ItemStack stack,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<Boolean> result){
+        if(stack.isOf(net.minecraft.item.Items.WITHER_SKELETON_SKULL)&&com.tetanusmod.entity.EnhancedWitherRitual.canDispense(world,pos))result.setReturnValue(true);
+    }
 }

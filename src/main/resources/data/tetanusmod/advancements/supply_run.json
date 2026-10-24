@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "deliver_supplies":  {
+                                              "trigger":  "minecraft:impossible"
+                                          }
+                 },
+    "parent":  "tetanusmod:medic",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.supply_run.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "minecraft:paper"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.supply_run.title"
+                              },
+                    "frame":  "goal"
+                }
+}

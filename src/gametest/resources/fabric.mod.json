@@ -13,7 +13,20 @@
                                                 "com.tetanusmod.test.ExpansionGameTests",
                                                 "com.tetanusmod.test.BalanceGameTests",
                                                 "com.tetanusmod.test.ProgressionGameTests",
-                                                "com.tetanusmod.test.AuditGameTests", "com.tetanusmod.test.DiseaseFixGameTests", "com.tetanusmod.test.PreventionGameTests", "com.tetanusmod.test.SecurityGameTests", "com.tetanusmod.test.FinalAuditGameTests", "com.tetanusmod.test.DiseaseExpansionGameTests", "com.tetanusmod.test.ProgressionExpansionGameTests", "com.tetanusmod.test.ExpansionRegressionGameTests"
+                                                "com.tetanusmod.test.AuditGameTests",
+                                                "com.tetanusmod.test.DiseaseFixGameTests",
+                                                "com.tetanusmod.test.PreventionGameTests",
+                                                "com.tetanusmod.test.SecurityGameTests",
+                                                "com.tetanusmod.test.FinalAuditGameTests",
+                                                "com.tetanusmod.test.DiseaseExpansionGameTests",
+                                                "com.tetanusmod.test.ProgressionExpansionGameTests",
+                                                "com.tetanusmod.test.ExpansionRegressionGameTests",
+                                                "com.tetanusmod.test.DespawnAuditGameTests",
+                                                "com.tetanusmod.test.MaintenanceGameTests",
+                                                "com.tetanusmod.test.DeepAuditGameTests",
+                                                "com.tetanusmod.test.RefreshGameTests",
+                                                "com.tetanusmod.test.RefreshWorldGameTests",
+                                                "com.tetanusmod.test.ReauditGameTests"
                                             ]
                     },
     "depends":  {

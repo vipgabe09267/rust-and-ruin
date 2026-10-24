@@ -1,0 +1,7 @@
+FILE src/main/java/com/tetanusmod/client/TetanusClient.java LINES 82-87 OF 87
+  82:                 previousOffset = offset;
+  83:                 if (twitchTicks > 0) twitchTicks--;
+  84:             }
+  85:         });
+  86:     }
+  87: }

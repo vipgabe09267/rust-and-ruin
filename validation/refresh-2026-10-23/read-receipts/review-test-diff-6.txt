@@ -1,0 +1,7 @@
+FILE src/gametest/java/com/tetanusmod/test/MaintenanceGameTests.java LINES 37-42 OF 251
+  37:     public void oldConfigRetainsDefaultNaturalRates(TestContext ctx) {
+  38:         var config=ModConfig.fromJson("{\"balanceRevision\":4}");
+  39:         ctx.assertTrue(config.naturalAnimalEasy==0.005F&&config.naturalAnimalNormal==0.01F&&config.naturalAnimalHard==0.02F,"Animal defaults changed");
+  40:         ctx.assertTrue(config.spawnerEasy==0.03F&&config.spawnerNormal==0.05F&&config.spawnerHard==0.08F,"Spawner defaults changed");ctx.complete();
+  41:     }
+  42:     @GameTest(templateName=EMPTY_STRUCTURE)

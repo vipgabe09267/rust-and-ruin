@@ -20,6 +20,7 @@ public final class RabiesTonicItem extends DescribedItem {
     @Override public TypedActionResult<ItemStack> use(World world,PlayerEntity user,Hand hand){return user.isSpectator()?TypedActionResult.pass(user.getStackInHand(hand)):ItemUsage.consumeHeldItem(world,user,hand);}
     @Override public ItemStack finishUsing(ItemStack stack,World world,LivingEntity user){
         if(world.isClient||stack.isEmpty()||!stack.isOf(this)||!user.isAlive()||user.isSpectator())return stack;
+        com.tetanusmod.item.MedicineConsumption.record(user,stack);
         if(vaccine)user.addStatusEffect(new StatusEffectInstance(ExpansionEffects.RABIES_RESISTANCE,24000));
         else {
             boolean infected=user.hasStatusEffect(ExpansionEffects.RABIES);RabiesEffect.cure(user);

@@ -1,0 +1,7 @@
+{
+    "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionMobMixin.java",
+    "Start":  24,
+    "End":  28,
+    "TotalLines":  28,
+    "SHA256AtRead":  "C7E3821C5552CA9EDE4CD33FBED7CFBF458FF024C04D50D4C7F1739A5EFAF972"
+}

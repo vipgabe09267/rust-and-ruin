@@ -1,0 +1,8 @@
+final251-client-jei.log: [20:43:14] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+final251-client-jei.log: [20:43:14] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+final251-client-plain.log: [20:45:49] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+final251-client-plain.log: [20:45:49] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+final251-client-rei-light.log: [20:47:07] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+final251-client-rei-light.log: [20:47:07] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+final251-client-rei-dark.log: [20:48:25] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+final251-client-rei-dark.log: [20:48:25] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
