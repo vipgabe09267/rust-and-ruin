@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "drink_vaccine":  {
+                                           "trigger":  "minecraft:impossible"
+                                       }
+                 },
+    "parent":  "tetanusmod:root",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.vaccinated.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:tetanus_vaccine"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.vaccinated.title"
+                              },
+                    "frame":  "task"
+                }
+}

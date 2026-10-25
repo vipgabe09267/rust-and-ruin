@@ -24,7 +24,8 @@ function State($name,$properties=@{}){
     return [int]$paletteIds[$signature]
 }
 function Block($x,$y,$z,$name,$properties=@{},$nbt=$null){$block=@{pos=@([int]$x,[int]$y,[int]$z);state=(State $name $properties)};if($nbt){$block.nbt=$nbt};$placed["$x,$y,$z"]=$block}
-for($x=0;$x-lt9;$x++){for($z=0;$z-lt13;$z++){for($y=0;$y-lt11;$y++){Block $x $y $z 'minecraft:air'}}}
+# Clear headroom only. The two foundation layers outside the footprint must retain native ground.
+for($x=0;$x-lt9;$x++){for($z=0;$z-lt13;$z++){for($y=2;$y-lt11;$y++){Block $x $y $z 'minecraft:air'}}}
 for($x=1;$x-le7;$x++){for($z=1;$z-le11;$z++){Block $x 0 $z 'minecraft:stone_bricks';Block $x 1 $z 'minecraft:birch_planks'}}
 # Limestone infill between timber posts, with a masonry damp course.
 for($y=2;$y-le5;$y++){
@@ -52,13 +53,15 @@ Block 4 3 3 'minecraft:spruce_door' @{half='upper';facing='north';hinge='left';o
 Block 4 4 3 'minecraft:stripped_spruce_log' @{axis='x'}
 foreach($x in @(2,6)){Block $x 3 1 'minecraft:lantern' @{hanging='true';waterlogged='false'}}
 Block 7 4 0 'minecraft:white_wall_banner' @{facing='north'} @{id='minecraft:banner';Patterns=@(@{Pattern='sc';Color=[int]14})}
-Block 4 1 0 'minecraft:jigsaw' @{orientation='north_up'} @{id='minecraft:jigsaw';name='minecraft:building_entrance';target='minecraft:street';pool='minecraft:empty';joint='rollable';final_state='minecraft:stone_brick_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]'}
+$entryMaterial=if($biome-eq'desert'){'minecraft:smooth_sandstone'}else{'minecraft:dirt_path'}
+Block 4 1 0 'minecraft:jigsaw' @{orientation='north_up'} @{id='minecraft:jigsaw';name='minecraft:building_entrance';target='minecraft:street';pool='minecraft:empty';joint='rollable';final_state=$entryMaterial}
 # Interior: two beds, folded-screen divider, supplies, wash basin, desk and a narrow green runner.
 foreach($z in @(6,9)){Block 2 2 $z 'minecraft:white_bed' @{part='foot';facing='east';occupied='false'};Block 3 2 $z 'minecraft:white_bed' @{part='head';facing='east';occupied='false'}}
 Block 2 2 7 'minecraft:birch_trapdoor' @{facing='south';half='bottom';open='true';powered='false';waterlogged='false'}
 Block 3 2 7 'minecraft:birch_trapdoor' @{facing='south';half='bottom';open='true';powered='false';waterlogged='false'}
 for($z=5;$z-le10;$z++){Block 4 2 $z 'minecraft:moss_carpet'}
-Block 6 2 6 'tetanusmod:medic_cabinet' @{complete='true';half='lower';facing='north';hinge='left';open='false';powered='false'};Block 6 3 6 'tetanusmod:medic_cabinet' @{complete='true';half='upper';facing='north';hinge='left';open='false';powered='false'};Block 6 2 8 'minecraft:water_cauldron' @{level='3'}
+# The cabinet backs onto the east wall; its doors face west into the interior aisle.
+Block 6 2 6 'tetanusmod:medic_cabinet' @{complete='true';half='lower';facing='west';hinge='left';open='false';powered='false'};Block 6 3 6 'tetanusmod:medic_cabinet' @{complete='true';half='upper';facing='west';hinge='left';open='false';powered='false'};Block 6 2 8 'minecraft:water_cauldron' @{level='3'}
 Block 6 2 10 'minecraft:chest' @{facing='north';type='single';waterlogged='false'} @{id='minecraft:chest';LootTable='tetanusmod:chests/clinic'}
 Block 6 3 10 'minecraft:brewing_stand' @{has_bottle_0='false';has_bottle_1='false';has_bottle_2='false'}
 Block 2 2 4 'minecraft:spruce_stairs' @{facing='west';half='top';shape='straight';waterlogged='false'}

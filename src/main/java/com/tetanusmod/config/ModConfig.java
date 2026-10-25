@@ -21,6 +21,7 @@ public final class ModConfig {
     public boolean tetanusCanKill = false;
     public float infectionSoundVolume = 2.5F;
     public float mobConversionChance = 0.01F;
+    public float golemConversionChance = 0.18F;
     public float animalConversionChance = 0.02F;
     public float witherConversionChance = 0.05F;
     public float salmonellaChance = 1.0F;
@@ -100,6 +101,7 @@ public final class ModConfig {
         spasmFrequency = Double.isFinite(spasmFrequency) ? Math.max(0, Math.min(5, spasmFrequency)) : 1;
         infectionSoundVolume = finite(infectionSoundVolume, 2.5F, 4);
         mobConversionChance = finite(mobConversionChance, 0.01F, 1);
+        golemConversionChance = finite(golemConversionChance, 0.18F, 1);
         animalConversionChance = finite(animalConversionChance, 0.02F, 1);
         witherConversionChance = finite(witherConversionChance, 0.05F, 1);
         salmonellaChance=finite(salmonellaChance,1F,1);

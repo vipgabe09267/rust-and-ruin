@@ -4,10 +4,10 @@
                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper_open",
                                                                                         "y":  180
                                                                                     },
-                     "facing=south,half=upper,hinge=left,open=false,powered=false":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper",
-                                                                                         "y":  180
-                                                                                     },
+                     "facing=north,half=upper,hinge=left,open=true,powered=false":  {
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open",
+                                                                                        "y":  0
+                                                                                    },
                      "facing=north,half=lower,hinge=left,open=false,powered=false":  {
                                                                                          "model":  "tetanusmod:block/medic_cabinet_lower",
                                                                                          "y":  0
@@ -16,26 +16,26 @@
                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open",
                                                                                        "y":  0
                                                                                    },
-                     "facing=south,half=lower,hinge=right,open=true,powered=true":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open",
-                                                                                        "y":  180
-                                                                                    },
-                     "facing=north,half=upper,hinge=left,open=false,powered=true":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper",
-                                                                                        "y":  0
-                                                                                    },
-                     "facing=north,half=upper,hinge=right,open=true,powered=true":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open",
-                                                                                        "y":  0
-                                                                                    },
-                     "facing=west,half=upper,hinge=left,open=false,powered=true":  {
-                                                                                       "model":  "tetanusmod:block/medic_cabinet_upper",
-                                                                                       "y":  270
-                                                                                   },
                      "facing=west,half=lower,hinge=left,open=true,powered=true":  {
                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower_open",
                                                                                       "y":  270
                                                                                   },
+                     "facing=north,half=upper,hinge=left,open=false,powered=true":  {
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper",
+                                                                                        "y":  0
+                                                                                    },
+                     "facing=west,half=upper,hinge=left,open=true,powered=false":  {
+                                                                                       "model":  "tetanusmod:block/medic_cabinet_upper_open",
+                                                                                       "y":  270
+                                                                                   },
+                     "facing=west,half=upper,hinge=left,open=false,powered=true":  {
+                                                                                       "model":  "tetanusmod:block/medic_cabinet_upper",
+                                                                                       "y":  270
+                                                                                   },
+                     "facing=west,half=upper,hinge=right,open=true,powered=false":  {
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open_right",
+                                                                                        "y":  270
+                                                                                    },
                      "facing=east,half=upper,hinge=left,open=true,powered=false":  {
                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open",
                                                                                        "y":  90
@@ -44,140 +44,140 @@
                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper",
                                                                                        "y":  90
                                                                                    },
-                     "facing=east,half=lower,hinge=left,open=false,powered=false":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower",
-                                                                                        "y":  90
+                     "facing=west,half=lower,hinge=right,open=false,powered=true":  {
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_right",
+                                                                                        "y":  270
                                                                                     },
                      "facing=west,half=lower,hinge=left,open=true,powered=false":  {
                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open",
                                                                                        "y":  270
                                                                                    },
                      "facing=south,half=upper,hinge=right,open=true,powered=true":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open",
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open_right",
                                                                                         "y":  180
                                                                                     },
-                     "facing=west,half=lower,hinge=left,open=false,powered=true":  {
-                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower",
-                                                                                       "y":  270
-                                                                                   },
                      "facing=west,half=upper,hinge=right,open=false,powered=false":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper",
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper_right",
                                                                                          "y":  270
                                                                                      },
                      "facing=east,half=lower,hinge=right,open=true,powered=true":  {
-                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower_open",
+                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower_open_right",
                                                                                        "y":  90
                                                                                    },
                      "facing=east,half=lower,hinge=left,open=true,powered=false":  {
                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open",
                                                                                        "y":  90
                                                                                    },
+                     "facing=west,half=upper,hinge=right,open=true,powered=true":  {
+                                                                                       "model":  "tetanusmod:block/medic_cabinet_upper_open_right",
+                                                                                       "y":  270
+                                                                                   },
                      "facing=north,half=lower,hinge=right,open=false,powered=true":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower",
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower_right",
                                                                                          "y":  0
                                                                                      },
                      "facing=south,half=lower,hinge=right,open=true,powered=false":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower_open",
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower_open_right",
                                                                                          "y":  180
                                                                                      },
                      "facing=north,half=lower,hinge=right,open=false,powered=false":  {
-                                                                                          "model":  "tetanusmod:block/medic_cabinet_lower",
+                                                                                          "model":  "tetanusmod:block/medic_cabinet_lower_right",
                                                                                           "y":  0
                                                                                       },
-                     "facing=north,half=lower,hinge=right,open=true,powered=false":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower_open",
-                                                                                         "y":  0
-                                                                                     },
-                     "facing=east,half=upper,hinge=right,open=true,powered=true":  {
-                                                                                       "model":  "tetanusmod:block/medic_cabinet_upper_open",
-                                                                                       "y":  90
-                                                                                   },
-                     "facing=south,half=upper,hinge=right,open=false,powered=false":  {
-                                                                                          "model":  "tetanusmod:block/medic_cabinet_upper",
-                                                                                          "y":  180
-                                                                                      },
-                     "facing=west,half=upper,hinge=right,open=true,powered=false":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open",
-                                                                                        "y":  270
-                                                                                    },
-                     "facing=west,half=upper,hinge=right,open=true,powered=true":  {
-                                                                                       "model":  "tetanusmod:block/medic_cabinet_upper_open",
+                     "facing=west,half=lower,hinge=left,open=false,powered=true":  {
+                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower",
                                                                                        "y":  270
                                                                                    },
+                     "facing=east,half=upper,hinge=right,open=true,powered=true":  {
+                                                                                       "model":  "tetanusmod:block/medic_cabinet_upper_open_right",
+                                                                                       "y":  90
+                                                                                   },
+                     "facing=north,half=upper,hinge=right,open=false,powered=true":  {
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper_right",
+                                                                                         "y":  0
+                                                                                     },
+                     "facing=south,half=lower,hinge=right,open=true,powered=true":  {
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open_right",
+                                                                                        "y":  180
+                                                                                    },
+                     "facing=north,half=upper,hinge=right,open=true,powered=true":  {
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open_right",
+                                                                                        "y":  0
+                                                                                    },
                      "facing=south,half=lower,hinge=left,open=true,powered=true":  {
                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open",
                                                                                        "y":  180
                                                                                    },
+                     "facing=east,half=lower,hinge=left,open=false,powered=false":  {
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower",
+                                                                                        "y":  90
+                                                                                    },
                      "facing=south,half=lower,hinge=right,open=false,powered=true":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower",
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower_right",
                                                                                          "y":  180
+                                                                                     },
+                     "facing=north,half=lower,hinge=right,open=true,powered=false":  {
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower_open_right",
+                                                                                         "y":  0
                                                                                      },
                      "facing=west,half=upper,hinge=left,open=true,powered=true":  {
                                                                                       "model":  "tetanusmod:block/medic_cabinet_upper_open",
                                                                                       "y":  270
                                                                                   },
                      "facing=east,half=upper,hinge=right,open=false,powered=false":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper",
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper_right",
                                                                                          "y":  90
                                                                                      },
-                     "facing=west,half=lower,hinge=right,open=false,powered=true":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower",
-                                                                                        "y":  270
-                                                                                    },
+                     "facing=west,half=lower,hinge=right,open=false,powered=false":  {
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower_right",
+                                                                                         "y":  270
+                                                                                     },
                      "facing=south,half=lower,hinge=left,open=false,powered=true":  {
                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower",
                                                                                         "y":  180
                                                                                     },
                      "facing=east,half=lower,hinge=right,open=true,powered=false":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open",
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open_right",
                                                                                         "y":  90
                                                                                     },
                      "facing=west,half=lower,hinge=right,open=true,powered=true":  {
-                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower_open",
+                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower_open_right",
                                                                                        "y":  270
                                                                                    },
                      "facing=east,half=upper,hinge=right,open=false,powered=true":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper",
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_right",
                                                                                         "y":  90
                                                                                     },
-                     "facing=north,half=upper,hinge=left,open=true,powered=false":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open",
-                                                                                        "y":  0
-                                                                                    },
-                     "facing=west,half=upper,hinge=left,open=true,powered=false":  {
-                                                                                       "model":  "tetanusmod:block/medic_cabinet_upper_open",
-                                                                                       "y":  270
+                     "facing=east,half=lower,hinge=left,open=false,powered=true":  {
+                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower",
+                                                                                       "y":  90
                                                                                    },
-                     "facing=west,half=lower,hinge=right,open=false,powered=false":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower",
-                                                                                         "y":  270
-                                                                                     },
                      "facing=west,half=upper,hinge=left,open=false,powered=false":  {
                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper",
                                                                                         "y":  270
                                                                                     },
                      "facing=west,half=upper,hinge=right,open=false,powered=true":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper",
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_right",
                                                                                         "y":  270
                                                                                     },
                      "facing=south,half=upper,hinge=right,open=false,powered=true":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper",
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper_right",
                                                                                          "y":  180
                                                                                      },
-                     "facing=north,half=lower,hinge=right,open=true,powered=true":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open",
-                                                                                        "y":  0
-                                                                                    },
+                     "facing=south,half=upper,hinge=right,open=false,powered=false":  {
+                                                                                          "model":  "tetanusmod:block/medic_cabinet_upper_right",
+                                                                                          "y":  180
+                                                                                      },
                      "facing=east,half=upper,hinge=left,open=false,powered=false":  {
                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper",
                                                                                         "y":  90
                                                                                     },
                      "facing=north,half=upper,hinge=right,open=false,powered=false":  {
-                                                                                          "model":  "tetanusmod:block/medic_cabinet_upper",
+                                                                                          "model":  "tetanusmod:block/medic_cabinet_upper_right",
                                                                                           "y":  0
                                                                                       },
                      "facing=north,half=upper,hinge=right,open=true,powered=false":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper_open",
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper_open_right",
                                                                                          "y":  0
                                                                                      },
                      "facing=south,half=upper,hinge=left,open=false,powered=true":  {
@@ -185,7 +185,7 @@
                                                                                         "y":  180
                                                                                     },
                      "facing=south,half=upper,hinge=right,open=true,powered=false":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper_open",
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_upper_open_right",
                                                                                          "y":  180
                                                                                      },
                      "facing=east,half=upper,hinge=left,open=true,powered=true":  {
@@ -209,7 +209,7 @@
                                                                                         "y":  0
                                                                                     },
                      "facing=east,half=upper,hinge=right,open=true,powered=false":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open",
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_upper_open_right",
                                                                                         "y":  90
                                                                                     },
                      "facing=north,half=upper,hinge=left,open=true,powered=true":  {
@@ -221,11 +221,11 @@
                                                                                         "y":  270
                                                                                     },
                      "facing=east,half=lower,hinge=right,open=false,powered=true":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower",
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_right",
                                                                                         "y":  90
                                                                                     },
                      "facing=east,half=lower,hinge=right,open=false,powered=false":  {
-                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower",
+                                                                                         "model":  "tetanusmod:block/medic_cabinet_lower_right",
                                                                                          "y":  90
                                                                                      },
                      "facing=north,half=upper,hinge=left,open=false,powered=false":  {
@@ -240,21 +240,21 @@
                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower_open",
                                                                                       "y":  90
                                                                                   },
-                     "facing=east,half=lower,hinge=left,open=false,powered=true":  {
-                                                                                       "model":  "tetanusmod:block/medic_cabinet_lower",
-                                                                                       "y":  90
-                                                                                   },
+                     "facing=north,half=lower,hinge=right,open=true,powered=true":  {
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open_right",
+                                                                                        "y":  0
+                                                                                    },
                      "facing=west,half=lower,hinge=right,open=true,powered=false":  {
-                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open",
+                                                                                        "model":  "tetanusmod:block/medic_cabinet_lower_open_right",
                                                                                         "y":  270
                                                                                     },
                      "facing=south,half=lower,hinge=right,open=false,powered=false":  {
-                                                                                          "model":  "tetanusmod:block/medic_cabinet_lower",
+                                                                                          "model":  "tetanusmod:block/medic_cabinet_lower_right",
                                                                                           "y":  180
                                                                                       },
-                     "facing=north,half=upper,hinge=right,open=false,powered=true":  {
+                     "facing=south,half=upper,hinge=left,open=false,powered=false":  {
                                                                                          "model":  "tetanusmod:block/medic_cabinet_upper",
-                                                                                         "y":  0
+                                                                                         "y":  180
                                                                                      }
                  }
 }

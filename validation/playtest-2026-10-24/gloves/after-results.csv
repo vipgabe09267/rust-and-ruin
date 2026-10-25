@@ -1,0 +1,17 @@
+scene,gloves,brownPixels,bluePixels,magentaPixels,skyLight,blockLight,nativeNightVision,playerY,width,height
+wide-first-right-baseline,false,0,124645,0,0,0,true,4.0,1254,689
+wide-first-right-gloves,true,22613,95966,0,0,0,true,4.0,1254,689
+wide-first-left-baseline,false,0,123243,0,0,0,true,4.0,1254,689
+wide-first-left-gloves,true,22504,94846,0,0,0,true,4.0,1254,689
+wide-third-front-baseline,false,0,504934,41351,0,0,true,4.0,1254,689
+wide-third-front-gloves,true,6777,495197,40878,0,0,true,4.0,1254,689
+wide-third-back-baseline,false,0,123459,37162,0,0,true,4.0,1254,689
+wide-third-back-gloves,true,4728,117338,37413,0,0,true,4.0,1254,689
+slim-first-right-baseline,false,0,115115,0,0,0,true,4.0,1254,689
+slim-first-right-gloves,true,18935,92928,0,0,0,true,4.0,1254,689
+slim-first-left-baseline,false,0,114820,0,0,0,true,4.0,1254,689
+slim-first-left-gloves,true,18852,92648,0,0,0,true,4.0,1254,689
+slim-third-front-baseline,false,0,499134,41085,0,0,true,4.0,1254,689
+slim-third-front-gloves,true,5237,492359,40541,0,0,true,4.0,1254,689
+slim-third-back-baseline,false,0,118218,36983,0,0,true,4.0,1254,689
+slim-third-back-gloves,true,3756,113681,37393,0,0,true,4.0,1254,689

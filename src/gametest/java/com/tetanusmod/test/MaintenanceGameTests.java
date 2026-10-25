@@ -61,11 +61,11 @@ public class MaintenanceGameTests implements FabricGameTest {
             var request=MedicSupplies.request(medic);player.setStackInHand(Hand.MAIN_HAND,request.copy());
             ctx.assertTrue(MedicSupplies.deliver(medic,player,Hand.MAIN_HAND),"Delivery rejected");
             ctx.assertFalse(player.getMainHandStack().isOf(request.getItem()),"Delivery materials were not consumed");
-            int basePrice=medic.getOffers().stream().filter(offer->offer.getSellItem().isOf(ModItems.VACCINE)).findFirst().orElseThrow().getAdjustedFirstBuyItem().getCount();
+            var medicine=medic.getOffers().stream().filter(offer->MedicTradeOffers.isMedicine(offer.getSellItem().getItem())).findFirst().orElseThrow();int basePrice=medicine.getAdjustedFirstBuyItem().getCount();
             player.setStackInHand(Hand.MAIN_HAND,ItemStack.EMPTY);
             medic.interactMob(player,Hand.MAIN_HAND);
-            int discounted=medic.getOffers().stream().filter(offer->offer.getSellItem().isOf(ModItems.VACCINE)).findFirst().orElseThrow().getAdjustedFirstBuyItem().getCount();
-            ctx.assertTrue(discounted<basePrice,"Delivery does not reduce actual vaccine trade price");
+            int discounted=medicine.getAdjustedFirstBuyItem().getCount();
+            ctx.assertTrue(discounted<basePrice,"Delivery does not reduce actual medicine trade price");
             player.closeHandledScreen();medic.setCustomer(null);
             var gossip=medic.getGossip().getReputationFor(player.getUuid(),type->true);
             ctx.assertTrue(gossip>0,"Discount reputation missing");

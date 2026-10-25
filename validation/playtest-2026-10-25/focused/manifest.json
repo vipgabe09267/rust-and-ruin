@@ -1,0 +1,326 @@
+{
+    "Result":  "PASS",
+    "Scope":  "Three focused plain-client runs on October 25, not the full recipe-viewer matrix",
+    "Cards":  19,
+    "OriginalPNGs":  35,
+    "NativeProjectileCases":  11,
+    "ObservedInfectionVoiceEvents":  6,
+    "TrapResetInteractions":  3,
+    "HoldSamples":  92,
+    "NaturalCamps":  1,
+    "ManualClinicTemplates":  5,
+    "NaturalCampManualPlacements":  0,
+    "PNGEditing":  "none",
+    "Files":  [
+                  {
+                      "File":  "images/rust-and-ruin-plain-camp-field-cabinet.png",
+                      "SHA256":  "53EECC9B78758285D47E4045D010E7C3A195AB9D6938513273857DA47DEC2DEF",
+                      "Bytes":  675290,
+                      "Source":  ".tools/playtest-2026-10-25/camp-pass/screenshots/rust-and-ruin-plain-camp-field-cabinet.png",
+                      "SourceModifiedUtc":  "2026-10-25T14:56:42.6670306Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-camp-locate-poi-chat.png",
+                      "SHA256":  "3AC85DC4C22D8DAD67C069D21CCE7B9144A9BCD2153C7EA987C8C5F4072D797E",
+                      "Bytes":  376832,
+                      "Source":  ".tools/playtest-2026-10-25/camp-pass/screenshots/rust-and-ruin-plain-camp-locate-poi-chat.png",
+                      "SourceModifiedUtc":  "2026-10-25T14:56:46.3786090Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-camp-locate-structure-chat.png",
+                      "SHA256":  "0B4C80027AAFDABBC661AAF11CDA846C9A901A8CE90572F3D6623C4B45050F7C",
+                      "Bytes":  663954,
+                      "Source":  ".tools/playtest-2026-10-25/camp-pass/screenshots/rust-and-ruin-plain-camp-locate-structure-chat.png",
+                      "SourceModifiedUtc":  "2026-10-25T14:56:36.9761102Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-camp-natural-field-medic.png",
+                      "SHA256":  "0641547DC1BF56446AE12D88B963B2769618180F5EB5B1C640BF6C61FD482A5F",
+                      "Bytes":  1002494,
+                      "Source":  ".tools/playtest-2026-10-25/camp-pass/screenshots/rust-and-ruin-plain-camp-natural-field-medic.png",
+                      "SourceModifiedUtc":  "2026-10-25T14:56:43.9196684Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-camp-natural-tetanized-guard.png",
+                      "SHA256":  "919B83CEAA07F4C55E653C436094FB4BE296E2A8CDFAFABE94DE691576D0CE87",
+                      "Bytes":  369621,
+                      "Source":  ".tools/playtest-2026-10-25/camp-pass/screenshots/rust-and-ruin-plain-camp-natural-tetanized-guard.png",
+                      "SourceModifiedUtc":  "2026-10-25T14:56:45.1265396Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-camp-opened-natural-loot.png",
+                      "SHA256":  "48B0B2D0149D84E6D6E59D8989761EE064B4BB23332568384ACAC044E4AB1CCF",
+                      "Bytes":  201116,
+                      "Source":  ".tools/playtest-2026-10-25/camp-pass/screenshots/rust-and-ruin-plain-camp-opened-natural-loot.png",
+                      "SourceModifiedUtc":  "2026-10-25T14:56:48.3535789Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-desert-cabinet-front.png",
+                      "SHA256":  "09B8C406CE0241767BFA613A3FD55F6BB9E247EBFB82AA1A7C8252EBACE8BE4E",
+                      "Bytes":  611741,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-desert-cabinet-front.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:13.9158397Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-desert-interior.png",
+                      "SHA256":  "30B0C87C9043D301ACE8F38A0D6F438EB0E5A7348A3073475C84A6EE4D660745",
+                      "Bytes":  697543,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-desert-interior.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:11.6153318Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-plains-cabinet-front.png",
+                      "SHA256":  "C8777651E65EB4D84A0887673B7F1448435CB6E0A3E84058E5E72C2C0532D8D3",
+                      "Bytes":  640987,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-plains-cabinet-front.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:09.2157194Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-plains-interior.png",
+                      "SHA256":  "0D8371CA26FAFD402167BA228EB4B89DEAF6D709940D5ECC0545F576B4D7B98A",
+                      "Bytes":  690714,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-plains-interior.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:06.9510669Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-savanna-cabinet-front.png",
+                      "SHA256":  "D70DCF6C427A54CDCBF7BE35507C7CBC199464C130B3E1B84242761C8307D6E9",
+                      "Bytes":  509026,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-savanna-cabinet-front.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:18.6005306Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-savanna-interior.png",
+                      "SHA256":  "374AE8EDB36FEC141855534F911CA57CB9B21F24D96DB839385D73349C66FE18",
+                      "Bytes":  576389,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-savanna-interior.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:16.3054560Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-snowy-cabinet-front.png",
+                      "SHA256":  "29E9DE6714CBC168C969B6CF155D42CDDB34A82D9C213E4AA9EA320EEE1335F6",
+                      "Bytes":  580213,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-snowy-cabinet-front.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:23.3088529Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-snowy-interior.png",
+                      "SHA256":  "32DA65845C14C3A138810FE35153D035AEEF70D5FD55E718F09432F7C5E52D0D",
+                      "Bytes":  623417,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-snowy-interior.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:21.0086447Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-taiga-cabinet-front.png",
+                      "SHA256":  "647D6BFA4B0324E5B6F944C2F0B7DE3A81EB901693F8A82C1FB68DCAFB819FDB",
+                      "Bytes":  550517,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-taiga-cabinet-front.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:28.0053187Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-clinic-facing-taiga-interior.png",
+                      "SHA256":  "18596963D18173D6DE0853745E43AC4B923DD51ED872877BA180CFC5DF82112E",
+                      "Bytes":  607141,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/screenshots/rust-and-ruin-plain-clinic-facing-taiga-interior.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:25.7113680Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-fresh-mob-infection-after.png",
+                      "SHA256":  "9598E3FF735063170AE6E7AA36B1EF652091BD81D4F3F49B51150E26FD7D3213",
+                      "Bytes":  136497,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-fresh-mob-infection-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:47.0140203Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-fresh-player-infection-after.png",
+                      "SHA256":  "33FACB930B3BA0FF8326B4FF38D1E0E300E34A66E4BA709A496CA3FF1D76D582",
+                      "Bytes":  103542,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-fresh-player-infection-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:32:02.0185031Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-later-repeat-mob-hit-after.png",
+                      "SHA256":  "5E57B2B58373DE7F3B9216773302C5AA84FD3FD9173389E689FF9FC9F6C09625",
+                      "Bytes":  133956,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-later-repeat-mob-hit-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:52.3640388Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-rusty-bent-nail-air-after.png",
+                      "SHA256":  "FF5152B3BFFF0DA8F9E2A843A2D99527185168D15BDDCB1C39065BF104F9CB13",
+                      "Bytes":  159767,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-rusty-bent-nail-air-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:13.6673216Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-rusty-bent-natural-golem-after.png",
+                      "SHA256":  "9AC3595E26F426B6774D3111457F6F14F5F09F1D74FA9F6E20B0455C2DAB3FAA",
+                      "Bytes":  143066,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-rusty-bent-natural-golem-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:30.9629592Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-rusty-bent-player-golem-after.png",
+                      "SHA256":  "487F23819BAA6CDBDE336AD416B5918BEACC8222C2481053BC14D83A0B93E42B",
+                      "Bytes":  143337,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-rusty-bent-player-golem-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:41.6706929Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-rusty-nail-air-after.png",
+                      "SHA256":  "1485528EB61F6E9122AC7D37695783054658ADEBF6A1D377134EF423F4FA8E53",
+                      "Bytes":  231041,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-rusty-nail-air-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:07.1269114Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-rusty-nail-natural-golem-after.png",
+                      "SHA256":  "B98EE9ABEBB7AE92A513CF6ED4AFF543552E83A9B4CA1572DA95D782B0E009D3",
+                      "Bytes":  141612,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-rusty-nail-natural-golem-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:25.6151657Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-rusty-nail-natural-golem-before.png",
+                      "SHA256":  "F2D462425B998870C0FEE6C0C9EB150A044B01F3A7389E84D529FABC5B140139",
+                      "Bytes":  137659,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-rusty-nail-natural-golem-before.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:23.8686396Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-rusty-nail-player-golem-after.png",
+                      "SHA256":  "57D019E5CCFA88C5FB1DDF22E5FB97AA98801A305C51A3F39CFBFFC2717F0ABD",
+                      "Bytes":  142753,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-rusty-nail-player-golem-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:36.3189829Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-tetanized-arrow-wall-after.png",
+                      "SHA256":  "BED6DD2BCEAF924B39B2A71D5F09E124C4D39CCE5F93851383149368CA71C2E8",
+                      "Bytes":  126241,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-tetanized-arrow-wall-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:20.2676087Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-combat-vaccinated-player-block-after.png",
+                      "SHA256":  "362033CE5DA7C8BFE7D5FC2A6A2762134EE4DC5BC2EA5A5B0FE981790C41E79D",
+                      "Bytes":  100461,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-combat-vaccinated-player-block-after.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:32:11.6633227Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-trap-captive-after-reset.png",
+                      "SHA256":  "70C01708A7B2D89B1CC0CC2559DE73F6AB8E7CFC91F1F94FA998A81E9E863C1E",
+                      "Bytes":  332728,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-trap-captive-after-reset.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:30:59.3259993Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-trap-captive-blocking-jaws.png",
+                      "SHA256":  "87854ED84F09610330FB18564F5BE140B2FF595B14E6D5BA602E026908F16D04",
+                      "Bytes":  335812,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-trap-captive-blocking-jaws.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:30:59.1206091Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-trap-creative-bypass.png",
+                      "SHA256":  "6F1E23D8F27B2DC449C4896C85A5F7F77D52FEA25EE41BD44695B5383FCE96DC",
+                      "Bytes":  294589,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-trap-creative-bypass.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:01.3825256Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-trap-side-after-reset.png",
+                      "SHA256":  "BF160E8DE5D448E4FB9BF762A39925C3E8AE53B08EC62917C048F2245D81A2A6",
+                      "Bytes":  308818,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-trap-side-after-reset.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:00.5229682Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-trap-side-before-reset.png",
+                      "SHA256":  "D1568B02FD44E201EF7AD54AC0D746D08A834B3CE28A3F02CDE5B3E9ABB6A164",
+                      "Bytes":  327865,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-trap-side-before-reset.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:00.3318596Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-trap-top-after-reset.png",
+                      "SHA256":  "70D8B387CDFFD87BB8E7C494042BBF62D244CB331E5AD2C39C5A0EE1BF9248BE",
+                      "Bytes":  226760,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-trap-top-after-reset.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:30:58.1274746Z"
+                  },
+                  {
+                      "File":  "images/rust-and-ruin-plain-trap-top-before-reset.png",
+                      "SHA256":  "8EA780E0E5522251C397869F093FA31B33890E629924A41F4345971300A70F9B",
+                      "Bytes":  224107,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/screenshots/rust-and-ruin-plain-trap-top-before-reset.png",
+                      "SourceModifiedUtc":  "2026-10-25T15:30:57.9163215Z"
+                  },
+                  {
+                      "File":  "reports/graphical-combat-regressions-plain.json",
+                      "SHA256":  "7CF29C84B792586CA638248AEB22367194E60874D07B30A4F0833FD1FA21962A",
+                      "Bytes":  14021,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/graphical-combat-regressions-plain.json",
+                      "SourceModifiedUtc":  "2026-10-25T15:32:12.6723077Z"
+                  },
+                  {
+                      "File":  "reports/graphical-trap-regression-plain.json",
+                      "SHA256":  "838419749265C235F537A58BDB2BFA7010B879A463141B36D3F0937731EA2419",
+                      "Bytes":  1864,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/graphical-trap-regression-plain.json",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:01.3873741Z"
+                  },
+                  {
+                      "File":  "reports/graphical-trap-hold-samples-plain.json",
+                      "SHA256":  "EE9D29894EDEED669B31D9A7082DF1BE409A4063BA5450798D2E9A79D08C97A8",
+                      "Bytes":  57905,
+                      "Source":  ".tools/playtest-2026-10-25/interactions-pass/graphical-trap-hold-samples-plain.json",
+                      "SourceModifiedUtc":  "2026-10-25T15:31:01.3900858Z"
+                  },
+                  {
+                      "File":  "reports/graphical-camp-discovery-plain.json",
+                      "SHA256":  "46AE0729FAC76348D48C689C49227DD03606092100DA5B31401ED8816B30C45D",
+                      "Bytes":  3121,
+                      "Source":  ".tools/playtest-2026-10-25/camp-pass/graphical-camp-discovery-plain.json",
+                      "SourceModifiedUtc":  "2026-10-25T14:56:48.4585680Z"
+                  },
+                  {
+                      "File":  "reports/graphical-clinic-facing-plain.json",
+                      "SHA256":  "58E0A27D91BE971FB90F525DE346B1587778418ADD9BE8F1D00633FBA6450C7B",
+                      "Bytes":  3659,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/graphical-clinic-facing-plain.json",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:28.7711532Z"
+                  },
+                  {
+                      "File":  "reports/clinic-client-result.txt",
+                      "SHA256":  "8A5E195CE3955E183D29366A54B68F69A90B9F45BF4D846CE7D93A5B04D96D8C",
+                      "Bytes":  127,
+                      "Source":  ".tools/playtest-2026-10-25/clinic-pass/client-result.txt",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:28.7721550Z"
+                  },
+                  {
+                      "File":  "reports/graphical-clinic-final.log",
+                      "SHA256":  "018846051793DC4FD11BF1EE719BFCBC0BA40D7804B7FF81B7FC008E87B416BB",
+                      "Bytes":  26234,
+                      "Source":  ".tools/playtest-2026-10-25/graphical-clinic-final.log",
+                      "SourceModifiedUtc":  "2026-10-25T15:33:31.1981830Z"
+                  },
+                  {
+                      "File":  "reports/graphical-camp-second.log",
+                      "SHA256":  "663A6072735F249F7AE820ED39A491C1C1BC9A415492CE11DC13777385CA3C81",
+                      "Bytes":  32124,
+                      "Source":  ".tools/playtest-2026-10-25/graphical-camp-second.log",
+                      "SourceModifiedUtc":  "2026-10-25T14:56:51.7000988Z"
+                  },
+                  {
+                      "File":  "reports/graphical-interactions-final.log",
+                      "SHA256":  "DB1C007BF0A2314C0B484123A0E591F9F715603A825AC5E36F8F4AC158DC0082",
+                      "Bytes":  91636,
+                      "Source":  ".tools/playtest-2026-10-25/graphical-interactions-final.log",
+                      "SourceModifiedUtc":  "2026-10-25T15:32:14.6715525Z"
+                  }
+              ],
+    "PageSHA256":  "4078E9960D2484ADE308CC9FA719740ED2BBA5A059252602E75F5C4A06EA346C",
+    "GeneratorSHA256":  "CFC9D63CAEC90432C466F705BA515D6CFF04037C0C905F24B067CAA97A83DA45"
+}

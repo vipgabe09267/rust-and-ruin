@@ -17,7 +17,7 @@ try{
     $clinic=Json 'data/tetanusmod/worldgen/structure_set/medic_clinics.json'
     $tent=Json 'data/tetanusmod/worldgen/structure_set/medic_tents.json'
     if($clinic.placement.frequency-ne0.55-or$clinic.placement.spacing-ne34-or$clinic.placement.separation-ne8-or$clinic.placement.salt-ne10387312){throw 'Clinic no longer matches the 55% vanilla village grid'}
-    if($tent.placement.frequency-ne0.15-or$tent.placement.spacing-ne160-or$tent.placement.separation-ne128){throw 'Tent frequency or minimum spacing changed'}
+    if($tent.placement.frequency-ne1.0-or$tent.placement.spacing-ne160-or$tent.placement.separation-ne128){throw 'Tent candidate grid or minimum spacing changed; the native cave-site roll is tested separately'}
     foreach($type in @('plains','desert','savanna','snowy','taiga')){if(!$zip.GetEntry("data/tetanusmod/structures/village/${type}_clinic.nbt")){throw "Missing themed clinic: $type"}}
     if(!$zip.GetEntry('data/tetanusmod/structures/medic_tent.nbt')){throw 'Missing camp template'}
     foreach($biome in @('plains','desert','savanna','snow','taiga','swamp','jungle')){

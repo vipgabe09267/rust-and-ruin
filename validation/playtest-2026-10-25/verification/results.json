@@ -1,0 +1,111 @@
+{
+    "Result":  "PASS",
+    "Version":  "0.1.0-beta",
+    "VerifiedUTC":  "2026-10-25T15:44:33.8845631Z",
+    "Jar":  {
+                "Filename":  "rust-and-ruin-0.1.0-beta.jar",
+                "Bytes":  3341616,
+                "SHA256":  "E009BD1E5F88FAFD4E1253562D2F184D68BD3FD68E22DDE8FAAC5010351906D6",
+                "IdenticalAfterForcedRebuild":  true
+            },
+    "ServerRuns":  [
+                       {
+                           "File":  "server-fifth.xml",
+                           "Result":  "PASS",
+                           "Tests":  322,
+                           "Failures":  0,
+                           "Errors":  0,
+                           "Skipped":  0,
+                           "SHA256":  "9135AF972D7C98DFEB4569D7979E5ABA783BB5B604DD53D0526BE71C9C559AB6"
+                       },
+                       {
+                           "File":  "server-final-rebuild.xml",
+                           "Result":  "PASS",
+                           "Tests":  322,
+                           "Failures":  0,
+                           "Errors":  0,
+                           "Skipped":  0,
+                           "SHA256":  "9FD745827847E0D62D165A379D6CAE040E81441C8C6E6845EF783DF350C8FF53"
+                       }
+                   ],
+    "CurrentFullGraphicalRun":  {
+                                    "Profile":  "JEI",
+                                    "ActualVisibleClient":  true,
+                                    "StartedUTC":  "2026-10-25T15:34:34.5996324Z",
+                                    "FinishedUTC":  "2026-10-25T15:40:49.2356652Z",
+                                    "FreshScreenshots":  150,
+                                    "Recipes":  29,
+                                    "PotionForms":  15,
+                                    "WeatheringCleaningPairs":  9,
+                                    "ActiveAdvancements":  28,
+                                    "DirectCriterionGrants":  0,
+                                    "NativeDespawnTargets":  6,
+                                    "RetainedControls":  4
+                                },
+    "FocusedGraphicalChecks":  {
+                                   "Traps":  "Native Survival walking/jumping and three real reset clicks; Creative immunity",
+                                   "CombatScenes":  11,
+                                   "ExpectedInfectionVoices":  6,
+                                   "ObservedClientVoices":  6,
+                                   "MaximumTrapServerDisplacementBlocks":  0.0054851420058946686,
+                                   "MaximumTrapClientDisplacementBlocks":  0.0054851420058946686,
+                                   "ClinicThemes":  5,
+                                   "ClinicScreenshots":  10,
+                                   "NaturalCampSeed":  0,
+                                   "NaturalCampDistanceBlocks":  435,
+                                   "NaturalCampManualTemplatePlacements":  0,
+                                   "NaturalCampScreenshots":  8
+                               },
+    "ResourcesRegeneratedIdenticallyTwice":  375,
+    "WindowRecordings":  [
+                             {
+                                 "Profile":  "interactions-final",
+                                 "Filename":  "visible-interactions-final.mp4",
+                                 "LocalOnly":  true,
+                                 "DurationSeconds":  95.7,
+                                 "Bytes":  2112192,
+                                 "SHA256":  "DB6BBC519FDD68449C1DB252C30A8F6F9EDF1830A76968F36B44825C5D1FBF6D"
+                             },
+                             {
+                                 "Profile":  "clinic-final",
+                                 "Filename":  "visible-clinic-final.mp4",
+                                 "LocalOnly":  true,
+                                 "DurationSeconds":  34.3,
+                                 "Bytes":  821893,
+                                 "SHA256":  "5369A13D672C72273E63208A5053E145A06C547A9433447E10DA73D7B94C5658"
+                             },
+                             {
+                                 "Profile":  "camp-second",
+                                 "Filename":  "visible-camp-second.mp4",
+                                 "LocalOnly":  true,
+                                 "DurationSeconds":  38.3,
+                                 "Bytes":  914314,
+                                 "SHA256":  "7B14D444EDC7F89B72E3DC81B4A62B0BE13555A6528C6ADF9E6174CCB1FF8E3E"
+                             },
+                             {
+                                 "Profile":  "final-jei",
+                                 "Filename":  "visible-final-jei.mp4",
+                                 "LocalOnly":  true,
+                                 "DurationSeconds":  310.3,
+                                 "Bytes":  8713758,
+                                 "SHA256":  "90F762E377E7E860A5429C50F4F32A911FA26D206FA4258DD2F6B98BE75EE8B5"
+                             }
+                         ],
+    "ReviewScope":  "Changed production Java, resource generators, native regression fixtures and graphical controllers. Source/protocol and package checks; no new confirmed security vulnerability.",
+    "Limits":  [
+                   "Current follow-up uses one full JEI profile and focused plain clients. October 24 REI and other full-profile results remain historical, not reruns of this artifact.",
+                   "Native graphical development clients and dedicated GameTest server; no long-running remote multiplayer or whole-modpack stress test.",
+                   "Creative setup supplies fixtures and ingredients, never crafted results. Some advancement actions use native server gameplay methods. Native cooking and brewing waits are accelerated.",
+                   "Deterministic projectile conversion scenes force the rare roll; separate native configuration tests verify defaults and bounds.",
+                   "Cave generation requires suitable terrain in newly generated chunks; existing saved buildings and cabinet facing values are preserved."
+               ],
+    "CommitStatus":  "Owner authorized a local commit on October 25 while continuing playtesting; pushing remains deferred.",
+    "FileAudit":  {
+                      "Result":  "PASS",
+                      "Files":  1287,
+                      "Scope":  "Tracked files plus new nonignored project files; compiler/runtime checks run separately",
+                      "FullInventory":  "Local ignored .tools/playtest-2026-10-25/file-audit-final.json",
+                      "InventorySHA256":  "7AD9C1B542C28EA9E1E92671F6CCB8FAAC0829AD336E040AC5A832FB4FC0E76F",
+                      "Whitespace":  "PASS for source, assets and documentation; original console logs retain native whitespace"
+                  }
+}

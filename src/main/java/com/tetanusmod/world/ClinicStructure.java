@@ -16,6 +16,7 @@ import java.util.*;
 public final class ClinicStructure extends Structure {
     public static final Codec<ClinicStructure> CODEC=createCodec(ClinicStructure::new);
     private static final String[] TYPES={"plains","desert","savanna","snowy","taiga"};
+    private static final int[][] OFFSETS={{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
     public ClinicStructure(Config config){super(config);}
     @Override public StructureType<?> getType(){return MedicStructures.CLINIC;}
     @Override protected Optional<StructurePosition> getStructurePosition(Context context){
@@ -23,7 +24,6 @@ public final class ClinicStructure extends Structure {
         for(String type:TYPES){
             var village=structures.get(new Identifier("minecraft","village_"+type));
             if(village==null)continue;
-            // Reconstruct the deterministic village layout without reading or generating neighbor chunks.
             StructureStart parent=village.createStructureStart(context.dynamicRegistryManager(),context.chunkGenerator(),context.biomeSource(),
                     context.noiseConfig(),context.structureTemplateManager(),context.seed(),context.chunkPos(),0,context.world(),village.getValidBiomes()::contains);
             if(!parent.hasChildren())continue;
@@ -36,21 +36,30 @@ public final class ClinicStructure extends Structure {
     }
     private Optional<BlockPos> findSite(Context context,List<StructurePiece> pieces){
         var root=pieces.get(0).getBoundingBox().getCenter();
-        // Prefer a vacant plot close to existing paths, then try the village's outer edge.
         for(int radius:new int[]{24,36,48,64,80,96}){
-            for(int side=0;side<8;side++){
-                int[][] offsets={{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
-                int x=root.getX()+offsets[side][0]*radius-4,z=root.getZ()+offsets[side][1]*radius-6;
-                int y=context.chunkGenerator().getHeightOnGround(x+4,z+6,Heightmap.Type.WORLD_SURFACE_WG,context.world(),context.noiseConfig());
-                var pos=new BlockPos(x,y-1,z);var box=new BlockBox(x-1,y-1,z-1,x+9,y+11,z+13);
-                if(y<context.chunkGenerator().getSeaLevel()||StructurePiece.firstIntersecting(pieces,box)!=null)continue;
-                int corner=context.chunkGenerator().getHeightOnGround(x+8,z+12,Heightmap.Type.WORLD_SURFACE_WG,context.world(),context.noiseConfig());
-                if(Math.abs(corner-y)>4)continue;
-                var floor=context.chunkGenerator().getColumnSample(x+4,z+6,context.world(),context.noiseConfig()).getState(y-1);
-                if(!floor.getFluidState().isEmpty())continue;
+            for(var offset:OFFSETS){
+                int x=root.getX()+offset[0]*radius-4,z=root.getZ()+offset[1]*radius-6;
+                // Native heights are the first air block. The template has TWO floor
+                // layers: origin+1 is the walking surface block, origin+2 its top.
+                int entry=height(context,x+4,z);
+                if(entry<context.chunkGenerator().getSeaLevel())continue;
+                int min=entry,max=entry;boolean dry=true;
+                for(int dx:new int[]{1,4,7})for(int dz:new int[]{1,6,11}){
+                    int ground=height(context,x+dx,z+dz);min=Math.min(min,ground);max=Math.max(max,ground);
+                    var floor=context.chunkGenerator().getColumnSample(x+dx,z+dz,context.world(),context.noiseConfig()).getState(ground-1);
+                    if(!floor.getFluidState().isEmpty()||!floor.isSolidBlock(net.minecraft.world.EmptyBlockView.INSTANCE,new BlockPos(x+dx,ground-1,z+dz)))dry=false;
+                }
+                // Reject steep plots rather than leaving a tall, inaccessible plinth.
+                if(!dry||max-min>1)continue;
+                var pos=new BlockPos(x,entry-2,z);
+                var box=new BlockBox(x-1,pos.getY(),z-1,x+9,pos.getY()+10,z+13);
+                if(StructurePiece.firstIntersecting(pieces,box)!=null)continue;
                 return Optional.of(pos);
             }
         }
         return Optional.empty();
+    }
+    private static int height(Context context,int x,int z){
+        return context.chunkGenerator().getHeightOnGround(x,z,Heightmap.Type.WORLD_SURFACE_WG,context.world(),context.noiseConfig());
     }
 }

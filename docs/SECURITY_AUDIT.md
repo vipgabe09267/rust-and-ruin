@@ -1,6 +1,14 @@
 # Security and stability review
 
-Latest: [fresh full-project audit](REAUDIT_2026-10-23.md), covering all current executable code, reproduced gameplay defects and additional client-session hardening. The sections below preserve earlier review snapshots.
+Latest: [October 25 playtest fixes and verification](PLAYTEST_FIXES_2026-10-25.md), with [two 322-test runs, current full JEI and focused graphical checks](../validation/playtest-2026-10-25/verification/results.json). Earlier playtest and full-project audits remain dated snapshots.
+
+The latest review checked server-side reset permissions, native entity-interaction reach and line of sight, bounded captive lookup, exact captured UUID matching, and retained Creative/Spectator immunity. Infection audio scopes restore thread-local state in `finally` blocks and announce accepted new infections. Golem configuration is finite and bounded. Cave generation uses a bounded per-attempt column cache with no retained world state or forced chunk loads; native spacing and full fluid boundaries are tested. No additional confirmed security defect was found. Long-running remote-server and third-party advisory testing remain outside this review.
+
+The new medic-menu message accepts exactly two primitive bytes, validates the native menu ID and boolean, and binds metadata to the originating connection and the actual current merchant-screen object. It cannot transfer items or perform a server action. Native server trading, stock consumption, reputation and Hero discounts remain authoritative. Review also covered trap capture state and teleport bounds, saved delivery clocks, legacy persistence, and medicine consumption.
+
+The tested release contains no development/test classes or embedded recipe-viewer implementations. All source resources match the JAR; duplicate entries, unsafe paths and altered resources were rejected in three deliberate archive tests. The final evidence records the exact artifact hash. No additional confirmed security vulnerability was found in the changed code. This pass covers source/protocol/package checks; third-party advisory scanning and remote-server penetration/stress testing are separate work.
+
+The sections below preserve earlier review snapshots.
 
 Review scope: Rust & Ruin 0.1.0-beta expansion on Minecraft 1.20.1 Fabric. Automated checks support the findings below; this is not a claim that every possible mod combination or gameplay sequence is bug-free.
 

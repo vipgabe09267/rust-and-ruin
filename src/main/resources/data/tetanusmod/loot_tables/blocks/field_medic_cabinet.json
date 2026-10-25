@@ -1,0 +1,26 @@
+{
+    "pools":  [
+                  {
+                      "entries":  [
+                                      {
+                                          "name":  "tetanusmod:medic_cabinet",
+                                          "type":  "minecraft:item"
+                                      }
+                                  ],
+                      "rolls":  1,
+                      "conditions":  [
+                                         {
+                                             "condition":  "minecraft:survives_explosion"
+                                         },
+                                         {
+                                             "properties":  {
+                                                                "half":  "lower"
+                                                            },
+                                             "condition":  "minecraft:block_state_property",
+                                             "block":  "tetanusmod:field_medic_cabinet"
+                                         }
+                                     ]
+                  }
+              ],
+    "type":  "minecraft:block"
+}

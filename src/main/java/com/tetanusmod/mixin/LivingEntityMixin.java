@@ -74,17 +74,17 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
     @Inject(method = "onStatusEffectApplied", at = @At("TAIL"))
     private void tetanus$infectionAudio(net.minecraft.entity.effect.StatusEffectInstance effect,
             net.minecraft.entity.Entity source, CallbackInfo ci) {
-        tetanus$playInfectionAudio(effect);
+        tetanus$playInfectionAudio(effect,true);
     }
 
     @Inject(method = "onStatusEffectUpgraded", at = @At("TAIL"))
     private void tetanus$refreshedAudio(net.minecraft.entity.effect.StatusEffectInstance effect,
             boolean reapplyEffect, net.minecraft.entity.Entity source, CallbackInfo ci) {
-        if (reapplyEffect) tetanus$playInfectionAudio(effect);
+        if (reapplyEffect) tetanus$playInfectionAudio(effect,false);
     }
 
     @Unique
-    private void tetanus$playInfectionAudio(net.minecraft.entity.effect.StatusEffectInstance effect) {
+    private void tetanus$playInfectionAudio(net.minecraft.entity.effect.StatusEffectInstance effect,boolean announce) {
         if (effect.getEffectType() != TetanusMod.TETANUS) return;
         if (!((LivingEntity) (Object) this).getWorld().isClient) {
             tetanus$elapsed = tetanus$lockjaw = tetanus$freeze = 0;
@@ -92,7 +92,7 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
             tetanus$lockjawWindow = effect.getDuration()>0&&effect.getDuration()<6000?Math.max(20,effect.getDuration()/3):(120 + ((LivingEntity)(Object)this).getRandom().nextInt(121)) * 20;
         }
         LivingEntity self=(LivingEntity)(Object)this;
-        if (!self.getWorld().isClient && rustruin$lastAudioTick != self.getWorld().getTime()) {
+        if (announce && !self.getWorld().isClient && rustruin$lastAudioTick != self.getWorld().getTime()) {
             rustruin$lastAudioTick=self.getWorld().getTime();
             com.tetanusmod.effect.Infection.playSound(self);
         }

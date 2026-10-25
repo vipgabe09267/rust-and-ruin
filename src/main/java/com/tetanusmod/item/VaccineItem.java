@@ -23,6 +23,7 @@ public final class VaccineItem extends DescribedItem {
         if(stack.isEmpty()||!stack.isOf(this)||!user.isAlive()||user.isSpectator())return stack;
         MedicineConsumption.record(user,stack);
         user.addStatusEffect(new StatusEffectInstance(TetanusMod.VACCINATED,TetanusMod.CONFIG.vaccineDurationSeconds*20));
+        com.tetanusmod.registry.ModAdvancements.vaccinated(user);
         if(user instanceof PlayerEntity player&&player.getAbilities().creativeMode)return stack;
         stack.decrement(1);var bottle=new ItemStack(Items.GLASS_BOTTLE);
         if(stack.isEmpty())return bottle;

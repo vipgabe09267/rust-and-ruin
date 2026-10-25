@@ -1,0 +1,10 @@
+{
+    "Result":  "PASS",
+    "Jar":  "C:\\Users\\gwilliamscrypto\\Documents\\Rust \u0026 Ruin\\build\\libs\\rust-and-ruin-0.1.0-beta.jar",
+    "Bytes":  3335809,
+    "SHA256":  "C87F9F9DBEE462B889702D92B13B2082C1C62324649A4C46F3BDF103C61A76E4",
+    "OfficialWrapperSHA256":  "AD16BCA46CB71BB5887C546860D93992AEEE35C1FDAF4A242B0A612375D937E0",
+    "Pngs":  81,
+    "MandatoryMods":  "Fabric API",
+    "DevelopmentCodeBundled":  false
+}

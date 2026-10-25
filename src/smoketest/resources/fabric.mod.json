@@ -11,5 +11,8 @@
                     },
     "depends":  {
                     "tetanusmod":  "*"
-                }
+                },
+    "mixins":  [
+                   "rustruin-glove-probe.mixins.json"
+               ]
 }

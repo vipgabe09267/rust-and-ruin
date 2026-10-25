@@ -31,6 +31,9 @@ public final class MobVariants {
         return entity instanceof MobEntity && !(entity instanceof WitherEntity);
     }
     public static boolean eligibleRoll(LivingEntity target, float roll) {
+        // A zero general mob chance also disables the dedicated golem contact roll.
+        if(target instanceof net.minecraft.entity.passive.IronGolemEntity)
+            return TetanusMod.CONFIG.mobConversionChance>0&&roll<TetanusMod.CONFIG.golemConversionChance;
         return isAnimal(target) ? roll < TetanusMod.CONFIG.animalConversionChance
                 : susceptible(target) && roll < TetanusMod.CONFIG.mobConversionChance;
     }
@@ -38,7 +41,7 @@ public final class MobVariants {
     public static void projectileExposure(LivingEntity target, net.minecraft.entity.Entity source) {
         if (!target.getWorld().isClient && target.isAlive() && !permanent(target) && !com.tetanusmod.expansion.Rabies.rabid(target) && eligibleRoll(target, target.getRandom().nextFloat())) {
             makePermanent(target);
-            if(source instanceof net.minecraft.server.network.ServerPlayerEntity player)com.tetanusmod.registry.ModAdvancements.award(player,"tetanized_mob","convert_mob");
+            if(source instanceof net.minecraft.server.network.ServerPlayerEntity player)com.tetanusmod.registry.ModAdvancements.converted(player,target);
         }
     }
     public static void loaded(LivingEntity entity) {
@@ -62,7 +65,7 @@ public final class MobVariants {
         applyAttributes(entity, true);
         if (entity instanceof WitherEntity wither) {
             wither.setCustomName(Text.translatable("entity.tetanusmod.tetanized_wither"));
-            Infection.playSound(entity);
+            entity.getWorld().playSound(null,entity.getBlockPos(),net.minecraft.sound.SoundEvents.ENTITY_WITHER_AMBIENT,entity.getSoundCategory(),1.0F,0.65F);
         } else {
             entity.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, -1));
         }

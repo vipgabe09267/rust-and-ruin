@@ -19,7 +19,7 @@ public abstract class SoundProbeMixin {
     private void record(PlayerEntity except, double x, double y, double z,
             RegistryEntry<SoundEvent> event, SoundCategory category, float volume,
             float pitch, long seed, CallbackInfo ci) {
-        if (SoundProbe.enabled && event.value() == TetanusMod.INFECTION_SOUND) {
+        if (event.value() == TetanusMod.INFECTION_SOUND && SoundProbe.accepts((ServerWorld)(Object)this,x,y,z)) {
             SoundProbe.count++;
             SoundProbe.position = new Vec3d(x, y, z);
         }

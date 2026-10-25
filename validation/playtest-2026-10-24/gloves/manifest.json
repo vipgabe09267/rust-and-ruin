@@ -1,0 +1,280 @@
+{
+    "Scope":  "Opaque vanilla skin sleeve visibility, eight static views per build; not the full release matrix",
+    "Status":  "PASS: all eight after wearing views independently inspected with complete visible fitted gloves",
+    "Method":  "Actual Minecraft client; native Night Vision lighting fixture; test-only fully opaque blue outer sleeve; native PNG framebuffer captures",
+    "NativePNGs":  32,
+    "AfterBaselinesWithZeroBrownPixels":  8,
+    "AfterWearingViewsWithVisibleBrownPixels":  8,
+    "ProductionRendererSHA256":  "D5764EF3AAC7C0D6F58BBBEC77CB9D5B2B8217CF4DF2653A1375137C0645D030",
+    "BeforeFixtureSkinSHA256":  "D26E7CA04CE464E6410C16FB050623A99C9BB94A1B5341373D3E190EB5D74D1F",
+    "AfterFixtureSkinSHA256":  "D26E7CA04CE464E6410C16FB050623A99C9BB94A1B5341373D3E190EB5D74D1F",
+    "Files":  [
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-wide-first-right-baseline.png",
+                      "SHA256":  "4C6F6941C2ADA958D63FE4E71ECB3BE10F652FBBEF67BE975EEA47C1769F82A3",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-wide-first-right-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:31.3459630Z",
+                      "Bytes":  312645
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-wide-first-right-gloves.png",
+                      "SHA256":  "31D7555CC53501AA6546DD49F6AF623CD6E93CBCF603548888FFF3CCFF089015",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-wide-first-right-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:32.2868704Z",
+                      "Bytes":  313228
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-wide-first-left-baseline.png",
+                      "SHA256":  "4045D335DBE56E6B24A89E0EDC6C92C1DE43CB7E2AE128C610EAAF8BF4806E98",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-wide-first-left-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:33.1345856Z",
+                      "Bytes":  317413
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-wide-first-left-gloves.png",
+                      "SHA256":  "AC5B425CC0BBF78A1763B10691D8FC1C9D3389D8998B8C0844B380CAFD555D01",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-wide-first-left-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:33.9916621Z",
+                      "Bytes":  317559
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-wide-third-front-baseline.png",
+                      "SHA256":  "9B6CD1CD4FC1F5F5B8A2A764AEA4AF1A5F69CFBF552322945350BFA9CDAD2F67",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-wide-third-front-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:34.8549627Z",
+                      "Bytes":  341773
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-wide-third-front-gloves.png",
+                      "SHA256":  "FD9ACE5A19E7931FBAEDB8F5146B72017A48E23F0E6673F096418448DD40FBE4",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-wide-third-front-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:35.7474346Z",
+                      "Bytes":  341373
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-wide-third-back-baseline.png",
+                      "SHA256":  "1C3871257342B9DE0798E4E5571A5A1527D850E37C62B1E018BB209AD4F67B8D",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-wide-third-back-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:36.6336060Z",
+                      "Bytes":  344140
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-wide-third-back-gloves.png",
+                      "SHA256":  "6039C444F8DCC2DEDEF87BF3850B9431064BB4A62C9BC7DC1D6B899F8B8A261A",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-wide-third-back-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:37.4866268Z",
+                      "Bytes":  345621
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-slim-first-right-baseline.png",
+                      "SHA256":  "2131C568628CB635FFB62A387AF419CE69D08FCA5AF19C99BFC8A4DC0BF03247",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-slim-first-right-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:38.3318577Z",
+                      "Bytes":  317554
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-slim-first-right-gloves.png",
+                      "SHA256":  "EF8AE99492CEAF253E506D43E9EBFFDFAC9B6489DFA307CCCBCA6B36D591AD68",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-slim-first-right-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:39.1819626Z",
+                      "Bytes":  319385
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-slim-first-left-baseline.png",
+                      "SHA256":  "DEBD837CAF3713AB4A0C53A3014A6204F878A8A66A007C0A60931D4B2C29FAF1",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-slim-first-left-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:40.0354351Z",
+                      "Bytes":  320179
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-slim-first-left-gloves.png",
+                      "SHA256":  "1DE59894A6B73622229D492DCAE7EA59538FFD94D5E8C37A6E4DCA2830ECE21C",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-slim-first-left-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:40.8847968Z",
+                      "Bytes":  318399
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-slim-third-front-baseline.png",
+                      "SHA256":  "1108669AAEA8281705FCEC79F9B8B7491EF81547E84F96854F737738D3A37D15",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-slim-third-front-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:41.7367158Z",
+                      "Bytes":  345035
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-slim-third-front-gloves.png",
+                      "SHA256":  "2C7FF0E43A0C49A602C2C31DDCAC35E870AEFE6D06C38F0D82899D59DF81628C",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-slim-third-front-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:42.5832794Z",
+                      "Bytes":  345400
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-slim-third-back-baseline.png",
+                      "SHA256":  "22C10D927379E352E1E19E5747456802AED080DA52B286DE7AE3E55FE28144FB",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-slim-third-back-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:43.4334505Z",
+                      "Bytes":  346313
+                  },
+                  {
+                      "Path":  "before/rust-and-ruin-glove-probe-slim-third-back-gloves.png",
+                      "SHA256":  "B4E000D1B80D9F740512A874133365F3E79B5FD722661743742C92016E2390D1",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/rust-and-ruin-glove-probe-slim-third-back-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:44.2867826Z",
+                      "Bytes":  346472
+                  },
+                  {
+                      "Path":  "before-results.csv",
+                      "SHA256":  "105EAD150E8F9CB5A320A64E3A9225ADF37843B4BFD5C8E49C5F318B7A51F026",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/glove-probe-results.csv",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:44.3165048Z",
+                      "Bytes":  1175
+                  },
+                  {
+                      "Path":  "before-archive-manifest.json",
+                      "SHA256":  "AC4D769E4D6B0A7E7A5C2BE96417C253519E2E56E2F48444B16037650A22A509",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-before/manifest.json",
+                      "SourceModifiedUtc":  "2026-10-25T00:05:31.1544813Z",
+                      "Bytes":  5766
+                  },
+                  {
+                      "Path":  "before-native-client.log",
+                      "SHA256":  "1F084F9C43B97A9C41F848D393C03E24FBAEADDC74BEDD3D0A490198567F943A",
+                      "Source":  ".tools/playtest-2026-10-24/graphical-glove-nv-before.log",
+                      "SourceModifiedUtc":  "2026-10-25T00:04:46.4387929Z",
+                      "Bytes":  31194
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-wide-first-right-baseline.png",
+                      "SHA256":  "8441BA4736CCF063824CAF00170E7248A039C4EDC4CDDFFFFC5B18D299425846",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-wide-first-right-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:22.6657257Z",
+                      "Bytes":  313221
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-wide-first-right-gloves.png",
+                      "SHA256":  "3EC54E58B4C28ED411A89DB763657B8F194019A58574F2A34265DC2C984EF39E",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-wide-first-right-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:23.5958831Z",
+                      "Bytes":  324321
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-wide-first-left-baseline.png",
+                      "SHA256":  "79A676EC6A3B0C588CE918F5C42261CD31831630D155C444F823819641719A2C",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-wide-first-left-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:24.4500281Z",
+                      "Bytes":  316972
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-wide-first-left-gloves.png",
+                      "SHA256":  "DFFF728CC520EA099AA160C7228535F657271DBE081BCE324ECD89576A1B19C4",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-wide-first-left-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:25.3612966Z",
+                      "Bytes":  324728
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-wide-third-front-baseline.png",
+                      "SHA256":  "63FF5C9E448163F220D53B6086A648945DCB930C29502B615E5E8BAFD0A16CE6",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-wide-third-front-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:26.2628001Z",
+                      "Bytes":  342237
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-wide-third-front-gloves.png",
+                      "SHA256":  "8C1DBB6426A7FC38B9A12829ED02C516A5F084585558D4E9F816CB0989689F69",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-wide-third-front-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:27.1650452Z",
+                      "Bytes":  341903
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-wide-third-back-baseline.png",
+                      "SHA256":  "70A0F2A21CE2B42DC1144A8326C96C5C4BEA443ED3E9E7145EE9FCE1275D37B5",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-wide-third-back-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:28.0578905Z",
+                      "Bytes":  344809
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-wide-third-back-gloves.png",
+                      "SHA256":  "460BFA66E3B4F16BCA24F2DCA304BAEFDA9B4C813E159E63635F95343CE519D2",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-wide-third-back-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:28.9585661Z",
+                      "Bytes":  347407
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-slim-first-right-baseline.png",
+                      "SHA256":  "C2560F2799D03F3838BBE641F549D7A81852978749CCB17F88850B607D732C24",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-slim-first-right-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:29.8489786Z",
+                      "Bytes":  317847
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-slim-first-right-gloves.png",
+                      "SHA256":  "22B68ADAA1ABA74CC434B120DF26340CE6B3E4A0CCCF40215BD49CF796E72068",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-slim-first-right-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:30.7565466Z",
+                      "Bytes":  327333
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-slim-first-left-baseline.png",
+                      "SHA256":  "68A06794F0B2DEACD59FA74086EBCE7B8F6922177DB223002EDEE56AD2A44F20",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-slim-first-left-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:31.6526078Z",
+                      "Bytes":  319599
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-slim-first-left-gloves.png",
+                      "SHA256":  "213D40995BD71F7B616425153A0EAE5B38E8AD9C36225B8CE04C9F01859F35B3",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-slim-first-left-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:32.5534949Z",
+                      "Bytes":  326921
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-slim-third-front-baseline.png",
+                      "SHA256":  "B5EC835D86BC097917AF7F7C9F371D2DD12FCA3CE4F631F6A3C95CD5608FA6A0",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-slim-third-front-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:33.4626905Z",
+                      "Bytes":  346229
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-slim-third-front-gloves.png",
+                      "SHA256":  "E8CEC1A294C4A73BFD072FEED7EFE70253F2FF9584356BF13F25E8A2C9E537CD",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-slim-third-front-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:34.3574915Z",
+                      "Bytes":  346181
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-slim-third-back-baseline.png",
+                      "SHA256":  "52132F46E3882B7097D6F68B7C9E094638E32C8E5FBBE322FA9EBFEBFC988EA6",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-slim-third-back-baseline.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:35.2588687Z",
+                      "Bytes":  345834
+                  },
+                  {
+                      "Path":  "after/rust-and-ruin-glove-probe-slim-third-back-gloves.png",
+                      "SHA256":  "139AC9DCC2028337FA007A860C99BC8722105048A84BD87393F71A24448A5ECD",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/rust-and-ruin-glove-probe-slim-third-back-gloves.png",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:36.1505726Z",
+                      "Bytes":  347131
+                  },
+                  {
+                      "Path":  "after-results.csv",
+                      "SHA256":  "B024F9A640857748EBB3F0B3A6D366A405E5126676AE6F449D6D40A108E77DA4",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/glove-probe-results.csv",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:36.1894932Z",
+                      "Bytes":  1190
+                  },
+                  {
+                      "Path":  "after-archive-manifest.json",
+                      "SHA256":  "DBD26738662601D1B8FA8991CF341727FA38840B8DB63E0D2BAEBBF7F6DE5FE8",
+                      "Source":  ".tools/playtest-2026-10-24/glove-probe-lit-after/manifest.json",
+                      "SourceModifiedUtc":  "2026-10-25T00:09:50.8789782Z",
+                      "Bytes":  5764
+                  },
+                  {
+                      "Path":  "after-native-client.log",
+                      "SHA256":  "A72C8CA7FE46B1CD0ECC328BF3EFEA873A47D15CB587102F4102ABDA75389590",
+                      "Source":  ".tools/playtest-2026-10-24/graphical-glove-nv-after.log",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:38.3060141Z",
+                      "Bytes":  31034
+                  }
+              ],
+    "HTMLSHA256":  "4596A249B9FF4184DAAFEFC45CA07DA58D94EA4E4964F31FF218D80A8200D6D3"
+}

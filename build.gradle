@@ -65,9 +65,10 @@ loom {
         clientSmoke {
             client()
             name 'Rust & Ruin Client Smoke Test'
+            vmArg '-Drustruin.graphicalFocus=' + providers.gradleProperty('graphicalFocus').getOrElse('')
             source sourceSets.smoketest
             runDir 'build/client-smoke'
-            programArgs '--quickPlaySingleplayer','smoke-world-final','--width','960','--height','540'
+            programArgs '--quickPlaySingleplayer',providers.gradleProperty('smokeWorld').getOrElse('smoke-world-final'),'--width','960','--height','540'
         }
         gameTest {
             server()

@@ -24,7 +24,7 @@ $more=@{
 'effect.tetanusmod.lockjaw'='Lockjaw Sonata';'message.tetanusmod.lockjaw'='Lockjaw Sonata: you cannot eat.';
 'item.tetanusmod.cow_manure'='Cow Manure';'item.tetanusmod.tetanized_wither_star'='Tetanized Wither Star';'item.tetanusmod.rusty_hookline'='Rusty Hookline';
 'block.tetanusmod.tetanized_beacon'='Tetanized Beacon';
-'advancements.tetanusmod.rusty_guardian.title'='Rusty Guardian';'advancements.tetanusmod.rusty_guardian.description'='Tetanize an iron golem with Rust. It now has 200 health.';
+'advancements.tetanusmod.rusty_guardian.title'='Tetanized Guardian';'advancements.tetanusmod.rusty_guardian.description'='Permanently tetanize an iron golem. It now has 200 health.';
 'advancements.tetanusmod.why_did_i_eat_that.title'='Why did I eat that?';'advancements.tetanusmod.why_did_i_eat_that.description'='Contract Salmonella. That was a decision.';
 'advancements.tetanusmod.strange_meat.title'='Strange Meat';'advancements.tetanusmod.strange_meat.description'='Collect infected meat from an infected animal.';
 'advancements.tetanusmod.tetanized_mob.title'='Tetanized Mob';'advancements.tetanusmod.tetanized_mob.description'='Permanently tetanize a mob through a rusty attack.';

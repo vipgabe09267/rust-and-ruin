@@ -1,0 +1,63 @@
+{
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "ManualNativeTemplatePlacements": 5,
+  "NaturalWorldgenClaims": 0,
+  "IndependentOfNaturalMedicCampReport": true,
+  "Camera": "Native Spectator camera with actual Night Vision, to inspect furniture without bed collision",
+  "TemplateEntitiesIgnored": true,
+  "ExpectedCabinetFacing": "west, into the aisle",
+  "OriginalPlayerModePhysicsAndBlocksRestored": true,
+  "Themes": [
+    {
+      "Theme": "plains",
+      "NativeTemplate": "tetanusmod:village/plains_clinic",
+      "CabinetLower": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dlower,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "CabinetUpper": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dupper,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "FrontAisleFree": true,
+      "BackAgainstWall": true,
+      "InteriorPNG": "rust-and-ruin-plain-clinic-facing-plains-interior.png",
+      "CabinetFrontPNG": "rust-and-ruin-plain-clinic-facing-plains-cabinet-front.png"
+    },
+    {
+      "Theme": "desert",
+      "NativeTemplate": "tetanusmod:village/desert_clinic",
+      "CabinetLower": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dlower,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "CabinetUpper": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dupper,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "FrontAisleFree": true,
+      "BackAgainstWall": true,
+      "InteriorPNG": "rust-and-ruin-plain-clinic-facing-desert-interior.png",
+      "CabinetFrontPNG": "rust-and-ruin-plain-clinic-facing-desert-cabinet-front.png"
+    },
+    {
+      "Theme": "savanna",
+      "NativeTemplate": "tetanusmod:village/savanna_clinic",
+      "CabinetLower": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dlower,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "CabinetUpper": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dupper,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "FrontAisleFree": true,
+      "BackAgainstWall": true,
+      "InteriorPNG": "rust-and-ruin-plain-clinic-facing-savanna-interior.png",
+      "CabinetFrontPNG": "rust-and-ruin-plain-clinic-facing-savanna-cabinet-front.png"
+    },
+    {
+      "Theme": "snowy",
+      "NativeTemplate": "tetanusmod:village/snowy_clinic",
+      "CabinetLower": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dlower,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "CabinetUpper": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dupper,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "FrontAisleFree": true,
+      "BackAgainstWall": true,
+      "InteriorPNG": "rust-and-ruin-plain-clinic-facing-snowy-interior.png",
+      "CabinetFrontPNG": "rust-and-ruin-plain-clinic-facing-snowy-cabinet-front.png"
+    },
+    {
+      "Theme": "taiga",
+      "NativeTemplate": "tetanusmod:village/taiga_clinic",
+      "CabinetLower": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dlower,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "CabinetUpper": "Block{tetanusmod:medic_cabinet}[complete\u003dtrue,facing\u003dwest,half\u003dupper,hinge\u003dleft,open\u003dfalse,powered\u003dfalse]",
+      "FrontAisleFree": true,
+      "BackAgainstWall": true,
+      "InteriorPNG": "rust-and-ruin-plain-clinic-facing-taiga-interior.png",
+      "CabinetFrontPNG": "rust-and-ruin-plain-clinic-facing-taiga-cabinet-front.png"
+    }
+  ]
+}

@@ -34,7 +34,7 @@ public final class FieldGuideScreen extends Screen {
                     percent(cfg.animalConversionChance),percent(cfg.mobConversionChance),
                     percent(cfg.naturalAnimalEasy),percent(cfg.naturalAnimalNormal),percent(cfg.naturalAnimalHard),
                     percent(cfg.naturalMobEasy),percent(cfg.naturalMobNormal),percent(cfg.naturalMobHard),
-                    percent(cfg.spawnerEasy),percent(cfg.spawnerNormal),percent(cfg.spawnerHard));
+                    percent(cfg.spawnerEasy),percent(cfg.spawnerNormal),percent(cfg.spawnerHard),percent(cfg.mobConversionChance>0?cfg.golemConversionChance:0));
             default->Text.translatable("guide.tetanusmod."+CHAPTERS[chapter]+".body");
         };
     }

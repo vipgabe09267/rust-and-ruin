@@ -1,0 +1,14 @@
+{
+    "required":  true,
+    "package":  "com.tetanusmod.test.mixin",
+    "compatibilityLevel":  "JAVA_17",
+    "client":  [
+                   "GloveProbeSkinMixin",
+                   "GloveProbeSleevesMixin",
+                   "InfectionAudioClientProbeMixin",
+                   "CampCommandFeedbackProbeMixin"
+               ],
+    "injectors":  {
+                      "defaultRequire":  1
+                  }
+}

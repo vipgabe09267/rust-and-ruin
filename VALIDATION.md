@@ -1,3 +1,28 @@
+# Current graphical verification - October 25, 2026
+
+The latest follow-up passed **two complete 322-test server runs**, including a forced rebuild that produced the same JAR. An actual visible JEI client crafted all **29 recipes**, brewed **15 potion forms**, acquired and cleaned **nine rusting pairs**, and earned all **28 active advancements**. Native distance-based despawning removed six unnamed hostile variants while retaining the named mob and three livestock controls. The full run produced **150 fresh screenshots**; the [gallery](validation/playtest-2026-10-25/index.html) includes 134 original frames and 105 check receipts.
+
+Focused visible clients verified Survival walking/jumping restraint, top/side/captive-body reset clicks and Creative immunity; 11 real projectile scenes produced exactly six expected infection voice events; five clinic themes now face the cabinet into the aisle. A fresh normal seed-0 Overworld generated a real cave camp 435 blocks from spawn, with its medic, friendly 200-HP defender, cabinet POI and working loot chest. No camp structure, POI or residents were inserted manually in that discovery test. See the [focused evidence](validation/playtest-2026-10-25/focused/index.html), [findings and methods](docs/PLAYTEST_FIXES_2026-10-25.md), and [final verification records](validation/playtest-2026-10-25/verification/results.json).
+
+All **375 resources regenerated identically twice**. Release/source agreement, official Gradle checksums, dependency declarations, three malformed-package controls and full source/packaged infection-audio decoding passed. JAR SHA-256: `E009BD1E5F88FAFD4E1253562D2F184D68BD3FD68E22DDE8FAAC5010351906D6` (3,341,616 bytes).
+
+Version remains **0.1.0-beta**. The owner authorized a local commit on October 25 while continuing playtesting; pushing remains deferred. Cave/clinic generation fixes need newly generated terrain; existing cabinet orientations remain saved until replaced. Current graphical coverage is one full JEI run plus focused plain clients. The October 24 four-profile/REI results below remain historical. These development-client and GameTest checks do not establish complete bug freedom or long-running remote multiplayer/modpack stability.
+
+The dated snapshots below preserve earlier results and counts.
+# Current graphical verification - October 24, 2026
+
+The October 24 playtest fixes passed **two final 303-test server runs**, with the same JAR produced by both forced rebuilds. Four actual Minecraft clients were opened visibly on the owner's desktop: no recipe viewer, JEI, REI Light and REI Dark. Each client crafted all **29 recipes**, brewed all **15 potion forms**, acquired and brushed all **nine weathering pairs**, and earned all **28 active advancements**. The returning-nail death and native client completion frames were included; the journey does not grant criteria directly.
+
+Native automatic despawning was tested at 160 blocks while chunks remained loaded and entity-ticking: six unnamed infected hostile variants disappeared with native removal reason DISCARDED. The named zombie and three livestock controls remained. Livestock keep their normal vanilla rules.
+
+A separate opaque-sleeve graphical comparison reproduced a glove visibility defect and verified its correction in all eight standard/slim, left/right, first/third-person views. There are **595 fresh full-profile captures**, plus **32 original glove A/B captures**. The [interactive gallery](validation/playtest-2026-10-24/index.html), [glove comparison](validation/playtest-2026-10-24/gloves/index.html), [findings and methods](docs/PLAYTEST_FIXES_2026-10-24.md), and [final run records](validation/playtest-2026-10-24/verification/results.json) distinguish gameplay fixes from test-fixture repairs and document Creative setup and accelerated native waits.
+
+All **375 resources regenerated identically twice**. Release/source agreement, official Gradle checksums, malformed archive rejections, audio decoding, native recipe-viewer integration, and original REI configuration restoration passed. Final JAR SHA-256: `C87F9F9DBEE462B889702D92B13B2082C1C62324649A4C46F3BDF103C61A76E4`.
+
+Version remains **0.1.0-beta**. These follow-up changes are uncommitted for owner testing. Clinic floor changes apply to newly generated buildings. The checks cover native development clients and a dedicated GameTest server; long-running remote multiplayer and whole-modpack stress testing remain outside this pass.
+
+The dated snapshots below preserve earlier results and counts.
+
 # Current full reaudit - October 23, 2026
 
 A fresh manual review covered **193 executable files and 10,632 lines**. It reproduced and fixed **17 defects**, including pack-animal cargo loss, End-return disease loss, trap contact errors, cabinet pathfinding, glove synchronization/animation, and native Wither ritual incompatibilities. The [complete findings](docs/REAUDIT_2026-10-23.md) link to before-fix evidence and the [per-file review manifest](validation/reaudit-2026-10-23/line-review.json).

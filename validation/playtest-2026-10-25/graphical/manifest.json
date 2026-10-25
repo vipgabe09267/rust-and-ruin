@@ -1,0 +1,2340 @@
+{
+    "Result":  "PASS",
+    "Scope":  "Final full JEI graphical run; original native PNGs",
+    "StartedUTC":  "2026-10-25T15:34:34.5996324Z",
+    "GeneratedUTC":  "2026-10-25T15:40:54.1097257Z",
+    "StartMarkerSHA256":  "790CE0089FEF1A451CE88199FBAE4A54963C6911384C7AED0FB44CA89B29ADD9",
+    "SourceSnapshotScreenshots":  150,
+    "IncludedOriginalScreenshots":  134,
+    "Recipes":  29,
+    "CookingVariants":  6,
+    "PotionForms":  15,
+    "WeatheringPairs":  9,
+    "ActiveAdvancements":  28,
+    "VisibleAdvancementNodes":  27,
+    "RecipeBookRewards":  1,
+    "RetiredAdvancement":  "variant_egg",
+    "NativeDespawnTargets":  6,
+    "RetainedControls":  4,
+    "NativeAutomaticTickOnly":  true,
+    "PageSHA256":  "A5E082D3A2AA99F8F1A870AE1C8C78B15E657D9EEC1082D14FFA7E3B5DEE919B",
+    "GeneratorSHA256":  "2980AB29ED3484C0791BB565BF42870ADFC52371528E19E0EF9A446E31612B26",
+    "Proofs":  [
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:barbed_wire",
+                       "Title":  "barbed wire",
+                       "Description":  "Native TABLE; output count 2. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-barbed_wire-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-barbed_wire-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:bear_trap",
+                       "Title":  "bear trap",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-bear_trap-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-bear_trap-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:bent_nail",
+                       "Title":  "bent nail",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-bent_nail-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-bent_nail-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:caltrops",
+                       "Title":  "caltrops",
+                       "Description":  "Native TABLE; output count 4. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-caltrops-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-caltrops-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:cooked_infected_meat_campfire_cooking",
+                       "Title":  "cooked infected meat campfire cooking",
+                       "Description":  "Native CAMPFIRE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_infected_meat_campfire_cooking-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_infected_meat_campfire_cooking-cooked.png",
+                                          "Stage":  "Native cooked output"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_infected_meat_campfire_cooking-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:cooked_infected_meat_smelting",
+                       "Title":  "cooked infected meat smelting",
+                       "Description":  "Native FURNACE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_infected_meat_smelting-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_infected_meat_smelting-cooked.png",
+                                          "Stage":  "Native cooked output"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_infected_meat_smelting-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:cooked_infected_meat_smoking",
+                       "Title":  "cooked infected meat smoking",
+                       "Description":  "Native SMOKER; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_infected_meat_smoking-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_infected_meat_smoking-cooked.png",
+                                          "Stage":  "Native cooked output"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_infected_meat_smoking-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:cooked_rabid_meat_campfire_cooking",
+                       "Title":  "cooked rabid meat campfire cooking",
+                       "Description":  "Native CAMPFIRE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_rabid_meat_campfire_cooking-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_rabid_meat_campfire_cooking-cooked.png",
+                                          "Stage":  "Native cooked output"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_rabid_meat_campfire_cooking-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:cooked_rabid_meat_smelting",
+                       "Title":  "cooked rabid meat smelting",
+                       "Description":  "Native FURNACE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_rabid_meat_smelting-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_rabid_meat_smelting-cooked.png",
+                                          "Stage":  "Native cooked output"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_rabid_meat_smelting-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:cooked_rabid_meat_smoking",
+                       "Title":  "cooked rabid meat smoking",
+                       "Description":  "Native SMOKER; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_rabid_meat_smoking-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_rabid_meat_smoking-cooked.png",
+                                          "Stage":  "Native cooked output"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-cooked_rabid_meat_smoking-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:field_guide",
+                       "Title":  "field guide",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-field_guide-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-field_guide-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:iron_spear",
+                       "Title":  "iron spear",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-iron_spear-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-iron_spear-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:medic_cabinet",
+                       "Title":  "medic cabinet",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-medic_cabinet-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-medic_cabinet-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:metal_pipe",
+                       "Title":  "metal pipe",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-metal_pipe-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-metal_pipe-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:nail",
+                       "Title":  "nail",
+                       "Description":  "Native TABLE; output count 4. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-nail-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-nail-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:protective_gloves",
+                       "Title":  "protective gloves",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-protective_gloves-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-protective_gloves-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:rabies_vaccine",
+                       "Title":  "rabies vaccine",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-rabies_vaccine-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-rabies_vaccine-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:rebar",
+                       "Title":  "rebar",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-rebar-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-rebar-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:rusted_iron_block",
+                       "Title":  "rusted iron block",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-rusted_iron_block-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-rusted_iron_block-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:rusty_hookline",
+                       "Title":  "rusty hookline",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-rusty_hookline-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-rusty_hookline-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:sharpened_rebar",
+                       "Title":  "sharpened rebar",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-sharpened_rebar-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-sharpened_rebar-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:tetanized_arrow",
+                       "Title":  "tetanized arrow",
+                       "Description":  "Native SMITHING; output count 64. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanized_arrow-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanized_arrow-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:tetanized_beacon",
+                       "Title":  "tetanized beacon",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanized_beacon-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanized_beacon-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:tetanized_soul_sand",
+                       "Title":  "tetanized soul sand",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanized_soul_sand-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanized_soul_sand-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:tetanus_antitoxin",
+                       "Title":  "tetanus antitoxin",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanus_antitoxin-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanus_antitoxin-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:tetanus_vaccine",
+                       "Title":  "tetanus vaccine",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanus_vaccine-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-tetanus_vaccine-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:trap_reset_tool",
+                       "Title":  "trap reset tool",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-trap_reset_tool-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-trap_reset_tool-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:veterinary_kit",
+                       "Title":  "veterinary kit",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-veterinary_kit-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-veterinary_kit-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Recipes",
+                       "Id":  "tetanusmod:wire_brush",
+                       "Title":  "wire brush",
+                       "Description":  "Native TABLE; output count 1. Ingredient fixtures only; output taken through the real client menu or native campfire pickup.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-wire_brush-before.png",
+                                          "Stage":  "Ingredients / native result preview"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-craft-wire_brush-after.png",
+                                          "Stage":  "Acquired output / consumed inputs"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "cow-manure/drinkable",
+                       "Title":  "cow manure / drinkable",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-cow-manure-drinkable.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "cow-manure/splash",
+                       "Title":  "cow manure / splash",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-cow-manure-splash.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "cow-manure/lingering",
+                       "Title":  "cow manure / lingering",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-cow-manure-lingering.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "tetanus/drinkable",
+                       "Title":  "tetanus / drinkable",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-tetanus-drinkable.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "tetanus/splash",
+                       "Title":  "tetanus / splash",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-tetanus-splash.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "tetanus/lingering",
+                       "Title":  "tetanus / lingering",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-tetanus-lingering.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "salmonella/drinkable",
+                       "Title":  "salmonella / drinkable",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-salmonella-drinkable.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "salmonella/splash",
+                       "Title":  "salmonella / splash",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-salmonella-splash.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "salmonella/lingering",
+                       "Title":  "salmonella / lingering",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-salmonella-lingering.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "lockjaw-sonata/drinkable",
+                       "Title":  "lockjaw sonata / drinkable",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-lockjaw-sonata-drinkable.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "lockjaw-sonata/splash",
+                       "Title":  "lockjaw sonata / splash",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-lockjaw-sonata-splash.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "lockjaw-sonata/lingering",
+                       "Title":  "lockjaw sonata / lingering",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-lockjaw-sonata-lingering.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "rabies/drinkable",
+                       "Title":  "rabies / drinkable",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-rabies-drinkable.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "rabies/splash",
+                       "Title":  "rabies / splash",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-rabies-splash.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "rabies/lingering",
+                       "Title":  "rabies / lingering",
+                       "Description":  "Native brewing stand and client inventory clicks; the recipe engine consumes the ingredient and fuel. The 400-tick wait is accelerated.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-rabies-lingering.png",
+                                          "Stage":  "Brewed native output"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Brewing",
+                       "Id":  "all-earned-potions",
+                       "Title":  "All fifteen earned potions",
+                       "Description":  "Five complete brewing chains, each retained in drinkable, splash and lingering form in the actual client inventory.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-brew-all-earned-potions.png",
+                                          "Stage":  "Actual acquired inventory"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Weathering",
+                       "Id":  "tetanusmod:rusted_nail",
+                       "Title":  "rusted nail",
+                       "Description":  "Individual native receipt confirmed this item rusted, was picked up, and was cleaned with a client wire-brush action. Shared screenshots show all nine specimens; these are not nine separate image captures.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-weathering-water.png",
+                                          "Stage":  "Shared: water exposure"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                                          "Stage":  "Shared: all nine acquired"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                                          "Stage":  "Shared: all nine cleaned; nine Rust earned"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Weathering",
+                       "Id":  "tetanusmod:rusted_bent_nail",
+                       "Title":  "rusted bent nail",
+                       "Description":  "Individual native receipt confirmed this item rusted, was picked up, and was cleaned with a client wire-brush action. Shared screenshots show all nine specimens; these are not nine separate image captures.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-weathering-water.png",
+                                          "Stage":  "Shared: water exposure"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                                          "Stage":  "Shared: all nine acquired"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                                          "Stage":  "Shared: all nine cleaned; nine Rust earned"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Weathering",
+                       "Id":  "tetanusmod:rusted_rebar",
+                       "Title":  "rusted rebar",
+                       "Description":  "Individual native receipt confirmed this item rusted, was picked up, and was cleaned with a client wire-brush action. Shared screenshots show all nine specimens; these are not nine separate image captures.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-weathering-water.png",
+                                          "Stage":  "Shared: water exposure"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                                          "Stage":  "Shared: all nine acquired"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                                          "Stage":  "Shared: all nine cleaned; nine Rust earned"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Weathering",
+                       "Id":  "tetanusmod:rusted_sharpened_rebar",
+                       "Title":  "rusted sharpened rebar",
+                       "Description":  "Individual native receipt confirmed this item rusted, was picked up, and was cleaned with a client wire-brush action. Shared screenshots show all nine specimens; these are not nine separate image captures.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-weathering-water.png",
+                                          "Stage":  "Shared: water exposure"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                                          "Stage":  "Shared: all nine acquired"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                                          "Stage":  "Shared: all nine cleaned; nine Rust earned"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Weathering",
+                       "Id":  "tetanusmod:rusted_metal_pipe",
+                       "Title":  "rusted metal pipe",
+                       "Description":  "Individual native receipt confirmed this item rusted, was picked up, and was cleaned with a client wire-brush action. Shared screenshots show all nine specimens; these are not nine separate image captures.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-weathering-water.png",
+                                          "Stage":  "Shared: water exposure"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                                          "Stage":  "Shared: all nine acquired"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                                          "Stage":  "Shared: all nine cleaned; nine Rust earned"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Weathering",
+                       "Id":  "tetanusmod:rusted_caltrops",
+                       "Title":  "rusted caltrops",
+                       "Description":  "Individual native receipt confirmed this item rusted, was picked up, and was cleaned with a client wire-brush action. Shared screenshots show all nine specimens; these are not nine separate image captures.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-weathering-water.png",
+                                          "Stage":  "Shared: water exposure"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                                          "Stage":  "Shared: all nine acquired"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                                          "Stage":  "Shared: all nine cleaned; nine Rust earned"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Weathering",
+                       "Id":  "tetanusmod:rusted_barbed_wire",
+                       "Title":  "rusted barbed wire",
+                       "Description":  "Individual native receipt confirmed this item rusted, was picked up, and was cleaned with a client wire-brush action. Shared screenshots show all nine specimens; these are not nine separate image captures.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-weathering-water.png",
+                                          "Stage":  "Shared: water exposure"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                                          "Stage":  "Shared: all nine acquired"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                                          "Stage":  "Shared: all nine cleaned; nine Rust earned"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Weathering",
+                       "Id":  "tetanusmod:rusted_iron_spear",
+                       "Title":  "rusted iron spear",
+                       "Description":  "Individual native receipt confirmed this item rusted, was picked up, and was cleaned with a client wire-brush action. Shared screenshots show all nine specimens; these are not nine separate image captures.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-weathering-water.png",
+                                          "Stage":  "Shared: water exposure"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                                          "Stage":  "Shared: all nine acquired"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                                          "Stage":  "Shared: all nine cleaned; nine Rust earned"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Weathering",
+                       "Id":  "tetanusmod:rusted_bear_trap",
+                       "Title":  "rusted bear trap",
+                       "Description":  "Individual native receipt confirmed this item rusted, was picked up, and was cleaned with a client wire-brush action. Shared screenshots show all nine specimens; these are not nine separate image captures.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-weathering-water.png",
+                                          "Stage":  "Shared: water exposure"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                                          "Stage":  "Shared: all nine acquired"
+                                      },
+                                      {
+                                          "File":  "rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                                          "Stage":  "Shared: all nine cleaned; nine Rust earned"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "root",
+                       "Title":  "root",
+                       "Description":  "Fresh connected Survival player receives the native tick advancement.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-root.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "iron_has_a_darker_side",
+                       "Title":  "iron has a darker side",
+                       "Description":  "Pick up an iron ingot and synchronize the native inventory screen.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-iron_has_a_darker_side.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "recipes/unlock",
+                       "Title":  "recipes/unlock",
+                       "Description":  "The same real iron pickup unlocks the mod\u0027s recipes.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-recipes-unlock.png",
+                                          "Stage":  "Recipe-book reward; no visible advancement node"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "rusty_business",
+                       "Title":  "rusty business",
+                       "Description":  "Drop a nail into water and wait for the complete configured rust duration.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-rusty_business.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "rusty_hook",
+                       "Title":  "rusty hook",
+                       "Description":  "Drop fishing rods into water, allow native salvage rolls, and pick up a recovered hook.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-rusty_hook.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "infected",
+                       "Title":  "infected",
+                       "Description":  "Actual rusty zombie melee injury during the native glove-contact test.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-infected.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "glove_protection",
+                       "Title":  "glove protection",
+                       "Description":  "Equip gloves by right-clicking and withstand real rusty zombie melee attacks until one exposure is prevented.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-glove_protection.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "shield_protection",
+                       "Title":  "shield protection",
+                       "Description":  "Raise a Tetanus Protection shield and block an actual enchanted zombie melee attack.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-shield_protection.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "tetanized_mob",
+                       "Title":  "tetanized mob",
+                       "Description":  "Use Rust on an iron golem until a real conversion roll succeeds.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-tetanized_mob.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "rusty_guardian",
+                       "Title":  "rusty guardian",
+                       "Description":  "The same successful, causal iron-golem conversion awards its specific advancement.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-rusty_guardian.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "strange_meat",
+                       "Title":  "strange meat",
+                       "Description":  "Kill an egg-spawned Tetanized cow with a real player attack and pick up its infected meat.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-strange_meat.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "clean_bill_of_health",
+                       "Title":  "clean bill of health",
+                       "Description":  "Apply a veterinary kit to a second egg-spawned Tetanized cow.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-clean_bill_of_health.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "nice_one",
+                       "Title":  "nice one",
+                       "Description":  "Kill an egg-spawned Tetanized Wither with a Creative-prepared test sword using the native attack method.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-nice_one.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "clinic",
+                       "Title":  "clinic",
+                       "Description":  "Place a two-block Medicine Cabinet through the Survival block-item interaction.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-clinic.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "trap_reset",
+                       "Title":  "trap reset",
+                       "Description":  "A cow walks into a placed trap; use its reset tool through the native block interaction.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-trap_reset.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "rust_arrows",
+                       "Title":  "rust arrows",
+                       "Description":  "Take a real 64-arrow/Rust smithing result through the native output slot.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-rust_arrows.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "medic",
+                       "Title":  "medic",
+                       "Description":  "Open a medic\u0027s actual merchant menu, supply its generated barter inputs, and take its output.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-medic.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "supply_run",
+                       "Title":  "supply run",
+                       "Description":  "Sneak-interact with that medic holding its requested daily supply delivery.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-supply_run.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "spear",
+                       "Title":  "spear",
+                       "Description":  "Right-click a spear at a live indexed cow and land its actual raycast thrust.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-spear.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "why_did_i_eat_that",
+                       "Title":  "why did i eat that",
+                       "Description":  "Eat raw infected meat using the real item-use timer.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-why_did_i_eat_that.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "rabies",
+                       "Title":  "rabies",
+                       "Description":  "Eat raw Rabid Meat using the real item-use timer.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-rabies.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "rabies_cured",
+                       "Title":  "rabies cured",
+                       "Description":  "Drink Rabies Cure after the raw-meat infection.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-rabies_cured.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "lockjaw_sonata",
+                       "Title":  "lockjaw sonata",
+                       "Description":  "Drink a Lockjaw Sonata potion using the real item-use timer.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-lockjaw_sonata.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "antitoxin",
+                       "Title":  "antitoxin",
+                       "Description":  "Drink antitoxin while Tetanus and Lockjaw are active.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-antitoxin.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "vaccinated",
+                       "Title":  "vaccinated",
+                       "Description":  "Drink a vaccine using the real item-use timer.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-vaccinated.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "beacon_placed",
+                       "Title":  "beacon placed",
+                       "Description":  "Place the Tetanized Beacon with its BlockItem.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-beacon_placed.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "beacon_full",
+                       "Title":  "beacon full",
+                       "Description":  "Build its complete rusty-iron pyramid, pay Netherite in the native menu, and wait for real beacon ticks.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-beacon_full.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Advancements",
+                       "Id":  "why_did_i_do_that",
+                       "Title":  "why did i do that",
+                       "Description":  "Throw a rusty nail upward and catch its returning real projectile with a one-health test player.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-adv-why_did_i_do_that.png",
+                                          "Stage":  "Native completed advancement widget"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Despawn",
+                       "Id":  "despawn-before",
+                       "Title":  "Native specimens before departure",
+                       "Description":  "Six hostile variants and four named/livestock controls were visible to the client.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-despawn-before.png",
+                                          "Stage":  "Actual native scene"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Despawn",
+                       "Id":  "despawn-away-160-blocks",
+                       "Title":  "Player 160 blocks away",
+                       "Description":  "Source chunks remain loaded and entity ticking. No direct checkDespawn or target-removal calls.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-despawn-away-160-blocks.png",
+                                          "Stage":  "Actual native scene"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Despawn",
+                       "Id":  "despawn-after-native-removal",
+                       "Title":  "Native removal and retained controls",
+                       "Description":  "Six hostile variants were naturally discarded; named and livestock controls remained. Both server UUID lookup and returning client visibility were checked.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-despawn-after-native-removal.png",
+                                          "Stage":  "Actual native scene"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "fresh-survival-advancements",
+                       "Title":  "Fresh Survival advancement tab",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-fresh-survival-advancements.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "medicine-cabinet",
+                       "Title":  "Stainless steel cabinet",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-medicine-cabinet.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "medicine-cabinet-open",
+                       "Title":  "Cabinet doors and labeled vials",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-medicine-cabinet-open.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "cabinet-inventory",
+                       "Title":  "Complete cabinet inventory icon",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-cabinet-inventory.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "gloves-first-person",
+                       "Title":  "Fitted gloves: first person",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-gloves-first-person.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "gloves-left-hand",
+                       "Title":  "Fitted gloves: left hand",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-gloves-left-hand.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "gloves-third-person",
+                       "Title":  "Fitted gloves: third person",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-gloves-third-person.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "clinic-traps",
+                       "Title":  "Clinic at ground level and trap models",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-clinic-traps.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "clinic-interior",
+                       "Title":  "Clinic interior",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-clinic-interior.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "medic-biomes",
+                       "Title":  "Seven medic uniform palettes",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-medic-biomes.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "medic-tent",
+                       "Title":  "Underground medic tent",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-medic-tent.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "medic-nurse-trades",
+                       "Title":  "Nurse trades",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-medic-nurse-trades.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "medic-attending-scrolled",
+                       "Title":  "Attending trades and native scrollbar",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-medic-attending-scrolled.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "medic-hero-discount",
+                       "Title":  "Hero of the Village discount",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-medic-hero-discount.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "field-medic-supplies",
+                       "Title":  "Scarce field medic supplies",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-field-medic-supplies.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "native-tent-poi-locate",
+                       "Title":  "Native underground medic POI locate",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-native-tent-poi-locate.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "spawn-eggs",
+                       "Title":  "Dedicated species-tinted egg tab",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-spawn-eggs.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "lockjaw-attempt",
+                       "Title":  "Blocked Lockjaw eating gesture",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-lockjaw-attempt.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "hud",
+                       "Title":  "Tetanus health display",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-hud.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   },
+                   {
+                       "Category":  "Visuals",
+                       "Id":  "rabies-hud",
+                       "Title":  "Rabies health display",
+                       "Description":  "Original native client capture from the same final JEI run; open the full PNG to inspect details.",
+                       "Images":  [
+                                      {
+                                          "File":  "rust-and-ruin-jei-rabies-hud.png",
+                                          "Stage":  "Native client screenshot"
+                                      }
+                                  ]
+                   }
+               ],
+    "Files":  [
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-acquire-all-nine-brushed.png",
+                      "Bytes":  244768,
+                      "SHA256":  "976F15B44292E7F4BBE11E2C457A8816CFA60F68AED11275405EC36DF4183E94",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:09.1597515Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-acquire-all-nine-rusted.png",
+                      "Bytes":  234227,
+                      "SHA256":  "BD52453D0DE68AFD42B480567DB486251067D0EE1DEE8B775E3135EF79AB5DAA",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:01.4056466Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-acquire-weathering-water.png",
+                      "Bytes":  119251,
+                      "SHA256":  "59A1ADC2D4CC48970798882C3A49FDB145501A2CE7640F316A921E44C6EB6E1A",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:00.8970114Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-antitoxin.png",
+                      "Bytes":  107031,
+                      "SHA256":  "3D99647F3A352F95E229D23F4411EC1425DDD9CC36168518DC3C007BF7E6F1CE",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:26.1846219Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-beacon_full.png",
+                      "Bytes":  105710,
+                      "SHA256":  "4D356762C24AED3EA0CFA861738B74761E5CFBDBF9BF5BCEACF2801AAE210C04",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:44.2670173Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-beacon_placed.png",
+                      "Bytes":  99866,
+                      "SHA256":  "6C56DDC17C8ABDDEB545EAF0C3AB501B13E46A416BF4EBCB5249B6718376FD70",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:32.0293181Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-clean_bill_of_health.png",
+                      "Bytes":  145047,
+                      "SHA256":  "52E28E5B7142295DA954DD44BBE5D579DB02F5D29111A1A6CDD6B41887ECBAEC",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:40.4907481Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-clinic.png",
+                      "Bytes":  140753,
+                      "SHA256":  "CEE379A1BF78773A6AFC90962ABC18CD7E57B72B0F1C517F1F3D6440C1B45A31",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:44.6007625Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-glove_protection.png",
+                      "Bytes":  164486,
+                      "SHA256":  "1F91AA30073BED5E1D8D8C7F163D13F528A0B9AC15D71B7D3BF2B051B0F08966",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:30.2525066Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-infected.png",
+                      "Bytes":  162242,
+                      "SHA256":  "F9FEF930A568949AAC064D7909725D8995558E34119FDFD7FCBF2402C31B9D42",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:28.2014711Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-iron_has_a_darker_side.png",
+                      "Bytes":  99518,
+                      "SHA256":  "02F8E5EA1294A0C3EAF2857CE6309A5A49E5557C53936FEC0A187A22BDB522A9",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:14.4491380Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-lockjaw_sonata.png",
+                      "Bytes":  104856,
+                      "SHA256":  "F86FFEC620F77645034DD8A5556FA7C4676EC39CE7CFB13FADFF63F1E3466AFD",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:21.0839251Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-medic.png",
+                      "Bytes":  107026,
+                      "SHA256":  "A095B22BF087B87E35783750AA0A6B3F2BDD7BA0868B4A4DF45777CB7023F4BD",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:52.4386550Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-nice_one.png",
+                      "Bytes":  145671,
+                      "SHA256":  "44CC808A74506CCA0A8C94B1E394CAD4485F57567EAB50BA56684614866CE907",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:42.5409080Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-rabies.png",
+                      "Bytes":  99109,
+                      "SHA256":  "1D39ABF1DB0D828E89A8D686FD40FE7A95EFE25F1EB9A254D525E77724351CBE",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:10.6857365Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-rabies_cured.png",
+                      "Bytes":  100514,
+                      "SHA256":  "7932F1C72B2F871AE4288F351A35C589203C8D5CD264A51713907883B19FDF55",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:16.0855740Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-recipes-unlock.png",
+                      "Bytes":  183003,
+                      "SHA256":  "8998DA652292C50CBE5C076B73529F0B15B80ABD2592D5D0966AE93F97E3FA46",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:16.5120008Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-root.png",
+                      "Bytes":  94942,
+                      "SHA256":  "EC38FEEAC2587B83312E200A09EF367A89384B3C6584F75D96933E6F982916EF",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:12.4064225Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-rust_arrows.png",
+                      "Bytes":  109285,
+                      "SHA256":  "8BEAD7A5368C3584FBB75D8989ACE638B612FFD297AB64E3C09CFAC1EFD07B35",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:50.3872502Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-rusty_business.png",
+                      "Bytes":  124738,
+                      "SHA256":  "63AA4A740EB03548DCAB7B14F0A4E8244AEEAD3D9EAF855974B6B11F9D9ACDD5",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:23.9407841Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-rusty_guardian.png",
+                      "Bytes":  146820,
+                      "SHA256":  "404D11287AEBA8165F8466A2415F42D4DA48E9E3A40142208E54F469444B8202",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:36.3952553Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-rusty_hook.png",
+                      "Bytes":  141136,
+                      "SHA256":  "AEA02273F50CF5A1E34861C98A5238EFB42B9F2031C99AB09015D3A4DE542035",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:25.9898393Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-shield_protection.png",
+                      "Bytes":  167117,
+                      "SHA256":  "1629D9EC0432C98FC3F0018B7EC63F4D8A948121EE9F07A1C3058E40ED52BFD7",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:32.3045336Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-spear.png",
+                      "Bytes":  104563,
+                      "SHA256":  "24079E65F9CBED2F2866ED89B2B181194EB94F5E576F782852921D18B1E76E9E",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:56.5360714Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-strange_meat.png",
+                      "Bytes":  148668,
+                      "SHA256":  "721D3A1A4438AE78129FAEB1DFE37CD9F49BD483DC4A7042B4EA646E48A753D3",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:38.4422591Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-supply_run.png",
+                      "Bytes":  106316,
+                      "SHA256":  "C884FDF795DC92396125C49C36916B4FCB8693AF4909DE447E9990DE4D9C940B",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:54.4862158Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-tetanized_mob.png",
+                      "Bytes":  169179,
+                      "SHA256":  "9139F7380AC9579494879312EBF37B397EBE3A3E43953241F2F44527C5FB9B12",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:34.3465734Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-trap_reset.png",
+                      "Bytes":  110925,
+                      "SHA256":  "B30F246CF2AF1054975349E95397864A2386D5B99EEAFA2557F77A5EA31592E6",
+                      "SourceModifiedUtc":  "2026-10-25T15:38:46.6365895Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-vaccinated.png",
+                      "Bytes":  100703,
+                      "SHA256":  "3DC2D276BF613B8CA71E7E9E839D43C8B77A02AF48AE23D2A811B6132D9B82D7",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:29.9804071Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-why_did_i_do_that.png",
+                      "Bytes":  249046,
+                      "SHA256":  "A619C20080642E9495F1612ADAA532EE26B7BE5664AED7EB25B5693D55E0F0CB",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:50.6844652Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-adv-why_did_i_eat_that.png",
+                      "Bytes":  109634,
+                      "SHA256":  "DA87CFCE612AF6969C6432D039C687F8A8914FFFC01BF823A0B4B38391B049CF",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:05.1839481Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-all-earned-potions.png",
+                      "Bytes":  209307,
+                      "SHA256":  "A020C99B74F26E224C3FE1785F8BD7AC47CB94057C92FAACB18C5E6E40325617",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:55.7982702Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-cow-manure-drinkable.png",
+                      "Bytes":  209041,
+                      "SHA256":  "4FD7277EFD4496ADA663C9E8453A145FF946D45467484BCD818833BF2CA270DF",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:45.3532870Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-cow-manure-lingering.png",
+                      "Bytes":  192513,
+                      "SHA256":  "8C170431C0A091EBFAF8B761566C0C6F9F9EA8577FA34BAF5B686888F1DDF0DB",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:46.4488640Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-cow-manure-splash.png",
+                      "Bytes":  198831,
+                      "SHA256":  "236D82CA89F637CB51EC7751F9DF00CD80232C35CB810A0409EC3775EDBCE441",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:45.9085788Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-lockjaw-sonata-drinkable.png",
+                      "Bytes":  203909,
+                      "SHA256":  "0ED47F631DFEA3387A8A8C1E49A48B90043E065F7E37A61709EA458A6F3D92AA",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:52.1018085Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-lockjaw-sonata-lingering.png",
+                      "Bytes":  209041,
+                      "SHA256":  "185D199FC54E2A1622BB946BE0B5901557C1C245C894D273D191B00910E41BB1",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:53.2036835Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-lockjaw-sonata-splash.png",
+                      "Bytes":  209780,
+                      "SHA256":  "C10701DA9073BB70333E963F1478CF7CC75250F704C1CC0CF2BEEC5C601544E0",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:52.6534511Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-rabies-drinkable.png",
+                      "Bytes":  209610,
+                      "SHA256":  "879A13D8EB64190D06FD1797E3D8E3595A2ED68523B82E7DB4C459E7F7136A93",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:54.2061080Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-rabies-lingering.png",
+                      "Bytes":  208529,
+                      "SHA256":  "3B2ED274746DD7E1AFD0A7C4212E1FAB3614B7E3CC62AC655FF63414026F8567",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:55.2959995Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-rabies-splash.png",
+                      "Bytes":  210361,
+                      "SHA256":  "E693E746E9936604D87B558956DCC31F290A7893F85E20B4A62AD11090128069",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:54.7491864Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-salmonella-drinkable.png",
+                      "Bytes":  184427,
+                      "SHA256":  "916807D76CAF46E0BBBFCB324C7827E26F46B42E588F297F02CB7196474FF99B",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:49.5508547Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-salmonella-lingering.png",
+                      "Bytes":  183419,
+                      "SHA256":  "368B6111951AE00876751C0EC93A65B083AF6B6574F71707045047A63A5669F9",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:50.6498411Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-salmonella-splash.png",
+                      "Bytes":  184755,
+                      "SHA256":  "5EC93B0FE0CF6ECC85E16F6272CC86214A5C16DE7952367AB5E0BF03D5245EA2",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:50.1002241Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-tetanus-drinkable.png",
+                      "Bytes":  180759,
+                      "SHA256":  "7C1B4372E58D078D5ACED3BD1C9CADDFB71A16583BDA9A68D9E818A384E28A90",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:47.4507397Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-tetanus-lingering.png",
+                      "Bytes":  182218,
+                      "SHA256":  "368762D4A2514A7B2BCA994B3B1F1C74F1F3ECD1049A224C3A2D0C2AC169CE9B",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:48.5464016Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-brew-tetanus-splash.png",
+                      "Bytes":  180981,
+                      "SHA256":  "2A9DEEB5B0D6246AC8EED24663CEF02F3E5D07FD8EB35B2732844EAE1D579FD8",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:48.0040850Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-cabinet-inventory.png",
+                      "Bytes":  324212,
+                      "SHA256":  "F27E7D30B09F5CFA58050052EE2BD93EB5AC43E5DCCD12935EA037823A7B895B",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:39.9604690Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-clinic-interior.png",
+                      "Bytes":  502913,
+                      "SHA256":  "EDDBBDF22CE3487C0A67C22575AB7564A1DDFE43B84C6072A7E57ADB9BF57D4D",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:32.8335925Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-clinic-traps.png",
+                      "Bytes":  224578,
+                      "SHA256":  "7567ED62892E4494A6113B984ADF72500D45A2D7754C07FD1B45CAFE70B20882",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:30.0486481Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-barbed_wire-after.png",
+                      "Bytes":  213023,
+                      "SHA256":  "FE1B0250BE7CB79DEAB4BFDFDB6900D70651C6EC09E58EEA5FEB51748A5527C6",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:04.8452096Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-barbed_wire-before.png",
+                      "Bytes":  214021,
+                      "SHA256":  "BBA0833926B5092B7B97B9D68F1DB7619FA60A12996BF5615B6436F1B6A1175D",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:04.2047806Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-bear_trap-after.png",
+                      "Bytes":  211878,
+                      "SHA256":  "2DBFF2A828EE9AA04956CDE8D0A0E90B27EA052C49F4F647EF525CD94066B000",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:08.0982728Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-bear_trap-before.png",
+                      "Bytes":  213726,
+                      "SHA256":  "59F9E196856BC82E9462D2C745B2579FD544CF6FC6D85C2A993CBBC22B384898",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:07.4492211Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-bent_nail-after.png",
+                      "Bytes":  212853,
+                      "SHA256":  "94D3BDB43E0B4441E24AC1A12EB1CD3B63DEF71150D297908F8F0CA17FED8566",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:11.3469934Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-bent_nail-before.png",
+                      "Bytes":  214752,
+                      "SHA256":  "2BC50FC91E3E77C349DDE93CEC75BF48DDD6678FDE831BD2C137074A3FAB695D",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:10.6971632Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-caltrops-after.png",
+                      "Bytes":  214032,
+                      "SHA256":  "0BDB61ED19A9EB1A540F56F87CF3ECFD027544149FFA49F74AA8D1D0E46A85E7",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:14.6026692Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-caltrops-before.png",
+                      "Bytes":  214721,
+                      "SHA256":  "ED7A85A086E019B00568FBE1AFC7AA1AB5725DE28A496C8AC9990844D306D77A",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:13.9498079Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_infected_meat_campfire_cooking-after.png",
+                      "Bytes":  120275,
+                      "SHA256":  "8AA609FE0290E5E520D710CD8DD3495A958D4E8F3AECB7E4A984B0E39D29BB58",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:19.4966581Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_infected_meat_campfire_cooking-before.png",
+                      "Bytes":  161604,
+                      "SHA256":  "8C6615DED8A205E083C8DF01C30A3D5446AA0E439F68D478714BFF9C0CC718B7",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:17.2061261Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_infected_meat_campfire_cooking-cooked.png",
+                      "Bytes":  186084,
+                      "SHA256":  "D41799DB34148DFFC1316930464623C5F318825AE45A00C90639B6619917F4AB",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:18.8470486Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_infected_meat_smelting-after.png",
+                      "Bytes":  230682,
+                      "SHA256":  "611D283E5D6C15F91869A7B5E87714789894F60D5619492718516827967DADF0",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:23.9054763Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_infected_meat_smelting-before.png",
+                      "Bytes":  226809,
+                      "SHA256":  "9238BF3BBEC4E2C60EAE3CC3421DF0F6A80A30EEA8AC13BC2DB84191C60B2144",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:22.1038164Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_infected_meat_smelting-cooked.png",
+                      "Bytes":  225925,
+                      "SHA256":  "F0BBE28936583A25D7323211D0C825C9DA1B9B1ED4AF5D7DF5CE46818058292C",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:23.2530969Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_infected_meat_smoking-after.png",
+                      "Bytes":  230260,
+                      "SHA256":  "0ACB085842D7AEF95FD2C48DD1026AD9BAF3593940AD61F21295B3D927599225",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:28.2969261Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_infected_meat_smoking-before.png",
+                      "Bytes":  228506,
+                      "SHA256":  "21CC51082FC622ED8332ECC6CE5E591B71BF551A08E6FDF23E5F687808ECBBD3",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:26.5051855Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_infected_meat_smoking-cooked.png",
+                      "Bytes":  228377,
+                      "SHA256":  "520A43CC923489C198638962F9A76199D0691F3C46EED3175D6894E727F57F6A",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:27.6485982Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_rabid_meat_campfire_cooking-after.png",
+                      "Bytes":  91521,
+                      "SHA256":  "2875CB7741EC449FBB4E54DCFB6ECEA0ED669EFD8D67A445F6F157045464391A",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:33.1960864Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_rabid_meat_campfire_cooking-before.png",
+                      "Bytes":  162938,
+                      "SHA256":  "27509BC40B6E86D63243118D7A985B317674E143B070B082922E4AB252584C2E",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:30.9020974Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_rabid_meat_campfire_cooking-cooked.png",
+                      "Bytes":  176989,
+                      "SHA256":  "6D91279EC971CF0E05E148CF3D9EBEA583AADDC3BBB4E553967DE72A629D1D1C",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:32.5563857Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_rabid_meat_smelting-after.png",
+                      "Bytes":  226656,
+                      "SHA256":  "650D5E9CE3B2704BECBF048099829622D1E32F56DB5F523538FDCC3B7EF9CF65",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:37.5970923Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_rabid_meat_smelting-before.png",
+                      "Bytes":  225475,
+                      "SHA256":  "0965720ACB9488EBFAE0087C3192035049F58A277CCAEA721468A1EB3888E06B",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:35.7996335Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_rabid_meat_smelting-cooked.png",
+                      "Bytes":  225263,
+                      "SHA256":  "FCF816E05B8C4441B206AB679CD01C6DDDC5561A8038D6D1BD34643CD2DE7BF1",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:36.9486696Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_rabid_meat_smoking-after.png",
+                      "Bytes":  225706,
+                      "SHA256":  "099B37C88E8A7A206620281B2EB78C0E91332E4EE03B95A2321E2CCFA77BA3BB",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:42.0016237Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_rabid_meat_smoking-before.png",
+                      "Bytes":  226180,
+                      "SHA256":  "31A48561BCE942F198E074926759D03B7C823CA1D6033EB3019205B7E17ECFF9",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:40.2035672Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-cooked_rabid_meat_smoking-cooked.png",
+                      "Bytes":  225552,
+                      "SHA256":  "72257210C78B304101766706034055B994773741811751AF3E2DB70CD6902263",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:41.3530217Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-field_guide-after.png",
+                      "Bytes":  216082,
+                      "SHA256":  "B027B7DBC9AA3630DD58B8FB367E04483BFD3825C358C68017031AA4C3FC9B94",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:45.2540561Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-field_guide-before.png",
+                      "Bytes":  216540,
+                      "SHA256":  "4095C93E017AD8E07973C4163E8A4C4ADA6F46BA916267F35A8F88ECE6639133",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:44.6010138Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-iron_spear-after.png",
+                      "Bytes":  212520,
+                      "SHA256":  "BAF049AE0C942D6327FB77D485AF20002616E2EA5A35C1EB755A24AAE6EBFB87",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:48.5035150Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-iron_spear-before.png",
+                      "Bytes":  212973,
+                      "SHA256":  "90ACCB1B90BE15B26D42A7937519CF010433F406B4BEDB3D86316195ABF7F81E",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:47.8499417Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-medic_cabinet-after.png",
+                      "Bytes":  214726,
+                      "SHA256":  "1DC1AE4C02FA7A57EEF41762FCEDDDFA5C5204A813F42A54C0660BABB3D639AD",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:51.7452132Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-medic_cabinet-before.png",
+                      "Bytes":  217795,
+                      "SHA256":  "24BB11C23E4A9AA46E31AD4F97F6A54422A2E4876482C2036901F8088DE21227",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:51.0996124Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-metal_pipe-after.png",
+                      "Bytes":  216826,
+                      "SHA256":  "D5FCDA23A510B23C4C4487FC89C3FD8E7464569C34FE5153CCD8AC2F0F1B53CA",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:55.0041947Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-metal_pipe-before.png",
+                      "Bytes":  214011,
+                      "SHA256":  "BDE608317712742CA495A8149DC12D3217BD15244AE86AC7E75F9C440C84DE0C",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:54.3525153Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-nail-after.png",
+                      "Bytes":  213695,
+                      "SHA256":  "F766C63B42B2D0C2FC9FE336FE2A2131E14F129E2A3EE137A231B3A37019E28A",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:58.2530634Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-nail-before.png",
+                      "Bytes":  215258,
+                      "SHA256":  "0F4A40FB0CFB20C486CB1BD923333AFB4876BE04A9690AF83AA753607CF44150",
+                      "SourceModifiedUtc":  "2026-10-25T15:36:57.6038686Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-protective_gloves-after.png",
+                      "Bytes":  216231,
+                      "SHA256":  "5F20CE44CB73540E8A0D9AB7427D595DE3C3001C703CBA850DB3075F0342FA83",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:01.5037537Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-protective_gloves-before.png",
+                      "Bytes":  215935,
+                      "SHA256":  "5E922E4A4B77155E3CF3EB831863DEAF7ECCF9DC46FF56E8341AA2CE4923D851",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:00.8470347Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-rabies_vaccine-after.png",
+                      "Bytes":  212380,
+                      "SHA256":  "BE6C8BF212336C2C0CE527E3CF799C924B8C8E702DDF13009AC37BB876AB16EA",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:04.7450895Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-rabies_vaccine-before.png",
+                      "Bytes":  216468,
+                      "SHA256":  "357F613901D97D76DEBD2EC900EC0561D52E65E7BB85D13D1AFA232B8A082D70",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:04.1048362Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-rebar-after.png",
+                      "Bytes":  213869,
+                      "SHA256":  "FD243D13087B2B5922E3DFB23FAFBF9D17DF1DC2993A57133F1958A890180611",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:08.0046564Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-rebar-before.png",
+                      "Bytes":  213578,
+                      "SHA256":  "9BB54E247160811F768DAAF2806DC2DBC3F4F9FB5F001EAB7CB2CA406459C1A4",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:07.3520828Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-rusted_iron_block-after.png",
+                      "Bytes":  216183,
+                      "SHA256":  "AAB71447EEE30B7A74E9674488A96845DAA51A06A93BF3F080ACB25DC022890C",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:11.2486374Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-rusted_iron_block-before.png",
+                      "Bytes":  221420,
+                      "SHA256":  "2FEBF1E801E2BAFA7CFBB8DB07DC3432B5D91632EB8F7843A4E82778D024919B",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:10.5992881Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-rusty_hookline-after.png",
+                      "Bytes":  215674,
+                      "SHA256":  "F04A1ECC32A730C73DE68E445CB92509BB0387A346EDA903E539ABC738E05197",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:14.4982645Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-rusty_hookline-before.png",
+                      "Bytes":  217093,
+                      "SHA256":  "5360646762DB103026198650210FAF6EF80C985305FCC5044E258DC51D9AD18F",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:13.8554213Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-sharpened_rebar-after.png",
+                      "Bytes":  213868,
+                      "SHA256":  "8993559F935E5DFE11F64BEFBA8BEAA3378DD8A51E3A651FC32C41DFFB1C5886",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:17.7585767Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-sharpened_rebar-before.png",
+                      "Bytes":  215771,
+                      "SHA256":  "A41B8816CD8A26525069329725285DBA6C1C8263F2570E35283A4D1CF86E7088",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:17.1013740Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanized_arrow-after.png",
+                      "Bytes":  210759,
+                      "SHA256":  "EB0333EBF89ED2069182499430AB89ACAC37F19938C8ED559562F68F3B22D86C",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:21.0132621Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanized_arrow-before.png",
+                      "Bytes":  218703,
+                      "SHA256":  "23AEE9663145A2FF73812DBBCC79C7088B051DCAFCF8E83A21FB142B163D17D9",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:20.3497564Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanized_beacon-after.png",
+                      "Bytes":  208257,
+                      "SHA256":  "A31E1A186914370312656CE19982AD763F7CD85C91EA7D760304B5F60FF5732E",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:24.2498060Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanized_beacon-before.png",
+                      "Bytes":  207532,
+                      "SHA256":  "AE1726B5387AC13DE671E8B26317AD7EE26A29024BF93DB55A863FD69B217720",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:23.6030353Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanized_soul_sand-after.png",
+                      "Bytes":  220658,
+                      "SHA256":  "417D8B9FB786C16B53020A4E925CAF5CEFEA3BEA417BFCF753B5FF29A7203E11",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:27.4975447Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanized_soul_sand-before.png",
+                      "Bytes":  222400,
+                      "SHA256":  "F6598FDCD8B63C146E301E7DC5EB73A95891485A0D3B4488A4D50D669FC2252A",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:26.8534591Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanus_antitoxin-after.png",
+                      "Bytes":  217682,
+                      "SHA256":  "FC67DE78E7E8FA642AEB45B64F89AD0E8BE1E758987EC0D2FA6AEBF19BF119A2",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:30.7506737Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanus_antitoxin-before.png",
+                      "Bytes":  219670,
+                      "SHA256":  "B026B1A311810CAE18F40A5F3BBFCD9BC46D40E9AFFC0F735F7F7F59C28C723A",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:30.0998933Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanus_vaccine-after.png",
+                      "Bytes":  216916,
+                      "SHA256":  "8FAB31B46872348FE492A789C8EFB224A4EB26070300C27D8B52626DE1AD42D0",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:34.0056365Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-tetanus_vaccine-before.png",
+                      "Bytes":  218025,
+                      "SHA256":  "CF5CEF57FE90735157FC95C21AF33F370762BF68C6E6D626EA7ED4F0413BB9B1",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:33.3491744Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-trap_reset_tool-after.png",
+                      "Bytes":  215622,
+                      "SHA256":  "EAA1E4969D10E6F61C95A5DC60CB928018E55B660FFB72C19F8742027DA122C0",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:37.2475063Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-trap_reset_tool-before.png",
+                      "Bytes":  216015,
+                      "SHA256":  "51F6C02A70579DBB201B1C10E1FD52637224E329AB79415A07D20E26AD5DB937",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:36.6027981Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-veterinary_kit-after.png",
+                      "Bytes":  217588,
+                      "SHA256":  "3B89A654C66AF77B65481BA19A9BA6ED7E3FC591C1AE6F85FF125AA75E80E5B2",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:40.5012080Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-veterinary_kit-before.png",
+                      "Bytes":  219333,
+                      "SHA256":  "68390CD8EA7C6CA6BCFB450EE646B58C5915660A2AC153BA505DB6B13A7F3418",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:39.8525147Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-wire_brush-after.png",
+                      "Bytes":  215194,
+                      "SHA256":  "CDF095A4E539BBFE8E025F6CEEAAF3F9A32A4949268B6D4334A4309528D8976F",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:43.7453062Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-craft-wire_brush-before.png",
+                      "Bytes":  214458,
+                      "SHA256":  "27B34868D475337FEB9C75E6412DD0421F45B39AC56DE3A45909534A1CDFED16",
+                      "SourceModifiedUtc":  "2026-10-25T15:37:43.0995928Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-despawn-after-native-removal.png",
+                      "Bytes":  118297,
+                      "SHA256":  "3DC4093FCF601DD7A1A705C5EDB9E2B81B0BC2BAE805C99E06142E6D37735CB6",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:59.2814295Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-despawn-away-160-blocks.png",
+                      "Bytes":  95845,
+                      "SHA256":  "43B792E374054FA17D27033A58246548D4D749B8C2106FEB017CD575BD9FC43F",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:54.7302584Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-despawn-before.png",
+                      "Bytes":  130437,
+                      "SHA256":  "AE493FF55957EEF2D8D872083C39D820D55E3D4D4C70DDABC79745F1EDEC9D23",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:53.8282538Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-field-medic-supplies.png",
+                      "Bytes":  231549,
+                      "SHA256":  "E059445321AFF564FA04D36B0893FEE8D55F6E59648554E715AA559243FD01E4",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:59.5584967Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-fresh-survival-advancements.png",
+                      "Bytes":  178321,
+                      "SHA256":  "B6A329F744976226630F4E25AE62815AB180C16EDC56602410B02C2CBDFC389D",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:01.4329368Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-gloves-first-person.png",
+                      "Bytes":  241581,
+                      "SHA256":  "168BE9F6621CFB1854CB5A57A098A846424917E92310A88AA354B9320A91B5D0",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:40.8140009Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-gloves-left-hand.png",
+                      "Bytes":  235097,
+                      "SHA256":  "84EAA3D9F836630F4A7943FB65CF6F8D4EF327944B8E68B8C1A8BB05C50260B5",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:41.0124077Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-gloves-third-person.png",
+                      "Bytes":  352365,
+                      "SHA256":  "94AB3A49AB68F298826A39D74969F1A37A1D5284327A949E4C5BAFB5E13393DB",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:41.8147639Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-hud.png",
+                      "Bytes":  338888,
+                      "SHA256":  "DB458C709D0FB3641750E2FF2F37A915C1AC3ED5AE6BC065B0E7F0C4B3B15B15",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:07.7592812Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-lockjaw-attempt.png",
+                      "Bytes":  217832,
+                      "SHA256":  "CA9C81ABD56B8A00C829D791B2B9324E4E65AD11923B882AEA2DC0EE1ADD68CD",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:43.3040189Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-medic-attending-scrolled.png",
+                      "Bytes":  251400,
+                      "SHA256":  "BB635A47DFF6736241E7ABE641890F57D3273B0295FEF99503ED1E0F5F0DD355",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:55.5518731Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-medic-biomes.png",
+                      "Bytes":  162749,
+                      "SHA256":  "C550F9C86BFACA6C3EB489BE712B2E2034AF5FA1625D0B5CDDC9B925BB58F5CD",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:47.0508396Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-medic-hero-discount.png",
+                      "Bytes":  242168,
+                      "SHA256":  "DF95441B9174D2C95496D820B726E3EFA2892ECCD3AA720C63379DBE5FC22741",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:57.5535089Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-medicine-cabinet.png",
+                      "Bytes":  296246,
+                      "SHA256":  "344F6811BA49EA0BA9F29A1F717AA31AED0469A7E8E83F3245625A64D3ECA762",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:38.8468817Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-medicine-cabinet-open.png",
+                      "Bytes":  308783,
+                      "SHA256":  "95FF3EB535B0BD402B1BCE9A84543253C4C27D3B56687380C26914AAF4933C92",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:39.5559629Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-medic-nurse-trades.png",
+                      "Bytes":  235168,
+                      "SHA256":  "9A02BCCE027A1CADC35FB15A356F324A861464D55C65D3F3C7BD435BEEC1C857",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:53.5597180Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-medic-tent.png",
+                      "Bytes":  313372,
+                      "SHA256":  "657E90BA2AC2471DAA81A877CE63279520F16B1DDED4919F0161156C301148BD",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:45.0582944Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-native-tent-poi-locate.png",
+                      "Bytes":  314089,
+                      "SHA256":  "CF8138BB4D6405F254A72D4FE30F70A211ED0184307A3B272772BBD6DF4F47F9",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:45.5068438Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-rabies-hud.png",
+                      "Bytes":  243381,
+                      "SHA256":  "B5FBD57C4CBACBE2B9AF18074AB59C5FF393498AB170EA771486F4E10ED4C999",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:26.0071557Z"
+                  },
+                  {
+                      "File":  "graphical/screenshots/rust-and-ruin-jei-spawn-eggs.png",
+                      "Bytes":  414767,
+                      "SHA256":  "71894762941E973EE8EF548A347BADFD37C5BDEFC4B76EE936667A9BB8F5AEFB",
+                      "SourceModifiedUtc":  "2026-10-25T15:35:33.5773106Z"
+                  },
+                  {
+                      "File":  "graphical/reports/result.json",
+                      "Bytes":  188,
+                      "SHA256":  "53DB684B8173E9A767F8D477F7CB7FBCE214AC08192DFB63ABE10F2C62D53C4A",
+                      "SourceModifiedUtc":  "2026-10-25T15:40:49.3213458Z"
+                  },
+                  {
+                      "File":  "graphical/reports/client-result.txt",
+                      "Bytes":  923,
+                      "SHA256":  "C8643E072826D33486BD53EF6405FE909CFBF0518D13AF5D67BB9FDF04F1ADD9",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:59.6882724Z"
+                  },
+                  {
+                      "File":  "graphical/reports/graphical-advancements-jei.json",
+                      "Bytes":  7592,
+                      "SHA256":  "DE1367392C3FABA72E8ADB6A330FC797ACB2DD717B8F7F3B6A38F77C300A01E3",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:51.7267268Z"
+                  },
+                  {
+                      "File":  "graphical/reports/graphical-advancement-server-coverage-jei.json",
+                      "Bytes":  4402,
+                      "SHA256":  "04D922CEDEEC1045CD7D27AC7B48A66E8571947366E86200B0D6AA6F32BC79DE",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:49.5784559Z"
+                  },
+                  {
+                      "File":  "graphical/reports/graphical-despawn-jei.json",
+                      "Bytes":  6404,
+                      "SHA256":  "2E6FFE8BB3C9A2BB6B86EE5B678E8B2642621B373FB7BE6699394254D4B644D6",
+                      "SourceModifiedUtc":  "2026-10-25T15:39:59.6237884Z"
+                  },
+                  {
+                      "File":  "graphical/reports/client-log.txt",
+                      "Bytes":  77377,
+                      "SHA256":  "ADC81ADD053732F0E182A6F854D843ACE069E31BEB986D0621D079E655BAAF1E",
+                      "SourceSHA256":  "48FDF189F674B34C8D11133F87B8ED00B94317549BFAE8F4D27CA88D341AE6C4",
+                      "SourceModifiedUtc":  "2026-10-25T15:40:01.6561664Z",
+                      "Encoding":  "Original text normalized to UTF-8 without BOM; original source hash retained"
+                  }
+              ]
+}

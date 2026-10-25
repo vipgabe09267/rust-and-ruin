@@ -8,6 +8,8 @@
                    "tetanusmod:bear_trap",
                    "tetanusmod:rusted_bear_trap",
                    "tetanusmod:rusted_iron_block",
-                   "tetanusmod:tetanized_beacon"
+                   "tetanusmod:tetanized_beacon",
+                   "tetanusmod:medic_cabinet",
+                   "tetanusmod:field_medic_cabinet"
                ]
 }

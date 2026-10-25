@@ -58,7 +58,8 @@
                    "EnchantmentTooltipMixin",
                    "FirstPersonGlovesMixin",
                    "LockjawHandMixin",
-                   "MedicClothingMixin"
+                   "MedicClothingMixin",
+                   "MedicMerchantScreenMixin"
                ],
     "injectors":  {
                       "defaultRequire":  1

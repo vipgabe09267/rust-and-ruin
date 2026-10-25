@@ -23,13 +23,14 @@ public final class TetanusClient implements ClientModInitializer {
     private float amplitude;
     @Override
     public void onInitializeClient() {
+        MedicTradeScreen.initialize();
         EntityRendererRegistry.register(TetanusMod.NAIL_ENTITY, FlyingItemEntityRenderer::new);
         TetanusMod.LOCKJAW_GESTURE=LockjawAttempt::begin;
         registerBeacon();
         net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback.EVENT.register((type,renderer,helper,context)->{
             if(renderer instanceof net.minecraft.client.render.entity.PlayerEntityRenderer player)helper.register(new GlovesFeatureRenderer(player));
         });
-        net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlock(com.tetanusmod.expansion.ExpansionBlocks.MEDIC_CABINET,net.minecraft.client.render.RenderLayer.getCutout());
+        net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlocks(net.minecraft.client.render.RenderLayer.getCutout(),com.tetanusmod.expansion.ExpansionBlocks.MEDIC_CABINET,com.tetanusmod.expansion.ExpansionBlocks.FIELD_MEDIC_CABINET);
         net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             int coating = com.tetanusmod.rust.RustCoating.remaining(stack);
             if (coating > 0) lines.add(net.minecraft.text.Text.translatable("tooltip.tetanusmod.coating", (coating + 19) / 20).formatted(net.minecraft.util.Formatting.GOLD));

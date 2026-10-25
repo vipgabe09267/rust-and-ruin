@@ -1,0 +1,25 @@
+{
+    "Result":  "PASS",
+    "Runs":  [
+                 {
+                     "Run":  1,
+                     "Result":  "PASS",
+                     "Tests":  303,
+                     "Failures":  0,
+                     "StartedUTC":  "2026-10-25T00:35:09.2092468Z",
+                     "FinishedUTC":  "2026-10-25T00:35:58.2612455Z",
+                     "SHA256":  "C87F9F9DBEE462B889702D92B13B2082C1C62324649A4C46F3BDF103C61A76E4",
+                     "Report":  "server-release-final-1.xml"
+                 },
+                 {
+                     "Run":  2,
+                     "Result":  "PASS",
+                     "Tests":  303,
+                     "Failures":  0,
+                     "StartedUTC":  "2026-10-25T00:35:58.2667784Z",
+                     "FinishedUTC":  "2026-10-25T00:36:47.3516340Z",
+                     "SHA256":  "C87F9F9DBEE462B889702D92B13B2082C1C62324649A4C46F3BDF103C61A76E4",
+                     "Report":  "server-release-final-2.xml"
+                 }
+             ]
+}

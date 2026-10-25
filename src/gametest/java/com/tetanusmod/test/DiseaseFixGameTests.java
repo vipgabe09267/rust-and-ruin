@@ -87,14 +87,14 @@ public class DiseaseFixGameTests implements FabricGameTest {
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void everyOrdinaryMobCanMutateThroughExposure(TestContext ctx) {
-        float animalChance=TetanusMod.CONFIG.animalConversionChance,mobChance=TetanusMod.CONFIG.mobConversionChance;int count=0;
+        float animalChance=TetanusMod.CONFIG.animalConversionChance,mobChance=TetanusMod.CONFIG.mobConversionChance,golemChance=TetanusMod.CONFIG.golemConversionChance;int count=0;
         try {
-            TetanusMod.CONFIG.animalConversionChance=1;TetanusMod.CONFIG.mobConversionChance=1;
+            TetanusMod.CONFIG.animalConversionChance=1;TetanusMod.CONFIG.mobConversionChance=1;TetanusMod.CONFIG.golemConversionChance=1;
             for(var type:net.minecraft.registry.Registries.ENTITY_TYPE) {
                 if(!(type.create(ctx.getWorld()) instanceof MobEntity mob)||mob instanceof net.minecraft.entity.boss.WitherEntity)continue;
                 Infection.expose(mob,null);ctx.assertTrue(MobVariants.permanent(mob),"Rusty exposure could not mutate "+type);count++;
             }
-        }finally{TetanusMod.CONFIG.animalConversionChance=animalChance;TetanusMod.CONFIG.mobConversionChance=mobChance;}
+        }finally{TetanusMod.CONFIG.animalConversionChance=animalChance;TetanusMod.CONFIG.mobConversionChance=mobChance;TetanusMod.CONFIG.golemConversionChance=golemChance;}
         ctx.assertTrue(count>60,"Too few mob types tested");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)

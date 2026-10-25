@@ -1,0 +1,88 @@
+{
+  "Result": "PASS",
+  "PlayerUuid": "7fc02cf2-da5a-351c-a700-aaa88bd6d88d",
+  "ActualClientNetworkCommands": [
+    {
+      "Command": "/locate structure tetanusmod:medic_tent",
+      "ServerSuccessTranslationKey": "commands.locate.structure.success",
+      "ClientSuccessTranslationKey": "commands.locate.structure.success",
+      "ServerMessage": "The nearest tetanusmod:medic_tent is at [400, ~, 160] (435 blocks away)",
+      "ClientChatMessage": "The nearest tetanusmod:medic_tent is at [400, ~, 160] (435 blocks away)",
+      "NativeLocatedX": 400,
+      "NativeLocatedZ": 160,
+      "NativeDisplayedY": "~",
+      "NativeDistanceBlocks": 435
+    },
+    {
+      "Command": "/rustandruin locate tent",
+      "ServerSuccessTranslationKey": "commands.locate.structure.success",
+      "ClientSuccessTranslationKey": "commands.locate.structure.success",
+      "ServerMessage": "The nearest tetanusmod:medic_tent is at [400, ~, 160] (435 blocks away)",
+      "ClientChatMessage": "The nearest tetanusmod:medic_tent is at [400, ~, 160] (435 blocks away)",
+      "NativeLocatedX": 400,
+      "NativeLocatedZ": 160,
+      "NativeDisplayedY": "~",
+      "NativeDistanceBlocks": 435
+    },
+    {
+      "Command": "/locate poi tetanusmod:medic_tent",
+      "ServerSuccessTranslationKey": "commands.locate.poi.success",
+      "ClientSuccessTranslationKey": "commands.locate.poi.success",
+      "ServerMessage": "The nearest tetanusmod:medic_tent is at [414, ~, 167] (4 blocks away)",
+      "ClientChatMessage": "The nearest tetanusmod:medic_tent is at [414, ~, 167] (4 blocks away)",
+      "NativeLocatedX": 414,
+      "NativeLocatedZ": 167,
+      "NativeDisplayedY": "~",
+      "NativeDistanceBlocks": 4
+    }
+  ],
+  "Camp": {
+    "WorldKey": "minecraft:overworld",
+    "Seed": 0,
+    "StructuresEnabled": true,
+    "NativeNoiseGenerator": true,
+    "OriginalSpawnPosition": {
+      "x": -4.5,
+      "y": 63.0,
+      "z": 1.5
+    },
+    "NativeStartChunk": {
+      "x": 25,
+      "z": 10
+    },
+    "BoundingBox": "BlockBox{minX\u003d412, minY\u003d-51, minZ\u003d160, maxX\u003d424, maxY\u003d-44, maxZ\u003d172}",
+    "ActualRoomPosition": {
+      "x": 418.5,
+      "y": -50.0,
+      "z": 166.5
+    },
+    "ActualCabinet": {
+      "x": 414,
+      "y": -50,
+      "z": 167
+    },
+    "ActualLootChest": {
+      "x": 420,
+      "y": -50,
+      "z": 168
+    },
+    "UnopenedLootTable": "tetanusmod:chests/medic_tent",
+    "FullNativeChunksGenerated": true,
+    "NativeFieldMedicUuid": "e13eacae-859c-4387-a933-85ad96526607",
+    "NativeGuardUuid": "55df64a7-9a50-4f16-9fb3-75775543ec64",
+    "NativeGuardMaxHealth": 200.0,
+    "NativeGuardCurrentHealth": 199.0,
+    "NativeGuardPlayerCreated": true,
+    "NativeTentPoiIndexed": true,
+    "ClientMedicUuid": "e13eacae-859c-4387-a933-85ad96526607",
+    "ClientGuardUuid": "55df64a7-9a50-4f16-9fb3-75775543ec64",
+    "ClientGuardMaxHealth": 200.0,
+    "ClientGeneratedLootStacks": 10,
+    "ServerGeneratedLootStacks": 10
+  },
+  "ManuallyPlacedTemplates": 0,
+  "ManuallyInsertedStarts": 0,
+  "ManuallyPlacedPoi": 0,
+  "ManuallySpawnedResidents": 0,
+  "PlayerStateRestored": true
+}

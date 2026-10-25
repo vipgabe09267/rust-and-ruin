@@ -1,0 +1,32 @@
+{
+    "criteria":  {
+                     "obtain_iron":  {
+                                         "trigger":  "minecraft:inventory_changed",
+                                         "conditions":  {
+                                                            "items":  [
+                                                                          {
+                                                                              "items":  [
+                                                                                            "minecraft:iron_ingot"
+                                                                                        ]
+                                                                          }
+                                                                      ]
+                                                        }
+                                     }
+                 },
+    "parent":  "tetanusmod:root",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.iron_has_a_darker_side.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "minecraft:iron_ingot"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.iron_has_a_darker_side.title"
+                              },
+                    "frame":  "task"
+                }
+}

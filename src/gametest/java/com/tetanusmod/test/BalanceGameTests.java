@@ -38,6 +38,8 @@ public class BalanceGameTests implements FabricGameTest {
         var bow=new ItemStack(Items.BOW);player.setStackInHand(Hand.MAIN_HAND,bow);
         player.setStackInHand(Hand.OFF_HAND,new ItemStack(ModItems.TETANIZED_ARROW,3));
         var target=ctx.spawnEntity(EntityType.COW,new Vec3d(5,3,5));
+        // A fully drawn critical arrow can kill a normal 10HP cow; this case requires a surviving recipient.
+        target.getAttributeInstance(net.minecraft.entity.attribute.EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(40);target.setHealth(40);
         SoundProbe.begin();
         try {
             Items.BOW.onStoppedUsing(bow,ctx.getWorld(),player,71980);
@@ -46,7 +48,7 @@ public class BalanceGameTests implements FabricGameTest {
             Vec3d impact=target.getPos().add(0,0.6,0);
             var method=com.tetanusmod.entity.TetanizedArrowEntity.class.getDeclaredMethod("onEntityHit",net.minecraft.util.hit.EntityHitResult.class);
             method.setAccessible(true);method.invoke(arrow,new net.minecraft.util.hit.EntityHitResult(target,impact));
-            ctx.assertTrue(SoundProbe.count==1,"Arrow must play one infection sound on impact");
+            ctx.assertTrue(SoundProbe.count==1,"Arrow must play one new-infection sound on impact: count="+SoundProbe.count+", infected="+target.hasStatusEffect(TetanusMod.TETANUS)+", health="+target.getHealth()+", velocity="+arrow.getVelocity());
             ctx.assertTrue(SoundProbe.position.squaredDistanceTo(impact)<0.001,"Arrow sound played away from impact");
             arrow.discard();
             ctx.assertTrue(net.minecraft.registry.Registries.SOUND_EVENT.containsId(TetanusMod.id("tetanus_effect"))

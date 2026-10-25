@@ -3,7 +3,7 @@
 
                         },
     "step":  "surface_structures",
-    "terrain_adaptation":  "beard_thin",
+    "terrain_adaptation":  "none",
     "type":  "tetanusmod:medic_clinic",
     "biomes":  "#tetanusmod:has_medic_clinic"
 }

@@ -1,0 +1,96 @@
+{
+    "Scope":  "Native Night Vision illuminated AFTER production sleeve-clearance fix",
+    "Lighting":  "Actual native Night Vision effect; raw light and bright baseline pixels recorded in CSV",
+    "Files":  [
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-slim-first-left-baseline.png",
+                      "SHA256":  "68A06794F0B2DEACD59FA74086EBCE7B8F6922177DB223002EDEE56AD2A44F20",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:31.6526078Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-slim-first-left-gloves.png",
+                      "SHA256":  "213D40995BD71F7B616425153A0EAE5B38E8AD9C36225B8CE04C9F01859F35B3",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:32.5534949Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-slim-first-right-baseline.png",
+                      "SHA256":  "C2560F2799D03F3838BBE641F549D7A81852978749CCB17F88850B607D732C24",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:29.8489786Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-slim-first-right-gloves.png",
+                      "SHA256":  "22B68ADAA1ABA74CC434B120DF26340CE6B3E4A0CCCF40215BD49CF796E72068",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:30.7565466Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-slim-third-back-baseline.png",
+                      "SHA256":  "52132F46E3882B7097D6F68B7C9E094638E32C8E5FBBE322FA9EBFEBFC988EA6",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:35.2588687Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-slim-third-back-gloves.png",
+                      "SHA256":  "139AC9DCC2028337FA007A860C99BC8722105048A84BD87393F71A24448A5ECD",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:36.1505726Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-slim-third-front-baseline.png",
+                      "SHA256":  "B5EC835D86BC097917AF7F7C9F371D2DD12FCA3CE4F631F6A3C95CD5608FA6A0",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:33.4626905Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-slim-third-front-gloves.png",
+                      "SHA256":  "E8CEC1A294C4A73BFD072FEED7EFE70253F2FF9584356BF13F25E8A2C9E537CD",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:34.3574915Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-wide-first-left-baseline.png",
+                      "SHA256":  "79A676EC6A3B0C588CE918F5C42261CD31831630D155C444F823819641719A2C",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:24.4500281Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-wide-first-left-gloves.png",
+                      "SHA256":  "DFFF728CC520EA099AA160C7228535F657271DBE081BCE324ECD89576A1B19C4",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:25.3612966Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-wide-first-right-baseline.png",
+                      "SHA256":  "8441BA4736CCF063824CAF00170E7248A039C4EDC4CDDFFFFC5B18D299425846",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:22.6657257Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-wide-first-right-gloves.png",
+                      "SHA256":  "3EC54E58B4C28ED411A89DB763657B8F194019A58574F2A34265DC2C984EF39E",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:23.5958831Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-wide-third-back-baseline.png",
+                      "SHA256":  "70A0F2A21CE2B42DC1144A8326C96C5C4BEA443ED3E9E7145EE9FCE1275D37B5",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:28.0578905Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-wide-third-back-gloves.png",
+                      "SHA256":  "460BFA66E3B4F16BCA24F2DCA304BAEFDA9B4C813E159E63635F95343CE519D2",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:28.9585661Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-wide-third-front-baseline.png",
+                      "SHA256":  "63FF5C9E448163F220D53B6086A648945DCB930C29502B615E5E8BAFD0A16CE6",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:26.2628001Z"
+                  },
+                  {
+                      "Name":  "rust-and-ruin-glove-probe-wide-third-front-gloves.png",
+                      "SHA256":  "8C1DBB6426A7FC38B9A12829ED02C516A5F084585558D4E9F816CB0989689F69",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:27.1650452Z"
+                  },
+                  {
+                      "Name":  "glove-probe-test-skin.png",
+                      "SHA256":  "D26E7CA04CE464E6410C16FB050623A99C9BB94A1B5341373D3E190EB5D74D1F",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:19.7406421Z"
+                  },
+                  {
+                      "Name":  "glove-probe-results.csv",
+                      "SHA256":  "B024F9A640857748EBB3F0B3A6D366A405E5126676AE6F449D6D40A108E77DA4",
+                      "SourceModifiedUtc":  "2026-10-25T00:06:36.1894932Z"
+                  }
+              ]
+}

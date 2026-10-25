@@ -6,7 +6,7 @@ Throw nails, set rusty traps, and fight infected creatures. Rust & Ruin adds wea
 
 **Minecraft 1.20.1 Fabric · version 0.1.0-beta**
 
-[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes](docs/RECIPES.md) · [Validation](VALIDATION.md) · [Requested features](docs/REQUEST_AUDIT.md) · [Security review](docs/SECURITY_AUDIT.md) · [File audit](docs/FULL_AUDIT.md)
+[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes](docs/RECIPES.md) · [Validation](VALIDATION.md) · [Latest playtest fixes](docs/PLAYTEST_FIXES_2026-10-25.md) · [Requested features](docs/REQUEST_AUDIT.md) · [Security review](docs/SECURITY_AUDIT.md) · [File audit](docs/FULL_AUDIT.md)
 
 ![Rust & Ruin in Minecraft](validation/screenshots/rust-and-ruin-hud.png)
 
@@ -22,7 +22,7 @@ Nails deal one heart per throw; rebar deals half a heart on a fully charged unar
 
 Dropped supported metal rusts after **five consecutive seconds touching water** or **fifteen seconds in exposed rain**. Conversion preserves item names, damage, enchantments, and stack counts. Brush it clean to collect Rust, or place Rust on floors and walls. Existing rusty iron tools retain their IDs and behavior, but are retired from new rusting and the Creative tab in favor of the spear.
 
-Caltrops and barbed wire damage creatures that step through them. **Bear Traps** close after one activation, inflicting Slowness X; use a **Trap Reset Tool** to release the victim and rearm them. Rusty traps spread Tetanus. Traps play infection sounds at their position.
+Caltrops and barbed wire damage creatures that step through them. **Bear Traps** close after one activation, holding the victim in place with Slowness X; use a **Trap Reset Tool** to release it, with three seconds to move clear before rearming. Rusty traps spread Tetanus. Traps play infection sounds at their position.
 
 Fishing rods left in water break into two sticks and two string, with a 15% Rusty Fishing Hook chance. Craft a hookline from the hook, chain, string, and a stick to pull and infect creatures up to twelve blocks away.
 
@@ -54,7 +54,9 @@ Permanent tetanized hostiles gain 50% maximum health and extra attack damage whe
 
 Withers and the Ender Dragon are excluded from these automatic rolls. Rusty contact retains the configurable default mutation chances of 2% for animals and 1% for other ordinary mobs. Certain unconverted mammals and undead can instead become rabid, at 0.3%/0.6%/1% on Easy/Normal/Hard. Rabid creatures have thirty extra health points, seven extra armor points, custom skins, and five-point melee attacks before armor. Only rabid animals drop Rabid Meat. Raw Infected Meat causes Salmonella only; raw Rabid Meat causes Rabies and immediate nausea unless vaccination prevents infection. Both meats become safe when cooked.
 
-A **medic** sells antitoxin, both vaccines, Rabies Cure, and gloves from novice level. New village locations roll a **55% clinic chance**, with suitable terrain and a free plot required. Plains, desert, savanna, snowy, and taiga clinics use local materials and biome-appropriate medics, with food and supply chests. A crafted **Medicine Cabinet** also gives an unemployed villager the profession without a clinic. Other trades offer selected weapons, traps, tools, and hooks. Species-colored variant eggs now have their own **Rust & Ruins Spawn Eggs** tab, with rusty or purple tints.
+Medics progress from **Nurse** through **Nurse Practitioner**, **Medical Doctor**, and **Attending Physician**. Each rank adds two randomized treatment and supply/barter offers. Distinct medicines have 2-4 purchases per delivery; village supplies replenish at most once per 24,000 world ticks. Higher ranks can trade potion ingredients, protection books, golden apples and a scarce enchanted golden apple. Native Hero of the Village discounts apply.
+
+New village locations roll a **55% clinic chance**, with suitable terrain and a free plot required. Five biome themes use local materials, medical uniforms and supply chests. A crafted **stainless-steel Medicine Cabinet** also gives an unemployed villager the profession without a clinic. Field medics in cave tents have at most two purchases per offer and replenish at most once per 72,000 world ticks. Other villagers offer selected weapons, traps, tools and hooks. Species-colored variant eggs have their own **Rust & Ruins Spawn Eggs** tab.
 
 ## Brewing and enchanted arrows
 
@@ -64,7 +66,7 @@ Tetanized Arrows now use a **smithing table**: empty template, ordinary arrows a
 
 ## Wither and beacon progression
 
-Use Rust on an iron golem for an 18% conversion chance; the rusty guardian has 200 maximum health. Each Survival attempt consumes one Rust.
+Use Rust on an iron golem for an 18% conversion chance; rusty projectile hits also have a dedicated 18% conversion chance by default. The rusty guardian has 200 maximum health. Each Survival Rust attempt consumes one Rust.
 
 Four Tetanized Soul Sand blocks in the ordinary Wither ritual give a 5% Tetanized Wither chance. A netherite block replacing the upper center soul sand raises the default chance to 30%. A failed roll still summons an ordinary Wither and consumes the ritual.
 
@@ -126,12 +128,12 @@ Operators can use `/rustandruin inspect <entity>` to inspect mutation and despaw
 
 ## Medic cave camps and armed monsters
 
-Medic tents can appear in roomy lush or dripstone caves, using a 15% roll at widely spaced candidate locations. Terrain must fit; this is not a 15% chance per cave. Camps remain over 2,000 blocks apart and contain a medic, a loot chest, and a defensive 200-health Tetanized Iron Golem. Clinics and camps generate in new terrain; existing villages are not retrofitted.
+Medic tents can appear in roomy, dry Overworld caves, using a 15% roll for each suitable cave site within a widely spaced candidate chunk. Natural floor support, an open interior and an entrance are required; this is not a 15% chance per cave or chunk. Camps remain over 2,000 blocks apart and contain a medic, a loot chest, and a defensive 200-health Tetanized Iron Golem. Clinics and camps generate in new terrain; existing villages are not retrofitted.
 
 Operators can use `/locate structure tetanusmod:medic_clinic`, `/locate structure tetanusmod:medic_tent`, or `/locate structure #tetanusmod:medics`. Shortcuts: `/rustandruin locate medic` and `/rustandruin locate tent`. Disease commands use the same namespace: `/effect give @s tetanusmod:rabies infinite`; short names such as `/effect give @s rabies` also work. These operator commands bypass vaccine prevention.
 
 Skeletons can trade their bow for rusty nails; zombies can carry rebar, a rusty pipe, or a rusty spear. Weapon chances are 2%/4%/6% on Easy/Normal/Hard. Nail skeletons respect line of sight, and their missed shots cannot be collected for free ammunition. Rusty player-thrown nails now have a 0.7-second cooldown.
 
-See the [24-request refresh and audit](docs/REFRESH_2026-10-23.md) for current changes and test limits.
+See the [October 24 playtest fixes and graphical verification](docs/PLAYTEST_FIXES_2026-10-24.md) for current changes and test limits. The [24-request refresh](docs/REFRESH_2026-10-23.md) records the earlier work.
 
-The [fresh full-project audit](docs/REAUDIT_2026-10-23.md) records the next stability fixes, including pack-animal cargo preservation, End-return disease persistence, glove synchronization, trap contact checks, and native Wither ritual compatibility.
+The earlier [full-project audit](docs/REAUDIT_2026-10-23.md) records stability fixes, including pack-animal cargo preservation, End-return disease persistence, glove synchronization, trap contact checks, and native Wither ritual compatibility.

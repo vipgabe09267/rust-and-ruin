@@ -14,12 +14,28 @@ import net.minecraft.world.*;
 /** Native door lifecycle plus an explicit migration state for older, one-block cabinets. */
 public final class MedicineCabinetBlock extends DoorBlock {
     public static final BooleanProperty COMPLETE=BooleanProperty.of("complete");
-    private static final VoxelShape SHAPE=Block.createCuboidShape(1,0,2,15,16,15);
-    public MedicineCabinetBlock(Settings settings){super(settings.nonOpaque(),BlockSetType.BIRCH);setDefaultState(getDefaultState().with(COMPLETE,false));}
+    private static final BlockSetType STEEL=new BlockSetType("tetanusmod:medical_steel",true,
+        BlockSetType.IRON.soundType(),BlockSetType.IRON.doorClose(),BlockSetType.IRON.doorOpen(),
+        BlockSetType.IRON.trapdoorClose(),BlockSetType.IRON.trapdoorOpen(),
+        BlockSetType.IRON.pressurePlateClickOff(),BlockSetType.IRON.pressurePlateClickOn(),
+        BlockSetType.IRON.buttonClickOff(),BlockSetType.IRON.buttonClickOn());
+    private static final VoxelShape NORTH=Block.createCuboidShape(1.5,0,3,14.5,16,14.5);
+    private static final VoxelShape SOUTH=Block.createCuboidShape(1.5,0,1.5,14.5,16,13);
+    private static final VoxelShape EAST=Block.createCuboidShape(1.5,0,1.5,13,16,14.5);
+    private static final VoxelShape WEST=Block.createCuboidShape(3,0,1.5,14.5,16,14.5);
+    public MedicineCabinetBlock(Settings settings){super(settings.nonOpaque(),STEEL);setDefaultState(getDefaultState().with(COMPLETE,false));}
     @Override protected void appendProperties(StateManager.Builder<Block,BlockState> builder){super.appendProperties(builder);builder.add(COMPLETE);}
-    @Override public BlockState getPlacementState(net.minecraft.item.ItemPlacementContext context){var state=super.getPlacementState(context);return state==null?null:state.with(COMPLETE,true);}
+    @Override public BlockState getPlacementState(net.minecraft.item.ItemPlacementContext context){
+        // A cabinet presents its front to the placer. Let the native door also choose
+        // its hinge against that outward facing, using the original click and world.
+        var outward=new net.minecraft.item.ItemPlacementContext(context){
+            @Override public Direction getHorizontalPlayerFacing(){return context.getHorizontalPlayerFacing().getOpposite();}
+        };
+        var state=super.getPlacementState(outward);
+        return state==null?null:state.with(COMPLETE,true);
+    }
     @Override public boolean canPathfindThrough(BlockState state,BlockView world,BlockPos pos,net.minecraft.entity.ai.pathing.NavigationType type){return false;}
-    @Override public VoxelShape getOutlineShape(BlockState state,BlockView world,BlockPos pos,ShapeContext context){return SHAPE;}
+    @Override public VoxelShape getOutlineShape(BlockState state,BlockView world,BlockPos pos,ShapeContext context){return switch(state.get(FACING)){case SOUTH->SOUTH;case EAST->EAST;case WEST->WEST;default->NORTH;};}
     @Override public BlockState getStateForNeighborUpdate(BlockState state,Direction side,BlockState neighbor,WorldAccess world,BlockPos pos,BlockPos neighborPos){
         if(!state.get(COMPLETE)&&state.get(HALF)==DoubleBlockHalf.LOWER&&side==Direction.UP&&!neighbor.isOf(this))return state;
         return super.getStateForNeighborUpdate(state,side,neighbor,world,pos,neighborPos);

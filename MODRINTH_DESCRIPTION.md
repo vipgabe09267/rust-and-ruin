@@ -6,7 +6,7 @@ Throw nails, set traps, and put rusty metal to use. **Rust & Ruin** adds weapons
 
 Fight with throwable nails, rebar, metal pipes, and spears. Leave metal equipment in water for five seconds or exposed to rain for fifteen seconds to rust it. Rusty weapons can spread Tetanus; a wire brush cleans them and gives you Rust for crafting or placing on floors and walls.
 
-Set caltrops and barbed wire, or catch enemies in **bear traps**. Bear traps snap shut, apply Slowness X, and must be rearmed with a Trap Reset Tool. Rusted traps can infect their victims.
+Set caltrops and barbed wire, or catch enemies in **bear traps**. Bear traps snap shut and hold victims in place with Slowness X. A Trap Reset Tool opens the jaws and gives three seconds to move clear before rearming. Rusted traps can infect their victims.
 
 The Iron Spear has a slower swing than an iron sword, seven base damage, and a right-click thrust with extra reach.
 
@@ -28,14 +28,14 @@ Creative variant eggs keep each species recognizable, with rusty or purple tints
 
 ## Village medics
 
-Find a medic in a village clinic or place a crafted **Medicine Cabinet** to give an unemployed villager the job. Medics sell vaccines, antitoxin, Rabies Cure, and protective gloves.
+Find a medic in a village clinic or place a crafted **Medicine Cabinet** to give an unemployed villager the job. Medics progress through **Nurse**, **Nurse Practitioner**, **Medical Doctor**, and **Attending Physician**, with two randomized offers per rank. Treatments have only **2-4 purchases** per delivery; village supplies replenish at most once per in-game day. Barters use emeralds, iron, flint, honey and other supplies. Higher ranks can offer potion ingredients, protection books, golden apples and a scarce enchanted golden apple. Hero of the Village discounts apply.
 
-New villages roll a **55% clinic chance** where terrain and space allow. Clinics and medic uniforms match plains, desert, savanna, snowy, and taiga villages, with treatment beds, a two-block medicine cabinet, and a loot chest. Smiths and fishermen also offer selected equipment and salvage. A reusable **Field Guide** explains recipes and progression in-game.
+New villages roll a **55% clinic chance** where terrain and space allow. Clinics and medic uniforms match plains, desert, savanna, snowy, and taiga villages, with treatment beds, a two-block stainless-steel and glass medicine cabinet, and a loot chest. Smiths and fishermen also offer selected equipment and salvage. A reusable **Field Guide** explains recipes and progression in-game.
 
 
-Explore roomy lush and dripstone caves for rare **medic camps**: a tent, medic, supplies, and a defensive Tetanized Iron Golem. Camp candidates roll 15% and stay more than 2,000 blocks apart; suitable cave space is also required. New structures appear in newly generated terrain.
+Explore roomy, dry Overworld caves for rare **medic camps**: a tent, medic, supplies, and a defensive Tetanized Iron Golem. Field medics carry at most **two purchases per offer** and receive supplies no more often than once every three in-game days. Each suitable cave site within a widely spaced candidate chunk rolls 15%; camps stay more than 2,000 blocks apart and need a natural floor and open entrance. New structures appear in newly generated terrain.
 
-Operators can find them with `/locate structure tetanusmod:medic_clinic`, `/locate structure tetanusmod:medic_tent`, or `/rustandruin locate medic` and `/rustandruin locate tent`.
+Operators can find them with `/locate structure tetanusmod:medic_clinic`, `/locate structure tetanusmod:medic_tent`, or `/rustandruin locate medic` and `/rustandruin locate tent`. Nearby generated camps also have a distinct `/locate poi tetanusmod:medic_tent` point of interest.
 
 ## Brewing and enchanted weapons
 
@@ -66,7 +66,7 @@ Use its special star to craft a **Tetanized Beacon**. Build the pyramid from **R
 
 ## Advancements
 
-Earn advancements for preventing infection with gloves or a protected shield, recovering with antitoxin, contracting and curing Rabies, and completing the Wither and beacon progression.
+Earn advancements for preventing infection with gloves or a protected shield, recovering with antitoxin, contracting and curing Rabies, and completing the Wither and beacon progression. Drinking either vaccine awards **Faucci Ouchie**; successfully converting an iron golem awards **Tetanized Guardian**.
 
 Pick up Infected Meat for **Strange Meat**, contract Salmonella for **Why did I eat that?**, or die to your own upward-thrown rusty nail for **Why did I do that?**
 

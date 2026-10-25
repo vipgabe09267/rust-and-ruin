@@ -1,0 +1,182 @@
+{
+  "Result": "PASS",
+  "ActualGraphicalPlayer": true,
+  "ActiveAdvancements": 28,
+  "DirectCriterionGrants": 0,
+  "Advancements": {
+    "root": {
+      "Action": "Fresh connected Survival player receives the native tick advancement.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-root.png"
+    },
+    "iron_has_a_darker_side": {
+      "Action": "Pick up an iron ingot and synchronize the native inventory screen.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-iron_has_a_darker_side.png"
+    },
+    "recipes/unlock": {
+      "Action": "The same real iron pickup unlocks the mod\u0027s recipes.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-recipes-unlock.png",
+      "ClientUnlockedRecipeIds": [
+        "tetanusmod:barbed_wire",
+        "tetanusmod:bear_trap",
+        "tetanusmod:bent_nail",
+        "tetanusmod:caltrops",
+        "tetanusmod:cooked_infected_meat_campfire_cooking",
+        "tetanusmod:cooked_infected_meat_smelting",
+        "tetanusmod:cooked_infected_meat_smoking",
+        "tetanusmod:cooked_rabid_meat_campfire_cooking",
+        "tetanusmod:cooked_rabid_meat_smelting",
+        "tetanusmod:cooked_rabid_meat_smoking",
+        "tetanusmod:field_guide",
+        "tetanusmod:iron_spear",
+        "tetanusmod:medic_cabinet",
+        "tetanusmod:metal_pipe",
+        "tetanusmod:nail",
+        "tetanusmod:protective_gloves",
+        "tetanusmod:rabies_vaccine",
+        "tetanusmod:rebar",
+        "tetanusmod:rusted_iron_block",
+        "tetanusmod:rusty_hookline",
+        "tetanusmod:sharpened_rebar",
+        "tetanusmod:tetanized_arrow",
+        "tetanusmod:tetanized_beacon",
+        "tetanusmod:tetanized_soul_sand",
+        "tetanusmod:tetanus_antitoxin",
+        "tetanusmod:tetanus_vaccine",
+        "tetanusmod:trap_reset_tool",
+        "tetanusmod:veterinary_kit",
+        "tetanusmod:wire_brush"
+      ]
+    },
+    "rusty_business": {
+      "Action": "Drop a nail into water and wait for the complete configured rust duration.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-rusty_business.png"
+    },
+    "rusty_hook": {
+      "Action": "Drop fishing rods into water, allow native salvage rolls, and pick up a recovered hook.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-rusty_hook.png"
+    },
+    "glove_protection": {
+      "Action": "Equip gloves by right-clicking and withstand real rusty zombie melee attacks until one exposure is prevented.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-glove_protection.png"
+    },
+    "shield_protection": {
+      "Action": "Raise a Tetanus Protection shield and block an actual enchanted zombie melee attack.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-shield_protection.png"
+    },
+    "tetanized_mob": {
+      "Action": "Use Rust on an iron golem until a real conversion roll succeeds.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-tetanized_mob.png"
+    },
+    "rusty_guardian": {
+      "Action": "The same successful, causal iron-golem conversion awards its specific advancement.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-rusty_guardian.png"
+    },
+    "strange_meat": {
+      "Action": "Kill an egg-spawned Tetanized cow with a real player attack and pick up its infected meat.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-strange_meat.png"
+    },
+    "clean_bill_of_health": {
+      "Action": "Apply a veterinary kit to a second egg-spawned Tetanized cow.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-clean_bill_of_health.png"
+    },
+    "nice_one": {
+      "Action": "Kill an egg-spawned Tetanized Wither with a Creative-prepared test sword using the native attack method.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-nice_one.png"
+    },
+    "clinic": {
+      "Action": "Place a two-block Medicine Cabinet through the Survival block-item interaction.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-clinic.png"
+    },
+    "trap_reset": {
+      "Action": "A cow walks into a placed trap; use its reset tool through the native block interaction.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-trap_reset.png"
+    },
+    "rust_arrows": {
+      "Action": "Take a real 64-arrow/Rust smithing result through the native output slot.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-rust_arrows.png"
+    },
+    "medic": {
+      "Action": "Open a medic\u0027s actual merchant menu, supply its generated barter inputs, and take its output.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-medic.png"
+    },
+    "supply_run": {
+      "Action": "Sneak-interact with that medic holding its requested daily supply delivery.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-supply_run.png"
+    },
+    "spear": {
+      "Action": "Right-click a spear at a live indexed cow and land its actual raycast thrust.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-spear.png"
+    },
+    "infected": {
+      "Action": "Contract Tetanus from an actual rusty zombie injury or a real timed Tetanus potion.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-infected.png"
+    },
+    "why_did_i_eat_that": {
+      "Action": "Eat raw infected meat using the real item-use timer.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-why_did_i_eat_that.png"
+    },
+    "rabies": {
+      "Action": "Eat raw Rabid Meat using the real item-use timer.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-rabies.png"
+    },
+    "rabies_cured": {
+      "Action": "Drink Rabies Cure after the raw-meat infection.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-rabies_cured.png"
+    },
+    "lockjaw_sonata": {
+      "Action": "Drink a Lockjaw Sonata potion using the real item-use timer.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-lockjaw_sonata.png"
+    },
+    "antitoxin": {
+      "Action": "Drink antitoxin while Tetanus and Lockjaw are active.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-antitoxin.png"
+    },
+    "vaccinated": {
+      "Action": "Drink a vaccine using the real item-use timer.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-vaccinated.png"
+    },
+    "beacon_placed": {
+      "Action": "Place the Tetanized Beacon with its BlockItem.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-beacon_placed.png"
+    },
+    "beacon_full": {
+      "Action": "Build its complete rusty-iron pyramid, pay Netherite in the native menu, and wait for real beacon ticks.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-beacon_full.png"
+    },
+    "why_did_i_do_that": {
+      "Action": "Throw a rusty nail upward and catch its returning real projectile with a one-health test player.",
+      "ClientProgress": "COMPLETE",
+      "Screenshot": "rust-and-ruin-rei-adv-why_did_i_do_that.png"
+    }
+  },
+  "Retired": {
+    "variant_egg": "Hidden save-compatibility ID; no longer earnable by design. Actual variant spawn eggs were exercised."
+  }
+}

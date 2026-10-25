@@ -28,7 +28,7 @@ public class RefreshWorldGameTests implements FabricGameTest {
         var set=ctx.getWorld().getRegistryManager().get(RegistryKeys.STRUCTURE_SET).get(TetanusMod.id("medic_tents"));
         var placement=(RandomSpreadStructurePlacement)set.placement();
         var encoded=StructurePlacement.TYPE_CODEC.encodeStart(JsonOps.INSTANCE,placement).result().orElseThrow().getAsJsonObject();
-        ctx.assertTrue(Math.abs(encoded.get("frequency").getAsFloat()-0.15F)<0.00001,"Tent candidate frequency is not 15%");
+        ctx.assertTrue((!encoded.has("frequency")||Math.abs(encoded.get("frequency").getAsFloat()-1.0F)<0.00001),"Tent grid is thinning already rare eligible caves before the 15% site roll");
         for(long seed:new long[]{0,1,918731,Long.MAX_VALUE,-741}){
             var points=new ArrayList<ChunkPos>();
             for(int x=-3;x<=3;x++)for(int z=-3;z<=3;z++)points.add(placement.getStartChunk(seed,x*placement.getSpacing(),z*placement.getSpacing()));

@@ -21,7 +21,7 @@ public final class RabiesTonicItem extends DescribedItem {
     @Override public ItemStack finishUsing(ItemStack stack,World world,LivingEntity user){
         if(world.isClient||stack.isEmpty()||!stack.isOf(this)||!user.isAlive()||user.isSpectator())return stack;
         com.tetanusmod.item.MedicineConsumption.record(user,stack);
-        if(vaccine)user.addStatusEffect(new StatusEffectInstance(ExpansionEffects.RABIES_RESISTANCE,24000));
+        if(vaccine){user.addStatusEffect(new StatusEffectInstance(ExpansionEffects.RABIES_RESISTANCE,24000));ModAdvancements.vaccinated(user);}
         else {
             boolean infected=user.hasStatusEffect(ExpansionEffects.RABIES);RabiesEffect.cure(user);
             if(infected&&user instanceof ServerPlayerEntity player)ModAdvancements.award(player,"rabies_cured","cure_rabies");

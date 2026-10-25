@@ -70,7 +70,7 @@ public class ProgressionExpansionGameTests implements FabricGameTest {
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void bearTrapSnapsOnceAndResetRearmsIt(TestContext ctx){
         var pos=new BlockPos(3,3,3);ctx.setBlockState(pos,ExpansionBlocks.RUSTED_BEAR_TRAP);var trap=(BearTrapBlockEntity)ctx.getBlockEntity(pos);var cow=ctx.spawnEntity(EntityType.COW,new Vec3d(3.5,3,3.5));float chance=TetanusMod.CONFIG.animalConversionChance;
-        try{TetanusMod.CONFIG.animalConversionChance=0;ctx.assertTrue(trap.trigger(cow),"Open trap did not trigger");ctx.assertTrue(cow.getStatusEffect(StatusEffects.SLOWNESS).getAmplifier()==9&&cow.hasStatusEffect(TetanusMod.TETANUS)&&cow.getHealth()==7,"Rusty bear trap did not immobilize/damage/infect");cow.timeUntilRegen=0;ctx.assertFalse(trap.trigger(cow),"Closed trap triggered again");ctx.assertTrue(cow.getHealth()==7,"Closed trap repeated damage");ctx.assertTrue(trap.reset()&&!cow.hasStatusEffect(StatusEffects.SLOWNESS),"Reset did not release victim");ctx.assertTrue(trap.trigger(cow),"Reset failed to rearm trap");}finally{TetanusMod.CONFIG.animalConversionChance=chance;}ctx.complete();
+        try{TetanusMod.CONFIG.animalConversionChance=0;ctx.assertTrue(trap.trigger(cow),"Open trap did not trigger");ctx.assertTrue(cow.getStatusEffect(StatusEffects.SLOWNESS).getAmplifier()==9&&cow.hasStatusEffect(TetanusMod.TETANUS)&&cow.getHealth()==7,"Rusty bear trap did not immobilize/damage/infect");cow.timeUntilRegen=0;ctx.assertFalse(trap.trigger(cow),"Closed trap triggered again");ctx.assertTrue(cow.getHealth()==7,"Closed trap repeated damage");ctx.assertTrue(trap.reset()&&!cow.hasStatusEffect(StatusEffects.SLOWNESS),"Reset did not release victim");ctx.assertFalse(trap.trigger(cow),"Reset recaptured the victim before its escape grace");for(int tick=0;tick<BearTrapBlockEntity.RESET_GRACE_TICKS;tick++)BearTrapBlockEntity.tick(ctx.getWorld(),trap.getPos(),trap.getCachedState(),trap);ctx.assertTrue(trap.trigger(cow),"Reset failed to rearm after its grace");}finally{TetanusMod.CONFIG.animalConversionChance=chance;}ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void resetToolCostsDurabilityAndAwardsAdvancement(TestContext ctx){
@@ -103,9 +103,9 @@ public class ProgressionExpansionGameTests implements FabricGameTest {
         ctx.runAtTick(2,()->{ExpansionItems.SPEAR.use(ctx.getWorld(),player,Hand.MAIN_HAND);ctx.assertTrue(cow.getHealth()==3&&player.getMainHandStack().getDamage()==1,"Spear reach/damage failed");player.getItemCooldownManager().remove(ExpansionItems.SPEAR);cow.setHealth(10);cow.timeUntilRegen=0;ctx.setBlockState(3,4,3,Blocks.STONE);ExpansionItems.SPEAR.use(ctx.getWorld(),player,Hand.MAIN_HAND);ctx.assertTrue(cow.getHealth()==10&&player.getMainHandStack().getDamage()==1,"Spear thrust penetrated wall");ctx.complete();});
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void allMedicMedicinesAreAvailableAtNovice(TestContext ctx){
+    public void noviceMedicHasLimitedRandomizedOffers(TestContext ctx){
         var medic=EntityType.VILLAGER.create(ctx.getWorld());medic.setVillagerData(medic.getVillagerData().withProfession(MedicVillage.MEDIC).withLevel(1));var offers=medic.getOffers();
-        for(Item item:new Item[]{ModItems.ANTITOXIN,ModItems.VACCINE,ModItems.PROTECTIVE_GLOVES,ExpansionItems.RABIES_CURE,ExpansionItems.RABIES_VACCINE})ctx.assertTrue(offers.stream().anyMatch(offer->offer.getSellItem().isOf(item)),"Medic lacks required novice medicine "+item);
+        ctx.assertTrue(offers.size()==2,"Nurse should offer two randomized trades, not every medicine");ctx.assertTrue(offers.stream().filter(offer->MedicTradeOffers.isMedicine(offer.getSellItem().getItem())).count()==1,"Nurse needs one medicine and one supply trade");
         ctx.assertTrue(MedicVillage.JOB.contains(ExpansionBlocks.MEDIC_CABINET.getDefaultState()),"Medicine Cabinet is not a medic job site");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE,tickLimit=220)

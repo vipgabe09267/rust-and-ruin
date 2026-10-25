@@ -26,8 +26,22 @@
                                                 "com.tetanusmod.test.DeepAuditGameTests",
                                                 "com.tetanusmod.test.RefreshGameTests",
                                                 "com.tetanusmod.test.RefreshWorldGameTests",
-                                                "com.tetanusmod.test.ReauditGameTests"
-                                            ]
+                                                "com.tetanusmod.test.ReauditGameTests",
+                                                "com.tetanusmod.test.PlaytestWorldGameTests",
+                                                "com.tetanusmod.test.PlaytestAdvancementTrapGameTests",
+                                                "com.tetanusmod.test.MedicalVisualGameTests",
+                                                "com.tetanusmod.test.MedicTradingGameTests",
+                                                "com.tetanusmod.test.ComprehensiveCraftingGameTests",
+                                                "com.tetanusmod.test.ComprehensiveAcquisitionGameTests",
+                                                "com.tetanusmod.test.ComprehensiveAdvancementGameTests",
+                                                "com.tetanusmod.test.TrapInteractionRegressionGameTests",
+                                                "com.tetanusmod.test.InfectionAudioRegressionGameTests",
+                                                "com.tetanusmod.test.NailGolemRegressionGameTests",
+                                                "com.tetanusmod.test.TentDiscoveryGameTests"
+                                            ],
+                        "main":  [
+                                     "com.tetanusmod.test.TentNoiseTestWorldBootstrap"
+                                 ]
                     },
     "depends":  {
                     "tetanusmod":  "*",

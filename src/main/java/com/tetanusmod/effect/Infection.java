@@ -32,7 +32,7 @@ public final class Infection {
         world.playSound(null,pos.x,pos.y,pos.z,TetanusMod.INFECTION_SOUND,category,TetanusMod.CONFIG.infectionSoundVolume,1);
     }
     public static void playSound(LivingEntity target) {
-        if(SILENT.get())return;
+        if(SILENT.get()||target.getWorld().isClient||!target.hasStatusEffect(TetanusMod.TETANUS))return;
         Origin origin=ORIGIN.get();
         if(origin!=null){playAt(origin.world(),origin.pos(),origin.category());return;}
         float volume = TetanusMod.CONFIG.infectionSoundVolume;
@@ -80,7 +80,7 @@ public final class Infection {
         target.removeStatusEffect(TetanusMod.TETANUS);
         target.removeStatusEffect(TetanusMod.LOCKJAW);
         var replacement=new StatusEffectInstance(TetanusMod.TETANUS,ticks,amplifier);
-        if (InfectionProtection.checked(target,()->target.addStatusEffect(replacement, source))) {
+        if (addReplacement(target,source,replacement,current!=null)) {
             InfectionState state = (InfectionState) target;
             state.tetanus$setInfection(0, ticks < 0 ? 6000 : ticks);
             state.tetanus$setLockjaw(0);
@@ -90,6 +90,13 @@ public final class Infection {
         return false;
     }
 
+    /** Refreshes are real effect updates, not a new infection announcement. */
+    private static boolean addReplacement(LivingEntity target,Entity source,StatusEffectInstance effect,boolean refresh) {
+        boolean previous=SILENT.get();
+        if(refresh)SILENT.set(true);
+        try{return InfectionProtection.checked(target,()->target.addStatusEffect(effect,source));}
+        finally{if(previous)SILENT.set(true);else SILENT.remove();}
+    }
     public static int stage(int elapsed, int total) {
         return Math.min(2, (int) ((long) Math.max(0, elapsed) * 3 / Math.max(1, total)));
     }

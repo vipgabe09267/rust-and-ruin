@@ -1,0 +1,90 @@
+{
+  "Result": "PASS",
+  "ConnectedPlayers": 1,
+  "ActiveAdvancements": 28,
+  "Completed": {
+    "root": "Fresh connected Survival player receives the native tick advancement.",
+    "iron_has_a_darker_side": "Pick up an iron ingot and synchronize the native inventory screen.",
+    "recipes/unlock": "The same real iron pickup unlocks the mod\u0027s recipes.",
+    "rusty_business": "Drop a nail into water and wait for the complete configured rust duration.",
+    "rusty_hook": "Drop fishing rods into water, allow native salvage rolls, and pick up a recovered hook.",
+    "glove_protection": "Equip gloves by right-clicking and withstand real rusty zombie melee attacks until one exposure is prevented.",
+    "shield_protection": "Raise a Tetanus Protection shield and block an actual enchanted zombie melee attack.",
+    "tetanized_mob": "Use Rust on an iron golem until a real conversion roll succeeds.",
+    "rusty_guardian": "The same successful, causal iron-golem conversion awards its specific advancement.",
+    "strange_meat": "Kill an egg-spawned Tetanized cow with a real player attack and pick up its infected meat.",
+    "clean_bill_of_health": "Apply a veterinary kit to a second egg-spawned Tetanized cow.",
+    "nice_one": "Kill an egg-spawned Tetanized Wither with a Creative-prepared test sword using the native attack method.",
+    "clinic": "Place a two-block Medicine Cabinet through the Survival block-item interaction.",
+    "trap_reset": "A cow walks into a placed trap; use its reset tool through the native block interaction.",
+    "rust_arrows": "Take a real 64-arrow/Rust smithing result through the native output slot.",
+    "medic": "Open a medic\u0027s actual merchant menu, supply its generated barter inputs, and take its output.",
+    "supply_run": "Sneak-interact with that medic holding its requested daily supply delivery.",
+    "spear": "Right-click a spear at a live indexed cow and land its actual raycast thrust.",
+    "infected": "Contract Tetanus from an actual rusty zombie injury or a real timed Tetanus potion.",
+    "why_did_i_eat_that": "Eat raw infected meat using the real item-use timer.",
+    "rabies": "Eat raw Rabid Meat using the real item-use timer.",
+    "rabies_cured": "Drink Rabies Cure after the raw-meat infection.",
+    "lockjaw_sonata": "Drink a Lockjaw Sonata potion using the real item-use timer.",
+    "antitoxin": "Drink antitoxin while Tetanus and Lockjaw are active.",
+    "vaccinated": "Drink a vaccine using the real item-use timer.",
+    "beacon_placed": "Place the Tetanized Beacon with its BlockItem.",
+    "beacon_full": "Build its complete rusty-iron pyramid, pay Netherite in the native menu, and wait for real beacon ticks.",
+    "why_did_i_do_that": "Throw a rusty nail upward and catch its returning real projectile with a one-health test player."
+  },
+  "DirectCriterionGrants": 0,
+  "NativeConsumptions": [
+    {
+      "Item": "minecraft:potion",
+      "DoseCount": 1,
+      "NativeUsageStatDelta": 1,
+      "Remainder": "minecraft:glass_bottle",
+      "ExpectedEffect": "tetanusmod:tetanus"
+    },
+    {
+      "Item": "tetanusmod:infected_meat",
+      "DoseCount": 1,
+      "NativeUsageStatDelta": 1,
+      "Remainder": "EMPTY",
+      "ExpectedEffect": "tetanusmod:salmonella"
+    },
+    {
+      "Item": "tetanusmod:rabid_meat",
+      "DoseCount": 1,
+      "NativeUsageStatDelta": 1,
+      "Remainder": "EMPTY",
+      "ExpectedEffect": "tetanusmod:rabies"
+    },
+    {
+      "Item": "tetanusmod:rabies_cure",
+      "DoseCount": 1,
+      "NativeUsageStatDelta": 1,
+      "Remainder": "minecraft:glass_bottle",
+      "ExpectedEffect": "CURE"
+    },
+    {
+      "Item": "minecraft:potion",
+      "DoseCount": 1,
+      "NativeUsageStatDelta": 1,
+      "Remainder": "minecraft:glass_bottle",
+      "ExpectedEffect": "tetanusmod:lockjaw"
+    },
+    {
+      "Item": "tetanusmod:tetanus_antitoxin",
+      "DoseCount": 1,
+      "NativeUsageStatDelta": 1,
+      "Remainder": "minecraft:glass_bottle",
+      "ExpectedEffect": "CURE"
+    },
+    {
+      "Item": "tetanusmod:tetanus_vaccine",
+      "DoseCount": 1,
+      "NativeUsageStatDelta": 1,
+      "Remainder": "minecraft:glass_bottle",
+      "ExpectedEffect": "tetanusmod:tetanus_resistance"
+    }
+  ],
+  "Retired": {
+    "variant_egg": "Creative-only Bad Egg removed at the owner\u0027s request; hidden ID preserved solely for old saves. Actual variant eggs were still exercised."
+  }
+}

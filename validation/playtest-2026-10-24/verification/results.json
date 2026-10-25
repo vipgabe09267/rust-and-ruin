@@ -1,0 +1,130 @@
+{
+    "Result":  "PASS",
+    "Version":  "0.1.0-beta",
+    "VerifiedUTC":  "2026-10-25T00:36:47.9058874Z",
+    "Jar":  {
+                "Filename":  "rust-and-ruin-0.1.0-beta.jar",
+                "Bytes":  3335809,
+                "SHA256":  "C87F9F9DBEE462B889702D92B13B2082C1C62324649A4C46F3BDF103C61A76E4"
+            },
+    "ServerRuns":  [
+                       {
+                           "Run":  1,
+                           "Result":  "PASS",
+                           "Tests":  303,
+                           "Failures":  0,
+                           "StartedUTC":  "2026-10-25T00:35:09.2092468Z",
+                           "FinishedUTC":  "2026-10-25T00:35:58.2612455Z",
+                           "SHA256":  "C87F9F9DBEE462B889702D92B13B2082C1C62324649A4C46F3BDF103C61A76E4",
+                           "Report":  "server-release-final-1.xml"
+                       },
+                       {
+                           "Run":  2,
+                           "Result":  "PASS",
+                           "Tests":  303,
+                           "Failures":  0,
+                           "StartedUTC":  "2026-10-25T00:35:58.2667784Z",
+                           "FinishedUTC":  "2026-10-25T00:36:47.3516340Z",
+                           "SHA256":  "C87F9F9DBEE462B889702D92B13B2082C1C62324649A4C46F3BDF103C61A76E4",
+                           "Report":  "server-release-final-2.xml"
+                       }
+                   ],
+    "GraphicalProfiles":  [
+                              {
+                                  "Profile":  "plain",
+                                  "Result":  "PASS",
+                                  "StartedUTC":  "2026-10-25T00:11:57.5382600Z",
+                                  "FinishedUTC":  "2026-10-25T00:17:25.5818793Z",
+                                  "FreshScreenshots":  145,
+                                  "RecipesCrafted":  29,
+                                  "PotionFormsBrewed":  15,
+                                  "WeatheringCleaningPairs":  9,
+                                  "ActiveAdvancementsEarned":  28,
+                                  "NativeDespawnTargets":  6,
+                                  "RetainedControls":  4,
+                                  "ActualVisibleWindow":  true,
+                                  "WindowRecording":  {
+                                                          "LocalOnly":  true,
+                                                          "Filename":  "visible-release-plain.mp4",
+                                                          "DurationSeconds":  310.1,
+                                                          "Bytes":  7579764,
+                                                          "SHA256":  "F12197970303D5966262DF38CE95CD3F4D89D1E87869D4AE6BFD2262D1086752"
+                                                      }
+                              },
+                              {
+                                  "Profile":  "jei",
+                                  "Result":  "PASS",
+                                  "StartedUTC":  "2026-10-25T00:17:25.6040624Z",
+                                  "FinishedUTC":  "2026-10-25T00:22:53.1109831Z",
+                                  "FreshScreenshots":  150,
+                                  "RecipesCrafted":  29,
+                                  "PotionFormsBrewed":  15,
+                                  "WeatheringCleaningPairs":  9,
+                                  "ActiveAdvancementsEarned":  28,
+                                  "NativeDespawnTargets":  6,
+                                  "RetainedControls":  4,
+                                  "ActualVisibleWindow":  true,
+                                  "WindowRecording":  {
+                                                          "LocalOnly":  true,
+                                                          "Filename":  "visible-release-jei.mp4",
+                                                          "DurationSeconds":  310.3,
+                                                          "Bytes":  8432337,
+                                                          "SHA256":  "6798CE02E8C68DBCAE18F9BF38541A345995A9F1E34B531BC3F83F662242D77D"
+                                                      }
+                              },
+                              {
+                                  "Profile":  "rei-light",
+                                  "Result":  "PASS",
+                                  "StartedUTC":  "2026-10-25T00:22:53.1194220Z",
+                                  "FinishedUTC":  "2026-10-25T00:28:26.8374522Z",
+                                  "FreshScreenshots":  150,
+                                  "RecipesCrafted":  29,
+                                  "PotionFormsBrewed":  15,
+                                  "WeatheringCleaningPairs":  9,
+                                  "ActiveAdvancementsEarned":  28,
+                                  "NativeDespawnTargets":  6,
+                                  "RetainedControls":  4,
+                                  "ActualVisibleWindow":  true,
+                                  "WindowRecording":  {
+                                                          "LocalOnly":  true,
+                                                          "Filename":  "visible-release-rei-light.mp4",
+                                                          "DurationSeconds":  309.8,
+                                                          "Bytes":  8823836,
+                                                          "SHA256":  "1A2D68F48EF1601065DDC49AEAD1794F2D5F8D79170F8A740AC2F038CAD8D638"
+                                                      }
+                              },
+                              {
+                                  "Profile":  "rei-dark",
+                                  "Result":  "PASS",
+                                  "StartedUTC":  "2026-10-25T00:28:26.8438139Z",
+                                  "FinishedUTC":  "2026-10-25T00:33:53.6540899Z",
+                                  "FreshScreenshots":  150,
+                                  "RecipesCrafted":  29,
+                                  "PotionFormsBrewed":  15,
+                                  "WeatheringCleaningPairs":  9,
+                                  "ActiveAdvancementsEarned":  28,
+                                  "NativeDespawnTargets":  6,
+                                  "RetainedControls":  4,
+                                  "ActualVisibleWindow":  true,
+                                  "WindowRecording":  {
+                                                          "LocalOnly":  true,
+                                                          "Filename":  "visible-release-rei-dark.mp4",
+                                                          "DurationSeconds":  309.2,
+                                                          "Bytes":  8924796,
+                                                          "SHA256":  "E17659487232D01DD70B4418683F8483D169802A4067C6EDA86B1AC4634C0676"
+                                                      }
+                              }
+                          ],
+    "OriginalREIConfigRestored":  true,
+    "ResourcesRegeneratedIdenticallyTwice":  375,
+    "NativeOpaqueSleeveComparisonImages":  32,
+    "DirectCriterionGrantsInGraphicalJourney":  0,
+    "ReviewScope":  "Modified production Java and resource generators, new gameplay tests and graphical controllers; fixture defects recorded separately from gameplay defects",
+    "Limits":  [
+                   "Native graphical development clients; no long-running remote multiplayer or whole-modpack stress test.",
+                   "Creative scene/ingredient setup and accelerated native cooking/brewing waits are documented. Some advancement scene actions execute on the integrated server.",
+                   "Only unnamed naturally despawning hostile specimens should disappear; livestock and player-kept mobs retain vanilla rules.",
+                   "World-generation floor changes apply to newly generated clinics; saved buildings are not moved."
+               ],
+    "CommitStatus":  "These playtest fixes remain uncommitted for owner testing."
+}

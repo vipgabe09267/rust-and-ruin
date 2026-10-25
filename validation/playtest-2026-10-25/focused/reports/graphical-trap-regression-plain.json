@@ -1,0 +1,70 @@
+{
+  "Result": "PASS",
+  "ConnectedPlayer": "e5f3c748-0ea0-3a62-b5e9-4fef46853cc3",
+  "NativeForwardAndJumpKeys": true,
+  "NativeUseKeyClicks": 3,
+  "DirectTriggerCalls": 0,
+  "DirectResetCalls": 0,
+  "Evidence": [
+    {
+      "Action": "survival-capture",
+      "Mode": "survival",
+      "PlayerPosition": "(191.88424965926123, 4.0, 64.5)",
+      "Health": 17.0,
+      "TrapPosition": "192, 4, 64",
+      "Closed": true,
+      "HoldsPlayer": true,
+      "ToolDamage": 0
+    },
+    {
+      "Action": "survival-native-movement-held",
+      "Mode": "survival",
+      "PlayerPosition": "(191.88816965924963, 4.000279999792578, 64.5)",
+      "Health": 17.0,
+      "TrapPosition": "192, 4, 64",
+      "Closed": true,
+      "HoldsPlayer": true,
+      "ToolDamage": 0
+    },
+    {
+      "Action": "native-top-click-reset",
+      "Mode": "survival",
+      "PlayerPosition": "(191.88816965924963, 4.000279999792578, 64.5)",
+      "Health": 17.0,
+      "TrapPosition": "192, 4, 64",
+      "Closed": false,
+      "HoldsPlayer": false,
+      "ToolDamage": 1
+    },
+    {
+      "Action": "native-captive-entity-click-reset",
+      "Mode": "survival",
+      "PlayerPosition": "(190.0, 4.0, 68.5)",
+      "Health": 17.0,
+      "TrapPosition": "192, 4, 68",
+      "Closed": false,
+      "HoldsPlayer": false,
+      "ToolDamage": 2
+    },
+    {
+      "Action": "native-side-click-reset",
+      "Mode": "survival",
+      "PlayerPosition": "(190.0, 4.0, 60.5)",
+      "Health": 17.0,
+      "TrapPosition": "192, 5, 60",
+      "Closed": false,
+      "HoldsPlayer": false,
+      "ToolDamage": 3
+    },
+    {
+      "Action": "creative-native-walking-immune",
+      "Mode": "creative",
+      "PlayerPosition": "(193.23719604806158, 4.0, 72.5)",
+      "Health": 17.0,
+      "TrapPosition": "192, 4, 72",
+      "Closed": false,
+      "HoldsPlayer": false,
+      "ToolDamage": 3
+    }
+  ]
+}

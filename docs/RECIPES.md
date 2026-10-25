@@ -82,7 +82,7 @@ The layer sizes are the same as a normal beacon: 3x3, then 5x5, 7x7, and 9x9 for
 
 ## Rusted iron golem
 
-Right-click an iron golem with Rust. Each Survival attempt consumes one Rust and has an **18% chance** of conversion. A tetanized iron golem has **200 maximum health**, keeps its mutation when saved, and uses a rusty version of its original texture. Success awards **Rusty Guardian** and **Tetanized Mob**. Existing tetanized golems cannot consume repeated Rust attempts.
+Right-click an iron golem with Rust. Each Survival attempt consumes one Rust and has an **18% chance** of conversion. A tetanized iron golem has **200 maximum health**, keeps its mutation when saved, and uses a rusty version of its original texture. Success awards **Tetanized Guardian** and **Tetanized Mob**. Existing tetanized golems cannot consume repeated Rust attempts. Rusty projectile hits also use a dedicated **18%** permanent golem-conversion roll by default, configurable with `golemConversionChance`; the general mob rate remains unchanged. Setting the general mob conversion rate to zero also disables projectile conversion of golems.
 ## Prevention
 
 Drink a vaccine for 20 minutes of Tetanus Resistance: 80% lower Tetanus risk by default. It does not cure an existing infection or prevent Salmonella. Drinking a dose consumes one and returns one bottle; Creative use does not create extra bottles. Milk removes resistance while preserving Tetanus and Lockjaw.
@@ -102,10 +102,10 @@ Each layout uses a 3x3 crafting grid. `_` means an empty space.
 | Bear Trap | `INI` / `IPI` / `_C_` | I = iron ingot, N = nail, P = heavy weighted pressure plate, C = chain |
 | Trap Reset Tool | `I_I` / `ICI` / `_S_` | I = iron nugget, C = copper ingot, S = stick |
 | 2 Barbed Wire | `NNN` / `CSC` / `NNN` | N = nail, C = chain, S = string |
-| Medicine Cabinet | `PPP` / `HBF` / `PPP` | P = birch planks, H = honey bottle, B = barrel, F = fermented spider eye |
+| Medicine Cabinet | `IGI` / `IBI` / `IGI` | I = iron ingot, G = glass pane, B = barrel |
 | Rabies Vaccine | Shapeless | Tetanus Vaccine + Rabid Meat + golden carrot; ingredient bottles are returned |
 
-Rust the spear, bear trap, or barbed wire by dropping the item in water/rain. Placed bear traps and barbed wire also weather. A closed trap retains its victim when it rusts; resetting releases the victim and rearms it. Wire-brushing cleans their item forms and returns Rust. Existing rusty iron tools remain usable and cleanable but are retired from new acquisition.
+Rust the spear, bear trap, or barbed wire by dropping the item in water/rain. Placed bear traps and barbed wire also weather. A closed trap retains its victim when it rusts; resetting releases the victim and gives three seconds to move clear before rearming. Wire-brushing cleans their item forms and returns Rust. Existing rusty iron tools remain usable and cleanable but are retired from new acquisition.
 
 For smithing arrows, **leave the template empty**. One Rust converts the arrow stack, including a smaller stack than 64. Shift-click transfers only what fits and consumes the corresponding arrows plus one Rust; a full inventory consumes nothing.
 
@@ -121,15 +121,16 @@ Prices below are base prices before reputation, demand, discounts, and curing ef
 
 | Villager | Level | Added offers |
 | --- | --- | --- |
-| Medic | Novice | Antitoxin 6 emeralds; Tetanus Vaccine 8; Gloves 6; Rabies Cure 10; Rabies Vaccine 12. All five are available. |
-| Medic | Apprentice | Medicine Cabinet 5 emeralds; buys 3 honey bottles for 1 emerald |
-| Medic | Journeyman | Tetanus Protection shield book 16 emeralds |
+| Medic | Nurse | Two random offers: a treatment, plus supplies/barter such as paper, iron, honey, bread, apples or gloves. Medicine stock 2-4. |
+| Medic | Nurse Practitioner | Two more randomized offers; treatment barters, redstone, blaze powder, brewing stands, cabinets or supply exchanges. |
+| Medic | Medical Doctor | Two more offers; treatment, veterinary kits, shield protection books, golden apples, diamonds or stronger brewing ingredients. |
+| Medic | Attending Physician | Two final offers; stronger supplies and a possible enchanted golden apple for 48 emeralds plus 2 diamonds, one per delivery. |
 | Weaponsmith | Apprentice | Iron Spear 7; Rusted Spear 9; Rebar 3; Rusted Rebar 4 emeralds |
 | Toolsmith | Apprentice | Wire Brush or Trap Reset Tool, 4 emeralds |
 | Armorer | Apprentice | Bear Trap 6 or Rusted Bear Trap 7 emeralds |
 | Fisherman | Apprentice | Rusty Fishing Hook 3 emeralds |
 
-Non-novice offers participate in ordinary random trade selection. Clinics are weighted additions to village house pools, not guaranteed buildings. Placing a Medicine Cabinet lets an unemployed villager acquire the medic profession outside a clinic.
+Each medic rank adds two randomized native offers. Hero and gossip discounts apply. Village stock replenishes at most once per 24,000 world ticks; field medics have at most two uses per offer and a 72,000-tick delivery interval. Clinics use a 55% roll on eligible village-grid sites with suitable terrain. Placing a Medicine Cabinet lets an unemployed villager acquire the medic profession outside a clinic.
 
 ## Shield enchantment and beacon updates
 
@@ -160,8 +161,8 @@ Abandoned workshop barrels roll 3-5 rewards from Rust, copper, string, coal, rus
 
 Raw Infected Meat causes Salmonella only (100% by default, configurable); raw Rabid Meat causes Rabies and immediate nausea unless a Rabies vaccine prevents infection. Cooking either is safe. Temporary Tetanus never changes animal drops. Rabies itself deals no damage and will not reduce maximum health below two hearts.
 
-Medicine Cabinet crafting is unchanged. The placed block is now two blocks tall; leave headroom. Right-click a legacy one-block cabinet to upgrade it if the space above is empty. Both halves form one villager job site and breaking either returns one cabinet.
+The stainless-steel Medicine Cabinet uses six iron ingots, two glass panes and a barrel. The placed block is two blocks tall; leave headroom. Right-click a legacy one-block cabinet to upgrade it if the space above is empty. Both halves form one villager job site and breaking either returns one cabinet.
 
 Gloves still have 192 durability; Unbreaking reduces wear, and Mending repairs them from XP while in the dedicated slot. A Veterinary Kit now produces treatment particles and a sound.
 
-Village clinic chests roll 3-5 ordinary supplies: apples, bread, torches, paper, iron, emeralds, or occasional golden apples. Cave camps use the same modest supply pool. Their medic has the ordinary medic trades; the golem is a defender, not an extra loot reward.
+Village clinic chests roll 3-5 ordinary supplies: apples, bread, torches, paper, iron, emeralds, or occasional golden apples. Cave camps use the same modest supply pool. Their field medic has scarce two-use supplies and a three-day delivery interval; the golem defends the camp. Locate nearby generated tents with `/locate poi tetanusmod:medic_tent`, or search their structure grid with `/locate structure tetanusmod:medic_tent`.

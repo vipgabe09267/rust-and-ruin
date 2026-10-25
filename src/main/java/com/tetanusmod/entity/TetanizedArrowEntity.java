@@ -18,8 +18,7 @@ public final class TetanizedArrowEntity extends PersistentProjectileEntity {
     }
     @Override protected void onEntityHit(EntityHitResult hit) {
         if(!getWorld().isClient) {
-            Infection.silently(()->hitTarget(hit));
-            Infection.playAt(getWorld(),hit.getPos(),net.minecraft.sound.SoundCategory.PLAYERS);
+            Infection.at(getWorld(),hit.getPos(),net.minecraft.sound.SoundCategory.PLAYERS,()->hitTarget(hit));
         }else hitTarget(hit);
     }
     private void hitTarget(EntityHitResult hit) {
@@ -31,6 +30,6 @@ public final class TetanizedArrowEntity extends PersistentProjectileEntity {
     }
     @Override protected void onBlockHit(net.minecraft.util.hit.BlockHitResult hit) {
         super.onBlockHit(hit);
-        if(!getWorld().isClient)Infection.playAt(getWorld(),hit.getPos(),net.minecraft.sound.SoundCategory.PLAYERS);
+        // Vanilla arrow impact audio handles missed shots; infection announces only an applied effect.
     }
 }

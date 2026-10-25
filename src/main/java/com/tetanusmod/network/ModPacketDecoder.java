@@ -8,6 +8,12 @@ import java.util.UUID;
 public final class ModPacketDecoder {
     public record Presence(UUID player,boolean infected){}
     public record Symptom(int stage,boolean shaking){}
+    public record MedicScreen(int syncId,boolean fieldMedic){}
+    public static MedicScreen medicScreen(PacketByteBuf buffer){
+        if(buffer.readableBytes()!=2)throw new IllegalArgumentException("Invalid medic screen length");
+        int id=buffer.readUnsignedByte();if(id<1||id>100)throw new IllegalArgumentException("Invalid medic screen id");
+        return new MedicScreen(id,flag(buffer));
+    }
     private static boolean flag(PacketByteBuf buffer){int value=buffer.readUnsignedByte();if(value>1)throw new IllegalArgumentException("Invalid flag");return value==1;}
     public static Presence presence(PacketByteBuf buffer) {
         if(buffer.readableBytes()!=17)throw new IllegalArgumentException("Invalid presence length");
