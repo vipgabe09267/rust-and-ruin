@@ -92,7 +92,7 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
             tetanus$lockjawWindow = effect.getDuration()>0&&effect.getDuration()<6000?Math.max(20,effect.getDuration()/3):(120 + ((LivingEntity)(Object)this).getRandom().nextInt(121)) * 20;
         }
         LivingEntity self=(LivingEntity)(Object)this;
-        if (announce && !self.getWorld().isClient && rustruin$lastAudioTick != self.getWorld().getTime()) {
+        if (announce && !self.getWorld().isClient && !com.tetanusmod.effect.Infection.silent() && rustruin$lastAudioTick != self.getWorld().getTime()) {
             rustruin$lastAudioTick=self.getWorld().getTime();
             com.tetanusmod.effect.Infection.playSound(self);
         }

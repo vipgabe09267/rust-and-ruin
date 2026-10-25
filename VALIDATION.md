@@ -1,3 +1,27 @@
+# Clinic and advancement verification - October 25, 2026
+
+The clinic/advancement follow-up passed **two complete 341-test server runs**, including a forced rebuild that produced the identical JAR. Genuine native generation and an actual visible client verified **all five village themes** in fresh seed-0 normal terrain: complete foundations, exact walkable entrances, cabinet POIs, stable themed medics and opened native loot chests. The client issued **10 locate commands** and saved **25 original screenshots**, without inserting buildings or residents manually.
+
+The advancement client earned the existing journey normally, then verified **27 visible mod nodes** at actual GUI scales **2, 3, 4 and 6** in a real 1920-by-1440 framebuffer. The final pass saved **140 post-render screenshots**, including 108 matching same-frame tooltips inside screen bounds, preserved **91 existing criterion dates**, and restored window/cursor/GUI/key settings. All five vanilla tabs unlocked through normal pickups, eating, a kill and dimension travel. No criteria were granted or revoked by the layout test. Root navigation, wheel/drag controls and a Home-key rebinding conflict were checked. Special Delivery's formerly clipped tooltip is fully readable at GUI 6.
+
+All **382 resources regenerated identically twice**. Release/source agreement, dependency declarations, official Gradle checksums and three malformed-package controls passed. Final JAR: **3,372,740 bytes**, SHA-256 `734287F34713BB1DDA09EB83B024DBFE32D13678EE836D9FDA35A89F6721CC36`.
+
+See the [38-frame gallery](validation/clinic-advancements-2026-10-25/index.html), [findings and methods](docs/CLINIC_ADVANCEMENT_FIXES_2026-10-25.md), and [final verification records](validation/clinic-advancements-2026-10-25/verification/results.json). These tested changes are included in the October 25 GitHub update. Clinic safeguards apply to newly generated terrain; no retrogen was added. The deleted reported world could not be reproduced, so the actual five-theme placements and two-seed planning are independent coverage. Prior camp/audio and recipe-viewer records below remain dated evidence; this pass does not claim universal seed/modpack coverage or complete bug freedom.
+
+The dated snapshots below preserve earlier results and counts.
+
+# Camp and audio verification snapshot - October 25, 2026
+
+The camp/audio follow-up passed **two final 335-test server runs**, including a forced rebuild with an identical JAR. A full visible JEI client crafted all **29 recipes**, brewed **15 potion forms**, rusted/cleaned **nine pairs**, earned all **28 active advancements**, and checked native automatic despawning with six unnamed hostile specimens and four retained named/livestock controls. The current full run saved **150 fresh screenshots** locally.
+
+Focused visible clients verified near/far infection audio, silent procedural mutations and the original medic work sound, then found a genuinely generated seed-0 cave camp using branded commands. The final camp retained all **169 foundation blocks**, eight wheat plants at minimum light 12, two residents, separate beds and a persistent 200-HP guardian. No camp templates, structure starts, POIs or residents were inserted manually; the Creative observer position and other fixtures are documented. The [16-frame evidence gallery](validation/camp-audio-2026-10-25/index.html), [findings and methods](docs/CAMP_AUDIO_FIXES_2026-10-25.md), and [final verification records](validation/camp-audio-2026-10-25/verification/results.json) preserve the current results.
+
+All **382 resources regenerated identically twice**. Release/source agreement, official Gradle checksums, three malformed archive controls and full decoding of the four source/packaged audio files passed. Final JAR: **3,368,181 bytes**, SHA-256 `1D7879422A5CB27CEF1CEC38E5842191F24E05494BBE4927F467AD8C6F9253D9`.
+
+Version remains **0.1.0-beta**. These latest camp/audio changes are local and uncommitted for owner playtesting. New camp layouts and wider site searches apply to newly generated chunks; existing camps are not rebuilt or rerolled. Six-seed planning is a sample, not a guaranteed discovery radius; native locate uses its first successful grid ring. Current graphical coverage is full JEI and focused plain clients. The earlier REI records below remain historical. Long-running remote-server/modpack stress testing is outside this pass.
+
+The dated snapshots below preserve earlier results and counts.
+
 # Current graphical verification - October 25, 2026
 
 The latest follow-up passed **two complete 322-test server runs**, including a forced rebuild that produced the same JAR. An actual visible JEI client crafted all **29 recipes**, brewed **15 potion forms**, acquired and cleaned **nine rusting pairs**, and earned all **28 active advancements**. Native distance-based despawning removed six unnamed hostile variants while retaining the named mob and three livestock controls. The full run produced **150 fresh screenshots**; the [gallery](validation/playtest-2026-10-25/index.html) includes 134 original frames and 105 check receipts.

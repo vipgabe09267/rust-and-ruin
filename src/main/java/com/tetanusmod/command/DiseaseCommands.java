@@ -25,9 +25,10 @@ public final class DiseaseCommands {
             }
             // Adds short names while preserving native namespaced /effect commands and their permissions.
             dispatcher.register(CommandManager.literal("effect").requires(source->source.hasPermissionLevel(2)).then(CommandManager.literal("give").then(targets)));
+            LocateAliases.register(dispatcher);
             var locate=CommandManager.literal("locate");
             for(var entry:Map.of("medic","medic_clinic","tent","medic_tent","workshop","workshop").entrySet()){
-                locate.then(CommandManager.literal(entry.getKey()).executes(ctx->ctx.getSource().getServer().getCommandManager().executeWithPrefix(ctx.getSource(),"locate structure tetanusmod:"+entry.getValue())));
+                locate.then(CommandManager.literal(entry.getKey()).executes(ctx->LocateAliases.execute(ctx.getSource(),"structure",entry.getValue())));
             }
             dispatcher.register(CommandManager.literal("rustandruin").requires(source->source.hasPermissionLevel(2)).then(locate));
         });

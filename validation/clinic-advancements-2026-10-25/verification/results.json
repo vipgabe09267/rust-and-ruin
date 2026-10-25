@@ -1,0 +1,80 @@
+{
+    "Result":  "PASS",
+    "Date":  "2026-10-25",
+    "Version":  "0.1.0-beta",
+    "Scope":  "Clinic placement/locating and advancement presentation; prior camp/audio changes preserved",
+    "NativeRuns":  [
+                       {
+                           "File":  "server-second.xml",
+                           "Tests":  341,
+                           "Failures":  0,
+                           "Errors":  0,
+                           "Skipped":  0
+                       },
+                       {
+                           "File":  "server-final-rebuild.xml",
+                           "Tests":  341,
+                           "Failures":  0,
+                           "Errors":  0,
+                           "Skipped":  0
+                       }
+                   ],
+    "GraphicalClinics":  {
+                             "World":  "Fresh normal seed-0 Overworld",
+                             "Themes":  [
+                                            "plains",
+                                            "desert",
+                                            "savanna",
+                                            "snowy",
+                                            "taiga"
+                                        ],
+                             "Commands":  10,
+                             "Screenshots":  25,
+                             "ManualTemplates":  0,
+                             "ManualStarts":  0,
+                             "ManualPoi":  0,
+                             "ManualResidents":  0,
+                             "OriginalStateRestored":  true
+                         },
+    "GraphicalAdvancements":  {
+                                  "VisibleNodes":  27,
+                                  "ActualGuiScales":  [
+                                                          2.0,
+                                                          3.0,
+                                                          4.0,
+                                                          6.0
+                                                      ],
+                                  "Screenshots":  140,
+                                  "SameFrameTooltipScreenshots":  108,
+                                  "ExistingCriterionDatesPreserved":  91,
+                                  "DirectGrants":  0,
+                                  "Revocations":  0,
+                                  "HomeKeyConflictTest":  true,
+                                  "NativeWindow":  [
+                                                       1920,
+                                                       1440
+                                                   ],
+                                  "WindowAndControlsRestored":  true
+                              },
+    "Resources":  {
+                      "Count":  382,
+                      "IdenticalRegenerations":  2
+                  },
+    "Package":  {
+                    "MalformedControlsRejected":  3,
+                    "DevelopmentCodeBundled":  false,
+                    "Bytes":  3372740,
+                    "SHA256":  "734287F34713BB1DDA09EB83B024DBFE32D13678EE836D9FDA35A89F6721CC36"
+                },
+    "Gallery":  {
+                    "OriginalPngs":  38,
+                    "VerifiedEvidenceHashes":  46
+                },
+    "Generation":  {
+                       "NewTerrainOnly":  true,
+                       "RetrogenAdded":  false
+                   },
+    "SourceCommit":  "dd03f83452b675eb8fff1511864c33259df96870",
+    "WorkingTreeChangesUncommitted":  true,
+    "Limits":  "Deleted reported world could not be reproduced; five fresh seed-0 clinic placements plus two-seed planning, no universal seed/modpack/long-running remote-server guarantee."
+}

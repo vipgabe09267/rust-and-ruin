@@ -1,0 +1,143 @@
+{
+  "Result": "OBSERVED_NOT_A_PASS",
+  "Seed": 0,
+  "World": "minecraft:overworld",
+  "NativeStartChunk": {
+    "x": -159,
+    "z": 30
+  },
+  "PieceOrigin": {
+    "x": -2536,
+    "y": -1,
+    "z": 504
+  },
+  "NativeRotation": "NONE",
+  "Bounds": {
+    "max": {
+      "x": -2524,
+      "y": 6,
+      "z": 516
+    },
+    "min": {
+      "x": -2536,
+      "y": -1,
+      "z": 504
+    }
+  },
+  "PlannedIrrigation": {
+    "x": -2526,
+    "y": 0,
+    "z": 508
+  },
+  "PlannedIrrigationState": "Block{minecraft:water}[level\u003d0]",
+  "PlannedIrrigationBottom": "Block{minecraft:stone_bricks}",
+  "Biome": "ResourceKey[minecraft:worldgen/biome / minecraft:lush_caves]",
+  "NativeCropCellsBeforeSafetyChecks": [
+    {
+      "Position": {
+        "x": -2527,
+        "y": 1,
+        "z": 507
+      },
+      "State": "Block{minecraft:wheat}[age\u003d7]",
+      "SkyVisible": false,
+      "BaseLight": 12
+    },
+    {
+      "Position": {
+        "x": -2527,
+        "y": 1,
+        "z": 508
+      },
+      "State": "Block{minecraft:wheat}[age\u003d7]",
+      "SkyVisible": false,
+      "BaseLight": 13
+    },
+    {
+      "Position": {
+        "x": -2527,
+        "y": 1,
+        "z": 509
+      },
+      "State": "Block{minecraft:wheat}[age\u003d7]",
+      "SkyVisible": false,
+      "BaseLight": 12
+    },
+    {
+      "Position": {
+        "x": -2526,
+        "y": 1,
+        "z": 507
+      },
+      "State": "Block{minecraft:wheat}[age\u003d7]",
+      "SkyVisible": false,
+      "BaseLight": 13
+    },
+    {
+      "Position": {
+        "x": -2526,
+        "y": 1,
+        "z": 509
+      },
+      "State": "Block{minecraft:wheat}[age\u003d7]",
+      "SkyVisible": false,
+      "BaseLight": 13
+    },
+    {
+      "Position": {
+        "x": -2525,
+        "y": 1,
+        "z": 507
+      },
+      "State": "Block{minecraft:wheat}[age\u003d7]",
+      "SkyVisible": false,
+      "BaseLight": 12
+    },
+    {
+      "Position": {
+        "x": -2525,
+        "y": 1,
+        "z": 508
+      },
+      "State": "Block{minecraft:wheat}[age\u003d7]",
+      "SkyVisible": false,
+      "BaseLight": 13
+    },
+    {
+      "Position": {
+        "x": -2525,
+        "y": 1,
+        "z": 509
+      },
+      "State": "Block{minecraft:wheat}[age\u003d7]",
+      "SkyVisible": false,
+      "BaseLight": 12
+    }
+  ],
+  "NativeFluidCells": [
+    {
+      "Position": {
+        "x": -2526,
+        "y": 0,
+        "z": 508
+      },
+      "BlockState": "Block{minecraft:water}[level\u003d0]",
+      "FluidState": "net.minecraft.fluid.WaterFluid$Still@35b3c1f6[falling\u003dfalse]",
+      "FluidLevel": 8,
+      "Source": true,
+      "PlannedCell": true,
+      "Below": "Block{minecraft:stone_bricks}",
+      "Above": "Block{minecraft:air}",
+      "HorizontalNeighbours": {
+        "north": "Block{minecraft:farmland}[moisture\u003d7]",
+        "east": "Block{minecraft:farmland}[moisture\u003d7]",
+        "south": "Block{minecraft:farmland}[moisture\u003d7]",
+        "west": "Block{minecraft:farmland}[moisture\u003d7]"
+      }
+    }
+  ],
+  "FluidCellCount": 1,
+  "ExpectedFoundationBlocks": 169,
+  "MatchingFoundationBlocks": 169,
+  "FoundationMismatches": []
+}

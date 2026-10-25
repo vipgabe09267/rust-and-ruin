@@ -1,0 +1,1 @@
+PASS: focused graphical profile=layout; all mod nodes, native vanilla roots, tab clicks, drag/wheel/Home and recorded GUI scales

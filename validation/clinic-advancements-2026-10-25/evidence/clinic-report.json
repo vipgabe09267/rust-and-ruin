@@ -1,0 +1,725 @@
+{
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "Seed": 0,
+  "CandidateManifest": "clinic-native-candidates.json",
+  "NativeClientNetworkCommands": 10,
+  "ManuallyPlacedTemplates": 0,
+  "ManuallyInsertedStarts": 0,
+  "ManuallyPlacedPoi": 0,
+  "ManuallySpawnedResidents": 0,
+  "Setup": "Creative flight, Night Vision and observer teleports to native pre-scanned candidate neighborhoods; no terrain, resident AI or loot edits",
+  "OriginalPlayerStateRestored": true,
+  "Themes": [
+    {
+      "Theme": "plains",
+      "ObserverOrigin": {
+        "x": 1704.0,
+        "y": 140.0,
+        "z": 3624.0
+      },
+      "ManifestSuggestedObserverOrigin": {
+        "x": 1636.0,
+        "y": 140.0,
+        "z": 3620.0
+      },
+      "ExpectedStartChunk": {
+        "z": 226,
+        "x": 106
+      },
+      "NativeCommands": [
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/rustandruin locate medic",
+          "EntranceMessage": "Use this clinic entrance: 1636, 119, 3615. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": 1696,
+            "y": 0,
+            "z": 3616
+          },
+          "ExactEntrance": {
+            "x": 1636,
+            "y": 119,
+            "z": 3615
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [1696, ~, 3616] (11 blocks away)"
+        },
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/locate structure rustandruin:medic_clinic",
+          "EntranceMessage": "Use this clinic entrance: 1636, 119, 3615. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": 1696,
+            "y": 0,
+            "z": 3616
+          },
+          "ExactEntrance": {
+            "x": 1636,
+            "y": 119,
+            "z": 3615
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [1696, ~, 3616] (11 blocks away)"
+        }
+      ],
+      "locate-chatPNG": "rust-and-ruin-plain-clinic-natural-plains-locate-chat.png",
+      "NativePoiIndexedAtGeneration": false,
+      "SavedTemplate": "tetanusmod:village/plains_clinic",
+      "ActualStartChunk": {
+        "z": 226,
+        "x": 106
+      },
+      "PieceOrigin": {
+        "x": 1632,
+        "y": 117,
+        "z": 3614
+      },
+      "Bounds": "BlockBox{minX\u003d1632, minY\u003d117, minZ\u003d3614, maxX\u003d1640, maxY\u003d127, maxZ\u003d3626}",
+      "ExactNativeEntrance": {
+        "x": 1636,
+        "y": 119,
+        "z": 3615
+      },
+      "NativeFoundationBlocks": 77,
+      "NativeCabinet": {
+        "x": 1638,
+        "y": 119,
+        "z": 3620
+      },
+      "NativeChest": {
+        "x": 1638,
+        "y": 119,
+        "z": 3624
+      },
+      "UnopenedLootTable": "tetanusmod:chests/clinic",
+      "NativeReadiness": {
+        "Poll": 1,
+        "NativeWorldTicksSinceGeneration": 48,
+        "NativeMedics": 1,
+        "PendingTickingChunks": [],
+        "NativePoiIndexed": true
+      },
+      "NativePoiIndexed": true,
+      "NativeMedicUuid": "d08721e1-d9af-46ec-801d-cba4ce3a355b",
+      "NativeMedicVillagerType": "plains",
+      "NativeMedicExperience": 1,
+      "ClientMedicUuid": "d08721e1-d9af-46ec-801d-cba4ce3a355b",
+      "exteriorPNG": "rust-and-ruin-plain-clinic-natural-plains-exterior.png",
+      "cabinet-interiorPNG": "rust-and-ruin-plain-clinic-natural-plains-cabinet-interior.png",
+      "NativeMedicObserverViews": [
+        {
+          "NativeMedicPosition": {
+            "x": 1635.5,
+            "y": 119.5625,
+            "z": 3620.5
+          },
+          "NativeTarget": {
+            "x": 1635.5,
+            "y": 119.66250000149012,
+            "z": 3620.5
+          },
+          "NativeBlockRayClear": true,
+          "Attempt": 1,
+          "CollisionFree": true,
+          "ObserverPosition": {
+            "x": 1637.6213203435595,
+            "y": 119.5625,
+            "z": 3618.3786796564405
+          },
+          "NativeMedicPose": "SLEEPING",
+          "EyeToTargetDistance": 3.363093815219117
+        }
+      ],
+      "ClientMedicCrosshairUuid": "d08721e1-d9af-46ec-801d-cba4ce3a355b",
+      "medicPNG": "rust-and-ruin-plain-clinic-natural-plains-medic.png",
+      "ClientGeneratedLootStacks": 9,
+      "loot-menuPNG": "rust-and-ruin-plain-clinic-natural-plains-loot-menu.png",
+      "ServerGeneratedLootStacks": 9
+    },
+    {
+      "Theme": "desert",
+      "ObserverOrigin": {
+        "x": 392.0,
+        "y": 140.0,
+        "z": -3192.0
+      },
+      "ManifestSuggestedObserverOrigin": {
+        "x": 403.0,
+        "y": 140.0,
+        "z": -3205.0
+      },
+      "ExpectedStartChunk": {
+        "z": -200,
+        "x": 24
+      },
+      "NativeCommands": [
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/rustandruin locate medic",
+          "EntranceMessage": "Use this clinic entrance: 403, 72, -3210. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": 384,
+            "y": 0,
+            "z": -3200
+          },
+          "ExactEntrance": {
+            "x": 403,
+            "y": 72,
+            "z": -3210
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [384, ~, -3200] (11 blocks away)"
+        },
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/locate structure rustandruin:medic_clinic",
+          "EntranceMessage": "Use this clinic entrance: 403, 72, -3210. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": 384,
+            "y": 0,
+            "z": -3200
+          },
+          "ExactEntrance": {
+            "x": 403,
+            "y": 72,
+            "z": -3210
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [384, ~, -3200] (11 blocks away)"
+        }
+      ],
+      "locate-chatPNG": "rust-and-ruin-plain-clinic-natural-desert-locate-chat.png",
+      "NativePoiIndexedAtGeneration": true,
+      "SavedTemplate": "tetanusmod:village/desert_clinic",
+      "ActualStartChunk": {
+        "z": -200,
+        "x": 24
+      },
+      "PieceOrigin": {
+        "x": 399,
+        "y": 70,
+        "z": -3211
+      },
+      "Bounds": "BlockBox{minX\u003d399, minY\u003d70, minZ\u003d-3211, maxX\u003d407, maxY\u003d80, maxZ\u003d-3199}",
+      "ExactNativeEntrance": {
+        "x": 403,
+        "y": 72,
+        "z": -3210
+      },
+      "NativeFoundationBlocks": 77,
+      "NativeCabinet": {
+        "x": 405,
+        "y": 72,
+        "z": -3205
+      },
+      "NativeChest": {
+        "x": 405,
+        "y": 72,
+        "z": -3201
+      },
+      "UnopenedLootTable": "tetanusmod:chests/clinic",
+      "NativeReadiness": {
+        "Poll": 1,
+        "NativeWorldTicksSinceGeneration": 49,
+        "NativeMedics": 1,
+        "PendingTickingChunks": [],
+        "NativePoiIndexed": true
+      },
+      "NativePoiIndexed": true,
+      "NativeMedicUuid": "8ee95e69-4f52-468a-b812-ad162be6ad93",
+      "NativeMedicVillagerType": "desert",
+      "NativeMedicExperience": 1,
+      "ClientMedicUuid": "8ee95e69-4f52-468a-b812-ad162be6ad93",
+      "exteriorPNG": "rust-and-ruin-plain-clinic-natural-desert-exterior.png",
+      "cabinet-interiorPNG": "rust-and-ruin-plain-clinic-natural-desert-cabinet-interior.png",
+      "NativeMedicObserverViews": [
+        {
+          "NativeMedicPosition": {
+            "x": 402.5,
+            "y": 72.5625,
+            "z": -3204.5
+          },
+          "NativeTarget": {
+            "x": 402.5,
+            "y": 72.66250000149012,
+            "z": -3204.5
+          },
+          "NativeBlockRayClear": true,
+          "Attempt": 1,
+          "CollisionFree": true,
+          "ObserverPosition": {
+            "x": 404.62132034355966,
+            "y": 72.5625,
+            "z": -3206.6213203435595
+          },
+          "NativeMedicPose": "SLEEPING",
+          "EyeToTargetDistance": 3.3630938152191887
+        }
+      ],
+      "ClientMedicCrosshairUuid": "8ee95e69-4f52-468a-b812-ad162be6ad93",
+      "medicPNG": "rust-and-ruin-plain-clinic-natural-desert-medic.png",
+      "ClientGeneratedLootStacks": 10,
+      "loot-menuPNG": "rust-and-ruin-plain-clinic-natural-desert-loot-menu.png",
+      "ServerGeneratedLootStacks": 10
+    },
+    {
+      "Theme": "savanna",
+      "ObserverOrigin": {
+        "x": 552.0,
+        "y": 140.0,
+        "z": -1048.0
+      },
+      "ManifestSuggestedObserverOrigin": {
+        "x": 596.0,
+        "y": 140.0,
+        "z": -1100.0
+      },
+      "ExpectedStartChunk": {
+        "z": -66,
+        "x": 34
+      },
+      "NativeCommands": [
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/rustandruin locate medic",
+          "EntranceMessage": "Use this clinic entrance: 596, 63, -1105. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": 544,
+            "y": 0,
+            "z": -1056
+          },
+          "ExactEntrance": {
+            "x": 596,
+            "y": 63,
+            "z": -1105
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [544, ~, -1056] (11 blocks away)"
+        },
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/locate structure rustandruin:medic_clinic",
+          "EntranceMessage": "Use this clinic entrance: 596, 63, -1105. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": 544,
+            "y": 0,
+            "z": -1056
+          },
+          "ExactEntrance": {
+            "x": 596,
+            "y": 63,
+            "z": -1105
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [544, ~, -1056] (11 blocks away)"
+        }
+      ],
+      "locate-chatPNG": "rust-and-ruin-plain-clinic-natural-savanna-locate-chat.png",
+      "NativePoiIndexedAtGeneration": true,
+      "SavedTemplate": "tetanusmod:village/savanna_clinic",
+      "ActualStartChunk": {
+        "z": -66,
+        "x": 34
+      },
+      "PieceOrigin": {
+        "x": 592,
+        "y": 61,
+        "z": -1106
+      },
+      "Bounds": "BlockBox{minX\u003d592, minY\u003d61, minZ\u003d-1106, maxX\u003d600, maxY\u003d71, maxZ\u003d-1094}",
+      "ExactNativeEntrance": {
+        "x": 596,
+        "y": 63,
+        "z": -1105
+      },
+      "NativeFoundationBlocks": 77,
+      "NativeCabinet": {
+        "x": 598,
+        "y": 63,
+        "z": -1100
+      },
+      "NativeChest": {
+        "x": 598,
+        "y": 63,
+        "z": -1096
+      },
+      "UnopenedLootTable": "tetanusmod:chests/clinic",
+      "NativeReadiness": {
+        "Poll": 1,
+        "NativeWorldTicksSinceGeneration": 45,
+        "NativeMedics": 1,
+        "PendingTickingChunks": [],
+        "NativePoiIndexed": true
+      },
+      "NativePoiIndexed": true,
+      "NativeMedicUuid": "af934c9e-1bae-472a-84a1-162088845f78",
+      "NativeMedicVillagerType": "savanna",
+      "NativeMedicExperience": 1,
+      "ClientMedicUuid": "af934c9e-1bae-472a-84a1-162088845f78",
+      "exteriorPNG": "rust-and-ruin-plain-clinic-natural-savanna-exterior.png",
+      "cabinet-interiorPNG": "rust-and-ruin-plain-clinic-natural-savanna-cabinet-interior.png",
+      "NativeMedicObserverViews": [
+        {
+          "NativeMedicPosition": {
+            "x": 592.6644279562029,
+            "y": 63.0,
+            "z": -1103.300000011921
+          },
+          "NativeTarget": {
+            "x": 592.6644279562029,
+            "y": 63.97500002384186,
+            "z": -1103.300000011921
+          },
+          "NativeBlockRayClear": true,
+          "Attempt": 1,
+          "CollisionFree": true,
+          "ObserverPosition": {
+            "x": 593.4082451869019,
+            "y": 63.0,
+            "z": -1106.2063268908723
+          },
+          "NativeMedicPose": "STANDING",
+          "EyeToTargetDistance": 3.0685542158149035
+        },
+        {
+          "NativeMedicPosition": {
+            "x": 591.4876039807573,
+            "y": 64.0,
+            "z": -1099.3206706126234
+          },
+          "NativeTarget": {
+            "x": 591.4876039807573,
+            "y": 64.97500002384186,
+            "z": -1099.3206706126234
+          },
+          "NativeBlockRayClear": true,
+          "Attempt": 2,
+          "CollisionFree": true,
+          "ObserverPosition": {
+            "x": 588.5011390383428,
+            "y": 64.0,
+            "z": -1099.6053232917418
+          },
+          "NativeMedicPose": "STANDING",
+          "EyeToTargetDistance": 3.068554215814887
+        }
+      ],
+      "LastMedicObserverRetry": "Native client crosshair no longer reaches the moving medic",
+      "ClientMedicCrosshairUuid": "af934c9e-1bae-472a-84a1-162088845f78",
+      "medicPNG": "rust-and-ruin-plain-clinic-natural-savanna-medic.png",
+      "ClientGeneratedLootStacks": 10,
+      "loot-menuPNG": "rust-and-ruin-plain-clinic-natural-savanna-loot-menu.png",
+      "ServerGeneratedLootStacks": 10
+    },
+    {
+      "Theme": "snowy",
+      "ObserverOrigin": {
+        "x": -856.0,
+        "y": 140.0,
+        "z": 3560.0
+      },
+      "ManifestSuggestedObserverOrigin": {
+        "x": -843.0,
+        "y": 140.0,
+        "z": 3579.0
+      },
+      "ExpectedStartChunk": {
+        "z": 222,
+        "x": -54
+      },
+      "NativeCommands": [
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/rustandruin locate medic",
+          "EntranceMessage": "Use this clinic entrance: -843, 64, 3574. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": -864,
+            "y": 0,
+            "z": 3552
+          },
+          "ExactEntrance": {
+            "x": -843,
+            "y": 64,
+            "z": 3574
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [-864, ~, 3552] (11 blocks away)"
+        },
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/locate structure rustandruin:medic_clinic",
+          "EntranceMessage": "Use this clinic entrance: -843, 64, 3574. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": -864,
+            "y": 0,
+            "z": 3552
+          },
+          "ExactEntrance": {
+            "x": -843,
+            "y": 64,
+            "z": 3574
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [-864, ~, 3552] (11 blocks away)"
+        }
+      ],
+      "locate-chatPNG": "rust-and-ruin-plain-clinic-natural-snowy-locate-chat.png",
+      "NativePoiIndexedAtGeneration": true,
+      "SavedTemplate": "tetanusmod:village/snowy_clinic",
+      "ActualStartChunk": {
+        "z": 222,
+        "x": -54
+      },
+      "PieceOrigin": {
+        "x": -847,
+        "y": 62,
+        "z": 3573
+      },
+      "Bounds": "BlockBox{minX\u003d-847, minY\u003d62, minZ\u003d3573, maxX\u003d-839, maxY\u003d72, maxZ\u003d3585}",
+      "ExactNativeEntrance": {
+        "x": -843,
+        "y": 64,
+        "z": 3574
+      },
+      "NativeFoundationBlocks": 77,
+      "NativeCabinet": {
+        "x": -841,
+        "y": 64,
+        "z": 3579
+      },
+      "NativeChest": {
+        "x": -841,
+        "y": 64,
+        "z": 3583
+      },
+      "UnopenedLootTable": "tetanusmod:chests/clinic",
+      "NativeReadiness": {
+        "Poll": 1,
+        "NativeWorldTicksSinceGeneration": 40,
+        "NativeMedics": 1,
+        "PendingTickingChunks": [],
+        "NativePoiIndexed": true
+      },
+      "NativePoiIndexed": true,
+      "NativeMedicUuid": "d7326bba-6253-49ee-88a0-9ad765ac59c3",
+      "NativeMedicVillagerType": "snow",
+      "NativeMedicExperience": 1,
+      "ClientMedicUuid": "d7326bba-6253-49ee-88a0-9ad765ac59c3",
+      "exteriorPNG": "rust-and-ruin-plain-clinic-natural-snowy-exterior.png",
+      "cabinet-interiorPNG": "rust-and-ruin-plain-clinic-natural-snowy-cabinet-interior.png",
+      "NativeMedicObserverViews": [
+        {
+          "NativeMedicPosition": {
+            "x": -848.9503116627677,
+            "y": 64.0,
+            "z": 3572.908794239567
+          },
+          "NativeTarget": {
+            "x": -848.9503116627677,
+            "y": 64.97500002384186,
+            "z": 3572.908794239567
+          },
+          "NativeBlockRayClear": true,
+          "Attempt": 1,
+          "CollisionFree": true,
+          "ObserverPosition": {
+            "x": -847.1084639205613,
+            "y": 64.0,
+            "z": 3575.2768307457322
+          },
+          "NativeMedicPose": "STANDING",
+          "EyeToTargetDistance": 3.0685542158150256
+        },
+        {
+          "NativeMedicPosition": {
+            "x": -845.1819126930542,
+            "y": 64.0,
+            "z": 3575.4770572096595
+          },
+          "NativeTarget": {
+            "x": -845.1819126930542,
+            "y": 64.97500002384186,
+            "z": 3575.4770572096595
+          },
+          "NativeBlockRayClear": true,
+          "Attempt": 2,
+          "CollisionFree": true,
+          "ObserverPosition": {
+            "x": -848.1797474871254,
+            "y": 64.0,
+            "z": 3575.363098675726
+          },
+          "NativeMedicPose": "STANDING",
+          "EyeToTargetDistance": 3.0685542158148884
+        },
+        {
+          "NativeMedicPosition": {
+            "x": -842.5042808921361,
+            "y": 64.0,
+            "z": 3577.0326692065355
+          },
+          "NativeTarget": {
+            "x": -842.5042808921361,
+            "y": 64.97500002384186,
+            "z": 3577.0326692065355
+          },
+          "NativeBlockRayClear": true,
+          "Attempt": 3,
+          "CollisionFree": true,
+          "ObserverPosition": {
+            "x": -842.5283225878488,
+            "y": 64.0,
+            "z": 3574.032765541938
+          },
+          "NativeMedicPose": "STANDING",
+          "EyeToTargetDistance": 3.0685542158147756
+        },
+        {
+          "NativeMedicPosition": {
+            "x": -843.6486552062044,
+            "y": 64.5625,
+            "z": 3582.3790417397877
+          },
+          "NativeTarget": {
+            "x": -843.6486552062044,
+            "y": 64.66250000149012,
+            "z": 3582.3790417397877
+          },
+          "NativeBlockRayClear": true,
+          "Attempt": 4,
+          "CollisionFree": true,
+          "ObserverPosition": {
+            "x": -843.9237233397618,
+            "y": 64.5625,
+            "z": 3579.3916787685534
+          },
+          "NativeMedicPose": "SLEEPING",
+          "EyeToTargetDistance": 3.3630938152192655
+        }
+      ],
+      "LastMedicObserverRetry": "Native client crosshair no longer reaches the moving medic",
+      "ClientMedicCrosshairUuid": "d7326bba-6253-49ee-88a0-9ad765ac59c3",
+      "medicPNG": "rust-and-ruin-plain-clinic-natural-snowy-medic.png",
+      "ClientGeneratedLootStacks": 13,
+      "loot-menuPNG": "rust-and-ruin-plain-clinic-natural-snowy-loot-menu.png",
+      "ServerGeneratedLootStacks": 13
+    },
+    {
+      "Theme": "taiga",
+      "ObserverOrigin": {
+        "x": -712.0,
+        "y": 140.0,
+        "z": 4168.0
+      },
+      "ManifestSuggestedObserverOrigin": {
+        "x": -676.0,
+        "y": 140.0,
+        "z": 4116.0
+      },
+      "ExpectedStartChunk": {
+        "z": 260,
+        "x": -45
+      },
+      "NativeCommands": [
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/rustandruin locate medic",
+          "EntranceMessage": "Use this clinic entrance: -676, 79, 4111. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": -720,
+            "y": 0,
+            "z": 4160
+          },
+          "ExactEntrance": {
+            "x": -676,
+            "y": 79,
+            "z": 4111
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [-720, ~, 4160] (11 blocks away)"
+        },
+        {
+          "ActualServerAndClientCoordinatesAgreed": true,
+          "Command": "/locate structure rustandruin:medic_clinic",
+          "EntranceMessage": "Use this clinic entrance: -676, 79, 4111. Click these coordinates to prepare teleport.",
+          "StartBlockCoordinates": {
+            "x": -720,
+            "y": 0,
+            "z": 4160
+          },
+          "ExactEntrance": {
+            "x": -676,
+            "y": 79,
+            "z": 4111
+          },
+          "NativeMessage": "The nearest rustandruin:medic_clinic is at [-720, ~, 4160] (11 blocks away)"
+        }
+      ],
+      "locate-chatPNG": "rust-and-ruin-plain-clinic-natural-taiga-locate-chat.png",
+      "NativePoiIndexedAtGeneration": true,
+      "SavedTemplate": "tetanusmod:village/taiga_clinic",
+      "ActualStartChunk": {
+        "z": 260,
+        "x": -45
+      },
+      "PieceOrigin": {
+        "x": -680,
+        "y": 77,
+        "z": 4110
+      },
+      "Bounds": "BlockBox{minX\u003d-680, minY\u003d77, minZ\u003d4110, maxX\u003d-672, maxY\u003d87, maxZ\u003d4122}",
+      "ExactNativeEntrance": {
+        "x": -676,
+        "y": 79,
+        "z": 4111
+      },
+      "NativeFoundationBlocks": 77,
+      "NativeCabinet": {
+        "x": -674,
+        "y": 79,
+        "z": 4116
+      },
+      "NativeChest": {
+        "x": -674,
+        "y": 79,
+        "z": 4120
+      },
+      "UnopenedLootTable": "tetanusmod:chests/clinic",
+      "NativeReadiness": {
+        "Poll": 1,
+        "NativeWorldTicksSinceGeneration": 48,
+        "NativeMedics": 1,
+        "PendingTickingChunks": [],
+        "NativePoiIndexed": true
+      },
+      "NativePoiIndexed": true,
+      "NativeMedicUuid": "22e27243-daaa-47b8-bdd0-d2d2d02a8a72",
+      "NativeMedicVillagerType": "taiga",
+      "NativeMedicExperience": 1,
+      "ClientMedicUuid": "22e27243-daaa-47b8-bdd0-d2d2d02a8a72",
+      "exteriorPNG": "rust-and-ruin-plain-clinic-natural-taiga-exterior.png",
+      "cabinet-interiorPNG": "rust-and-ruin-plain-clinic-natural-taiga-cabinet-interior.png",
+      "NativeMedicObserverViews": [
+        {
+          "NativeMedicPosition": {
+            "x": -676.3066854127038,
+            "y": 79.5625,
+            "z": 4116.5
+          },
+          "NativeTarget": {
+            "x": -676.3066854127038,
+            "y": 79.66250000149012,
+            "z": 4116.5
+          },
+          "NativeBlockRayClear": true,
+          "Attempt": 1,
+          "CollisionFree": true,
+          "ObserverPosition": {
+            "x": -674.5389184597375,
+            "y": 79.5625,
+            "z": 4118.267766952967
+          },
+          "NativeMedicPose": "SLEEPING",
+          "EyeToTargetDistance": 2.9258161271629497
+        }
+      ],
+      "ClientMedicCrosshairUuid": "22e27243-daaa-47b8-bdd0-d2d2d02a8a72",
+      "medicPNG": "rust-and-ruin-plain-clinic-natural-taiga-medic.png",
+      "ClientGeneratedLootStacks": 10,
+      "loot-menuPNG": "rust-and-ruin-plain-clinic-natural-taiga-loot-menu.png",
+      "ServerGeneratedLootStacks": 10
+    }
+  ]
+}

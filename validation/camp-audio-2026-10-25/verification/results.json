@@ -1,0 +1,120 @@
+{
+    "Result":  "PASS",
+    "Version":  "0.1.0-beta",
+    "VerifiedUTC":  "2026-10-25T18:44:15.3920147Z",
+    "Jar":  {
+                "Filename":  "rust-and-ruin-0.1.0-beta.jar",
+                "Bytes":  3368181,
+                "SHA256":  "1D7879422A5CB27CEF1CEC38E5842191F24E05494BBE4927F467AD8C6F9253D9",
+                "IdenticalAfterForcedRebuild":  true
+            },
+    "ServerRuns":  [
+                       {
+                           "File":  "server-third.xml",
+                           "Tests":  335,
+                           "Failures":  0,
+                           "Errors":  0,
+                           "Skipped":  0,
+                           "Result":  "PASS",
+                           "SHA256":  "E4D957E15AD008BB9988C028F30B23A3ED4D0EFF71D05007C448749DA1E8CA16"
+                       },
+                       {
+                           "File":  "server-final-rebuild.xml",
+                           "Tests":  335,
+                           "Failures":  0,
+                           "Errors":  0,
+                           "Skipped":  0,
+                           "Result":  "PASS",
+                           "SHA256":  "5CC597D486F891353042F0A728004563059AEBB4E4EA62B5DE3B3B6774ABC090"
+                       }
+                   ],
+    "GraphicalProfiles":  {
+                              "FullJEI":  {
+                                              "Result":  "PASS",
+                                              "Profile":  "JEI",
+                                              "StartedUTC":  "2026-10-25T18:28:53.9894923Z",
+                                              "FinishedUTC":  "2026-10-25T18:35:29.2961655Z",
+                                              "FreshScreenshots":  150,
+                                              "Recipes":  29,
+                                              "PotionForms":  15,
+                                              "WeatheringPairs":  9,
+                                              "ActiveAdvancements":  28,
+                                              "NativeDespawnTargets":  6,
+                                              "RetainedControls":  4
+                                          },
+                              "ProximityAudio":  {
+                                                     "Result":  "PASS",
+                                                     "NativeEffectCommands":  4,
+                                                     "ExpectedVoices":  1,
+                                                     "ObservedVoices":  1,
+                                                     "ObservedMedicWork":  1
+                                                 },
+                              "NaturalCamp":  {
+                                                  "Result":  "PASS",
+                                                  "Seed":  0,
+                                                  "FixedObserverOrigin":  {
+                                                                              "x":  -4.5,
+                                                                              "y":  140.0,
+                                                                              "z":  14.5
+                                                                          },
+                                                  "FoundationBlocks":  169,
+                                                  "LateFoundationBlocks":  169,
+                                                  "LiveWheatBlocks":  8,
+                                                  "MinimumCropLight":  12,
+                                                  "GuardMaxHealth":  200.0,
+                                                  "ManualTemplates":  0,
+                                                  "ManualStarts":  0,
+                                                  "ManualPOIs":  0,
+                                                  "ManualResidents":  0
+                                              }
+                          },
+    "ResourceRegeneration":  {
+                                 "Resources":  382,
+                                 "IdenticalRegenerations":  2
+                             },
+    "WindowRecordings":  [
+                             {
+                                 "Profile":  "audio-second",
+                                 "LocalOnly":  true,
+                                 "Filename":  "visible-audio-second.mp4",
+                                 "DurationSeconds":  28,
+                                 "Bytes":  593637,
+                                 "SHA256":  "6BFBA83D9D33336AB0548A77F668502C16D19E323385F58E05EC8FFB64338295"
+                             },
+                             {
+                                 "Profile":  "camp-polished-ready",
+                                 "LocalOnly":  true,
+                                 "Filename":  "visible-camp-polished-ready.mp4",
+                                 "DurationSeconds":  47.3,
+                                 "Bytes":  1156820,
+                                 "SHA256":  "730218CC3D07157AA6D0DB422A0028F37D7132EAD14BEBA114B60EC62F68C030"
+                             },
+                             {
+                                 "Profile":  "full-jei-second",
+                                 "LocalOnly":  true,
+                                 "Filename":  "visible-full-jei-second.mp4",
+                                 "DurationSeconds":  310.3,
+                                 "Bytes":  8683214,
+                                 "SHA256":  "06C3CC8185D081FD687C39582E95C8D5D1AE14B3AE038447AE7B935DF82BA10A"
+                             }
+                         ],
+    "ReviewScope":  "Changed Java, native structure generation, server-side alias permissions, sound routing, original medical SFX, native regression fixtures, graphical controllers and resource generators.",
+    "Limits":  [
+                   "New camp layouts and site search apply to newly generated chunks; existing starts and camps are not rerolled or rebuilt.",
+                   "Six-seed/54-cell planning is a controlled sample, not a guaranteed nearest camp distance. Native locate uses its first successful grid ring.",
+                   "Native noise planning allocates substantial temporary memory; cumulative allocation is not retained heap or peak memory.",
+                   "Actual graphical development clients and a dedicated GameTest server; no long-running remote-server/modpack stress test.",
+                   "Creative observer/ingredient setup is disclosed. Native cooking/brewing waits are accelerated; advancement actions include native integrated-server gameplay calls.",
+                   "Current full graphical profile is JEI plus focused plain camp/audio. Earlier REI results remain historical."
+               ],
+    "CommitStatus":  "Latest camp/audio changes are local and uncommitted for owner testing; no push.",
+    "FileAudit":  {
+                      "Result":  "PASS",
+                      "Files":  1351,
+                      "Scope":  "Tracked files plus new nonignored project files; compiler/runtime checks run separately",
+                      "LocalInventory":  ".tools/camp-audio-2026-10-25/file-audit-final.json",
+                      "InventorySHA256":  "BC3791434B6C56821A51BBEA937C8A885A1E56CFAD2EDD98BFCA2098E1E5F4DB",
+                      "SourceDocumentationWhitespace":  "PASS",
+                      "BinaryWaveHeaderAndDecode":  "PASS"
+                  }
+}

@@ -4,7 +4,7 @@
                                              "trigger":  "minecraft:impossible"
                                          }
                  },
-    "parent":  "tetanusmod:infected",
+    "parent":  "tetanusmod:vaccinated",
     "display":  {
                     "description":  {
                                         "translate":  "advancements.tetanusmod.glove_protection.description"

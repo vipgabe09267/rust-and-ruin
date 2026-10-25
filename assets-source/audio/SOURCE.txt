@@ -1,0 +1,20 @@
+Rust & Ruin audio sources
+
+Tetanus_Effect.mp3 was supplied by the mod author and is preserved unchanged.
+The existing packaged tetanus_effect.ogg is mono Vorbis, 44.1 kHz, 4.30 seconds.
+Its audio is retained: the proximity fix changes positional playback and attenuation,
+not the recording. Infections use at most 1.0 native gain and a 16-block attenuation
+radius; the old configuration value 2.5 remains compatible but cannot expand that radius.
+Vanilla clamps local mixer gain to 1.0, so this preserves the previous local loudness.
+
+medic_work.wav is an original, deterministic, one-second mono PCM sound synthesized
+by tools/Generate-Medical-Audio.ps1. It combines two short glass partial clusters,
+seeded soft cloth noise and an instrument click. No external recording or sample is used.
+The script writes the PCM source and encodes the packaged medic_work.ogg with FFmpeg
+Vorbis quality 5, mono, 44.1 kHz, bit-exact flags and no copied metadata.
+
+Regenerate from the repository root:
+  powershell -NoProfile -File tools/Generate-Medical-Audio.ps1
+Or pass -FfmpegPath to an installed FFmpeg executable. Gradle builds and players do
+not need FFmpeg; the packaged OGG files are included as normal mod resources.
+The medic work sound uses native profession ambience, with 12-block attenuation.

@@ -1,0 +1,13 @@
+{
+    "Result":  "PASS",
+    "Profile":  "JEI",
+    "StartedUTC":  "2026-10-25T18:28:53.9894923Z",
+    "FinishedUTC":  "2026-10-25T18:35:29.2961655Z",
+    "FreshScreenshots":  150,
+    "Recipes":  29,
+    "PotionForms":  15,
+    "WeatheringPairs":  9,
+    "ActiveAdvancements":  28,
+    "NativeDespawnTargets":  6,
+    "RetainedControls":  4
+}

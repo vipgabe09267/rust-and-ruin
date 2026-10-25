@@ -10,6 +10,16 @@
                              ],
                   "subtitle":  "subtitles.tetanusmod.spasm"
               },
+    "medic_work":  {
+                       "sounds":  [
+                                      {
+                                          "attenuation_distance":  12,
+                                          "name":  "tetanusmod:medic_work",
+                                          "stream":  false
+                                      }
+                                  ],
+                       "subtitle":  "subtitles.tetanusmod.medic_work"
+                   },
     "vomit":  {
                   "sounds":  [
                                  {
@@ -24,8 +34,9 @@
     "tetanus_effect":  {
                            "sounds":  [
                                           {
-                                              "stream":  false,
-                                              "name":  "tetanusmod:tetanus_effect"
+                                              "attenuation_distance":  16,
+                                              "name":  "tetanusmod:tetanus_effect",
+                                              "stream":  false
                                           }
                                       ],
                            "subtitle":  "subtitles.tetanusmod.tetanus_effect"

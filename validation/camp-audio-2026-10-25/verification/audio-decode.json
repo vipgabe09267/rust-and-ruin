@@ -1,0 +1,26 @@
+[
+    {
+        "File":  "assets-source/audio/Tetanus_Effect.mp3",
+        "Result":  "PASS",
+        "FullDecode":  true,
+        "SHA256":  "E4C9CCA354F2F7C1FD465E5202B91C486D22B1CF454E4033FF7FE64AEF5A07A8"
+    },
+    {
+        "File":  "assets-source/audio/medic_work.wav",
+        "Result":  "PASS",
+        "FullDecode":  true,
+        "SHA256":  "31C4E80CF475ED0C76DE491EFA9767D7C836FA063F959540855A9A9CD1B07E58"
+    },
+    {
+        "File":  "src/main/resources/assets/tetanusmod/sounds/tetanus_effect.ogg",
+        "Result":  "PASS",
+        "FullDecode":  true,
+        "SHA256":  "7127184A4CA02B7413CCA58DDD02693812C2C2DFB6FC2A02A5B69EA0955EA4A0"
+    },
+    {
+        "File":  "src/main/resources/assets/tetanusmod/sounds/medic_work.ogg",
+        "Result":  "PASS",
+        "FullDecode":  true,
+        "SHA256":  "BD142638927F0FA688F0F5BEC60B512E37FF81CB31F21F67AECAB6EF51E23D78"
+    }
+]

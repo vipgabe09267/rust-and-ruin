@@ -108,7 +108,7 @@ public final class MobVariants {
     public static void tick(LivingEntity entity) {
         if (entity.getWorld().isClient || !permanent(entity) || entity.age % 40 != 0) return;
         if (!(entity instanceof WitherEntity) && !entity.hasStatusEffect(TetanusMod.TETANUS)) {
-            entity.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, -1));
+            Infection.silently(()->entity.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, -1)));
         }
     }
     public static void drops(LivingEntity entity) {

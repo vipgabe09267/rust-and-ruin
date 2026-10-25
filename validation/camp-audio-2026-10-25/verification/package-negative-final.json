@@ -1,0 +1,21 @@
+{
+    "Result":  "PASS",
+    "SourceJarSHA256":  "1D7879422A5CB27CEF1CEC38E5842191F24E05494BBE4927F467AD8C6F9253D9",
+    "Cases":  [
+                  {
+                      "Case":  "tamper",
+                      "Result":  "REJECTED_AS_EXPECTED",
+                      "Reason":  "Stale or altered packaged resource: assets/tetanusmod/models/item/iron_spear.json"
+                  },
+                  {
+                      "Case":  "duplicate",
+                      "Result":  "REJECTED_AS_EXPECTED",
+                      "Reason":  "Duplicate archive entry: assets/tetanusmod/models/item/iron_spear.json"
+                  },
+                  {
+                      "Case":  "absolute",
+                      "Result":  "REJECTED_AS_EXPECTED",
+                      "Reason":  "Unsafe archive path: C:/unexpected.txt"
+                  }
+              ]
+}

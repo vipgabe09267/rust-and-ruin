@@ -1,0 +1,1 @@
+PASS: focused graphical profile=camp; native global locate, naturally generated camp/medic/guard/loot and local POI verified

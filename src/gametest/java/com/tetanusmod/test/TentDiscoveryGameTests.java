@@ -38,7 +38,7 @@ import java.util.List;
 
 /** Native discovery and full generation, rather than manually placing a locatable workstation. */
 public class TentDiscoveryGameTests implements FabricGameTest {
-    private static final RegistryKey<World> NOISE_WORLD=RegistryKey.of(RegistryKeys.WORLD,new Identifier("tetanusmod_tests","medic_caves"));
+    private static final RegistryKey<World> NOISE_WORLD=TentNoiseTestWorldBootstrap.KEY;
 
     @GameTest(templateName=EMPTY_STRUCTURE,batchId="medic_discovery")
     public void tentGridPreservesLegacyAlignmentAndActualFootprintSpacing(TestContext ctx)throws Exception{
@@ -54,22 +54,33 @@ public class TentDiscoveryGameTests implements FabricGameTest {
             var entry=registries.get(RegistryKeys.BIOME).entryOf(RegistryKey.of(RegistryKeys.BIOME,new Identifier("minecraft",biome)));
             ctx.assertTrue(tent.getValidBiomes().contains(entry),"Ordinary dry caves are excluded below "+biome);
         }
-        for(long seed:new long[]{0,1,918731,Long.MAX_VALUE,-741}){
+        var searchField=CaveMedicStructure.class.getDeclaredField("MAX_SITE_OFFSET");searchField.setAccessible(true);
+        int footprintSpan=searchField.getInt(null)+12;
+        ctx.assertTrue((placement.getSeparation()+1)*16-footprintSpan>2000,"Search window can violate hard camp spacing in the theoretical nearest grid positions");        for(long seed:new long[]{0,1,918731,Long.MAX_VALUE,-741}){
             var points=new ArrayList<ChunkPos>();
             for(int x=-3;x<=3;x++)for(int z=-3;z<=3;z++)points.add(placement.getStartChunk(seed,x*160,z*160));
             for(int i=0;i<points.size();i++)for(int j=0;j<i;j++){
                 // Subtract the complete local search offset and template width on both axes.
                 // This covers opposite rotations and nearest edges, not merely chunk centers.
-                long dx=Math.max(0,Math.abs((long)points.get(i).x-points.get(j).x)*16-24);
-                long dz=Math.max(0,Math.abs((long)points.get(i).z-points.get(j).z)*16-24);
+                long dx=Math.max(0,Math.abs((long)points.get(i).x-points.get(j).x)*16-footprintSpan);
+                long dz=Math.max(0,Math.abs((long)points.get(i).z-points.get(j).z)*16-footprintSpan);
                 ctx.assertTrue(dx*dx+dz*dz>2000L*2000,"Two complete camp footprints can approach within 2,000 blocks");
             }
         }
         ctx.complete();
     }
 
+    @GameTest(templateName=EMPTY_STRUCTURE,batchId="medic_discovery")
+    public void campTemplatePlacesAfterLushCaveDecorationAndFluidSprings(TestContext ctx){
+        var tent=ctx.getWorld().getRegistryManager().get(RegistryKeys.STRUCTURE).get(TetanusMod.id("medic_tent"));
+        ctx.assertTrue(tent.getFeatureGenerationStep()==net.minecraft.world.gen.GenerationStep.Feature.TOP_LAYER_MODIFICATION&&tent.getFeatureGenerationStep().ordinal()>net.minecraft.world.gen.GenerationStep.Feature.VEGETAL_DECORATION.ordinal(),"Camp still places before natural cave vegetation/pool features can overwrite its floor");ctx.complete();
+    }
     @GameTest(templateName=EMPTY_STRUCTURE,batchId="medic_discovery",tickLimit=3600)
-    public void nativeLocateGeneratesARealDryCampWithMedicGuardLootAndPoi(TestContext ctx){
+    public void nativeLocateGeneratesARealDryCampWithMedicGuardLootAndPoi(TestContext ctx){runNaturalDiscovery(ctx,new BlockPos(0,64,0));}
+    @GameTest(templateName=EMPTY_STRUCTURE,batchId="medic_discovery",tickLimit=3600)
+    public void negativeOriginNaturallyGeneratesTheLushBoundaryCampWithoutFlooding(TestContext ctx){runNaturalDiscovery(ctx,new BlockPos(-5,140,14));}
+
+    private void runNaturalDiscovery(TestContext ctx,BlockPos origin){
         var world=ctx.getWorld().getServer().getWorld(NOISE_WORLD);
         ctx.assertTrue(world!=null,"Real noise test dimension was not loaded; a flat or manually placed camp is insufficient");
         ctx.assertTrue(world.getChunkManager().getChunkGenerator() instanceof net.minecraft.world.gen.chunk.NoiseChunkGenerator,"Discovery fixture is still a flat test world");
@@ -78,7 +89,6 @@ public class TentDiscoveryGameTests implements FabricGameTest {
         var key=RegistryKey.of(RegistryKeys.STRUCTURE,TetanusMod.id("medic_tent"));
         var tent=registry.entryOf(key);
         var generator=world.getChunkManager().getChunkGenerator();
-        var origin=new BlockPos(0,64,0);
         // This is the exact native locate path: placement calculator, grid, start creation,
         // saved chunks and the real world's seed, with no calls to place a template by hand.
         var located=generator.locateStructure(world,RegistryEntryList.of(tent),origin,4,false);
@@ -100,11 +110,17 @@ public class TentDiscoveryGameTests implements FabricGameTest {
                 if(!world.getForcedChunks().contains(chunk.toLong())){world.setChunkForced(x,z,true);addedTickets.add(chunk);}
                 world.getChunk(x,z);
             }
+            assertConstructedFloor(ctx,world,(MedicStructurePiece)start.getChildren().get(0));
+            int initialWheat=0;
+            for(var pos:BlockPos.iterate(bounds.getMinX(),bounds.getMinY(),bounds.getMinZ(),bounds.getMaxX(),bounds.getMaxY(),bounds.getMaxZ()))if(world.getBlockState(pos).isOf(Blocks.WHEAT))initialWheat++;
+            ctx.assertTrue(initialWheat==8,"Fresh fully generated cave camp lost crops before any resident/observer ticks: "+initialWheat);
             observer=new CampObserver(world,bounds);final CampObserver present=observer;
             ctx.assertTrue(observer.player.getServerWorld()==world,"Connected observer was not teleported into the real native noise world");
             logResidents(world,bounds,"native-player-arrived");
             runCommand(ctx,world,Vec3d.of(origin),"locate structure tetanusmod:medic_tent");
-            runCommand(ctx,world,Vec3d.of(origin),"rustandruin locate tent");
+            runCommand(ctx,world,Vec3d.of(origin),"rustandruin locate tent",((MedicStructurePiece)start.getChildren().get(0)).campEntrance());
+            runCommand(ctx,world,Vec3d.of(origin),"locate structure rustandruin:medic_tent",((MedicStructurePiece)start.getChildren().get(0)).campEntrance());
+            runCommand(ctx,world,Vec3d.of(origin),"locate structure #rustandruin:medic_tent");
             long initialTicks=TentNoiseTestWorldBootstrap.nativeTicks();boolean[] finished={false};
             // Poll actual native ticking futures and entity visibility, rather than assuming
             // accelerated GameTest ticks give generation workers a fixed wall-clock budget.
@@ -122,7 +138,7 @@ public class TentDiscoveryGameTests implements FabricGameTest {
                         ctx.assertTrue(TentNoiseTestWorldBootstrap.nativeTicks()>initialTicks,"Native noise world never received actual world ticks");
                         ctx.assertTrue(ready,"Native player observer did not make camp chunks/entity tracking ready before deadline");
                         assertPlacedCamp(ctx,world,start);
-                        org.slf4j.LoggerFactory.getLogger("RustRuinTentDiscovery").info("NATIVE_TENT_DISCOVERY_PASS seed={} locate={} camp={} startChunk={} nativeWorldTicks={}",world.getSeed(),locatedPos,bounds,start.getPos(),TentNoiseTestWorldBootstrap.nativeTicks()-initialTicks);
+                        org.slf4j.LoggerFactory.getLogger("RustRuinTentDiscovery").info("NATIVE_TENT_DISCOVERY_PASS seed={} sourceOrigin={} locate={} camp={} startChunk={} nativeWorldTicks={}",world.getSeed(),origin,locatedPos,bounds,start.getPos(),TentNoiseTestWorldBootstrap.nativeTicks()-initialTicks);
                         ctx.complete();
                     }finally{cleanupObservation(world,present,addedTickets);}
                 });
@@ -136,7 +152,7 @@ public class TentDiscoveryGameTests implements FabricGameTest {
     }
     private static Box campArea(BlockBox bounds){return new Box(bounds.getMinX(),bounds.getMinY(),bounds.getMinZ(),bounds.getMaxX()+1,bounds.getMaxY()+1,bounds.getMaxZ()+1).expand(24);}
     private static boolean residentsVisible(ServerWorld world,BlockBox bounds){
-        var area=campArea(bounds);return !world.getEntitiesByClass(VillagerEntity.class,area,e->e.getVillagerData().getProfession()==MedicVillage.MEDIC&&e.writeNbt(new NbtCompound()).getBoolean("RustRuinFieldMedic")).isEmpty()&&!world.getEntitiesByClass(IronGolemEntity.class,area,e->MobVariants.permanent(e)&&e.isPlayerCreated()&&e.getMaxHealth()==200).isEmpty();
+        var area=campArea(bounds);return !world.getEntitiesByClass(VillagerEntity.class,area,e->e.getVillagerData().getProfession()==MedicVillage.MEDIC&&e.getCommandTags().contains("rustruin_camp_medic")&&e.writeNbt(new NbtCompound()).getBoolean("RustRuinFieldMedic")).isEmpty()&&!world.getEntitiesByClass(VillagerEntity.class,area,e->e.getVillagerData().getProfession()==net.minecraft.village.VillagerProfession.FARMER&&e.getCommandTags().contains("rustruin_camp_support")).isEmpty()&&!world.getEntitiesByClass(IronGolemEntity.class,area,e->MobVariants.permanent(e)&&e.isPlayerCreated()&&e.getMaxHealth()==200&&e.getCommandTags().contains(MedicStructurePiece.CAMP_GUARD_TAG)).isEmpty();
     }
     private static final class CampObserver implements AutoCloseable {
         private final ObserverConnection connection=new ObserverConnection();
@@ -219,11 +235,28 @@ public class TentDiscoveryGameTests implements FabricGameTest {
         }
     }
 
+    private static void assertConstructedFloor(TestContext ctx,ServerWorld world,MedicStructurePiece piece){
+        var placement=piece.getPlacementData().copy().setBoundingBox(null);int cells=0;
+        for(var block:List.of(Blocks.STONE_BRICKS,Blocks.MOSSY_STONE_BRICKS,Blocks.POLISHED_ANDESITE)){
+            for(var info:piece.getTemplate().getInfosForBlock(piece.getPos(),placement,block))if(info.pos().getY()==piece.getPos().getY()){
+                ctx.assertTrue(world.getBlockState(info.pos()).equals(info.state()),"Natural decoration overwrote a constructed camp foundation cell at "+info.pos()+": "+world.getBlockState(info.pos())+" vs "+info.state());cells++;
+            }
+        }
+        ctx.assertTrue(cells==169,"Camp template no longer has169 constructed, non-natural foundation cells: "+cells);
+    }
     private static void assertPlacedCamp(TestContext ctx,ServerWorld world,StructureStart start){
-        var bounds=start.getChildren().get(0).getBoundingBox();BlockPos cabinet=null,chest=null;int lower=0,upper=0;
+        var piece=(MedicStructurePiece)start.getChildren().get(0);var bounds=piece.getBoundingBox();BlockPos cabinet=null,chest=null;int lower=0,upper=0;
+        assertConstructedFloor(ctx,world,piece);
+        var waterPlacement=new net.minecraft.structure.StructurePlacementData().setRotation(piece.getRotation());
+        var plannedWater=piece.getTemplate().getInfosForBlock(piece.getPos(),waterPlacement,Blocks.WATER);
+        ctx.assertTrue(plannedWater.size()==1&&plannedWater.get(0).state().equals(Blocks.WATER.getDefaultState()),"Camp must contain exactly one planned source-water irrigation cell");
+        var source=plannedWater.get(0).pos();
+        ctx.assertTrue(world.getBlockState(source.down()).isSolidBlock(world,source.down()),"Planned irrigation basin has no watertight solid bottom");
+        var entrance=piece.campEntrance();
+        ctx.assertTrue(bounds.contains(entrance)&&world.isAir(entrance)&&world.isAir(entrance.up())&&world.getBlockState(entrance.down()).isSolidBlock(world,entrance.down()),"Exact camp entrance is obstructed or lacks a solid floor");
         for(var mutable:BlockPos.iterate(bounds.getMinX(),bounds.getMinY(),bounds.getMinZ(),bounds.getMaxX(),bounds.getMaxY(),bounds.getMaxZ())){
             var pos=mutable.toImmutable();var state=world.getBlockState(pos);
-            ctx.assertTrue(state.getFluidState().isEmpty(),"Actual camp generation flooded its tent at "+pos);
+            ctx.assertTrue(state.getFluidState().isEmpty()||pos.equals(source)&&state.equals(plannedWater.get(0).state()),"Actual camp generation has unplanned/flowing fluid at "+pos);
             if(state.isOf(ExpansionBlocks.FIELD_MEDIC_CABINET)){
                 if(state.get(DoorBlock.HALF)==DoubleBlockHalf.LOWER){lower++;cabinet=pos;}else upper++;
             }
@@ -234,14 +267,19 @@ public class TentDiscoveryGameTests implements FabricGameTest {
         ctx.assertTrue(world.getPointOfInterestStorage().hasTypeAt(MedicVillage.FIELD_JOB_KEY,cabinet),"Naturally generated field cabinet was not indexed as a tent POI");
         ctx.assertTrue(world.getPointOfInterestStorage().getType(cabinet.up()).isEmpty(),"Natural cabinet upper half added a duplicate POI");
         var box=new Box(bounds.getMinX(),bounds.getMinY(),bounds.getMinZ(),bounds.getMaxX()+1,bounds.getMaxY()+1,bounds.getMaxZ()+1).expand(24);
-        var medics=world.getEntitiesByClass(VillagerEntity.class,box,e->e.getVillagerData().getProfession()==MedicVillage.MEDIC&&e.writeNbt(new NbtCompound()).getBoolean("RustRuinFieldMedic"));
+        var medics=world.getEntitiesByClass(VillagerEntity.class,box,e->e.getVillagerData().getProfession()==MedicVillage.MEDIC&&e.getCommandTags().contains("rustruin_camp_medic")&&e.writeNbt(new NbtCompound()).getBoolean("RustRuinFieldMedic"));
         ctx.assertTrue(medics.size()==1&&medics.get(0).writeNbt(new NbtCompound()).getBoolean("RustRuinFieldMedic"),"Natural camp lacks exactly one scarce-stock field medic");
-        var golems=world.getEntitiesByClass(IronGolemEntity.class,box,e->MobVariants.permanent(e)&&e.isPlayerCreated()&&e.getMaxHealth()==200);
+        var residents=new Box(bounds.getMinX(),bounds.getMinY(),bounds.getMinZ(),bounds.getMaxX()+1,bounds.getMaxY()+1,bounds.getMaxZ()+1);
+        var farmers=world.getEntitiesByClass(VillagerEntity.class,residents,e->e.getCommandTags().contains("rustruin_camp_support"));
+        ctx.assertTrue(farmers.size()==1&&farmers.get(0).getVillagerData().getProfession()==net.minecraft.village.VillagerProfession.FARMER&&farmers.get(0).getExperience()>=1,"Natural camp lacks exactly one genuine support farmer inside its enclosure");
+        var golems=world.getEntitiesByClass(IronGolemEntity.class,box,e->MobVariants.permanent(e)&&e.isPlayerCreated()&&e.getMaxHealth()==200&&e.getCommandTags().contains(MedicStructurePiece.CAMP_GUARD_TAG));
         ctx.assertTrue(golems.size()==1&&MobVariants.permanent(golems.get(0))&&golems.get(0).isPlayerCreated()&&golems.get(0).getMaxHealth()==200,"Natural camp lacks its friendly tetanized defender");
         runCommand(ctx,world,Vec3d.ofCenter(cabinet),"locate poi tetanusmod:medic_tent");
+        runCommand(ctx,world,Vec3d.ofCenter(cabinet),"locate poi rustandruin:medic_tent");
     }
 
-    private static void runCommand(TestContext ctx,ServerWorld world,Vec3d origin,String command){
+    private static void runCommand(TestContext ctx,ServerWorld world,Vec3d origin,String command){runCommand(ctx,world,origin,command,null);}
+    private static void runCommand(TestContext ctx,ServerWorld world,Vec3d origin,String command,BlockPos expectedEntrance){
         var messages=new ArrayList<Text>();
         CommandOutput output=new CommandOutput(){
             @Override public void sendMessage(Text message){messages.add(message);}
@@ -254,5 +292,17 @@ public class TentDiscoveryGameTests implements FabricGameTest {
         catch(com.mojang.brigadier.exceptions.CommandSyntaxException failure){throw new IllegalStateException("Native discovery command failed: "+command,failure);}
         String expected=command.startsWith("locate poi ")?"commands.locate.poi.success":"commands.locate.structure.success";
         ctx.assertTrue(messages.stream().anyMatch(message->message.getContent() instanceof net.minecraft.text.TranslatableTextContent text&&text.getKey().equals(expected)),"Discovery command produced no native success feedback: "+command+" / "+messages);
+        if(expectedEntrance!=null){
+            var entranceMessage=messages.stream().filter(message->message.getContent() instanceof net.minecraft.text.TranslatableTextContent text&&text.getKey().equals("commands.rustandruin.camp_entrance")).findFirst().orElseThrow(()->new IllegalStateException("Branded command omitted exact underground entrance: "+command));
+            var content=(net.minecraft.text.TranslatableTextContent)entranceMessage.getContent();
+            ctx.assertTrue(content.getArgs().length==1&&content.getArgs()[0] instanceof Text,"Exact entrance feedback lost its coordinate component");
+            var coordinate=(Text)content.getArgs()[0];
+            ctx.assertTrue(coordinate.getContent() instanceof net.minecraft.text.TranslatableTextContent text&&text.getKey().equals("chat.coordinates"),"Exact entrance feedback did not use native coordinates");
+            var args=((net.minecraft.text.TranslatableTextContent)coordinate.getContent()).getArgs();
+            ctx.assertTrue(args.length==3&&args[0] instanceof Number&&args[1] instanceof Number&&args[2] instanceof Number,"Exact entrance feedback contains an unknown/non-numeric Y");
+            ctx.assertTrue(new BlockPos(((Number)args[0]).intValue(),((Number)args[1]).intValue(),((Number)args[2]).intValue()).equals(expectedEntrance),"Branded command exact entrance disagrees with actual native rotated piece");
+            var click=coordinate.getStyle().getClickEvent();
+            ctx.assertTrue(click!=null&&click.getAction()==net.minecraft.text.ClickEvent.Action.SUGGEST_COMMAND&&click.getValue().equals("/tp @s "+expectedEntrance.getX()+" "+expectedEntrance.getY()+" "+expectedEntrance.getZ()),"Exact entrance teleport suggestion is missing or inconsistent");
+        }
     }
 }

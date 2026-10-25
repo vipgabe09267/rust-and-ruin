@@ -1,0 +1,1162 @@
+{
+  "scope": "Native noise columns, grid candidates and Structure.createStructureStart planning; not manually placed or inserted structures",
+  "currentTraversal": "Original16-site shuffle/rolls first,153 shuffled fallback sites only on failure; cache shared",
+  "regionCountPerSeed": 9,
+  "seedCount": 6,
+  "legacyTotalPlaced": 1,
+  "currentTotalPlaced": 15,
+  "legacyMissingSeedDistancePenalty": 7680,
+  "legacyDistanceSumWithPenalty": 38849.75548912714,
+  "currentDistanceSumWithPenalty": 11473.659915774759,
+  "maxCachedColumnsPerCurrentAttempt": 3969,
+  "maxFullCentreColumnsPerAttempt": 169,
+  "placementSafety": "Legacy sites use full native columns; fallback bounded samples only prefilter, followed by full native validation after a successful roll",
+  "fitColumnBottomY": -64,
+  "fitColumnTopYExclusive": 64,
+  "maxCachedBlockStateReferencesAtOverworldHeight384": 1524096,
+  "boundedOnlyCacheReferenceEstimate": 551296,
+  "cacheUpgrades": "Neighbor-fit columns are replaced with full columns for surface/legacy/final placement proof; cumulative allocation includes those upgrades",
+  "allocationMetric": "Cumulative allocations on the synchronous planning thread, not retained/peak memory; null when unavailable",
+  "seeds": [
+    {
+      "seed": 0,
+      "sampledNativeGridRegions": 9,
+      "legacyPlaced": 1,
+      "currentPlaced": 4,
+      "legacyNearestCampCentreXZ": 449.7554891271478,
+      "currentNearestCampCentreXZ": 449.7554891271478,
+      "attempts": [
+        {
+          "regionX": -1,
+          "regionZ": -1,
+          "startChunkX": -149,
+          "startChunkZ": -143,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 78.1066,
+            "cpuMs": 78.125,
+            "allocatedBytes": 35029808,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 4056.0919,
+            "cpuMs": 4031.25,
+            "allocatedBytes": 2409485864,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 0,
+          "startChunkX": -159,
+          "startChunkZ": 30,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 731.7258,
+            "cpuMs": 734.375,
+            "allocatedBytes": 380867280,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 4058.5165,
+            "cpuMs": 4015.625,
+            "allocatedBytes": 2247664456,
+            "bounds": "BlockBox{minX\u003d-2536, minY\u003d-1, minZ\u003d504, maxX\u003d-2524, maxY\u003d6, maxZ\u003d516}"
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 1,
+          "startChunkX": -156,
+          "startChunkZ": 174,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 35.6428,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20489464,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 1325.911,
+            "cpuMs": 1328.125,
+            "allocatedBytes": 846276256,
+            "bounds": "BlockBox{minX\u003d-2476, minY\u003d-3, minZ\u003d2812, maxX\u003d-2464, maxY\u003d4, maxZ\u003d2824}"
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": -1,
+          "startChunkX": 18,
+          "startChunkZ": -136,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 47.4979,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20848200,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 1150.8388,
+            "cpuMs": 1125.0,
+            "allocatedBytes": 694205632,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 0,
+          "startChunkX": 25,
+          "startChunkZ": 10,
+          "legacy16Sites": {
+            "placed": true,
+            "wallMs": 779.542,
+            "cpuMs": 765.625,
+            "allocatedBytes": 351374256,
+            "bounds": "BlockBox{minX\u003d412, minY\u003d-51, minZ\u003d160, maxX\u003d424, maxY\u003d-44, maxZ\u003d172}"
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 706.9175,
+            "cpuMs": 718.75,
+            "allocatedBytes": 351363632,
+            "bounds": "BlockBox{minX\u003d412, minY\u003d-51, minZ\u003d160, maxX\u003d424, maxY\u003d-44, maxZ\u003d172}"
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 1,
+          "startChunkX": 1,
+          "startChunkZ": 174,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 33.9043,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20461384,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 1034.9102,
+            "cpuMs": 1031.25,
+            "allocatedBytes": 678857360,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": -1,
+          "startChunkX": 188,
+          "startChunkZ": -136,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 422.0459,
+            "cpuMs": 406.25,
+            "allocatedBytes": 227821496,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 2818.216,
+            "cpuMs": 2812.5,
+            "allocatedBytes": 1734511976,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 0,
+          "startChunkX": 184,
+          "startChunkZ": 9,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 1204.1087,
+            "cpuMs": 1203.125,
+            "allocatedBytes": 647279376,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 2031.7394,
+            "cpuMs": 2015.625,
+            "allocatedBytes": 1232548528,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 1,
+          "startChunkX": 187,
+          "startChunkZ": 168,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 1403.9992,
+            "cpuMs": 1390.625,
+            "allocatedBytes": 785812248,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 4731.7501,
+            "cpuMs": 4656.25,
+            "allocatedBytes": 3242751328,
+            "bounds": "BlockBox{minX\u003d3024, minY\u003d-33, minZ\u003d2708, maxX\u003d3036, maxY\u003d-26, maxZ\u003d2720}"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "sampledNativeGridRegions": 9,
+      "legacyPlaced": 0,
+      "currentPlaced": 4,
+      "legacyNearestCampCentreXZ": null,
+      "currentNearestCampCentreXZ": 2511.2116597371873,
+      "attempts": [
+        {
+          "regionX": -1,
+          "regionZ": -1,
+          "startChunkX": -149,
+          "startChunkZ": -134,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 33.8273,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20526144,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 3268.7203,
+            "cpuMs": 3265.625,
+            "allocatedBytes": 1889648728,
+            "bounds": "BlockBox{minX\u003d-2336, minY\u003d-44, minZ\u003d-2112, maxX\u003d-2324, maxY\u003d-37, maxZ\u003d-2100}"
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 0,
+          "startChunkX": -159,
+          "startChunkZ": 4,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 220.0031,
+            "cpuMs": 234.375,
+            "allocatedBytes": 113407984,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 3050.6063,
+            "cpuMs": 3046.875,
+            "allocatedBytes": 1907677888,
+            "bounds": "BlockBox{minX\u003d-2516, minY\u003d-9, minZ\u003d72, maxX\u003d-2504, maxY\u003d-2, maxZ\u003d84}"
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 1,
+          "startChunkX": -156,
+          "startChunkZ": 182,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 200.5955,
+            "cpuMs": 203.125,
+            "allocatedBytes": 116870000,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 1511.7366,
+            "cpuMs": 1515.625,
+            "allocatedBytes": 869428320,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": -1,
+          "startChunkX": 18,
+          "startChunkZ": -159,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 207.359,
+            "cpuMs": 203.125,
+            "allocatedBytes": 122616528,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 2534.7149,
+            "cpuMs": 2531.25,
+            "allocatedBytes": 1630971608,
+            "bounds": "BlockBox{minX\u003d304, minY\u003d-17, minZ\u003d-2520, maxX\u003d316, maxY\u003d-10, maxZ\u003d-2508}"
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 0,
+          "startChunkX": 25,
+          "startChunkZ": 16,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 69.6953,
+            "cpuMs": 78.125,
+            "allocatedBytes": 41390240,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 992.1094,
+            "cpuMs": 984.375,
+            "allocatedBytes": 588421824,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 1,
+          "startChunkX": 1,
+          "startChunkZ": 183,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 32.8246,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20582888,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 3071.7863,
+            "cpuMs": 3062.5,
+            "allocatedBytes": 2206546360,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": -1,
+          "startChunkX": 188,
+          "startChunkZ": -160,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 126.2856,
+            "cpuMs": 125.0,
+            "allocatedBytes": 72634216,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 1362.7264,
+            "cpuMs": 1343.75,
+            "allocatedBytes": 831205976,
+            "bounds": "BlockBox{minX\u003d3044, minY\u003d12, minZ\u003d-2524, maxX\u003d3056, maxY\u003d19, maxZ\u003d-2512}"
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 0,
+          "startChunkX": 184,
+          "startChunkZ": 15,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 59.1424,
+            "cpuMs": 62.5,
+            "allocatedBytes": 34226960,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 1781.3745,
+            "cpuMs": 1765.625,
+            "allocatedBytes": 1120164576,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 1,
+          "startChunkX": 187,
+          "startChunkZ": 177,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 34.949,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20619048,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 376.6746,
+            "cpuMs": 375.0,
+            "allocatedBytes": 223734216,
+            "bounds": null
+          }
+        }
+      ]
+    },
+    {
+      "seed": 246813579,
+      "sampledNativeGridRegions": 9,
+      "legacyPlaced": 0,
+      "currentPlaced": 3,
+      "legacyNearestCampCentreXZ": null,
+      "currentNearestCampCentreXZ": 562.202810380738,
+      "attempts": [
+        {
+          "regionX": -1,
+          "regionZ": -1,
+          "startChunkX": -142,
+          "startChunkZ": -160,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 31.8086,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20423224,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 1933.6149,
+            "cpuMs": 1906.25,
+            "allocatedBytes": 1357718752,
+            "bounds": "BlockBox{minX\u003d-2236, minY\u003d-25, minZ\u003d-2528, maxX\u003d-2224, maxY\u003d-18, maxZ\u003d-2516}"
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 0,
+          "startChunkX": -141,
+          "startChunkZ": 18,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 33.6424,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20590352,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 1412.3632,
+            "cpuMs": 1421.875,
+            "allocatedBytes": 904001832,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 1,
+          "startChunkX": -135,
+          "startChunkZ": 173,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 33.2859,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20483824,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 2125.211,
+            "cpuMs": 2125.0,
+            "allocatedBytes": 1429527104,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": -1,
+          "startChunkX": 17,
+          "startChunkZ": -133,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 496.8598,
+            "cpuMs": 500.0,
+            "allocatedBytes": 279729168,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 1825.123,
+            "cpuMs": 1812.5,
+            "allocatedBytes": 1176810192,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 0,
+          "startChunkX": 31,
+          "startChunkZ": 8,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 142.891,
+            "cpuMs": 140.625,
+            "allocatedBytes": 58175256,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 5569.7741,
+            "cpuMs": 5531.25,
+            "allocatedBytes": 3149274696,
+            "bounds": "BlockBox{minX\u003d540, minY\u003d-51, minZ\u003d128, maxX\u003d552, maxY\u003d-44, maxZ\u003d140}"
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 1,
+          "startChunkX": 2,
+          "startChunkZ": 179,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 202.2407,
+            "cpuMs": 203.125,
+            "allocatedBytes": 106348112,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 1888.4603,
+            "cpuMs": 1875.0,
+            "allocatedBytes": 1098136432,
+            "bounds": "BlockBox{minX\u003d72, minY\u003d12, minZ\u003d2872, maxX\u003d84, maxY\u003d19, maxZ\u003d2884}"
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": -1,
+          "startChunkX": 189,
+          "startChunkZ": -149,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 32.2734,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20488776,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 861.3515,
+            "cpuMs": 859.375,
+            "allocatedBytes": 586351608,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 0,
+          "startChunkX": 189,
+          "startChunkZ": 14,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 34.2146,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20866136,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 606.6118,
+            "cpuMs": 593.75,
+            "allocatedBytes": 376824912,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 1,
+          "startChunkX": 182,
+          "startChunkZ": 179,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 31.154,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20536288,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 396.7111,
+            "cpuMs": 390.625,
+            "allocatedBytes": 255415944,
+            "bounds": null
+          }
+        }
+      ]
+    },
+    {
+      "seed": 918731,
+      "sampledNativeGridRegions": 9,
+      "legacyPlaced": 0,
+      "currentPlaced": 2,
+      "legacyNearestCampCentreXZ": null,
+      "currentNearestCampCentreXZ": 2356.955663562639,
+      "attempts": [
+        {
+          "regionX": -1,
+          "regionZ": -1,
+          "startChunkX": -135,
+          "startChunkZ": -129,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 46.9837,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20742704,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 964.8144,
+            "cpuMs": 968.75,
+            "allocatedBytes": 575574672,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 0,
+          "startChunkX": -147,
+          "startChunkZ": 30,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 762.9898,
+            "cpuMs": 734.375,
+            "allocatedBytes": 464003728,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 2053.7344,
+            "cpuMs": 2062.5,
+            "allocatedBytes": 1231488136,
+            "bounds": "BlockBox{minX\u003d-2308, minY\u003d-18, minZ\u003d500, maxX\u003d-2296, maxY\u003d-11, maxZ\u003d512}"
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 1,
+          "startChunkX": -133,
+          "startChunkZ": 179,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 43.5302,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20460424,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 2097.7783,
+            "cpuMs": 2046.875,
+            "allocatedBytes": 1236987768,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": -1,
+          "startChunkX": 19,
+          "startChunkZ": -147,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 40.0824,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20471472,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 3040.8295,
+            "cpuMs": 3031.25,
+            "allocatedBytes": 1949490552,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 0,
+          "startChunkX": 30,
+          "startChunkZ": 1,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 135.0456,
+            "cpuMs": 140.625,
+            "allocatedBytes": 73276656,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 824.061,
+            "cpuMs": 828.125,
+            "allocatedBytes": 484953280,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 1,
+          "startChunkX": 2,
+          "startChunkZ": 176,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 41.7883,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20517560,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 393.4783,
+            "cpuMs": 390.625,
+            "allocatedBytes": 218579552,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": -1,
+          "startChunkX": 180,
+          "startChunkZ": -132,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 31.3127,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20431384,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 2161.0098,
+            "cpuMs": 2125.0,
+            "allocatedBytes": 1563105184,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 0,
+          "startChunkX": 165,
+          "startChunkZ": 13,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 31.3216,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20488688,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 363.9749,
+            "cpuMs": 359.375,
+            "allocatedBytes": 216722288,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 1,
+          "startChunkX": 169,
+          "startChunkZ": 183,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 33.0496,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20897960,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 2501.1552,
+            "cpuMs": 2484.375,
+            "allocatedBytes": 1633711960,
+            "bounds": "BlockBox{minX\u003d2748, minY\u003d-1, minZ\u003d2972, maxX\u003d2760, maxY\u003d6, maxZ\u003d2984}"
+          }
+        }
+      ]
+    },
+    {
+      "seed": 8675309,
+      "sampledNativeGridRegions": 9,
+      "legacyPlaced": 0,
+      "currentPlaced": 1,
+      "legacyNearestCampCentreXZ": null,
+      "currentNearestCampCentreXZ": 3454.6953555993905,
+      "attempts": [
+        {
+          "regionX": -1,
+          "regionZ": -1,
+          "startChunkX": -149,
+          "startChunkZ": -160,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 38.8932,
+            "cpuMs": 46.875,
+            "allocatedBytes": 24490224,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 1401.2253,
+            "cpuMs": 1406.25,
+            "allocatedBytes": 884647280,
+            "bounds": "BlockBox{minX\u003d-2384, minY\u003d-43, minZ\u003d-2512, maxX\u003d-2372, maxY\u003d-36, maxZ\u003d-2500}"
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 0,
+          "startChunkX": -159,
+          "startChunkZ": 30,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 289.1312,
+            "cpuMs": 296.875,
+            "allocatedBytes": 171905240,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 2638.0544,
+            "cpuMs": 2640.625,
+            "allocatedBytes": 1737775208,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 1,
+          "startChunkX": -142,
+          "startChunkZ": 175,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 38.3344,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20870856,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 578.4425,
+            "cpuMs": 578.125,
+            "allocatedBytes": 350969384,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": -1,
+          "startChunkX": 13,
+          "startChunkZ": -135,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 53.0123,
+            "cpuMs": 46.875,
+            "allocatedBytes": 30990032,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 637.829,
+            "cpuMs": 640.625,
+            "allocatedBytes": 399648880,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 0,
+          "startChunkX": 20,
+          "startChunkZ": 15,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 31.9067,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20536776,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 361.9081,
+            "cpuMs": 359.375,
+            "allocatedBytes": 232607920,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 1,
+          "startChunkX": 21,
+          "startChunkZ": 188,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 935.7578,
+            "cpuMs": 906.25,
+            "allocatedBytes": 503716984,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 2035.1199,
+            "cpuMs": 2046.875,
+            "allocatedBytes": 1116617880,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": -1,
+          "startChunkX": 180,
+          "startChunkZ": -140,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 33.4235,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20452424,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 635.9699,
+            "cpuMs": 625.0,
+            "allocatedBytes": 383620488,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 0,
+          "startChunkX": 184,
+          "startChunkZ": 2,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 32.4542,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20453088,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 701.962,
+            "cpuMs": 703.125,
+            "allocatedBytes": 424054728,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 1,
+          "startChunkX": 174,
+          "startChunkZ": 188,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 32.1461,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20420584,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 463.0648,
+            "cpuMs": 468.75,
+            "allocatedBytes": 295837560,
+            "bounds": null
+          }
+        }
+      ]
+    },
+    {
+      "seed": -741,
+      "sampledNativeGridRegions": 9,
+      "legacyPlaced": 0,
+      "currentPlaced": 1,
+      "legacyNearestCampCentreXZ": null,
+      "currentNearestCampCentreXZ": 2138.838937367655,
+      "attempts": [
+        {
+          "regionX": -1,
+          "regionZ": -1,
+          "startChunkX": -146,
+          "startChunkZ": -148,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 33.1582,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20451592,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 492.7053,
+            "cpuMs": 500.0,
+            "allocatedBytes": 308439904,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 0,
+          "startChunkX": -135,
+          "startChunkZ": 13,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 99.167,
+            "cpuMs": 93.75,
+            "allocatedBytes": 58316536,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": true,
+            "wallMs": 1766.4923,
+            "cpuMs": 1750.0,
+            "allocatedBytes": 1105934560,
+            "bounds": "BlockBox{minX\u003d-2132, minY\u003d-25, minZ\u003d228, maxX\u003d-2120, maxY\u003d-18, maxZ\u003d240}"
+          }
+        },
+        {
+          "regionX": -1,
+          "regionZ": 1,
+          "startChunkX": -152,
+          "startChunkZ": 173,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 422.5431,
+            "cpuMs": 421.875,
+            "allocatedBytes": 195870576,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 2488.2191,
+            "cpuMs": 2468.75,
+            "allocatedBytes": 1450830104,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": -1,
+          "startChunkX": 30,
+          "startChunkZ": -154,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 32.7241,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20660944,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 350.9497,
+            "cpuMs": 343.75,
+            "allocatedBytes": 217826512,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 0,
+          "startChunkX": 26,
+          "startChunkZ": 23,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 1077.816,
+            "cpuMs": 1046.875,
+            "allocatedBytes": 633646448,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 1823.793,
+            "cpuMs": 1828.125,
+            "allocatedBytes": 1178701168,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 0,
+          "regionZ": 1,
+          "startChunkX": 22,
+          "startChunkZ": 187,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 30.226,
+            "cpuMs": 31.25,
+            "allocatedBytes": 20427496,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 649.4815,
+            "cpuMs": 640.625,
+            "allocatedBytes": 463514352,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": -1,
+          "startChunkX": 190,
+          "startChunkZ": -154,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 371.7036,
+            "cpuMs": 359.375,
+            "allocatedBytes": 204234368,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 835.7243,
+            "cpuMs": 843.75,
+            "allocatedBytes": 521867072,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 0,
+          "startChunkX": 176,
+          "startChunkZ": 17,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 32.4064,
+            "cpuMs": 46.875,
+            "allocatedBytes": 20426040,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 439.5095,
+            "cpuMs": 437.5,
+            "allocatedBytes": 243718360,
+            "bounds": null
+          }
+        },
+        {
+          "regionX": 1,
+          "regionZ": 1,
+          "startChunkX": 191,
+          "startChunkZ": 167,
+          "legacy16Sites": {
+            "placed": false,
+            "wallMs": 48.6238,
+            "cpuMs": 46.875,
+            "allocatedBytes": 31250208,
+            "bounds": null
+          },
+          "current169Sites": {
+            "placed": false,
+            "wallMs": 394.5399,
+            "cpuMs": 390.625,
+            "allocatedBytes": 257762480,
+            "bounds": null
+          }
+        }
+      ]
+    }
+  ]
+}

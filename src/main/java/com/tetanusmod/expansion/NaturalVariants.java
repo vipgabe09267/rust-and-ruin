@@ -22,7 +22,7 @@ public final class NaturalVariants {
         if(mob.getWorld().isClient||mob instanceof net.minecraft.entity.boss.WitherEntity||mob instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity)return;
         if(reason!=SpawnReason.NATURAL&&reason!=SpawnReason.CHUNK_GENERATION&&reason!=SpawnReason.SPAWNER)return;
         float rate=chance(mob.getWorld().getDifficulty(),reason==SpawnReason.SPAWNER,MobVariants.isAnimal(mob));
-        if(mob.getRandom().nextFloat()<rate)MobVariants.makePermanent(mob);
+        if(mob.getRandom().nextFloat()<rate)com.tetanusmod.effect.Infection.silently(()->MobVariants.makePermanent(mob));
         else if(Rabies.eligible(mob)&&mob.getRandom().nextFloat()<switch(mob.getWorld().getDifficulty()){case PEACEFUL->0F;case EASY->com.tetanusmod.TetanusMod.CONFIG.naturalRabiesEasy;case NORMAL->com.tetanusmod.TetanusMod.CONFIG.naturalRabiesNormal;case HARD->com.tetanusmod.TetanusMod.CONFIG.naturalRabiesHard;})Rabies.makeRabid(mob);
     }
 }

@@ -6,7 +6,7 @@ Throw nails, set rusty traps, and fight infected creatures. Rust & Ruin adds wea
 
 **Minecraft 1.20.1 Fabric · version 0.1.0-beta**
 
-[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes](docs/RECIPES.md) · [Validation](VALIDATION.md) · [Latest playtest fixes](docs/PLAYTEST_FIXES_2026-10-25.md) · [Requested features](docs/REQUEST_AUDIT.md) · [Security review](docs/SECURITY_AUDIT.md) · [File audit](docs/FULL_AUDIT.md)
+[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes](docs/RECIPES.md) · [Validation](VALIDATION.md) · [Latest playtest fixes](docs/CLINIC_ADVANCEMENT_FIXES_2026-10-25.md) · [Requested features](docs/REQUEST_AUDIT.md) · [Security review](docs/SECURITY_AUDIT.md) · [File audit](docs/FULL_AUDIT.md)
 
 ![Rust & Ruin in Minecraft](validation/screenshots/rust-and-ruin-hud.png)
 
@@ -76,6 +76,8 @@ The beacon requires a pyramid made **only of Rusted Iron Blocks** and netherite 
 
 ## Advancements, commands, and sounds
 
+The Rust & Ruin advancement tree has four branches. Drag or scroll to move through it; hold Shift to scroll sideways, and press Home to return to the start. Vanilla advancement tabs still unlock through their normal gameplay requirements. Existing advancement progress is preserved.
+
 The rusty advancement tab includes disease milestones, Strange Meat for collecting Infected Meat, Why did I eat that? for Salmonella, shield/glove prevention, medicine use, the medic, traps, and boss/beacon progression. Why did I do that? requires dying to your own upward-thrown rusty nail and has its own death message.
 
 Operator permission level 2:
@@ -128,12 +130,14 @@ Operators can use `/rustandruin inspect <entity>` to inspect mutation and despaw
 
 ## Medic cave camps and armed monsters
 
-Medic tents can appear in roomy, dry Overworld caves, using a 15% roll for each suitable cave site within a widely spaced candidate chunk. Natural floor support, an open interior and an entrance are required; this is not a 15% chance per cave or chunk. Camps remain over 2,000 blocks apart and contain a medic, a loot chest, and a defensive 200-health Tetanized Iron Golem. Clinics and camps generate in new terrain; existing villages are not retrofitted.
+Infection announcements are positional and limited to nearby listeners (16 blocks). Existing infections, natural mutations, chunk loading and inherited mutations stay quiet. Medics have their own short vial-and-supplies work sound, audible within 12 blocks.
 
-Operators can use `/locate structure tetanusmod:medic_clinic`, `/locate structure tetanusmod:medic_tent`, or `/locate structure #tetanusmod:medics`. Shortcuts: `/rustandruin locate medic` and `/rustandruin locate tent`. Disease commands use the same namespace: `/effect give @s tetanusmod:rabies infinite`; short names such as `/effect give @s rabies` also work. These operator commands bypass vaccine prevention.
+Medic tents can appear in roomy, dry Overworld caves, using a 15% roll for each suitable cave site within a widely spaced candidate chunk. Natural floor support, an open interior and an entrance are required; this is not a 15% chance per cave or chunk. Camps remain over 2,000 blocks apart. Each has a fenced, lit courtyard, two beds, a field medic, a support farmer with an irrigated crop patch, a supply chest and a persistent 200-health Tetanized Iron Golem. The wider cave search retains old successful placements before checking additional sites. Clinics and camps generate in new terrain; existing villages are not retrofitted.
+
+Operators can use `/locate structure rustandruin:medic_clinic`, `/locate structure rustandruin:medic_tent`, or `/locate structure #rustandruin:medics`. Shortcuts: `/rustandruin locate medic` and `/rustandruin locate tent`. Branded clinic and tent commands also give the exact entrance, including Y. For a clinic, follow the entrance coordinates rather than the native village start-chunk marker. `/locate poi rustandruin:medic_tent` searches only 128 blocks; it is for nearby workstations. Older command IDs continue to work. Disease commands use the same namespace: `/effect give @s tetanusmod:rabies infinite`; short names such as `/effect give @s rabies` also work. These operator commands bypass vaccine prevention.
 
 Skeletons can trade their bow for rusty nails; zombies can carry rebar, a rusty pipe, or a rusty spear. Weapon chances are 2%/4%/6% on Easy/Normal/Hard. Nail skeletons respect line of sight, and their missed shots cannot be collected for free ammunition. Rusty player-thrown nails now have a 0.7-second cooldown.
 
-See the [October 24 playtest fixes and graphical verification](docs/PLAYTEST_FIXES_2026-10-24.md) for current changes and test limits. The [24-request refresh](docs/REFRESH_2026-10-23.md) records the earlier work.
+See the [camp and proximity-audio fixes](docs/CAMP_AUDIO_FIXES_2026-10-25.md) for the latest changes and test limits. The [24-request refresh](docs/REFRESH_2026-10-23.md) records the earlier work.
 
 The earlier [full-project audit](docs/REAUDIT_2026-10-23.md) records stability fixes, including pack-animal cargo preservation, End-return disease persistence, glove synchronization, trap contact checks, and native Wither ritual compatibility.

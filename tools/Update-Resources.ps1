@@ -65,7 +65,7 @@ foreach ($tag in @('wither_summon_base_blocks','mineable/shovel','soul_speed_blo
 }
 $moreMessages=@{
  'item.tetanusmod.rust'='Rust';'item.tetanusmod.rusty_fishing_hook'='Rusty Fishing Hook';'block.tetanusmod.tetanized_soul_sand'='Tetanized Soul Sand';
- 'effect.tetanusmod.salmonella'='Salmonella';'subtitles.tetanusmod.vomit'='Stomach churns';
+ 'effect.tetanusmod.salmonella'='Salmonella';'subtitles.tetanusmod.vomit'='Stomach churns';'subtitles.tetanusmod.medic_work'='Medic handles supplies';
  'advancements.tetanusmod.nice_one.title'='Tetanus. Nice One!';'advancements.tetanusmod.nice_one.description'='Defeat a Tetanized Wither.';
  'advancements.tetanusmod.rusty_hook.title'='Hook, Line and Tetanus';'advancements.tetanusmod.rusty_hook.description'='Recover a rusty fishing hook from a waterlogged rod.';
  'commands.tetanusmod.summoned'='Summoned a tetanized %s';'commands.tetanusmod.tetanized'='Tetanized %s mobs';
@@ -81,6 +81,8 @@ $recipes+=@('tetanized_soul_sand')
 Write-Json 'data/tetanusmod/advancements/recipes/unlock.json' @{parent='minecraft:recipes/root';criteria=@{has_iron=@{trigger='minecraft:inventory_changed';conditions=@{items=@(@{items=@('minecraft:iron_ingot')})}}};rewards=@{recipes=@($recipes|ForEach-Object {"tetanusmod:$_"})}}
 $sounds=@{};(Get-Content -Encoding UTF8 (Join-Path $resourceRoot 'assets/tetanusmod/sounds.json') -Raw|ConvertFrom-Json).PSObject.Properties|ForEach-Object {$sounds[$_.Name]=$_.Value}
 $sounds.vomit=@{subtitle='subtitles.tetanusmod.vomit';sounds=@(@{name='minecraft:entity.player.burp';type='event';pitch=0.7;volume=0.8})}
+$sounds.tetanus_effect=@{subtitle='subtitles.tetanusmod.tetanus_effect';sounds=@(@{name='tetanusmod:tetanus_effect';stream=$false;attenuation_distance=16})}
+$sounds.medic_work=@{subtitle='subtitles.tetanusmod.medic_work';sounds=@(@{name='tetanusmod:medic_work';stream=$false;attenuation_distance=12})}
 Write-Json 'assets/tetanusmod/sounds.json' $sounds
 Write-Host 'Updated recipes, advancements, item models and localization.'
 

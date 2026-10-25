@@ -33,7 +33,8 @@ import java.util.concurrent.Executor;
  * This development-mod initializer never enters the distributable mod JAR.
  */
 public final class TentNoiseTestWorldBootstrap implements ModInitializer {
-    public static final RegistryKey<World> KEY=RegistryKey.of(RegistryKeys.WORLD,new Identifier("tetanusmod_tests","medic_caves"));
+    // Every run gets fresh native storage; a fixed key would reuse saved old structure starts.
+    public static final RegistryKey<World> KEY=RegistryKey.of(RegistryKeys.WORLD,new Identifier("tetanusmod_tests","medic_caves_"+java.util.UUID.randomUUID().toString().replace("-","")));
     private static long nativeTicks;
     public static long nativeTicks(){return nativeTicks;}
     @Override public void onInitialize(){

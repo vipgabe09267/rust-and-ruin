@@ -1,0 +1,191 @@
+{
+    "Title":  "Rust \u0026 Ruin cave camp and audio checks",
+    "GeneratedUtc":  "2026-10-25T18:30:59.7689207Z",
+    "OriginalPngCount":  16,
+    "EvidenceFileCount":  26,
+    "CampRunStartUtc":  "2026-10-25T18:26:54.9130838Z",
+    "Files":  [
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-locate-structure-chat.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-locate-structure-chat.png",
+                      "Bytes":  435420,
+                      "SHA256":  "ab7b85cd31c242c8b8b2384cd0c845ee1a90cc0f0365602c12719b095ebdee8c",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:42.8484271Z"
+                  },
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-locate-alias-chat.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-locate-alias-chat.png",
+                      "Bytes":  449595,
+                      "SHA256":  "1be60772be58d93a88dcc9d2bbe8b88fa87a28306d5a2826598d8638a00feb53",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:44.0865868Z"
+                  },
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-locate-poi-chat.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-locate-poi-chat.png",
+                      "Bytes":  622341,
+                      "SHA256":  "437b13cbbaa1a23a45d47e0104225bb380cb9e68e984eba5e7df0c42dd3f02ad",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:56.0299868Z"
+                  },
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-field-cabinet.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-field-cabinet.png",
+                      "Bytes":  375649,
+                      "SHA256":  "b771558d76db4031ed65b38352f6af94b3531be50d976b5351f3d58093eb35a8",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:49.2582625Z"
+                  },
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-natural-field-medic.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-natural-field-medic.png",
+                      "Bytes":  492690,
+                      "SHA256":  "2974cf32d3f4fe833c4416ee4af2681721f39893ea88b6c9b1fcc7b25cede393",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:50.4936350Z"
+                  },
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-natural-support-farmer.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-natural-support-farmer.png",
+                      "Bytes":  544242,
+                      "SHA256":  "373137363142f07f4cb51548af28f534dd2234963e75510fff112679bc6e1db5",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:51.7765523Z"
+                  },
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-natural-farm.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-natural-farm.png",
+                      "Bytes":  550638,
+                      "SHA256":  "241e8814a5ef79eaf61f0c872194e6d9e8aaceaf07772b28154d44471db04f55",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:53.5108660Z"
+                  },
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-natural-tetanized-guard.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-natural-tetanized-guard.png",
+                      "Bytes":  625010,
+                      "SHA256":  "f237f6c41b040fe1f50ccef7718d41989270768483ca6301a26e6e8d5fa4d29d",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:54.7554739Z"
+                  },
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-natural-loot-chest.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-natural-loot-chest.png",
+                      "Bytes":  330836,
+                      "SHA256":  "22267938fc5d01ebe30f592ec52cbf1f23cb523b2f6c09679d9f81a62b0d33e8",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:57.2247729Z"
+                  },
+                  {
+                      "File":  "evidence/camp/rust-and-ruin-plain-camp-opened-natural-loot.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/screenshots/rust-and-ruin-plain-camp-opened-natural-loot.png",
+                      "Bytes":  164906,
+                      "SHA256":  "275b3f2de2e5dbb597b432c3b1daacd8e171cfebc1b7b3a5484a468f59a5cb10",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:57.9538948Z"
+                  },
+                  {
+                      "File":  "evidence/audio/rust-and-ruin-plain-audio-far32-command-silent.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/audio-pass/screenshots/rust-and-ruin-plain-audio-far32-command-silent.png",
+                      "Bytes":  348189,
+                      "SHA256":  "c98b45ee772557b66bd50ceedd110ffb530e73958af2bd6911a391005c06259a",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T17:45:48.8271547Z"
+                  },
+                  {
+                      "File":  "evidence/audio/rust-and-ruin-plain-audio-approach6-still-silent.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/audio-pass/screenshots/rust-and-ruin-plain-audio-approach6-still-silent.png",
+                      "Bytes":  346636,
+                      "SHA256":  "f513d14cb61b96eae7437807114d72b9176ccb7c16a06ab2a9d41ca9132d0a61",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T17:45:50.5754259Z"
+                  },
+                  {
+                      "File":  "evidence/audio/rust-and-ruin-plain-audio-fresh-near-voice.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/audio-pass/screenshots/rust-and-ruin-plain-audio-fresh-near-voice.png",
+                      "Bytes":  341238,
+                      "SHA256":  "ff64cc83219942863e8edc480e843fea394594f97464ba8fb85e859dc55debb7",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T17:45:52.8232082Z"
+                  },
+                  {
+                      "File":  "evidence/audio/rust-and-ruin-plain-audio-refresh-silent.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/audio-pass/screenshots/rust-and-ruin-plain-audio-refresh-silent.png",
+                      "Bytes":  351100,
+                      "SHA256":  "cdbff7f3117318d7c66851ec0a5aa5b56fbe21e38e142b74178c567abf47cd11",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T17:45:58.8215471Z"
+                  },
+                  {
+                      "File":  "evidence/audio/rust-and-ruin-plain-audio-procedural-rust-skin-silent.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/audio-pass/screenshots/rust-and-ruin-plain-audio-procedural-rust-skin-silent.png",
+                      "Bytes":  357374,
+                      "SHA256":  "12fb29642cb063e099105277249a04e2b609541f6e9cbedcd9395e9eb27b8bd3",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T17:46:00.5721438Z"
+                  },
+                  {
+                      "File":  "evidence/audio/rust-and-ruin-plain-audio-medic-work-custom-sound.png",
+                      "Source":  ".tools/camp-audio-2026-10-25/audio-pass/screenshots/rust-and-ruin-plain-audio-medic-work-custom-sound.png",
+                      "Bytes":  357618,
+                      "SHA256":  "47e8730694c06b810d871b2350fb35fceb74775c41ed4366526fb3ccf792b634",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T17:46:03.6730747Z"
+                  },
+                  {
+                      "File":  "evidence/camp.json",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/graphical-camp-discovery-plain.json",
+                      "Bytes":  6160,
+                      "SHA256":  "cedb152c58fbcfe521a9814388b7512183719cd1206e45c3900d965baa6659fb",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:58.1015743Z"
+                  },
+                  {
+                      "File":  "evidence/camp-fluid-diagnostics.json",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/graphical-camp-fluid-diagnostics-plain.json",
+                      "Bytes":  3128,
+                      "SHA256":  "8636af9e7b39aefa088551cd8de9c586d7efb4378b6501ca4de017bc87f46663",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:46.3165955Z"
+                  },
+                  {
+                      "File":  "evidence/camp-client-result.txt",
+                      "Source":  ".tools/camp-audio-2026-10-25/camp-final-pass/client-smoke-result-plain.txt",
+                      "Bytes":  126,
+                      "SHA256":  "fe3e9342fd25a02989c52c0550133e0d657c9d4516e4d173006e2aa3e355f744",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:27:58.1025748Z"
+                  },
+                  {
+                      "File":  "evidence/camp-client.log",
+                      "Source":  ".tools/camp-audio-2026-10-25/graphical-camp-polished-ready.log",
+                      "Bytes":  36942,
+                      "SHA256":  "9d0d838cad14fc4557e2722ed87fdc4f4440c78d13fa9716be43d904ed4bca79",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:28:01.9668796Z"
+                  },
+                  {
+                      "File":  "evidence/audio.json",
+                      "Source":  ".tools/camp-audio-2026-10-25/audio-pass/graphical-proximity-audio-plain.json",
+                      "Bytes":  3880,
+                      "SHA256":  "e7948532783fa1f1d8e0de1006f4ab678c3df2d0ea41d7c017f7aea5c4507b62",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T17:46:03.7461791Z"
+                  },
+                  {
+                      "File":  "evidence/audio-client-result.txt",
+                      "Source":  ".tools/camp-audio-2026-10-25/audio-pass/client-result.txt",
+                      "Bytes":  136,
+                      "SHA256":  "bb9a4bd26aa9b0ed1f6a93ce4bedff094627ffb19a56f558ffeee80b4b995f48",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T17:46:03.7474379Z"
+                  },
+                  {
+                      "File":  "evidence/audio-client.log",
+                      "Source":  ".tools/camp-audio-2026-10-25/graphical-audio-second.log",
+                      "Bytes":  30078,
+                      "SHA256":  "a1a89f9de21949dc4132577021a9111bd0c5f7f36ea6a44a4161f66cb09dc0bb",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T17:46:06.0270259Z"
+                  },
+                  {
+                      "File":  "evidence/benchmark.json",
+                      "Source":  ".tools/camp-audio-2026-10-25/benchmark-final.json",
+                      "Bytes":  32947,
+                      "SHA256":  "9af719a7c7b27c14342c46b498eb45696d6fe53bb6974b6d932ee2f2d8e2bb9d",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:16:20.7857876Z"
+                  },
+                  {
+                      "File":  "evidence/native335.log",
+                      "Source":  ".tools/camp-audio-2026-10-25/server-third.log",
+                      "Bytes":  266574,
+                      "SHA256":  "db7c6c78934305eb29223dc922f991993b7a32bf837c1de2b3a549f332e92bc5",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:16:30.4956714Z"
+                  },
+                  {
+                      "File":  "evidence/medic_work.ogg",
+                      "Source":  "src/main/resources/assets/tetanusmod/sounds/medic_work.ogg",
+                      "Bytes":  10450,
+                      "SHA256":  "bd142638927f0fa688f0f5bec60b512e37ff81cb31f21f67aecab6ef51e23d78",
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T18:11:31.2395497Z"
+                  }
+              ]
+}

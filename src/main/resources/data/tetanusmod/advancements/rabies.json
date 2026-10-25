@@ -4,7 +4,7 @@
                                              "trigger":  "minecraft:impossible"
                                          }
                  },
-    "parent":  "tetanusmod:root",
+    "parent":  "tetanusmod:strange_meat",
     "display":  {
                     "description":  {
                                         "translate":  "advancements.tetanusmod.rabies.description"

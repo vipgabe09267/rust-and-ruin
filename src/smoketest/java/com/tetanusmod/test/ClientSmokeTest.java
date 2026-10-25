@@ -33,6 +33,9 @@ public final class ClientSmokeTest implements ClientModInitializer {
     private GraphicalTrapRegressionAudit trapRegression;
     private GraphicalCombatRegressionAudit combatRegression;
     private GraphicalCampDiscoveryAudit campDiscovery;
+    private GraphicalProximityAudioAudit proximityAudio;
+    private GraphicalClinicDiscoveryAudit clinicDiscovery;
+    private GraphicalAdvancementLayoutAudit advancementLayout;
     private GraphicalClinicFacingAudit clinicFacing;
     private int graphicalPhase;
     private final java.util.List<String> auditFindings=new java.util.ArrayList<>();
@@ -64,6 +67,25 @@ public final class ClientSmokeTest implements ClientModInitializer {
                             if(!combatRegression.tick(client))return;
                         }
                         finish(client,"PASS: focused graphical profile="+focus+"; native client movement, real trap/reset clicks, actual projectile collisions and infection-only sound observations");return;
+                    }
+                    if(focus.equals("clinic-natural")){
+                        if(clinicDiscovery==null){clinicDiscovery=new GraphicalClinicDiscoveryAudit();clinicDiscovery.start(client);}
+                        if(!clinicDiscovery.tick(client))return;
+                        finish(client,"PASS: focused graphical profile=clinic-natural; five genuine normal-biome clinics, branded commands, exact entrances, residents and native loot screens");return;
+                    }
+                    if(focus.equals("layout")||focus.equals("layout-only")){
+                        if(focus.equals("layout")){
+                            if(graphicalAdvancements==null){graphicalAdvancements=new GraphicalAdvancementAudit();graphicalAdvancements.start(client);}
+                            if(!graphicalAdvancements.tick(client))return;
+                        }
+                        if(advancementLayout==null){advancementLayout=new GraphicalAdvancementLayoutAudit();advancementLayout.start(client);}
+                        if(!advancementLayout.tick(client))return;
+                        finish(client,"PASS: focused graphical profile=layout; all mod nodes, native vanilla roots, tab clicks, drag/wheel/Home and recorded GUI scales");return;
+                    }
+                    if(focus.equals("audio")){
+                        if(proximityAudio==null){proximityAudio=new GraphicalProximityAudioAudit();proximityAudio.start(client);}
+                        if(!proximityAudio.tick(client))return;
+                        finish(client,"PASS: focused graphical profile=audio; actual client near/far infection commands, procedural-spawn silence and custom medic work sound");return;
                     }
                     if(focus.equals("camp")){
                         if(campDiscovery==null){campDiscovery=new GraphicalCampDiscoveryAudit();campDiscovery.start(client);}
@@ -190,7 +212,7 @@ public final class ClientSmokeTest implements ClientModInitializer {
                         String lower=body.toLowerCase(java.util.Locale.ROOT);
                         if(chapter==4&&(!lower.contains("iron ingots down both sides")||lower.contains("birch planks")||!lower.contains("three seconds")))throw new IllegalStateException("Crafting guide contains a stale cabinet recipe or trap reset duration: "+body);
                         if(chapter==2&&(!body.contains("Nurse Practitioner")||!lower.contains("two to four")||!lower.contains("three cycles")))throw new IllegalStateException("Prevention guide omits the current medic progression, stock or field restock: "+body);
-                        if(chapter==9&&!body.contains("/locate poi tetanusmod:medic_tent"))throw new IllegalStateException("Command guide omits the underground medic POI command: "+body);
+                        if(chapter==9&&!body.contains("/locate poi rustandruin:medic_tent"))throw new IllegalStateException("Command guide omits the underground medic POI command: "+body);
                     }
                     guide.selectChapter(2);
                     if(!guide.body().getString().contains("80%")||!guide.body().getString().contains("90%"))throw new IllegalStateException("Guide protection values do not match server config");
@@ -331,7 +353,7 @@ public final class ClientSmokeTest implements ClientModInitializer {
                         if(poi.isEmpty())throw new IllegalStateException("Graphical cave camp lacks its locatable native POI");
                     });
                 }
-                if(rabiesPrepared&&worldTicks==recipesAt+655)client.player.networkHandler.sendChatCommand("locate poi tetanusmod:medic_tent");
+                if(rabiesPrepared&&worldTicks==recipesAt+655)client.player.networkHandler.sendChatCommand("locate poi rustandruin:medic_tent");
                 if(rabiesPrepared&&worldTicks==recipesAt+659)screenshot(client,"native-tent-poi-locate");
                 if(rabiesPrepared&&worldTicks==recipesAt+660)onServer(client,()->{
                     var world=client.getServer().getOverworld();for(int x=92;x<=108;x++)for(int z=12;z<=27;z++)world.setBlockState(new BlockPos(x,3,z),Blocks.STONE.getDefaultState());

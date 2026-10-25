@@ -49,8 +49,9 @@ public class PlaytestWorldGameTests implements FabricGameTest {
     public void caveTemplateMarksItsMedicAndDedicatedWorkstation(TestContext ctx){
         var template=ctx.getWorld().getStructureTemplateManager().getTemplate(TetanusMod.id("medic_tent")).orElseThrow();
         var data=template.writeNbt(new NbtCompound());var entities=data.getList("entities",10);
-        ctx.assertTrue(entities.size()==1,"Camp must contain exactly one medic");
+        ctx.assertTrue(entities.size()==2,"Camp must contain one field medic and one support farmer");
         ctx.assertTrue(entities.getCompound(0).getCompound("nbt").getBoolean("RustRuinFieldMedic"),"Camp medic uses village stock and restock rules");
+        var support=entities.getCompound(1).getCompound("nbt");ctx.assertTrue(support.getCompound("VillagerData").getString("profession").equals("minecraft:farmer")&&support.getInt("Xp")>0,"Camp support villager is not an established farmer");
         var palette=data.getList("palette",10);boolean field=false;
         for(int i=0;i<palette.size();i++)if(palette.getCompound(i).getString("Name").equals("tetanusmod:field_medic_cabinet"))field=true;
         ctx.assertTrue(field,"Camp does not have a distinct native POI workstation");ctx.complete();

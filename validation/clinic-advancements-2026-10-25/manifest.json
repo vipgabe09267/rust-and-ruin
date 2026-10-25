@@ -1,0 +1,332 @@
+{
+    "Title":  "Rust \u0026 Ruin natural clinics and advancement navigation",
+    "GeneratedUtc":  "2026-10-25T22:06:49.6875856Z",
+    "OriginalPngCount":  38,
+    "EvidenceFileCount":  46,
+    "ClinicRunStartUtc":  "2026-10-25T21:38:11.2953319Z",
+    "LayoutRunStartUtc":  "2026-10-25T22:00:23.5685902Z",
+    "Files":  [
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-plains-locate-chat.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-plains-locate-chat.png",
+                      "SHA256":  "8820ff0791b4e64f772297c4ae53935556d5fc8feff116f05c4ccfe3295813ce",
+                      "Bytes":  252192,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:02.5652958Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-plains-exterior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-plains-exterior.png",
+                      "SHA256":  "d2079fcd6980871e9777e9b98d4b83b73138828318b303ea312b22e8cd1bc61c",
+                      "Bytes":  686082,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:06.5999458Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-plains-cabinet-interior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-plains-cabinet-interior.png",
+                      "SHA256":  "2312acb0d0e882fb86660fcd8ecc96a755200028caeec101982dc3b8b65550b9",
+                      "Bytes":  575500,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:08.1773285Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-plains-medic.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-plains-medic.png",
+                      "SHA256":  "6daedf18f094d80a06c2e5f3d7b04062af67fc16e4c3005a96af7c0d74176e8b",
+                      "Bytes":  630041,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:09.7560404Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-plains-loot-menu.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-plains-loot-menu.png",
+                      "SHA256":  "adfaab424bea77fc771ac835c08a468508914e05a027512344c73531778693e5",
+                      "Bytes":  145732,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:12.2536421Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-desert-locate-chat.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-desert-locate-chat.png",
+                      "SHA256":  "85fe3731883b1c7108e982ad40637e9645e5b44a0307c873911611754fbd7b43",
+                      "Bytes":  229448,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:16.8766812Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-desert-exterior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-desert-exterior.png",
+                      "SHA256":  "61e5c6f3b5ff9c580fd899319f4390da0b00213e7a047443dfca4d817ee74f07",
+                      "Bytes":  816476,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:21.0226295Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-desert-cabinet-interior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-desert-cabinet-interior.png",
+                      "SHA256":  "ad85cf2f46a402250039a5c297888cc7e72b65ac674fdb2eb5be1820c7894278",
+                      "Bytes":  570798,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:22.8034986Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-desert-medic.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-desert-medic.png",
+                      "SHA256":  "633e30cafee0cc432b45fe4c523e0eecd23ef2b4b154b9227af7a4d41dc195f7",
+                      "Bytes":  712405,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:24.3098272Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-desert-loot-menu.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-desert-loot-menu.png",
+                      "SHA256":  "8bd90178e0619d4e9d41e65ec4b767b41562b8e30181c3872907bbba7d703968",
+                      "Bytes":  151849,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:26.8928490Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-savanna-locate-chat.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-savanna-locate-chat.png",
+                      "SHA256":  "bf4214b30629a2005c155eb2ec96d28a5a606299aef21bb38bae51a5a8e0724c",
+                      "Bytes":  212474,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:32.6149780Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-savanna-exterior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-savanna-exterior.png",
+                      "SHA256":  "ac7cd6170279d2ce134c1b5d54a39d2e68e4fc5e98e7131be589a73b5f397098",
+                      "Bytes":  949879,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:36.5233410Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-savanna-cabinet-interior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-savanna-cabinet-interior.png",
+                      "SHA256":  "50cba6c8057c879dfbeb118e14583dca218b8eaf62f3e1136242d793046ee3f3",
+                      "Bytes":  547394,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:38.0933544Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-savanna-medic.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-savanna-medic.png",
+                      "SHA256":  "3ba510223712ba468f09f3d7d816540e27252fccd08146d1b3703ee5abfe1a20",
+                      "Bytes":  613668,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:41.6960041Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-savanna-loot-menu.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-savanna-loot-menu.png",
+                      "SHA256":  "2f4b6724abbb3b83b363d3b74ca0e9ca2237997c8309d365e14d8ec2a5f3e3bb",
+                      "Bytes":  109673,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:44.2194967Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-snowy-locate-chat.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-snowy-locate-chat.png",
+                      "SHA256":  "0c9c7e12267ea2d1d943493ddcba57a04483bf84aa25d6d377eaa8f9eb965744",
+                      "Bytes":  198591,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:48.8075528Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-snowy-exterior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-snowy-exterior.png",
+                      "SHA256":  "4bd3d6f459a407f6a613845a55a2d569bacc1874e4d5a3e1d61d831d5057dc1d",
+                      "Bytes":  696378,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:52.4821598Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-snowy-cabinet-interior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-snowy-cabinet-interior.png",
+                      "SHA256":  "2e717c9b08c1453ab2aba837e708e6fc62fc550140e62069b63bd522639941e2",
+                      "Bytes":  613130,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:39:54.0056592Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-snowy-medic.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-snowy-medic.png",
+                      "SHA256":  "77ea273ccfebf9c2a89f2628318134d0c7756d629da52bdec4b5cc460e295db4",
+                      "Bytes":  478806,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:01.7254654Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-snowy-loot-menu.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-snowy-loot-menu.png",
+                      "SHA256":  "8760295a5fb8131a4ddf015ef50a482c47bb499302ab1df21ff1fbed59319291",
+                      "Bytes":  133178,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:04.2467662Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-taiga-locate-chat.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-taiga-locate-chat.png",
+                      "SHA256":  "c2534c40d04dc96852357e07820965ad6f4f12e7702eb9f876643799323640b8",
+                      "Bytes":  196660,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:11.0451328Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-taiga-exterior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-taiga-exterior.png",
+                      "SHA256":  "d12fc05762971071bc3c24d586d335cbe2db3a78fbc0bf3a8b6de597dc39307a",
+                      "Bytes":  824644,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:15.1380598Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-taiga-cabinet-interior.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-taiga-cabinet-interior.png",
+                      "SHA256":  "9b5f4f4d0fb21a5d80b87ef4f1548f61329182a17aa536f6dc2b51732e1c7718",
+                      "Bytes":  582744,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:16.6527372Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-taiga-medic.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-taiga-medic.png",
+                      "SHA256":  "71012ced7d676c8169d9ecf7160ee74f744a87c654165e6a6fd17329dcc177f6",
+                      "Bytes":  587142,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:18.2390157Z"
+                  },
+                  {
+                      "File":  "evidence/clinics/rust-and-ruin-plain-clinic-natural-taiga-loot-menu.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/screenshots/rust-and-ruin-plain-clinic-natural-taiga-loot-menu.png",
+                      "SHA256":  "8ab5e596b29ca525318595667579f99d6d0e42448a0da7a21b7251f7562e3029",
+                      "Bytes":  122183,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:20.7516622Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale2-overview.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale2-overview.png",
+                      "SHA256":  "48beaf55fcd0176ca9ee3ad6657398351983cc09b2c6de8adf3fc57874a3c53e",
+                      "Bytes":  337246,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:01:00.4582728Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale2-iron_has_a_darker_side.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale2-iron_has_a_darker_side.png",
+                      "SHA256":  "b6b999149969c24516d8b9158044da3d8c7d03d6607cb77ddc58309684bd9b76",
+                      "Bytes":  330651,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:01:16.1700056Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale2-vanilla-story-root.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale2-vanilla-story-root.png",
+                      "SHA256":  "959911417bc898e333cabc0d712dbebb9b8f311cb427efc15f2920c2275ce651",
+                      "Bytes":  320012,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:01:03.5699467Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale3-scrolled.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale3-scrolled.png",
+                      "SHA256":  "35a32c04f056240950e1112cc4139a55fdc2d7b10522d45b6d615243c78aa147",
+                      "Bytes":  347283,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:01:38.3069026Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale3-rusty_guardian.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale3-rusty_guardian.png",
+                      "SHA256":  "5a0eb6cae78fa4abb9f9a570f7fc28650c45f92344b71ddc758a4ac657d6e637",
+                      "Bytes":  338618,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:02:02.4262182Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale3-vanilla-adventure-root.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale3-vanilla-adventure-root.png",
+                      "SHA256":  "13d6674136adac521448228036f298da4546affae93511c82901b5bd257089b5",
+                      "Bytes":  325107,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:01:41.4312744Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale4-home.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale4-home.png",
+                      "SHA256":  "73640f0f99124daeb52f3e7f1528afadf4e057de1de1bd9a74233e5d8dcf781c",
+                      "Bytes":  356021,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:02:16.1302473Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale4-glove_protection.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale4-glove_protection.png",
+                      "SHA256":  "85a8a6105913f76dd1893939c2a3048cc044b74ddbc4978f54fb911ee294a34b",
+                      "Bytes":  360799,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:02:27.6817817Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale4-vanilla-husbandry-root.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale4-vanilla-husbandry-root.png",
+                      "SHA256":  "295edb55b9052a748ac0561e6d1b457112917233372771145db05a2ea6937481",
+                      "Bytes":  320407,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:02:19.2782094Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale6-overview.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale6-overview.png",
+                      "SHA256":  "ae65f36e452a7df8faf5e5ce8d94a8f3887510f5e2ba460fc5a13e49d61faf44",
+                      "Bytes":  314020,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:02:50.8403237Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale6-shield_protection.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale6-shield_protection.png",
+                      "SHA256":  "80edf3a742a1bafcee9d0cdc75497f6d524d78209757baabfac3c4c4f17983b9",
+                      "Bytes":  294007,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:03:18.1396243Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale6-vanilla-nether-root.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale6-vanilla-nether-root.png",
+                      "SHA256":  "272b7cdd9183837f652d9dfbf237db97751244171c2f61eae7dbe85393a5743b",
+                      "Bytes":  300105,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:02:57.1329055Z"
+                  },
+                  {
+                      "File":  "evidence/layout/rust-and-ruin-plain-layout-scale6-supply_run.png",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/screenshots/rust-and-ruin-plain-layout-scale6-supply_run.png",
+                      "SHA256":  "e6374d5e3ea9a41749b5f042af2461438b691e82e907d8d7371ea052e9bdaba4",
+                      "Bytes":  328719,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:03:21.2887633Z"
+                  },
+                  {
+                      "File":  "evidence/clinic-report.json",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/graphical-clinic-natural-plain.json",
+                      "SHA256":  "dd8adbe749d753e17c384a1beef8ac2c11ae0125308d70c42620bec450ad4da1",
+                      "Bytes":  22928,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:20.8918962Z"
+                  },
+                  {
+                      "File":  "evidence/layout-report.json",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/graphical-advancement-layout-plain.json",
+                      "SHA256":  "1979900a9b802f5310ff00bebe40741563605aeb90114e776149017f01be0047",
+                      "Bytes":  77061,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:03:27.2255479Z"
+                  },
+                  {
+                      "File":  "evidence/clinic-client-result.txt",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/clinic-final/client-smoke-result-plain.txt",
+                      "SHA256":  "343e88a413e0a88217f9834d3ea85afcd1f0a69640d3004ac67c496b26bbbbc8",
+                      "Bytes":  153,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:20.8928977Z"
+                  },
+                  {
+                      "File":  "evidence/layout-client-result.txt",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/layout-final/client-smoke-result-plain.txt",
+                      "SHA256":  "a401790d91316070d6aebadbeb6fb2d9641dcc1c8686d4e8b3c250f8a59ef8be",
+                      "Bytes":  130,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:03:27.2265707Z"
+                  },
+                  {
+                      "File":  "evidence/clinic-client.log",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/graphical-clinic-confirmed.log",
+                      "SHA256":  "b89929a05b746135a7c65e39a47a65d88ed8a4c151a936e030ae8204056b0410",
+                      "Bytes":  40550,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:40:24.8570144Z"
+                  },
+                  {
+                      "File":  "evidence/layout-client.log",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/graphical-layout-postrender.log",
+                      "SHA256":  "5b03cc0b25110bd2c00d344f6b731386d9d635b40254a335051ac6069c8f85ff",
+                      "Bytes":  67222,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T22:03:28.7086906Z"
+                  },
+                  {
+                      "File":  "evidence/native341.log",
+                      "Source":  ".tools/clinic-advancements-2026-10-25/server-final-rebuild.log",
+                      "SHA256":  "b56d5739274f95df8b128fef01fee8fc786354102194ea513b5be315b6e24474",
+                      "Bytes":  282030,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:58:55.3513604Z"
+                  },
+                  {
+                      "File":  "evidence/native-candidates.json",
+                      "Source":  "build/gametest/clinic-native-candidates.json",
+                      "SHA256":  "df8e26dd714a130d707924977e1ea6bd2cab4dff05e8e8427ddcb2bb9b9c39ee",
+                      "Bytes":  1657,
+                      "OriginalLastWriteTimeUtc":  "2026-10-25T21:54:05.2876258Z"
+                  }
+              ]
+}

@@ -15,7 +15,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.*;
 import java.util.*;
 
-/** One isolated scene observes native mob-world and player-S2C infection audio. */
+/** One isolated scene observes accepted new mob/player infection episodes. */
 public class InfectionAudioRegressionGameTests implements FabricGameTest {
     @GameTest(templateName=EMPTY_STRUCTURE,batchId="infection_audio_regression",tickLimit=40)
     public void onlyNewInfectionsAnnounceOnBothNativeSoundPaths(TestContext ctx){new Scene(ctx).start();}
@@ -54,7 +54,7 @@ public class InfectionAudioRegressionGameTests implements FabricGameTest {
                     ctx.assertTrue(Infection.apply(player,null)&&player.hasStatusEffect(TetanusMod.TETANUS),"New player infection failed");
                     ctx.assertTrue(SoundProbe.count==3,"New mob/player episodes did not each announce once");
                 });
-                queue(8,()->{Infection.applyDurationChecked(player,null,18000,0);ctx.assertTrue(SoundProbe.count==3,"Player refresh replayed its private S2C voice");});
+                queue(8,()->{Infection.applyDurationChecked(player,null,18000,0);ctx.assertTrue(SoundProbe.count==3,"Player refresh replayed its positional world voice");});
                 queue(9,()->{player.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS,22000,1));ctx.assertTrue(SoundProbe.count==3,"Player native upgrade replayed the voice");});
                 queue(10,()->{
                     player.removeStatusEffect(TetanusMod.TETANUS);ctx.assertTrue(Infection.apply(player,null),"Fresh player reinfection failed");

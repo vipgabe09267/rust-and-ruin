@@ -15,7 +15,7 @@ public abstract class MobConversionMixin {
         MobEntity original=(MobEntity)(Object)this;
         T converted=result.getReturnValue();
         if(converted!=null&&!original.getWorld().isClient){
-            if(MobVariants.permanent(original))MobVariants.makePermanent(converted);
+            if(MobVariants.permanent(original))com.tetanusmod.effect.Infection.silently(()->MobVariants.makePermanent(converted));
             else if(com.tetanusmod.expansion.Rabies.rabid(original))com.tetanusmod.expansion.Rabies.makeRabid(converted);
         }
     }

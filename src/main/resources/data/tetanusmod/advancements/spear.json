@@ -4,7 +4,7 @@
                                        "trigger":  "minecraft:impossible"
                                    }
                  },
-    "parent":  "tetanusmod:root",
+    "parent":  "tetanusmod:rusty_business",
     "display":  {
                     "description":  {
                                         "translate":  "advancements.tetanusmod.spear.description"

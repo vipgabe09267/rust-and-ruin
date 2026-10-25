@@ -20,26 +20,32 @@ public final class Infection {
     private static final ThreadLocal<Boolean> SILENT=ThreadLocal.withInitial(()->false);
     private static final ThreadLocal<Origin> ORIGIN=new ThreadLocal<>();
     private record Origin(net.minecraft.world.World world,net.minecraft.util.math.Vec3d pos,net.minecraft.sound.SoundCategory category){}
+    public static boolean silent(){return SILENT.get();}
     public static void silently(Runnable action) {
         boolean previous=SILENT.get();SILENT.set(true);
-        try{action.run();}finally{SILENT.set(previous);}
+        try{action.run();}finally{if(previous)SILENT.set(true);else SILENT.remove();}
     }
     public static void at(net.minecraft.world.World world,net.minecraft.util.math.Vec3d pos,net.minecraft.sound.SoundCategory category,Runnable action) {
         Origin previous=ORIGIN.get();ORIGIN.set(new Origin(world,pos,category));
         try{action.run();}finally{if(previous==null)ORIGIN.remove();else ORIGIN.set(previous);}
     }
     public static void playAt(net.minecraft.world.World world,net.minecraft.util.math.Vec3d pos,net.minecraft.sound.SoundCategory category) {
-        world.playSound(null,pos.x,pos.y,pos.z,TetanusMod.INFECTION_SOUND,category,TetanusMod.CONFIG.infectionSoundVolume,1);
+        if(world.isClient||SILENT.get())return;
+        // Vanilla clamps the mixer gain to one, but uses gain above one to extend
+        // the delivery/attenuation radius. Keep the same local loudness without
+        // broadcasting a voice forty blocks away at the legacy default of2.5.
+        float configured=TetanusMod.CONFIG.infectionSoundVolume;
+        float volume=Float.isFinite(configured)?Math.max(0,Math.min(1,configured)):1;
+        if(volume<=0)return;
+        world.playSound(null,pos.x,pos.y,pos.z,TetanusMod.INFECTION_SOUND,category,volume,1);
     }
     public static void playSound(LivingEntity target) {
         if(SILENT.get()||target.getWorld().isClient||!target.hasStatusEffect(TetanusMod.TETANUS))return;
         Origin origin=ORIGIN.get();
         if(origin!=null){playAt(origin.world(),origin.pos(),origin.category());return;}
-        float volume = TetanusMod.CONFIG.infectionSoundVolume;
-        if (target instanceof ServerPlayerEntity player) player.playSound(TetanusMod.INFECTION_SOUND,
-                net.minecraft.sound.SoundCategory.PLAYERS, volume, 1);
-        else target.getWorld().playSound(null,target.getX(),target.getY(),target.getZ(),TetanusMod.INFECTION_SOUND,
-                target.getSoundCategory(),volume,1);
+        // Players and mobs share the native positional world-sound path. Nearby
+        // listeners hear the actual victim, not a private or shooter-centered cue.
+        playAt(target.getWorld(),target.getPos(),target.getSoundCategory());
     }
     public static final Identifier SYMPTOM_PACKET = TetanusMod.id("symptom");
 

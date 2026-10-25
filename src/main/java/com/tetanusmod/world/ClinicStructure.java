@@ -39,6 +39,9 @@ public final class ClinicStructure extends Structure {
         for(int radius:new int[]{24,36,48,64,80,96}){
             for(var offset:OFFSETS){
                 int x=root.getX()+offset[0]*radius-4,z=root.getZ()+offset[1]*radius-6;
+                // Native references inspect only eight neighboring start chunks. A
+                // displaced village root must not put any clinic block beyond that.
+                if(!withinReferenceWindow(context.chunkPos(),x,z))continue;
                 // Native heights are the first air block. The template has TWO floor
                 // layers: origin+1 is the walking surface block, origin+2 its top.
                 int entry=height(context,x+4,z);
@@ -58,6 +61,10 @@ public final class ClinicStructure extends Structure {
             }
         }
         return Optional.empty();
+    }
+    private static boolean withinReferenceWindow(ChunkPos start,int x,int z){
+        return (x>>4)>=start.x-8&&((x+8)>>4)<=start.x+8
+                &&(z>>4)>=start.z-8&&((z+12)>>4)<=start.z+8;
     }
     private static int height(Context context,int x,int z){
         return context.chunkGenerator().getHeightOnGround(x,z,Heightmap.Type.WORLD_SURFACE_WG,context.world(),context.noiseConfig());

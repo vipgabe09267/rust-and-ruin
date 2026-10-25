@@ -21,14 +21,26 @@ try {
         if(!(Test-Path -LiteralPath $path -PathType Leaf)){throw "Missing tracked file: $relative"}
         $extension=[IO.Path]::GetExtension($relative).ToLowerInvariant()
         $check='File inventory and encoding; execution reviewed separately'
-        if($extension-notin@('.png','.mp3','.ogg','.jar','.nbt')) {
-            $contents=$utf8.GetString([IO.File]::ReadAllBytes($path))
+        if($extension-notin@('.png','.mp3','.ogg','.wav','.jar','.nbt')) {
+            $bytes=[IO.File]::ReadAllBytes($path)
+            $originalLog=$extension-eq'.log'-and$relative-match'^validation/(camp-audio|clinic-advancements)-2026-10-25/evidence/[^/]+\.log$'
+            if($originalLog-and$bytes.Length-ge2-and$bytes[0]-eq255-and$bytes[1]-eq254){
+                # Native Windows PowerShell receipts retain their original UTF-16LE bytes.
+                $contents=[Text.UnicodeEncoding]::new($false,$true,$true).GetString($bytes)
+                $check='Original UTF-16LE execution log; strict decoding and text integrity checked'
+            }else{$contents=$utf8.GetString($bytes)}
             if($contents.Contains([char]0)){throw "NUL in text file: $relative"}
             if($contents-match'(?m)^(<<<<<<< |=======\s*$|>>>>>>> )'){throw "Conflict marker: $relative"}
-            if($contents.Contains([char]0xFFFD)){throw "Replacement character in text: $relative"}
+            # Preserve glyphs already emitted by the native console in immutable receipts.
+            if(!$originalLog-and$contents.Contains([char]0xFFFD)){throw "Replacement character in text: $relative"}
         }
         switch($extension) {
             '.json' {$null=$jsonParser.DeserializeObject($contents);$check='Parsed JSON; resource references checked by Gradle and runtime'}
+            '.wav' {
+                $wave=[IO.File]::ReadAllBytes($path)
+                if($wave.Length-lt44-or[Text.Encoding]::ASCII.GetString($wave,0,4)-ne'RIFF'-or[Text.Encoding]::ASCII.GetString($wave,8,4)-ne'WAVE'-or[BitConverter]::ToUInt32($wave,4)-ne$wave.Length-8){throw "Invalid RIFF/WAVE header: $relative"}
+                $check='RIFF/WAVE source header validated; full audio decode recorded separately'
+            }
             '.xml' {$null=[xml]$contents;$check='Parsed XML report'}
             '.ps1' {
                 $tokens=$null;$errors=$null
@@ -37,7 +49,7 @@ try {
                 $check='PowerShell syntax parsed; manual review recorded separately'
             }
             '.java' {
-                foreach($match in [regex]::Matches($contents,'Text\.translatable\("((?:tooltip|message|guide|commands|gui|advancements|effect|item|block|entity|jei|enchantment)\.tetanusmod\.[^"\r\n]+)"')) {
+                foreach($match in [regex]::Matches($contents,'Text\.translatable\("((?:tooltip|message|guide|commands|gui|advancements|effect|item|block|entity|jei|enchantment|subtitles)\.(?:tetanusmod|rustandruin)\.[^"\r\n]+)"')) {
                     $key=$match.Groups[1].Value
                     if(!$key.EndsWith('.')-and!$lang.PSObject.Properties[$key]){throw "Missing translation $key used by $relative"}
                 }

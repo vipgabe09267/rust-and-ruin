@@ -13,11 +13,24 @@ try{
     foreach($id in @('medic_clinic','medic_tent')){
         $structure=Json "data/tetanusmod/worldgen/structure/$id.json"
         if($structure.type-ne"tetanusmod:$id"){throw "Incorrect structure type: $id"}
+        if($id-eq'medic_tent'-and$structure.step-ne'top_layer_modification'){throw 'Camp must be placed after cave vegetation and springs'}
     }
     $clinic=Json 'data/tetanusmod/worldgen/structure_set/medic_clinics.json'
     $tent=Json 'data/tetanusmod/worldgen/structure_set/medic_tents.json'
     if($clinic.placement.frequency-ne0.55-or$clinic.placement.spacing-ne34-or$clinic.placement.separation-ne8-or$clinic.placement.salt-ne10387312){throw 'Clinic no longer matches the 55% vanilla village grid'}
     if($tent.placement.frequency-ne1.0-or$tent.placement.spacing-ne160-or$tent.placement.separation-ne128){throw 'Tent candidate grid or minimum spacing changed; the native cave-site roll is tested separately'}
+    foreach($name in @('medic_clinic','medic_tent','workshop')){
+        $alias=Json "data/rustandruin/tags/worldgen/structure/$name.json"
+        if(@($alias.values).Count-ne1-or$alias.values[0]-ne"tetanusmod:$name"){throw "Branded structure alias changed its saved target: $name"}
+        if($zip.GetEntry("data/rustandruin/worldgen/structure/$name.json")){throw 'A command alias must not create duplicate generated structures'}
+    }
+    foreach($name in @('medic','medic_tent')){
+        $alias=Json "data/rustandruin/tags/point_of_interest_type/$name.json"
+        if(@($alias.values).Count-ne1-or$alias.values[0]-ne"tetanusmod:$name"){throw "Branded POI alias changed its saved target: $name"}
+    }
+    $sounds=Json 'assets/tetanusmod/sounds.json'
+    if($sounds.tetanus_effect.sounds[0].attenuation_distance-ne16-or$sounds.medic_work.sounds[0].attenuation_distance-ne12){throw 'Disease/work sound attenuation missing'}
+    if(!$zip.GetEntry('assets/tetanusmod/sounds/medic_work.ogg')){throw 'Original medical work sound missing'}
     foreach($type in @('plains','desert','savanna','snowy','taiga')){if(!$zip.GetEntry("data/tetanusmod/structures/village/${type}_clinic.nbt")){throw "Missing themed clinic: $type"}}
     if(!$zip.GetEntry('data/tetanusmod/structures/medic_tent.nbt')){throw 'Missing camp template'}
     foreach($biome in @('plains','desert','savanna','snow','taiga','swamp','jungle')){
@@ -44,7 +57,7 @@ try{
             }finally{$image.Dispose()}
         }finally{$stream.Dispose()}
     }
-    $result=[pscustomobject]@{Result='PASS';Jar=$path;SHA256=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash;Checks='Native clinic/camp grids, 5 clinic templates, camp, 7 uniforms, generic loot, retired advancement, 64 cabinet variants, 4 transparent sprites'}
+    $result=[pscustomobject]@{Result='PASS';Jar=$path;SHA256=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash;Checks='Native clinic/camp grids, branded structure/POI aliases, positional disease/work audio, 5 clinic templates, defended camp, 7 uniforms, generic loot, retired advancement, 64 cabinet variants, 4 transparent sprites'}
     $json=$result|ConvertTo-Json
     if($Report){$target=[IO.Path]::GetFullPath($Report);[IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($target))|Out-Null;[IO.File]::WriteAllText($target,$json+"`n",[Text.UTF8Encoding]::new($false))}
     $json

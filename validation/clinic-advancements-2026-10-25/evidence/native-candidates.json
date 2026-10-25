@@ -1,0 +1,96 @@
+{
+  "Seed": 0,
+  "Scope": "Native real normal-Overworld FULL placement and resident validation required by the owning test",
+  "Themes": [
+    {
+      "Theme": "plains",
+      "ObserverOrigin": {
+        "x": 1636,
+        "y": 140,
+        "z": 3620
+      },
+      "ExpectedStartChunk": {
+        "x": 106,
+        "y": 0,
+        "z": 226
+      },
+      "PieceOrigin": {
+        "x": 1632,
+        "y": 117,
+        "z": 3614
+      }
+    },
+    {
+      "Theme": "desert",
+      "ObserverOrigin": {
+        "x": 403,
+        "y": 140,
+        "z": -3205
+      },
+      "ExpectedStartChunk": {
+        "x": 24,
+        "y": 0,
+        "z": -200
+      },
+      "PieceOrigin": {
+        "x": 399,
+        "y": 70,
+        "z": -3211
+      }
+    },
+    {
+      "Theme": "savanna",
+      "ObserverOrigin": {
+        "x": 596,
+        "y": 140,
+        "z": -1100
+      },
+      "ExpectedStartChunk": {
+        "x": 34,
+        "y": 0,
+        "z": -66
+      },
+      "PieceOrigin": {
+        "x": 592,
+        "y": 61,
+        "z": -1106
+      }
+    },
+    {
+      "Theme": "snowy",
+      "ObserverOrigin": {
+        "x": -843,
+        "y": 140,
+        "z": 3579
+      },
+      "ExpectedStartChunk": {
+        "x": -54,
+        "y": 0,
+        "z": 222
+      },
+      "PieceOrigin": {
+        "x": -847,
+        "y": 62,
+        "z": 3573
+      }
+    },
+    {
+      "Theme": "taiga",
+      "ObserverOrigin": {
+        "x": -676,
+        "y": 140,
+        "z": 4116
+      },
+      "ExpectedStartChunk": {
+        "x": -45,
+        "y": 0,
+        "z": 260
+      },
+      "PieceOrigin": {
+        "x": -680,
+        "y": 77,
+        "z": 4110
+      }
+    }
+  ]
+}

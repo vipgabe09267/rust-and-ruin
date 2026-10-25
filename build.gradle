@@ -69,6 +69,7 @@ loom {
             source sourceSets.smoketest
             runDir 'build/client-smoke'
             programArgs '--quickPlaySingleplayer',providers.gradleProperty('smokeWorld').getOrElse('smoke-world-final'),'--width','960','--height','540'
+            if (providers.gradleProperty('smokeUsername').isPresent()) programArgs '--username',providers.gradleProperty('smokeUsername').get()
         }
         gameTest {
             server()

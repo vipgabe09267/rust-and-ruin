@@ -1,0 +1,211 @@
+{
+  "Result": "PASS",
+  "PlayerUuid": "ed5fc327-7b3a-37aa-a9cf-7e33fcf19740",
+  "ActualClientNetworkCommands": [
+    {
+      "Command": "/locate structure rustandruin:medic_tent",
+      "ServerSuccessTranslationKey": "commands.locate.structure.success",
+      "ClientSuccessTranslationKey": "commands.locate.structure.success",
+      "ServerMessage": "The nearest rustandruin:medic_tent is at [-2544, ~, 480] (2581 blocks away)",
+      "ClientChatMessage": "The nearest rustandruin:medic_tent is at [-2544, ~, 480] (2581 blocks away)",
+      "NativeLocatedX": -2544,
+      "NativeLocatedZ": 480,
+      "NativeDisplayedY": "~",
+      "NativeDistanceBlocks": 2581
+    },
+    {
+      "Command": "/rustandruin locate tent",
+      "ServerSuccessTranslationKey": "commands.locate.structure.success",
+      "ClientSuccessTranslationKey": "commands.locate.structure.success",
+      "ServerMessage": "The nearest rustandruin:medic_tent is at [-2544, ~, 480] (2581 blocks away)",
+      "ClientChatMessage": "The nearest rustandruin:medic_tent is at [-2544, ~, 480] (2581 blocks away)",
+      "NativeLocatedX": -2544,
+      "NativeLocatedZ": 480,
+      "NativeDisplayedY": "~",
+      "NativeDistanceBlocks": 2581
+    },
+    {
+      "Command": "/locate poi rustandruin:medic_tent",
+      "ServerSuccessTranslationKey": "commands.locate.poi.success",
+      "ClientSuccessTranslationKey": "commands.locate.poi.success",
+      "ServerMessage": "The nearest rustandruin:medic_tent is at [-2534, ~, 511] (4 blocks away)",
+      "ClientChatMessage": "The nearest rustandruin:medic_tent is at [-2534, ~, 511] (4 blocks away)",
+      "NativeLocatedX": -2534,
+      "NativeLocatedZ": 511,
+      "NativeDisplayedY": "~",
+      "NativeDistanceBlocks": 4
+    }
+  ],
+  "Camp": {
+    "WorldKey": "minecraft:overworld",
+    "Seed": 0,
+    "StructuresEnabled": true,
+    "NativeNoiseGenerator": true,
+    "OriginalPlayerPosition": {
+      "x": -4.5,
+      "y": 63.0,
+      "z": 1.5
+    },
+    "FixedObserverOrigin": {
+      "x": -4.5,
+      "y": 140.0,
+      "z": 14.5
+    },
+    "ObserverPreparation": "Creative observer teleport before native commands; no structures, POI or residents inserted",
+    "NativeExpectedFoundationBlocks": 169,
+    "NativeIntactFoundationBlocks": 169,
+    "FarmObserverView": {
+      "x": -2524.5,
+      "y": 1.0,
+      "z": 510.5
+    },
+    "NativeInitialWheatBlocks": 8,
+    "NativeBeds": 2,
+    "NativeFarmlandBlocks": 8,
+    "NativeFenceBlocks": 47,
+    "NativeGateBlocks": 6,
+    "NativeIrrigation": {
+      "x": -2526,
+      "y": 0,
+      "z": 508
+    },
+    "NativeStartChunk": {
+      "x": -159,
+      "z": 30
+    },
+    "BoundingBox": "BlockBox{minX\u003d-2536, minY\u003d-1, minZ\u003d504, maxX\u003d-2524, maxY\u003d6, maxZ\u003d516}",
+    "ActualRoomPosition": {
+      "x": -2529.5,
+      "y": 0.0,
+      "z": 510.5
+    },
+    "ActualCabinet": {
+      "x": -2534,
+      "y": 0,
+      "z": 511
+    },
+    "ActualLootChest": {
+      "x": -2528,
+      "y": 0,
+      "z": 514
+    },
+    "UnopenedLootTable": "tetanusmod:chests/medic_tent",
+    "FullNativeChunksGenerated": true,
+    "NativeResidentReadiness": {
+      "Poll": 2,
+      "NativeWorldTicksSinceGeneration": 74,
+      "PendingTickingChunks": [],
+      "NativeMedics": 1,
+      "NativeSupportFarmers": 1,
+      "NativeGuards": 1,
+      "NativeGuardUuids": [
+        "7410445e-7f94-425b-a2bc-d8de9b0e70b3"
+      ]
+    },
+    "NativeSupportFarmerUuid": "849f91c4-4939-4db0-b6ef-658873e98c21",
+    "NativeFieldMedicUuid": "932682ba-773c-4e59-bf41-aa2e13ef4e98",
+    "NativeGuardUuid": "7410445e-7f94-425b-a2bc-d8de9b0e70b3",
+    "NativeGuardMaxHealth": 200.0,
+    "NativeGuardCurrentHealth": 200.0,
+    "NativeGuardPlayerCreated": true,
+    "NativeGuardPersistent": true,
+    "NativeTentPoiIndexed": true,
+    "NativeLiveFarmCells": [
+      {
+        "Position": {
+          "x": -2527,
+          "y": 1,
+          "z": 507
+        },
+        "State": "Block{minecraft:wheat}[age\u003d7]",
+        "SkyVisible": false,
+        "BaseLight": 12
+      },
+      {
+        "Position": {
+          "x": -2527,
+          "y": 1,
+          "z": 508
+        },
+        "State": "Block{minecraft:wheat}[age\u003d7]",
+        "SkyVisible": false,
+        "BaseLight": 13
+      },
+      {
+        "Position": {
+          "x": -2527,
+          "y": 1,
+          "z": 509
+        },
+        "State": "Block{minecraft:wheat}[age\u003d7]",
+        "SkyVisible": false,
+        "BaseLight": 12
+      },
+      {
+        "Position": {
+          "x": -2526,
+          "y": 1,
+          "z": 507
+        },
+        "State": "Block{minecraft:wheat}[age\u003d7]",
+        "SkyVisible": false,
+        "BaseLight": 13
+      },
+      {
+        "Position": {
+          "x": -2526,
+          "y": 1,
+          "z": 509
+        },
+        "State": "Block{minecraft:wheat}[age\u003d7]",
+        "SkyVisible": false,
+        "BaseLight": 13
+      },
+      {
+        "Position": {
+          "x": -2525,
+          "y": 1,
+          "z": 507
+        },
+        "State": "Block{minecraft:wheat}[age\u003d7]",
+        "SkyVisible": false,
+        "BaseLight": 12
+      },
+      {
+        "Position": {
+          "x": -2525,
+          "y": 1,
+          "z": 508
+        },
+        "State": "Block{minecraft:wheat}[age\u003d7]",
+        "SkyVisible": false,
+        "BaseLight": 13
+      },
+      {
+        "Position": {
+          "x": -2525,
+          "y": 1,
+          "z": 509
+        },
+        "State": "Block{minecraft:wheat}[age\u003d7]",
+        "SkyVisible": false,
+        "BaseLight": 12
+      }
+    ],
+    "NativeLiveWheatBlocks": 8,
+    "NativeMinimumCropLight": 12,
+    "NativeLateIntactFoundationBlocks": 169,
+    "NativeLateFoundationMismatches": [],
+    "ClientSupportFarmerUuid": "849f91c4-4939-4db0-b6ef-658873e98c21",
+    "ClientMedicUuid": "932682ba-773c-4e59-bf41-aa2e13ef4e98",
+    "ClientGuardUuid": "7410445e-7f94-425b-a2bc-d8de9b0e70b3",
+    "ClientGuardMaxHealth": 200.0,
+    "ClientGeneratedLootStacks": 7,
+    "ServerGeneratedLootStacks": 7
+  },
+  "ManuallyPlacedTemplates": 0,
+  "ManuallyInsertedStarts": 0,
+  "ManuallyPlacedPoi": 0,
+  "ManuallySpawnedResidents": 0,
+  "PlayerStateRestored": true
+}

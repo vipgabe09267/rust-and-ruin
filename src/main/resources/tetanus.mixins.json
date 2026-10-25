@@ -42,7 +42,9 @@
                    "SkeletonEquipmentMixin",
                    "ZombieEquipmentMixin",
                    "CabinetPathfindingMixin",
-                   "DiseaseRespawnMixin"
+                   "DiseaseRespawnMixin",
+                   "CommandSourceOutputAccessor",
+                   "CampGuardMixin"
                ],
     "client":  [
                    "InGameHudMixin",
@@ -59,7 +61,9 @@
                    "FirstPersonGlovesMixin",
                    "LockjawHandMixin",
                    "MedicClothingMixin",
-                   "MedicMerchantScreenMixin"
+                   "MedicMerchantScreenMixin",
+                   "AdvancementTabNavigationMixin",
+                   "AdvancementScreenNavigationMixin"
                ],
     "injectors":  {
                       "defaultRequire":  1

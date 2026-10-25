@@ -77,6 +77,7 @@ $lang = [ordered]@{
     'itemGroup.tetanusmod'='Rust & Ruin'; 'effect.tetanusmod.tetanus'='Tetanus';
     'subtitles.tetanusmod.spasm'='Muscles spasm';
     'subtitles.tetanusmod.tetanus_effect'='Tetanus infection';
+    'subtitles.tetanusmod.medic_work'='Medic handles supplies';
     'tooltip.tetanusmod.damage'='%s base damage (health points)';
     'tooltip.tetanusmod.speed'='%s attacks per second';
     'tooltip.tetanusmod.durability'='Durability: %s / %s';
@@ -116,8 +117,11 @@ foreach ($name in @('caltrops','rusted_caltrops')) {
 Write-Json 'assets/tetanusmod/lang/en_us.json' $lang
 Write-Json 'assets/tetanusmod/sounds.json' @{
     spasm=@{subtitle='subtitles.tetanusmod.spasm'; sounds=@(@{name='minecraft:entity.player.hurt'; type='event'; volume=0.45; pitch=0.8})};
-    tetanus_effect=@{subtitle='subtitles.tetanusmod.tetanus_effect'; sounds=@(@{name='tetanusmod:tetanus_effect'; stream=$false})}
+    tetanus_effect=@{subtitle='subtitles.tetanusmod.tetanus_effect'; sounds=@(@{name='tetanusmod:tetanus_effect'; stream=$false; attenuation_distance=16})};
+    medic_work=@{subtitle='subtitles.tetanusmod.medic_work';sounds=@(@{name='tetanusmod:medic_work';stream=$false;attenuation_distance=12})}
 }
+
+& (Join-Path $PSScriptRoot 'Generate-Medical-Audio.ps1')
 
 function Shaped($name,$pattern,$key,$count=1) {
     Write-Json "data/tetanusmod/recipes/$name.json" @{type='minecraft:crafting_shaped'; category='equipment'; pattern=$pattern; key=$key; result=@{item="tetanusmod:$name"; count=$count}}

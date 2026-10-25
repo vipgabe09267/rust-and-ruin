@@ -10,7 +10,7 @@
                                                   }
                                }
                  },
-    "parent":  "tetanusmod:root",
+    "parent":  "tetanusmod:clinic",
     "display":  {
                     "description":  {
                                         "translate":  "advancements.tetanusmod.medic.description"

@@ -4,7 +4,7 @@
                                          "trigger":  "minecraft:impossible"
                                      }
                  },
-    "parent":  "tetanusmod:infected",
+    "parent":  "tetanusmod:root",
     "display":  {
                     "description":  {
                                         "translate":  "advancements.tetanusmod.tetanized_mob.description"

@@ -6,7 +6,10 @@
                    "GloveProbeSkinMixin",
                    "GloveProbeSleevesMixin",
                    "InfectionAudioClientProbeMixin",
-                   "CampCommandFeedbackProbeMixin"
+                   "CampCommandFeedbackProbeMixin",
+                   "AdvancementTooltipClientProbeMixin",
+                   "AdvancementTooltipBoundsProbeMixin",
+                   "AdvancementFrameCaptureProbeMixin"
                ],
     "injectors":  {
                       "defaultRequire":  1

@@ -33,9 +33,11 @@ Find a medic in a village clinic or place a crafted **Medicine Cabinet** to give
 New villages roll a **55% clinic chance** where terrain and space allow. Clinics and medic uniforms match plains, desert, savanna, snowy, and taiga villages, with treatment beds, a two-block stainless-steel and glass medicine cabinet, and a loot chest. Smiths and fishermen also offer selected equipment and salvage. A reusable **Field Guide** explains recipes and progression in-game.
 
 
-Explore roomy, dry Overworld caves for rare **medic camps**: a tent, medic, supplies, and a defensive Tetanized Iron Golem. Field medics carry at most **two purchases per offer** and receive supplies no more often than once every three in-game days. Each suitable cave site within a widely spaced candidate chunk rolls 15%; camps stay more than 2,000 blocks apart and need a natural floor and open entrance. New structures appear in newly generated terrain.
+Explore roomy, dry Overworld caves for rare **medic camps**: a fenced and lit tent courtyard, two beds, a field medic, a support farmer with a small irrigated farm, supplies, and a persistent Tetanized Iron Golem. Field medics carry at most **two purchases per offer** and receive supplies no more often than once every three in-game days. Each suitable cave site within a widely spaced candidate chunk rolls 15%; camps stay more than 2,000 blocks apart and need a natural floor and open entrance. A wider cave search makes camps easier to find while keeping the same spacing. New structures appear in newly generated terrain; existing camps are not rebuilt automatically.
 
-Operators can find them with `/locate structure tetanusmod:medic_clinic`, `/locate structure tetanusmod:medic_tent`, or `/rustandruin locate medic` and `/rustandruin locate tent`. Nearby generated camps also have a distinct `/locate poi tetanusmod:medic_tent` point of interest.
+Operators can find them with `/locate structure rustandruin:medic_clinic`, `/locate structure rustandruin:medic_tent`, or `/rustandruin locate medic` and `/rustandruin locate tent`. Branded clinic and tent results include the exact entrance coordinates, including height. Follow the clinic entrance result to reach its porch. `/locate poi rustandruin:medic_tent` searches only 128 blocks around you; use the structure command for distant camps. Older command names remain supported.
+
+Infection announcements are positional and limited to nearby listeners (16 blocks). Existing infections, natural mutations, chunk loading and inherited mutations stay quiet. Medics have their own short vial-and-supplies work sound, audible within 12 blocks.
 
 ## Brewing and enchanted weapons
 

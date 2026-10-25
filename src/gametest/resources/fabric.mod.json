@@ -37,7 +37,13 @@
                                                 "com.tetanusmod.test.TrapInteractionRegressionGameTests",
                                                 "com.tetanusmod.test.InfectionAudioRegressionGameTests",
                                                 "com.tetanusmod.test.NailGolemRegressionGameTests",
-                                                "com.tetanusmod.test.TentDiscoveryGameTests"
+                                                "com.tetanusmod.test.TentDiscoveryGameTests",
+                                                "com.tetanusmod.test.LocateAliasGameTests",
+                                                "com.tetanusmod.test.TentGenerationBenchmarkGameTests",
+                                                "com.tetanusmod.test.PositionalInfectionAudioGameTests",
+                                                "com.tetanusmod.test.CampResidentGameTests",
+                                                "com.tetanusmod.test.ClinicDiscoveryGameTests",
+                                                "com.tetanusmod.test.AdvancementLayoutRegressionGameTests"
                                             ],
                         "main":  [
                                      "com.tetanusmod.test.TentNoiseTestWorldBootstrap"
