@@ -50,7 +50,7 @@ public final class AdvancementLayoutRegressionGameTests implements FabricGameTes
         var loader=ctx.getWorld().getServer().getAdvancementLoader();
         var root=loader.get(TetanusMod.id("root"));
         var displayed=loader.getAdvancements().stream().filter(a->a.getId().getNamespace().equals(TetanusMod.MOD_ID)&&a.getDisplay()!=null).toList();
-        ctx.assertTrue(displayed.size()==27,"Active displayed advancement count changed: "+displayed.size());
+        ctx.assertTrue(displayed.size()==30,"Active displayed advancement count changed: "+displayed.size());
         int rootBranches=0,leaves=0;
         for(var child:root.getChildren())if(child.getDisplay()!=null)rootBranches++;
         ctx.assertTrue(rootBranches==4,"Flat root fan-out returned: "+rootBranches);
@@ -63,7 +63,7 @@ public final class AdvancementLayoutRegressionGameTests implements FabricGameTes
             boolean hasChild=false;for(var child:a.getChildren())if(child.getDisplay()!=null)hasChild=true;
             if(!hasChild)leaves++;
         }
-        ctx.assertTrue(leaves<=8&&maxY-minY<=11,"Narrow vertical advancement tree returned: leaves="+leaves+", rows="+(maxY-minY));
+        ctx.assertTrue(leaves<=10&&maxY-minY<=11,"Narrow vertical advancement tree returned: leaves="+leaves+", rows="+(maxY-minY));
         ctx.assertTrue(maxX-minX>=6&&maxX-minX<=8,"Expected readable deeper progression branches: columns="+(maxX-minX));
         for(int i=0;i<displayed.size();i++)for(int j=i+1;j<displayed.size();j++) {
             var a=displayed.get(i);var b=displayed.get(j);

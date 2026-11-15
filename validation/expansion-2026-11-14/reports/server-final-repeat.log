@@ -1,0 +1,1081 @@
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "Windows_NT" == "Windows_NT" setlocal
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "DIRNAME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" == "" set DIRNAME=. 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_BASE_NAME=gradlew" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>for %i in ("C:\Users\gwilliamscrypto\Documents\Rust & Ruin\") do set "APP_HOME=%~fi" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if defined JAVA_HOME goto findJavaFromJavaHome 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_EXE=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if exist "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" goto execute 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "CLASSPATH=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>"C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" "-Xmx64m" "-Xms64m"   "-Dorg.gradle.appname=gradlew" -classpath "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain --offline runGameTest --console plain 
+
+> Configure project :
+Fabric Loom: 1.10.5
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileGametestJava
+gradlew.bat : Note: Some input files use or override a deprecated API.
+At line:8 char:80
++ ... 1+1').Path; & '.\gradlew.bat' --offline runGameTest --console plain * ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Note: Some inpu...deprecated API.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :generateLog4jConfig UP-TO-DATE
+> Task :generateRemapClasspath UP-TO-DATE
+> Task :generateDLIConfig UP-TO-DATE
+> Task :configureLaunch UP-TO-DATE
+> Task :processGametestResources UP-TO-DATE
+> Task :gametestClasses
+
+> Task :runGameTest
+[15:30:53] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.20.1 with Fabric Loader 0.16.14
+[15:30:53] [main/INFO] (FabricLoader) Loading 47 mods:
+	- fabric-api 0.92.6+1.20.1
+	- fabric-api-base 0.4.32+1802ada577
+	- fabric-api-lookup-api-v1 1.6.37+1802ada577
+	- fabric-biome-api-v1 13.0.14+1802ada577
+	- fabric-block-api-v1 1.0.12+1802ada577
+	- fabric-block-view-api-v2 1.0.3+924f046a77
+	- fabric-command-api-v1 1.2.35+f71b366f77
+	- fabric-command-api-v2 2.2.14+1802ada577
+	- fabric-commands-v0 0.2.52+df3654b377
+	- fabric-containers-v0 0.1.67+df3654b377
+	- fabric-content-registries-v0 4.0.13+1802ada577
+	- fabric-convention-tags-v1 1.5.6+1802ada577
+	- fabric-crash-report-info-v1 0.2.20+1802ada577
+	- fabric-data-attachment-api-v1 1.0.2+de0fd6d177
+	- fabric-data-generation-api-v1 12.3.7+1802ada577
+	- fabric-dimensions-v1 2.1.55+1802ada577
+	- fabric-entity-events-v1 1.6.1+1c78457f77
+	- fabric-events-interaction-v0 0.6.5+13a40c6677
+	- fabric-events-lifecycle-v0 0.2.64+df3654b377
+	- fabric-game-rule-api-v1 1.0.41+1802ada577
+	- fabric-gametest-api-v1 1.2.15+1802ada577
+	- fabric-item-api-v1 2.1.29+1802ada577
+	- fabric-item-group-api-v1 4.0.14+1802ada577
+	- fabric-lifecycle-events-v1 2.2.23+1802ada577
+	- fabric-loot-api-v2 1.2.3+1802ada577
+	- fabric-loot-tables-v1 1.1.47+9e7660c677
+	- fabric-message-api-v1 5.1.10+1802ada577
+	- fabric-mining-level-api-v1 2.1.52+1802ada577
+	- fabric-networking-api-v1 1.3.14+a158aa0477
+	- fabric-networking-v0 0.3.54+df3654b377
+	- fabric-object-builder-api-v1 11.1.5+e35120df77
+	- fabric-particles-v1 1.1.3+1802ada577
+	- fabric-recipe-api-v1 1.0.24+1802ada577
+	- fabric-registry-sync-v0 2.3.6+1802ada577
+	- fabric-rendering-data-attachment-v1 0.3.39+92a0d36777
+	- fabric-rendering-fluids-v1 3.0.29+1802ada577
+	- fabric-resource-conditions-api-v1 2.3.9+1802ada577
+	- fabric-resource-loader-v0 0.11.12+fb82e9d777
+	- fabric-screen-handler-api-v1 1.3.33+1802ada577
+	- fabric-transfer-api-v1 3.3.6+8dd72ea377
+	- fabric-transitive-access-wideners-v1 4.3.2+1802ada577
+	- fabricloader 0.16.14
+	- java 17
+	- minecraft 1.20.1
+	- mixinextras 0.4.1
+	- tetanusmod 0.1.0-beta
+	- tetanusmod_tests 1.0.0
+[15:30:54] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/gwilliamscrypto/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.5+mixin.0.8.7/22f9eb729e216a091673a574a5906dc1b9027fb3/sponge-mixin-0.15.5+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
+[15:30:54] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[15:30:54] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_16
+[15:30:54] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[15:30:55] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[15:31:08] [main/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[15:31:08] [main/INFO] (FabricGameTestHelper) Starting test server
+[15:31:11] [main/INFO] (Minecraft) Loaded 9 recipes
+[15:31:11] [main/INFO] (Minecraft) Loaded 1304 advancements
+[15:31:11] [main/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 2.305 ms
+[15:31:13] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[15:31:13] [Server thread/INFO] (Minecraft) Preparing spawn area: 0%
+[15:31:14] [Worker-Main-1/INFO] (Minecraft) Preparing spawn area: 83%
+[15:31:14] [Worker-Main-14/INFO] (Minecraft) Preparing spawn area: 83%
+[15:31:15] [Worker-Main-15/INFO] (Minecraft) Preparing spawn area: 83%
+[15:31:15] [Server thread/INFO] (Minecraft) Time elapsed: 1622 ms
+[15:31:15] [Server thread/INFO] (Minecraft) Started game test server
+[15:31:16] [Server thread/INFO] (Minecraft) Running test batch 'beacon_upgrade:1' (7 tests)...
+[15:31:17] [Server thread/INFO] (Minecraft) 399 tests are now running!
+[15:31:17] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 540 at (-4.5, -60.0, -6.5)
+[15:31:17] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:31:17] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Rust Never Sleeps]
+[15:31:17] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 542 at (6.5, -60.0, 2.5)
+[15:31:17] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:31:18] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_minion_safety:1' (1 tests)...
+[15:31:18] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2956ms or 59 ticks behind
+[15:31:18] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_minion_expiry:1' (1 tests)...
+[15:31:18] [Server thread/INFO] (Minecraft) Running test batch 'variant_egg_body_clearance:1' (1 tests)...
+[15:31:18] [Server thread/INFO] (Minecraft) Running test batch 'enderman_nail_regression:1' (1 tests)...
+[15:31:19] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_infection:1' (1 tests)...
+[15:31:19] [Server thread/INFO] (Minecraft) Running test batch 'native_lighting_predicates:1' (1 tests)...
+[15:31:19] [Server thread/INFO] (Minecraft) [++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[15:31:20] [Server thread/INFO] (Minecraft) [++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[15:31:20] [Server thread/INFO] (Minecraft) [++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[15:31:20] [Server thread/INFO] (Minecraft) [++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[15:31:20] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_no_gear_theft:1' (1 tests)...
+[15:31:20] [Server thread/INFO] (Minecraft) [+++++++++++++                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[15:31:21] [Server thread/INFO] (Minecraft) Running test batch 'release_acquisition:1' (10 tests)...
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 635 at (-8.5, -60.0, -3.5)
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 637 at (4.5, -60.0, -3.5)
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Monster Hunter]
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/638, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Tetanus. Nice One!]
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/648, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/658, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/667, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/677, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/686, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/696, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/705, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/714, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/723, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/731, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/739, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/748, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/756, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/765, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/773, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/781, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/790, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/798, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/807, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/816, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/825, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/832, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/839, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/847, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/857, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/865, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/873, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/882, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/889, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/895, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/902, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 915 at (-2.5, -60.0, 8.5)
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 1025 at (10.5, -56.0, 9.5)
+[15:31:21] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:31:22] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Doctor's Orders]
+[15:31:22] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [What a Deal!]
+[15:31:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 1029 at (-1.5, -60.0, 5.5)
+[15:31:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:31:22] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Doctor's Orders]
+[15:31:22] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [What a Deal!]
+[15:31:22] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++_+                                                                                                                                                                                                                                                                                                                                                                                       ]
+[15:31:22] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++_+                                                                                                                                                                                                                                                                                                                                                                                       ]
+[15:31:22] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++_+                                                                                                                                                                                                                                                                                                                                                                                       ]
+[15:31:22] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++_+                                                                                                                                                                                                                                                                                                                                                                                       ]
+[15:31:22] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++_+                                                                                                                                                                                                                                                                                                                                                                                       ]
+[15:31:22] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++_+                                                                                                                                                                                                                                                                                                                                                                                       ]
+[15:31:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 1171 at (-4.5, -60.0, -2.5)
+[15:31:23] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:31:23] [Server thread/INFO] (Minecraft) Running test batch 'clinic_discovery:1' (2 tests)...
+[15:31:28] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=savanna regionRing=2 checkedPlans=2 start=[34, -66] origin=BlockPos{x=592, y=61, z=-1106}
+[15:31:50] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=snowy regionRing=6 checkedPlans=9 start=[-54, 222] origin=BlockPos{x=-847, y=62, z=3573}
+[15:31:51] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=desert regionRing=6 checkedPlans=10 start=[24, -200] origin=BlockPos{x=399, y=70, z=-3211}
+[15:31:54] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=plains regionRing=6 checkedPlans=11 start=[106, 226] origin=BlockPos{x=1632, y=117, z=3614}
+[15:31:58] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=taiga regionRing=7 checkedPlans=12 start=[-45, 260] origin=BlockPos{x=-680, y=77, z=4110}
+[15:32:09] [Server thread/INFO] (Minecraft) clinic-observer[local] logged in with entity id 1192 at (9.5, 63.0, 10.5)
+[15:32:09] [Server thread/INFO] (Minecraft) clinic-observer joined the game
+[15:32:09] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_FULL seed=0 theme=plains start=[106, 226] origin=BlockPos{x=1632, y=117, z=3614} box=BlockBox{minX=1632, minY=117, minZ=3614, maxX=1640, maxY=127, maxZ=3626}
+[15:32:14] [Server thread/INFO] (Minecraft) clinic-observer[local] logged in with entity id 1227 at (7.5, 75.0, -7.5)
+[15:32:14] [Server thread/INFO] (Minecraft) clinic-observer joined the game
+[15:32:14] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_FULL seed=0 theme=desert start=[24, -200] origin=BlockPos{x=399, y=70, z=-3211} box=BlockBox{minX=399, minY=70, minZ=-3211, maxX=407, maxY=80, maxZ=-3199}
+[15:32:21] [Server thread/INFO] (Minecraft) clinic-observer[local] logged in with entity id 1261 at (-4.5, 67.0, -3.5)
+[15:32:21] [Server thread/INFO] (Minecraft) clinic-observer joined the game
+[15:32:21] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_FULL seed=0 theme=savanna start=[34, -66] origin=BlockPos{x=592, y=61, z=-1106} box=BlockBox{minX=592, minY=61, minZ=-1106, maxX=600, maxY=71, maxZ=-1094}
+[15:32:26] [Server thread/INFO] (Minecraft) clinic-observer[local] logged in with entity id 1345 at (-9.5, 69.0, -4.5)
+[15:32:26] [Server thread/INFO] (Minecraft) clinic-observer joined the game
+[15:32:26] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_FULL seed=0 theme=snowy start=[-54, 222] origin=BlockPos{x=-847, y=62, z=3573} box=BlockBox{minX=-847, minY=62, minZ=3573, maxX=-839, maxY=72, maxZ=3585}
+[15:32:33] [Server thread/INFO] (Minecraft) clinic-observer[local] logged in with entity id 1398 at (8.5, 63.0, 10.5)
+[15:32:33] [Server thread/INFO] (Minecraft) clinic-observer joined the game
+[15:32:33] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_FULL seed=0 theme=taiga start=[-45, 260] origin=BlockPos{x=-680, y=77, z=4110} box=BlockBox{minX=-680, minY=77, minZ=4110, maxX=-672, maxY=87, maxZ=4122}
+[15:32:35] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++_+                                                                                                                                                                                                                                                                                                                                                                                     ]
+[15:32:35] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++_+                                                                                                                                                                                                                                                                                                                                                                                     ]
+[15:32:35] [Server thread/INFO] (Minecraft) Running test batch 'camp_sleep:1' (1 tests)...
+[15:32:38] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:38] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:38] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 65084ms or 1301 ticks behind
+[15:32:39] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:39] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:39] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:39] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:40] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:40] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:40] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:40] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:40] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:40] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:41] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:41] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:41] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:41] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:41] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:41] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:41] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:41] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:42] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:42] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:42] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:42] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:42] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:42] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:42] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:42] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:43] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:43] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                    ]
+[15:32:43] [Server thread/INFO] (Minecraft) Running test batch 'positional_infection_audio:1' (1 tests)...
+[15:32:43] [Server thread/INFO] (Minecraft) audio-victim[local] logged in with entity id 1471 at (-8.5, -60.0, 6.5)
+[15:32:43] [Server thread/INFO] (Minecraft) audio-victim joined the game
+[15:32:43] [Server thread/INFO] (Minecraft) audio-near[local] logged in with entity id 1472 at (2.5, -60.0, 5.5)
+[15:32:43] [Server thread/INFO] (Minecraft) audio-near joined the game
+[15:32:43] [Server thread/INFO] (Minecraft) audio-edge[local] logged in with entity id 1473 at (-8.5, -60.0, -1.5)
+[15:32:43] [Server thread/INFO] (Minecraft) audio-edge joined the game
+[15:32:43] [Server thread/INFO] (Minecraft) audio-far[local] logged in with entity id 1474 at (3.5, -57.0, 3.5)
+[15:32:43] [Server thread/INFO] (Minecraft) audio-far joined the game
+[15:32:43] [Server thread/INFO] (Minecraft) audio-distant[local] logged in with entity id 1475 at (-6.5, -60.0, 0.5)
+[15:32:43] [Server thread/INFO] (Minecraft) audio-distant joined the game
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS natural-spawner-chunk-generation-NBT-maintenance-inherited-conversion-quiet
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS native-rusty-nail-hit-victim-origin-near-edge-only
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS refresh-and-native-upgrade-quiet
+[15:32:43] [Server thread/INFO] (Minecraft) audio-victim has made the advancement [A Painful Lesson]
+[15:32:43] [Server thread/INFO] (Minecraft) [audio-victim: Applied effect Tetanus to audio-victim]
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS native-player-effect-command-fresh-episode-nearby-positional
+[15:32:43] [Server thread/INFO] (Minecraft) [audio-victim: Applied effect Tetanus to audio-victim]
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS native-player-command-refresh-quiet
+[15:32:43] [Server thread/INFO] (Minecraft) [audio-victim: Removed effect Tetanus from audio-victim]
+[15:32:43] [Server thread/INFO] (Minecraft) [audio-victim: Applied effect Tetanus to audio-victim]
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS native-player-command-reinfection-after-cure
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS native-walking-rusty-trap-contact-block-origin
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS native-medic-work-custom-event-12-block-listeners
+[15:32:43] [Server thread/INFO] (Minecraft) [audio-victim: Tetanized 1 mobs]
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS native-explicit-operator-conversion-fresh-voice
+[15:32:43] [Server thread/INFO] (Minecraft) audio-victim has made the advancement [Bring Home the Beacon]
+[15:32:43] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                   ]
+[15:32:43] [Server thread/INFO] (RustRuinPositionalAudio) POSITIONAL_AUDIO_PASS zero-volume-sends-no-packets
+[15:32:43] [Server thread/INFO] (Minecraft) Running test batch 'medic_generation_benchmark:1' (3 tests)...
+[15:33:36] [Server thread/INFO] (RustRuinCampBenchmark) CAMP_SEARCH_SEED seed=0 legacyPlaced=1/9 currentPlaced=4/9 legacyNearest=450 currentNearest=450
+[15:34:19] [Server thread/INFO] (RustRuinCampBenchmark) CAMP_SEARCH_SEED seed=1 legacyPlaced=0/9 currentPlaced=4/9 legacyNearest=none currentNearest=2511
+[15:35:16] [Server thread/INFO] (RustRuinCampBenchmark) CAMP_SEARCH_SEED seed=246813579 legacyPlaced=0/9 currentPlaced=3/9 legacyNearest=none currentNearest=562
+[15:36:03] [Server thread/INFO] (RustRuinCampBenchmark) CAMP_SEARCH_SEED seed=918731 legacyPlaced=0/9 currentPlaced=2/9 legacyNearest=none currentNearest=2357
+[15:36:30] [Server thread/INFO] (RustRuinCampBenchmark) CAMP_SEARCH_SEED seed=8675309 legacyPlaced=0/9 currentPlaced=1/9 legacyNearest=none currentNearest=3455
+[15:37:03] [Server thread/INFO] (RustRuinCampBenchmark) CAMP_SEARCH_SEED seed=-741 legacyPlaced=0/9 currentPlaced=1/9 legacyNearest=none currentNearest=2139
+[15:37:07] [Server thread/INFO] (RustRuinCampBenchmark) CAMP_SEARCH_TOTAL legacyPlaced=1/54 currentPlaced=15/54 report=.\tent-generation-benchmark.json
+[15:37:07] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_minion_timing:1' (1 tests)...
+[15:37:07] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 239900ms or 4798 ticks behind
+[15:37:07] [Server thread/INFO] (Minecraft) wither-fixture[local] logged in with entity id 1495 at (-8.5, -60.0, 7.5)
+[15:37:07] [Server thread/INFO] (Minecraft) wither-fixture joined the game
+[15:37:07] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_loot:1' (1 tests)...
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1500, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1510, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1520, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1530, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1540, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1550, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1560, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1570, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1580, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1590, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1600, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1610, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1620, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1630, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1640, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1650, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1660, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1670, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1680, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1690, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1700, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1710, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1720, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1730, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1740, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1750, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1760, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1770, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1780, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1790, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1800, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1810, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1820, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1830, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1840, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1850, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1860, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1870, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1880, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1890, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1900, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1910, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1920, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1930, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1939, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1949, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1959, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1969, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1979, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1989, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1999, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2009, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2019, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2029, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2039, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2049, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2059, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2069, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2079, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2089, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2099, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2109, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2119, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2129, l='ServerLevel[Test Level]', x=148.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:37:07] [Server thread/INFO] (Minecraft) Running test batch 'variant_egg_safety:1' (1 tests)...
+[15:37:07] [Server thread/INFO] (Minecraft) Running test batch 'clinic_planning:1' (1 tests)...
+[15:37:12] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=savanna regionRing=2 checkedPlans=2 start=[34, -66] origin=BlockPos{x=592, y=61, z=-1106}
+[15:37:35] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=snowy regionRing=6 checkedPlans=9 start=[-54, 222] origin=BlockPos{x=-847, y=62, z=3573}
+[15:37:36] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=desert regionRing=6 checkedPlans=10 start=[24, -200] origin=BlockPos{x=399, y=70, z=-3211}
+[15:37:40] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=plains regionRing=6 checkedPlans=11 start=[106, 226] origin=BlockPos{x=1632, y=117, z=3614}
+[15:37:43] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=taiga regionRing=7 checkedPlans=12 start=[-45, 260] origin=BlockPos{x=-680, y=77, z=4110}
+[15:37:52] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=246813579 theme=plains regionRing=2 checkedPlans=2 start=[-14, -60] origin=BlockPos{x=-188, y=78, z=-1006}
+[15:37:55] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=246813579 theme=savanna regionRing=2 checkedPlans=3 start=[57, 75] origin=BlockPos{x=866, y=71, z=1236}
+[15:37:58] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=246813579 theme=taiga regionRing=4 checkedPlans=4 start=[137, -24] origin=BlockPos{x=2240, y=77, z=-442}
+[15:38:02] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=246813579 theme=desert regionRing=5 checkedPlans=5 start=[192, 92] origin=BlockPos{x=3012, y=73, z=1406}
+[15:38:05] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=246813579 theme=snowy regionRing=11 checkedPlans=6 start=[-49, 387] origin=BlockPos{x=-744, y=86, z=6143}
+[15:38:05] [Server thread/INFO] (Minecraft) Running test batch 'weather:1' (1 tests)...
+[15:38:05] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:05] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:05] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:07] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:07] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:07] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:07] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 45003ms or 900 ticks behind
+[15:38:07] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:07] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:07] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                           ]
+[15:38:07] [Server thread/INFO] (Minecraft) Running test batch 'variant_egg_fluid_species:1' (1 tests)...
+[15:38:07] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_health:1' (1 tests)...
+[15:38:07] [Server thread/INFO] (Minecraft) Running test batch 'camp_fluid_replacement:1' (1 tests)...
+[15:38:07] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                        ]
+[15:38:08] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                        ]
+[15:38:08] [Server thread/INFO] (Minecraft) Running test batch 'release_crafting:1' (5 tests)...
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2418 at (-1.5, -60.0, -6.5)
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COAT_PASS tetanusmod:nail
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COAT_PASS tetanusmod:rebar
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COAT_PASS tetanusmod:sharpened_rebar
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COAT_PASS tetanusmod:bent_nail
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COAT_PASS tetanusmod:metal_pipe
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COAT_PASS tetanusmod:bear_trap
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COAT_PASS tetanusmod:caltrops
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COAT_PASS tetanusmod:barbed_wire
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COAT_PASS tetanusmod:iron_spear
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2419 at (1.5, -60.0, 4.5)
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Iron Has a Darker Side]
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Acquire Hardware]
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2420 at (-7.5, -60.0, -5.5)
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COOK_PASS tetanusmod:cooked_infected_meat_campfire_cooking count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COOK_PASS tetanusmod:cooked_infected_meat_smelting count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COOK_PASS tetanusmod:cooked_infected_meat_smoking count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COOK_PASS tetanusmod:cooked_rabid_meat_campfire_cooking count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COOK_PASS tetanusmod:cooked_rabid_meat_smelting count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_COOK_PASS tetanusmod:cooked_rabid_meat_smoking count=1
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2426 at (5.5, -56.0, 4.5)
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Pointed Upgrade]
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_SMITH_PASS tetanusmod:tetanized_arrow batches=1,16,64
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2427 at (-9.5, -60.0, 5.5)
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:barbed_wire count=2
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:bear_trap count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:bent_nail count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:caltrops count=4
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:field_guide count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:iron_spear count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:medic_cabinet count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:metal_pipe count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:nail count=4
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:prescription_writer count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:protective_gloves count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:rabies_vaccine count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:rebar count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:rusted_iron_block count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:rusty_hookline count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:sharpened_rebar count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:tetanized_beacon count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:tetanized_soul_sand count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:tetanus_antitoxin count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:tetanus_vaccine count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:tetanus_wither_forging_table count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:trap_reset_tool count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:veterinary_kit count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_CRAFT_PASS tetanusmod:wire_brush count=1
+[15:38:08] [Server thread/INFO] (RustRuinReleaseCrafting) RELEASE_RECIPE_UNLOCK_PASS recipes=33
+[15:38:08] [Server thread/INFO] (Minecraft) Running test batch 'camp_layout:1' (1 tests)...
+[15:38:08] [Server thread/INFO] (Minecraft) Running test batch 'dragon_explosion_attribution:1' (1 tests)...
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2591 at (-0.5, -60.0, 1.5)
+[15:38:08] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:08] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_xp_rules:1' (1 tests)...
+[15:38:08] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2596, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:38:08] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2602, l='ServerLevel[Test Level]', x=388.00, y=-54.00, z=17.00] died: Tetanized Wither was killed
+[15:38:09] [Server thread/INFO] (Minecraft) Running test batch 'defaultBatch:1' (100 tests)...
+[15:38:10] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2651, l='ServerLevel[Test Level]', x=63.00, y=-57.00, z=29.00] died: Tetanized Wither was killed
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2668 at (-9.5, -60.0, -2.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Painful Lesson]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Rusty Business]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2689 at (5.5, -60.0, -0.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) [test-mock-player: Summoned a tetanized Tetanized Wither]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Monster Hunter]
+[15:38:10] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/2690, l='ServerLevel[Test Level]', x=75.00, y=-57.00, z=55.00] died: Tetanized Wither was slain by test-mock-player
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Tetanus. Nice One!]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Hook, Line and Tetanus]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2722 at (9.5, -60.0, 10.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Tetanized Mob]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Tetanized Guardian]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2729 at (2.5, -60.0, 5.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Rust Never Sleeps]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2730 at (0.5, -60.0, -1.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Why did I eat that?]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Tetanized Mob]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2735 at (0.5, -60.0, 9.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Painful Lesson]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Lockjaw Sonata]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 2872 at (-3.5, -60.0, 9.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3184 at (-8.5, -60.0, 8.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Why did I eat that?]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3186 at (-4.5, -60.0, 4.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3192 at (7.5, -60.0, -6.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Strange Meat]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3204 at (2.5, -60.0, -6.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Faucci Ouchie]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3211 at (3.5, -60.0, -9.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Faucci Ouchie]
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3219 at (7.5, -60.0, -1.5)
+[15:38:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:11] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Painful Lesson]
+[15:38:11] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Dose of Common Sense]
+[15:38:11] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3224 at (-4.5, -60.0, 1.5)
+[15:38:11] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:11] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Rust Never Sleeps]
+[15:38:11] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Rust Never Sleeps]
+[15:38:11] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++__++___++__++++++++_+++++++++_++++++++++++++_++++_++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:11] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++__+++_+++++++++++++++++++_++++++++++++++_++++_++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:11] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++__+++_+++++++++++++++++++_++++++++++++++_++++_++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:11] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Rust Never Sleeps]
+[15:38:11] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++__+++_+++++++++++++++++++_++++++++++++++_++++_++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:12] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++__+++_+++++++++++++++++++_++++++++++++++_++++_++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:12] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++__+++_+++++++++++++++++++_++++++++++++++_++++_++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:12] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++++++++++++++++++++++++++_+++++++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:12] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++++++++++++++++++++++++++_+++++++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:12] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:13] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                                                                                                                            ]
+[15:38:13] [Server thread/INFO] (Minecraft) Running test batch 'defaultBatch:2' (100 tests)...
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3355 at (-5.5, -60.0, -3.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Lockjaw Sonata]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Dose of Common Sense]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Foaming at the Mouth]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has reached the goal [Back to Yourself]
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3356, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3366, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3376, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3385, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3395, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3403, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3412, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3421, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3430, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3439, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3448, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3457, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3467, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3476, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3486, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3495, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3503, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3511, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3519, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3526, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3533, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3540, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3548, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3558, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3566, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3576, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3586, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3594, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3602, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3610, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3619, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3626, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3633, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3641, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3648, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3656, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3663, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3670, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3679, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/3688, l='ServerLevel[Test Level]', x=87.00, y=-56.00, z=172.00] died: Tetanized Wither was killed
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3722 at (-1.5, -60.0, -9.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has reached the goal [Not Today, maybe tomorrow]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Hands Off]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3729 at (-6.5, -60.0, -2.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3730 at (-4.5, -60.0, 4.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player was killed
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 3740 at (-9.5, -60.0, 8.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Rust Never Sleeps]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4044 at (2.5, -60.0, -1.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Mind Your Fingers]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4053 at (6.5, -60.0, -8.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) [test-mock-player: Gave 1 [Iron Spear] to test-mock-player]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4055 at (7.5, -60.0, -6.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Foaming at the Mouth]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4056 at (4.5, -56.0, 7.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4057 at (-5.5, -60.0, -7.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4058 at (-1.5, -60.0, -0.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Beacon of Bad Ideas]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4059 at (2.5, -60.0, 0.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has reached the goal [Not Today, maybe tomorrow]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4061 at (-9.5, -60.0, 2.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Pointed Upgrade]
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4064 at (2.5, -60.0, -4.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) rabid-ai-test[local] logged in with entity id 4066 at (-7.5, -60.0, -9.5)
+[15:38:14] [Server thread/INFO] (Minecraft) rabid-ai-test joined the game
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4076 at (8.5, -60.0, -5.5)
+[15:38:14] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player discovered that rusty nails come back down
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Why did I do that?]
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4087 at (-2.5, -60.0, 9.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) Tetanized 0 mobs
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4114 at (-0.5, -60.0, 4.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4121 at (10.5, -56.0, 4.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4142 at (-3.5, -60.0, 0.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4143 at (-7.5, -60.0, 8.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player has reached the goal [Clean Bill of Health]
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4150 at (-9.5, -60.0, -9.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4152 at (10.5, -60.0, -0.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player has reached the goal [Special Delivery]
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4155 at (-4.5, -60.0, -0.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4158 at (7.5, -60.0, -5.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player has reached the goal [Clean Bill of Health]
+[15:38:15] [Server thread/INFO] (Minecraft) Within 64 blocks: 26 mobs; 23 tetanized, 1 rabid, 26 animals; 3 persistent or protected by species rules. Loaded chunks only.
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4161 at (-5.5, -60.0, 1.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4162 at (10.5, -60.0, 0.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4166 at (2.5, -60.0, -8.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) water-egg-survival[local] logged in with entity id 4171 at (3.5, -60.0, 2.5)
+[15:38:15] [Server thread/INFO] (Minecraft) water-egg-survival joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4176 at (-6.5, -60.0, 5.5)
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:15] [Server thread/INFO] (Minecraft) rabid-ai-test has made the advancement [Foaming at the Mouth]
+[15:38:15] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++_++++++++++++++++++++++++++++++++++++_++++++++++++++++++++++                                                                                                                                                        ]
+[15:38:15] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Rust Never Sleeps]
+[15:38:15] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++_++++++++++++++++++++++++++++++++++++_++++++++++++++++++++++                                                                                                                                                        ]
+[15:38:16] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++_++++++++++++++++++++++++++++++++++++_++++++++++++++++++++++                                                                                                                                                        ]
+[15:38:16] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++_++++++++++++++++++++++++++++++++++++_++++++++++++++++++++++                                                                                                                                                        ]
+[15:38:16] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++_++++++++++++++++++++++++++++++++++++_++++++++++++++++++++++                                                                                                                                                        ]
+[15:38:16] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++_++++++++++++++++++++++++++++++++++++_++++++++++++++++++++++                                                                                                                                                        ]
+[15:38:17] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++_+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                        ]
+[15:38:17] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++                                                                                                                                                        ]
+[15:38:18] [Server thread/INFO] (Minecraft) Running test batch 'defaultBatch:3' (100 tests)...
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4280 at (3.5, -60.0, -8.5)
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4286 at (0.5, -60.0, 2.5)
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4288 at (3.5, -60.0, -1.5)
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Tetanized Mob]
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Tetanized Guardian]
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Foaming at the Mouth]
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 4290 at (8.5, -54.0, 6.5)
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Painful Lesson]
+[15:38:18] [Server thread/INFO] (Minecraft) [test-mock-player: Applied effect Tetanus to test-mock-player]
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Foaming at the Mouth]
+[15:38:18] [Server thread/INFO] (Minecraft) [test-mock-player: Applied rabies to 1 targets.]
+[15:38:18] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Why did I eat that?]
+[15:38:18] [Server thread/INFO] (Minecraft) [test-mock-player: Applied salmonella to 1 targets.]
+[15:38:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5320 at (8.5, -60.0, -6.5)
+[15:38:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:38:22] [Server thread/INFO] (Minecraft) test-mock-player has reached the goal [Not Today, maybe tomorrow]
+[15:39:13] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5333 at (2.5, -60.0, -1.5)
+[15:39:13] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:13] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Lockjaw Sonata]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player[local] logged in with entity id 5346 at (-5.5, -60.0, 6.5)
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player joined the game
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player[local] logged in with entity id 5347 at (-2.5, -60.0, 8.5)
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player joined the game
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [A Painful Lesson]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [Lockjaw Sonata]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [Foaming at the Mouth]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [Why did I eat that?]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [A Painful Lesson]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [Lockjaw Sonata]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [Why did I eat that?]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [Foaming at the Mouth]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player[local] logged in with entity id 5348 at (-0.5, -60.0, 3.5)
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player joined the game
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [We Need to Go Deeper]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player[local] logged in with entity id 5362 at (-9.5, -60.0, 5.5)
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player joined the game
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player[local] logged in with entity id 5365 at (10.5, -56.0, 6.5)
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player joined the game
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player[local] logged in with entity id 5366 at (0.5, -60.0, 1.5)
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player joined the game
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [A Painful Lesson]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [Foaming at the Mouth]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player[local] logged in with entity id 5368 at (-6.5, -60.0, 6.5)
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player joined the game
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player has made the advancement [Faucci Ouchie]
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player[local] logged in with entity id 5369 at (-1.5, -60.0, -3.5)
+[15:39:13] [Server thread/INFO] (Minecraft) reaudit-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5376 at (10.5, -60.0, 1.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5379 at (-4.5, -60.0, 1.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Rusty Business]
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5382 at (-9.5, -60.0, 0.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Iron Has a Darker Side]
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Acquire Hardware]
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5383 at (-8.5, -60.0, -1.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Tetanized Mob]
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Tetanized Guardian]
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5385 at (-9.5, -60.0, 7.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Faucci Ouchie]
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5386 at (-4.5, -60.0, 6.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Faucci Ouchie]
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5388 at (7.5, -55.0, 5.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5389 at (-2.5, -60.0, 5.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5392 at (-5.5, -60.0, -2.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5664 at (3.5, -60.0, -8.5)
+[15:39:20] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5675 at (-1.5, -60.0, 8.5)
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:20] [Server thread/WARN] (Minecraft) trap-click-test moved wrongly!
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5677 at (5.5, -60.0, -7.5)
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5679 at (-4.5, -60.0, -5.5)
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5681 at (-9.5, -60.0, -9.5)
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5683 at (8.5, -60.0, -1.5)
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5685 at (6.5, -60.0, 0.5)
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5687 at (4.5, -60.0, -4.5)
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5689 at (8.5, -57.0, 3.5)
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5691 at (4.5, -60.0, 1.5)
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:20] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5693 at (8.5, -60.0, -4.5)
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5695 at (-0.5, -60.0, 2.5)
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5697 at (-7.5, -60.0, 9.5)
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5699 at (-2.5, -60.0, 1.5)
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test has made the advancement [Mind Your Fingers]
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5700 at (0.5, -60.0, -8.5)
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5703 at (7.5, -53.0, 7.5)
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5705 at (7.5, -60.0, 10.5)
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test[local] logged in with entity id 5706 at (-2.5, -60.0, 1.5)
+[15:39:21] [Server thread/INFO] (Minecraft) trap-click-test joined the game
+[15:39:21] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 50886ms or 1017 ticks behind
+[15:39:21] [Server thread/INFO] (Minecraft) The nearest tetanusmod:medic_tent is at [39, ~, 406] (0 blocks away)
+[15:39:21] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 6 ms
+[15:39:21] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++                                                    ]
+[15:39:21] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++                                                    ]
+[15:39:22] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_+++++++++++++++                                                    ]
+[15:39:22] [Server thread/INFO] (Minecraft) Running test batch 'defaultBatch:4' (20 tests)...
+[15:39:22] [Server thread/INFO] (tetanusmod) ADVANCEMENT_LAYOUT_NATIVE_PASS nodes=30 branches=4 leaves=10 columns=6.0 rows=8.5
+[15:39:22] [Server thread/INFO] (Minecraft) adv-layout[local] logged in with entity id 5736 at (8.5, -60.0, 0.5)
+[15:39:22] [Server thread/INFO] (Minecraft) adv-layout joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) adv-layout has made the advancement [Iron Has a Darker Side]
+[15:39:22] [Server thread/INFO] (Minecraft) adv-layout has made the advancement [Acquire Hardware]
+[15:39:22] [Server thread/INFO] (Minecraft) adv-layout has made the advancement [Hook, Line and Tetanus]
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5740 at (-1.5, -60.0, -5.5)
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5741 at (7.5, -60.0, 1.5)
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5742 at (3.5, -60.0, 2.5)
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5743 at (-2.5, -60.0, 3.5)
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Lockjaw Sonata]
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Dose of Common Sense]
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5793 at (-6.5, -60.0, -4.5)
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5796 at (3.5, -60.0, -3.5)
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Painful Lesson]
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Dose of Common Sense]
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5801 at (1.5, -59.0, -0.5)
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5804 at (7.5, -60.0, -8.5)
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 5805 at (7.5, -55.0, 9.5)
+[15:39:22] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:22] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 7 ms
+[15:39:22] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 3 ms
+[15:39:22] [Server thread/INFO] (Minecraft) Locating element #rustandruin:medic_tent (tetanusmod:medic_tent) took 5 ms
+[15:39:22] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 5 ms
+[15:39:22] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 4 ms
+[15:39:22] [Server thread/INFO] (Minecraft) Running test batch 'camp_defence:1' (1 tests)...
+[15:39:22] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:23] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:23] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:23] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:23] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:24] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:24] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:24] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:24] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:25] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:25] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:25] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:25] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:26] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:26] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                               ]
+[15:39:26] [Server thread/INFO] (Minecraft) Running test batch 'medic_discovery:1' (5 tests)...
+[15:39:44] [Server thread/INFO] (Minecraft) native-camp-test[local] logged in with entity id 6018 at (-4.5, 68.0, 4.5)
+[15:39:44] [Server thread/INFO] (Minecraft) native-camp-test joined the game
+[15:39:44] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_RESIDENTS phase=native-player-arrived seed=0 camp=BlockBox{minX=-2536, minY=-1, minZ=504, maxX=-2524, maxY=6, maxZ=516} expectedTemplateNPCs=2 trackedVillagers=2 trackedGolems=1 nativeWorldTicks=2020 worldPlayers=1 tickingReady=true pendingChunkTasks=1 chunkDebug=31
+St: �11minecraft:full�r
+Ch: �11minecraft:full�r
+�3ENTITY_TICKING�r
+[15:39:44] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_ENTITY_MANAGER phase=native-player-arrived state=9,9,4,38,38,1,0
+[15:39:44] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_VILLAGER phase=native-player-arrived uuid=ec820aed-4145-4460-af21-ee2657d99ef5 pos=(-2530.5, 0.0, 510.5) profession=tetanusmod:medic xp=1 field=true
+[15:39:44] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_VILLAGER phase=native-player-arrived uuid=1ff653a1-2223-42d8-bcdf-549ae172e133 pos=(-2528.5, 0.0, 508.5) profession=minecraft:farmer xp=1 field=false
+[15:39:44] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 0 ms
+[15:39:44] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 0 ms
+[15:39:44] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 0 ms
+[15:39:44] [Server thread/INFO] (Minecraft) Locating element #rustandruin:medic_tent (tetanusmod:medic_tent) took 0 ms
+[15:39:49] [Server thread/INFO] (Minecraft) native-camp-test[local] logged in with entity id 6047 at (-4.5, 68.0, 4.5)
+[15:39:49] [Server thread/INFO] (Minecraft) native-camp-test joined the game
+[15:39:49] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_RESIDENTS phase=native-player-arrived seed=0 camp=BlockBox{minX=412, minY=-51, minZ=160, maxX=424, maxY=-44, maxZ=172} expectedTemplateNPCs=2 trackedVillagers=0 trackedGolems=0 nativeWorldTicks=2020 worldPlayers=2 tickingReady=false pendingChunkTasks=1 chunkDebug=32
+St: �11minecraft:full�r
+Ch: �11minecraft:full�r
+�2BLOCK_TICKING�r
+[15:39:49] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_ENTITY_MANAGER phase=native-player-arrived state=19,11,8,51,51,1,0
+[15:39:49] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 0 ms
+[15:39:49] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 0 ms
+[15:39:49] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 0 ms
+[15:39:49] [Server thread/INFO] (Minecraft) Locating element #rustandruin:medic_tent (tetanusmod:medic_tent) took 0 ms
+[15:39:50] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++__++                          ]
+[15:39:50] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 10171ms or 203 ticks behind
+[15:39:50] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++__++                          ]
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_RESIDENTS phase=native-ready-poll-40 seed=0 camp=BlockBox{minX=-2536, minY=-1, minZ=504, maxX=-2524, maxY=6, maxZ=516} expectedTemplateNPCs=2 trackedVillagers=2 trackedGolems=1 nativeWorldTicks=2060 worldPlayers=2 tickingReady=true pendingChunkTasks=1 chunkDebug=31
+St: �11minecraft:full�r
+Ch: �11minecraft:full�r
+�3ENTITY_TICKING�r
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_ENTITY_MANAGER phase=native-ready-poll-40 state=26,26,12,71,71,0,0
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_VILLAGER phase=native-ready-poll-40 uuid=ec820aed-4145-4460-af21-ee2657d99ef5 pos=(-2532.2379221016445, 0.0625, 511.2696593227193) profession=tetanusmod:medic xp=1 field=true
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_VILLAGER phase=native-ready-poll-40 uuid=1ff653a1-2223-42d8-bcdf-549ae172e133 pos=(-2528.6901307902026, 0.0, 508.6901436305601) profession=minecraft:farmer xp=1 field=false
+[15:39:51] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 31 ms
+[15:39:51] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 4 ms
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_DISCOVERY_PASS seed=0 sourceOrigin=BlockPos{x=-5, y=140, z=14} locate=BlockPos{x=-2544, y=0, z=480} camp=BlockBox{minX=-2536, minY=-1, minZ=504, maxX=-2524, maxY=6, maxZ=516} startChunk=[-159, 30] nativeWorldTicks=40
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_RESIDENTS phase=native-ready-poll-40 seed=0 camp=BlockBox{minX=412, minY=-51, minZ=160, maxX=424, maxY=-44, maxZ=172} expectedTemplateNPCs=2 trackedVillagers=2 trackedGolems=1 nativeWorldTicks=2060 worldPlayers=1 tickingReady=true pendingChunkTasks=1 chunkDebug=31
+St: �11minecraft:full�r
+Ch: �11minecraft:full�r
+�3ENTITY_TICKING�r
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_ENTITY_MANAGER phase=native-ready-poll-40 state=25,25,12,71,71,0,0
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_VILLAGER phase=native-ready-poll-40 uuid=91744b56-5238-4502-9483-329a52dd4694 pos=(417.5, -50.0, 166.5) profession=tetanusmod:medic xp=1 field=true
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_VILLAGER phase=native-ready-poll-40 uuid=5f86c616-1863-44a7-8e4e-d670c8ddc824 pos=(419.5612500011921, -50.0, 164.5) profession=minecraft:farmer xp=1 field=false
+[15:39:51] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 32 ms
+[15:39:51] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 4 ms
+[15:39:51] [Server thread/INFO] (RustRuinTentDiscovery) NATIVE_TENT_DISCOVERY_PASS seed=0 sourceOrigin=BlockPos{x=0, y=64, z=0} locate=BlockPos{x=400, y=0, z=160} camp=BlockBox{minX=412, minY=-51, minZ=160, maxX=424, maxY=-44, maxZ=172} startChunk=[25, 10] nativeWorldTicks=40
+[15:39:51] [Server thread/INFO] (Minecraft) Running test batch 'infection_audio_regression:1' (1 tests)...
+[15:39:51] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++                          ]
+[15:39:51] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 6061 at (-1.5, -60.0, 7.5)
+[15:39:51] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[15:39:52] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [A Painful Lesson]
+[15:39:52] [Server thread/INFO] (Minecraft) Running test batch 'dragon_health_ceiling:1' (5 tests)...
+[15:39:52] [Server thread/INFO] (Minecraft) Running test batch 'nail_golem_regression:1' (2 tests)...
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-0[local] logged in with entity id 6155 at (1.5, -60.0, -2.5)
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-0 joined the game
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-0 has completed the challenge [Rust Never Sleeps]
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-0 has made the advancement [Bring Home the Beacon]
+[15:39:52] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                  ]
+[15:39:52] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: rusted_nail / playerCreated=false / convert=false / invulnerable=false exactProjectile=6049391e-6bbb-444b-a4fa-efb22898f0a3 nativeTicks=1 disease=true permanent=false guardian=false
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-1[local] logged in with entity id 6389 at (4.5, -60.0, -2.5)
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-1 joined the game
+[15:39:52] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: rusted_bent_nail / playerCreated=false / convert=false / invulnerable=false exactProjectile=964da323-bc4d-4437-9853-2fb2392c3227 nativeTicks=1 disease=true permanent=false guardian=false
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-2[local] logged in with entity id 6392 at (-2.5, -60.0, -3.5)
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-2 joined the game
+[15:39:52] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                  ]
+[15:39:52] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: rusted_nail / playerCreated=true / convert=false / invulnerable=false exactProjectile=26fe52b7-93f3-4bdc-aec9-15b07bd74384 nativeTicks=1 disease=true permanent=false guardian=false
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-3[local] logged in with entity id 6395 at (-5.5, -60.0, 9.5)
+[15:39:52] [Server thread/INFO] (Minecraft) nail-golem-3 joined the game
+[15:39:53] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: rusted_bent_nail / playerCreated=true / convert=false / invulnerable=false exactProjectile=b9c999a5-0cac-4752-97e2-3a49cdd45efa nativeTicks=1 disease=true permanent=false guardian=false
+[15:39:53] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                  ]
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-4[local] logged in with entity id 6398 at (6.5, -54.0, 8.5)
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-4 joined the game
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-4 has made the advancement [Tetanized Mob]
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-4 has made the advancement [Tetanized Guardian]
+[15:39:53] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: rusted_nail / playerCreated=false / convert=true / invulnerable=false exactProjectile=db1f49ca-2a64-4083-94d7-d81e1805e5b0 nativeTicks=1 disease=true permanent=true guardian=true
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-5[local] logged in with entity id 6402 at (-4.5, -60.0, 6.5)
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-5 joined the game
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-5 has made the advancement [Tetanized Mob]
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-5 has made the advancement [Tetanized Guardian]
+[15:39:53] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                  ]
+[15:39:53] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: rusted_bent_nail / playerCreated=false / convert=true / invulnerable=false exactProjectile=d6bf3f4b-96cc-4b5f-ac60-fff990fffadc nativeTicks=1 disease=true permanent=true guardian=true
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-6[local] logged in with entity id 6405 at (-7.5, -60.0, 2.5)
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-6 joined the game
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-6 has made the advancement [Tetanized Mob]
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-6 has made the advancement [Tetanized Guardian]
+[15:39:53] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: rusted_nail / playerCreated=true / convert=true / invulnerable=false exactProjectile=99bd79b3-c295-434f-8767-54a8f1c4a04c nativeTicks=1 disease=true permanent=true guardian=true
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-7[local] logged in with entity id 6408 at (-1.5, -60.0, -6.5)
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-7 joined the game
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-7 has made the advancement [Tetanized Mob]
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-7 has made the advancement [Tetanized Guardian]
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-7 has completed the challenge [Rust Never Sleeps]
+[15:39:53] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                  ]
+[15:39:53] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: rusted_bent_nail / playerCreated=true / convert=true / invulnerable=false exactProjectile=bc00c3e2-183a-449f-8585-1da5e37b604c nativeTicks=1 disease=true permanent=true guardian=true
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-8[local] logged in with entity id 6411 at (7.5, -60.0, -3.5)
+[15:39:53] [Server thread/INFO] (Minecraft) nail-golem-8 joined the game
+[15:39:54] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: nail / playerCreated=false / convert=false / invulnerable=false exactProjectile=433dfa6a-27e8-4c4d-b191-3d0cb728937e nativeTicks=1 disease=false permanent=false guardian=false
+[15:39:54] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                  ]
+[15:39:54] [Server thread/INFO] (Minecraft) nail-golem-9[local] logged in with entity id 6414 at (4.5, -60.0, -5.5)
+[15:39:54] [Server thread/INFO] (Minecraft) nail-golem-9 joined the game
+[15:39:54] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: bent_nail / playerCreated=true / convert=false / invulnerable=false exactProjectile=cd351f74-a829-4e7f-944c-c89c3884dc63 nativeTicks=1 disease=false permanent=false guardian=false
+[15:39:54] [Server thread/INFO] (Minecraft) nail-golem-10[local] logged in with entity id 6417 at (1.5, -60.0, -2.5)
+[15:39:54] [Server thread/INFO] (Minecraft) nail-golem-10 joined the game
+[15:39:54] [Server thread/INFO] (Minecraft) [++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_                  ]
+[15:39:54] [Server thread/INFO] (tetanusmod) NAIL_GOLEM_NATIVE_PASS: rusted_nail / playerCreated=false / convert=false / invulnerable=true exactProjectile=fa75a0a6-d5cb-45e1-b33e-6f8b609e88cf nativeTicks=1 disease=false permanent=false guardian=false
+[15:39:55] [Server thread/INFO] (Minecraft) Running test batch 'dragon_revision:1' (15 tests)...
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture[local] logged in with entity id 6464 at (1.5, -60.0, -7.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture has made the advancement [Forged in Infection]
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture[local] logged in with entity id 6474 at (-3.5, -60.0, 10.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture[local] logged in with entity id 6475 at (4.5, -56.0, 7.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture[local] logged in with entity id 6476 at (-0.5, -60.0, 5.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-0[local] logged in with entity id 6503 at (-5.5, -60.0, -4.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-0 joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-0 has made the advancement [The End?]
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-1[local] logged in with entity id 6504 at (-3.5, -60.0, -5.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-1 joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-1 has made the advancement [The End?]
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-2[local] logged in with entity id 6505 at (2.5, -60.0, 6.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-2 joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-2 has made the advancement [The End?]
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-3[local] logged in with entity id 6506 at (-3.5, -60.0, -0.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-3 joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-3 has made the advancement [The End?]
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-0 has made the advancement [Tetanus, Again?]
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-ritual-1 has made the advancement [Tetanus, Again?]
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture[local] logged in with entity id 6520 at (10.5, -60.0, -3.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture[local] logged in with entity id 6521 at (5.5, -60.0, -8.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture[local] logged in with entity id 6532 at (-0.5, -60.0, 4.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture[local] logged in with entity id 6560 at (6.5, -60.0, 0.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture[local] logged in with entity id 6598 at (7.5, -55.0, 9.5)
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture joined the game
+[15:39:56] [Server thread/INFO] (Minecraft) dragon-fixture has made the advancement [A Painful Lesson]
+[15:39:56] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_config:1' (1 tests)...
+[15:39:56] [Server thread/INFO] (Minecraft) Running test batch 'release_progression:1' (1 tests)...
+[15:39:57] [Server thread/INFO] (Minecraft) all-advancements[local] logged in with entity id 6599 at (10.5, -60.0, -7.5)
+[15:39:57] [Server thread/INFO] (Minecraft) all-advancements joined the game
+[15:39:57] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:39:57] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Bring Home the Beacon]
+[15:39:57] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:39:57] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Iron Has a Darker Side]
+[15:39:57] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Acquire Hardware]
+[15:39:58] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:39:58] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:39:58] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:39:59] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:39:59] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:39:59] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Rusty Business]
+[15:39:59] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Hook, Line and Tetanus]
+[15:39:59] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:39:59] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:00] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Hands Off]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has reached the goal [Not Today, maybe tomorrow]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Tetanized Mob]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Tetanized Guardian]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Strange Meat]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has reached the goal [Clean Bill of Health]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Monster Hunter]
+[15:40:00] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/6809, l='ServerLevel[Test Level]', x=273.50, y=-55.49, z=554.15] died: Tetanized Wither was slain by all-advancements
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has completed the challenge [Tetanus. Nice One!]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [The Doctor Is In]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Mind Your Fingers]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [A Pointed Upgrade]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Doctor's Orders]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [What a Deal!]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has reached the goal [Special Delivery]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Keep Your Distance]
+[15:40:00] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:00] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:00] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [A Painful Lesson]
+[15:40:01] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:01] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:01] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Why did I eat that?]
+[15:40:01] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:01] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Foaming at the Mouth]
+[15:40:02] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:02] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:02] [Server thread/INFO] (Minecraft) all-advancements has reached the goal [Back to Yourself]
+[15:40:02] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:02] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:02] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Lockjaw Sonata]
+[15:40:03] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:03] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [A Dose of Common Sense]
+[15:40:03] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:03] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:03] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [Faucci Ouchie]
+[15:40:03] [Server thread/INFO] (Minecraft) all-advancements has made the advancement [A Beacon of Bad Ideas]
+[15:40:04] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:04] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:04] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:04] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:05] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:05] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:05] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:06] [Server thread/INFO] (Minecraft) all-advancements has completed the challenge [Rust Never Sleeps]
+[15:40:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:06] [Server thread/INFO] (Minecraft) Villager VillagerEntity['Village Medic'/6826, l='ServerLevel[Test Level]', x=272.50, y=-57.00, z=553.50] died, message: 'Village Medic suffocated in a wall'
+[15:40:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:06] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:07] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:07] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:07] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:08] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++_ ]
+[15:40:08] [Server thread/INFO] (Minecraft) all-advancements discovered that rusty nails come back down
+[15:40:08] [Server thread/INFO] (Minecraft) all-advancements has completed the challenge [Why did I do that?]
+[15:40:08] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_minion_waves:1' (1 tests)...
+[15:40:08] [Server thread/INFO] (Minecraft) wither-fixture[local] logged in with entity id 6847 at (10.5, -60.0, -2.5)
+[15:40:08] [Server thread/INFO] (Minecraft) wither-fixture joined the game
+[15:40:08] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/6848, l='ServerLevel[Test Level]', x=279.50, y=-56.00, z=547.50] died: Tetanized Wither was killed
+[15:40:08] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++]
+[15:40:08] [Server thread/INFO] (Minecraft) ========= 399 GAME TESTS COMPLETE ======================
+[15:40:08] [Server thread/INFO] (Minecraft) All 399 required tests passed :)
+[15:40:08] [Server thread/INFO] (Minecraft) ====================================================
+[15:40:08] [Server thread/INFO] (Minecraft) Stopping server
+[15:40:08] [Server thread/INFO] (Minecraft) Saving players
+[15:40:08] [Server thread/INFO] (Minecraft) Saving worlds
+[15:40:09] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/minecraft:overworld
+[15:40:10] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_end
+[15:40:10] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/minecraft:the_nether
+[15:40:10] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Test Level]'/tetanusmod_tests:medic_caves_3635f107248343d69ce5ba959bdb7b39
+[15:40:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (world): All chunks are saved
+[15:40:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:40:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:40:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (medic_caves_3635f107248343d69ce5ba959bdb7b39): All chunks are saved
+[15:40:10] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+[15:40:10] [Server thread/INFO] (Minecraft) Game test server shutting down
+
+[Incubating] Problems report is available at: file:///C:/Users/gwilliamscrypto/Documents/Rust%20&%20Ruin/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 9m 24s
+8 actionable tasks: 2 executed, 6 up-to-date
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if 0 EQU 0 goto mainEnd 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "Windows_NT" == "Windows_NT" endlocal

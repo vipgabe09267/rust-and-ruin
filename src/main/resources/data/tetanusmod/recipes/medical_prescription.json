@@ -1,0 +1,15 @@
+{
+    "ingredients":  [
+                        {
+                            "item":  "minecraft:paper"
+                        },
+                        {
+                            "item":  "minecraft:ink_sac"
+                        }
+                    ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:medical_prescription"
+               },
+    "type":  "tetanusmod:prescription_writing"
+}

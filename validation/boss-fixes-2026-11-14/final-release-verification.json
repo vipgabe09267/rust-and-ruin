@@ -1,0 +1,47 @@
+{
+  "Result": "PASS",
+  "Version": "0.1.1-beta",
+  "Minecraft": "1.20.1 Fabric",
+  "Jar": "build/libs/rust-and-ruin-0.1.1-beta.jar",
+  "JarBytes": 3557371,
+  "JarSHA256": "D287996D5E8E73CE7C4C75CDEB186677EF4B3B328A5B779073505FF744A9348D",
+  "NativeTests": {
+    "Total": 418,
+    "Passed": 418,
+    "Failures": 0,
+    "Report": "reports/native-release.xml"
+  },
+  "GraphicalTests": {
+    "Reports": 8,
+    "OriginalScreenshots": 81,
+    "Viewers": [
+      "plain",
+      "JEI",
+      "REI"
+    ],
+    "ActualUncappedBeaconGuiScales": [
+      2,
+      3,
+      4,
+      6
+    ],
+    "DragonLiftBlocks": 9.990000000000023,
+    "DragonVictorySoundEvents": 1,
+    "NativeWitherXp": 50,
+    "NativeRespawnDragonXp": 500
+  },
+  "ResourceRegeneration": {
+    "Files": 409,
+    "ByteIdentical": true
+  },
+  "PackagedSourceAndResourceAudit": "PASS",
+  "PackagedRefreshAudit": "PASS",
+  "MandatoryModDependencies": [
+    "Fabric API"
+  ],
+  "ControlledFixture": "Supplied ingredients, seeded close-pass approaches, controlled camera flight/invulnerability and one-HP finishers after native full-health verification; functionality tests, not a Survival balance playthrough.",
+  "FileAuditCommand": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/Audit-Files.ps1",
+  "Evidence": "index.html",
+  "PatchReview": "../../docs/PATCH_REVIEW_0.1.1-beta.md",
+  "Install": "Replace the earlier same-named0.1.1-beta JAR on both client and server. Newly generated clinics/camps contain the writer; existing buildings are preserved."
+}

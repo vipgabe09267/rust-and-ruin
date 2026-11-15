@@ -1,3 +1,54 @@
+# Final 0.1.1-beta readiness rerun - November 14, 2026
+
+The final complete native server suite passed **423/423 tests**, including five new regressions for Tetanus-enchanted bows/crossbows breaking on their firing shot and for every projectile in a Multishot volley. The fix preserves the actual firing weapon's retained enchantment data without a global shot cache; plain and saved-projectile controls are included.
+
+Current artifact: `rust-and-ruin-0.1.1-beta.jar`, **3,557,756 bytes**, SHA-256 **`E83241B111FEB09F36DF8601247174CA54142372F3DFD4363F0DDA03070608FC`**. Replace the older JAR on both client and server. The [final evidence gallery](validation/release-ready-2026-11-14/index.html) and [readiness scope and limits](docs/RELEASE_READINESS_0.1.1-beta.md) distinguish the current candidate from earlier artifacts.
+
+All **16 final visible-client reports passed**: the plain baseline, 31-recipe crafting session, causal advancement journey, forging, layout, actual mixed/special Dragon rituals, six interaction modules, and medical/forge flows in both JEI and REI. The linked gallery retains their original screenshots and disclosed fixtures. The packaged-server probe stopped at the EULA=false guard and did not create a production world. Remote multiplayer/modpack endurance and a full Survival balance playthrough remain outside this pass.
+
+The sections below are historical snapshots for their own artifacts and run stages. Their older hashes, counts, and then-pending checks are retained as history, not the current verdict.
+
+---
+# Historical boss/medical patch snapshot (before the final readiness rerun)
+
+The boss/medical patch passed **418/418 native server tests** after the reported fixes and additional source review. **Eight fresh graphical reports and 81 original screenshots** cover the redesigned beacon, medical trades, actual Wither/Dragon encounters and JEI/REI workstation flows. The [patch gallery](validation/boss-fixes-2026-11-14/index.html) preserves the evidence; the [patch review](docs/PATCH_REVIEW_0.1.1-beta.md) maps all twelve requests to behavior and verification.
+
+Archived artifact: `rust-and-ruin-0.1.1-beta.jar`, **3,557,371 bytes**, SHA-256 **`D287996D5E8E73CE7C4C75CDEB186677EF4B3B328A5B779073505FF744A9348D`**. The [release receipt](validation/boss-fixes-2026-11-14/final-release-verification.json) identifies this rebuilt gameplay patch. All **409 generated resources** were regenerated with identical bytes. Controlled graphical fixtures are disclosed; this is not a Survival balance playthrough.
+
+The evidence below describes earlier artifacts and remains historical, including the earlier metadata-only rebuild with this same version number.
+
+---
+
+# Historical boss/medical patch snapshot (before the final readiness rerun)
+
+The boss/medical patch passed **418/418 native server tests** after the reported fixes and additional source review. Its current graphical checks and original screenshots are in the [patch gallery](validation/boss-fixes-2026-11-14/index.html); the [patch review](docs/PATCH_REVIEW_0.1.1-beta.md) maps all twelve requests to behavior and verification. REI final confirmation is pending.
+
+Archived artifact: `rust-and-ruin-0.1.1-beta.jar`, **3,557,371 bytes**, SHA-256 **`D287996D5E8E73CE7C4C75CDEB186677EF4B3B328A5B779073505FF744A9348D`**. The [release receipt](validation/boss-fixes-2026-11-14/final-release-verification.json) identifies this rebuilt gameplay patch. All **409 generated resources** were regenerated with identical bytes. Controlled graphical fixtures are disclosed; this is not a Survival balance playthrough.
+
+The evidence below describes earlier artifacts and remains historical, including the earlier metadata-only rebuild with this same version number.
+
+---
+
+# Expansion verification — November 14, 2026
+
+**Historical version-only verification, superseded by the patch above.** The [metadata-only rebuild is verified](validation/version-0.1.1-beta/verification.json): only the version in `fabric.mod.json` changed; all **267 compiled classes** and every other resource entry are byte-identical to the tested **0.1.0-beta baseline**. Archived artifact: `rust-and-ruin-0.1.1-beta.jar`, **3,501,095 bytes**, SHA-256 **`957F54966E70FFA9B3B27136D337EBF3D9A1E6551DF112D13DA39A7BC808BE2A`**. The original 399-test and graphical receipts retain their original metadata and hashes; no additional gameplay rerun was performed for this version change.
+
+The graphical expansion checks passed: **12 fresh reports, 318 original PNGs, all 30 visible advancement nodes at GUI scales 2/3/4/6, all 31 ordinary recipes, and both dedicated workstations**. The same saved actor earned the 28 existing advancement actions plus all three new forge/dragon milestones without direct grants or revocations. Plain, JEI, and REI workstation/category flows passed.
+
+The actual native End ritual produced a 200-health ordinary dragon from mixed crystals and a 1,100-health Tetanized Dragon from four special crystals. Native ticks recorded automatic mouth carry/lift/drop, real head-attack contribution of at least 20 damage, the full 200-tick death, 500 respawn-fight XP, exactly one Overload Sword and one special egg, and placement of the earned egg. The fixture used controlled invulnerability, seeded approaches, supplied ingredients, and a one-HP finisher; it was not a Survival balance playthrough. Earlier failed composite fixtures remain disclosed in the evidence.
+
+See the [graphical gallery](validation/expansion-2026-11-14/index.html), [exact manifest](validation/expansion-2026-11-14/manifest.json), [findings and methods](docs/REVIEW_FINDINGS_2026-11-14.md), and [bounded source-review snapshots](validation/expansion-2026-11-14/reviews/README.md).
+
+**The final native suite passed all 399 cases with zero failures.** The complete rerun finished successfully in 9 minutes 24 seconds; its [399-case JUnit receipt](validation/expansion-2026-11-14/reports/native-final.xml) and [full server log](validation/expansion-2026-11-14/reports/server-final-repeat.log) are preserved. Earlier runs were 365/378 passing (13 failures), 383/391 (eight failures), then 398/399 (one fixture failure). The third run's new positive-contact test still had Minecraft's 60-tick join immunity active. The corrected fixture first verifies that protected negative case, clears only its native test timer, then performs the positive damage/infection case. Production spawn immunity was retained. The earlier failures included both confirmed defects and obsolete fixture expectations, not 13 proven product bugs.
+
+[Packaging](validation/expansion-2026-11-14/reports/release-final.json) and [resource-refresh](validation/expansion-2026-11-14/reports/refresh-final.json) checks passed for the **0.1.0-beta gameplay baseline JAR**: **3,501,095 bytes**, SHA-256 **`7F1D6F6AB1C4001A7C09EFF7D3CD839345BB4F4CE2B9D56D494D4BD714B8AA25`**. An automated file-format/integrity checkpoint passed for **1,844 files**, before the final review copies and receipts. It separately listed 276 Java files for automated encoding/static-key checks; this is not a claim that every line of all 276 was manually reviewed. The independent new-dragon review covered 24 files/696 lines in its recorded snapshot.
+
+The final [file audit](validation/expansion-2026-11-14/reports/file-audit-final.json) passed for **1,854 files** after the final receipts. Regenerating all **408 resources** reproduced identical bytes, with no changed or missing files.
+
+The tested gameplay baseline is ready for owner playtesting; the corrected-version release artifact is tracked separately above. Current behavior and copy: [release notes](docs/RELEASE_NOTES_2026-11-14.md), [recipes](docs/RECIPES.md), and [Modrinth about](docs/MODRINTH_ABOUT_2026-11-14.md). Remote-server endurance and arbitrary modpack combinations remain outside this pass.
+
+The records below are preserved as dated history for their own artifacts.
+
 # Clinic and advancement verification - October 25, 2026
 
 The clinic/advancement follow-up passed **two complete 341-test server runs**, including a forced rebuild that produced the identical JAR. Genuine native generation and an actual visible client verified **all five village themes** in fresh seed-0 normal terrain: complete foundations, exact walkable entrances, cabinet POIs, stable themed medics and opened native loot chests. The client issued **10 locate commands** and saved **25 original screenshots**, without inserting buildings or residents manually.

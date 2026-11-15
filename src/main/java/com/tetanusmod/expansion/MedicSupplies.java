@@ -23,7 +23,7 @@ public final class MedicSupplies {
     public static ItemStack requestForDay(java.util.UUID medic,long day) {
         int index = (int)Math.floorMod(Math.floorMod(day,4L) + medic.hashCode(), 4L);
         return switch (index) {
-            case 0 -> new ItemStack(Items.PAPER, 16);
+            case 0 -> new ItemStack(Items.GLASS_BOTTLE, 12);
             case 1 -> new ItemStack(Items.HONEY_BOTTLE, 3);
             case 2 -> new ItemStack(Items.GLOW_BERRIES, 8);
             default -> new ItemStack(Items.WHITE_WOOL, 8);
@@ -50,16 +50,18 @@ public final class MedicSupplies {
         player.sendMessage(Text.translatable("message.tetanusmod.supplies_delivered"), false);
         return true;
     }
+    public static Text requestInstructions(VillagerEntity medic,ItemStack held){
+        ItemStack wanted=request(medic);
+        String key=((State)medic).rustruin$lastSupplyDay()>=day(medic)?"message.tetanusmod.supplies_done":"message.tetanusmod.supply_request";
+        return Text.translatable(key,wanted.getCount(),wanted.getName(),held.isOf(wanted.getItem())?held.getCount():0);
+    }
     public static void initialize() {
         UseEntityCallback.EVENT.register((player, world, hand, entity, hit) -> {
             if (!player.isSneaking() || player.isSpectator() || !(entity instanceof VillagerEntity medic)
                     || medic.isBaby() || medic.getVillagerData().getProfession() != MedicVillage.MEDIC) return ActionResult.PASS;
             if (world.isClient) return ActionResult.SUCCESS;
             if (player instanceof ServerPlayerEntity serverPlayer && !deliver(medic, serverPlayer, hand)) {
-                ItemStack wanted = request(medic);
-                String key = ((State)medic).rustruin$lastSupplyDay() >= day(medic)
-                        ? "message.tetanusmod.supplies_done" : "message.tetanusmod.supply_request";
-                player.sendMessage(Text.translatable(key, wanted.getCount(), wanted.getName()), false);
+                player.sendMessage(requestInstructions(medic,player.getStackInHand(hand)), false);
             }
             return ActionResult.CONSUME;
         });

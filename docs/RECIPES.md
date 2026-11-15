@@ -1,6 +1,6 @@
 # Crafting and brewing guide
 
-All recipes are for Rust & Ruin **0.1.0-beta**, Minecraft 1.20.1 Fabric. JEI and REI show crafting, cooking, brewing, and the custom Rusting category. Crafting recipes unlock when iron is acquired.
+All recipes are for Rust & Ruin **0.1.1-beta**, Minecraft 1.20.1 Fabric. JEI and REI show crafting, cooking, brewing, rusting, wax coating, arrow smithing, prescription writing, and crystal forging. Crafting recipes unlock when iron is acquired.
 
 ## Weapons and equipment
 
@@ -53,12 +53,12 @@ Use the usual T-shaped structure with three Wither Skeleton Skulls on top.
 | Structure | Mutation chance |
 | --- | --- |
 | 4 ordinary soul sand/soul soil blocks | 0%; summons an ordinary Wither |
-| 4 Tetanized Soul Sand blocks | 5% |
-| 3 Tetanized Soul Sand blocks, with a netherite block replacing the upper center soul sand | 30% by default |
+| 4 Tetanized Soul Sand blocks | 75% |
+| 3 Tetanized Soul Sand blocks, with a netherite block replacing the upper center soul sand | 100% by default |
 
-The netherite block adds **25 percentage points** to the configured 5% base chance. A failed mutation roll still summons a normal Wither. Both lower corner spaces must be empty. All structure blocks, including the netherite upgrade, are consumed.
+The netherite block adds **25 percentage points** to the configured 75% base chance. A failed mutation roll still summons a normal Wither. Both lower corner spaces must be empty. All structure blocks, including the netherite upgrade, are consumed.
 
-A Tetanized Wither has 600 health. It drops its ordinary Nether Star, a Tetanized Wither Star, guaranteed Tetanus I, a 50% additional chance of Tetanus II, experience bottles, and one randomized bonus reward. Wire-brushing the special star converts it into an ordinary Nether Star; keep it infected if you want the special beacon.
+A Tetanized Wither has **650 health**. It drops one **Tetanized Wither Star**, native **50 XP**, bonus loot, and exactly one enchanted book: **50% Tetanus II, otherwise Tetanus I**. Its first wave arrives 10-15 seconds after the spawn shield ends while a player is nearby; later waves use random 30-60-second intervals. Waves contain at most two **20-health** Tetanized Wither Skeletons, with a six-live-minion cap. Creative observers can see these waves too. Wire-brushing the special star converts it into an ordinary Nether Star; keep it tetanized for a special beacon, crystal-forging table, or level-IV beacon payment.
 
 ## Tetanized Beacon
 
@@ -74,10 +74,11 @@ Build the pyramid entirely from **Rusted Iron Blocks**. Craft each with one iron
 
 The layer sizes are the same as a normal beacon: 3x3, then 5x5, 7x7, and 9x9 for the full pyramid. The beam needs the usual clear path upward.
 
-- Payments accept **only netherite ingots**. Confirming a power selection consumes one ingot, as with a normal beacon payment.
+- Confirming an ordinary power selection consumes **one netherite ingot**. Level IV additionally requires **one Tetanized Wither Star** in its dedicated payment slot.
 - Primary powers start at **level II**. Selection still requires the normal pyramid tier: Speed/Haste at one layer, Resistance/Jump Boost at two, Strength at three. The server rejects invalid selections without consuming payment.
 - A full pyramid can add **Regeneration II** as the secondary power.
 - Selecting the primary power again as the full-pyramid upgrade gives **level III** of that power instead.
+- Use the menu's separate **II / III / IV** controls to choose primary strength. A full pyramid can upgrade the selected primary to **level IV** with a netherite ingot **plus a Tetanized Wither Star**. Both are consumed on confirmation; every subsequent IV selection requires another star. Invalid selections consume neither payment.
 - Range and duration refresh follow normal beacon behavior. Changes to pyramid blocks or beam obstruction update on the normal beacon cycle.
 
 ## Rusted iron golem
@@ -121,8 +122,8 @@ Prices below are base prices before reputation, demand, discounts, and curing ef
 
 | Villager | Level | Added offers |
 | --- | --- | --- |
-| Medic | Nurse | Two random offers: a treatment, plus supplies/barter such as paper, iron, honey, bread, apples or gloves. Medicine stock 2-4. |
-| Medic | Nurse Practitioner | Two more randomized offers; treatment barters, redstone, blaze powder, brewing stands, cabinets or supply exchanges. |
+| Medic | Nurse | Antitoxin or Tetanus Vaccine, plus a supply/barter offer. A Writer or emergency prescription can appear. Medicine stock 2-4. |
+| Medic | Nurse Practitioner | Two more offers; Rabies Cure joins the treatment pool. Supplies can include a Writer, emergency prescription, brewing equipment, or barter. |
 | Medic | Medical Doctor | Two more offers; treatment, veterinary kits, shield protection books, golden apples, diamonds or stronger brewing ingredients. |
 | Medic | Attending Physician | Two final offers; stronger supplies and a possible enchanted golden apple for 48 emeralds plus 2 diamonds, one per delivery. |
 | Weaponsmith | Apprentice | Iron Spear 7; Rusted Spear 9; Rebar 3; Rusted Rebar 4 emeralds |
@@ -130,13 +131,13 @@ Prices below are base prices before reputation, demand, discounts, and curing ef
 | Armorer | Apprentice | Bear Trap 6 or Rusted Bear Trap 7 emeralds |
 | Fisherman | Apprentice | Rusty Fishing Hook 3 emeralds |
 
-Each medic rank adds two randomized native offers. Hero and gossip discounts apply. Village stock replenishes at most once per 24,000 world ticks; field medics have at most two uses per offer and a 72,000-tick delivery interval. Clinics use a 55% roll on eligible village-grid sites with suitable terrain. Placing a Medicine Cabinet lets an unemployed villager acquire the medic profession outside a clinic.
+Each medic rank adds one randomized treatment and one randomized supply/barter offer; higher ranks unlock stronger options. Repeated medicines, prescription stock, and writers do not stack across ranks. Treatments cost emeralds **and one Medical Prescription**, made from paper and an ink sac at a Prescription Writer. Hero and gossip discounts apply to the native emerald price; they do not remove the prescription requirement. Village stock replenishes at most once per 24,000 world ticks; field medics have at most two uses per offer and a 72,000-tick delivery interval. Clinics use a 55% roll on eligible village-grid sites with suitable terrain. Placing a Medicine Cabinet lets an unemployed villager acquire the medic profession outside a clinic.
 
 ## Shield enchantment and beacon updates
 
 Apply **Tetanus Protection** to a shield at an anvil. While held, it reduces infection risk from Tetanus I by 65% or Tetanus II by 40%, stacking with other applicable prevention. An actual shield block prevents the attack itself. Tetanus I/II can be applied to swords, axes, spears, industrial melee weapons, bows, crossbows, and tridents.
 
-The active Tetanized Beacon grants Tetanus Resistance automatically, independent of the selected effect. Its normal II powers and full-pyramid III upgrade use netherite payments. It has separate placement/full-activation advancements and does not complete vanilla beacon advancements.
+The active Tetanized Beacon grants Tetanus Resistance automatically, independent of the selected effect. Its normal II powers and full-pyramid III upgrade use netherite payments; the full-pyramid IV option additionally consumes a Tetanized Wither Star for each confirmed selection. It has separate placement/full-activation advancements and does not complete vanilla beacon advancements.
 ## Veterinary care and wax coating
 
 Veterinary Kit, crafting table:
@@ -153,7 +154,7 @@ Waxing uses no crafting station: hold honeycomb in one hand and clean, supported
 
 ## Medic supply requests and workshop salvage
 
-Each medic rotates among 16 paper, 3 honey bottles, 8 glow berries, and 8 white wool, offset by its UUID. Sneak and right-click to view or hand in the request. One delivery is accepted per medic per 24000 world ticks, shared between players. Honey bottles return their glass bottles. The reward is 30 minor-positive reputation with that medic, used by vanilla trade discounts and decay. Discounts do not refresh daily stock or bypass ordinary trade limits.
+Each medic rotates among **12 glass bottles, 3 honey bottles, 8 glow berries, and 8 white wool**, offset by its UUID. Sneak and right-click to see the requested item, exact amount, and the number held. To complete it, hold at least that amount in your **main hand**, then sneak and right-click the same medic. This earns **Special Delivery**; no merchant trade is required. One delivery is accepted per medic per 24000 world ticks, shared between players. Honey bottles return their glass bottles. The reward is 30 minor-positive reputation with that medic, used by vanilla trade discounts and decay. Discounts do not refresh daily stock or bypass ordinary trade limits.
 
 Abandoned workshop barrels roll 3-5 rewards from Rust, copper, string, coal, rusty nails, a worn rusty rebar, or rare antitoxin/veterinary kits. Naturally placed workshops use a 32-chunk random-spread grid with 16-chunk separation in eight temperate Overworld biomes. Like other structures, exploration availability depends on seed and previously generated chunks.
 
@@ -168,3 +169,52 @@ Gloves still have 192 durability; Unbreaking reduces wear, and Mending repairs t
 Village clinic chests roll 3-5 ordinary supplies: apples, bread, torches, paper, iron, emeralds, or occasional golden apples. Cave camps use the same modest supply pool. Their field medic has scarce two-use supplies and a three-day delivery interval; the persistent 200-HP golem defends a fenced, lit courtyard. Camps also have two beds and a support farmer with an irrigated crop patch. Locate nearby generated tents with `/locate poi rustandruin:medic_tent`, or search their structure grid with `/locate structure rustandruin:medic_tent`. The POI search is limited to 128 blocks; branded clinic and tent structure results also show the exact entrance, including height.
 
 Infection announcements are positional and limited to nearby listeners (16 blocks). Existing infections, natural mutations, chunk loading and inherited mutations stay quiet. Medics have their own short vial-and-supplies work sound, audible within 12 blocks.
+
+## Prescription Writer
+
+Craft the workstation in an ordinary crafting table:
+
+```text
+Iron Ingot    Feather       Iron Ingot
+Planks        Book          Planks
+Iron Ingot    Copper Ingot  Iron Ingot
+```
+
+Any planks accepted by the recipe tag work. Place the block and right-click it. Put **one paper** in the paper slot and **one ink sac** in the ink slot; taking the output consumes both and gives **one Medical Prescription**. A glow ink sac is not a substitute. Shift-click batches only complete prescriptions that fit in the inventory. Closing the menu returns unused input items; it does not grant its untaken output preview.
+
+Writers are also placed in newly generated village clinics and cave camps, and can appear in lower-rank medic trades: 10 emeralds at Nurse or 8 at Nurse Practitioner, one per delivery. The menu labels its paper, ink, and prescription slots. Bring the finished prescription and listed emerald payment to a medic for treatment. An emergency prescription costs 3 emeralds and has at most two purchases per village restock, or one for a field medic. This is separate from daily supply deliveries; the writer does not assign a villager profession or restock medicines.
+
+## Tetanus Wither Forging Table and End crystals
+
+The crafting-table recipe follows this exact layout:
+
+```text
+Netherite Block  Eye of Ender          Netherite Block
+Blaze Powder     Tetanized Wither Star Blaze Powder
+Netherite Block  Anvil                 Netherite Block
+```
+
+Use an **anvil**, not a chipped/damaged anvil, and a **Tetanized Wither Star**, not an ordinary Nether Star. Place the table, then combine these inputs in its menu:
+
+| Input slot | Amount |
+| --- | --- |
+| End Crystal | 1 |
+| Rust | 1 |
+| Netherite Ingot | 1 |
+| Output | 1 Tetanized End Crystal |
+
+Inputs are consumed when the finished crystal is taken. Shift-click can forge several crystals if every ingredient and enough output space are present. Closing the table returns unused inputs. JEI and REI have a dedicated crystal-forging display.
+
+Defeat the ordinary dragon first. At the End exit portal, place a Tetanized End Crystal in each of the four normal dragon-respawn positions. **All four crystals must be special**: mixing ordinary and tetanized crystals produces an ordinary dragon. The native respawn consumes the crystals. Exploding a special crystal is not an alternative ritual.
+
+A special ritual converts all ten pillar-top healing crystals to Tetanized End Crystals; mixed rituals leave ordinary pillars. Only creatures that take actual damage from a special crystal explosion can receive Tetanus from it. The Tetanized Ender Dragon has **1,100 health**, a custom rust-and-purple boss bar, and a **15%** grab roll on a close pass. It lifts a caught Survival player **ten blocks** before dropping them, then waits **120 seconds** before another successful grab. The ordinary first-fight/respawn XP rules remain in place. With mob loot enabled, each special-dragon defeat drops a **Tetanized Dragon Egg** and the **Tetanus Overload Sword**; these rewards remain available on repeated special fights. They land on solid ground outside the exit fountain, glow, and do not despawn. The egg retains the vanilla black shape with rust chips. A slowed, reverberant victory cue plays within 32 blocks.
+
+The sword's default stack already has **Tetanus II**. Its total attack damage is **12**, attack speed **2.3**, and durability **4,062**. It supports compatible sword enchantments. Anvil repairs use **netherite blocks**, never ingots; Mending also works.
+
+Forging a special crystal earns its progression advancement. The special summon awards **Tetanus, Again?** to nonspectating players within 256 horizontal blocks of the central End portal. A player must contribute at least **20 points of actual health damage** to qualify for **The End of Tetanus?** at the special dragon's death.
+
+## Finding rabid variants
+
+Rabies is a separate permanent variant, not a stage of Tetanus. Explore the usual habitats of eligible mammals and undead on a non-Peaceful difficulty and look for the purple, sickly tint and aggressive behavior. On each eligible natural spawn the default Rabid roll is **0.3% / 0.6% / 1%** on Easy / Normal / Hard; finding one can take exploration. Existing healthy creatures do not reroll continuously, and rusty attacks do not turn them rabid.
+
+Only **rabid animals** drop Rabid Meat. Cook it before eating, or use it as the brewing ingredient for Rabies and the craftable Rabies Vaccine. Raw Rabid Meat causes Rabies and immediate nausea unless vaccine prevention succeeds. For Creative testing, choose a purple-tinted Rabid spawn egg from the **Rust & Ruins Spawn Eggs** tab; the tetanizing operator command does not create Rabid variants.

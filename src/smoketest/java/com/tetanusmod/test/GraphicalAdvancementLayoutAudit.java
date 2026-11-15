@@ -13,6 +13,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
+import net.minecraft.network.packet.s2c.play.UpdateSelectedSlotS2CPacket;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -71,6 +72,8 @@ public final class GraphicalAdvancementLayoutAudit {
         switch(phase) {
             case 0 -> {
                 if(!scene.prepared||!scene.tablePickedUp||clientRoot(client,"story/root")==null)return false;
+                // A prior controller may have selected another hotbar slot (for example its earned egg).
+                client.player.getInventory().selectedSlot=0;
                 if(!client.player.getMainHandStack().isOf(Items.APPLE))return false;
                 client.player.setYaw(180);client.player.setPitch(-30);client.options.useKey.setPressed(true);
                 var result=client.interactionManager.interactItem(client.player,Hand.MAIN_HAND);
@@ -106,14 +109,14 @@ public final class GraphicalAdvancementLayoutAudit {
                 var manager=client.player.networkHandler.getAdvancementHandler().getManager();
                 nodes=new ArrayList<>();for(var advancement:manager.getAdvancements())if(advancement.getId().getNamespace().equals(TetanusMod.MOD_ID)&&advancement.getDisplay()!=null)nodes.add(advancement);
                 nodes.sort(Comparator.comparing(a->a.getId().toString()));
-                if(nodes.size()!=27)throw new IllegalStateException("Actual synchronized mod tree lacks nodes: "+nodes.size());
+                if(nodes.size()!=30)throw new IllegalStateException("Actual synchronized mod tree lacks nodes: "+nodes.size());
                 beginScale(client);phase=6;
             }
             case 6 -> {if(runViews(client)){scaleIndex++;if(scaleIndex<SCALES.length)beginScale(client);else{client.setScreen(null);requestWindowRestore(client);submit(client,scene::verifyAndRestore);restoring=true;phase=7;}}}
             case 7 -> {
-                if(!restoring||!scene.restored||!windowRestored(client))return false;
+                if(!restoring||!scene.restored||!windowRestored(client)||client.player.getInventory().selectedSlot!=scene.selectedSlot)return false;
                 var report=new LinkedHashMap<String,Object>();report.put("Result","PASS");report.put("ActualConnectedPlayer",true);report.put("DirectCriterionGrants",0);report.put("ProgressRevocations",0);
-                report.put("ExistingCriteriaDatesPreserved",scene.preservedCriteria);report.put("VisibleModNodes",nodes.size());report.put("VanillaRootActions",Map.of("story/root","Automatic real crafting-table item pickup","adventure/root","Real client sword attack killed the fixture cow","husbandry/root","Real client held-use apple consumption","nether/root","Native network dimension teleport to the Nether","end/root","Native network dimension teleport to the End"));
+                report.put("ExistingCriteriaDatesPreserved",scene.preservedCriteria);report.put("OriginalSelectedSlot",scene.selectedSlot);report.put("ClientSelectedSlotRestored",client.player.getInventory().selectedSlot==scene.selectedSlot);report.put("VisibleModNodes",nodes.size());report.put("VanillaRootActions",Map.of("story/root","Automatic real crafting-table item pickup","adventure/root","Real client sword attack killed the fixture cow","husbandry/root","Real client held-use apple consumption","nether/root","Native network dimension teleport to the Nether","end/root","Native network dimension teleport to the End"));
                 report.put("NativeActionEvidence",Map.of("CraftingTablePickedUp",scene.tablePickedUp,"AppleUsedStatDelta",scene.appleUsedDelta,"CowKilled",scene.cowKilled,"NetherRootComplete",scene.netherEarned,"EndRootComplete",scene.endEarned));
                 report.put("Scales",scaleEvidence);report.put("Window",windowEvidence);report.put("Keyboard",keyboardEvidence);report.put("Screenshots",images);report.put("RetiredHidden","variant_egg remains hidden; recipe unlock remains a functional hidden helper.");
                 try{Files.writeString(Path.of("graphical-advancement-layout-"+viewer+".json"),new GsonBuilder().setPrettyPrinting().create().toJson(report)+"\n");}catch(java.io.IOException problem){throw new IllegalStateException(problem);}
@@ -338,7 +341,7 @@ public final class GraphicalAdvancementLayoutAudit {
             if(player==null)throw new IllegalStateException("Real connected player disappeared");this.player=player;world=player.getServerWorld();originalDimension=world.getRegistryKey();oldPosition=player.getPos();yaw=player.getYaw();pitch=player.getPitch();health=player.getHealth();mode=player.interactionManager.getGameMode();noGravity=player.hasNoGravity();flying=player.getAbilities().flying;allowFlying=player.getAbilities().allowFlying;invulnerable=player.getAbilities().invulnerable;wasOp=player.getServer().getPlayerManager().isOperator(player.getGameProfile());
             selectedSlot=player.getInventory().selectedSlot;inventory=player.getInventory().writeNbt(new NbtList());player.getHungerManager().writeNbt(hunger);effects=player.getStatusEffects().stream().map(StatusEffectInstance::new).toList();before=dates(player);
             var visible=player.getServer().getAdvancementLoader().getAdvancements().stream().filter(a->a.getId().getNamespace().equals(TetanusMod.MOD_ID)&&a.getDisplay()!=null).toList();
-            if(visible.size()!=27||visible.stream().anyMatch(a->!player.getAdvancementTracker().getProgress(a).isDone()))throw new IllegalStateException("Run the actual all-advancement journey before layout coverage; existing progress is never granted or reset here");
+            if(visible.size()!=30||visible.stream().anyMatch(a->!player.getAdvancementTracker().getProgress(a).isDone()))throw new IllegalStateException("Run the actual all-advancement journey before layout coverage; existing progress is never granted or reset here");
         }
         void prepare() {
             if(player.getServer().getWorld(World.NETHER)==null||player.getServer().getWorld(World.END)==null)throw new IllegalStateException("Native Nether and End worlds are required for normal vanilla tab proof");
@@ -346,9 +349,9 @@ public final class GraphicalAdvancementLayoutAudit {
             for(int x=254;x<=261;x++)for(int z=126;z<=132;z++)for(int y=3;y<=6;y++){
                 var pos=new BlockPos(x,y,z);if(world.getBlockEntity(pos)!=null)throw new IllegalStateException("Layout fixture refuses to overwrite an existing block entity at "+pos);blocks.put(pos,world.getBlockState(pos));world.setBlockState(pos,y==3?Blocks.STONE.getDefaultState():Blocks.AIR.getDefaultState());
             }
-            player.changeGameMode(GameMode.SURVIVAL);player.clearStatusEffects();player.setNoGravity(true);player.getAbilities().invulnerable=true;player.sendAbilitiesUpdate();player.teleport(world,LAB.x,LAB.y,LAB.z,180,-30);player.getInventory().clear();
+            player.changeGameMode(GameMode.SURVIVAL);player.clearStatusEffects();player.setNoGravity(true);player.getAbilities().invulnerable=true;player.sendAbilitiesUpdate();player.teleport(world,LAB.x,LAB.y,LAB.z,180,-30);player.getInventory().clear();player.getInventory().selectedSlot=0;
             player.setStackInHand(Hand.MAIN_HAND,new ItemStack(Items.APPLE));player.getHungerManager().setFoodLevel(0);player.getHungerManager().setSaturationLevel(0);appleBefore=player.getStatHandler().getStat(Stats.USED.getOrCreateStat(Items.APPLE));
-            table=new ItemEntity(world,LAB.x,LAB.y+.1,LAB.z,new ItemStack(Items.CRAFTING_TABLE));table.setPickupDelay(0);world.spawnEntity(table);player.currentScreenHandler.sendContentUpdates();prepared=true;
+            table=new ItemEntity(world,LAB.x,LAB.y+.1,LAB.z,new ItemStack(Items.CRAFTING_TABLE));table.setPickupDelay(0);world.spawnEntity(table);player.currentScreenHandler.sendContentUpdates();player.networkHandler.sendPacket(new UpdateSelectedSlotS2CPacket(0));prepared=true;
         }
         void observe() {
             tablePickedUp=table!=null&&table.isRemoved()&&player.getInventory().count(Items.CRAFTING_TABLE)==1&&done("story/root");
@@ -372,7 +375,7 @@ public final class GraphicalAdvancementLayoutAudit {
             if(cow!=null&&!cow.isRemoved())cow.discard();if(table!=null&&!table.isRemoved())table.discard();
             for(var entry:blocks.entrySet())world.setBlockState(entry.getKey(),entry.getValue());
             player.teleport(world,oldPosition.x,oldPosition.y,oldPosition.z,yaw,pitch);player.changeGameMode(mode);player.setNoGravity(noGravity);player.getAbilities().flying=flying;player.getAbilities().allowFlying=allowFlying;player.getAbilities().invulnerable=invulnerable;player.sendAbilitiesUpdate();
-            player.getInventory().readNbt(inventory.copy());player.getInventory().selectedSlot=selectedSlot;player.getHungerManager().readNbt(hunger.copy());player.clearStatusEffects();for(var effect:effects)player.addStatusEffect(new StatusEffectInstance(effect));player.setHealth(health);player.currentScreenHandler.sendContentUpdates();
+            player.getInventory().readNbt(inventory.copy());player.getInventory().selectedSlot=selectedSlot;player.getHungerManager().readNbt(hunger.copy());player.clearStatusEffects();for(var effect:effects)player.addStatusEffect(new StatusEffectInstance(effect));player.setHealth(health);player.currentScreenHandler.sendContentUpdates();player.networkHandler.sendPacket(new UpdateSelectedSlotS2CPacket(selectedSlot));
             if(!wasOp)player.getServer().getPlayerManager().removeFromOperators(player.getGameProfile());
         }
         static Map<String,String> dates(ServerPlayerEntity player) {

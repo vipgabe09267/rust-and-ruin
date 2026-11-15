@@ -1,0 +1,502 @@
+{
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "Viewer": "plain",
+  "Scales": [
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "NativeGeometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          342,
+          248,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "ScaledViewport": [
+        960,
+        720
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "NativeGeometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          182,
+          128,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "ScaledViewport": [
+        640,
+        480
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "NativeGeometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          102,
+          68,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "ScaledViewport": [
+        480,
+        360
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "NativeGeometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          22,
+          8,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "ScaledViewport": [
+        320,
+        240
+      ]
+    }
+  ],
+  "Screenshots": [
+    {
+      "RequestedGuiScale": 2,
+      "View": "ii",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale2-ii.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          342,
+          248,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 2.0
+    },
+    {
+      "RequestedGuiScale": 2,
+      "View": "iii",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale2-iii.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          342,
+          248,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 2.0
+    },
+    {
+      "RequestedGuiScale": 2,
+      "View": "iv-unpaid",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale2-iv-unpaid.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          342,
+          248,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 2.0
+    },
+    {
+      "RequestedGuiScale": 2,
+      "View": "iv-paid",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale2-iv-paid.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          342,
+          248,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 2.0
+    },
+    {
+      "RequestedGuiScale": 2,
+      "View": "regeneration",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale2-regeneration.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          342,
+          248,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 2.0
+    },
+    {
+      "RequestedGuiScale": 3,
+      "View": "ii",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale3-ii.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          182,
+          128,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 3.0
+    },
+    {
+      "RequestedGuiScale": 3,
+      "View": "iii",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale3-iii.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          182,
+          128,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 3.0
+    },
+    {
+      "RequestedGuiScale": 3,
+      "View": "iv-unpaid",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale3-iv-unpaid.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          182,
+          128,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 3.0
+    },
+    {
+      "RequestedGuiScale": 3,
+      "View": "iv-paid",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale3-iv-paid.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          182,
+          128,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 3.0
+    },
+    {
+      "RequestedGuiScale": 3,
+      "View": "regeneration",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale3-regeneration.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          182,
+          128,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 3.0
+    },
+    {
+      "RequestedGuiScale": 4,
+      "View": "ii",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale4-ii.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          102,
+          68,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 4.0
+    },
+    {
+      "RequestedGuiScale": 4,
+      "View": "iii",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale4-iii.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          102,
+          68,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 4.0
+    },
+    {
+      "RequestedGuiScale": 4,
+      "View": "iv-unpaid",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale4-iv-unpaid.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          102,
+          68,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 4.0
+    },
+    {
+      "RequestedGuiScale": 4,
+      "View": "iv-paid",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale4-iv-paid.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          102,
+          68,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 4.0
+    },
+    {
+      "RequestedGuiScale": 4,
+      "View": "regeneration",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale4-regeneration.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          102,
+          68,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 4.0
+    },
+    {
+      "RequestedGuiScale": 6,
+      "View": "ii",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale6-ii.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          22,
+          8,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 6.0
+    },
+    {
+      "RequestedGuiScale": 6,
+      "View": "iii",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale6-iii.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          22,
+          8,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 6.0
+    },
+    {
+      "RequestedGuiScale": 6,
+      "View": "iv-unpaid",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale6-iv-unpaid.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          22,
+          8,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 6.0
+    },
+    {
+      "RequestedGuiScale": 6,
+      "View": "iv-paid",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale6-iv-paid.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          22,
+          8,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 6.0
+    },
+    {
+      "RequestedGuiScale": 6,
+      "View": "regeneration",
+      "Screenshot": "rust-and-ruin-plain-beacon-ui-scale6-regeneration.png",
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "Geometry": {
+        "NativeSlots": 38,
+        "ViewportContainsFrame": true,
+        "Widgets": 10,
+        "NoControlOrSlotOverlap": true,
+        "PanelBounds": [
+          22,
+          8,
+          276,
+          224
+        ],
+        "ButtonLabelsFit": true
+      },
+      "AppliedGuiScale": 6.0
+    }
+  ],
+  "NativeCurrencyConsumed": {
+    "TetanizedWitherStars": 1,
+    "NetheriteIngots": 1
+  },
+  "NativeHasteIVApplied": true,
+  "UnpaidIVConfirmationRejected": true,
+  "OriginalPlayerAndWorldRestored": true,
+  "DirectCriterionGrants": 0,
+  "ProgressRevocations": 0
+}

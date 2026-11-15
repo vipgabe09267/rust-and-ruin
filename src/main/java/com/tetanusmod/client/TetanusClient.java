@@ -24,6 +24,11 @@ public final class TetanusClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         MedicTradeScreen.initialize();
+        MedicalWorkstationsClient.initialize();
+        net.minecraft.client.gui.screen.ingame.HandledScreens.register(com.tetanusmod.dragon.DragonContent.SCREEN,WitherForgingScreen::new);
+        EntityRendererRegistry.register(com.tetanusmod.dragon.DragonContent.CRYSTAL_ENTITY,net.minecraft.client.render.entity.EndCrystalEntityRenderer::new);
+        EntityRendererRegistry.register(com.tetanusmod.entity.WitherMinions.TYPE,WitherMinionRenderer::new);
+        net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry.ITEM.register((stack,tint)->0xB48772,com.tetanusmod.dragon.DragonContent.CRYSTAL);
         EntityRendererRegistry.register(TetanusMod.NAIL_ENTITY, FlyingItemEntityRenderer::new);
         TetanusMod.LOCKJAW_GESTURE=LockjawAttempt::begin;
         registerBeacon();

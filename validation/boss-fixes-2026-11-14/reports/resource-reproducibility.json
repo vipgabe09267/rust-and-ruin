@@ -1,0 +1,6 @@
+{
+  "Result": "PASS",
+  "ResourceFiles": 409,
+  "ChangedFiles": [],
+  "Scope": "Full resource generator rerun after final runtime tests; exact byte equality"
+}

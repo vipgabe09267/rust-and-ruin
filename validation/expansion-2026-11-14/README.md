@@ -1,0 +1,17 @@
+# Rust & Ruin - November 14 expansion graphical validation
+
+Open [the local gallery](index.html) for original Minecraft screenshots and [manifest.json](manifest.json) for SHA256 hashes and exact evidence counts.
+
+- Evidence spans multiple actual client sessions on the same saved world and player. The first plain journey completed the existing advancements and forging before a portal fixture error. A later Dragon session completed the real rituals, combat participation, rewards, and egg placement, then its layout phase exhausted the fixture timeout after a hotbar mismatch. The final layout-crafting continuation retained those earned advancements and passed the full tree and all ordinary recipes. Partial-session and recovery logs are retained; their failed composite runs are not represented as overall PASS. Plain, JEI, and REI workstation checks used separate controlled test worlds.
+- All PNGs are original native Minecraft framebuffer captures, copied byte for byte. No image generation, retouching, synthetic screenshots, or external hosting is used.
+- Medical and forging screens use manually placed station blocks, ingredient fixtures, and a controlled medic. Outputs, purchases, supply delivery, antitoxin use, and causal advancements use actual native client interactions.
+- The beacon proof uses actual menu packets and verifies exact currency consumption, an additional star for each IV selection, blocked unpaid confirmation, downgrade, vanilla stronger-effect expiry, and unused-star returns.
+- The boss appearance controller pauses specimen AI. Its Enderman, Wither/minion, and Overworld Dragon screenshots verify visuals and native attributes; they are not boss fights or End summon proofs.
+- The separate End ritual controller uses the real canonical exit portal and native respawn animation. A mixed crystal set produces an ordinary dragon; four special crystals produce the 1100 HP variant.
+- The dragon combat fixture is invulnerable and controlled. It records at least 20 actually accepted damage from native client head attacks using a vanilla Netherite sword with Sharpness V, then reduces the dragon to one HP for a native finishing attack. It verifies the native death animation, repeat-dragon XP, rewards, and placement of the earned egg. This is not a survival balance playthrough.
+- Automatic mouth carry/lift/drop is observed through native ticks; the fixture seeds ordinary dragon RNG during controlled approaches. It does not measure live-world encounter probability, and it does not call the grab helper directly.
+- Ordinary crafting uses ingredient fixtures and actual native result acquisition. Cooking is accelerated by advancing the native station tick functions through the recipe duration.
+- Advancement reports declare zero direct criterion grants and zero revocations. The retained compatibility-only variant_egg ID is intentionally excluded. Layout evidence covers every currently displayed source node, including all three new dragon/forge advancements.
+- This gallery is a focused expansion validation record. It does not present older October evidence as current and does not assert that every possible modpack, server, or gameplay scenario is bug-free.
+
+The independent [source-review snapshots](reviews/README.md) record bounded manual scope; [current findings](../../docs/REVIEW_FINDINGS_2026-11-14.md) retain the failed native-run history and the successful corrected 399/399 final rerun.

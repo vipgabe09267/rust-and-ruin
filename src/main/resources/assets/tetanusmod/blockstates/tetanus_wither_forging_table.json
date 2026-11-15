@@ -1,0 +1,7 @@
+{
+    "variants":  {
+                     "":  {
+                              "model":  "tetanusmod:block/tetanus_wither_forging_table"
+                          }
+                 }
+}

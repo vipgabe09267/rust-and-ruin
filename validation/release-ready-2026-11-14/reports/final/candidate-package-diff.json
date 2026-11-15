@@ -1,0 +1,13 @@
+{
+    "BaselineSHA256":  "D287996D5E8E73CE7C4C75CDEB186677EF4B3B328A5B779073505FF744A9348D",
+    "CandidateSHA256":  "E83241B111FEB09F36DF8601247174CA54142372F3DFD4363F0DDA03070608FC",
+    "BaselineEntries":  747,
+    "CandidateEntries":  747,
+    "ChangedEntries":  [
+                           {
+                               "Entry":  "com/tetanusmod/expansion/CombatInfection.class",
+                               "BeforeSHA256":  "F5742B97CE556830E30AF081CF0BAB7B14A6DC08E4CE985DD3FC0D8A8C774F47",
+                               "AfterSHA256":  "553DC2926999A54AE0F754D450013A8901863F33021F61EB14FFE27B891C9C4E"
+                           }
+                       ]
+}

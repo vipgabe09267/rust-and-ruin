@@ -1,15 +1,17 @@
 {
     "replace":  false,
     "values":  [
-                   "tetanusmod:caltrops",
-                   "tetanusmod:rusted_caltrops",
                    "tetanusmod:barbed_wire",
-                   "tetanusmod:rusted_barbed_wire",
                    "tetanusmod:bear_trap",
+                   "tetanusmod:caltrops",
+                   "tetanusmod:field_medic_cabinet",
+                   "tetanusmod:medic_cabinet",
+                   "tetanusmod:rusted_barbed_wire",
                    "tetanusmod:rusted_bear_trap",
+                   "tetanusmod:rusted_caltrops",
                    "tetanusmod:rusted_iron_block",
                    "tetanusmod:tetanized_beacon",
-                   "tetanusmod:medic_cabinet",
-                   "tetanusmod:field_medic_cabinet"
+                   "tetanusmod:tetanus_wither_forging_table",
+                   "tetanusmod:prescription_writer"
                ]
 }

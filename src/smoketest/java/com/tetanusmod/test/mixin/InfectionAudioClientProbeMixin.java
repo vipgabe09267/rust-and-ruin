@@ -9,5 +9,5 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(SoundManager.class)
 public abstract class InfectionAudioClientProbeMixin {
     @Inject(method="play(Lnet/minecraft/client/sound/SoundInstance;)V",at=@At("TAIL"))
-    private void hear(SoundInstance sound,CallbackInfo ci){InfectionAudioClientProbe.observe(sound);}
+    private void hear(SoundInstance sound,CallbackInfo ci){InfectionAudioClientProbe.observe(sound);com.tetanusmod.test.DragonVictoryAudioProbe.observe(sound);}
 }

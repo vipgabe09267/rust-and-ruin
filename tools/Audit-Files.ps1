@@ -23,7 +23,7 @@ try {
         $check='File inventory and encoding; execution reviewed separately'
         if($extension-notin@('.png','.mp3','.ogg','.wav','.jar','.nbt')) {
             $bytes=[IO.File]::ReadAllBytes($path)
-            $originalLog=$extension-eq'.log'-and$relative-match'^validation/(camp-audio|clinic-advancements)-2026-10-25/evidence/[^/]+\.log$'
+            $originalLog=$extension-eq'.log'-and($relative-match'^validation/(camp-audio|clinic-advancements)-2026-10-25/evidence/[^/]+\.log$'-or$relative-match'^validation/(boss-fixes|release-ready)-2026-11-14/logs/(?:raw/)?(?:(?:final|pre-final)/)?[^/]+\.log$'-or$relative-match'^validation/expansion-2026-11-14/reports/[^/]+\.log$')
             if($originalLog-and$bytes.Length-ge2-and$bytes[0]-eq255-and$bytes[1]-eq254){
                 # Native Windows PowerShell receipts retain their original UTF-16LE bytes.
                 $contents=[Text.UnicodeEncoding]::new($false,$true,$true).GetString($bytes)
@@ -35,7 +35,15 @@ try {
             if(!$originalLog-and$contents.Contains([char]0xFFFD)){throw "Replacement character in text: $relative"}
         }
         switch($extension) {
-            '.json' {$null=$jsonParser.DeserializeObject($contents);$check='Parsed JSON; resource references checked by Gradle and runtime'}
+            '.json' {
+                # Original UTF-8 receipts may retain a BOM; decode strictly, then remove
+                # only that leading encoding marker before parsing their unchanged bytes.
+                $jsonText=$contents
+                if($jsonText.StartsWith([string][char]0xFEFF,[StringComparison]::Ordinal)){$jsonText=$jsonText.Substring(1)}
+                try{$null=$jsonParser.DeserializeObject($jsonText)}
+                catch{throw "Invalid JSON in ${relative}: $($_.Exception.Message)"}
+                $check='Parsed JSON; resource references checked by Gradle and runtime'
+            }
             '.wav' {
                 $wave=[IO.File]::ReadAllBytes($path)
                 if($wave.Length-lt44-or[Text.Encoding]::ASCII.GetString($wave,0,4)-ne'RIFF'-or[Text.Encoding]::ASCII.GetString($wave,8,4)-ne'WAVE'-or[BitConverter]::ToUInt32($wave,4)-ne$wave.Length-8){throw "Invalid RIFF/WAVE header: $relative"}

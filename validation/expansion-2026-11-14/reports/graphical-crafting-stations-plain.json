@@ -1,0 +1,13 @@
+{
+  "Result": "PASS",
+  "Scope": "Native ordinary crafting, cooking and arrow smithing; dedicated stations require their separate receipts",
+  "OrdinaryRecipesCrafted": 31,
+  "DeferredStationRecipes": [
+    "tetanusmod:medical_prescription",
+    "tetanusmod:tetanized_end_crystal"
+  ],
+  "RequiredSeparateProofs": [
+    "graphical-medical-plain.json",
+    "graphical-forge-plain.json"
+  ]
+}

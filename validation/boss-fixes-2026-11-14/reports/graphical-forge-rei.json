@@ -1,0 +1,46 @@
+{
+  "NativeRecipeViewerScreens": 2,
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "ManuallyPlacedFixtureStation": true,
+  "NativeCraftedCrystals": 2,
+  "FullInventoryRefusedWithoutConsumption": true,
+  "ClosingPreviewReturnedOnlyInputs": true,
+  "ForgeAdvancementEarnedByNativeOutput": true,
+  "OriginalPlayerAndWorldStateRestored": true,
+  "DirectCriterionGrants": 0,
+  "ProgressRevocations": 0,
+  "Viewer": "rei",
+  "Screenshots": [
+    {
+      "View": "station",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-rei-forge-station.png"
+    },
+    {
+      "View": "full-inventory-preview",
+      "NativeScreen": "com.tetanusmod.client.WitherForgingScreen",
+      "Screenshot": "rust-and-ruin-rei-forge-full-inventory-preview.png"
+    },
+    {
+      "View": "batch-crafted",
+      "NativeScreen": "com.tetanusmod.client.WitherForgingScreen",
+      "Screenshot": "rust-and-ruin-rei-forge-batch-crafted.png"
+    },
+    {
+      "View": "close-preview",
+      "NativeScreen": "com.tetanusmod.client.WitherForgingScreen",
+      "Screenshot": "rust-and-ruin-rei-forge-close-preview.png"
+    },
+    {
+      "View": "prescription-recipe-viewer",
+      "NativeScreen": "me.shedaniel.rei.impl.client.gui.screen.DefaultDisplayViewingScreen",
+      "Screenshot": "rust-and-ruin-rei-forge-prescription-recipe-viewer.png"
+    },
+    {
+      "View": "forging-recipe-viewer",
+      "NativeScreen": "me.shedaniel.rei.impl.client.gui.screen.DefaultDisplayViewingScreen",
+      "Screenshot": "rust-and-ruin-rei-forge-forging-recipe-viewer.png"
+    }
+  ]
+}

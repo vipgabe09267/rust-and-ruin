@@ -25,7 +25,7 @@ public class DiseaseFixGameTests implements FabricGameTest {
         var custom=ModConfig.fromJson("{\"minDurationSeconds\":400,\"maxDurationSeconds\":700,\"balanceRevision\":3}");
         ctx.assertTrue(custom.minDurationSeconds==400&&custom.maxDurationSeconds==700,"Custom duration was overwritten");
         var legacy=ModConfig.fromJson("{\"minDurationSeconds\":120,\"maxDurationSeconds\":300}");
-        ctx.assertTrue(legacy.minDurationSeconds==300&&legacy.balanceRevision==5,"Unversioned config migration failed");ctx.complete();
+        ctx.assertTrue(legacy.minDurationSeconds==300&&legacy.balanceRevision==6,"Unversioned config migration failed");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void lockjawWindowsRandomizeAndPersist(TestContext ctx) {
@@ -91,7 +91,7 @@ public class DiseaseFixGameTests implements FabricGameTest {
         try {
             TetanusMod.CONFIG.animalConversionChance=1;TetanusMod.CONFIG.mobConversionChance=1;TetanusMod.CONFIG.golemConversionChance=1;
             for(var type:net.minecraft.registry.Registries.ENTITY_TYPE) {
-                if(!(type.create(ctx.getWorld()) instanceof MobEntity mob)||mob instanceof net.minecraft.entity.boss.WitherEntity)continue;
+                if(!(type.create(ctx.getWorld()) instanceof MobEntity mob)||mob instanceof net.minecraft.entity.boss.WitherEntity||mob instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity||mob instanceof com.tetanusmod.entity.WitherMinionEntity)continue;
                 Infection.expose(mob,null);ctx.assertTrue(MobVariants.permanent(mob),"Rusty exposure could not mutate "+type);count++;
             }
         }finally{TetanusMod.CONFIG.animalConversionChance=animalChance;TetanusMod.CONFIG.mobConversionChance=mobChance;TetanusMod.CONFIG.golemConversionChance=golemChance;}

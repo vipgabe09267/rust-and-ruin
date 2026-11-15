@@ -1,0 +1,20 @@
+{
+    "Result":  "PASS",
+    "Files":  1844,
+    "Kinds":  [
+                  "93 File inventory and encoding; execution reviewed separately",
+                  "28 UTF-8 and local links checked; prose reviewed separately",
+                  "899 Decoded image; runtime item/status sprite margins checked",
+                  "1 RIFF/WAVE source header validated; full audio decode recorded separately",
+                  "1 Source audio; decoded separately with FFprobe/FFmpeg",
+                  "1 Official Gradle wrapper checksum checked by Audit-Release",
+                  "276 UTF-8 and static translation keys; compilation and manual review recorded separately",
+                  "9 Gzip NBT header; structure runtime checks recorded separately",
+                  "479 Parsed JSON; resource references checked by Gradle and runtime",
+                  "3 Packaged audio; decoded separately with FFprobe/FFmpeg",
+                  "23 PowerShell syntax parsed; manual review recorded separately",
+                  "1 UTF-8; compilation and resource-generation results recorded separately",
+                  "24 Parsed XML report",
+                  "6 Original UTF-16LE execution log; strict decoding and text integrity checked"
+              ]
+}

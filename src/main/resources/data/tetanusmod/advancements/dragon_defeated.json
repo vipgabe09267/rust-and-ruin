@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "defeat_dragon":  {
+                                           "trigger":  "minecraft:impossible"
+                                       }
+                 },
+    "parent":  "tetanusmod:dragon_summoned",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.dragon_defeated.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:tetanus_overload_sword"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.dragon_defeated.title"
+                              },
+                    "frame":  "challenge"
+                }
+}

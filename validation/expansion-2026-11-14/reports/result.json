@@ -1,0 +1,30 @@
+{
+  "Result": "PASS",
+  "Scope": "Completed expansion validation; controlled graphical fixtures are disclosed in gallery README",
+  "Minecraft": "1.20.1",
+  "Loader": "Fabric 0.16.14",
+  "Java": "17",
+  "Version": "0.1.0-beta",
+  "NativeTestCases": 399,
+  "NativeFailures": 0,
+  "VisibleAdvancements": 30,
+  "GameplayAdvancementsIncludingRecipeHelper": 31,
+  "OrdinaryRecipesCraftedGraphically": 31,
+  "DedicatedStationRecipesCraftedGraphically": 2,
+  "OriginalGraphicalScreenshots": 318,
+  "GraphicalReports": 12,
+  "Jei": "PASS",
+  "Rei": "PASS",
+  "Jar": "build/libs/rust-and-ruin-0.1.0-beta.jar",
+  "JarBytes": 3501095,
+  "JarSHA256": "7F1D6F6AB1C4001A7C09EFF7D3CD839345BB4F4CE2B9D56D494D4BD714B8AA25",
+  "NativeJUnitSHA256": "7E64F28041C1D85C35D3EF84E439F48CFAF00EEC2FB8B5C8820CBD898B58A07F",
+  "CreatedUTC": "2026-11-14T21:43:01.110703+00:00",
+  "Limits": [
+    "Controlled Survival/creative-style setup; not a complete natural survival balance playthrough",
+    "Not a guarantee for every modpack or long-running remote-server configuration"
+  ],
+  "ByteIdenticalRegeneratedResources": 408,
+  "FinalAutomatedFileAuditCount": 1854,
+  "FinalAutomatedFileAudit": "PASS"
+}

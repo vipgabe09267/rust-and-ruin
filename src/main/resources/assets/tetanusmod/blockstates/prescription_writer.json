@@ -1,0 +1,19 @@
+{
+    "variants":  {
+                     "facing=north":  {
+                                          "model":  "tetanusmod:block/prescription_writer"
+                                      },
+                     "facing=south":  {
+                                          "model":  "tetanusmod:block/prescription_writer",
+                                          "y":  180
+                                      },
+                     "facing=east":  {
+                                         "model":  "tetanusmod:block/prescription_writer",
+                                         "y":  90
+                                     },
+                     "facing=west":  {
+                                         "model":  "tetanusmod:block/prescription_writer",
+                                         "y":  270
+                                     }
+                 }
+}

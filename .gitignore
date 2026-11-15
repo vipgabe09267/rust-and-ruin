@@ -11,3 +11,8 @@ hs_err_pid*
 .env.*
 *.jfr
 client-smoke-result.txt
+.fabric/
+!validation/boss-fixes-2026-11-14/**/*.log
+!validation/expansion-2026-11-14/**/*.log
+!validation/release-ready-2026-11-14/**/*.log
+!validation/version-0.1.1-beta/**/*.log

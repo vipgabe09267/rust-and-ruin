@@ -1,0 +1,150 @@
+{
+  "AutomaticNativeGrab": {
+    "SeededApproachAttempts": 18,
+    "ObservedFallBlocks": 1.0667066991257457,
+    "LiftBlocks": 7.464289792020509,
+    "CooldownAtGrab": 2400,
+    "DirectTryGrabCalls": 0
+  },
+  "ActualAcceptedDamage": 20.0,
+  "NativeXp": 500,
+  "NativeDeathTicks": 200,
+  "CustomSwordDrops": 1,
+  "CustomEggDrops": 1,
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "CanonicalEndFight": true,
+  "NativeFullHealthVerified": 1100,
+  "CreativeStyleSurvivalInvulnerableFixture": true,
+  "CameraFlightFixture": true,
+  "CameraFlightDisabledForActualGrabAndFall": true,
+  "ContributionWeaponFixture": "Vanilla netherite sword with SharpnessV; actual client head-attack packets",
+  "FinisherHealthReducedToOne": true,
+  "NotBalancePlaythrough": true,
+  "NativePortalRituals": [
+    {
+      "NativePortal": "0, 63, 0",
+      "NativeHealth": 200.0,
+      "ClientSummonAdvancement": false,
+      "NativeRespawnTicks": 626,
+      "PlacementPackets": 4,
+      "ObservedAnimationStates": [
+        "SUMMONING_PILLARS",
+        "PREPARING_TO_SUMMON_PILLARS",
+        "SUMMONING_DRAGON"
+      ],
+      "Special": false
+    },
+    {
+      "NativePortal": "0, 63, 0",
+      "NativeHealth": 1100.0,
+      "ClientSummonAdvancement": true,
+      "NativeRespawnTicks": 626,
+      "PlacementPackets": 4,
+      "ObservedAnimationStates": [
+        "SUMMONING_PILLARS",
+        "PREPARING_TO_SUMMON_PILLARS",
+        "SUMMONING_DRAGON"
+      ],
+      "Special": true
+    }
+  ],
+  "ActualClientAttackPackets": 7,
+  "SwordDamage": 12,
+  "SwordAttackSpeed": 2.3,
+  "SwordDurability": 4062,
+  "SwordPreEnchant": "TetanusII",
+  "EarnedEggActuallyPlaced": true,
+  "DirectCriterionGrants": 0,
+  "ProgressRevocations": 0,
+  "RespawnStateTimerWrites": 0,
+  "Fixture": "Prior normal dragon defeated; canonical generated exit portal in a fresh disposable test End. Native pillar regeneration intentionally changes test-world terrain.",
+  "OriginalPlayerStateRestored": true,
+  "Screenshots": [
+    {
+      "View": "mixed-four-crystals",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-mixed-four-crystals.png"
+    },
+    {
+      "View": "mixed-preparing_to_summon_pillars",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-mixed-preparing_to_summon_pillars.png"
+    },
+    {
+      "View": "mixed-summoning_pillars",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-mixed-summoning_pillars.png"
+    },
+    {
+      "View": "mixed-summoning_dragon",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-mixed-summoning_dragon.png"
+    },
+    {
+      "View": "mixed-normal-dragon-200hp",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-mixed-normal-dragon-200hp.png"
+    },
+    {
+      "View": "special-four-crystals",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-special-four-crystals.png"
+    },
+    {
+      "View": "special-preparing_to_summon_pillars",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-special-preparing_to_summon_pillars.png"
+    },
+    {
+      "View": "special-summoning_pillars",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-special-summoning_pillars.png"
+    },
+    {
+      "View": "special-summoning_dragon",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-special-summoning_dragon.png"
+    },
+    {
+      "View": "special-dragon-1100hp",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-special-dragon-1100hp.png"
+    },
+    {
+      "View": "native-mouth-carry",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-native-mouth-carry.png"
+    },
+    {
+      "View": "native-mouth-drop",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-native-mouth-drop.png"
+    },
+    {
+      "View": "native-contribution-at-least20",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-native-contribution-at-least20.png"
+    },
+    {
+      "View": "native-dragon-death-animation",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-native-dragon-death-animation.png"
+    },
+    {
+      "View": "native-dragon-defeated",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-native-dragon-defeated.png"
+    },
+    {
+      "View": "earned-overload-sword-tooltip",
+      "NativeScreen": "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+      "Screenshot": "rust-and-ruin-plain-dragon-earned-overload-sword-tooltip.png"
+    },
+    {
+      "View": "earned-tetanized-egg-placed",
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-dragon-earned-tetanized-egg-placed.png"
+    }
+  ]
+}

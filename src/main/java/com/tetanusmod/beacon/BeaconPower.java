@@ -35,7 +35,8 @@ public final class BeaconPower {
         double range=level*10+10;
         var box=new Box(pos).expand(range).stretch(0,world.getHeight(),0);
         int duration=(9+level*2)*20;
-        int amplifier=level>=4&&primary==secondary?2:1;
+        boolean levelIV=world.getBlockEntity(pos) instanceof TetanizedBeaconEntity beacon&&beacon.isLevelIV();
+        int amplifier=level>=4&&primary==secondary?(levelIV?3:2):1;
         for(var player:world.getNonSpectatingEntities(PlayerEntity.class,box)) {
             player.addStatusEffect(new StatusEffectInstance(com.tetanusmod.TetanusMod.VACCINATED,duration,0,true,true));
             if(validPrimary)player.addStatusEffect(new StatusEffectInstance(primary,duration,amplifier,true,true));

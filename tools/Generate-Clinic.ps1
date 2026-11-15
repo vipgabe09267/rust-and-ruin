@@ -66,6 +66,8 @@ Block 6 2 10 'minecraft:chest' @{facing='north';type='single';waterlogged='false
 Block 6 3 10 'minecraft:brewing_stand' @{has_bottle_0='false';has_bottle_1='false';has_bottle_2='false'}
 Block 2 2 4 'minecraft:spruce_stairs' @{facing='west';half='top';shape='straight';waterlogged='false'}
 Block 2 3 4 'minecraft:potted_poppy';Block 6 2 4 'minecraft:bookshelf'
+# Shelf-height desk faces the open aisle; players stand on the interior floor at y2.
+Block 6 3 4 'tetanusmod:prescription_writer' @{facing='west'}
 for($x=2;$x-le6;$x++){Block $x 6 7 'minecraft:stripped_spruce_log' @{axis='x'}}
 Block 5 5 7 'minecraft:lantern' @{hanging='true';waterlogged='false'}
 # A little masonry chimney breaks up the roof silhouette without an oversized sign.

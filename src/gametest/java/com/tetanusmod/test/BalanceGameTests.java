@@ -166,7 +166,7 @@ public class BalanceGameTests implements FabricGameTest {
             ctx.assertTrue(withers.size()==1,"Wither ritual did not spawn exactly one boss");
             var wither=withers.get(0);
             ctx.assertTrue(MobVariants.permanent(wither)==expected,"Ritual used incorrect mutation chance or sand");
-            ctx.assertTrue(wither.getMaxHealth()==(expected?600:300),"Ritual boss health wrong");wither.discard();
+            ctx.assertTrue(wither.getMaxHealth()==(expected?650:300),"Ritual boss health wrong");wither.discard();
         }finally{TetanusMod.CONFIG.witherConversionChance=original;}
         ctx.complete();
     }
@@ -185,7 +185,7 @@ public class BalanceGameTests implements FabricGameTest {
         int result=dispatcher.execute("rustandruin summon minecraft:wither ~ ~ ~",source);
         ctx.assertTrue(result==1,"Namespaced summon command failed");
         var wither=ctx.getWorld().getEntitiesByClass(WitherEntity.class,player.getBoundingBox().expand(5),e->true).get(0);
-        ctx.assertTrue(MobVariants.permanent(wither)&&wither.getMaxHealth()==600,"Command summoned ordinary wither");
+        ctx.assertTrue(MobVariants.permanent(wither)&&wither.getMaxHealth()==650,"Command summoned ordinary wither");
         wither.damage(ctx.getWorld().getDamageSources().playerAttack(player),10000);
         var advancement=player.getServer().getAdvancementLoader().get(TetanusMod.id("nice_one"));
         ctx.assertTrue(advancement!=null&&player.getAdvancementTracker().getProgress(advancement).isDone(),"Wither kill advancement missing");

@@ -11,7 +11,7 @@
                                     },
                     "show_toast":  true,
                     "icon":  {
-                                 "item":  "minecraft:nether_star"
+                                 "item":  "tetanusmod:tetanized_wither_star"
                              },
                     "hidden":  false,
                     "announce_to_chat":  true,

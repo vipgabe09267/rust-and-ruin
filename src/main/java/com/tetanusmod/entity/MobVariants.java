@@ -24,11 +24,26 @@ public final class MobVariants {
     private static final UUID DAMAGE = UUID.fromString("a70b2222-6adf-4cca-8713-c481a7c5e022");
     private static final UUID SPEED = UUID.fromString("a70b3333-6adf-4cca-8713-c481a7c5e033");
 
+    /** Only the requested dragon mutation may exceed vanilla's1024health ceiling, and only up to1100. */
+    public static double dragonHealthValue(net.minecraft.entity.attribute.EntityAttributeInstance attribute,double vanillaValue){
+        if(attribute.getAttribute()!=EntityAttributes.GENERIC_MAX_HEALTH||Double.compare(vanillaValue,1024.0)!=0)return vanillaValue;
+        var marker=attribute.getModifier(HEALTH);
+        if(marker==null||marker.getOperation()!=EntityAttributeModifier.Operation.MULTIPLY_TOTAL||Double.compare(marker.getValue(),4.5)!=0)return vanillaValue;
+        // Match native ADDITION -> MULTIPLY_BASE -> MULTIPLY_TOTAL ordering; preserve debuffs and the cached attribute value.
+        double base=attribute.getBaseValue();
+        for(var modifier:attribute.getModifiers(EntityAttributeModifier.Operation.ADDITION))base+=modifier.getValue();
+        double value=base;
+        for(var modifier:attribute.getModifiers(EntityAttributeModifier.Operation.MULTIPLY_BASE))value+=base*modifier.getValue();
+        for(var modifier:attribute.getModifiers(EntityAttributeModifier.Operation.MULTIPLY_TOTAL))value*=1+modifier.getValue();
+        return Double.isFinite(value)&&value>vanillaValue?Math.min(1100.0,value):vanillaValue;
+    }
+
     public static boolean permanent(LivingEntity entity) { return ((TetanizedState) entity).rustruin$isPermanent(); }
     public static boolean isAnimal(LivingEntity entity) { return entity instanceof AnimalEntity || entity instanceof net.minecraft.entity.mob.WaterCreatureEntity || entity instanceof net.minecraft.entity.mob.AmbientEntity; }
     public static boolean infectedAnimal(LivingEntity entity){return isAnimal(entity)&&permanent(entity);}
     public static boolean susceptible(LivingEntity entity) {
-        return entity instanceof MobEntity && !(entity instanceof WitherEntity);
+        return entity instanceof MobEntity && !(entity instanceof WitherEntity)
+                && !(entity instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity) && !(entity instanceof WitherMinionEntity);
     }
     public static boolean eligibleRoll(LivingEntity target, float roll) {
         // A zero general mob chance also disables the dedicated golem contact roll.
@@ -66,7 +81,7 @@ public final class MobVariants {
         if (entity instanceof WitherEntity wither) {
             wither.setCustomName(Text.translatable("entity.tetanusmod.tetanized_wither"));
             entity.getWorld().playSound(null,entity.getBlockPos(),net.minecraft.sound.SoundEvents.ENTITY_WITHER_AMBIENT,entity.getSoundCategory(),1.0F,0.65F);
-        } else {
+        } else if (!(entity instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity) && !(entity instanceof WitherMinionEntity)) {
             entity.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, -1));
         }
     }
@@ -79,9 +94,14 @@ public final class MobVariants {
                 new EntityAttributeModifier(id, "Permanent tetanized mutation", value, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
     }
     private static void applyAttributes(LivingEntity entity, boolean heal) {
+        if(entity instanceof WitherMinionEntity)return;
+        float previousMaximum=entity.getMaxHealth(),previousHealth=entity.getHealth();
         if (isAnimal(entity)) modifier(entity, EntityAttributes.GENERIC_MOVEMENT_SPEED, SPEED, -0.35);
         else {
-            modifier(entity, EntityAttributes.GENERIC_MAX_HEALTH, HEALTH, entity instanceof WitherEntity || entity instanceof net.minecraft.entity.passive.IronGolemEntity ? 1.0 : 0.5);
+            double healthBonus=entity instanceof WitherEntity ? 650.0/300.0-1.0
+                    :entity instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity?4.5
+                    :entity instanceof net.minecraft.entity.passive.IronGolemEntity?1.0:0.5;
+            modifier(entity, EntityAttributes.GENERIC_MAX_HEALTH, HEALTH, healthBonus);
             modifier(entity, EntityAttributes.GENERIC_ATTACK_DAMAGE, DAMAGE, 0.5);
             modifier(entity, EntityAttributes.GENERIC_MOVEMENT_SPEED, SPEED, 0.10);
             // Creepers have no melee damage attribute; their variant gets a larger explosion instead.
@@ -91,6 +111,9 @@ public final class MobVariants {
             }
         }
         if (heal) entity.setHealth(entity.getMaxHealth());
+        else if((entity instanceof WitherEntity||entity instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity)
+                &&previousMaximum>0&&Float.compare(previousMaximum,entity.getMaxHealth())!=0)
+            entity.setHealth(Math.min(entity.getMaxHealth(),Math.max(0,previousHealth/previousMaximum*entity.getMaxHealth())));
     }
     public static boolean cureAnimal(LivingEntity entity) {
         if (entity.getWorld().isClient || !entity.isAlive() || !isAnimal(entity) || !permanent(entity)) return false;
@@ -107,12 +130,13 @@ public final class MobVariants {
     }
     public static void tick(LivingEntity entity) {
         if (entity.getWorld().isClient || !permanent(entity) || entity.age % 40 != 0) return;
-        if (!(entity instanceof WitherEntity) && !entity.hasStatusEffect(TetanusMod.TETANUS)) {
+        if (!(entity instanceof WitherEntity) && !(entity instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity)
+                && !(entity instanceof WitherMinionEntity) && !entity.hasStatusEffect(TetanusMod.TETANUS)) {
             Infection.silently(()->entity.addStatusEffect(new StatusEffectInstance(TetanusMod.TETANUS, -1)));
         }
     }
     public static void drops(LivingEntity entity) {
-        if ((!permanent(entity)&&!infectedAnimal(entity)) || entity.getWorld().isClient
+        if (entity instanceof WitherMinionEntity || (!permanent(entity)&&!infectedAnimal(entity)) || entity.getWorld().isClient
                 || !entity.getWorld().getGameRules().getBoolean(net.minecraft.world.GameRules.DO_MOB_LOOT)) return;
         if (isAnimal(entity)) entity.dropStack(new ItemStack(ModItems.INFECTED_MEAT, 1 + entity.getRandom().nextInt(3)));
         else if(susceptible(entity)) {
@@ -122,11 +146,8 @@ public final class MobVariants {
             entity.dropStack(new ItemStack(ModItems.RUST));
         }
         if (entity instanceof WitherEntity) {
-            ItemStack book=EnchantedBookItem.forEnchantment(new EnchantmentLevelEntry(ModItems.TETANUS_ENCHANTMENT, 1));
-            book.setCustomName(Text.translatable("item.tetanusmod.tetanus_book"));
-            entity.dropStack(book);
-            if(entity.getRandom().nextFloat()<0.5F)entity.dropStack(com.tetanusmod.expansion.ExpansionItems.tetanusBook(2));
-            entity.dropStack(new ItemStack(ModItems.TETANIZED_WITHER_STAR));
+            // Exactly one book: the rare level replaces level I instead of adding a second book.
+            entity.dropStack(com.tetanusmod.expansion.ExpansionItems.tetanusBook(entity.getRandom().nextFloat()<0.5F?2:1));
             ItemStack[] loot = {new ItemStack(Items.DIAMOND, 2 + entity.getRandom().nextInt(4)),
                     new ItemStack(Items.NETHERITE_SCRAP, 1 + entity.getRandom().nextInt(2)),
                     new ItemStack(Items.GOLDEN_APPLE, 2), new ItemStack(Items.EMERALD, 4 + entity.getRandom().nextInt(5))};

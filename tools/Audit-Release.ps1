@@ -1,7 +1,10 @@
 param([string]$Jar)
 $ErrorActionPreference='Stop'
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-if(!$Jar){$Jar=Join-Path $projectRoot 'build/libs/rust-and-ruin-0.1.0-beta.jar'}
+$versionMatch=[regex]::Match([IO.File]::ReadAllText((Join-Path $projectRoot 'gradle.properties')),'(?m)^mod_version=([A-Za-z0-9][A-Za-z0-9.+_-]*)\r?$')
+if(!$versionMatch.Success){throw 'Missing or invalid mod_version in gradle.properties'}
+$releaseVersion=$versionMatch.Groups[1].Value
+if(!$Jar){$Jar=Join-Path $projectRoot "build/libs/rust-and-ruin-$releaseVersion.jar"}
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 Add-Type -AssemblyName System.Drawing
 $wrapperHash=(Get-FileHash -LiteralPath (Join-Path $projectRoot 'gradle/wrapper/gradle-wrapper.jar') -Algorithm SHA256).Hash
@@ -18,7 +21,7 @@ try {
         if($entry.FullName-match'(^|/)(\.env|credentials|id_rsa|\.git)(/|$)' -or $entry.FullName-match'^(mezz/|me/shedaniel/|dev/architectury/|com/tetanusmod/test/)'){throw "Private/development content bundled: $($entry.FullName)"}
     }
     $meta=Read-JsonEntry 'fabric.mod.json'
-    if($meta.id-ne'tetanusmod'-or$meta.version-ne'0.1.0-beta'){throw 'Unexpected mod identity/version'}
+    if($meta.id-ne'tetanusmod'-or$meta.version-ne$releaseVersion){throw 'Unexpected mod identity/version'}
     if(@($meta.depends.PSObject.Properties).Count-ne 4){throw 'Missing required runtime dependency declarations'}
     $extra=@($meta.depends.PSObject.Properties.Name|Where-Object {$_-notin@('fabricloader','fabric-api','minecraft','java')})
     if($extra.Count){throw 'Unexpected mandatory mod dependencies'}
@@ -37,7 +40,7 @@ try {
         if(!$entry){throw "Source resource missing from JAR: $name"}
         if($name-in@('fabric.mod.json','tetanus.mixins.json')) {
             $sourceJson=[IO.File]::ReadAllText($resource.FullName)
-            if($name-eq'fabric.mod.json'){$sourceJson=$sourceJson.Replace('${version}','0.1.0-beta')}
+            if($name-eq'fabric.mod.json'){$sourceJson=$sourceJson.Replace('${version}',$releaseVersion)}
             $expected=$sourceJson|ConvertFrom-Json
             $actual=Read-JsonEntry $name
             if($name-eq'tetanus.mixins.json') {

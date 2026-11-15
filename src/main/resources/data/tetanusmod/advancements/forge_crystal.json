@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "forge_crystal":  {
+                                           "trigger":  "minecraft:impossible"
+                                       }
+                 },
+    "parent":  "tetanusmod:nice_one",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.forge_crystal.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:tetanus_wither_forging_table"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.forge_crystal.title"
+                              },
+                    "frame":  "task"
+                }
+}

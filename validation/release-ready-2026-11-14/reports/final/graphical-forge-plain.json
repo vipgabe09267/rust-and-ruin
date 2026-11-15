@@ -1,0 +1,35 @@
+{
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "ManuallyPlacedFixtureStation": true,
+  "NativeCraftedCrystals": 2,
+  "FullInventoryRefusedWithoutConsumption": true,
+  "ClosingPreviewReturnedOnlyInputs": true,
+  "ForgeAdvancementEarnedByNativeOutput": true,
+  "OriginalPlayerAndWorldStateRestored": true,
+  "DirectCriterionGrants": 0,
+  "ProgressRevocations": 0,
+  "Viewer": "plain",
+  "Screenshots": [
+    {
+      "NativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-plain-forge-station.png",
+      "View": "station"
+    },
+    {
+      "NativeScreen": "com.tetanusmod.client.WitherForgingScreen",
+      "Screenshot": "rust-and-ruin-plain-forge-full-inventory-preview.png",
+      "View": "full-inventory-preview"
+    },
+    {
+      "NativeScreen": "com.tetanusmod.client.WitherForgingScreen",
+      "Screenshot": "rust-and-ruin-plain-forge-batch-crafted.png",
+      "View": "batch-crafted"
+    },
+    {
+      "NativeScreen": "com.tetanusmod.client.WitherForgingScreen",
+      "Screenshot": "rust-and-ruin-plain-forge-close-preview.png",
+      "View": "close-preview"
+    }
+  ]
+}

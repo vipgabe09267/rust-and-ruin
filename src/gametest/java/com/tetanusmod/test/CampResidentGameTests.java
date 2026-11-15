@@ -3,6 +3,7 @@ package com.tetanusmod.test;
 import com.tetanusmod.TetanusMod;
 import com.tetanusmod.entity.MobVariants;
 import com.tetanusmod.expansion.MedicVillage;
+import com.tetanusmod.medical.MedicalWorkstations;
 import com.tetanusmod.world.MedicStructurePiece;
 import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
 import net.minecraft.block.*;
@@ -74,21 +75,30 @@ public class CampResidentGameTests implements FabricGameTest {
         var world=ctx.getWorld();
         var clinic=new MedicStructurePiece(world.getStructureTemplateManager(),TetanusMod.id("village/plains_clinic"),ctx.getAbsolutePos(BlockPos.ORIGIN),BlockRotation.NONE);
         ctx.assertTrue(clinic.getPlacementData().shouldPlaceFluids()&&!clinic.getPlacementData().shouldUpdateNeighbors(),"Cave-only replacement changed clinic placement policy");
+        var litCrops=new ArrayList<BlockPos>();
         for(var rotation:BlockRotation.values())for(boolean reload:new boolean[]{false,true}){
             var camp=place(ctx,rotation,0,true,reload);
             try{
                 ctx.assertTrue(!camp.piece.getPlacementData().shouldPlaceFluids()&&camp.piece.getPlacementData().shouldUpdateNeighbors(),"Camp lost dry/known-shape placement policy after NBT reload="+reload);
                 var planned=net.minecraft.structure.StructureTemplate.transform(camp.piece.getPlacementData(),new BlockPos(10,1,4)).add(camp.piece.getPos());
-                int fluidCount=0,crops=0;
+                int fluidCount=0,crops=0;litCrops.clear();
                 for(var mutable:BlockPos.iterate(camp.bounds.getMinX(),camp.bounds.getMinY(),camp.bounds.getMinZ(),camp.bounds.getMaxX(),camp.bounds.getMaxY(),camp.bounds.getMaxZ())){
-                    var pos=mutable.toImmutable();var state=world.getBlockState(pos);if(state.isOf(Blocks.WHEAT))crops++;if(state.getFluidState().isEmpty())continue;fluidCount++;
+                    var pos=mutable.toImmutable();var state=world.getBlockState(pos);if(state.isOf(Blocks.WHEAT)){crops++;litCrops.add(pos);}if(state.getFluidState().isEmpty())continue;fluidCount++;
                     ctx.assertTrue(pos.equals(planned)&&state.isOf(Blocks.WATER)&&state.getFluidState().isStill(),"Ambient water survived in a dry camp fixture: "+pos+" "+state);
                 }
-                ctx.assertTrue(fluidCount==1,"Native placement lost or duplicated explicit irrigation water");ctx.assertTrue(crops==8,"Native prepared camp lost its eight crop states");
+                ctx.assertTrue(fluidCount==1,"Native placement lost or duplicated explicit irrigation water");ctx.assertTrue(crops==8,"Native prepared camp lost its eight crop states: actual="+crops+", rotation="+rotation+", reload="+reload);
                 ctx.assertTrue(world.getBlockState(planned.down()).isSolidBlock(world,planned.down()),"Irrigation source has no watertight foundation");
             }finally{remove(camp);}
         }
-        ctx.complete();
+        var cropsAfterPlacement=List.copyOf(litCrops);
+        ctx.runAtTick(40,()->{
+            for(var crop:cropsAfterPlacement){
+                ctx.assertTrue(world.getBaseLightLevel(crop,0)>=8,"Native camp lanterns did not light their crops: "+crop);
+                ctx.assertTrue(world.getBlockState(crop).isOf(Blocks.WHEAT),"Camp wheat disappeared after native lighting/neighbor ticks: "+crop);
+                ctx.assertTrue(world.getBlockState(crop.down()).isOf(Blocks.FARMLAND),"Camp wheat lost its hydrated farmland after placement: "+crop);
+            }
+            ctx.complete();
+        });
     }
     private Camp place(TestContext ctx,BlockRotation rotation,int offset){return place(ctx,rotation,offset,false,false);}
     private Camp place(TestContext ctx,BlockRotation rotation,int offset,boolean flooded,boolean reload){
@@ -107,6 +117,11 @@ public class CampResidentGameTests implements FabricGameTest {
             ctx.assertTrue(world.getBlockState(info.pos()).equals(info.state()),"Native camp foundation differs from its authored template: "+info.pos());
         }
         ctx.assertTrue(foundation==169,"Template does not provide a complete169-block constructed foundation");
+        var writers=piece.getTemplate().getInfosForBlock(piece.getPos(),exactPlacement,MedicalWorkstations.WRITER);
+        ctx.assertTrue(writers.size()==1,"Native camp lost its Prescription Writer: "+rotation);
+        var writer=writers.get(0);var aisle=writer.pos().offset(writer.state().get(HorizontalFacingBlock.FACING)).down();
+        ctx.assertTrue(world.getBlockState(writer.pos()).equals(writer.state())&&world.getBlockState(writer.pos().down()).isSolidBlock(world,writer.pos().down()),"Native camp writer is missing/misoriented or unsupported: "+rotation);
+        ctx.assertTrue(world.isAir(aisle)&&world.isAir(aisle.up())&&world.getBlockState(aisle.down()).isSolidBlock(world,aisle.down()),"Native camp writer blocks its Survival approach: "+rotation);
         var villagers=world.getEntitiesByClass(VillagerEntity.class,box(bounds),v->v.getCommandTags().contains("rustruin_camp_medic")||v.getCommandTags().contains("rustruin_camp_support"));
         var guards=world.getEntitiesByClass(IronGolemEntity.class,box(bounds),v->v.getCommandTags().contains(MedicStructurePiece.CAMP_GUARD_TAG));
         ctx.assertTrue(villagers.size()==2&&guards.size()==1,"Clipped camp lost or duplicated its villagers/guard: "+rotation+" / "+offset);

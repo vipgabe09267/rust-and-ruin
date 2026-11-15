@@ -1,10 +1,41 @@
 {
     "criteria":  {
                      "cure_tetanus":  {
-                                          "trigger":  "minecraft:impossible"
+                                          "trigger":  "minecraft:consume_item",
+                                          "conditions":  {
+                                                             "player":  {
+                                                                            "effects":  {
+                                                                                            "tetanusmod:tetanus":  {
+
+                                                                                                                   }
+                                                                                        }
+                                                                        },
+                                                             "item":  {
+                                                                          "items":  [
+                                                                                        "tetanusmod:tetanus_antitoxin"
+                                                                                    ]
+                                                                      }
+                                                         }
+                                      },
+                     "cure_lockjaw":  {
+                                          "trigger":  "minecraft:consume_item",
+                                          "conditions":  {
+                                                             "player":  {
+                                                                            "effects":  {
+                                                                                            "tetanusmod:lockjaw":  {
+
+                                                                                                                   }
+                                                                                        }
+                                                                        },
+                                                             "item":  {
+                                                                          "items":  [
+                                                                                        "tetanusmod:tetanus_antitoxin"
+                                                                                    ]
+                                                                      }
+                                                         }
                                       }
                  },
-    "parent":  "tetanusmod:lockjaw_sonata",
+    "parent":  "tetanusmod:infected",
     "display":  {
                     "description":  {
                                         "translate":  "advancements.tetanusmod.antitoxin.description"
@@ -19,5 +50,11 @@
                                   "translate":  "advancements.tetanusmod.antitoxin.title"
                               },
                     "frame":  "task"
-                }
+                },
+    "requirements":  [
+                         [
+                             "cure_tetanus",
+                             "cure_lockjaw"
+                         ]
+                     ]
 }

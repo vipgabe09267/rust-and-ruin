@@ -145,13 +145,15 @@ public class DeepAuditGameTests implements FabricGameTest {
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void survivalEggWorksInWaterAndRejectsEmptyStacks(TestContext ctx) {
-        var player=ctx.createMockCreativeServerPlayerInWorld();
-        try{aim(ctx,player);ctx.setBlockState(3,4,3,Blocks.WATER);player.changeGameMode(GameMode.SURVIVAL);
-            var stack=new ItemStack(egg(),2);player.setStackInHand(Hand.MAIN_HAND,stack);
-            ctx.assertTrue(player.interactionManager.interactItem(player,ctx.getWorld(),stack,Hand.MAIN_HAND).isAccepted()&&stack.getCount()==1,"Survival water egg failed");
+        var world=ctx.getWorld();var player=new net.minecraft.server.network.ServerPlayerEntity(world.getServer(),world,new com.mojang.authlib.GameProfile(java.util.UUID.randomUUID(),"water-egg-survival"));
+        world.getServer().getPlayerManager().onPlayerConnect(new net.minecraft.network.ClientConnection(net.minecraft.network.NetworkSide.SERVERBOUND),player);
+        try{player.changeGameMode(GameMode.SURVIVAL);aim(ctx,player);ctx.setBlockState(3,4,3,Blocks.WATER);ctx.assertTrue(!player.isCreative()&&!player.isSpectator(),"Water egg actor is not actually Survival");
+            var waterEgg=(VariantSpawnEggItem)Registries.ITEM.get(TetanusMod.id("tetanized_cod_spawn_egg"));
+            var stack=new ItemStack(waterEgg,2);player.setStackInHand(Hand.MAIN_HAND,stack);
+            ctx.assertTrue(player.interactionManager.interactItem(player,ctx.getWorld(),stack,Hand.MAIN_HAND).isAccepted()&&stack.getCount()==1,"Survival aquatic water egg failed");
             var pos=ctx.getAbsolutePos(new BlockPos(4,4,4));
             ctx.assertFalse(egg().spawn(ctx.getWorld(),player,ItemStack.EMPTY,pos)||egg().spawn(ctx.getWorld(),player,new ItemStack(Items.DIRT),pos),"Invalid stack spawned a variant");
-        }finally{player.discard();}ctx.complete();
+        }finally{world.getServer().getPlayerManager().remove(player);player.discard();}ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void weatherProgressResetIsSavedImmediately(TestContext ctx) {

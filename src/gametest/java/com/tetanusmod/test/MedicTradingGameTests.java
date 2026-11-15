@@ -70,7 +70,7 @@ public class MedicTradingGameTests implements FabricGameTest {
             var nurse=medic(ctx,1,false);nurse.getRandom().setSeed(seed*8713L+17);nurses.add(nurse.getOffers().toNbt().toString());
         }
         for(Item item:new Item[]{Items.BREAD,Items.GOLDEN_APPLE,Items.ENCHANTED_GOLDEN_APPLE,Items.BLAZE_POWDER,Items.GHAST_TEAR})ctx.assertTrue(results.contains(item),"Random trade pools never offer "+item);
-        for(Item item:new Item[]{Items.IRON_INGOT,Items.FLINT,Items.DIAMOND,Items.EMERALD,Items.PAPER,Items.HONEY_BOTTLE})ctx.assertTrue(costs.contains(item),"Trade payments never use "+item);
+        for(Item item:new Item[]{Items.IRON_INGOT,Items.FLINT,Items.DIAMOND,Items.EMERALD,com.tetanusmod.medical.MedicalWorkstations.PRESCRIPTION,Items.HONEY_BOTTLE})ctx.assertTrue(costs.contains(item),"Trade payments never use "+item);
         ctx.assertTrue(nurses.size()>8,"Independent medics receive effectively identical trades");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)

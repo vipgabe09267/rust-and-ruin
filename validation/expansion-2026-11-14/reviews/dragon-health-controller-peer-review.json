@@ -1,0 +1,55 @@
+{
+    "timestampUtc":  "2026-11-14T20:46:25.1557277Z",
+    "sourceEdited":  false,
+    "review":  "Independent read-only peer review",
+    "runtimeTestsRun":  0,
+    "files":  [
+                  {
+                      "scope":  "dragonHealthValue helper and permanent-health integration only; not a full-file audit",
+                      "path":  "src/main/java/com/tetanusmod/entity/MobVariants.java",
+                      "physicalLineCount":  159
+                  },
+                  {
+                      "scope":  "entire file",
+                      "path":  "src/main/java/com/tetanusmod/mixin/DragonHealthAttributeMixin.java",
+                      "physicalLineCount":  17
+                  },
+                  {
+                      "scope":  "entire file",
+                      "path":  "src/gametest/java/com/tetanusmod/test/BossHealthGameTests.java",
+                      "physicalLineCount":  46
+                  },
+                  {
+                      "scope":  "entire file",
+                      "path":  "src/smoketest/java/com/tetanusmod/test/GraphicalDragonRitualAudit.java",
+                      "physicalLineCount":  225
+                  }
+              ],
+    "findings":  [
+                     {
+                         "disposition":  "Reported to parent, who is preparing a pending Sample.rewardsReady guard; reviewer made no source changes.",
+                         "issue":  "First removed-dragon sample may occur before the custom reward items finish their native10tick pickup delay, so immediate onPlayerCollision can refuse collection.",
+                         "recommendation":  "Wait for both exact custom reward entities to report native pickup readiness before scheduling collection.",
+                         "symbol":  "Scene.collectRewards / phase10",
+                         "severity":  "fixture flakiness",
+                         "file":  "src/smoketest/java/com/tetanusmod/test/GraphicalDragonRitualAudit.java"
+                     }
+                 ],
+    "buildsRun":  0,
+    "limitations":  [
+                        "Static native API/bytecode and source review only; no runtime or graphical success is claimed.",
+                        "The controller intentionally changes End portal/pillars in a disposable fresh flat smoke-test world.",
+                        "The entire MobVariants file was not re-audited; only the new helper and related permanent-health integration were in scope."
+                    ],
+    "staticChecks":  [
+                         "1100health adjustment is gated by GENERIC_MAX_HEALTH, native1024clamp and exact reserved mutation UUID/operation/value4.5.",
+                         "Raw health recomputation matches native addition, multiplication by additive base, then total-multiplier order; native values below cap and all unmarked attributes are preserved.",
+                         "Finite guard and1100ceiling prevent the new adjustment from admitting unbounded positive attribute bases.",
+                         "Native attribute caching/NBT and shared client/server mixin placement are consistent with1100health; runtime confirmation remains required.",
+                         "Graphical controller sends real block-interaction and dragon-head attack packets; normal mixed-crystal control and actual special ritual select native fight creation.",
+                         "SITTING_SCANNING finisher avoids the native airborne lethal-hit transition back to1HP/DYING; scripted damage stays below the25percent sitting phase threshold.",
+                         "Experience evidence sums native orb Value times Count to include merged orbs.",
+                         "Completion restoration future is retained/consumed correctly after the earlier case16hang fix.",
+                         "Fixture disclosure identifies Survival invulnerability, SharpnessV contribution weapon,1HP finisher and lack of a full balance playthrough."
+                     ]
+}

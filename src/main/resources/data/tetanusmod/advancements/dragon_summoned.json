@@ -1,0 +1,23 @@
+{
+    "criteria":  {
+                     "summon_dragon":  {
+                                           "trigger":  "minecraft:impossible"
+                                       }
+                 },
+    "parent":  "tetanusmod:forge_crystal",
+    "display":  {
+                    "description":  {
+                                        "translate":  "advancements.tetanusmod.dragon_summoned.description"
+                                    },
+                    "show_toast":  true,
+                    "icon":  {
+                                 "item":  "tetanusmod:tetanized_end_crystal"
+                             },
+                    "hidden":  false,
+                    "announce_to_chat":  true,
+                    "title":  {
+                                  "translate":  "advancements.tetanusmod.dragon_summoned.title"
+                              },
+                    "frame":  "task"
+                }
+}

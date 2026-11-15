@@ -1,0 +1,105 @@
+{
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "ActualFinalSkullPlacementPackets": 2,
+  "ActualClientAttackPackets": 2,
+  "DirectSpawnWaveCalls": 0,
+  "DirectEncounterTickCalls": 0,
+  "SpawnCooldownWrites": 0,
+  "ActualNativeWorldScheduling": true,
+  "Fixture": "Disposable bedrock arena; guaranteed native netherite-enhanced ritual. Survival uses synchronized camera flight/invulnerability. Boss health reduced to1 only after native650HPand timed20HPminion proof, then actual client finishing hit. This is a functionality proof, not a full balance playthrough.",
+  "NativeExperienceAccounting": "Remaining native orb Value*Count plus actual player total-experience gain; tolerates legitimate early pickup",
+  "OriginalPlayerAndRulesRestored": true,
+  "Scenes": [
+    {
+      "CreativeTargeted": false,
+      "Minions": 2,
+      "FirstWaveAfterShieldTicks": 281,
+      "NativeRitual": true,
+      "MinionMaximumHealth": [
+        20.0,
+        20.0
+      ],
+      "MinionY": [
+        4.0,
+        4.0
+      ],
+      "BossMaximum": 650.0,
+      "Mode": "Creative"
+    },
+    {
+      "Mode": "Creative",
+      "EnchantedBooks": 1,
+      "SpecialStarDrops": 1,
+      "NativeExperience": 50,
+      "MinionsRemovedOnBossDeath": true,
+      "OrdinaryStarDrops": 0
+    },
+    {
+      "CreativeTargeted": false,
+      "Minions": 2,
+      "FirstWaveAfterShieldTicks": 214,
+      "NativeRitual": true,
+      "MinionMaximumHealth": [
+        20.0,
+        20.0
+      ],
+      "MinionY": [
+        4.0,
+        4.0
+      ],
+      "BossMaximum": 650.0,
+      "Mode": "Survival"
+    },
+    {
+      "Mode": "Survival",
+      "EnchantedBooks": 1,
+      "SpecialStarDrops": 1,
+      "NativeExperience": 50,
+      "MinionsRemovedOnBossDeath": true,
+      "OrdinaryStarDrops": 0
+    }
+  ],
+  "Screenshots": [
+    {
+      "Mode": "Creative",
+      "View": "ritual-before",
+      "Screenshot": "rust-and-ruin-plain-wither-patch-creative-ritual-before.png"
+    },
+    {
+      "Mode": "Creative",
+      "View": "native-first-wave",
+      "Screenshot": "rust-and-ruin-plain-wither-patch-creative-native-first-wave.png"
+    },
+    {
+      "Mode": "Creative",
+      "View": "native-finishing-hit",
+      "Screenshot": "rust-and-ruin-plain-wither-patch-creative-native-finishing-hit.png"
+    },
+    {
+      "Mode": "Creative",
+      "View": "native-special-star-only",
+      "Screenshot": "rust-and-ruin-plain-wither-patch-creative-native-special-star-only.png"
+    },
+    {
+      "Mode": "Survival",
+      "View": "ritual-before",
+      "Screenshot": "rust-and-ruin-plain-wither-patch-survival-ritual-before.png"
+    },
+    {
+      "Mode": "Survival",
+      "View": "native-first-wave",
+      "Screenshot": "rust-and-ruin-plain-wither-patch-survival-native-first-wave.png"
+    },
+    {
+      "Mode": "Survival",
+      "View": "native-finishing-hit",
+      "Screenshot": "rust-and-ruin-plain-wither-patch-survival-native-finishing-hit.png"
+    },
+    {
+      "Mode": "Survival",
+      "View": "native-special-star-only",
+      "Screenshot": "rust-and-ruin-plain-wither-patch-survival-native-special-star-only.png"
+    }
+  ]
+}

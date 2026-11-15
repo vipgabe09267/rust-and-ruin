@@ -27,7 +27,7 @@ public class RefreshGameTests implements FabricGameTest {
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void oldDefaultsMigrateAndCustomRatesRemain(TestContext ctx){
         var c=ModConfig.fromJson("{\"balanceRevision\":4,\"naturalAnimalEasy\":0.1,\"naturalMobNormal\":0.15,\"spawnerHard\":0.45}");
-        ctx.assertTrue(c.balanceRevision==5&&c.naturalAnimalEasy==0.005F&&c.naturalMobNormal==0.01F&&c.spawnerHard==0.08F,"Old high spawn defaults did not migrate");
+        ctx.assertTrue(c.balanceRevision==6&&c.naturalAnimalEasy==0.005F&&c.naturalMobNormal==0.01F&&c.spawnerHard==0.08F,"Old high spawn defaults did not migrate");
         var custom=ModConfig.fromJson("{\"balanceRevision\":4,\"naturalAnimalEasy\":0.123,\"spawnerHard\":0.222}");
         ctx.assertTrue(custom.naturalAnimalEasy==0.123F&&custom.spawnerHard==0.222F,"Customized spawn values were overwritten");ctx.complete();
     }

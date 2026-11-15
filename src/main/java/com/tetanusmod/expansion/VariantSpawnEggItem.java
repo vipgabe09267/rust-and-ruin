@@ -34,13 +34,38 @@ public final class VariantSpawnEggItem extends Item {
     public boolean spawn(ServerWorld world,PlayerEntity player,ItemStack stack,BlockPos pos){
         if(stack.isEmpty()||!stack.isOf(this)||player.isSpectator()||!world.getWorldBorder().contains(pos)||!world.canPlayerModifyAt(player,pos))return false;
         var entity=type.create(world);if(!(entity instanceof MobEntity mob))return false;
-        mob.refreshPositionAndAngles(pos.getX()+0.5,pos.getY(),pos.getZ()+0.5,world.random.nextFloat()*360,0);
+        mob.refreshPositionAndAngles(pos.getX()+0.5,pos.getY(),pos.getZ()+0.5,0,0);
+        // Do not initialize equipment, mutations or consume an egg at an unsafe position.
+        if(!safePlacement(world,mob)){mob.discard();return false;}
+        mob.setYaw(world.random.nextFloat()*360);
         mob.initialize(world,world.getLocalDifficulty(pos),SpawnReason.SPAWN_EGG,null,null);
+        // Slimes and other species can change dimensions during initialization.
+        if(!safePlacement(world,mob)){mob.discard();return false;}
         if(rabid)Rabies.makeRabid(mob);else com.tetanusmod.entity.MobVariants.makePermanent(mob);
         if(!world.spawnEntity(mob))return false;
         if(!player.getAbilities().creativeMode)stack.decrement(1);
         // Variant eggs are Creative tools; they no longer award a survival advancement.
         return true;
+    }
+    /** Egg placement bypasses light, as vanilla eggs do, while retaining physical safety. */
+    public static boolean safePlacement(ServerWorld world,MobEntity mob){
+        var box=mob.getBoundingBox().contract(0.000001);
+        var min=BlockPos.ofFloored(box.minX,box.minY,box.minZ);var max=BlockPos.ofFloored(box.maxX,box.maxY,box.maxZ);
+        if(box.minY<world.getBottomY()||box.maxY>=world.getTopY()||!world.getWorldBorder().contains(box)
+                ||!world.isRegionLoaded(min,max)||!world.isSpaceEmpty(mob,box))return false;
+        for(var pos:BlockPos.iterate(min,max)){
+            var state=world.getBlockState(pos);
+            if(mob.getType().isInvalidSpawn(state)||!fluidAllowed(mob.getType(),state.getFluidState()))return false;
+        }
+        return true;
+    }
+    private static boolean fluidAllowed(EntityType<?> type,net.minecraft.fluid.FluidState fluid){
+        if(fluid.isEmpty())return true;
+        var nativeLocation=SpawnRestriction.getLocation(type);
+        if(fluid.isIn(net.minecraft.registry.tag.FluidTags.LAVA))return nativeLocation==SpawnRestriction.Location.IN_LAVA;
+        if(fluid.isIn(net.minecraft.registry.tag.FluidTags.WATER))return nativeLocation==SpawnRestriction.Location.IN_WATER
+                ||type==EntityType.TURTLE||type==EntityType.FROG||type==EntityType.ELDER_GUARDIAN;
+        return false;
     }
     @Override public ActionResult useOnBlock(ItemUsageContext context){
         var player=context.getPlayer();if(player==null||player.isSpectator()||!player.canPlaceOn(context.getBlockPos().offset(context.getSide()),context.getSide(),context.getStack()))return ActionResult.FAIL;
@@ -52,6 +77,7 @@ public final class VariantSpawnEggItem extends Item {
         var stack=player.getStackInHand(hand);var hit=raycast(world,player,net.minecraft.world.RaycastContext.FluidHandling.SOURCE_ONLY);
         if(hit.getType()!=HitResult.Type.BLOCK)return TypedActionResult.pass(stack);
         if(!(world.getBlockState(hit.getBlockPos()).getBlock() instanceof net.minecraft.block.FluidBlock))return TypedActionResult.pass(stack);
+        if(!fluidAllowed(type,world.getFluidState(hit.getBlockPos())))return TypedActionResult.fail(stack);
         if(!world.canPlayerModifyAt(player,hit.getBlockPos())||!player.canPlaceOn(hit.getBlockPos(),hit.getSide(),stack))return TypedActionResult.fail(stack);
         if(world.isClient)return TypedActionResult.success(stack);
         return spawn((ServerWorld)world,player,stack,hit.getBlockPos())?TypedActionResult.consume(stack):TypedActionResult.fail(stack);

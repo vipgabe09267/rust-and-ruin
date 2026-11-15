@@ -1,0 +1,698 @@
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "Windows_NT" == "Windows_NT" setlocal
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "DIRNAME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" == "" set DIRNAME=. 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_BASE_NAME=gradlew" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>for %i in ("C:\Users\gwilliamscrypto\Documents\Rust & Ruin\") do set "APP_HOME=%~fi" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if defined JAVA_HOME goto findJavaFromJavaHome 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_EXE=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if exist "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" goto execute 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "CLASSPATH=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>"C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" "-Xmx64m" "-Xms64m"   "-Dorg.gradle.appname=gradlew" -classpath "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain --offline runClientSmoke -PgraphicalFocus=expansion-journey -PsmokeWorld=ready-advancements-20261114 -PsmokeUsername=ReadyJourney011 --console plain 
+
+> Configure project :
+Fabric Loom: 1.10.5
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileSmoketestJava UP-TO-DATE
+> Task :generateLog4jConfig UP-TO-DATE
+> Task :generateRemapClasspath UP-TO-DATE
+> Task :generateDLIConfig UP-TO-DATE
+> Task :configureLaunch UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :configureClientLaunch UP-TO-DATE
+> Task :processSmoketestResources UP-TO-DATE
+> Task :smoketestClasses UP-TO-DATE
+
+> Task :runClientSmoke
+[17:40:34] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.20.1 with Fabric Loader 0.16.14
+[17:40:35] [main/INFO] (FabricLoader) Loading 60 mods:
+	- fabric-api 0.92.6+1.20.1
+	- fabric-api-base 0.4.32+1802ada577
+	- fabric-api-lookup-api-v1 1.6.37+1802ada577
+	- fabric-biome-api-v1 13.0.14+1802ada577
+	- fabric-block-api-v1 1.0.12+1802ada577
+	- fabric-block-view-api-v2 1.0.3+924f046a77
+	- fabric-blockrenderlayer-v1 1.1.42+1802ada577
+	- fabric-client-tags-api-v1 1.1.3+1802ada577
+	- fabric-command-api-v1 1.2.35+f71b366f77
+	- fabric-command-api-v2 2.2.14+1802ada577
+	- fabric-commands-v0 0.2.52+df3654b377
+	- fabric-containers-v0 0.1.67+df3654b377
+	- fabric-content-registries-v0 4.0.13+1802ada577
+	- fabric-convention-tags-v1 1.5.6+1802ada577
+	- fabric-crash-report-info-v1 0.2.20+1802ada577
+	- fabric-data-attachment-api-v1 1.0.2+de0fd6d177
+	- fabric-data-generation-api-v1 12.3.7+1802ada577
+	- fabric-dimensions-v1 2.1.55+1802ada577
+	- fabric-entity-events-v1 1.6.1+1c78457f77
+	- fabric-events-interaction-v0 0.6.5+13a40c6677
+	- fabric-events-lifecycle-v0 0.2.64+df3654b377
+	- fabric-game-rule-api-v1 1.0.41+1802ada577
+	- fabric-gametest-api-v1 1.2.15+1802ada577
+	- fabric-item-api-v1 2.1.29+1802ada577
+	- fabric-item-group-api-v1 4.0.14+1802ada577
+	- fabric-key-binding-api-v1 1.0.38+1802ada577
+	- fabric-keybindings-v0 0.2.36+df3654b377
+	- fabric-lifecycle-events-v1 2.2.23+1802ada577
+	- fabric-loot-api-v2 1.2.3+1802ada577
+	- fabric-loot-tables-v1 1.1.47+9e7660c677
+	- fabric-message-api-v1 5.1.10+1802ada577
+	- fabric-mining-level-api-v1 2.1.52+1802ada577
+	- fabric-model-loading-api-v1 1.0.4+1802ada577
+	- fabric-models-v0 0.4.3+9386d8a777
+	- fabric-networking-api-v1 1.3.14+a158aa0477
+	- fabric-networking-v0 0.3.54+df3654b377
+	- fabric-object-builder-api-v1 11.1.5+e35120df77
+	- fabric-particles-v1 1.1.3+1802ada577
+	- fabric-recipe-api-v1 1.0.24+1802ada577
+	- fabric-registry-sync-v0 2.3.6+1802ada577
+	- fabric-renderer-api-v1 3.2.2+1802ada577
+	- fabric-renderer-indigo 1.5.3+85287f9f77
+	- fabric-renderer-registries-v1 3.2.47+df3654b377
+	- fabric-rendering-data-attachment-v1 0.3.39+92a0d36777
+	- fabric-rendering-fluids-v1 3.0.29+1802ada577
+	- fabric-rendering-v0 1.1.50+df3654b377
+	- fabric-rendering-v1 3.0.9+1802ada577
+	- fabric-resource-conditions-api-v1 2.3.9+1802ada577
+	- fabric-resource-loader-v0 0.11.12+fb82e9d777
+	- fabric-screen-api-v1 2.0.9+1802ada577
+	- fabric-screen-handler-api-v1 1.3.33+1802ada577
+	- fabric-sound-api-v1 1.0.14+1802ada577
+	- fabric-transfer-api-v1 3.3.6+8dd72ea377
+	- fabric-transitive-access-wideners-v1 4.3.2+1802ada577
+	- fabricloader 0.16.14
+	- java 17
+	- minecraft 1.20.1
+	- mixinextras 0.4.1
+	- tetanusmod 0.1.1-beta
+	- tetanusmod_smoketest 1.0.0
+[17:40:35] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/gwilliamscrypto/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.5+mixin.0.8.7/22f9eb729e216a091673a574a5906dc1b9027fb3/sponge-mixin-0.15.5+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[17:40:35] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[17:40:35] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_16
+[17:40:35] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[17:40:38] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[17:40:46] [Datafixer Bootstrap/INFO] (Minecraft) 188 Datafixer optimizations took 278 milliseconds
+[17:40:49] [Render thread/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[17:40:50] [Render thread/INFO] (Minecraft) Setting user: ReadyJourney011
+[17:40:51] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[17:40:52] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.1 SNAPSHOT
+[17:40:54] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric (fabric-entity-events-v1, fabric-command-api-v2, fabric-sound-api-v1, fabric-object-builder-api-v1, fabric-keybindings-v0, fabric-registry-sync-v0, fabric-rendering-data-attachment-v1, fabric-model-loading-api-v1, fabricloader, fabric-networking-api-v1, tetanusmod_smoketest, fabric-models-v0, fabric-item-group-api-v1, fabric-command-api-v1, fabric-events-lifecycle-v0, fabric-block-view-api-v2, fabric-resource-loader-v0, fabric-renderer-indigo, fabric-game-rule-api-v1, fabric-client-tags-api-v1, fabric-events-interaction-v0, fabric-rendering-fluids-v1, fabric-particles-v1, tetanusmod, fabric-block-api-v1, fabric-loot-tables-v1, fabric-resource-conditions-api-v1, fabric-data-attachment-api-v1, fabric-containers-v0, fabric-screen-handler-api-v1, fabric-networking-v0, fabric-screen-api-v1, fabric-rendering-v0, fabric-commands-v0, fabric-data-generation-api-v1, fabric-renderer-registries-v1, fabric-api-base, fabric-key-binding-api-v1, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-rendering-v1, fabric-message-api-v1, fabric-recipe-api-v1, fabric-renderer-api-v1, fabric-transitive-access-wideners-v1, fabric-api, fabric-content-registries-v0, fabric-api-lookup-api-v1, fabric-blockrenderlayer-v1, fabric-dimensions-v1, fabric-item-api-v1, fabric-crash-report-info-v1, fabric-convention-tags-v1, fabric-gametest-api-v1, fabric-mining-level-api-v1, fabric-biome-api-v1, fabric-transfer-api-v1)
+[17:40:54] [Worker-Main-5/INFO] (Minecraft) Found unifont_all_no_pua-15.0.06.hex, loading
+[17:40:56] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[17:40:56] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[17:40:57] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Sonos Amp (Realtek(R) Audio)
+[17:40:57] [Render thread/INFO] (Minecraft) Sound engine started
+[17:40:57] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/blocks.png-atlas
+[17:40:57] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[17:40:57] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[17:40:57] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[17:40:57] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[17:40:57] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[17:40:57] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[17:40:57] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[17:40:57] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[17:40:58] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[17:40:58] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[17:40:58] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[17:40:58] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/mob_effects.png-atlas
+[17:41:00] [Render thread/INFO] (Minecraft) Loaded 9 recipes
+[17:41:00] [Render thread/INFO] (Minecraft) Loaded 1304 advancements
+[17:41:00] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 1.545 ms
+[17:41:00] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.20.1
+[17:41:00] [Server thread/INFO] (Minecraft) Generating keypair
+[17:41:01] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[17:41:02] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[17:41:02] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[17:41:02] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[17:41:02] [Render thread/INFO] (Minecraft) Preparing spawn area: 33%
+[17:41:03] [Render thread/INFO] (Minecraft) Time elapsed: 1901 ms
+[17:41:03] [Server thread/INFO] (Minecraft) Changing view distance to 12, from 10
+[17:41:03] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[17:41:04] [Server thread/INFO] (Minecraft) ReadyJourney011[local:E:d9111b63] logged in with entity id 1 at (-4.5, -60.0, 7.5)
+[17:41:04] [Server thread/INFO] (Minecraft) ReadyJourney011 joined the game
+[17:41:05] [Render thread/INFO] (Minecraft) Loaded 14 advancements
+[17:41:07] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS root Fresh connected Survival player receives the native tick advancement.
+[17:41:07] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Iron Has a Darker Side]
+[17:41:07] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Acquire Hardware]
+[17:41:07] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS iron_has_a_darker_side Pick up an iron ingot and synchronize the native inventory screen.
+[17:41:07] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS recipes/unlock The same real iron pickup unlocks the mod's recipes.
+[17:41:07] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Iron Has a Darker Side]
+[17:41:07] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Acquire Hardware]
+[17:41:07] [Render thread/INFO] (Minecraft) Loaded 51 advancements
+[17:41:08] [Render thread/INFO] (Minecraft) Loaded 60 advancements
+[17:41:08] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:08] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:08] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:08] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:08] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS root rust-and-ruin-plain-adv-root.png
+[17:41:10] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:10] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:10] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:10] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:10] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS iron_has_a_darker_side rust-and-ruin-plain-adv-iron_has_a_darker_side.png
+[17:41:12] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_RECIPE_BOOK_PASS 31 book-visible mod recipes unlocked
+[17:41:13] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS recipes/unlock rust-and-ruin-plain-adv-recipes-unlock.png
+[17:41:16] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Rusty Business]
+[17:41:16] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Rusty Business]
+[17:41:16] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Hook, Line and Tetanus]
+[17:41:16] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Hook, Line and Tetanus]
+[17:41:16] [Render thread/INFO] (Minecraft) Loaded 61 advancements
+[17:41:17] [Render thread/INFO] (Minecraft) Loaded 75 advancements
+[17:41:19] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS rusty_business Drop a nail into water and wait for the complete configured rust duration.
+[17:41:19] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS rusty_hook Drop fishing rods into water, allow native salvage rolls, and pick up a recovered hook.
+[17:41:19] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:19] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:19] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:19] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:20] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS rusty_business rust-and-ruin-plain-adv-rusty_business.png
+[17:41:21] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:22] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS rusty_hook rust-and-ruin-plain-adv-rusty_hook.png
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Hands Off]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS glove_protection Equip gloves by right-clicking and withstand real rusty zombie melee attacks until one exposure is prevented.
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has reached the goal [Not Today, maybe tomorrow]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Hands Off]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has reached the goal [Not Today, maybe tomorrow]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS shield_protection Raise a Tetanus Protection shield and block an actual enchanted zombie melee attack.
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Tetanized Mob]
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Tetanized Guardian]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS tetanized_mob Use Rust on an iron golem until a real conversion roll succeeds.
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS rusty_guardian The same successful, causal iron-golem conversion awards its specific advancement.
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Tetanized Mob]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Tetanized Guardian]
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Strange Meat]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS strange_meat Kill an egg-spawned Tetanized cow with a real player attack and pick up its infected meat.
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has reached the goal [Clean Bill of Health]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS clean_bill_of_health Apply a veterinary kit to a second egg-spawned Tetanized cow.
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Monster Hunter]
+[17:41:23] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/421, l='ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]', x=260.50, y=79.51, z=273.15] died: Tetanized Wither was slain by ReadyJourney011
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has completed the challenge [Tetanus. Nice One!]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Strange Meat]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS nice_one Kill an egg-spawned Tetanized Wither with a Creative-prepared test sword using the native attack method.
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has reached the goal [Clean Bill of Health]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Monster Hunter]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has completed the challenge [Tetanus. Nice One!]
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [The Doctor Is In]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS clinic Place a two-block Medicine Cabinet through the Survival block-item interaction.
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Mind Your Fingers]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS trap_reset A cow walks into a placed trap; use its reset tool through the native block interaction.
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [A Pointed Upgrade]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS rust_arrows Take a real 64-arrow/Rust smithing result through the native output slot.
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [The Doctor Is In]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Mind Your Fingers]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [A Pointed Upgrade]
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [What a Deal!]
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Doctor's Orders]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS medic Open a medic's actual merchant menu, supply its generated barter inputs, and take its output.
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [What a Deal!]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Doctor's Orders]
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has reached the goal [Special Delivery]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS supply_run Sneak-interact with that medic holding its requested daily supply delivery.
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has reached the goal [Special Delivery]
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] Supply delivery complete! This medic now offers you better prices.
+[17:41:23] [Render thread/INFO] (Minecraft) Loaded 120 advancements
+[17:41:23] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Keep Your Distance]
+[17:41:23] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS spear Right-click a spear at a live indexed cow and land its actual raycast thrust.
+[17:41:23] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Keep Your Distance]
+[17:41:23] [Render thread/INFO] (Minecraft) Loaded 120 advancements
+[17:41:23] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:23] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:23] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:23] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:24] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS glove_protection rust-and-ruin-plain-adv-glove_protection.png
+[17:41:25] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:26] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS shield_protection rust-and-ruin-plain-adv-shield_protection.png
+[17:41:27] [Render thread/INFO] (tetanusmod) GRAPHICAL_DOSE_CLIENT_START 1 potion clientHand=1 potion, nbt={Potion:"tetanusmod:tetanus"}, potion=tetanusmod:tetanus, active=false, remaining=0, screen=NONE, camera=180.0/-30.0
+[17:41:29] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [A Painful Lesson]
+[17:41:29] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [A Painful Lesson]
+[17:41:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_DOSE_NATIVE_COMPLETE item=1 potion, usedDelta=1, serverHand=1 glass_bottle, serverNbt=null, serverPotion=minecraft:empty, active=false, remaining=0, logicalPhase=170, clientHand=1 potion, nbt={Potion:"tetanusmod:tetanus"}, potion=tetanusmod:tetanus, active=true, remaining=1, screen=NONE, camera=180.0/-30.0
+[17:41:29] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:41:29] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:29] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:29] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:29] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:30] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS tetanized_mob rust-and-ruin-plain-adv-tetanized_mob.png
+[17:41:31] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:31] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:31] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:31] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:32] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS rusty_guardian rust-and-ruin-plain-adv-rusty_guardian.png
+[17:41:33] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:33] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:34] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS strange_meat rust-and-ruin-plain-adv-strange_meat.png
+[17:41:35] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:35] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:35] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:35] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:36] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS clean_bill_of_health rust-and-ruin-plain-adv-clean_bill_of_health.png
+[17:41:37] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:38] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS nice_one rust-and-ruin-plain-adv-nice_one.png
+[17:41:39] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:40] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS clinic rust-and-ruin-plain-adv-clinic.png
+[17:41:42] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:42] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:42] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:42] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:42] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS trap_reset rust-and-ruin-plain-adv-trap_reset.png
+[17:41:44] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:44] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:44] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:44] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS rust_arrows rust-and-ruin-plain-adv-rust_arrows.png
+[17:41:46] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:46] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:46] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:46] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS medic rust-and-ruin-plain-adv-medic.png
+[17:41:48] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:48] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:48] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:48] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS supply_run rust-and-ruin-plain-adv-supply_run.png
+[17:41:50] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:50] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:51] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS spear rust-and-ruin-plain-adv-spear.png
+[17:41:53] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS infected Contract Tetanus from an actual rusty zombie injury or a real timed Tetanus potion.
+[17:41:53] [Render thread/INFO] (tetanusmod) GRAPHICAL_DOSE_CLIENT_START 1 infected_meat clientHand=1 infected_meat, nbt=null, potion=minecraft:empty, active=false, remaining=0, screen=NONE, camera=180.0/-30.0
+[17:41:54] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Why did I eat that?]
+[17:41:54] [Server thread/INFO] (tetanusmod) GRAPHICAL_DOSE_NATIVE_COMPLETE item=1 infected_meat, usedDelta=1, serverHand=0 air, serverNbt=null, serverPotion=minecraft:empty, active=false, remaining=0, logicalPhase=204, clientHand=1 infected_meat, nbt=null, potion=minecraft:empty, active=true, remaining=1, screen=NONE, camera=180.0/-30.0
+[17:41:54] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Why did I eat that?]
+[17:41:55] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:41:55] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:41:55] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:41:55] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:41:55] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:41:56] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS infected rust-and-ruin-plain-adv-infected.png
+[17:41:58] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS why_did_i_eat_that Eat raw infected meat using the real item-use timer.
+[17:41:58] [Render thread/INFO] (tetanusmod) GRAPHICAL_DOSE_CLIENT_START 1 rabid_meat clientHand=1 rabid_meat, nbt=null, potion=minecraft:empty, active=false, remaining=0, screen=NONE, camera=180.0/-30.0
+[17:42:00] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Foaming at the Mouth]
+[17:42:00] [Server thread/INFO] (tetanusmod) GRAPHICAL_DOSE_NATIVE_COMPLETE item=1 rabid_meat, usedDelta=1, serverHand=0 air, serverNbt=null, serverPotion=minecraft:empty, active=false, remaining=0, logicalPhase=238, clientHand=1 rabid_meat, nbt=null, potion=minecraft:empty, active=true, remaining=0, screen=NONE, camera=180.0/-30.0
+[17:42:00] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Foaming at the Mouth]
+[17:42:00] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:42:00] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:42:00] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:42:00] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:42:00] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:42:01] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS why_did_i_eat_that rust-and-ruin-plain-adv-why_did_i_eat_that.png
+[17:42:04] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS rabies Eat raw Rabid Meat using the real item-use timer.
+[17:42:04] [Render thread/INFO] (tetanusmod) GRAPHICAL_DOSE_CLIENT_START 1 rabies_cure clientHand=1 rabies_cure, nbt=null, potion=minecraft:empty, active=false, remaining=0, screen=NONE, camera=180.0/-30.0
+[17:42:05] [Server thread/INFO] (Minecraft) ReadyJourney011 has reached the goal [Back to Yourself]
+[17:42:05] [Server thread/INFO] (tetanusmod) GRAPHICAL_DOSE_NATIVE_COMPLETE item=1 rabies_cure, usedDelta=1, serverHand=1 glass_bottle, serverNbt=null, serverPotion=minecraft:empty, active=false, remaining=0, logicalPhase=272, clientHand=1 rabies_cure, nbt=null, potion=minecraft:empty, active=true, remaining=0, screen=NONE, camera=180.0/-30.0
+[17:42:05] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has reached the goal [Back to Yourself]
+[17:42:05] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:42:05] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:42:05] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:42:05] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:42:05] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:42:06] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS rabies rust-and-ruin-plain-adv-rabies.png
+[17:42:09] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS rabies_cured Drink Rabies Cure after the raw-meat infection.
+[17:42:09] [Render thread/INFO] (tetanusmod) GRAPHICAL_DOSE_CLIENT_START 1 potion clientHand=1 potion, nbt={Potion:"tetanusmod:lockjaw"}, potion=tetanusmod:lockjaw, active=false, remaining=0, screen=NONE, camera=180.0/-30.0
+[17:42:11] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Lockjaw Sonata]
+[17:42:11] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Lockjaw Sonata]
+[17:42:11] [Server thread/INFO] (tetanusmod) GRAPHICAL_DOSE_NATIVE_COMPLETE item=1 potion, usedDelta=1, serverHand=1 glass_bottle, serverNbt=null, serverPotion=minecraft:empty, active=false, remaining=0, logicalPhase=306, clientHand=1 potion, nbt={Potion:"tetanusmod:lockjaw"}, potion=tetanusmod:lockjaw, active=true, remaining=1, screen=NONE, camera=180.0/-30.0
+[17:42:11] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:42:11] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:42:11] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:42:11] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:42:11] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:42:12] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS rabies_cured rust-and-ruin-plain-adv-rabies_cured.png
+[17:42:14] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS lockjaw_sonata Drink a Lockjaw Sonata potion using the real item-use timer.
+[17:42:14] [Render thread/INFO] (tetanusmod) GRAPHICAL_DOSE_CLIENT_START 1 tetanus_antitoxin clientHand=1 tetanus_antitoxin, nbt=null, potion=minecraft:empty, active=false, remaining=0, screen=NONE, camera=180.0/-30.0
+[17:42:16] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [A Dose of Common Sense]
+[17:42:16] [Server thread/INFO] (tetanusmod) GRAPHICAL_DOSE_NATIVE_COMPLETE item=1 tetanus_antitoxin, usedDelta=1, serverHand=1 glass_bottle, serverNbt=null, serverPotion=minecraft:empty, active=false, remaining=0, logicalPhase=340, clientHand=1 tetanus_antitoxin, nbt=null, potion=minecraft:empty, active=true, remaining=0, screen=NONE, camera=180.1299/-30.0
+[17:42:16] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [A Dose of Common Sense]
+[17:42:16] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:42:16] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:42:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:42:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:42:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:42:17] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS lockjaw_sonata rust-and-ruin-plain-adv-lockjaw_sonata.png
+[17:42:19] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS antitoxin Drink antitoxin while Tetanus and Lockjaw are active.
+[17:42:19] [Render thread/INFO] (tetanusmod) GRAPHICAL_DOSE_CLIENT_START 1 tetanus_vaccine clientHand=1 tetanus_vaccine, nbt=null, potion=minecraft:empty, active=false, remaining=0, screen=NONE, camera=180.0/-30.0
+[17:42:21] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Faucci Ouchie]
+[17:42:21] [Server thread/INFO] (tetanusmod) GRAPHICAL_DOSE_NATIVE_COMPLETE item=1 tetanus_vaccine, usedDelta=1, serverHand=1 glass_bottle, serverNbt=null, serverPotion=minecraft:empty, active=false, remaining=0, logicalPhase=368, clientHand=1 tetanus_vaccine, nbt=null, potion=minecraft:empty, active=true, remaining=1, screen=NONE, camera=180.0/-30.0
+[17:42:21] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Faucci Ouchie]
+[17:42:21] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:42:21] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:42:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:42:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:42:21] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:42:22] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS antitoxin rust-and-ruin-plain-adv-antitoxin.png
+[17:42:25] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS vaccinated Drink a vaccine using the real item-use timer.
+[17:42:25] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [A Beacon of Bad Ideas]
+[17:42:25] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS beacon_placed Place the Tetanized Beacon with its BlockItem.
+[17:42:25] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [A Beacon of Bad Ideas]
+[17:42:25] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:42:25] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:42:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:42:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:42:25] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:42:26] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS vaccinated rust-and-ruin-plain-adv-vaccinated.png
+[17:42:27] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:42:27] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:42:27] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:42:27] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:42:28] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS beacon_placed rust-and-ruin-plain-adv-beacon_placed.png
+[17:42:35] [Server thread/INFO] (Minecraft) ReadyJourney011 has completed the challenge [Rust Never Sleeps]
+[17:42:35] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has completed the challenge [Rust Never Sleeps]
+[17:42:36] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:42:38] [Server thread/INFO] (Minecraft) Villager VillagerEntity['Village Medic'/455, l='ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]', x=259.50, y=78.00, z=272.50] died, message: 'Village Medic suffocated in a wall'
+[17:42:38] [Render thread/INFO] (Minecraft) Villager VillagerEntity['Village Medic'/455, l='ClientLevel', x=259.50, y=78.00, z=272.50] died, message: 'Village Medic died'
+[17:42:39] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS beacon_full Build its complete rusty-iron pyramid, pay Netherite in the native menu, and wait for real beacon ticks.
+[17:42:39] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:42:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:42:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:42:39] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:42:40] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS beacon_full rust-and-ruin-plain-adv-beacon_full.png
+[17:42:45] [Server thread/INFO] (Minecraft) ReadyJourney011 discovered that rusty nails come back down
+[17:42:45] [Server thread/INFO] (Minecraft) ReadyJourney011 has completed the challenge [Why did I do that?]
+[17:42:45] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 discovered that rusty nails come back down
+[17:42:45] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has completed the challenge [Why did I do that?]
+[17:42:45] [Render thread/INFO] (Minecraft) Loaded 137 advancements
+[17:42:45] [Server thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_SERVER_PASS why_did_i_do_that Throw a rusty nail upward and catch its returning real projectile with a one-health test player.
+[17:42:46] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:42:46] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:42:46] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:42:46] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:42:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_PASS why_did_i_do_that rust-and-ruin-plain-adv-why_did_i_do_that.png
+[17:42:48] [Render thread/INFO] (Minecraft) Loaded 148 advancements
+[17:42:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_FORGE_VIEW station
+[17:42:52] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Stone Age]
+[17:42:52] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Stone Age]
+[17:42:52] [Render thread/INFO] (Minecraft) Loaded 163 advancements
+[17:42:53] [Render thread/INFO] (tetanusmod) GRAPHICAL_FORGE_VIEW full-inventory-preview
+[17:42:56] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Forged in Infection]
+[17:42:56] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Forged in Infection]
+[17:42:56] [Render thread/INFO] (Minecraft) Loaded 164 advancements
+[17:42:57] [Render thread/INFO] (tetanusmod) GRAPHICAL_FORGE_VIEW batch-crafted
+[17:43:03] [Render thread/INFO] (tetanusmod) GRAPHICAL_FORGE_VIEW close-preview
+[17:43:05] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [The End?]
+[17:43:05] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [The End?]
+[17:43:05] [Render thread/INFO] (Minecraft) Loaded 173 advancements
+[17:43:17] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW mixed-four-crystals
+[17:43:19] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW mixed-preparing_to_summon_pillars
+[17:43:21] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW mixed-summoning_pillars
+[17:43:41] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW mixed-summoning_dragon
+[17:43:46] [Server thread/INFO] (Minecraft) ReadyJourney011 has reached the goal [The End... Again...]
+[17:43:46] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has reached the goal [The End... Again...]
+[17:43:46] [Render thread/INFO] (Minecraft) Loaded 173 advancements
+[17:43:46] [Server thread/INFO] (tetanusmod) GRAPHICAL_PILLAR_CRYSTALS specialRitual=false total=10 special=0
+[17:43:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW mixed-normal-dragon-200hp
+[17:43:58] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW special-four-crystals
+[17:44:01] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW special-preparing_to_summon_pillars
+[17:44:03] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW special-summoning_pillars
+[17:44:23] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW special-summoning_dragon
+[17:44:28] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Tetanus, Again?]
+[17:44:28] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Tetanus, Again?]
+[17:44:28] [Render thread/INFO] (Minecraft) Loaded 173 advancements
+[17:44:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_PILLAR_CRYSTALS specialRitual=true total=10 special=10
+[17:44:30] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW special-dragon-1100hp
+[17:44:33] [Server thread/INFO] (tetanusmod) GRAPHICAL_GRAB_ACTUAL_START fixtureY=127.394726644904 actualSuccessfulGrabY=127.34394817144579 heldTicks=0
+[17:44:34] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW native-mouth-carry
+[17:44:35] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW native-mouth-drop
+[17:44:53] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW native-contribution-at-least20
+[17:44:54] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [Free the End]
+[17:44:54] [Server thread/INFO] (Minecraft) Named entity EnderDragonEntity['Tetanized Ender Dragon'/653, l='ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]', x=0.04, y=135.54, z=-0.48] died: Tetanized Ender Dragon was slain by ReadyJourney011
+[17:44:54] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [Free the End]
+[17:44:54] [Render thread/INFO] (Minecraft) Loaded 174 advancements
+[17:45:04] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW native-dragon-death-animation
+[17:45:04] [Server thread/INFO] (Minecraft) ReadyJourney011 has completed the challenge [The End of Tetanus?]
+[17:45:04] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has completed the challenge [The End of Tetanus?]
+[17:45:04] [Render thread/INFO] (Minecraft) Loaded 174 advancements
+[17:45:05] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW native-dragon-defeated
+[17:45:09] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW earned-overload-sword-tooltip
+[17:45:11] [Render thread/INFO] (tetanusmod) GRAPHICAL_DRAGON_VIEW earned-tetanized-egg-placed
+[17:45:11] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:45:11] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:45:11] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:45:11] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:45:13] [Render thread/INFO] (Minecraft) Loaded 174 advancements
+[17:45:15] [Render thread/INFO] (Minecraft) Loaded 174 advancements
+[17:45:15] [Render thread/INFO] (Minecraft) Loaded 176 advancements
+[17:45:15] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_NATIVE_COMMAND execute in minecraft:the_nether run tp @s 0 90 0
+[17:45:15] [Server thread/INFO] (Minecraft) ReadyJourney011 has made the advancement [We Need to Go Deeper]
+[17:45:15] [Server thread/INFO] (Minecraft) [ReadyJourney011: Teleported ReadyJourney011 to 0.500000, 90.000000, 0.500000]
+[17:45:15] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:45:15] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:45:15] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:45:15] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:45:15] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyJourney011 has made the advancement [We Need to Go Deeper]
+[17:45:15] [Render thread/INFO] (Minecraft) [System] [CHAT] Teleported ReadyJourney011 to 0.500000, 90.000000, 0.500000
+[17:45:16] [Render thread/INFO] (Minecraft) Loaded 195 advancements
+[17:45:16] [Render thread/INFO] (Minecraft) Loaded 195 advancements
+[17:45:16] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_NATIVE_COMMAND execute in minecraft:the_end run tp @s 0 90 0
+[17:45:16] [Server thread/INFO] (Minecraft) [ReadyJourney011: Teleported ReadyJourney011 to 0.500000, 90.000000, 0.500000]
+[17:45:16] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:45:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:45:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:45:16] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:45:16] [Render thread/INFO] (Minecraft) [System] [CHAT] Teleported ReadyJourney011 to 0.500000, 90.000000, 0.500000
+[17:45:16] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_NATIVE_COMMAND execute in minecraft:overworld run tp @s 256.5 4.0 128.5
+[17:45:17] [Server thread/INFO] (Minecraft) [ReadyJourney011: Teleported ReadyJourney011 to 256.500000, 4.000000, 128.500000]
+[17:45:17] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:45:17] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:45:17] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:45:17] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:45:17] [Render thread/INFO] (Minecraft) [System] [CHAT] Teleported ReadyJourney011 to 256.500000, 4.000000, 128.500000
+[17:45:17] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW overview scale=2 applied=2.0
+[17:45:19] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW scrolled scale=2 applied=2.0
+[17:45:20] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW home scale=2 applied=2.0
+[17:45:21] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-story-root scale=2 applied=2.0
+[17:45:22] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-adventure-root scale=2 applied=2.0
+[17:45:23] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-husbandry-root scale=2 applied=2.0
+[17:45:24] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-nether-root scale=2 applied=2.0
+[17:45:25] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-end-root scale=2 applied=2.0
+[17:45:26] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW antitoxin scale=2 applied=2.0
+[17:45:27] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW beacon_full scale=2 applied=2.0
+[17:45:28] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW beacon_placed scale=2 applied=2.0
+[17:45:29] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW clean_bill_of_health scale=2 applied=2.0
+[17:45:30] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW clinic scale=2 applied=2.0
+[17:45:31] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW dragon_defeated scale=2 applied=2.0
+[17:45:32] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW dragon_summoned scale=2 applied=2.0
+[17:45:33] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW forge_crystal scale=2 applied=2.0
+[17:45:34] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW glove_protection scale=2 applied=2.0
+[17:45:35] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW infected scale=2 applied=2.0
+[17:45:36] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW iron_has_a_darker_side scale=2 applied=2.0
+[17:45:37] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW lockjaw_sonata scale=2 applied=2.0
+[17:45:38] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW medic scale=2 applied=2.0
+[17:45:40] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW nice_one scale=2 applied=2.0
+[17:45:41] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rabies scale=2 applied=2.0
+[17:45:42] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rabies_cured scale=2 applied=2.0
+[17:45:43] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW root scale=2 applied=2.0
+[17:45:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rust_arrows scale=2 applied=2.0
+[17:45:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_business scale=2 applied=2.0
+[17:45:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_guardian scale=2 applied=2.0
+[17:45:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_hook scale=2 applied=2.0
+[17:45:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW shield_protection scale=2 applied=2.0
+[17:45:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW spear scale=2 applied=2.0
+[17:45:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW strange_meat scale=2 applied=2.0
+[17:45:51] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW supply_run scale=2 applied=2.0
+[17:45:52] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW tetanized_mob scale=2 applied=2.0
+[17:45:53] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW trap_reset scale=2 applied=2.0
+[17:45:54] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vaccinated scale=2 applied=2.0
+[17:45:55] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW why_did_i_do_that scale=2 applied=2.0
+[17:45:56] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW why_did_i_eat_that scale=2 applied=2.0
+[17:45:57] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW overview scale=3 applied=3.0
+[17:45:58] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW scrolled scale=3 applied=3.0
+[17:46:00] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW home scale=3 applied=3.0
+[17:46:01] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-story-root scale=3 applied=3.0
+[17:46:02] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-adventure-root scale=3 applied=3.0
+[17:46:03] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-husbandry-root scale=3 applied=3.0
+[17:46:04] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-nether-root scale=3 applied=3.0
+[17:46:05] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-end-root scale=3 applied=3.0
+[17:46:06] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW antitoxin scale=3 applied=3.0
+[17:46:07] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW beacon_full scale=3 applied=3.0
+[17:46:08] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW beacon_placed scale=3 applied=3.0
+[17:46:09] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW clean_bill_of_health scale=3 applied=3.0
+[17:46:10] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW clinic scale=3 applied=3.0
+[17:46:11] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW dragon_defeated scale=3 applied=3.0
+[17:46:12] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW dragon_summoned scale=3 applied=3.0
+[17:46:13] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW forge_crystal scale=3 applied=3.0
+[17:46:14] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW glove_protection scale=3 applied=3.0
+[17:46:15] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW infected scale=3 applied=3.0
+[17:46:16] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW iron_has_a_darker_side scale=3 applied=3.0
+[17:46:17] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW lockjaw_sonata scale=3 applied=3.0
+[17:46:18] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW medic scale=3 applied=3.0
+[17:46:19] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW nice_one scale=3 applied=3.0
+[17:46:21] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rabies scale=3 applied=3.0
+[17:46:22] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rabies_cured scale=3 applied=3.0
+[17:46:23] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW root scale=3 applied=3.0
+[17:46:24] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rust_arrows scale=3 applied=3.0
+[17:46:25] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_business scale=3 applied=3.0
+[17:46:26] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_guardian scale=3 applied=3.0
+[17:46:27] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_hook scale=3 applied=3.0
+[17:46:28] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW shield_protection scale=3 applied=3.0
+[17:46:29] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW spear scale=3 applied=3.0
+[17:46:30] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW strange_meat scale=3 applied=3.0
+[17:46:31] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW supply_run scale=3 applied=3.0
+[17:46:32] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW tetanized_mob scale=3 applied=3.0
+[17:46:33] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW trap_reset scale=3 applied=3.0
+[17:46:34] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vaccinated scale=3 applied=3.0
+[17:46:35] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW why_did_i_do_that scale=3 applied=3.0
+[17:46:36] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW why_did_i_eat_that scale=3 applied=3.0
+[17:46:37] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW overview scale=4 applied=4.0
+[17:46:38] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW scrolled scale=4 applied=4.0
+[17:46:39] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW home scale=4 applied=4.0
+[17:46:41] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-story-root scale=4 applied=4.0
+[17:46:42] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-adventure-root scale=4 applied=4.0
+[17:46:43] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-husbandry-root scale=4 applied=4.0
+[17:46:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-nether-root scale=4 applied=4.0
+[17:46:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-end-root scale=4 applied=4.0
+[17:46:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW antitoxin scale=4 applied=4.0
+[17:46:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW beacon_full scale=4 applied=4.0
+[17:46:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW beacon_placed scale=4 applied=4.0
+[17:46:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW clean_bill_of_health scale=4 applied=4.0
+[17:46:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW clinic scale=4 applied=4.0
+[17:46:51] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW dragon_defeated scale=4 applied=4.0
+[17:46:52] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW dragon_summoned scale=4 applied=4.0
+[17:46:53] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW forge_crystal scale=4 applied=4.0
+[17:46:54] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW glove_protection scale=4 applied=4.0
+[17:46:55] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW infected scale=4 applied=4.0
+[17:46:56] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW iron_has_a_darker_side scale=4 applied=4.0
+[17:46:57] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW lockjaw_sonata scale=4 applied=4.0
+[17:46:58] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW medic scale=4 applied=4.0
+[17:46:59] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW nice_one scale=4 applied=4.0
+[17:47:00] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rabies scale=4 applied=4.0
+[17:47:02] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rabies_cured scale=4 applied=4.0
+[17:47:03] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW root scale=4 applied=4.0
+[17:47:04] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rust_arrows scale=4 applied=4.0
+[17:47:05] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_business scale=4 applied=4.0
+[17:47:06] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_guardian scale=4 applied=4.0
+[17:47:07] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_hook scale=4 applied=4.0
+[17:47:08] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW shield_protection scale=4 applied=4.0
+[17:47:09] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW spear scale=4 applied=4.0
+[17:47:10] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW strange_meat scale=4 applied=4.0
+[17:47:11] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW supply_run scale=4 applied=4.0
+[17:47:12] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW tetanized_mob scale=4 applied=4.0
+[17:47:13] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW trap_reset scale=4 applied=4.0
+[17:47:14] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vaccinated scale=4 applied=4.0
+[17:47:15] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW why_did_i_do_that scale=4 applied=4.0
+[17:47:16] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW why_did_i_eat_that scale=4 applied=4.0
+[17:47:17] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW overview scale=6 applied=6.0
+[17:47:18] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW scrolled scale=6 applied=6.0
+[17:47:19] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW home scale=6 applied=6.0
+[17:47:20] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-story-root scale=6 applied=6.0
+[17:47:22] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-adventure-root scale=6 applied=6.0
+[17:47:23] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-husbandry-root scale=6 applied=6.0
+[17:47:24] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-nether-root scale=6 applied=6.0
+[17:47:25] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vanilla-end-root scale=6 applied=6.0
+[17:47:26] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW antitoxin scale=6 applied=6.0
+[17:47:27] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW beacon_full scale=6 applied=6.0
+[17:47:28] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW beacon_placed scale=6 applied=6.0
+[17:47:29] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW clean_bill_of_health scale=6 applied=6.0
+[17:47:30] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW clinic scale=6 applied=6.0
+[17:47:31] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW dragon_defeated scale=6 applied=6.0
+[17:47:32] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW dragon_summoned scale=6 applied=6.0
+[17:47:33] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW forge_crystal scale=6 applied=6.0
+[17:47:34] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW glove_protection scale=6 applied=6.0
+[17:47:35] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW infected scale=6 applied=6.0
+[17:47:36] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW iron_has_a_darker_side scale=6 applied=6.0
+[17:47:37] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW lockjaw_sonata scale=6 applied=6.0
+[17:47:38] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW medic scale=6 applied=6.0
+[17:47:39] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW nice_one scale=6 applied=6.0
+[17:47:40] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rabies scale=6 applied=6.0
+[17:47:41] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rabies_cured scale=6 applied=6.0
+[17:47:43] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW root scale=6 applied=6.0
+[17:47:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rust_arrows scale=6 applied=6.0
+[17:47:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_business scale=6 applied=6.0
+[17:47:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_guardian scale=6 applied=6.0
+[17:47:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW rusty_hook scale=6 applied=6.0
+[17:47:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW shield_protection scale=6 applied=6.0
+[17:47:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW spear scale=6 applied=6.0
+[17:47:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW strange_meat scale=6 applied=6.0
+[17:47:51] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW supply_run scale=6 applied=6.0
+[17:47:52] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW tetanized_mob scale=6 applied=6.0
+[17:47:53] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW trap_reset scale=6 applied=6.0
+[17:47:54] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW vaccinated scale=6 applied=6.0
+[17:47:55] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW why_did_i_do_that scale=6 applied=6.0
+[17:47:56] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_VIEW why_did_i_eat_that scale=6 applied=6.0
+[17:47:57] [Render thread/INFO] (tetanusmod) GRAPHICAL_ADVANCEMENT_LAYOUT_PASS nodes=30 scales=[{RequestedGuiScale=2, NativeAppliedScale=2.0, NativeCapRespected=true, ScaledSize=[960, 720], NativeTabs=[minecraft:adventure/root, minecraft:end/root, minecraft:husbandry/root, minecraft:nether/root, minecraft:story/root, tetanusmod:root]}, {RequestedGuiScale=3, NativeAppliedScale=3.0, NativeCapRespected=true, ScaledSize=[640, 480], NativeTabs=[minecraft:adventure/root, minecraft:end/root, minecraft:husbandry/root, minecraft:nether/root, minecraft:story/root, tetanusmod:root]}, {RequestedGuiScale=4, NativeAppliedScale=4.0, NativeCapRespected=true, ScaledSize=[480, 360], NativeTabs=[minecraft:adventure/root, minecraft:end/root, minecraft:husbandry/root, minecraft:nether/root, minecraft:story/root, tetanusmod:root]}, {RequestedGuiScale=6, NativeAppliedScale=6.0, NativeCapRespected=true, ScaledSize=[320, 240], NativeTabs=[minecraft:adventure/root, minecraft:end/root, minecraft:husbandry/root, minecraft:nether/root, minecraft:story/root, tetanusmod:root]}] preserved=119 captures=152
+[17:47:59] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:barbed_wire type=TABLE count=2 native-network-output=true
+[17:48:03] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:bear_trap type=TABLE count=1 native-network-output=true
+[17:48:06] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:bent_nail type=TABLE count=1 native-network-output=true
+[17:48:09] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:caltrops type=TABLE count=4 native-network-output=true
+[17:48:14] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_infected_meat_campfire_cooking type=CAMPFIRE count=1 native-network-output=true
+[17:48:18] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_infected_meat_smelting type=FURNACE count=1 native-network-output=true
+[17:48:23] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_infected_meat_smoking type=SMOKER count=1 native-network-output=true
+[17:48:28] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_rabid_meat_campfire_cooking type=CAMPFIRE count=1 native-network-output=true
+[17:48:32] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_rabid_meat_smelting type=FURNACE count=1 native-network-output=true
+[17:48:36] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_rabid_meat_smoking type=SMOKER count=1 native-network-output=true
+[17:48:40] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:field_guide type=TABLE count=1 native-network-output=true
+[17:48:43] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:iron_spear type=TABLE count=1 native-network-output=true
+[17:48:46] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:medic_cabinet type=TABLE count=1 native-network-output=true
+[17:48:49] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:metal_pipe type=TABLE count=1 native-network-output=true
+[17:48:53] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:nail type=TABLE count=4 native-network-output=true
+[17:48:56] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:prescription_writer type=TABLE count=1 native-network-output=true
+[17:48:59] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:protective_gloves type=TABLE count=1 native-network-output=true
+[17:49:02] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:rabies_vaccine type=TABLE count=1 native-network-output=true
+[17:49:06] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:rebar type=TABLE count=1 native-network-output=true
+[17:49:09] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:rusted_iron_block type=TABLE count=1 native-network-output=true
+[17:49:12] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:rusty_hookline type=TABLE count=1 native-network-output=true
+[17:49:15] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:sharpened_rebar type=TABLE count=1 native-network-output=true
+[17:49:19] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanized_arrow type=SMITHING count=64 native-network-output=true
+[17:49:22] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanized_beacon type=TABLE count=1 native-network-output=true
+[17:49:25] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanized_soul_sand type=TABLE count=1 native-network-output=true
+[17:49:28] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanus_antitoxin type=TABLE count=1 native-network-output=true
+[17:49:32] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanus_vaccine type=TABLE count=1 native-network-output=true
+[17:49:35] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanus_wither_forging_table type=TABLE count=1 native-network-output=true
+[17:49:38] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:trap_reset_tool type=TABLE count=1 native-network-output=true
+[17:49:41] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:veterinary_kit type=TABLE count=1 native-network-output=true
+[17:49:45] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:wire_brush type=TABLE count=1 native-network-output=true
+[17:49:46] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_ALL_PASS ordinary_recipes=31 deferred_station_recipes=[tetanusmod:medical_prescription, tetanusmod:tetanized_end_crystal]
+[17:49:46] [Render thread/INFO] (tetanusmod) PASS: focused graphical profile=expansion-journey; actual native End rituals, contributed damage, repeat boss rewards and declared advancement scope
+[17:49:46] [Render thread/INFO] (Minecraft) Stopping!
+[17:49:46] [Server thread/INFO] (Minecraft) ReadyJourney011 lost connection: Disconnected
+[17:49:46] [Server thread/INFO] (Minecraft) ReadyJourney011 left the game
+[17:49:46] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[17:49:46] [Server thread/INFO] (Minecraft) Stopping server
+[17:49:46] [Server thread/INFO] (Minecraft) Saving players
+[17:49:46] [Server thread/INFO] (Minecraft) Saving worlds
+[17:49:46] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:overworld
+[17:49:46] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_end
+[17:49:46] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-advancements-20261114]'/minecraft:the_nether
+[17:49:46] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (ready-advancements-20261114): All chunks are saved
+[17:49:46] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[17:49:46] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[17:49:46] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+
+BUILD SUCCESSFUL in 9m 18s
+9 actionable tasks: 1 executed, 8 up-to-date
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if 0 EQU 0 goto mainEnd 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "Windows_NT" == "Windows_NT" endlocal

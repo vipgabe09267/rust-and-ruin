@@ -150,3 +150,11 @@ Write-Host 'Generated item textures, status icon, trap models, localization, rec
 & (Join-Path $PSScriptRoot 'Import-Art.ps1')
 
 & (Join-Path $PSScriptRoot 'Generate-Expansion.ps1')
+
+& (Join-Path $PSScriptRoot 'Generate-Beacon-Upgrade.ps1')
+
+& (Join-Path $PSScriptRoot 'Generate-Dragon-Content.ps1')
+
+& (Join-Path $PSScriptRoot 'Generate-Dragon-Audio.ps1')
+
+& (Join-Path $PSScriptRoot 'Generate-Medical-Progression.ps1')

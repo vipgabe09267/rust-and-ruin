@@ -1,0 +1,160 @@
+{
+  "Result": "PASS",
+  "ActualConnectedPlayer": "9e45b913-e5b4-34fc-b738-b0fdc772627d",
+  "NativeClientNetworkEffectCommands": 4,
+  "ExpectedInfectionPlayEvents": 1,
+  "ObservedInfectionPlayEvents": 1,
+  "ObservedMedicWorkEvents": 1,
+  "Receipts": [
+    {
+      "Action": "far32-new-command-infection",
+      "ExpectedNewInfectionEvents": 0,
+      "ObservedNewInfectionEvents": 0,
+      "ObservedTotalInfectionEvents": 0,
+      "ObservedTotalMedicWorkEvents": 0,
+      "Listener": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 256.5
+      },
+      "CowPosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "DistanceToCow": 32.0,
+      "LastVoiceVolume": 0.0,
+      "VoiceRelative": false
+    },
+    {
+      "Action": "approach-already-infected-to6",
+      "ExpectedNewInfectionEvents": 0,
+      "ObservedNewInfectionEvents": 0,
+      "ObservedTotalInfectionEvents": 0,
+      "ObservedTotalMedicWorkEvents": 0,
+      "Listener": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 282.5
+      },
+      "CowPosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "DistanceToCow": 6.0,
+      "LastVoiceVolume": 0.0,
+      "VoiceRelative": false
+    },
+    {
+      "Action": "fresh-near6-command-single-positional-voice",
+      "ExpectedNewInfectionEvents": 1,
+      "ObservedNewInfectionEvents": 1,
+      "ObservedTotalInfectionEvents": 1,
+      "ObservedTotalMedicWorkEvents": 0,
+      "Listener": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 282.5
+      },
+      "CowPosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "DistanceToCow": 6.0,
+      "LastVoicePosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "LastVoiceVolume": 1.0,
+      "VoiceRelative": false,
+      "VoiceAttenuation": "LINEAR"
+    },
+    {
+      "Action": "later-command-refresh-no-extra-voice",
+      "ExpectedNewInfectionEvents": 0,
+      "ObservedNewInfectionEvents": 0,
+      "ObservedTotalInfectionEvents": 1,
+      "ObservedTotalMedicWorkEvents": 0,
+      "Listener": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 282.5
+      },
+      "CowPosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "DistanceToCow": 6.0,
+      "LastVoicePosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "LastVoiceVolume": 1.0,
+      "VoiceRelative": false,
+      "VoiceAttenuation": "LINEAR"
+    },
+    {
+      "Action": "near-procedural-spawn-client-rusted-flag-no-voice",
+      "ExpectedNewInfectionEvents": 0,
+      "ObservedNewInfectionEvents": 0,
+      "ObservedTotalInfectionEvents": 1,
+      "ObservedTotalMedicWorkEvents": 0,
+      "Listener": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 282.5
+      },
+      "CowPosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "DistanceToCow": 6.0,
+      "LastVoicePosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "LastVoiceVolume": 1.0,
+      "VoiceRelative": false,
+      "VoiceAttenuation": "LINEAR"
+    },
+    {
+      "Action": "native-medic-work-single-custom-client-event",
+      "ExpectedNewInfectionEvents": 0,
+      "ObservedNewInfectionEvents": 0,
+      "ObservedTotalInfectionEvents": 1,
+      "ObservedTotalMedicWorkEvents": 1,
+      "LastMedicWorkPosition": {
+        "z": 124.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "Listener": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 282.5
+      },
+      "CowPosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "DistanceToCow": 6.0,
+      "LastVoicePosition": {
+        "z": 128.5,
+        "y": 4.0,
+        "x": 288.5
+      },
+      "LastVoiceVolume": 1.0,
+      "VoiceRelative": false,
+      "VoiceAttenuation": "LINEAR"
+    }
+  ],
+  "PlayerConfigProbeStateRestored": true
+}

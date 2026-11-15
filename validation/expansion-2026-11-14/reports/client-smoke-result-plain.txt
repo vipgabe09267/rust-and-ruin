@@ -1,0 +1,1 @@
+PASS: focused graphical profile=layout-crafting; all30 displayed advancements, native vanilla tabs, four GUI scales and actual ordinary recipe transactions

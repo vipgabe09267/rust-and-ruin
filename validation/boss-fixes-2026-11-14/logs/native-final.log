@@ -1,0 +1,281 @@
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "Windows_NT" == "Windows_NT" setlocal
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "DIRNAME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" == "" set DIRNAME=. 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_BASE_NAME=gradlew" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>for %i in ("C:\Users\gwilliamscrypto\Documents\Rust & Ruin\") do set "APP_HOME=%~fi" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if defined JAVA_HOME goto findJavaFromJavaHome 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_EXE=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if exist "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" goto execute 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "CLASSPATH=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>"C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" "-Xmx64m" "-Xms64m"   "-Dorg.gradle.appname=gradlew" -classpath "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain --offline build runGameTest --console plain 
+
+> Configure project :
+Fabric Loom: 1.10.5
+
+> Task :compileJava
+gradlew.bat : Note: Some input files use or override a deprecated API.
+At line:6 char:96
++ ... .0.20.1+1'; & .\gradlew.bat --offline build runGameTest --console pla ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Note: Some inpu...deprecated API.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources UP-TO-DATE
+> Task :classes
+> Task :jar
+
+> Task :compileGametestJava
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :compileSmoketestJava
+Note: C:\Users\gwilliamscrypto\Documents\Rust & Ruin\src\smoketest\java\com\tetanusmod\test\ClientSmokeTest.java uses 
+or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :compileTestJava NO-SOURCE
+> Task :processIncludeJars UP-TO-DATE
+> Task :sourcesJar
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :validateAccessWidener NO-SOURCE
+
+> Task :verifyResources
+Validated JSON, item/entity/HUD textures, models, recipe outputs and OGG audio.
+
+> Task :check
+> Task :generateLog4jConfig UP-TO-DATE
+> Task :generateRemapClasspath UP-TO-DATE
+> Task :generateDLIConfig UP-TO-DATE
+> Task :configureLaunch UP-TO-DATE
+> Task :processGametestResources UP-TO-DATE
+> Task :gametestClasses
+
+> Task :runGameTest
+[16:50:39] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.20.1 with Fabric Loader 0.16.14
+[16:50:39] [main/INFO] (FabricLoader) Loading 47 mods:
+	- fabric-api 0.92.6+1.20.1
+	- fabric-api-base 0.4.32+1802ada577
+	- fabric-api-lookup-api-v1 1.6.37+1802ada577
+	- fabric-biome-api-v1 13.0.14+1802ada577
+	- fabric-block-api-v1 1.0.12+1802ada577
+	- fabric-block-view-api-v2 1.0.3+924f046a77
+	- fabric-command-api-v1 1.2.35+f71b366f77
+	- fabric-command-api-v2 2.2.14+1802ada577
+	- fabric-commands-v0 0.2.52+df3654b377
+	- fabric-containers-v0 0.1.67+df3654b377
+	- fabric-content-registries-v0 4.0.13+1802ada577
+	- fabric-convention-tags-v1 1.5.6+1802ada577
+	- fabric-crash-report-info-v1 0.2.20+1802ada577
+	- fabric-data-attachment-api-v1 1.0.2+de0fd6d177
+	- fabric-data-generation-api-v1 12.3.7+1802ada577
+	- fabric-dimensions-v1 2.1.55+1802ada577
+	- fabric-entity-events-v1 1.6.1+1c78457f77
+	- fabric-events-interaction-v0 0.6.5+13a40c6677
+	- fabric-events-lifecycle-v0 0.2.64+df3654b377
+	- fabric-game-rule-api-v1 1.0.41+1802ada577
+	- fabric-gametest-api-v1 1.2.15+1802ada577
+	- fabric-item-api-v1 2.1.29+1802ada577
+	- fabric-item-group-api-v1 4.0.14+1802ada577
+	- fabric-lifecycle-events-v1 2.2.23+1802ada577
+	- fabric-loot-api-v2 1.2.3+1802ada577
+	- fabric-loot-tables-v1 1.1.47+9e7660c677
+	- fabric-message-api-v1 5.1.10+1802ada577
+	- fabric-mining-level-api-v1 2.1.52+1802ada577
+	- fabric-networking-api-v1 1.3.14+a158aa0477
+	- fabric-networking-v0 0.3.54+df3654b377
+	- fabric-object-builder-api-v1 11.1.5+e35120df77
+	- fabric-particles-v1 1.1.3+1802ada577
+	- fabric-recipe-api-v1 1.0.24+1802ada577
+	- fabric-registry-sync-v0 2.3.6+1802ada577
+	- fabric-rendering-data-attachment-v1 0.3.39+92a0d36777
+	- fabric-rendering-fluids-v1 3.0.29+1802ada577
+	- fabric-resource-conditions-api-v1 2.3.9+1802ada577
+	- fabric-resource-loader-v0 0.11.12+fb82e9d777
+	- fabric-screen-handler-api-v1 1.3.33+1802ada577
+	- fabric-transfer-api-v1 3.3.6+8dd72ea377
+	- fabric-transitive-access-wideners-v1 4.3.2+1802ada577
+	- fabricloader 0.16.14
+	- java 17
+	- minecraft 1.20.1
+	- mixinextras 0.4.1
+	- tetanusmod 0.1.1-beta
+	- tetanusmod_tests 1.0.0
+[16:50:40] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/gwilliamscrypto/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.5+mixin.0.8.7/22f9eb729e216a091673a574a5906dc1b9027fb3/sponge-mixin-0.15.5+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
+[16:50:40] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[16:50:40] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_16
+[16:50:40] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[16:50:42] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[16:50:58] [main/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[16:50:58] [main/INFO] (FabricGameTestHelper) Starting test server
+[16:51:01] [main/INFO] (Minecraft) Loaded 9 recipes
+[16:51:02] [main/INFO] (Minecraft) Loaded 1304 advancements
+[16:51:02] [main/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 2.711 ms
+[16:51:04] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[16:51:04] [Server thread/INFO] (Minecraft) Preparing spawn area: 0%
+[16:51:05] [Server thread/INFO] (Minecraft) Preparing spawn area: 0%
+
+> Task :remapJar
+> Task :remapSourcesJar
+
+> Task :runGameTest
+[16:51:06] [Worker-Main-9/INFO] (Minecraft) Preparing spawn area: 83%
+[16:51:06] [Worker-Main-15/INFO] (Minecraft) Preparing spawn area: 83%
+[16:51:06] [Server thread/INFO] (Minecraft) Time elapsed: 1957 ms
+[16:51:06] [Server thread/INFO] (Minecraft) Started game test server
+[16:51:08] [Server thread/INFO] (Minecraft) Running test batch 'beacon_upgrade:1' (7 tests)...
+[16:51:09] [Server thread/INFO] (Minecraft) 416 tests are now running!
+[16:51:09] [Server thread/WARN] (Minecraft) Can't keep up! Is the server overloaded? Running 2702ms or 54 ticks behind
+[16:51:09] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 315 at (2.5, -60.0, -4.5)
+[16:51:09] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[16:51:10] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 320 at (-2.5, -60.0, -8.5)
+[16:51:10] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[16:51:10] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Rust Never Sleeps]
+[16:51:10] [Server thread/INFO] (Minecraft) Running test batch 'dragon_patch:1' (7 tests)...
+[16:51:11] [Server thread/INFO] (Minecraft) pitched-grab[local] logged in with entity id 628 at (-9.5, -60.0, -1.5)
+[16:51:11] [Server thread/INFO] (Minecraft) pitched-grab joined the game
+[16:51:11] [Server thread/INFO] (Minecraft) [+++++++++__+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:12] [Server thread/INFO] (Minecraft) [+++++++++__+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:12] [Server thread/INFO] (Minecraft) [+++++++++__+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:13] [Server thread/INFO] (Minecraft) [+++++++++__+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:14] [Server thread/INFO] (Minecraft) [+++++++++__+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:14] [Server thread/INFO] (Minecraft) [++++++++++_+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:15] [Server thread/INFO] (Minecraft) [++++++++++_+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:15] [Server thread/INFO] (Minecraft) [++++++++++_+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:15] [Server thread/INFO] (Minecraft) [++++++++++_+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:15] [Server thread/INFO] (Minecraft) [++++++++++_+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:16] [Server thread/INFO] (Minecraft) [++++++++++_+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:16] [Server thread/INFO] (Minecraft) [++++++++++_+++                                                                                                                                                                                                                                                                                                                                                                                                                  ]
+[16:51:16] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_minion_safety:1' (1 tests)...
+[16:51:16] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_minion_expiry:1' (1 tests)...
+[16:51:17] [Server thread/INFO] (Minecraft) Running test batch 'variant_egg_body_clearance:1' (1 tests)...
+[16:51:17] [Server thread/INFO] (Minecraft) Running test batch 'enderman_nail_regression:1' (1 tests)...
+[16:51:17] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_infection:1' (1 tests)...
+[16:51:17] [Server thread/INFO] (Minecraft) Running test batch 'native_lighting_predicates:1' (1 tests)...
+[16:51:17] [Server thread/INFO] (Minecraft) [+++++++++++++++++++                                                                                                                                                                                                                                                                                                                                                                                                             ]
+[16:51:17] [Server thread/INFO] (Minecraft) [+++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                                            ]
+[16:51:17] [Server thread/INFO] (Minecraft) [+++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                                            ]
+[16:51:18] [Server thread/INFO] (Minecraft) [+++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                                            ]
+[16:51:18] [Server thread/INFO] (Minecraft) [+++++++++++++++++++_                                                                                                                                                                                                                                                                                                                                                                                                            ]
+[16:51:18] [Server thread/INFO] (Minecraft) Running test batch 'wither_revision_no_gear_theft:1' (1 tests)...
+[16:51:18] [Server thread/INFO] (Minecraft) Running test batch 'release_acquisition:1' (10 tests)...
+[16:51:18] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 876 at (-0.5, -60.0, 0.5)
+[16:51:18] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 1105 at (0.5, -60.0, 9.5)
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [What a Deal!]
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Doctor's Orders]
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 1117 at (-5.5, -60.0, -1.5)
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [What a Deal!]
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Doctor's Orders]
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 1122 at (-2.5, -60.0, -5.5)
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player has made the advancement [Monster Hunter]
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1123, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player has completed the challenge [Tetanus. Nice One!]
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1132, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1141, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1149, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1157, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1165, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1173, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1179, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1187, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1196, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1205, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1214, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1221, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1228, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1236, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1243, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1252, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1261, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1268, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1276, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1283, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1291, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1299, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1307, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1315, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1322, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1328, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1334, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1342, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1351, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1357, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/1364, l='ServerLevel[Test Level]', x=712.00, y=-54.00, z=4.00] died: Tetanized Wither was slain by test-mock-player
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 1372 at (2.5, -60.0, -8.5)
+[16:51:19] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[16:51:20] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++_+++++                                                                                                                                                                                                                                                                                                                                                                                                 ]
+[16:51:20] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++_+++++                                                                                                                                                                                                                                                                                                                                                                                                 ]
+[16:51:20] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++_+++++                                                                                                                                                                                                                                                                                                                                                                                                 ]
+[16:51:20] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++_+++++                                                                                                                                                                                                                                                                                                                                                                                                 ]
+[16:51:20] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++_+++++                                                                                                                                                                                                                                                                                                                                                                                                 ]
+[16:51:20] [Server thread/INFO] (Minecraft) [+++++++++++++++++++++++++_+++++                                                                                                                                                                                                                                                                                                                                                                                                 ]
+[16:51:20] [Server thread/INFO] (Minecraft) test-mock-player[local] logged in with entity id 1378 at (-1.5, -60.0, 9.5)
+[16:51:21] [Server thread/INFO] (Minecraft) test-mock-player joined the game
+[16:51:21] [Server thread/INFO] (Minecraft) Running test batch 'clinic_discovery:1' (2 tests)...
+[16:51:26] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=savanna regionRing=2 checkedPlans=2 start=[34, -66] origin=BlockPos{x=592, y=61, z=-1106}
+[16:51:46] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=snowy regionRing=6 checkedPlans=9 start=[-54, 222] origin=BlockPos{x=-847, y=62, z=3573}
+[16:51:47] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=desert regionRing=6 checkedPlans=10 start=[24, -200] origin=BlockPos{x=399, y=70, z=-3211}
+[16:51:51] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=plains regionRing=6 checkedPlans=11 start=[106, 226] origin=BlockPos{x=1632, y=117, z=3614}
+[16:51:54] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_PLAN seed=0 theme=taiga regionRing=7 checkedPlans=12 start=[-45, 260] origin=BlockPos{x=-680, y=77, z=4110}
+[16:52:06] [Server thread/INFO] (Minecraft) clinic-observer[local] logged in with entity id 1397 at (-5.5, 63.0, 3.5)
+[16:52:06] [Server thread/INFO] (Minecraft) clinic-observer joined the game
+[16:52:06] [Server thread/INFO] (RustRuinClinicDiscovery) NATIVE_CLINIC_FULL seed=0 theme=plains start=[106, 226] origin=BlockPos{x=1632, y=117, z=3614} box=BlockBox{minX=1632, minY=117, minZ=3614, maxX=1640, maxY=127, maxZ=3626}
+
+> Task :runGameTest FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/gwilliamscrypto/Documents/Rust%20&%20Ruin/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':runGameTest'.
+> Process 'command 'C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1\bin\java.exe'' finished 
+with non-zero exit value -1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 55s
+15 actionable tasks: 9 executed, 6 up-to-date
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if 1 EQU 0 goto mainEnd 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>rem the _cmd.exe /c_ return code! 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set EXIT_CODE=1 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if 1 EQU 0 set EXIT_CODE=1 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if not "" == "" exit 1 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>exit /b 1 

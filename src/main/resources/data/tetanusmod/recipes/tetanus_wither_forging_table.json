@@ -1,0 +1,29 @@
+{
+    "key":  {
+                "E":  {
+                          "item":  "minecraft:ender_eye"
+                      },
+                "S":  {
+                          "item":  "tetanusmod:tetanized_wither_star"
+                      },
+                "A":  {
+                          "item":  "minecraft:anvil"
+                      },
+                "B":  {
+                          "item":  "minecraft:blaze_powder"
+                      },
+                "N":  {
+                          "item":  "minecraft:netherite_block"
+                      }
+            },
+    "category":  "misc",
+    "pattern":  [
+                    "NEN",
+                    "BSB",
+                    "NAN"
+                ],
+    "result":  {
+                   "item":  "tetanusmod:tetanus_wither_forging_table"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

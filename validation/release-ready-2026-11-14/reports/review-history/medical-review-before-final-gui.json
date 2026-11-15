@@ -1,0 +1,591 @@
+{
+    "Reviewer":  "/root/medical_progression",
+    "RecordedUtc":  "2026-11-14T23:39:00.0349843Z",
+    "Repository":  "C:\\Users\\gwilliamscrypto\\Documents\\Rust \u0026 Ruin",
+    "Purpose":  "Independent bounded final medical/progression/worldgen/Survival-flow source review, not an assertion of reading the entire repository",
+    "Verdict":  "No additional confirmed production release blocker found in this independent medical/worldgen/workstation/Survival-flow scope. The parent subsequently confirmed the final complete native rerun passed 423/423. Final visible-client matrix completion is tracked in the root readiness receipt.",
+    "ArtifactObserved":  {
+                             "Path":  "build/libs/rust-and-ruin-0.1.1-beta.jar",
+                             "Bytes":  3557756,
+                             "SHA256":  "E83241B111FEB09F36DF8601247174CA54142372F3DFD4363F0DDA03070608FC",
+                             "Note":  "Observed parent-rebuilt artifact containing the separately owned final-shot CombatInfection fix. This manifest hashes current reviewed source separately; use the root final receipt for the release artifact identity."
+                         },
+    "ScopeFiles":  [
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/expansion/MedicTradeOffers.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-152",
+                           "Lines":  152,
+                           "Bytes":  12742,
+                           "SHA256":  "41A05262AA49CF29E960D8F8119DD767C68133B72507E5203208E23443492D03"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/mixin/MedicTradesMixin.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-44",
+                           "Lines":  44,
+                           "Bytes":  3343,
+                           "SHA256":  "3072743FC6AEF97C1B66C172F353D3068F4E826E52F40BD204BFE2EBCD3D2727"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/expansion/MedicSupplies.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-69",
+                           "Lines":  69,
+                           "Bytes":  3865,
+                           "SHA256":  "9A102AE897C7476AF9D1C84FAAD197D42C04AB104CE9365B203266352993656D"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/medical/PrescriptionWriterScreenHandler.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-66",
+                           "Lines":  66,
+                           "Bytes":  4573,
+                           "SHA256":  "DDFB980AA06A0F842004392B8C8EB00A3293D2DDCB2F02C99DE0610CDCEF4938"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/medical/PrescriptionWriterBlock.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-34",
+                           "Lines":  34,
+                           "Bytes":  2294,
+                           "SHA256":  "2489AE96F58A724A2E62132565BEAEF03143429A33B95D56CCD9F8497A9BF1D4"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/medical/PrescriptionWritingRecipe.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-38",
+                           "Lines":  38,
+                           "Bytes":  2852,
+                           "SHA256":  "9870B781EC72C2B1D3CCC513F993C610E950CFEBA458CC2E4FF4574F1CD6F2E1"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/dragon/WitherForgingScreenHandler.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-43",
+                           "Lines":  43,
+                           "Bytes":  4074,
+                           "SHA256":  "56181C65507DA28F129D000B25E6868DBBEF7E13DF7DE2901CD17E78D1E9DED2"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/dragon/WitherForgingBlock.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-17",
+                           "Lines":  17,
+                           "Bytes":  964,
+                           "SHA256":  "DE79956693B02885735F21974E48B839BA964653E60C5872A9924506E926D65A"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/dragon/CrystalForgingRecipe.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-31",
+                           "Lines":  31,
+                           "Bytes":  2135,
+                           "SHA256":  "9FAA38BCDCC3870BFADCDFEA823CAEECF548C53DD499E96C7A0489316F22B947"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/world/ClinicStructure.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-72",
+                           "Lines":  72,
+                           "Bytes":  4418,
+                           "SHA256":  "45EDBEBE2ADA1DA45B1D37ABCBF7B42EAB8CB7973FA8CD15E298B32DD8B3ED1A"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/world/MedicStructurePiece.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-63",
+                           "Lines":  63,
+                           "Bytes":  4248,
+                           "SHA256":  "F08757F5377E534209901C1C817D9D21B01A5469EF5E2E969C626A87C880E20D"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/world/MedicStructures.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-13",
+                           "Lines":  13,
+                           "Bytes":  800,
+                           "SHA256":  "4A097392D56E9099CA26367A268D693E00EA156D1808F3E345FCE687A023FC2D"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/expansion/MedicVillage.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-28",
+                           "Lines":  28,
+                           "Bytes":  2915,
+                           "SHA256":  "2BB953E51B4A26B9666F18538EE84EC0FD82EF7D3F6423302E71FAFEF9F67BFD"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/world/CaveMedicStructure.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-187",
+                           "Lines":  187,
+                           "Bytes":  10212,
+                           "SHA256":  "D0715F3E4494674985185421265CF40DE19BAC3E2A2A9530C0806957359353DE"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/expansion/MedicineCabinetBlock.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-50",
+                           "Lines":  50,
+                           "Bytes":  3778,
+                           "SHA256":  "3690F12EFC0F03C7A950D2E305A570FA65A8F4657F9673B89DC8B363607E4836"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/mixin/MedicCampKnownShapePlacementMixin.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-29",
+                           "Lines":  29,
+                           "Bytes":  1589,
+                           "SHA256":  "B2DC71665808AB94F4FD5F089727C098904A72F377DD56435488C3BDC36F8165"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/mixin/CabinetPathfindingMixin.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-18",
+                           "Lines":  18,
+                           "Bytes":  844,
+                           "SHA256":  "1BBEFCDA0245B07F44599E4C14255E81BDA85EB494D2036AD2CC40907DFDA8C2"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/item/AntitoxinItem.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-62",
+                           "Lines":  62,
+                           "Bytes":  3543,
+                           "SHA256":  "B75A17AE789786D41BA0CC14D71933DB2EF775F49DC4EC2B78C251E638BF833D"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/item/MedicineConsumption.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-18",
+                           "Lines":  18,
+                           "Bytes":  685,
+                           "SHA256":  "70ABDE43B06098078C19CA122B9E0A908661A7E7FAD8C136BBAFFA25FC35F58F"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/expansion/BearTrapBlock.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-53",
+                           "Lines":  53,
+                           "Bytes":  2883,
+                           "SHA256":  "E6E18D25A7813B128DB1B3EB3880E2DAAC893D08846E22BE9242FB4024917FFA"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/expansion/BearTrapBlockEntity.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-134",
+                           "Lines":  134,
+                           "Bytes":  7784,
+                           "SHA256":  "77644628E20A14CF1533E31B4740F39F0367EEEE7E86819CEA5A11A28567B9D5"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/expansion/TrapResetToolItem.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-62",
+                           "Lines":  62,
+                           "Bytes":  3440,
+                           "SHA256":  "69817F8A996F9AFAF9FC8DA6E24B2F389599B480E31EB8A63092C4FE1A1A5A87"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/block/CaltropsBlock.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-58",
+                           "Lines":  58,
+                           "Bytes":  3550,
+                           "SHA256":  "1D1F8ABC7E3A8E62FCBB503B5009C4F6AAE4A3975464EC93594ED2AFBF619D7B"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/block/CaltropsBlockEntity.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-70",
+                           "Lines":  70,
+                           "Bytes":  3588,
+                           "SHA256":  "058D05E21628D94433C1F0FE5F5B8338FDC30B7125740141C252AE30FB6A3249"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/effect/InfectionProtection.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-45",
+                           "Lines":  45,
+                           "Bytes":  3359,
+                           "SHA256":  "5EF9BDDD43ACE4AA288DAB68F0D239E05CEFFB0B9390DFDD17EBD4A5A6005BA0"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/expansion/CombatInfection.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-71",
+                           "Lines":  71,
+                           "Bytes":  4519,
+                           "SHA256":  "650B575A3E55DD9FEEC88B856115022D8096BAC50E4B064943E132046A0A62BE"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/mixin/ExpansionLivingMixin.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-43",
+                           "Lines":  43,
+                           "Bytes":  4552,
+                           "SHA256":  "2D0C2779F2A8F65B33309BA48CEB546732476FA6C4391A80C3615C6FCEFE8966"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/registry/ModBlocks.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-47",
+                           "Lines":  47,
+                           "Bytes":  2630,
+                           "SHA256":  "977190CA4CDBDA6E5CA9FFD90FA8A136ABD6F16B17241A4996496CE64BB8A74B"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/mixin/LivingEntityMixin.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-151",
+                           "Lines":  151,
+                           "Bytes":  9971,
+                           "SHA256":  "F55FBD11B51DBE550D2F529EEFCA2B193DC6220CEE73996A29346669948DDBC3"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/mixin/MilkBucketItemMixin.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-21",
+                           "Lines":  21,
+                           "Bytes":  1075,
+                           "SHA256":  "C98666AAD9DF7DFF45126F7133A2FE031F4AC7477F62FE5CFFFC3337F634CBBD"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/effect/Infection.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-118",
+                           "Lines":  118,
+                           "Bytes":  7166,
+                           "SHA256":  "8EAF6DDB89E848EF3B68F1720758117E6EC4B5733CE422E170910F3DD10EF4A5"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/effect/TetanusEffect.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-87",
+                           "Lines":  87,
+                           "Bytes":  5008,
+                           "SHA256":  "863F1844411D9768D99F29CF841A172EB6AFCC4AFD88F38F9F5F4E92DAFD277A"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/effect/LockjawEffect.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-22",
+                           "Lines":  22,
+                           "Bytes":  1474,
+                           "SHA256":  "508609874A84DE93A729CC0AB358612E7CBE1112F35B9AFB098145AE24772DB6"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/mixin/DiseaseRespawnMixin.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-40",
+                           "Lines":  40,
+                           "Bytes":  2283,
+                           "SHA256":  "CEBCC36E9D10AEAC6B74B5A6AA4C303184E6DC13F4BCA50BB4DB42EB7945DEE9"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/expansion/VariantSpawnEggItem.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-93",
+                           "Lines":  93,
+                           "Bytes":  6736,
+                           "SHA256":  "9EE49E17F3323A70D3EB8908FB15EFBD71F752F971E6D4A5D8711EFC50EBF54C"
+                       },
+                       {
+                           "Path":  "src/main/java/com/tetanusmod/client/PrescriptionWriterScreen.java",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-50",
+                           "Lines":  50,
+                           "Bytes":  2999,
+                           "SHA256":  "06D32222C8E99188C1F3461F10CD00E984588E59185FEDAAB64BA4B68BC96A3C"
+                       },
+                       {
+                           "Path":  "tools/Generate-Clinic.ps1",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-84",
+                           "Lines":  84,
+                           "Bytes":  9302,
+                           "SHA256":  "78B5676E5394319D656700B00C376807EC19B94DB84DD003788634F9969DEEF9"
+                       },
+                       {
+                           "Path":  "tools/Generate-MedicCamp.ps1",
+                           "Kind":  "Production source or authoring generator",
+                           "ReadScope":  "All lines 1-50",
+                           "Lines":  50,
+                           "Bytes":  5808,
+                           "SHA256":  "AE678CD81F0D1A2482BE6F8660D5912B6F37498570F41EA19B2BDADE11A1FA79"
+                       },
+                       {
+                           "Path":  "src/gametest/java/com/tetanusmod/test/MedicTradingGameTests.java",
+                           "Kind":  "Native regression source",
+                           "ReadScope":  "All lines 1-158",
+                           "Lines":  158,
+                           "Bytes":  13380,
+                           "SHA256":  "277C73EF0C7FA7632E37391F2C89A089DC6630ACD5DD8EB1482AF4B8D46C50E5"
+                       },
+                       {
+                           "Path":  "src/gametest/java/com/tetanusmod/test/MedicalProgressionGameTests.java",
+                           "Kind":  "Native regression source",
+                           "ReadScope":  "All lines 1-275",
+                           "Lines":  275,
+                           "Bytes":  26996,
+                           "SHA256":  "99EAB3BCC04CE5FACB7A5A983894C0969689C87FDF1038D7C72D1146971AB6DF"
+                       },
+                       {
+                           "Path":  "src/gametest/java/com/tetanusmod/test/ClinicDiscoveryGameTests.java",
+                           "Kind":  "Native regression source",
+                           "ReadScope":  "All lines 1-192",
+                           "Lines":  192,
+                           "Bytes":  20769,
+                           "SHA256":  "FDD2437194BC8879C0B0537B2DBCAA9CF4F696CC302B22B1ED4F95A53E712D5C"
+                       },
+                       {
+                           "Path":  "src/gametest/java/com/tetanusmod/test/CampResidentGameTests.java",
+                           "Kind":  "Native regression source",
+                           "ReadScope":  "All lines 1-133",
+                           "Lines":  133,
+                           "Bytes":  13312,
+                           "SHA256":  "A1CFC8F2A518F4F5111E648025D70EF24D7A91B79CDD36A12C1F42F149E78750"
+                       },
+                       {
+                           "Path":  "src/gametest/java/com/tetanusmod/test/ComprehensiveAcquisitionGameTests.java",
+                           "Kind":  "Native regression source",
+                           "ReadScope":  "All lines 1-216",
+                           "Lines":  216,
+                           "Bytes":  21379,
+                           "SHA256":  "F914DB1EB20105356EB14028504016A25E94FDD6CE0AFB7D276C391112D80D4C"
+                       },
+                       {
+                           "Path":  "src/main/resources/data/tetanusmod/advancements/antitoxin.json",
+                           "Kind":  "Generated runtime JSON",
+                           "ReadScope":  "All lines 1-60",
+                           "Lines":  60,
+                           "Bytes":  3554,
+                           "SHA256":  "583E5D1C73C0C03FACBADFFCCAAEE87B9077A0BD4910AA4C9BFB4E0F2E0ACE24"
+                       },
+                       {
+                           "Path":  "src/main/resources/data/tetanusmod/worldgen/structure_set/medic_clinics.json",
+                           "Kind":  "Generated runtime JSON",
+                           "ReadScope":  "All lines 1-16",
+                           "Lines":  16,
+                           "Bytes":  542,
+                           "SHA256":  "6BAB11C25FAB5A2CEE6D74E21502248008E5B7FD05CEF8122ECCFF225958143C"
+                       },
+                       {
+                           "Path":  "src/main/resources/data/tetanusmod/worldgen/structure_set/medic_tents.json",
+                           "Kind":  "Generated runtime JSON",
+                           "ReadScope":  "All lines 1-16",
+                           "Lines":  16,
+                           "Bytes":  541,
+                           "SHA256":  "257CF84CEFA5A7B50023355A576C385E1288C495E25CE2DEA0A03FB484B4B1F5"
+                       },
+                       {
+                           "Path":  "src/main/resources/data/tetanusmod/worldgen/structure/medic_clinic.json",
+                           "Kind":  "Generated runtime JSON",
+                           "ReadScope":  "All lines 1-9",
+                           "Lines":  9,
+                           "Bytes":  222,
+                           "SHA256":  "5A7E8EBA6FF84475ED8BB2B45A4FAA66F98BB4EFAC3C58DC0784D045BBC5AE26"
+                       },
+                       {
+                           "Path":  "src/main/resources/data/tetanusmod/worldgen/structure/medic_tent.json",
+                           "Kind":  "Generated runtime JSON",
+                           "ReadScope":  "All lines 1-9",
+                           "Lines":  9,
+                           "Bytes":  222,
+                           "SHA256":  "4A4E0DF80D585E7E877F9ABCCD0E2705D0C1770E2ECCCA23BEB05669CB50DC01"
+                       }
+                   ],
+    "ProductionFiles":  38,
+    "ProductionLines":  2333,
+    "ReviewedProperties":  [
+                               "Four medical ranks append two randomized offers each without duplicate medicine, writer, or prescription stock; native Hero/gossip/demand remains active.",
+                               "Medicine and prescription migration preserves stock by output identity, not catalogue index; unrelated emerald purchases require matching payment identities; saved delivery clock is retained.",
+                               "Writer and forge use real server inventory slots and recipe-manager validation; full inventory does not consume inputs, closing returns inputs only, and native menu ownership/reach guards bound interaction.",
+                               "Clinic placement validates actual village type, eight-chunk native reference bounds, footing and walkable Survival writer/cabinet access; five village themes have native generation coverage.",
+                               "Cave camps retain bounded spacing, native chunk-clipped rotated placement, dry fixtures, crops, guard and two residents, with distinct jobs and beds.",
+                               "Antitoxin records consumption before clearing disease, awards early Tetanus and standalone Lockjaw cures, and does not award a cure for healthy consumption.",
+                               "Bear traps capture Survival players, leave Creative/Spectator players immune, release invalid/teleported captives and support reachable top/side/body reset interactions.",
+                               "Milk preserves the intended long-lived diseases, and one protection decision is reused per physical exposure rather than rerolling after a successful shield/glove decision."
+                           ],
+    "Limitations":  [
+                        "This is a bounded 38-production-file review plus listed native tests/resources, not a manual audit of every repository file.",
+                        "Existing already-generated chunks do not receive automatic clinic/camp retro-generation; structures crossing an old/new generation boundary follow native Minecraft saved-start behavior.",
+                        "The review did not add remote-server, modpack or arbitrary third-party compatibility validation.",
+                        "No assertion that software is 100 percent bug-free."
+                    ],
+    "NativeReceiptObserved":  {
+                                  "Path":  ".tools/release-ready-2026-11-14/native-focused.xml",
+                                  "SHA256":  "271828F702DA8501B9071C6080AF929BA26F9C15290E145AB300BEEC9E2062C1",
+                                  "Total":  15,
+                                  "Failed":  0,
+                                  "Cases":  [
+                                                "finalshotgametests.normaltridentandunbrokenmultishotstillsnapshotwithoutcrossactionleakage",
+                                                "finalshotgametests.breakingcrossbowkeepstetanustwoonitslastarrowandplaincontrolstaysplain",
+                                                "finalshotgametests.everymultishotarrowretainstheenchantmentwhenthefirstarrowbreaksthecrossbow",
+                                                "comprehensiveacquisitiongametests.everyregistereditemhasanexplicitacquisitionroute",
+                                                "comprehensiveacquisitiongametests.cowbottleinteractionactuallycollectsmanure",
+                                                "comprehensiveacquisitiongametests.actualwitherdeathsyieldonereplacementbookandstar",
+                                                "comprehensiveacquisitiongametests.successfulfishingsalvagereallydropsthehook",
+                                                "comprehensiveacquisitiongametests.everycreativevarianteggactuallyspawnsitsspeciesandmutation",
+                                                "comprehensiveacquisitiongametests.allfivepotionchainsandtheirsplashlingeringformsactuallybrew",
+                                                "comprehensiveacquisitiongametests.rabiescurecanactuallybeboughtthroughthenativemerchant",
+                                                "comprehensiveacquisitiongametests.shieldprotectionbookcanactuallybeboughtthroughthenativemerchant",
+                                                "comprehensiveacquisitiongametests.actualmutantdeathsproducebothrawmeatsandhostilesalvage",
+                                                "comprehensiveacquisitiongametests.allnineweatheringoutputsareactuallyproducedandbrushed",
+                                                "finalshotgametests.breakingbowkeepstetanustwoonitsreallastarrowandplaincontrolstaysplain",
+                                                "finalshotgametests.allthreenativefireworkskeeptheirsnapshotwhenthefirstrocketbreaksthecrossbow"
+                                            ],
+                                  "Note":  "Parent-run focused final-shot and acquisition regressions: all 15 passed. This does not replace the parent-owned full-suite gate."
+                              },
+    "GraphicalEvidence":  {
+                              "Path":  "build/client-smoke/screenshots/rust-and-ruin-plain-medical-writer-inputs-output.png",
+                              "SHA256":  "251E964A323028C51011B65CAC3C8D6D20B736A045D251A4F3031AEA5A51B04E",
+                              "ReadScope":  "Viewed the actual latest plain-client PNG",
+                              "Observation":  "Clean native Minecraft font; writer labels, slot contents, result and ingredient hint fit without overlap."
+                          },
+    "AuthorizedTestOnlyChange":  {
+                                     "Path":  "src/gametest/java/com/tetanusmod/test/ComprehensiveAcquisitionGameTests.java",
+                                     "Scope":  "Egg fixture and new bounded diagnostic helper, lines 63-92",
+                                     "Changes":  [
+                                                     "Use center (16,10,16) of authored 32x12x32 arena, keeping large species inside its footprint.",
+                                                     "Snapshot existing UUIDs, require exactly one newly spawned matching species, and check its actual mutation.",
+                                                     "Report existing/new type, UUID, position and chunk ticking state on failure.",
+                                                     "Finally remove only newly created nearby fixture entities; preserve preexisting UUIDs."
+                                                 ],
+                                     "Status":  "Verified: focused native acquisition/final-shot rerun passed 15/15, followed by the complete parent-owned 423/423 native pass.",
+                                     "Caveat":  "Zero-new-spawn remains a test failure; the test does not mask tracking/spawn defects."
+                                 },
+    "Actions":  {
+                    "ProductionEdits":  0,
+                    "AuthorizedNativeFixtureEditFiles":  1,
+                    "GradleRuns":  0,
+                    "Commits":  0,
+                    "Pushes":  0
+                },
+    "EarlierFullNativeRepeat":  {
+                                    "Path":  ".tools/release-ready-2026-11-14/native-full.xml",
+                                    "SHA256":  "8E69CFC49D05B6F08AF6A8B1C14EB66223142B528B76D37673D9236DA84F371B",
+                                    "Total":  418,
+                                    "Failed":  1,
+                                    "FailedCases":  [
+                                                        "comprehensiveacquisitiongametests.everycreativevarianteggactuallyspawnsitsspeciesandmutation"
+                                                    ],
+                                    "SelectedCoverage":  [
+                                                             {
+                                                                 "Group":  "medictradinggametests",
+                                                                 "Total":  14,
+                                                                 "Failed":  0,
+                                                                 "Cases":  [
+                                                                               "medictradinggametests.villagerestockrefreshesonceperday",
+                                                                               "medictradinggametests.nursesofferonerandommedicineandonesupply",
+                                                                               "medictradinggametests.attendinghaseightofferswithoutduplicatemedicines",
+                                                                               "medictradinggametests.promotionsappendoffersandstopatattending",
+                                                                               "medictradinggametests.medicvarietyincludesbarteringredientsandrarefood",
+                                                                               "medictradinggametests.medicscreenmetadataisstrictlybounded",
+                                                                               "medictradinggametests.legacyunlimitednovicelistsmigrateonce",
+                                                                               "medictradinggametests.nonmedictradeskeeptheirnativerestock",
+                                                                               "medictradinggametests.heroofthevillagediscountsactualmedicineoffers",
+                                                                               "medictradinggametests.medicinesselloutanddonotimmediatelyrestock",
+                                                                               "medictradinggametests.stockpricesandcavecooldownsurvivereload",
+                                                                               "medictradinggametests.cavestockisscarcerandrestockseverythreedays",
+                                                                               "medictradinggametests.firststockstartsitsowncooldowninsteadofusingtemplateage",
+                                                                               "medictradinggametests.twomedicinetradesactuallypromotethenurse"
+                                                                           ]
+                                                             },
+                                                             {
+                                                                 "Group":  "medicalprogressiongametests",
+                                                                 "Total":  16,
+                                                                 "Failed":  0,
+                                                                 "Cases":  [
+                                                                               "medicalprogressiongametests.standalonelockjawcureawardsbuthealthydosedoesnot",
+                                                                               "medicalprogressiongametests.nativewriterpickupconsumesonepaperandink",
+                                                                               "medicalprogressiongametests.closingorbreakingwriterreturnsonlyrealinputs",
+                                                                               "medicalprogressiongametests.treatmentunlocksandbasepricesfollowmedicalrank",
+                                                                               "medicalprogressiongametests.treatmenttradesrequireprescriptionandnodoctortradesrawpaper",
+                                                                               "medicalprogressiongametests.supplyinstructionscontainactualcountandrecognizecompleteddelivery",
+                                                                               "medicalprogressiongametests.writershiftclickfullinventoryconsumesnothingthencraftsexactbatch",
+                                                                               "medicalprogressiongametests.oldpaperoffersmigrateoncewithoutrepeatedstockrefills",
+                                                                               "medicalprogressiongametests.earlytetanuscureawardscommonsensewithoutwaitingforlockjaw",
+                                                                               "medicalprogressiongametests.herodiscountswriterandprescriptionwithoutwaivingscarcestock",
+                                                                               "medicalprogressiongametests.prescriptionhasitsownstationrecipeandrejectsswappedinputs",
+                                                                               "medicalprogressiongametests.schemafourmigrationpreservesremainingstockanddeliveryclock",
+                                                                               "medicalprogressiongametests.newlyintroducedsuppliescannotborrowunrelatedemeraldpurchasestock",
+                                                                               "medicalprogressiongametests.writerandemergencyprescriptiontradesstayscarcewithoutduplicatestock",
+                                                                               "medicalprogressiongametests.soldoutantitoxincannotinheritfullvaccinestockwhencataloguepositionsswap",
+                                                                               "medicalprogressiongametests.everyclinicthemeandcavecampwriterisreachableinsurvivalafternativeplacement"
+                                                                           ]
+                                                             },
+                                                             {
+                                                                 "Group":  "clinicdiscoverygametests",
+                                                                 "Total":  3,
+                                                                 "Failed":  0,
+                                                                 "Cases":  [
+                                                                               "clinicdiscoverygametests.entireclinicfootprintmustremaininsidenativereferencewindow",
+                                                                               "clinicdiscoverygametests.allfivethemesactuallygeneratefromnativevillagecandidates",
+                                                                               "clinicdiscoverygametests.allfiveactualbiomeplansarereachableacrosstwonativeseeds"
+                                                                           ]
+                                                             },
+                                                             {
+                                                                 "Group":  "campresidentgametests",
+                                                                 "Total":  4,
+                                                                 "Failed":  0,
+                                                                 "Cases":  [
+                                                                               "campresidentgametests.bothnativevillagersfindtheirworkstationsandseparatebeds",
+                                                                               "campresidentgametests.drycampreplacesambientwaterwithoutwaterloggingitsfixtures",
+                                                                               "campresidentgametests.everyrotatedchunkboundaryhasonepersistentguardandtworesidents",
+                                                                               "campresidentgametests.closedvestibuleprotectsbothresidentsfromanaggressivezombie"
+                                                                           ]
+                                                             },
+                                                             {
+                                                                 "Group":  "trapinteractionregressiongametests",
+                                                                 "Total":  11,
+                                                                 "Failed":  0,
+                                                                 "Cases":  [
+                                                                               "trapinteractionregressiongametests.captivevillagerresetsbeforeopeningitstradingmenu",
+                                                                               "trapinteractionregressiongametests.entityresetdoesnotpassthroughsolidwalls",
+                                                                               "trapinteractionregressiongametests.nativesurvivalmovementcapturesandallowsselfreset",
+                                                                               "trapinteractionregressiongametests.entityresetonlyreleasestheactuallyclickedcaptive",
+                                                                               "trapinteractionregressiongametests.topjawraycastresetscleantrapwithoutbreakingsupport",
+                                                                               "trapinteractionregressiongametests.topjawraycastresetsrustytrapwithoutbreakingsupport",
+                                                                               "trapinteractionregressiongametests.allfoursidejawraycastsresetcleantrap",
+                                                                               "trapinteractionregressiongametests.allfoursidejawraycastsresetrustytrap",
+                                                                               "trapinteractionregressiongametests.nativeentityclickreleasescowobscuringthejaws",
+                                                                               "trapinteractionregressiongametests.nativespectatormovementstaysuncaptured",
+                                                                               "trapinteractionregressiongametests.nativecreativemovementremainsimmunetocaptureanddamage"
+                                                                           ]
+                                                             },
+                                                             {
+                                                                 "Group":  "diseasefixgametests",
+                                                                 "Total":  15,
+                                                                 "Failed":  0,
+                                                                 "Cases":  [
+                                                                               "diseasefixgametests.lockjawwindowsrandomizeandpersist",
+                                                                               "diseasefixgametests.naturalexpiryclearsbotheffects",
+                                                                               "diseasefixgametests.moblootruleisrespected",
+                                                                               "diseasefixgametests.strangemeatfromrealpickup",
+                                                                               "diseasefixgametests.defaultsandexistingconfigsmigrate",
+                                                                               "diseasefixgametests.rustymeleecanmutate",
+                                                                               "diseasefixgametests.actualsalmonellatickscausenauseavomitandhungerloss",
+                                                                               "diseasefixgametests.diseasepotionsrandomizewithoutchangingotherpotions",
+                                                                               "diseasefixgametests.everyordinarymobcanmutatethroughexposure",
+                                                                               "diseasefixgametests.eatinginfectedmeatawardseatingadvancement",
+                                                                               "diseasefixgametests.continuouslockjawsurvivesaminuteandexpires",
+                                                                               "diseasefixgametests.milkpreservesdiseaseandantitoxincuresimmediately",
+                                                                               "diseasefixgametests.temporaryinfectionsdonotchangeanimalloot",
+                                                                               "diseasefixgametests.eatingwithoutsalmonelladoesnotawarddiseaseadvancement",
+                                                                               "diseasefixgametests.actualsplashandclouduselongdurations"
+                                                                           ]
+                                                             }
+                                                         ],
+                                    "Note":  "The acquisition failure caused a fixture isolation/diagnostic correction. Its focused rerun is separately recorded; parent owns the final full-suite repeat."
+                                },
+    "SubsequentParentValidation":  {
+                                       "NativeTotal":  423,
+                                       "NativeFailed":  0,
+                                       "ArtifactBytes":  3557756,
+                                       "ArtifactSHA256":  "E83241B111FEB09F36DF8601247174CA54142372F3DFD4363F0DDA03070608FC",
+                                       "EvidenceEntryPoint":  "validation/release-ready-2026-11-14/index.html",
+                                       "Note":  "Parent-confirmed final complete run, recorded after the independently observed 418/1 and focused 15/15 snapshots. These earlier receipts remain unchanged."
+                                   }
+}

@@ -43,7 +43,7 @@ public class ComprehensiveAcquisitionGameTests implements FabricGameTest {
             var output=recipe.getOutput(ctx.getWorld().getRegistryManager());
             if(!output.isEmpty())recipes.computeIfAbsent(output.getItem(),key->new ArrayList<>()).add(recipe.getId().toString());
         }
-        var special=Map.of(ModItems.RUST,"wire-brush byproduct; permanent hostile salvage",ModItems.RUSTY_FISHING_HOOK,"15% fishing-rod water salvage; fisherman trade",ModItems.COW_MANURE,"glass-bottle interaction with cow",ModItems.TETANIZED_WITHER_STAR,"guaranteed Tetanized Wither drop",ModItems.INFECTED_MEAT,"permanent Tetanized animal drop",ExpansionItems.RABID_MEAT,"Rabid animal drop",ExpansionItems.RABIES_CURE,"randomized medic treatment trade");
+        var special=Map.of(ModItems.RUST,"wire-brush byproduct; permanent hostile salvage",ModItems.RUSTY_FISHING_HOOK,"15% fishing-rod water salvage; fisherman trade",ModItems.COW_MANURE,"glass-bottle interaction with cow",ModItems.TETANIZED_WITHER_STAR,"guaranteed Tetanized Wither drop",ModItems.INFECTED_MEAT,"permanent Tetanized animal drop",ExpansionItems.RABID_MEAT,"Rabid animal drop",ExpansionItems.RABIES_CURE,"randomized medic treatment trade",com.tetanusmod.dragon.DragonContent.EGG_ITEM,"guaranteed Tetanized Dragon drop",com.tetanusmod.dragon.DragonContent.SWORD,"guaranteed Tetanized Dragon drop");
         var rows=new TreeMap<String,String>();int eggs=0,legacy=0;
         for(var item:ModItems.ALL){
             String route=null;
@@ -60,19 +60,35 @@ public class ComprehensiveAcquisitionGameTests implements FabricGameTest {
         var report=new StringBuilder("id\tacquisition\n");rows.forEach((id,route)->report.append(id).append('\t').append(route).append('\n'));
         java.nio.file.Files.writeString(java.nio.file.Path.of("..","acquisition-items-2026-10-24.tsv"),report,java.nio.charset.StandardCharsets.UTF_8);ctx.complete();
     }
-    @GameTest(templateName=EMPTY_STRUCTURE,batchId="release_acquisition")
+    @GameTest(templateName="tetanusmod:test/camp_empty",batchId="release_acquisition")
     public void everyCreativeVariantEggActuallySpawnsItsSpeciesAndMutation(TestContext ctx){
-        var player=ctx.createMockCreativeServerPlayerInWorld();var pos=ctx.getAbsolutePos(new BlockPos(4,6,4));int total=0;
+        var player=ctx.createMockCreativeServerPlayerInWorld();var pos=ctx.getAbsolutePos(new BlockPos(16,10,16));int total=0;
+        var area=new Box(pos).expand(8);
         try{
             for(var item:ModItems.ALL)if(item instanceof VariantSpawnEggItem egg){
-                var stack=new ItemStack(item);ctx.assertTrue(egg.spawn(ctx.getWorld(),player,stack,pos),"Variant egg failed to spawn: "+Registries.ITEM.getId(item));
-                var spawned=ctx.getWorld().getEntitiesByClass(net.minecraft.entity.mob.MobEntity.class,new Box(pos).expand(3),mob->mob.getType()==egg.entityType());
-                ctx.assertTrue(spawned.size()==1,"Egg did not produce exactly one matching species: "+Registries.ITEM.getId(item));var mob=spawned.get(0);
-                ctx.assertTrue(egg.rabid()?Rabies.rabid(mob):MobVariants.permanent(mob),"Egg produced an ordinary creature: "+Registries.ITEM.getId(item));
-                mob.getPassengerList().forEach(Entity::discard);if(mob.hasVehicle())mob.getVehicle().discard();mob.discard();total++;
+                var existing=ctx.getWorld().getEntitiesByClass(net.minecraft.entity.mob.MobEntity.class,area,mob->true);
+                var before=new HashSet<UUID>();existing.forEach(mob->before.add(mob.getUuid()));
+                String existingRows=eggFixtureEntities(existing);
+                try{
+                    var stack=new ItemStack(item);ctx.assertTrue(egg.spawn(ctx.getWorld(),player,stack,pos),"Variant egg failed to spawn: "+Registries.ITEM.getId(item));
+                    var nearby=ctx.getWorld().getEntitiesByClass(net.minecraft.entity.mob.MobEntity.class,area,mob->true);
+                    var spawned=nearby.stream().filter(mob->mob.getType()==egg.entityType()&&!before.contains(mob.getUuid())).toList();
+                    ctx.assertTrue(spawned.size()==1,"Egg did not produce exactly one NEW matching species: "+Registries.ITEM.getId(item)
+                            +" at="+pos+" newMatching="+spawned.size()+" chunkTicking="+ctx.getWorld().getChunkManager().isTickingFutureReady(new ChunkPos(pos).toLong())
+                            +" preexisting="+existingRows+" newlyVisible="+eggFixtureEntities(nearby.stream().filter(mob->!before.contains(mob.getUuid())).toList()));
+                    var mob=spawned.get(0);
+                    ctx.assertTrue(egg.rabid()?Rabies.rabid(mob):MobVariants.permanent(mob),"Egg produced an ordinary creature: "+Registries.ITEM.getId(item));total++;
+                }finally{
+                    // A previous failure or another fixture may own nearby mobs. Remove only this egg's new UUIDs,
+                    // including newly initialized jockey vehicles, even when the assertion fails.
+                    ctx.getWorld().getEntitiesByClass(net.minecraft.entity.mob.MobEntity.class,area,mob->!before.contains(mob.getUuid())).forEach(Entity::discard);
+                }
             }
             ctx.assertTrue(total>90,"Creative egg coverage was unexpectedly small");
         }finally{cleanupPlayer(player);}ctx.complete();
+    }
+    private static String eggFixtureEntities(List<? extends Entity> entities){
+        return "count="+entities.size()+" "+entities.stream().limit(24).map(entity->Registries.ENTITY_TYPE.getId(entity.getType())+"/"+entity.getUuid()+"@"+entity.getPos()).toList();
     }
     @GameTest(templateName=EMPTY_STRUCTURE,batchId="release_acquisition",tickLimit=180)
     public void allNineWeatheringOutputsAreActuallyProducedAndBrushed(TestContext ctx){
@@ -152,7 +168,7 @@ public class ComprehensiveAcquisitionGameTests implements FabricGameTest {
         for(var item:new Item[]{Items.IRON_NUGGET,Items.COPPER_INGOT,Items.FLINT,Items.STRING,Items.COAL,Items.BONE})ctx.assertTrue(salvage.contains(item),"Fixed death sample never acquired salvage "+item);ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE,batchId="release_acquisition")
-    public void actualWitherDeathsYieldGuaranteedAndConditionalBooksAndStar(TestContext ctx){
+    public void actualWitherDeathsYieldOneReplacementBookAndStar(TestContext ctx){
         var player=ctx.createMockCreativeServerPlayerInWorld();var pos=ctx.getAbsolute(new Vec3d(4,6,4));int levelTwo=0;var bonus=new HashSet<Item>();
         try{
             player.setPosition(ctx.getAbsolute(new Vec3d(13,6,13)));
@@ -160,8 +176,8 @@ public class ComprehensiveAcquisitionGameTests implements FabricGameTest {
                 var wither=EntityType.WITHER.create(ctx.getWorld());wither.setPosition(pos);wither.setAiDisabled(true);ctx.getWorld().spawnEntity(wither);MobVariants.makePermanent(wither);wither.getRandom().setSeed(seed*359L+19);
                 wither.damage(ctx.getWorld().getDamageSources().playerAttack(player),10000);var loot=drops(ctx,pos);
                 ctx.assertTrue(loot.stream().filter(entity->entity.getStack().isOf(ModItems.TETANIZED_WITHER_STAR)).mapToInt(entity->entity.getStack().getCount()).sum()==1,"Tetanized Wither did not drop one corrupted star");
-                ctx.assertTrue(loot.stream().anyMatch(entity->entity.getStack().isOf(Items.NETHER_STAR)),"Tetanized Wither lost the normal star");
-                ctx.assertTrue(loot.stream().anyMatch(entity->EnchantmentHelper.get(entity.getStack()).getOrDefault(ModItems.TETANUS_ENCHANTMENT,0)==1),"Tetanus I book is not guaranteed");
+                ctx.assertTrue(loot.stream().noneMatch(entity->entity.getStack().isOf(Items.NETHER_STAR)),"Tetanized Wither also dropped an ordinary star");
+                ctx.assertTrue(loot.stream().filter(entity->EnchantmentHelper.get(entity.getStack()).getOrDefault(ModItems.TETANUS_ENCHANTMENT,0)>0).mapToInt(entity->entity.getStack().getCount()).sum()==1,"Wither must drop exactly one level-I-or-II book");
                 if(loot.stream().anyMatch(entity->EnchantmentHelper.get(entity.getStack()).getOrDefault(ModItems.TETANUS_ENCHANTMENT,0)==2))levelTwo++;
                 loot.forEach(entity->bonus.add(entity.getStack().getItem()));loot.forEach(Entity::discard);wither.discard();
             }

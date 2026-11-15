@@ -27,8 +27,8 @@ public class ComprehensiveCraftingGameTests implements FabricGameTest {
         var all=ctx.getWorld().getRecipeManager().values().stream()
             .filter(recipe->recipe.getId().getNamespace().equals(TetanusMod.MOD_ID))
             .sorted(Comparator.comparing(recipe->recipe.getId().toString())).toList();
-        ctx.assertTrue(all.size()>=29,"Recipe resources unexpectedly disappeared: "+all.size());
-        for(var recipe:all)ctx.assertTrue(recipe instanceof CraftingRecipe||recipe instanceof AbstractCookingRecipe||recipe instanceof RustArrowSmithingRecipe,
+        ctx.assertTrue(all.size()>=33,"Recipe resources unexpectedly disappeared: "+all.size());
+        for(var recipe:all)ctx.assertTrue(recipe instanceof CraftingRecipe||recipe instanceof AbstractCookingRecipe||recipe instanceof RustArrowSmithingRecipe||recipe instanceof com.tetanusmod.medical.PrescriptionWritingRecipe||recipe instanceof com.tetanusmod.dragon.CrystalForgingRecipe,
             "Release acquisition lacks a native execution path for "+recipe.getId());
         return all;
     }
@@ -155,7 +155,7 @@ public class ComprehensiveCraftingGameTests implements FabricGameTest {
         }finally{cleanupPlayer(player);}ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE,batchId="release_crafting",tickLimit=20)
-    public void pickingUpIronUnlocksEveryRuntimeModRecipe(TestContext ctx){
+    public void pickingUpIronUnlocksEveryBookVisibleRuntimeModRecipe(TestContext ctx){
         var player=survival(ctx);var all=recipes(ctx);player.lockRecipes(all);
         var advancement=ctx.getWorld().getServer().getAdvancementLoader().get(TetanusMod.id("recipes/unlock"));ctx.assertTrue(advancement!=null,"Missing mod recipe unlock advancement");
         for(var criterion:advancement.getCriteria().keySet())player.getAdvancementTracker().revokeCriterion(advancement,criterion);
@@ -163,7 +163,13 @@ public class ComprehensiveCraftingGameTests implements FabricGameTest {
         ctx.runAtTick(2,()->{
             try{
                 ctx.assertTrue(player.getAdvancementTracker().getProgress(advancement).isDone(),"Native inventory-change event did not complete the iron recipe unlock");
-                for(var recipe:all)ctx.assertTrue(player.getRecipeBook().contains(recipe),"Recipe missing from iron unlock rewards: "+recipe.getId());
+                for(var recipe:all){
+                    if(recipe.isIgnoredInRecipeBook()){
+                        ctx.assertTrue(recipe instanceof com.tetanusmod.medical.PrescriptionWritingRecipe||recipe instanceof com.tetanusmod.dragon.CrystalForgingRecipe,"Uncovered recipe excluded from the native book: "+recipe.getId());
+                        continue; // Dedicated workstation menus/viewers are exercised in their own native/client proofs.
+                    }
+                    ctx.assertTrue(player.getRecipeBook().contains(recipe),"Recipe missing from iron unlock rewards: "+recipe.getId());
+                }
                 LOGGER.info("RELEASE_RECIPE_UNLOCK_PASS recipes={}",all.size());
             }finally{cleanupPlayer(player);}ctx.complete();
         });

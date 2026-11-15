@@ -23,7 +23,7 @@ public final class ModConfig {
     public float mobConversionChance = 0.01F;
     public float golemConversionChance = 0.18F;
     public float animalConversionChance = 0.02F;
-    public float witherConversionChance = 0.05F;
+    public float witherConversionChance = 0.75F;
     public float salmonellaChance = 1.0F;
     public int vaccineDurationSeconds=1200;
     public float vaccineProtectionChance=0.80F;
@@ -42,7 +42,7 @@ public final class ModConfig {
     public float naturalRabiesEasy = 0.003F;
     public float naturalRabiesNormal = 0.006F;
     public float naturalRabiesHard = 0.01F;
-    public int balanceRevision = 5;
+    public int balanceRevision = 6;
 
     public static ModConfig load() {
         Path path = FabricLoader.getInstance().getConfigDir().resolve("tetanusmod.json");
@@ -88,6 +88,7 @@ public final class ModConfig {
             if(config.spawnerNormal==0.35F)config.spawnerNormal=0.05F;
             if(config.spawnerHard==0.45F)config.spawnerHard=0.08F;
         }
+        if(revision<6&&config.witherConversionChance==0.05F)config.witherConversionChance=0.75F;
         config.validate();return config;
     }
     private void validate() {
@@ -103,7 +104,7 @@ public final class ModConfig {
         mobConversionChance = finite(mobConversionChance, 0.01F, 1);
         golemConversionChance = finite(golemConversionChance, 0.18F, 1);
         animalConversionChance = finite(animalConversionChance, 0.02F, 1);
-        witherConversionChance = finite(witherConversionChance, 0.05F, 1);
+        witherConversionChance = finite(witherConversionChance, 0.75F, 1);
         salmonellaChance=finite(salmonellaChance,1F,1);
         vaccineDurationSeconds=clamp(vaccineDurationSeconds,1,7200);
         vaccineProtectionChance=finite(vaccineProtectionChance,0.80F,1);
@@ -121,7 +122,7 @@ public final class ModConfig {
         naturalRabiesEasy=finite(naturalRabiesEasy,0.003F,1);
         naturalRabiesNormal=finite(naturalRabiesNormal,0.006F,1);
         naturalRabiesHard=finite(naturalRabiesHard,0.01F,1);
-        balanceRevision=5;
+        balanceRevision=6;
     }
     private static float finite(float value, float fallback, float max) { return Float.isFinite(value) ? Math.max(0,Math.min(max,value)) : fallback; }
 

@@ -1,0 +1,327 @@
+﻿{
+    "Artifact":  {
+                     "Path":  ".tools/release-ready-2026-11-14/baseline-tested.jar",
+                     "SHA256":  "D287996D5E8E73CE7C4C75CDEB186677EF4B3B328A5B779073505FF744A9348D",
+                     "ReviewerModified":  false
+                 },
+    "ValidatedBoundaries":  [
+                                "Saved damage ledger and offline reward queue remain bounded; ordinary reload keeps reward guard and contribution state.",
+                                "Grab restores native HOVER after interruption and releases on normal death, disconnect or dimension change; native AI-enabled encounter path reviewed.",
+                                "Native death and instant-kill reward paths share the persisted rewarded guard; trophy drops stay outside the canonical fountain.",
+                                "Wither waves retain saved cooldown and bounded minion ownership; expiration and native despawn prevent persistent armies.",
+                                "Native Wither star replacement keeps ordinary Withers intact; temporary minions cannot steal or drop farmable equipment.",
+                                "Forging preview/full inventory/close and repair guards retain server-authoritative input payment and item identity.",
+                                "Renderer and screen classes remain client registrations; common boss logic does not depend on client renderer classes."
+                            ],
+    "ProductionEdits":  [
+                            {
+                                "Path":  "src/main/java/com/tetanusmod/expansion/CombatInfection.java",
+                                "Change":  "Read retained native weapon enchantment NBT even after durability reduces the same firing stack to count0; preserve all Multishot projectiles, bounded0-2 carrier, no shared action state",
+                                "AuthorizedBy":  "Root after confirmed ordinary gameplay final-shot defect"
+                            }
+                        ],
+    "ConfirmedFindings":  [
+                              {
+                                  "Files":  [
+                                                "src/main/java/com/tetanusmod/expansion/CombatInfection.java",
+                                                "src/main/java/com/tetanusmod/mixin/EnchantedBowMixin.java",
+                                                "src/main/java/com/tetanusmod/mixin/EnchantedCrossbowMixin.java"
+                                            ],
+                                  "TargetRegression":  "Five FinalShotGameTests exercise native breaking bow/crossbow/Multishot/firework actions, controls, normal trident compatibility, saved projectile metadata and actual advanced-effect hits.",
+                                  "NativeEvidence":  "Bow ItemStack.damage at bytecode303 precedes World.spawnEntity355; Crossbow damage229 precedes spawn235; EnchantmentHelper.getLevel returns0 for an empty stack; ItemStack retains its enchantment NBT.",
+                                  "Issue":  "Final bow/crossbow shots and later Multishot projectiles lost Tetanus when native durability damage emptied the weapon before the spawn redirect.",
+                                  "Severity":  "Gameplay correctness",
+                                  "Status":  "Fix implemented and source frozen; parent native/graphical reruns pending"
+                              }
+                          ],
+    "AdditionalConfirmedStandardGameplayBlockers":  0,
+    "PartialWiringReview":  [
+                                {
+                                    "Scope":  "Boss registration, initialization and main/client mixin boundary wiring only",
+                                    "Path":  "src/main/java/com/tetanusmod/TetanusMod.java",
+                                    "SHA256":  "7EBE4894D3D35A5491C45F66A9B0BA0669108CE7B884CBFBB7E2DFEE54C5D342"
+                                },
+                                {
+                                    "Scope":  "Boss registration, initialization and main/client mixin boundary wiring only",
+                                    "Path":  "src/main/java/com/tetanusmod/client/TetanusClient.java",
+                                    "SHA256":  "20C59AB46C8A838548AE890CFF30A1614534C8A4AA64A1CFDE315A28D8807F7F"
+                                },
+                                {
+                                    "Scope":  "Boss registration, initialization and main/client mixin boundary wiring only",
+                                    "Path":  "src/main/resources/tetanus.mixins.json",
+                                    "SHA256":  "9570A7DE217840A02668FC556FD8C2954813E1C58AD4D19624B319D8CC12D6F9"
+                                }
+                            ],
+    "Files":  [
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonEncounter.java",
+                      "SHA256":  "72EAC1DE175A932D5750C3F9DBCE82FC9388EDE4370D75B4358B72BC5118209B",
+                      "PhysicalLineCount":  158
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonEncounterState.java",
+                      "SHA256":  "959739CA0D4C702B4D35656CD3CF432FEE69F37A20259AB8DF40F83AEF9DD197",
+                      "PhysicalLineCount":  2
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonRewardState.java",
+                      "SHA256":  "9966179CD3F9BD1F4312A9E506EE4862C2AFA39A065926D141CC9199D6AAEAFD",
+                      "PhysicalLineCount":  14
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonCrystalRitual.java",
+                      "SHA256":  "0AF5828C11E8B8638E31EBC0B3D48B6FD2BAC80F24D3EF0CEFD687D6C1571C7F",
+                      "PhysicalLineCount":  31
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonContent.java",
+                      "SHA256":  "53DFCC7A9658F5E55953CFC92555D2B0E12AA791326CDC1E484AF6857E142292",
+                      "PhysicalLineCount":  30
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/CrystalForgingRecipe.java",
+                      "SHA256":  "9FAA38BCDCC3870BFADCDFEA823CAEECF548C53DD499E96C7A0489316F22B947",
+                      "PhysicalLineCount":  31
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/TetanizedEndCrystalEntity.java",
+                      "SHA256":  "CC3CB2558583C98F3B8BD95581B0363AD8BE56FA7D39B79A84ABFEC541E636A7",
+                      "PhysicalLineCount":  9
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/TetanizedEndCrystalItem.java",
+                      "SHA256":  "D796AFC48365A3764B866B5A48F22CE8C382083D0E0867C8B2C00276A24D9CC3",
+                      "PhysicalLineCount":  27
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/OverloadSwordItem.java",
+                      "SHA256":  "EEF9AC60AA71630AFBF426DC441921FF61F5802887D8881504A2EF75E36B89E7",
+                      "PhysicalLineCount":  25
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/WitherForgingBlock.java",
+                      "SHA256":  "DE79956693B02885735F21974E48B839BA964653E60C5872A9924506E926D65A",
+                      "PhysicalLineCount":  17
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/WitherForgingScreenHandler.java",
+                      "SHA256":  "56181C65507DA28F129D000B25E6868DBBEF7E13DF7DE2901CD17E78D1E9DED2",
+                      "PhysicalLineCount":  43
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonExplosionAttribution.java",
+                      "SHA256":  "C3688A184DFE14379AAB34CE678CBF5363E0D3CB6E254D65FBD859FB03C59825",
+                      "PhysicalLineCount":  33
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/entity/MobVariants.java",
+                      "SHA256":  "E48B548CCD959DF6EF9B423B0F21AE1ABFBF5B5CE4F53989FEE435BD8E390997",
+                      "PhysicalLineCount":  158
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/entity/WitherBossEncounter.java",
+                      "SHA256":  "98E0883F8EE29D3A1D3A267887617C18CD3F089ABF880A101B449896FE20CDC5",
+                      "PhysicalLineCount":  92
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/entity/WitherBossState.java",
+                      "SHA256":  "ED0BC950A4D05129281544495D37E547AF9F6E2DC9448BD4C8219054226D10C5",
+                      "PhysicalLineCount":  11
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/entity/WitherMinions.java",
+                      "SHA256":  "24E3F08916339C6995CBA93BCA793D65C395DB66D31F908679CD87EC04FFEE63",
+                      "PhysicalLineCount":  16
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/entity/WitherMinionEntity.java",
+                      "SHA256":  "8286CB62F6ABB9787C065E95EE75F861E5A2EF4BBADB4262752A3D591453148B",
+                      "PhysicalLineCount":  60
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/entity/EnhancedWitherRitual.java",
+                      "SHA256":  "FBC16635C47542DA65799F19614C5B3B20589D985970F7B6BBBC336287E0EC2B",
+                      "PhysicalLineCount":  44
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/expansion/CombatInfection.java",
+                      "SHA256":  "650B575A3E55DD9FEEC88B856115022D8096BAC50E4B064943E132046A0A62BE",
+                      "PhysicalLineCount":  71
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonEncounterMixin.java",
+                      "SHA256":  "19502A908978300267E8FAF84AEF42A5B2DA3CBB6E7EA90621582C77110173E9",
+                      "PhysicalLineCount":  28
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonInfectionMixin.java",
+                      "SHA256":  "176B8C4325DCA843C88C648C4B42267AC22791E98017F91F1D887589CED1F314",
+                      "PhysicalLineCount":  23
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonFightRitualMixin.java",
+                      "SHA256":  "F99159ED5DE339F808A4029CE1E49FFD9611E429F036D3855D2B1D5CF3001C59",
+                      "PhysicalLineCount":  54
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonHealthAttributeMixin.java",
+                      "SHA256":  "63C165A539846566A80AD460DC1F19E1165259631680E6D65FE9807E61E5C523",
+                      "PhysicalLineCount":  17
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonBedExplosionAttributionMixin.java",
+                      "SHA256":  "43F23C0CC4AE9D60ADD74EA72BF7E73216483F1589A22E764EC11735A2240EE1",
+                      "PhysicalLineCount":  23
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonAnchorExplosionAttributionMixin.java",
+                      "SHA256":  "3F08F9F5A0E4E8DF2676FF3FA0843177D8F5F9694BDC937B5FCC31C0BFDDC1A6",
+                      "PhysicalLineCount":  29
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/WitherEntityMixin.java",
+                      "SHA256":  "452738EF2E41D15032042CE3262666BF4F61BE7024C1223BCFC166C9E6B98985",
+                      "PhysicalLineCount":  51
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/WitherCombatMixin.java",
+                      "SHA256":  "1B6B94F833B3B73B2821C6FCE8E30E29571A87AC25C47EB11ACEDCA81049C8ED",
+                      "PhysicalLineCount":  35
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/WitherSummoningMixin.java",
+                      "SHA256":  "DA6201936B82F3C390EC0A6730C8C8BE752DD3BFD2A9740FB800DDBCF49C9A13",
+                      "PhysicalLineCount":  37
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EnchantedProjectileMixin.java",
+                      "SHA256":  "C7B497391D79E7AF28AE8B2C25F004570D086694079ED6EC27EDEFB31F548FA7",
+                      "PhysicalLineCount":  16
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EnchantedBowMixin.java",
+                      "SHA256":  "99CD83F34446E817B1171C6AB1BCAC3C227BA7AD5B5623DD89A91D43381FF0D0",
+                      "PhysicalLineCount":  14
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EnchantedCrossbowMixin.java",
+                      "SHA256":  "7882649D6B1129ADAC80B5757E23A883A5DB308554326A43E3F1EE32FD86FB51",
+                      "PhysicalLineCount":  15
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/OverloadSwordAnvilRepairMixin.java",
+                      "SHA256":  "ACE6FF17DFA7B52A22CD67E1595908D4AAC70AACEF5E7ECD58FB16E827FB0A71",
+                      "PhysicalLineCount":  22
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/OverloadSwordCraftingRepairMixin.java",
+                      "SHA256":  "13BD1F95BFAD863B04D342E159E02D3BE74F93C8EA92B015D4F83D3CD614B728",
+                      "PhysicalLineCount":  17
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/OverloadSwordGrindstoneRepairMixin.java",
+                      "SHA256":  "BFB8B3D9B3F96DD956AE330ADF50379BA9F7D2CD0A622F5DD960223E34409562",
+                      "PhysicalLineCount":  22
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonTextureMixin.java",
+                      "SHA256":  "DB90F1CEEE5F070384E72717147DDE4D2E702F26D263B027B40C91DF5BEFFCF1",
+                      "PhysicalLineCount":  27
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EndCrystalTextureMixin.java",
+                      "SHA256":  "69C3933213C669D8C39557122E179335EF0F3F184423E5B1E8D5A5416304BE34",
+                      "PhysicalLineCount":  17
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/client/WitherMinionRenderer.java",
+                      "SHA256":  "973BB5DE8C7CB7642BD3DE81E4180D1E668527EC6E5FA2D2F5BC4AA0AFE1DA99",
+                      "PhysicalLineCount":  11
+                  },
+                  {
+                      "Scope":  "Entire file read; lifecycle, state, reward, transaction or render responsibility as applicable",
+                      "Path":  "src/main/java/com/tetanusmod/client/WitherForgingScreen.java",
+                      "SHA256":  "38AE686F3D9D6AE1AD15E2109E47C677085329A194D52C56EEF95F523FE8C20C",
+                      "PhysicalLineCount":  16
+                  }
+              ],
+    "RegressionFiles":  [
+                            {
+                                "Scope":  "Regression coverage for the inspected native paths; final-shot class added in the authorized fix",
+                                "Path":  "src/gametest/java/com/tetanusmod/test/DragonEncounterGameTests.java",
+                                "SHA256":  "24B4A88486392F8F9676848E8A204D680A6ECE791D46EC95224DEF7FCD3C50C6"
+                            },
+                            {
+                                "Scope":  "Regression coverage for the inspected native paths; final-shot class added in the authorized fix",
+                                "Path":  "src/gametest/java/com/tetanusmod/test/DragonPatchGameTests.java",
+                                "SHA256":  "5638B4AFF97A7F63489BC7CB04815DCE2777AE25F12E484E70D142CDD31837B6"
+                            },
+                            {
+                                "Scope":  "Regression coverage for the inspected native paths; final-shot class added in the authorized fix",
+                                "Path":  "src/gametest/java/com/tetanusmod/test/DragonRepairAttributionGameTests.java",
+                                "SHA256":  "891B34EC7604ED607C1A32090ABF4A31B1B30BE65730C6CECD41C04AE2E0033B"
+                            },
+                            {
+                                "Scope":  "Regression coverage for the inspected native paths; final-shot class added in the authorized fix",
+                                "Path":  "src/gametest/java/com/tetanusmod/test/WitherRevisionGameTests.java",
+                                "SHA256":  "D6384746999F605334CE6016DCC2BBEFA00A15E49631D6DE2786ABCFDD39439E"
+                            },
+                            {
+                                "Scope":  "Regression coverage for the inspected native paths; final-shot class added in the authorized fix",
+                                "Path":  "src/gametest/java/com/tetanusmod/test/WitherPatchGameTests.java",
+                                "SHA256":  "052C634BBCF9C7AD8B95B16AB140B80FAA2FC3B0BF9637B8EF5A65C913749B3C"
+                            },
+                            {
+                                "Scope":  "Regression coverage for the inspected native paths; final-shot class added in the authorized fix",
+                                "Path":  "src/gametest/java/com/tetanusmod/test/FinalShotGameTests.java",
+                                "SHA256":  "EA70E95EC92A673584AD6801A1C1B38F4AF797B677D7B89BD2921D91B08C755A"
+                            }
+                        ],
+    "TimestampUtc":  "2026-11-14T23:39:22.9996138Z",
+    "Scope":  "Final Dragon/Wither encounters, minions, rituals, rewards, state persistence, combat producers, transaction handling, server/client registration and rendering boundaries",
+    "Reviewer":  "wither_patch independent release-readiness review",
+    "Limits":  [
+                   "Static source and native bytecode review; no new build or runtime success is claimed here.",
+                   "Existing parent regression/client evidence remains separate; new final-shot fix must pass its coordinated reruns before release.",
+                   "No crash-proof transaction or arbitrary third-party mod compatibility guarantee is claimed."
+               ],
+    "RuntimeTestsRunByReviewer":  0,
+    "BuildsRunByReviewer":  0
+}

@@ -1,0 +1,30 @@
+$ErrorActionPreference='Stop'
+$path=Join-Path $PSScriptRoot '../src/main/resources/assets/tetanusmod/lang/en_us.json'
+$lang=Get-Content -LiteralPath $path -Raw -Encoding UTF8|ConvertFrom-Json
+$keys=[ordered]@{
+ 'gui.tetanusmod.beacon.primary'='Primary effect'
+ 'gui.tetanusmod.beacon.strength'='Power level'
+ 'gui.tetanusmod.beacon.secondary'='Full pyramid'
+ 'gui.tetanusmod.beacon.layers'='layers'
+ 'gui.tetanusmod.beacon.choose_effect'='Choose an effect'
+ 'gui.tetanusmod.beacon.activate'='Activate'
+ 'gui.tetanusmod.beacon.level_ii'='II'
+ 'gui.tetanusmod.beacon.upgrade_iii'='III'
+ 'gui.tetanusmod.beacon.upgrade_iv'='IV'
+ 'gui.tetanusmod.beacon.cost_standard'='1 Netherite Ingot'
+ 'gui.tetanusmod.beacon.cost_iv'='1 Netherite + 1 Star'
+ 'gui.tetanusmod.beacon.primary_hint'='Select a primary effect. Choose its level using the II, III, or IV buttons.'
+ 'gui.tetanusmod.beacon.level_ii_hint'='Level II. A complete four-layer pyramid can also add Regeneration II.'
+ 'gui.tetanusmod.beacon.regeneration_hint'='Add Regeneration II beside your level-II primary effect. Requires four complete pyramid layers. Replaces a level-III or level-IV upgrade.'
+ 'gui.tetanusmod.beacon.upgrade_iii_hint'='Level III. Requires four complete pyramid layers. Replaces secondary Regeneration.'
+ 'gui.tetanusmod.beacon.upgrade_iv_hint'='Level IV. Requires four complete pyramid layers. Each activation consumes one netherite ingot and one Tetanized Wither Star. Replaces secondary Regeneration.'
+ 'gui.tetanusmod.beacon.confirm_hint'='Apply the displayed powers. Every activation consumes one netherite ingot; level IV also consumes one Tetanized Wither Star.'
+ 'gui.tetanusmod.beacon.ingot_hint'='Required: one netherite ingot for every activation.'
+ 'gui.tetanusmod.beacon.star_hint'='Required only for level IV: one Tetanized Wither Star per activation. Unused stars return when the menu closes.'
+ 'gui.tetanusmod.beacon.pyramid'='Rusted Iron pyramid: %s / 4 complete layers'
+ 'gui.tetanusmod.beacon.passive_active'='Automatic Tetanus Resistance'
+ 'gui.tetanusmod.beacon.passive_inactive'='Build a Rusted Iron pyramid'
+}
+foreach($key in $keys.Keys){$lang|Add-Member -MemberType NoteProperty -Name $key -Value $keys[$key] -Force}
+[IO.File]::WriteAllText($path,($lang|ConvertTo-Json -Depth 60)+[Environment]::NewLine,[Text.UTF8Encoding]::new($false))
+Write-Output 'Updated compact steel beacon labels, explicit II/III/IV controls and payment instructions.'

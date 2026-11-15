@@ -164,15 +164,15 @@ public class DiseaseExpansionGameTests implements FabricGameTest {
         float chance=TetanusMod.CONFIG.vaccineProtectionChance;try{TetanusMod.CONFIG.vaccineProtectionChance=1;var arrow=new TetanizedArrowEntity(TetanusMod.TETANIZED_ARROW_ENTITY,ctx.getWorld());((CombatInfection.RangedCarrier)(Object)arrow).rustruin$weaponLevel(2);CombatInfection.rangedHit(cow,new net.minecraft.entity.damage.DamageSource(ctx.getWorld().getRegistryManager().get(net.minecraft.registry.RegistryKeys.DAMAGE_TYPE).entryOf(net.minecraft.entity.damage.DamageTypes.ARROW),arrow,null));ctx.assertTrue(cow.getStatusEffect(TetanusMod.TETANUS).getDuration()==original&&!cow.hasStatusEffect(ExpansionEffects.DISORIENTED),"Prevented arrow refreshed illness or disoriented target");}finally{TetanusMod.CONFIG.vaccineProtectionChance=chance;}ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void guaranteedAndRareWitherBooksBothDrop(TestContext ctx){
+    public void withersAlwaysDropExactlyOneBookWithRareUpgrade(TestContext ctx){
         var random=new java.util.Random(55);int rare=0;
         for(int i=0;i<40;i++){
             var wither=ctx.spawnEntity(EntityType.WITHER,new Vec3d(3,4,3));wither.setAiDisabled(true);wither.getRandom().setSeed(random.nextLong());MobVariants.makePermanent(wither);wither.damage(ctx.getWorld().getDamageSources().genericKill(),10000);
             var drops=ctx.getWorld().getEntitiesByClass(ItemEntity.class,wither.getBoundingBox().expand(4),item->true);
-            ctx.assertTrue(drops.stream().anyMatch(item->EnchantmentHelper.get(item.getStack()).getOrDefault(ModItems.TETANUS_ENCHANTMENT,0)==1),"Wither lost guaranteed Tetanus I");
+            ctx.assertTrue(drops.stream().filter(item->EnchantmentHelper.get(item.getStack()).getOrDefault(ModItems.TETANUS_ENCHANTMENT,0)>0).mapToInt(item->item.getStack().getCount()).sum()==1,"Wither must drop exactly one book, with II replacing I");
             if(drops.stream().anyMatch(item->EnchantmentHelper.get(item.getStack()).getOrDefault(ModItems.TETANUS_ENCHANTMENT,0)==2))rare++;
             drops.forEach(Entity::discard);wither.discard();
         }
-        ctx.assertTrue(rare>=10&&rare<=30,"Additional Tetanus II chance outside expected seeded range: "+rare);ctx.complete();
+        ctx.assertTrue(rare>=10&&rare<=30,"Replacement Tetanus II chance outside expected seeded range: "+rare);ctx.complete();
     }
 }

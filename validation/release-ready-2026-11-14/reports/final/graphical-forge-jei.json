@@ -1,0 +1,46 @@
+{
+  "NativeRecipeViewerScreens": 2,
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "ManuallyPlacedFixtureStation": true,
+  "NativeCraftedCrystals": 2,
+  "FullInventoryRefusedWithoutConsumption": true,
+  "ClosingPreviewReturnedOnlyInputs": true,
+  "ForgeAdvancementEarnedByNativeOutput": true,
+  "OriginalPlayerAndWorldStateRestored": true,
+  "DirectCriterionGrants": 0,
+  "ProgressRevocations": 0,
+  "Viewer": "jei",
+  "Screenshots": [
+    {
+      "NativeScreen": "HUD",
+      "View": "station",
+      "Screenshot": "rust-and-ruin-jei-forge-station.png"
+    },
+    {
+      "NativeScreen": "com.tetanusmod.client.WitherForgingScreen",
+      "View": "full-inventory-preview",
+      "Screenshot": "rust-and-ruin-jei-forge-full-inventory-preview.png"
+    },
+    {
+      "NativeScreen": "com.tetanusmod.client.WitherForgingScreen",
+      "View": "batch-crafted",
+      "Screenshot": "rust-and-ruin-jei-forge-batch-crafted.png"
+    },
+    {
+      "NativeScreen": "com.tetanusmod.client.WitherForgingScreen",
+      "View": "close-preview",
+      "Screenshot": "rust-and-ruin-jei-forge-close-preview.png"
+    },
+    {
+      "NativeScreen": "mezz.jei.gui.recipes.RecipesGui",
+      "View": "prescription-recipe-viewer",
+      "Screenshot": "rust-and-ruin-jei-forge-prescription-recipe-viewer.png"
+    },
+    {
+      "NativeScreen": "mezz.jei.gui.recipes.RecipesGui",
+      "View": "forging-recipe-viewer",
+      "Screenshot": "rust-and-ruin-jei-forge-forging-recipe-viewer.png"
+    }
+  ]
+}

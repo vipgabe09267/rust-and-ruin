@@ -66,20 +66,16 @@ public final class GraphicalAdvancementAudit {
             try {
                 var actor=client.getServer().getPlayerManager().getPlayer(playerId);
                 if(actor==null)throw new IllegalStateException("The real integrated player disappeared");
-                var source=actor.getCommandSource().withLevel(4).withSilent();
-                if(source.getPlayerOrThrow()!=actor)throw new IllegalStateException("Fresh reset command source is not the actual graphical player");
-                var dispatcher=actor.getServer().getCommandManager().getDispatcher();
+                // This journey must run first on a new actor: never manufacture fresh progress by revoking it.
                 for(String id:ACTIONS.keySet()){
                     var advancement=actor.getServer().getAdvancementLoader().get(TetanusMod.id(id));
-                    if(advancement==null)throw new IllegalStateException("Active advancement missing before fresh graphical run: "+id);
-                    if(actor.getAdvancementTracker().getProgress(advancement).getObtainedCriteria().iterator().hasNext())
-                        dispatcher.execute("advancement revoke @s only tetanusmod:"+id,source);
+                    if(advancement==null)throw new IllegalStateException("Existing advancement missing before fresh graphical run: "+id);
+                    if(!id.equals("root")&&actor.getAdvancementTracker().getProgress(advancement).getObtainedCriteria().iterator().hasNext())
+                        throw new IllegalStateException("Graphical advancement journey requires a fresh actor; prior criteria exist for "+id);
                 }
                 var recipes=actor.getServerWorld().getRecipeManager().values().stream().filter(recipe->recipe.getId().getNamespace().equals(TetanusMod.MOD_ID)).toList();
-                actor.lockRecipes(recipes);
-                if(recipes.stream().anyMatch(actor.getRecipeBook()::contains))throw new IllegalStateException("Native recipe reset left a mod recipe unlocked");
-                for(String id:ACTIONS.keySet())if(actor.getAdvancementTracker().getProgress(actor.getServer().getAdvancementLoader().get(TetanusMod.id(id))).getObtainedCriteria().iterator().hasNext())throw new IllegalStateException("Native reset left prior criterion progress for "+id);
-                if(!actor.getStatusEffects().isEmpty())dispatcher.execute("effect clear @s",source);
+                if(recipes.stream().anyMatch(actor.getRecipeBook()::contains))throw new IllegalStateException("Graphical advancement journey requires an actor with no previously unlocked mod recipes");
+                if(!actor.getStatusEffects().isEmpty())throw new IllegalStateException("Graphical advancement journey requires a fresh, healthy actor");
                 fixture=new Fixture(actor,viewer,proofs,serverDone);
                 new Journey(fixture).start();
             } catch(Throwable problem){if(fixture!=null)fixture.restorePhysics();failure.set(problem);}
@@ -132,7 +128,7 @@ public final class GraphicalAdvancementAudit {
                 return false;
             }
             if(clientEvidence.size()!=28)throw new IllegalStateException("Graphical advancement evidence incomplete: "+clientEvidence.keySet());
-            var report=new LinkedHashMap<String,Object>();report.put("Result","PASS");report.put("ActualGraphicalPlayer",true);report.put("ActiveAdvancements",28);report.put("DirectCriterionGrants",0);report.put("Advancements",clientEvidence);report.put("Retired",Map.of("variant_egg","Hidden save-compatibility ID; no longer earnable by design. Actual variant spawn eggs were exercised."));
+            var report=new LinkedHashMap<String,Object>();report.put("Result","PASS");report.put("ActualGraphicalPlayer",true);report.put("ExistingAdvancements",28);report.put("AdditionalDragonAdvancementsSeparateCoverage",ADDITIONAL_DRAGON_ADVANCEMENTS);report.put("CriterionRevocations",0);report.put("MenuOnlyRecipesVerifiedSeparately",List.of("tetanusmod:medical_prescription","tetanusmod:tetanized_end_crystal"));report.put("DirectCriterionGrants",0);report.put("Advancements",clientEvidence);report.put("Retired",Map.of("variant_egg","Hidden save-compatibility ID; no longer earnable by design. Actual variant spawn eggs were exercised."));
             try{Files.writeString(Path.of("graphical-advancements-"+viewer+".json"),new GsonBuilder().setPrettyPrinting().create().toJson(report)+"\n");}catch(java.io.IOException problem){throw new IllegalStateException(problem);}
             client.options.useKey.setPressed(false);finalWritten=true;return true;
         }
@@ -170,9 +166,9 @@ public final class GraphicalAdvancementAudit {
         if(id.equals("recipes/unlock")) {
             // Recipe advancements have no display or native client advancement node.
             // Their functional client evidence is the synchronized recipe-book reward.
-            var recipes=client.world.getRecipeManager().values().stream().filter(recipe->recipe.getId().getNamespace().equals(TetanusMod.MOD_ID)).toList();
+            var recipes=client.world.getRecipeManager().values().stream().filter(recipe->recipe.getId().getNamespace().equals(TetanusMod.MOD_ID)&&!recipe.isIgnoredInRecipeBook()).toList();
             if(recipes.isEmpty()||recipes.stream().anyMatch(recipe->!client.player.getRecipeBook().contains(recipe)))return false;
-            org.slf4j.LoggerFactory.getLogger("tetanusmod").info("GRAPHICAL_ADVANCEMENT_RECIPE_BOOK_PASS {} runtime mod recipes unlocked",recipes.size());
+            org.slf4j.LoggerFactory.getLogger("tetanusmod").info("GRAPHICAL_ADVANCEMENT_RECIPE_BOOK_PASS {} book-visible mod recipes unlocked",recipes.size());
             client.setScreen(new InventoryScreen(client.player));
             return true;
         }
@@ -282,6 +278,7 @@ public final class GraphicalAdvancementAudit {
         }
         void complete(){done.set(true);}
     }
+    private static final Set<String> ADDITIONAL_DRAGON_ADVANCEMENTS = Set.of("forge_crystal", "dragon_summoned", "dragon_defeated");
     private static final Map<String,String> ACTIONS = actions();
     private static Map<String,String> actions() {
         var result = new LinkedHashMap<String,String>();
@@ -355,7 +352,9 @@ public final class GraphicalAdvancementAudit {
                 var id = advancement.getId();
                 if (id.getNamespace().equals(TetanusMod.MOD_ID) && !id.getPath().equals("variant_egg")) active.add(id.getPath());
             }
-            ctx.assertTrue(active.equals(new TreeSet<>(ACTIONS.keySet())), "End-to-end coverage omits a live mod advancement: " + active);
+            var expected = new TreeSet<>(ACTIONS.keySet());
+            expected.addAll(ADDITIONAL_DRAGON_ADVANCEMENTS);
+            ctx.assertTrue(active.equals(expected), "Existing journey or separately required dragon coverage omits a live mod advancement: " + active);
             var retired = player.getServer().getAdvancementLoader().get(TetanusMod.id("variant_egg"));
             ctx.assertTrue(retired != null && retired.getDisplay() == null, "Retired Creative-only Bad Egg unexpectedly became an active achievement");
             for (int x=0;x<=12;x++) for (int z=0;z<=12;z++) {
@@ -582,8 +581,8 @@ public final class GraphicalAdvancementAudit {
         }
         private void finish() {
             for(String id:ACTIONS.keySet())earned(id);
-            ctx.assertTrue(completed.size()==28,"Expected all 28 active mod advancements, found "+completed.size());
-            var report=new LinkedHashMap<String,Object>();report.put("Result","PASS");report.put("ConnectedPlayers",1);report.put("ActiveAdvancements",28);report.put("Completed",completed);report.put("DirectCriterionGrants",0);report.put("NativeConsumptions",consumptionEvidence);report.put("Retired",Map.of("variant_egg","Creative-only Bad Egg removed at the owner's request; hidden ID preserved solely for old saves. Actual variant eggs were still exercised."));
+            ctx.assertTrue(completed.size()==28,"Expected all 28 existing mod advancements, found "+completed.size());
+            var report=new LinkedHashMap<String,Object>();report.put("Result","PASS");report.put("ConnectedPlayers",1);report.put("ExistingAdvancements",28);report.put("AdditionalDragonAdvancementsSeparateCoverage",ADDITIONAL_DRAGON_ADVANCEMENTS);report.put("CriterionRevocations",0);report.put("MenuOnlyRecipesVerifiedSeparately",List.of("tetanusmod:medical_prescription","tetanusmod:tetanized_end_crystal"));report.put("Completed",completed);report.put("DirectCriterionGrants",0);report.put("NativeConsumptions",consumptionEvidence);report.put("Retired",Map.of("variant_egg","Creative-only Bad Egg removed at the owner's request; hidden ID preserved solely for old saves. Actual variant eggs were still exercised."));
             try {Files.writeString(Path.of("graphical-advancement-server-coverage-"+ctx.viewer+".json"),new GsonBuilder().setPrettyPrinting().create().toJson(report)+"\n");}
             catch(java.io.IOException failure){throw new IllegalStateException("Cannot save exhaustive advancement evidence",failure);}
             cleanup();ctx.complete();

@@ -1,0 +1,61 @@
+{
+  "ActualSupplyRequestMessage": "Today this medic needs 8 x Glow Berries. You are holding 0. Hold the full amount in your main hand, then sneak and right-click this medic to deliver it.",
+  "ActualSupplyCompletionMessage": "Supply delivery complete! This medic now offers you better prices.",
+  "ActualEmeraldPrice": 7,
+  "ClientCureAdvancementComplete": true,
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "ManuallyPlacedFixtureStation": true,
+  "ManuallySpawnedFixtureMedic": true,
+  "FixtureMedicAiDisabled": true,
+  "DirectCriterionGrants": 0,
+  "ProgressRevocations": 0,
+  "NativeWriterOutputsCrafted": 2,
+  "NativePrescriptionTradePurchases": 1,
+  "NativeAntitoxinUses": 1,
+  "NativeSupplyDeliveries": 1,
+  "ExistingCriterionDatesPreserved": 2,
+  "OriginalPlayerAndWorldStateRestored": true,
+  "Screenshots": [
+    {
+      "View": "writer-exterior",
+      "ActualNativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-rei-medical-writer-exterior.png"
+    },
+    {
+      "View": "writer-inputs-output",
+      "ActualNativeScreen": "PrescriptionWriterScreen",
+      "Screenshot": "rust-and-ruin-rei-medical-writer-inputs-output.png"
+    },
+    {
+      "View": "writer-crafted",
+      "ActualNativeScreen": "PrescriptionWriterScreen",
+      "Screenshot": "rust-and-ruin-rei-medical-writer-crafted.png"
+    },
+    {
+      "View": "supply-request",
+      "ActualNativeScreen": "ChatScreen",
+      "Screenshot": "rust-and-ruin-rei-medical-supply-request.png"
+    },
+    {
+      "View": "supply-delivered",
+      "ActualNativeScreen": "ChatScreen",
+      "Screenshot": "rust-and-ruin-rei-medical-supply-delivered.png"
+    },
+    {
+      "View": "prescription-trade",
+      "ActualNativeScreen": "MerchantScreen",
+      "Screenshot": "rust-and-ruin-rei-medical-prescription-trade.png"
+    },
+    {
+      "View": "tetanus-before-cure",
+      "ActualNativeScreen": "HUD",
+      "Screenshot": "rust-and-ruin-rei-medical-tetanus-before-cure.png"
+    },
+    {
+      "View": "cure-advancement",
+      "ActualNativeScreen": "AdvancementsScreen",
+      "Screenshot": "rust-and-ruin-rei-medical-cure-advancement.png"
+    }
+  ]
+}

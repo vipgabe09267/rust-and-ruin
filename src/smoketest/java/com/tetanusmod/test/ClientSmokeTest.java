@@ -37,8 +37,15 @@ public final class ClientSmokeTest implements ClientModInitializer {
     private GraphicalClinicDiscoveryAudit clinicDiscovery;
     private GraphicalAdvancementLayoutAudit advancementLayout;
     private GraphicalClinicFacingAudit clinicFacing;
+    private GraphicalMedicalAudit medicalAudit;
+    private GraphicalForgeAudit forgeAudit;
+    private GraphicalBossExpansionAudit bossExpansion;
+    private GraphicalDragonRitualAudit dragonRitual;
+    private GraphicalBeaconUiAudit beaconUi;
+    private GraphicalWitherPatchAudit witherPatch;
     private int graphicalPhase;
     private final java.util.List<String> auditFindings=new java.util.ArrayList<>();
+    private final java.util.List<String> baselineScreenshots=new java.util.ArrayList<>();
     private boolean prepared,finished,caltropsOpened,beaconOpened,advancementsOpened,guidePrepared,guideOpened,vaccineOpened;
     private java.util.UUID tradeMedic; private int normalMedicinePrice;
     private java.util.UUID clinicMedic; private volatile boolean clinicReady; private boolean clinicPending; private volatile boolean serverReady; private boolean rabiesPrepared;
@@ -56,7 +63,82 @@ public final class ClientSmokeTest implements ClientModInitializer {
                 if(++ticks>15000){finish(client,"FAIL: client/world/viewer startup timed out");return;}
                 if(client.player==null||client.world==null||client.getServer()==null)return;
                 String focus=System.getProperty("rustruin.graphicalFocus","");
-                if(!focus.isEmpty()){
+                if(!focus.isEmpty()&&!focus.equals("legacy-baseline")){
+                    if(focus.equals("release-interactions")){
+                        if(trapRegression==null){trapRegression=new GraphicalTrapRegressionAudit();trapRegression.start(client);}
+                        if(!trapRegression.tick(client))return;
+                        if(combatRegression==null){combatRegression=new GraphicalCombatRegressionAudit();combatRegression.start(client);}
+                        if(!combatRegression.tick(client))return;
+                        if(graphicalDespawn==null){graphicalDespawn=new GraphicalDespawnAudit();graphicalDespawn.start(client);}
+                        if(!graphicalDespawn.tick(client))return;
+                        if(proximityAudio==null){proximityAudio=new GraphicalProximityAudioAudit();proximityAudio.start(client);}
+                        if(!proximityAudio.tick(client))return;
+                        if(witherPatch==null){witherPatch=new GraphicalWitherPatchAudit();witherPatch.start(client);}
+                        if(!witherPatch.tick(client))return;
+                        if(beaconUi==null){beaconUi=new GraphicalBeaconUiAudit();beaconUi.start(client);}
+                        if(!beaconUi.tick(client))return;
+                        finish(client,"PASS: release interaction sequence; native traps, reset tool, combat/infection, automatic despawn, positional audio, timed Wither minions/rewards and four-scale beacon payments");return;
+                    }
+                    if(focus.equals("layout-crafting")){
+                        if(advancementLayout==null){advancementLayout=new GraphicalAdvancementLayoutAudit();advancementLayout.start(client);}
+                        if(!advancementLayout.tick(client))return;
+                        if(graphicalCrafting==null){graphicalCrafting=new GraphicalCraftingAudit();graphicalCrafting.start(client);}
+                        if(!graphicalCrafting.tick(client))return;
+                        finish(client,"PASS: focused graphical profile=layout-crafting; all30 displayed advancements, native vanilla tabs, four GUI scales and actual ordinary recipe transactions");return;
+                    }
+                    if(focus.equals("dragon-ritual")||focus.equals("expansion-journey")||focus.equals("expansion-complete")){
+                        if(focus.equals("expansion-journey")){
+                            if(graphicalAdvancements==null){graphicalAdvancements=new GraphicalAdvancementAudit();graphicalAdvancements.start(client);}
+                            if(!graphicalAdvancements.tick(client))return;
+                            if(forgeAudit==null){forgeAudit=new GraphicalForgeAudit();forgeAudit.start(client);}
+                            if(!forgeAudit.tick(client))return;
+                        }
+                        if(dragonRitual==null){dragonRitual=new GraphicalDragonRitualAudit();dragonRitual.start(client);}
+                        if(!dragonRitual.tick(client))return;
+                        if(focus.equals("expansion-journey")||focus.equals("expansion-complete")){
+                            if(advancementLayout==null){advancementLayout=new GraphicalAdvancementLayoutAudit();advancementLayout.start(client);}
+                            if(!advancementLayout.tick(client))return;
+                            if(graphicalCrafting==null){graphicalCrafting=new GraphicalCraftingAudit();graphicalCrafting.start(client);}
+                            if(!graphicalCrafting.tick(client))return;
+                        }
+                        finish(client,"PASS: focused graphical profile="+focus+"; actual native End rituals, contributed damage, repeat boss rewards and declared advancement scope");return;
+                    }
+                    if(focus.equals("bossfix-playtest")){
+                        if(medicalAudit==null){medicalAudit=new GraphicalMedicalAudit();medicalAudit.start(client);}
+                        if(!medicalAudit.tick(client))return;
+                        if(witherPatch==null){witherPatch=new GraphicalWitherPatchAudit();witherPatch.start(client);}
+                        if(!witherPatch.tick(client))return;
+                        if(dragonRitual==null){dragonRitual=new GraphicalDragonRitualAudit();dragonRitual.start(client);}
+                        if(!dragonRitual.tick(client))return;
+                        finish(client,"PASS: actual prescription crafting/trading; Creative/Survival timed Wither minions and star/XP drops; mixed/special native End rituals, pillar variants, grab, rewards, victory sound and trophy placement");return;
+                    }
+                    if(focus.equals("wither-patch")){
+                        if(witherPatch==null){witherPatch=new GraphicalWitherPatchAudit();witherPatch.start(client);}
+                        if(!witherPatch.tick(client))return;
+                        finish(client,"PASS: visible Creative and covered Survival Wither rituals, native20HPminion scheduling and actual special-star-only/XP drops");return;
+                    }
+                    if(focus.equals("beacon-ui")){
+                        if(beaconUi==null){beaconUi=new GraphicalBeaconUiAudit();beaconUi.start(client);}
+                        if(!beaconUi.tick(client))return;
+                        finish(client,"PASS: redesigned native beacon UI at GUI2/3/4/6; geometry, labels and actual IV payment/effect verified");return;
+                    }
+                    if(focus.equals("boss-expansion")){
+                        if(bossExpansion==null){bossExpansion=new GraphicalBossExpansionAudit();bossExpansion.start(client);}
+                        if(!bossExpansion.tick(client))return;
+                        finish(client,"PASS: focused graphical beacon IV transactions and boss/Enderman visual fixtures");return;
+                    }
+                    if(focus.equals("medical")||focus.equals("forge")||focus.equals("workstations")){
+                        if(!focus.equals("forge")){
+                            if(medicalAudit==null){medicalAudit=new GraphicalMedicalAudit();medicalAudit.start(client);}
+                            if(!medicalAudit.tick(client))return;
+                        }
+                        if(!focus.equals("medical")){
+                            if(forgeAudit==null){forgeAudit=new GraphicalForgeAudit();forgeAudit.start(client);}
+                            if(!forgeAudit.tick(client))return;
+                        }
+                        finish(client,"PASS: focused graphical profile="+focus+"; native workstation transactions, prescription trades and causal advancements");return;
+                    }
+
                     if(focus.equals("interactions")||focus.equals("traps")||focus.equals("combat")){
                         if(!focus.equals("combat")){
                             if(trapRegression==null){trapRegression=new GraphicalTrapRegressionAudit();trapRegression.start(client);}
@@ -452,6 +534,19 @@ public final class ClientSmokeTest implements ClientModInitializer {
                 }
                 if(rabiesPrepared&&worldTicks==recipesAt+960)onServer(client,()->client.getServer().getPlayerManager().getPlayerList().get(0).closeHandledScreen());
                 if(rabiesPrepared&&worldTicks>=recipesAt+1000){
+                    // The baseline intentionally earns criteria. A causal advancement
+                    // journey belongs in its own fresh-player session, never a reset.
+                    if(focus.equals("legacy-baseline")){
+                        if(!auditFindings.isEmpty())throw new IllegalStateException(String.join("; ",auditFindings));
+                        var report=new java.util.LinkedHashMap<String,Object>();
+                        report.put("Result","PASS");report.put("ActualGraphicalClient",true);report.put("Viewer",viewer());
+                        report.put("Scope",java.util.List.of("fresh Survival advancement tab","registered base mutation render layers and22 rabid skins","12 disease potion tooltips","disease HUD and player-list hearts","vaccine and glove synchronization","cabinet item/block baking and open state","first/third person gloves","failed Lockjaw eating gesture","clinic/camp and seven biome medic uniforms","Nurse/Attending scrolling, Hero discounts and scarce field stock","malformed client packet rejection"));
+                        report.put("DirectCriterionGrants",0);report.put("ProgressRevocations",0);
+                        report.put("Fixture","Disposable isolated world with supplied items/status effects and template placements; dedicated advancement/despawn journeys run in a different fresh session.");
+                        report.put("Screenshots",baselineScreenshots.stream().map(name->java.util.Map.of("Screenshot",name,"View",name)).toList());
+                        java.nio.file.Files.writeString(client.runDirectory.toPath().resolve("graphical-baseline-"+viewer()+".json"),new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(report));
+                        finish(client,"PASS: isolated broad graphical baseline; render layers, HUD/hearts, potion tooltips, gloves, cabinet, lockjaw gesture, themed medics, scrolling/discounts/stock and fresh advancement tab");return;
+                    }
                     if(graphicalPhase==0){graphicalCrafting=new GraphicalCraftingAudit();graphicalCrafting.start(client);graphicalPhase=1;}
                     if(graphicalPhase==1){
                         if(!graphicalCrafting.tick(client))return;
@@ -560,7 +655,7 @@ public final class ClientSmokeTest implements ClientModInitializer {
         }
         org.slf4j.LoggerFactory.getLogger("tetanusmod").info("Verified actual symptoms in all twelve drinkable/splash/lingering disease potion tooltips");
     }
-    private void screenshot(MinecraftClient client,String name) { ScreenshotRecorder.saveScreenshot(client.runDirectory,"rust-and-ruin-"+viewer()+"-"+name+".png",client.getFramebuffer(),text->{}); }
+    private void screenshot(MinecraftClient client,String name) { String file="rust-and-ruin-"+viewer()+"-"+name+".png";ScreenshotRecorder.saveScreenshot(client.runDirectory,file,client.getFramebuffer(),text->{});baselineScreenshots.add(file); }
     private void finish(MinecraftClient client,String result) {
         finished=true;
         try{Files.writeString(Path.of("client-smoke-result-"+viewer()+".txt"),result+System.lineSeparator());}catch(Exception e){throw new RuntimeException(e);}

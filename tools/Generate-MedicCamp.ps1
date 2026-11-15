@@ -28,6 +28,9 @@ foreach($x in @(1,8)){foreach($z in @(5,11)){for($y=1;$y-le3;$y++){Block $x $y $
 foreach($x in @(3,5)){Block $x 1 9 'minecraft:white_bed' @{part='foot';facing='south';occupied='false'};Block $x 1 10 'minecraft:white_bed' @{part='head';facing='south';occupied='false'}}
 Block 2 1 7 'tetanusmod:field_medic_cabinet' @{complete='true';facing='east';half='lower';hinge='left';open='false';powered='false'}
 Block 2 2 7 'tetanusmod:field_medic_cabinet' @{complete='true';facing='east';half='upper';hinge='left';open='false';powered='false'}
+# A low wooden desk keeps the writer above the floor and faces the clear center aisle.
+Block 2 1 5 'minecraft:oak_planks'
+Block 2 2 5 'tetanusmod:prescription_writer' @{facing='east'}
 Block 8 1 10 'minecraft:chest' @{facing='north';type='single';waterlogged='false'} @{id='minecraft:chest';LootTable='tetanusmod:chests/medic_tent'}
 Block 8 1 8 'minecraft:water_cauldron' @{level='3'}
 Block 6 5 7 'minecraft:lantern' @{hanging='true';waterlogged='false'}

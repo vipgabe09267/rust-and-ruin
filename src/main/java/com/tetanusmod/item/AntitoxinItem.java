@@ -34,12 +34,16 @@ public final class AntitoxinItem extends Item {
         if(world.isClient || stack.isEmpty() || !stack.isOf(this) || !user.isAlive() || user.isSpectator())return stack;
         MedicineConsumption.record(user,stack);
         {
-            boolean ill=user.hasStatusEffect(TetanusMod.TETANUS)||user.hasStatusEffect(TetanusMod.LOCKJAW);
-            if(ill&&user instanceof net.minecraft.server.network.ServerPlayerEntity player)com.tetanusmod.registry.ModAdvancements.award(player,"antitoxin","cure_tetanus");
+            var state=(com.tetanusmod.effect.InfectionState)user;
+            boolean ill=user.hasStatusEffect(TetanusMod.TETANUS)||user.hasStatusEffect(TetanusMod.LOCKJAW)||state.tetanus$getLockjaw()>0;
             user.removeStatusEffect(TetanusMod.TETANUS);
             user.removeStatusEffect(TetanusMod.LOCKJAW);
             if(ill)user.removeStatusEffect(com.tetanusmod.expansion.ExpansionEffects.DISORIENTED);
-            var state=(com.tetanusmod.effect.InfectionState)user;state.tetanus$setInfection(0,0);state.tetanus$setLockjaw(0);state.tetanus$setLockjawWindow(0);state.tetanus$setFreeze(0);
+            state.tetanus$setInfection(0,0);state.tetanus$setLockjaw(0);state.tetanus$setLockjawWindow(0);state.tetanus$setFreeze(0);
+            // Award the completed cure, including eating-blocked Lockjaw before its visible effect refresh.
+            if(ill&&!user.hasStatusEffect(TetanusMod.TETANUS)&&!user.hasStatusEffect(TetanusMod.LOCKJAW)
+                    &&state.tetanus$getLockjaw()==0&&user instanceof net.minecraft.server.network.ServerPlayerEntity player)
+                com.tetanusmod.registry.ModAdvancements.award(player,"antitoxin","cure_tetanus");
             ((ServerWorld) world).spawnParticles(ParticleTypes.HAPPY_VILLAGER, user.getX(), user.getBodyY(0.6),
                     user.getZ(), 10, 0.3, 0.4, 0.3, 0.05);
         }

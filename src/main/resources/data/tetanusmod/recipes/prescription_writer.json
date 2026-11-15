@@ -1,0 +1,30 @@
+{
+    "key":  {
+                "C":  {
+                          "item":  "minecraft:copper_ingot"
+                      },
+                "B":  {
+                          "item":  "minecraft:book"
+                      },
+                "P":  {
+                          "tag":  "minecraft:planks"
+                      },
+                "F":  {
+                          "item":  "minecraft:feather"
+                      },
+                "I":  {
+                          "item":  "minecraft:iron_ingot"
+                      }
+            },
+    "category":  "equipment",
+    "pattern":  [
+                    "IFI",
+                    "PBP",
+                    "ICI"
+                ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:prescription_writer"
+               },
+    "type":  "minecraft:crafting_shaped"
+}

@@ -5,6 +5,7 @@ import com.mojang.serialization.JsonOps;
 import com.tetanusmod.TetanusMod;
 import com.tetanusmod.expansion.ExpansionBlocks;
 import com.tetanusmod.expansion.MedicVillage;
+import com.tetanusmod.medical.MedicalWorkstations;
 import com.tetanusmod.world.ClinicStructure;
 import com.tetanusmod.world.MedicStructurePiece;
 import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
@@ -146,6 +147,11 @@ public class ClinicDiscoveryGameTests implements FabricGameTest {
             ctx.assertTrue(world.getPointOfInterestStorage().hasTypeAt(MedicVillage.JOB_KEY,lower),"Actual native clinic cabinet is absent from native POI storage: "+theme);
             ctx.assertTrue(world.getPointOfInterestStorage().getType(upper).isEmpty(),"Native clinic cabinet upper half creates duplicate POI: "+theme);
         }
+        var writers=piece.getTemplate().getInfosForBlock(pos,placement,MedicalWorkstations.WRITER);
+        ctx.assertTrue(writers.size()==1,"Naturally generated clinic lacks its Prescription Writer: "+theme);
+        var writer=writers.get(0);var aisle=writer.pos().offset(writer.state().get(HorizontalFacingBlock.FACING)).down();
+        ctx.assertTrue(world.getBlockState(writer.pos()).equals(writer.state())&&world.getBlockState(writer.pos().down()).isSolidBlock(world,writer.pos().down()),"Natural clinic writer is missing/misoriented or unsupported: "+theme);
+        ctx.assertTrue(world.isAir(aisle)&&world.isAir(aisle.up())&&world.getBlockState(aisle.down()).isSolidBlock(world,aisle.down()),"Natural clinic writer blocks its Survival approach: "+theme);
         var chest=pos.add(6,2,10);ctx.assertTrue(world.getBlockState(chest).isOf(Blocks.CHEST)&&world.getBlockEntity(chest)!=null&&world.getBlockEntity(chest).createNbt().getString("LootTable").equals("tetanusmod:chests/clinic"),"Actual clinic has no unopened loot chest: "+theme);
         var entry=pos.add(4,2,1);ctx.assertTrue(world.isAir(entry)&&world.isAir(entry.up())&&world.getBlockState(entry.down()).isSolidBlock(world,entry.down()),"Actual native clinic porch is obstructed or floating: "+theme+" "+entry);
         for(int z=2;z<=12;z++)ctx.assertTrue(world.getBlockState(pos.add(4,9,z)).isOf(Blocks.SPRUCE_SLAB)||theme.equals("desert")&&world.getBlockState(pos.add(4,9,z)).isOf(Blocks.SMOOTH_SANDSTONE_SLAB)||theme.equals("savanna")&&world.getBlockState(pos.add(4,9,z)).isOf(Blocks.ACACIA_SLAB),"Actual native clinic roof ridge missing: "+theme+" at "+pos.add(4,9,z));

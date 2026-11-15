@@ -17,7 +17,7 @@
                                     },
                     "show_toast":  true,
                     "icon":  {
-                                 "item":  "tetanusmod:medic_cabinet"
+                                 "item":  "tetanusmod:medical_prescription"
                              },
                     "hidden":  false,
                     "announce_to_chat":  true,

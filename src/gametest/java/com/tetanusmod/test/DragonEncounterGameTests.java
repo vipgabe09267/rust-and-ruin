@@ -1,0 +1,111 @@
+package com.tetanusmod.test;
+
+import com.mojang.authlib.GameProfile;
+import com.tetanusmod.TetanusMod;
+import com.tetanusmod.dragon.*;
+import com.tetanusmod.entity.*;
+import com.tetanusmod.registry.ModItems;
+import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
+import net.minecraft.block.*;
+import net.minecraft.enchantment.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.boss.dragon.*;
+import net.minecraft.entity.boss.dragon.phase.PhaseType;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.decoration.EndCrystalEntity;
+import net.minecraft.item.*;
+import net.minecraft.nbt.*;
+import net.minecraft.network.*;
+import net.minecraft.screen.*;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.test.*;
+import net.minecraft.util.*;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.*;
+import net.minecraft.world.*;
+import java.util.*;
+
+/** Native damage/XP/menus and saved lifecycle boundaries for the repeatable dragon. */
+public class DragonEncounterGameTests implements FabricGameTest {
+    private static final String SPACE="tetanusmod:test/camp_empty";
+    private static ServerPlayerEntity actor(TestContext ctx,BlockPos at){var p=new ServerPlayerEntity(ctx.getWorld().getServer(),ctx.getWorld(),new GameProfile(UUID.randomUUID(),"dragon-fixture"));ctx.getWorld().getServer().getPlayerManager().onPlayerConnect(new ClientConnection(NetworkSide.SERVERBOUND),p);p.changeGameMode(GameMode.SURVIVAL);p.setNoGravity(true);p.setPosition(Vec3d.ofBottomCenter(at));p.getInventory().clear();return p;}
+    private static EnderDragonEntity dragon(TestContext ctx,BlockPos at,boolean special){var d=EntityType.ENDER_DRAGON.create(ctx.getWorld());if(d==null)throw new IllegalStateException("Native dragon unavailable");d.setPosition(Vec3d.ofCenter(at));d.setFightOrigin(new BlockPos(at.getX(),0,at.getZ()));d.getPhaseManager().setPhase(PhaseType.HOVER);if(special)MobVariants.makePermanent(d);return d;}
+    private static void clean(ServerPlayerEntity p){p.closeHandledScreen();var manager=p.getServer().getPlayerManager();if(manager.getPlayerList().contains(p))manager.remove(p);p.discard();}
+    private static boolean done(ServerPlayerEntity p,String name){var a=p.getServer().getAdvancementLoader().get(TetanusMod.id(name));return a!=null&&p.getAdvancementTracker().getProgress(a).isDone();}
+    private static List<EndCrystalEntity> crystals(ServerWorld world,boolean all){var list=new ArrayList<EndCrystalEntity>();for(int i=0;i<4;i++)list.add(i==3&&!all?new EndCrystalEntity(EntityType.END_CRYSTAL,world):new TetanizedEndCrystalEntity(DragonContent.CRYSTAL_ENTITY,world));return list;}
+    private static EnderDragonEntity nativeCreate(ServerWorld world,BlockPos origin,List<EndCrystalEntity> crystals)throws Exception{var fight=new EnderDragonFight(world,world.getSeed(),EnderDragonFight.Data.DEFAULT,origin);var field=EnderDragonFight.class.getDeclaredField("crystals");field.setAccessible(true);field.set(fight,crystals);var method=EnderDragonFight.class.getDeclaredMethod("createDragon");method.setAccessible(true);return (EnderDragonEntity)method.invoke(fight);}
+
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void onlyFourDistinctSpecialCrystalsQualify(TestContext ctx){var all=crystals(ctx.getWorld(),true);ctx.assertTrue(DragonEncounter.specialCrystals(all),"Four special crystals rejected");ctx.assertTrue(!DragonEncounter.specialCrystals(crystals(ctx.getWorld(),false)),"Mixed crystals incorrectly select special dragon");ctx.assertTrue(!DragonEncounter.specialCrystals(List.of(all.get(0),all.get(0),all.get(0),all.get(0)))&&!DragonEncounter.specialCrystals(all.subList(0,3))&&!DragonEncounter.specialCrystals(null),"Incomplete or duplicated ritual accepted");ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void nativeCreationHookMakes1100HpOnlyForCompleteSpecialRitual(TestContext ctx)throws Exception{var world=ctx.getWorld();var origin=ctx.getAbsolutePos(new BlockPos(5,0,5));var special=nativeCreate(world,origin,crystals(world,true));var normal=nativeCreate(world,origin.add(20,0,0),crystals(world,false));try{ctx.assertTrue(MobVariants.permanent(special)&&special.getMaxHealth()==1100&&special.getHealth()==1100,"Native ritual dragon lacks1100HP");ctx.assertTrue(!MobVariants.permanent(normal)&&normal.getMaxHealth()==200,"Mixed ritual changed ordinary dragon");ctx.assertTrue(!special.hasStatusEffect(TetanusMod.TETANUS),"Special dragon damages itself with generic permanent infection");}finally{special.discard();normal.discard();}ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void nativeEndSummonAwardsNearbyPlayersButNotSpectatorsOrDistantPlayers(TestContext ctx)throws Exception{
+        var end=ctx.getWorld().getServer().getWorld(World.END);ctx.assertTrue(end!=null,"Real End dimension unavailable");var people=new ArrayList<ServerPlayerEntity>();EnderDragonEntity boss=null;
+        try{for(int i=0;i<4;i++){var p=new ServerPlayerEntity(end.getServer(),ctx.getWorld(),new GameProfile(UUID.randomUUID(),"dragon-ritual-"+i));people.add(p);end.getServer().getPlayerManager().onPlayerConnect(new ClientConnection(NetworkSide.SERVERBOUND),p);p.changeGameMode(i==2?GameMode.SPECTATOR:GameMode.SURVIVAL);p.setNoGravity(true);p.teleport(end,i==3?300:3+i,128,3,0,0);}
+            boss=nativeCreate(end,BlockPos.ORIGIN,crystals(end,true));ctx.assertTrue(done(people.get(0),"dragon_summoned")&&done(people.get(1),"dragon_summoned"),"Central End witnesses missed native summon advancement");ctx.assertTrue(!done(people.get(2),"dragon_summoned")&&!done(people.get(3),"dragon_summoned"),"Spectator or distant player received summon advancement");
+        }finally{if(boss!=null)boss.discard();for(var p:people)clean(p);}ctx.complete();
+    }
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void swordHasRequestedStatsPreEnchantAndSwordEnchantmentCompatibility(TestContext ctx){var stack=DragonContent.SWORD.getDefaultStack();var attack=stack.getAttributeModifiers(EquipmentSlot.MAINHAND);double damage=1+attack.get(EntityAttributes.GENERIC_ATTACK_DAMAGE).stream().mapToDouble(m->m.getValue()).sum();double speed=4+attack.get(EntityAttributes.GENERIC_ATTACK_SPEED).stream().mapToDouble(m->m.getValue()).sum();ctx.assertTrue(Math.abs(damage-12)<.0001&&Math.abs(speed-2.3)<.0001&&stack.getMaxDamage()==4062,"Overload Sword base stats differ");ctx.assertTrue(EnchantmentHelper.getLevel(ModItems.TETANUS_ENCHANTMENT,stack)==2,"Dropped/default sword lacks TetanusII");for(var enchantment:List.of(Enchantments.SHARPNESS,Enchantments.SMITE,Enchantments.BANE_OF_ARTHROPODS,Enchantments.FIRE_ASPECT,Enchantments.LOOTING,Enchantments.SWEEPING,Enchantments.MENDING,Enchantments.UNBREAKING))ctx.assertTrue(enchantment.isAcceptableItem(stack),"Sword rejects ordinary sword enchantment "+enchantment);ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void forgingConsumesOneOfEachAndNeverDuplicatesOutput(TestContext ctx){var at=ctx.getAbsolutePos(new BlockPos(5,3,5));ctx.getWorld().setBlockState(at,DragonContent.FORGE.getDefaultState());var p=actor(ctx,at.add(0,0,2));try{var menu=new WitherForgingScreenHandler(15,p.getInventory(),ScreenHandlerContext.create(ctx.getWorld(),at));p.currentScreenHandler=menu;for(int i=0;i<3;i++)menu.getSlot(i).setStack(new ItemStack(i==0?Items.END_CRYSTAL:i==1?ModItems.RUST:Items.NETHERITE_INGOT,2));menu.onContentChanged(menu.getSlot(0).inventory);ctx.assertTrue(menu.getSlot(3).getStack().isOf(DragonContent.CRYSTAL),"Forge preview absent");menu.quickMove(p,3);ctx.assertTrue(p.getInventory().count(DragonContent.CRYSTAL)==1&&menu.getSlot(0).getStack().getCount()==1&&menu.getSlot(1).getStack().getCount()==1&&menu.getSlot(2).getStack().getCount()==1&&done(p,"forge_crystal"),"Native forge debit or advancement failed");menu.quickMove(p,3);var empty=menu.quickMove(p,3);ctx.assertTrue(p.getInventory().count(DragonContent.CRYSTAL)==2&&empty.isEmpty()&&menu.getSlot(0).getStack().isEmpty()&&menu.getSlot(1).getStack().isEmpty()&&menu.getSlot(2).getStack().isEmpty(),"Forge empty result duplicated output");}finally{clean(p);}ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void fullInventoryAndClosingPreviewPreserveAllForgeMaterials(TestContext ctx){var at=ctx.getAbsolutePos(new BlockPos(5,3,5));ctx.getWorld().setBlockState(at,DragonContent.FORGE.getDefaultState());var p=actor(ctx,at.add(0,0,2));try{var menu=new WitherForgingScreenHandler(16,p.getInventory(),ScreenHandlerContext.create(ctx.getWorld(),at));p.currentScreenHandler=menu;for(int i=0;i<36;i++)p.getInventory().setStack(i,new ItemStack(Items.STONE,64));for(int i=0;i<3;i++)menu.getSlot(i).setStack(new ItemStack(i==0?Items.END_CRYSTAL:i==1?ModItems.RUST:Items.NETHERITE_INGOT));menu.onContentChanged(menu.getSlot(0).inventory);ctx.assertTrue(menu.quickMove(p,3).isEmpty()&&menu.getSlot(0).hasStack()&&menu.getSlot(1).hasStack()&&menu.getSlot(2).hasStack(),"Full inventory consumed materials");p.getInventory().clear();menu.onClosed(p);p.currentScreenHandler=p.playerScreenHandler;ctx.assertTrue(p.getInventory().count(Items.END_CRYSTAL)==1&&p.getInventory().count(ModItems.RUST)==1&&p.getInventory().count(Items.NETHERITE_INGOT)==1&&p.getInventory().count(DragonContent.CRYSTAL)==0,"Closing preview lost inputs or manufactured crystal");}finally{clean(p);}ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void forgeRejectsWrongOwnerSpectatorAndUnsupportedIngredients(TestContext ctx){var at=ctx.getAbsolutePos(new BlockPos(5,3,5));ctx.getWorld().setBlockState(at,DragonContent.FORGE.getDefaultState());var p=actor(ctx,at.add(0,0,2));var other=actor(ctx,at.add(1,0,2));try{var menu=new WitherForgingScreenHandler(17,p.getInventory(),ScreenHandlerContext.create(ctx.getWorld(),at));for(int i=0;i<3;i++)ctx.assertTrue(!menu.getSlot(i).canInsert(new ItemStack(Items.DIRT)),"Wrong forge ingredient accepted");ctx.assertTrue(!menu.canUse(other)&&menu.quickMove(other,3).isEmpty(),"Foreign player accessed forge inventory");p.changeGameMode(GameMode.SPECTATOR);ctx.assertTrue(!menu.canUse(p)&&menu.quickMove(p,3).isEmpty(),"Spectator extracted forge result");var recipe=new CrystalForgingRecipe(TetanusMod.id("test_forge"));ctx.assertTrue(!recipe.fits(-2,-2)&&recipe.getIngredients().size()==3,"Forge ingredient metadata or dimension validation differs");}finally{clean(p);clean(other);}ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void specialCrystalUsesNativePlacementAndBlockedAttemptConsumesNothing(TestContext ctx){var at=ctx.getAbsolutePos(new BlockPos(5,3,5));var world=ctx.getWorld();world.setBlockState(at,Blocks.OBSIDIAN.getDefaultState());world.setBlockState(at.up(),Blocks.AIR.getDefaultState());world.setBlockState(at.up(2),Blocks.AIR.getDefaultState());var p=actor(ctx,at.add(0,0,4));try{p.setStackInHand(Hand.MAIN_HAND,new ItemStack(DragonContent.CRYSTAL,2));var use=new ItemUsageContext(p,Hand.MAIN_HAND,new BlockHitResult(Vec3d.ofCenter(at).add(0,.5,0),Direction.UP,at,false));world.setBlockState(at.up(),Blocks.STONE.getDefaultState());ctx.assertTrue(!DragonContent.CRYSTAL.useOnBlock(use).isAccepted()&&p.getMainHandStack().getCount()==2,"Blocked crystal consumed an item");world.setBlockState(at.up(),Blocks.AIR.getDefaultState());ctx.assertTrue(DragonContent.CRYSTAL.useOnBlock(use).isAccepted()&&p.getMainHandStack().getCount()==1,"Native special crystal placement failed");var entities=world.getEntitiesByClass(TetanizedEndCrystalEntity.class,new Box(at).expand(3),e->true);ctx.assertTrue(entities.size()==1&&entities.get(0).getPickBlockStack().isOf(DragonContent.CRYSTAL),"Placed special crystal lost identity");for(var e:entities)e.discard();}finally{clean(p);}ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void contributionTracksOnlyActualAcceptedPlayerDamageAndPersists(TestContext ctx){var at=ctx.getAbsolutePos(new BlockPos(5,5,5));var p=actor(ctx,at.add(0,0,3));var d=dragon(ctx,at,true);try{var source=ctx.getWorld().getDamageSources().playerAttack(p);d.timeUntilRegen=0;ctx.assertTrue(d.damagePart(d.head,source,19),"Native first dragon damage rejected");ctx.assertTrue(DragonEncounter.data(d).damage.getOrDefault(p.getUuid(),0F)==19,"Ledger counted requested rather than actual damage");d.timeUntilRegen=0;d.damagePart(d.head,source,1);ctx.assertTrue(DragonEncounter.data(d).damage.get(p.getUuid())==20,"Twenty damage threshold not reached");var nbt=d.writeNbt(new NbtCompound());var loaded=dragon(ctx,at,false);try{loaded.readNbt(nbt);MobVariants.loaded(loaded);ctx.assertTrue(MobVariants.permanent(loaded)&&loaded.getMaxHealth()==1100&&DragonEncounter.data(loaded).damage.get(p.getUuid())==20,"Save/reload lost variant or contributor");}finally{loaded.discard();}}finally{d.discard();clean(p);}ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void dragonDeathKeepsNative500XpAndDropsOneSwordAndEgg(TestContext ctx)throws Exception{var world=ctx.getWorld();var at=ctx.getAbsolutePos(new BlockPos(7,6,7));var d=dragon(ctx,at,true);var area=new Box(at).expand(12);int before=xp(world,area);int swords=count(world,area,DragonContent.SWORD),eggs=count(world,area,DragonContent.EGG_ITEM);var method=EnderDragonEntity.class.getDeclaredMethod("updatePostDeath");method.setAccessible(true);d.setHealth(0);d.ticksSinceDeath=149;for(int i=0;i<51;i++)method.invoke(d);ctx.assertTrue(xp(world,area)-before==500,"Special respawn dragon changed native500XP");ctx.assertTrue(count(world,area,DragonContent.SWORD)-swords==1&&count(world,area,DragonContent.EGG_ITEM)-eggs==1,"Dragon did not drop exactly one shared sword and egg");ctx.assertTrue(DragonEncounter.data(d).rewarded,"Dragon reward state not recorded");for(var item:world.getEntitiesByClass(ItemEntity.class,area,e->e.getStack().isOf(DragonContent.SWORD)))ctx.assertTrue(EnchantmentHelper.getLevel(ModItems.TETANUS_ENCHANTMENT,item.getStack())==2,"Reward sword lacksTetanusII");d.ticksSinceDeath=199;DragonEncounter.deathTick(d);ctx.assertTrue(count(world,area,DragonContent.SWORD)-swords==1,"Repeated death callback duplicated sword");for(var entity:world.getOtherEntities(null,area,e->e instanceof ItemEntity||e instanceof ExperienceOrbEntity))entity.discard();d.discard();ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void offlineContributorAwardRequires20DamageAndSurvivesQueuedState(TestContext ctx){var at=ctx.getAbsolutePos(new BlockPos(5,5,5));var d=dragon(ctx,at,true);var enough=UUID.randomUUID();var low=UUID.randomUUID();DragonEncounter.data(d).damage.put(enough,20F);DragonEncounter.data(d).damage.put(low,19F);d.ticksSinceDeath=199;boolean loot=ctx.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_LOOT);ctx.getWorld().getGameRules().get(GameRules.DO_MOB_LOOT).set(false,ctx.getWorld().getServer());try{DragonEncounter.deathTick(d);var queue=DragonRewardState.get(ctx.getWorld().getServer());ctx.assertTrue(queue.remove(enough)&&!queue.remove(low),"Offline threshold or queued award failed");ctx.assertTrue(DragonEncounter.data(d).rewarded,"No-loot setting repeated contribution awards");}finally{ctx.getWorld().getGameRules().get(GameRules.DO_MOB_LOOT).set(loot,ctx.getWorld().getServer());d.discard();}ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void grabHonorsChanceSurvivalEligibilityCooldownAndNativeDismount(TestContext ctx){var at=ctx.getAbsolutePos(new BlockPos(7,7,7));var d=dragon(ctx,at,true);var p=actor(ctx,at.add(0,0,2));try{d.head.setPosition(p.getPos());ctx.assertTrue(!DragonEncounter.tryGrab(d,p,.15F),"Grabchanceaccepted15percentboundary");ctx.assertTrue(DragonEncounter.tryGrab(d,p,.149F)&&p.getVehicle()==d,"Eligible15percentgrabdidnotmountplayer");ctx.assertTrue(DragonEncounter.passengerPosition(d,p)!=null&&DragonEncounter.isCarriedBy(p,d),"Mouthpositionorownbiteguardmissing");DragonEncounter.release(d);ctx.assertTrue(!p.hasVehicle()&&!DragonEncounter.tryGrab(d,p,0),"Dismountfailedor120seccooldownbypassed");DragonEncounter.data(d).nextGrab=0;p.changeGameMode(GameMode.CREATIVE);ctx.assertTrue(!DragonEncounter.tryGrab(d,p,0),"Creativeplayerwasgrabbed");p.changeGameMode(GameMode.SPECTATOR);ctx.assertTrue(!DragonEncounter.tryGrab(d,p,0),"Spectatorwasgrabbed");}finally{DragonEncounter.release(d);d.discard();clean(p);}ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void savedEncounterBoundsCooldownAndRejectsInvalidContributorData(TestContext ctx){var state=new DragonEncounter.Data();var nbt=new NbtCompound();nbt.putLong("RustRuinDragonNextGrab",Long.MAX_VALUE);var list=new NbtList();for(int i=0;i<1030;i++){var row=new NbtCompound();row.putUuid("Player",UUID.randomUUID());row.putFloat("Damage",i==0?Float.NaN:50);list.add(row);}nbt.put("RustRuinDragonDamage",list);state.read(nbt,500);ctx.assertTrue(state.nextGrab==2900&&state.damage.size()==1023&&state.damage.values().stream().allMatch(v->v==20)&&state.carried==null,"Savedencounterboundsorpartialgrabcleanupfailed");var saved=new NbtCompound();state.write(saved);ctx.assertTrue(saved.getList("RustRuinDragonDamage",10).size()==1023,"Boundedledgerfailedtosave");ctx.complete();}
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void nativeNbtReloadRecoversInterruptedGrabWithoutChangingOrdinaryHover(TestContext ctx){
+        var at=ctx.getAbsolutePos(new BlockPos(7,7,7));var original=dragon(ctx,at,true);var p=actor(ctx,at.add(0,0,2));
+        EnderDragonEntity loaded=null,ordinaryHover=null;
+        try{
+            original.head.setPosition(p.getPos());
+            ctx.assertTrue(DragonEncounter.tryGrab(original,p,0),"Native grab fixture did not mount before saving");
+            long cooldown=DragonEncounter.data(original).nextGrab;
+            var saved=original.writeNbt(new NbtCompound());
+            ctx.assertTrue(saved.getBoolean("RustRuinDragonInterruptedGrab")&&saved.getInt("DragonPhase")==PhaseType.HOVER.getTypeId(),"Native save did not retain interrupted HOVER state");
+            DragonEncounter.release(original);
+            loaded=dragon(ctx,at,false);loaded.readNbt(saved);MobVariants.loaded(loaded);loaded.head.setPosition(p.getPos());
+            ctx.assertTrue(loaded.getPhaseManager().getCurrent().getType()==PhaseType.HOVER&&DragonEncounter.data(loaded).carried==null&&DragonEncounter.data(loaded).interruptedGrab,"NBT roundtrip did not reproduce interrupted native HOVER");
+            ctx.assertTrue(p.startRiding(loaded,true),"Could not reproduce a restored native passenger");
+            DragonEncounter.tick(loaded);
+            ctx.assertTrue(!p.hasVehicle()&&loaded.getPhaseManager().getCurrent().getType()==PhaseType.HOLDING_PATTERN&&!DragonEncounter.data(loaded).interruptedGrab,"First server tick left a restored passenger or stranded HOVER boss");
+            ctx.assertTrue(DragonEncounter.data(loaded).nextGrab==cooldown&&!loaded.writeNbt(new NbtCompound()).getBoolean("RustRuinDragonInterruptedGrab"),"Recovery lost cooldown or kept rearming its interrupted marker");
+            ordinaryHover=dragon(ctx,at,true);ordinaryHover.head.setPosition(Vec3d.ofCenter(at.add(0,0,20)));var normalSave=ordinaryHover.writeNbt(new NbtCompound());ordinaryHover.readNbt(normalSave);MobVariants.loaded(ordinaryHover);DragonEncounter.tick(ordinaryHover);
+            ctx.assertTrue(ordinaryHover.getPhaseManager().getCurrent().getType()==PhaseType.HOVER,"Unrelated native HOVER was changed without an interrupted grab");
+        }finally{DragonEncounter.release(original);if(loaded!=null){DragonEncounter.release(loaded);loaded.discard();}if(ordinaryHover!=null)ordinaryHover.discard();original.discard();clean(p);}
+        ctx.complete();
+    }
+    private static int count(ServerWorld world,Box area,Item item){return world.getEntitiesByClass(ItemEntity.class,area,e->e.getStack().isOf(item)).stream().mapToInt(e->e.getStack().getCount()).sum();}
+    private static int xp(ServerWorld world,Box area){int total=0;for(var orb:world.getEntitiesByClass(ExperienceOrbEntity.class,area,e->true)){var nbt=orb.writeNbt(new NbtCompound());total+=nbt.getShort("Value")*Math.max(1,nbt.getInt("Count"));}return total;}
+
+    @GameTest(templateName=SPACE,batchId="dragon_revision")
+    public void nativeDragonDamageInfectsOnlyForSpecialBossAndCannotBiteItsRider(TestContext ctx){
+        var at=ctx.getAbsolutePos(new BlockPos(7,7,7));var special=dragon(ctx,at,true);var normal=dragon(ctx,at,false);var victim=EntityType.ZOMBIE.create(ctx.getWorld());var player=actor(ctx,at.add(0,0,3));
+        try{
+            var ordinarySource=ctx.getWorld().getDamageSources().mobAttack(normal);
+            ctx.assertTrue(victim.damage(ordinarySource,1)&&!victim.hasStatusEffect(TetanusMod.TETANUS),"Ordinary dragon unexpectedly caused mod infection");
+            victim.timeUntilRegen=0;var specialSource=ctx.getWorld().getDamageSources().mobAttack(special);
+            ctx.assertTrue(victim.damage(specialSource,1)&&victim.hasStatusEffect(TetanusMod.TETANUS),"Accepted special dragon damage failed to infect a mob");
+            ctx.assertTrue(!player.damage(specialSource,1)&&!player.hasStatusEffect(TetanusMod.TETANUS),"Native login damage immunity was bypassed or caused infection");
+            ((com.tetanusmod.test.mixin.ServerPlayerTestAccessor)player).rustruin$joinInvulnerability(0);
+            ctx.assertTrue(player.damage(specialSource,1)&&player.hasStatusEffect(TetanusMod.TETANUS),"Accepted special dragon damage failed to infect a Survival player");
+            ctx.assertTrue(player.startRiding(special,true),"Native test rider did not mount");DragonEncounter.data(special).carried=player.getUuid();player.timeUntilRegen=0;float before=player.getHealth();
+            ctx.assertTrue(!player.damage(specialSource,5)&&player.getHealth()==before,"Dragon bit the player held in its own mouth");
+        }finally{DragonEncounter.release(special);special.discard();normal.discard();victim.discard();clean(player);}ctx.complete();
+    }
+}

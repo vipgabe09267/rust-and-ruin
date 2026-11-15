@@ -19,10 +19,14 @@
                                        "com.tetanusmod.client.TetanusClient"
                                    ],
                         "jei_mod_plugin":  [
-                                               "com.tetanusmod.compat.RustRuinJeiPlugin"
+                                               "com.tetanusmod.compat.RustRuinJeiPlugin",
+                                               "com.tetanusmod.compat.MedicalJeiPlugin",
+                                               "com.tetanusmod.compat.DragonJeiPlugin"
                                            ],
                         "rei_client":  [
-                                           "com.tetanusmod.compat.RustRuinReiPlugin"
+                                           "com.tetanusmod.compat.RustRuinReiPlugin",
+                                           "com.tetanusmod.compat.MedicalReiPlugin",
+                                           "com.tetanusmod.compat.DragonReiPlugin"
                                        ]
                     },
     "mixins":  [

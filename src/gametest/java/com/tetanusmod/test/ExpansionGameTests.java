@@ -24,11 +24,11 @@ public class ExpansionGameTests implements FabricGameTest {
     public void witherRollOnceAndNeverStacks(TestContext ctx) {
         float originalChance=TetanusMod.CONFIG.witherConversionChance;
         try {
-            ctx.assertTrue(originalChance==0.05F,"Default wither chance is not 5%");
+            ctx.assertTrue(originalChance==0.75F,"Default wither chance is not 75%");
             TetanusMod.CONFIG.witherConversionChance=1;
             var mutant=new WitherEntity(EntityType.WITHER,ctx.getWorld()); MobVariants.rollSpecialWither(mutant);
-            ctx.assertTrue(MobVariants.permanent(mutant)&&mutant.getMaxHealth()==600,"Successful wither roll failed");
-            MobVariants.loaded(mutant);ctx.assertTrue(mutant.getMaxHealth()==600,"Wither health stacked on reload");
+            ctx.assertTrue(MobVariants.permanent(mutant)&&mutant.getMaxHealth()==650,"Successful wither roll failed");
+            MobVariants.loaded(mutant);ctx.assertTrue(mutant.getMaxHealth()==650,"Wither health stacked on reload");
             TetanusMod.CONFIG.witherConversionChance=0;
             var normal=new WitherEntity(EntityType.WITHER,ctx.getWorld());MobVariants.loaded(normal);
             TetanusMod.CONFIG.witherConversionChance=1;MobVariants.loaded(normal);
@@ -39,13 +39,16 @@ public class ExpansionGameTests implements FabricGameTest {
         } finally { TetanusMod.CONFIG.witherConversionChance=originalChance; }
         ctx.complete();
     }
-    @GameTest(templateName=EMPTY_STRUCTURE)
+    @GameTest(templateName="tetanusmod:test/camp_empty",batchId="enderman_nail_regression")
     public void rustyNailCanInfectEnderman(TestContext ctx) {
-        var enderman=ctx.spawnEntity(EntityType.ENDERMAN,new Vec3d(3.5,3,5.5));enderman.setAiDisabled(true);enderman.setNoGravity(true);
-        var nail=new NailEntity(TetanusMod.NAIL_ENTITY,ctx.getWorld());nail.setItem(new ItemStack(ModItems.RUSTED_NAIL));
-        nail.setPosition(ctx.getAbsolute(new Vec3d(3.5,3.7,2.5)));nail.setVelocity(0,0,0.7);ctx.getWorld().spawnEntity(nail);
+        // A dry enclosed lane prevents daylight/rain teleport behavior from moving the target out of the native projectile's path.
+        for(int x=1;x<=8;x++)for(int z=1;z<=10;z++)for(int y=1;y<=6;y++)ctx.setBlockState(x,y,z,y==1||y==6?net.minecraft.block.Blocks.STONE:net.minecraft.block.Blocks.AIR);
+        var enderman=ctx.spawnEntity(EntityType.ENDERMAN,new Vec3d(4.5,2,7.5));enderman.setAiDisabled(true);enderman.setNoGravity(true);
+        var owner=ctx.createMockSurvivalPlayer();owner.setPosition(ctx.getAbsolute(new Vec3d(4.5,2,2.5)));
+        var nail=new NailEntity(ctx.getWorld(),owner);nail.setItem(new ItemStack(ModItems.RUSTED_NAIL));
+        nail.setPosition(ctx.getAbsolute(new Vec3d(4.5,3,4.5)));nail.setVelocity(0,0,0.7);ctx.getWorld().spawnEntity(nail);
         ctx.runAtTick(12,()->{
-            ctx.assertTrue(enderman.hasStatusEffect(TetanusMod.TETANUS),"Enderman projectile immunity blocked rust infection");
+            ctx.assertTrue(enderman.hasStatusEffect(TetanusMod.TETANUS),"Native rusty nail did not infect dry Enderman: target="+enderman.getPos()+" health="+enderman.getHealth()+" nail="+nail.getPos()+" removed="+nail.isRemoved());
             ctx.assertFalse(nail.isAlive(),"Rusty nail not consumed on enderman hit");ctx.complete();
         });
     }
@@ -140,17 +143,17 @@ public class ExpansionGameTests implements FabricGameTest {
         });
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void witherDoubleHealthAndLoot(TestContext ctx) {
+    public void witherRebalancedHealthAndLoot(TestContext ctx) {
         var wither=new WitherEntity(EntityType.WITHER,ctx.getWorld()); wither.setAiDisabled(true);
         wither.setPosition(ctx.getAbsolute(new Vec3d(3,3,3))); MobVariants.makePermanent(wither);
-        ctx.assertTrue(wither.getMaxHealth()==600&&wither.getHealth()==600,"Tetanized wither must have 600 health");
+        ctx.assertTrue(wither.getMaxHealth()==650&&wither.getHealth()==650,"Tetanized wither must have 650 health");
         ctx.assertTrue(wither.getCustomName().getContent() instanceof net.minecraft.text.TranslatableTextContent text
                 &&text.getKey().equals("entity.tetanusmod.tetanized_wither"),"Wither boss name missing");
         wither.damage(ctx.getWorld().getDamageSources().genericKill(),10000);
         var items=ctx.getWorld().getEntitiesByClass(ItemEntity.class,wither.getBoundingBox().expand(6),e->true);
-        ctx.assertTrue(items.stream().anyMatch(e->e.getStack().isOf(Items.NETHER_STAR)),"Wither lost normal nether star");
+        ctx.assertTrue(items.stream().anyMatch(e->e.getStack().isOf(ModItems.TETANIZED_WITHER_STAR))&&items.stream().noneMatch(e->e.getStack().isOf(Items.NETHER_STAR)),"Special Wither must replace its ordinary star");
         ctx.assertTrue(items.stream().anyMatch(e->e.getStack().isOf(Items.ENCHANTED_BOOK)
-                &&EnchantmentHelper.get(e.getStack()).getOrDefault(ModItems.TETANUS_ENCHANTMENT,0)==1),"Wither did not drop Tetanus I");
+                &&EnchantmentHelper.get(e.getStack()).getOrDefault(ModItems.TETANUS_ENCHANTMENT,0)>0),"Wither did not drop its one level-I-or-II book");
         ctx.assertTrue(items.size()>=4,"Bonus wither loot missing"); ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)

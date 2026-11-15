@@ -39,6 +39,7 @@ public final class GraphicalCraftingAudit {
     private CompletableFuture<Void> operation;
     private int ticks,at,index,campfireEntityId;
     private UUID campfireEntity;
+    private final List<String> deferredStationRecipes=new ArrayList<>();
     private String viewer;
 
     public void start(MinecraftClient client){
@@ -53,6 +54,8 @@ public final class GraphicalCraftingAudit {
             }
             var result=new ArrayList<Spec>();
             for(var recipe:world.getRecipeManager().values().stream().filter(r->r.getId().getNamespace().equals(TetanusMod.MOD_ID)).sorted(Comparator.comparing(r->r.getId().toString())).toList()){
+                // Dedicated networked station controllers exercise these outputs; all other unknown types still fail.
+                if(recipe instanceof com.tetanusmod.medical.PrescriptionWritingRecipe||recipe instanceof com.tetanusmod.dragon.CrystalForgingRecipe){deferredStationRecipes.add(recipe.getId().toString());continue;}
                 Kind kind=recipe instanceof CraftingRecipe?Kind.TABLE:recipe instanceof RustArrowSmithingRecipe?Kind.SMITHING:
                     recipe.getType()==RecipeType.SMELTING?Kind.FURNACE:recipe.getType()==RecipeType.SMOKING?Kind.SMOKER:
                     recipe.getType()==RecipeType.BLASTING?Kind.BLAST_FURNACE:recipe.getType()==RecipeType.CAMPFIRE_COOKING?Kind.CAMPFIRE:null;
@@ -107,10 +110,15 @@ public final class GraphicalCraftingAudit {
             }
             case VERIFY->{if(operation.isDone()){operation.join();screenshot(client,"after");LOGGER.info("GRAPHICAL_CRAFT_PASS {} type={} count={} native-network-output=true",active.id,active.kind,active.output.getCount());advance(Phase.AFTER);}}
             case AFTER->{if(ticks-at>=20){index++;advance(Phase.NEXT);}}
-            case CLEANUP->{if(operation.isDone()){operation.join();LOGGER.info("GRAPHICAL_CRAFT_ALL_PASS recipes={}",recipes.size());advance(Phase.DONE);}}
+            case CLEANUP->{if(operation.isDone()){operation.join();writeStationReport(client);LOGGER.info("GRAPHICAL_CRAFT_ALL_PASS ordinary_recipes={} deferred_station_recipes={}",recipes.size(),deferredStationRecipes);advance(Phase.DONE);}}
             case DONE->{return true;}
         }
         return phase==Phase.DONE;
+    }
+    public List<String> deferredStationRecipes(){return List.copyOf(deferredStationRecipes);}
+    private void writeStationReport(MinecraftClient client){
+        var report=new LinkedHashMap<String,Object>();report.put("Result","PASS");report.put("Scope","Native ordinary crafting, cooking and arrow smithing; dedicated stations require their separate receipts");report.put("OrdinaryRecipesCrafted",recipes.size());report.put("DeferredStationRecipes",List.copyOf(deferredStationRecipes));report.put("RequiredSeparateProofs",List.of("graphical-medical-"+viewer+".json","graphical-forge-"+viewer+".json"));
+        try{java.nio.file.Files.writeString(client.runDirectory.toPath().resolve("graphical-crafting-stations-"+viewer+".json"),new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(report));}catch(java.io.IOException error){throw new IllegalStateException("Cannot record dedicated-station dispatch",error);}
     }
     private Prepared prepare(MinecraftClient client){
         var player=player(client);var world=player.getServerWorld();player.closeHandledScreen();player.getInventory().clear();player.getHungerManager().setFoodLevel(20);

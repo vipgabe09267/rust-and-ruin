@@ -1,0 +1,408 @@
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "Windows_NT" == "Windows_NT" setlocal
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "DIRNAME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" == "" set DIRNAME=. 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_BASE_NAME=gradlew" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>for %i in ("C:\Users\gwilliamscrypto\Documents\Rust & Ruin\") do set "APP_HOME=%~fi" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if defined JAVA_HOME goto findJavaFromJavaHome 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_EXE=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if exist "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" goto execute 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "CLASSPATH=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>"C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" "-Xmx64m" "-Xms64m"   "-Dorg.gradle.appname=gradlew" -classpath "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain --offline runClientSmoke -PsmokeWorld=ready-plain-full-20261114 -PsmokeUsername=ReadyPlain011 --console plain 
+Starting a Gradle Daemon, 1 busy and 2 stopped Daemons could not be reused, use --status for details
+
+> Configure project :
+Fabric Loom: 1.10.5
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileSmoketestJava UP-TO-DATE
+> Task :generateLog4jConfig UP-TO-DATE
+> Task :generateRemapClasspath UP-TO-DATE
+> Task :generateDLIConfig UP-TO-DATE
+> Task :configureLaunch UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :configureClientLaunch UP-TO-DATE
+> Task :processSmoketestResources UP-TO-DATE
+> Task :smoketestClasses UP-TO-DATE
+
+> Task :runClientSmoke
+[17:28:08] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.20.1 with Fabric Loader 0.16.14
+[17:28:09] [main/INFO] (FabricLoader) Loading 60 mods:
+	- fabric-api 0.92.6+1.20.1
+	- fabric-api-base 0.4.32+1802ada577
+	- fabric-api-lookup-api-v1 1.6.37+1802ada577
+	- fabric-biome-api-v1 13.0.14+1802ada577
+	- fabric-block-api-v1 1.0.12+1802ada577
+	- fabric-block-view-api-v2 1.0.3+924f046a77
+	- fabric-blockrenderlayer-v1 1.1.42+1802ada577
+	- fabric-client-tags-api-v1 1.1.3+1802ada577
+	- fabric-command-api-v1 1.2.35+f71b366f77
+	- fabric-command-api-v2 2.2.14+1802ada577
+	- fabric-commands-v0 0.2.52+df3654b377
+	- fabric-containers-v0 0.1.67+df3654b377
+	- fabric-content-registries-v0 4.0.13+1802ada577
+	- fabric-convention-tags-v1 1.5.6+1802ada577
+	- fabric-crash-report-info-v1 0.2.20+1802ada577
+	- fabric-data-attachment-api-v1 1.0.2+de0fd6d177
+	- fabric-data-generation-api-v1 12.3.7+1802ada577
+	- fabric-dimensions-v1 2.1.55+1802ada577
+	- fabric-entity-events-v1 1.6.1+1c78457f77
+	- fabric-events-interaction-v0 0.6.5+13a40c6677
+	- fabric-events-lifecycle-v0 0.2.64+df3654b377
+	- fabric-game-rule-api-v1 1.0.41+1802ada577
+	- fabric-gametest-api-v1 1.2.15+1802ada577
+	- fabric-item-api-v1 2.1.29+1802ada577
+	- fabric-item-group-api-v1 4.0.14+1802ada577
+	- fabric-key-binding-api-v1 1.0.38+1802ada577
+	- fabric-keybindings-v0 0.2.36+df3654b377
+	- fabric-lifecycle-events-v1 2.2.23+1802ada577
+	- fabric-loot-api-v2 1.2.3+1802ada577
+	- fabric-loot-tables-v1 1.1.47+9e7660c677
+	- fabric-message-api-v1 5.1.10+1802ada577
+	- fabric-mining-level-api-v1 2.1.52+1802ada577
+	- fabric-model-loading-api-v1 1.0.4+1802ada577
+	- fabric-models-v0 0.4.3+9386d8a777
+	- fabric-networking-api-v1 1.3.14+a158aa0477
+	- fabric-networking-v0 0.3.54+df3654b377
+	- fabric-object-builder-api-v1 11.1.5+e35120df77
+	- fabric-particles-v1 1.1.3+1802ada577
+	- fabric-recipe-api-v1 1.0.24+1802ada577
+	- fabric-registry-sync-v0 2.3.6+1802ada577
+	- fabric-renderer-api-v1 3.2.2+1802ada577
+	- fabric-renderer-indigo 1.5.3+85287f9f77
+	- fabric-renderer-registries-v1 3.2.47+df3654b377
+	- fabric-rendering-data-attachment-v1 0.3.39+92a0d36777
+	- fabric-rendering-fluids-v1 3.0.29+1802ada577
+	- fabric-rendering-v0 1.1.50+df3654b377
+	- fabric-rendering-v1 3.0.9+1802ada577
+	- fabric-resource-conditions-api-v1 2.3.9+1802ada577
+	- fabric-resource-loader-v0 0.11.12+fb82e9d777
+	- fabric-screen-api-v1 2.0.9+1802ada577
+	- fabric-screen-handler-api-v1 1.3.33+1802ada577
+	- fabric-sound-api-v1 1.0.14+1802ada577
+	- fabric-transfer-api-v1 3.3.6+8dd72ea377
+	- fabric-transitive-access-wideners-v1 4.3.2+1802ada577
+	- fabricloader 0.16.14
+	- java 17
+	- minecraft 1.20.1
+	- mixinextras 0.4.1
+	- tetanusmod 0.1.1-beta
+	- tetanusmod_smoketest 1.0.0
+[17:28:09] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/gwilliamscrypto/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.5+mixin.0.8.7/22f9eb729e216a091673a574a5906dc1b9027fb3/sponge-mixin-0.15.5+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[17:28:09] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[17:28:09] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[17:28:11] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[17:28:19] [Datafixer Bootstrap/INFO] (Minecraft) 188 Datafixer optimizations took 198 milliseconds
+[17:28:22] [Render thread/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[17:28:23] [Render thread/INFO] (Minecraft) Setting user: ReadyPlain011
+[17:28:23] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[17:28:24] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.1 SNAPSHOT
+[17:28:26] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric (fabric-networking-v0, fabric-block-api-v1, fabric-models-v0, fabric-dimensions-v1, fabric-commands-v0, fabric-rendering-data-attachment-v1, fabric-convention-tags-v1, fabric-sound-api-v1, fabric-content-registries-v0, fabric-recipe-api-v1, fabric-model-loading-api-v1, fabric-screen-handler-api-v1, fabric-keybindings-v0, fabric-object-builder-api-v1, fabric-api-lookup-api-v1, fabric-events-interaction-v0, fabric-resource-loader-v0, fabric-block-view-api-v2, fabric-entity-events-v1, fabric-networking-api-v1, fabric-renderer-indigo, fabric-blockrenderlayer-v1, fabric-screen-api-v1, fabric-loot-api-v2, fabric-transitive-access-wideners-v1, fabric-containers-v0, fabric-events-lifecycle-v0, fabric-key-binding-api-v1, fabric-command-api-v2, fabric-api-base, fabric-gametest-api-v1, fabric-command-api-v1, fabric-renderer-registries-v1, fabric-renderer-api-v1, fabric-api, fabric-rendering-v0, fabric-data-generation-api-v1, fabric-message-api-v1, fabricloader, tetanusmod_smoketest, fabric-item-group-api-v1, fabric-data-attachment-api-v1, fabric-rendering-fluids-v1, fabric-lifecycle-events-v1, fabric-resource-conditions-api-v1, fabric-particles-v1, fabric-mining-level-api-v1, fabric-transfer-api-v1, fabric-loot-tables-v1, fabric-rendering-v1, fabric-registry-sync-v0, fabric-crash-report-info-v1, tetanusmod, fabric-item-api-v1, fabric-biome-api-v1, fabric-game-rule-api-v1, fabric-client-tags-api-v1)
+[17:28:26] [Worker-Main-10/INFO] (Minecraft) Found unifont_all_no_pua-15.0.06.hex, loading
+[17:28:28] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[17:28:28] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[17:28:29] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Sonos Amp (Realtek(R) Audio)
+[17:28:29] [Render thread/INFO] (Minecraft) Sound engine started
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/blocks.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[17:28:29] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[17:28:29] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/mob_effects.png-atlas
+[17:28:31] [Render thread/INFO] (Minecraft) Loaded 9 recipes
+[17:28:31] [Render thread/INFO] (Minecraft) Loaded 1304 advancements
+[17:28:31] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 1.456 ms
+[17:28:31] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.20.1
+[17:28:31] [Server thread/INFO] (Minecraft) Generating keypair
+[17:28:32] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[17:28:32] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[17:28:32] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[17:28:33] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[17:28:33] [Render thread/INFO] (Minecraft) Preparing spawn area: 32%
+[17:28:34] [Render thread/INFO] (Minecraft) Time elapsed: 1949 ms
+[17:28:34] [Server thread/INFO] (Minecraft) Changing view distance to 12, from 10
+[17:28:34] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[17:28:35] [Server thread/INFO] (Minecraft) ReadyPlain011[local:E:d198353c] logged in with entity id 1 at (5.5, -60.0, 4.5)
+[17:28:35] [Server thread/INFO] (Minecraft) ReadyPlain011 joined the game
+[17:28:36] [Render thread/INFO] (Minecraft) Loaded 14 advancements
+[17:28:37] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:28:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:overworld
+[17:28:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:the_nether
+[17:28:37] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:the_end
+[17:28:37] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [A Painful Lesson]
+[17:28:37] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [Why did I eat that?]
+[17:28:37] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [A Painful Lesson]
+[17:28:37] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [Why did I eat that?]
+[17:28:38] [Netty Local Client IO #0/WARN] (tetanusmod) Ignored malformed Rust & Ruin server packet
+[17:28:38] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [Hook, Line and Tetanus]
+[17:28:38] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [Strange Meat]
+[17:28:38] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [Hook, Line and Tetanus]
+[17:28:38] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [Strange Meat]
+[17:28:38] [Render thread/INFO] (Minecraft) Loaded 37 advancements
+[17:28:41] [Server thread/INFO] (Minecraft) ReadyPlain011 has completed the challenge [Rust Never Sleeps]
+[17:28:41] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has completed the challenge [Rust Never Sleeps]
+[17:28:41] [Render thread/INFO] (Minecraft) Loaded 40 advancements
+[17:28:42] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [Lockjaw Sonata]
+[17:28:42] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [Lockjaw Sonata]
+[17:28:42] [Render thread/INFO] (Minecraft) Loaded 40 advancements
+[17:28:44] [Render thread/INFO] (tetanusmod) Verified base mutation render layers for 79 vanilla mob types
+[17:28:44] [Render thread/INFO] (tetanusmod) Verified actual symptoms in all twelve drinkable/splash/lingering disease potion tooltips
+[17:28:54] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:28:54] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:overworld
+[17:28:54] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:the_nether
+[17:28:54] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:the_end
+[17:28:56] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [Faucci Ouchie]
+[17:28:56] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [Faucci Ouchie]
+[17:28:56] [Render thread/INFO] (Minecraft) Loaded 42 advancements
+[17:29:01] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [A Dose of Common Sense]
+[17:29:01] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [Foaming at the Mouth]
+[17:29:01] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [A Dose of Common Sense]
+[17:29:01] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [Foaming at the Mouth]
+[17:29:01] [Render thread/INFO] (Minecraft) Loaded 42 advancements
+[17:29:21] [Server thread/INFO] (Minecraft) Locating element tetanusmod:medic_tent took 2 ms
+[17:29:21] [Render thread/INFO] (Minecraft) [System] [CHAT] The nearest rustandruin:medic_tent is at [72, ~, 27] (13 blocks away)
+[17:29:27] [Server thread/INFO] (Minecraft) Saving and pausing game...
+[17:29:27] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:overworld
+[17:29:27] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:the_nether
+[17:29:27] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:the_end
+[17:29:41] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:barbed_wire type=TABLE count=2 native-network-output=true
+[17:29:44] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:bear_trap type=TABLE count=1 native-network-output=true
+[17:29:47] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:bent_nail type=TABLE count=1 native-network-output=true
+[17:29:51] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:caltrops type=TABLE count=4 native-network-output=true
+[17:29:55] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_infected_meat_campfire_cooking type=CAMPFIRE count=1 native-network-output=true
+[17:29:59] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_infected_meat_smelting type=FURNACE count=1 native-network-output=true
+[17:30:04] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_infected_meat_smoking type=SMOKER count=1 native-network-output=true
+[17:30:09] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_rabid_meat_campfire_cooking type=CAMPFIRE count=1 native-network-output=true
+[17:30:13] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_rabid_meat_smelting type=FURNACE count=1 native-network-output=true
+[17:30:18] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:cooked_rabid_meat_smoking type=SMOKER count=1 native-network-output=true
+[17:30:21] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:field_guide type=TABLE count=1 native-network-output=true
+[17:30:24] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:iron_spear type=TABLE count=1 native-network-output=true
+[17:30:27] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:medic_cabinet type=TABLE count=1 native-network-output=true
+[17:30:31] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:metal_pipe type=TABLE count=1 native-network-output=true
+[17:30:34] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:nail type=TABLE count=4 native-network-output=true
+[17:30:37] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:prescription_writer type=TABLE count=1 native-network-output=true
+[17:30:40] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:protective_gloves type=TABLE count=1 native-network-output=true
+[17:30:44] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:rabies_vaccine type=TABLE count=1 native-network-output=true
+[17:30:47] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:rebar type=TABLE count=1 native-network-output=true
+[17:30:50] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:rusted_iron_block type=TABLE count=1 native-network-output=true
+[17:30:53] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:rusty_hookline type=TABLE count=1 native-network-output=true
+[17:30:57] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:sharpened_rebar type=TABLE count=1 native-network-output=true
+[17:30:59] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [A Pointed Upgrade]
+[17:30:59] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [A Pointed Upgrade]
+[17:30:59] [Render thread/INFO] (Minecraft) Loaded 45 advancements
+[17:31:00] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanized_arrow type=SMITHING count=64 native-network-output=true
+[17:31:03] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanized_beacon type=TABLE count=1 native-network-output=true
+[17:31:06] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanized_soul_sand type=TABLE count=1 native-network-output=true
+[17:31:10] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanus_antitoxin type=TABLE count=1 native-network-output=true
+[17:31:13] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanus_vaccine type=TABLE count=1 native-network-output=true
+[17:31:16] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:tetanus_wither_forging_table type=TABLE count=1 native-network-output=true
+[17:31:19] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:trap_reset_tool type=TABLE count=1 native-network-output=true
+[17:31:23] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:veterinary_kit type=TABLE count=1 native-network-output=true
+[17:31:26] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_PASS tetanusmod:wire_brush type=TABLE count=1 native-network-output=true
+[17:31:27] [Render thread/INFO] (RustRuinGraphicalCrafting) GRAPHICAL_CRAFT_ALL_PASS ordinary_recipes=31 deferred_station_recipes=[tetanusmod:medical_prescription, tetanusmod:tetanized_end_crystal]
+[17:31:27] [Render thread/INFO] (Minecraft) Loaded 48 advancements
+[17:31:27] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [Local Brewery]
+[17:31:27] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [Local Brewery]
+[17:31:27] [Render thread/INFO] (Minecraft) Loaded 53 advancements
+[17:31:27] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: cow-manure drinkable via native screen clicks and brewing
+[17:31:28] [Render thread/INFO] (Minecraft) Loaded 55 advancements
+[17:31:28] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: cow-manure splash via native screen clicks and brewing
+[17:31:28] [Server thread/INFO] (Minecraft) ReadyPlain011 has reached the goal [You Need a Mint]
+[17:31:28] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has reached the goal [You Need a Mint]
+[17:31:28] [Render thread/INFO] (Minecraft) Loaded 58 advancements
+[17:31:29] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: cow-manure lingering via native screen clicks and brewing
+[17:31:30] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: tetanus drinkable via native screen clicks and brewing
+[17:31:30] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: tetanus splash via native screen clicks and brewing
+[17:31:31] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: tetanus lingering via native screen clicks and brewing
+[17:31:32] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: salmonella drinkable via native screen clicks and brewing
+[17:31:32] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: salmonella splash via native screen clicks and brewing
+[17:31:33] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: salmonella lingering via native screen clicks and brewing
+[17:31:34] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: lockjaw-sonata drinkable via native screen clicks and brewing
+[17:31:35] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: lockjaw-sonata splash via native screen clicks and brewing
+[17:31:35] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: lockjaw-sonata lingering via native screen clicks and brewing
+[17:31:36] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: rabies drinkable via native screen clicks and brewing
+[17:31:37] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: rabies splash via native screen clicks and brewing
+[17:31:37] [Render thread/INFO] (tetanusmod) GRAPHICAL_BREW_PASS: rabies lingering via native screen clicks and brewing
+[17:31:38] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: fifteen native brewed potions in the actual client inventory
+[17:31:43] [Server thread/INFO] (Minecraft) ReadyPlain011 has made the advancement [Rusty Business]
+[17:31:43] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyPlain011 has made the advancement [Rusty Business]
+[17:31:43] [Render thread/INFO] (Minecraft) Loaded 58 advancements
+[17:31:43] [Render thread/INFO] (Minecraft) Loaded 67 advancements
+[17:31:43] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-brush client handler=PlayerScreenHandler sync=0 revision=96 cursor=0 air source[9]=1 wire_brush destination[36]=1 rusted_nail phase=13 brush=0
+[17:31:43] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-brush handler=PlayerScreenHandler sync=0 revision=96 cursor=0 air source[9]=1 wire_brush destination[36]=1 rusted_nail phase=13 brush=0
+[17:31:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-brush client handler=PlayerScreenHandler sync=0 revision=98 cursor=0 air source[9]=1 rusted_nail destination[36]=1 wire_brush phase=13 brush=0
+[17:31:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-rusty-0 client handler=PlayerScreenHandler sync=0 revision=98 cursor=0 air source[9]=1 rusted_nail destination[45]=0 air phase=14 brush=0
+[17:31:44] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-rusty-0 handler=PlayerScreenHandler sync=0 revision=98 cursor=0 air source[9]=1 rusted_nail destination[45]=0 air phase=14 brush=0
+[17:31:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-rusty-0 client handler=PlayerScreenHandler sync=0 revision=100 cursor=0 air source[9]=0 air destination[45]=1 rusted_nail phase=14 brush=0
+[17:31:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: tetanusmod:rusted_nail from100tick water exposure and native pickup; actual client wire-brush use restored clean item
+[17:31:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN store-clean-0 client handler=PlayerScreenHandler sync=0 revision=101 cursor=0 air source[10]=0 air destination[45]=1 nail phase=17 brush=0
+[17:31:44] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE store-clean-0 handler=PlayerScreenHandler sync=0 revision=101 cursor=0 air source[10]=0 air destination[45]=1 nail phase=17 brush=0
+[17:31:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK store-clean-0 client handler=PlayerScreenHandler sync=0 revision=103 cursor=0 air source[10]=1 nail destination[45]=0 air phase=17 brush=0
+[17:31:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-rusty-1 client handler=PlayerScreenHandler sync=0 revision=103 cursor=0 air source[37]=1 rusted_bent_nail destination[45]=0 air phase=14 brush=1
+[17:31:44] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-rusty-1 handler=PlayerScreenHandler sync=0 revision=103 cursor=0 air source[37]=1 rusted_bent_nail destination[45]=0 air phase=14 brush=1
+[17:31:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-rusty-1 client handler=PlayerScreenHandler sync=0 revision=105 cursor=0 air source[37]=0 air destination[45]=1 rusted_bent_nail phase=14 brush=1
+[17:31:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: tetanusmod:rusted_bent_nail from100tick water exposure and native pickup; actual client wire-brush use restored clean item
+[17:31:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN store-clean-1 client handler=PlayerScreenHandler sync=0 revision=106 cursor=0 air source[37]=0 air destination[45]=1 bent_nail phase=17 brush=1
+[17:31:45] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE store-clean-1 handler=PlayerScreenHandler sync=0 revision=106 cursor=0 air source[37]=0 air destination[45]=1 bent_nail phase=17 brush=1
+[17:31:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK store-clean-1 client handler=PlayerScreenHandler sync=0 revision=108 cursor=0 air source[37]=1 bent_nail destination[45]=0 air phase=17 brush=1
+[17:31:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-rusty-2 client handler=PlayerScreenHandler sync=0 revision=108 cursor=0 air source[38]=1 rusted_rebar destination[45]=0 air phase=14 brush=2
+[17:31:45] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-rusty-2 handler=PlayerScreenHandler sync=0 revision=108 cursor=0 air source[38]=1 rusted_rebar destination[45]=0 air phase=14 brush=2
+[17:31:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-rusty-2 client handler=PlayerScreenHandler sync=0 revision=110 cursor=0 air source[38]=0 air destination[45]=1 rusted_rebar phase=14 brush=2
+[17:31:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: tetanusmod:rusted_rebar from100tick water exposure and native pickup; actual client wire-brush use restored clean item
+[17:31:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN store-clean-2 client handler=PlayerScreenHandler sync=0 revision=111 cursor=0 air source[38]=0 air destination[45]=1 rebar phase=17 brush=2
+[17:31:46] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE store-clean-2 handler=PlayerScreenHandler sync=0 revision=111 cursor=0 air source[38]=0 air destination[45]=1 rebar phase=17 brush=2
+[17:31:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK store-clean-2 client handler=PlayerScreenHandler sync=0 revision=113 cursor=0 air source[38]=1 rebar destination[45]=0 air phase=17 brush=2
+[17:31:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-rusty-3 client handler=PlayerScreenHandler sync=0 revision=113 cursor=0 air source[39]=1 rusted_sharpened_rebar destination[45]=0 air phase=14 brush=3
+[17:31:46] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-rusty-3 handler=PlayerScreenHandler sync=0 revision=113 cursor=0 air source[39]=1 rusted_sharpened_rebar destination[45]=0 air phase=14 brush=3
+[17:31:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-rusty-3 client handler=PlayerScreenHandler sync=0 revision=115 cursor=0 air source[39]=0 air destination[45]=1 rusted_sharpened_rebar phase=14 brush=3
+[17:31:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: tetanusmod:rusted_sharpened_rebar from100tick water exposure and native pickup; actual client wire-brush use restored clean item
+[17:31:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN store-clean-3 client handler=PlayerScreenHandler sync=0 revision=116 cursor=0 air source[39]=0 air destination[45]=1 sharpened_rebar phase=17 brush=3
+[17:31:47] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE store-clean-3 handler=PlayerScreenHandler sync=0 revision=116 cursor=0 air source[39]=0 air destination[45]=1 sharpened_rebar phase=17 brush=3
+[17:31:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK store-clean-3 client handler=PlayerScreenHandler sync=0 revision=118 cursor=0 air source[39]=1 sharpened_rebar destination[45]=0 air phase=17 brush=3
+[17:31:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-rusty-4 client handler=PlayerScreenHandler sync=0 revision=118 cursor=0 air source[40]=1 rusted_metal_pipe destination[45]=0 air phase=14 brush=4
+[17:31:47] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-rusty-4 handler=PlayerScreenHandler sync=0 revision=118 cursor=0 air source[40]=1 rusted_metal_pipe destination[45]=0 air phase=14 brush=4
+[17:31:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-rusty-4 client handler=PlayerScreenHandler sync=0 revision=120 cursor=0 air source[40]=0 air destination[45]=1 rusted_metal_pipe phase=14 brush=4
+[17:31:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: tetanusmod:rusted_metal_pipe from100tick water exposure and native pickup; actual client wire-brush use restored clean item
+[17:31:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN store-clean-4 client handler=PlayerScreenHandler sync=0 revision=121 cursor=0 air source[40]=0 air destination[45]=1 metal_pipe phase=17 brush=4
+[17:31:47] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE store-clean-4 handler=PlayerScreenHandler sync=0 revision=121 cursor=0 air source[40]=0 air destination[45]=1 metal_pipe phase=17 brush=4
+[17:31:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK store-clean-4 client handler=PlayerScreenHandler sync=0 revision=123 cursor=0 air source[40]=1 metal_pipe destination[45]=0 air phase=17 brush=4
+[17:31:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-rusty-5 client handler=PlayerScreenHandler sync=0 revision=123 cursor=0 air source[41]=1 rusted_caltrops destination[45]=0 air phase=14 brush=5
+[17:31:48] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-rusty-5 handler=PlayerScreenHandler sync=0 revision=123 cursor=0 air source[41]=1 rusted_caltrops destination[45]=0 air phase=14 brush=5
+[17:31:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-rusty-5 client handler=PlayerScreenHandler sync=0 revision=125 cursor=0 air source[41]=0 air destination[45]=1 rusted_caltrops phase=14 brush=5
+[17:31:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: tetanusmod:rusted_caltrops from100tick water exposure and native pickup; actual client wire-brush use restored clean item
+[17:31:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN store-clean-5 client handler=PlayerScreenHandler sync=0 revision=126 cursor=0 air source[41]=0 air destination[45]=1 caltrops phase=17 brush=5
+[17:31:48] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE store-clean-5 handler=PlayerScreenHandler sync=0 revision=126 cursor=0 air source[41]=0 air destination[45]=1 caltrops phase=17 brush=5
+[17:31:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK store-clean-5 client handler=PlayerScreenHandler sync=0 revision=128 cursor=0 air source[41]=1 caltrops destination[45]=0 air phase=17 brush=5
+[17:31:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-rusty-6 client handler=PlayerScreenHandler sync=0 revision=128 cursor=0 air source[42]=1 rusted_barbed_wire destination[45]=0 air phase=14 brush=6
+[17:31:48] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-rusty-6 handler=PlayerScreenHandler sync=0 revision=128 cursor=0 air source[42]=1 rusted_barbed_wire destination[45]=0 air phase=14 brush=6
+[17:31:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-rusty-6 client handler=PlayerScreenHandler sync=0 revision=130 cursor=0 air source[42]=0 air destination[45]=1 rusted_barbed_wire phase=14 brush=6
+[17:31:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: tetanusmod:rusted_barbed_wire from100tick water exposure and native pickup; actual client wire-brush use restored clean item
+[17:31:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN store-clean-6 client handler=PlayerScreenHandler sync=0 revision=131 cursor=0 air source[42]=0 air destination[45]=1 barbed_wire phase=17 brush=6
+[17:31:49] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE store-clean-6 handler=PlayerScreenHandler sync=0 revision=131 cursor=0 air source[42]=0 air destination[45]=1 barbed_wire phase=17 brush=6
+[17:31:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK store-clean-6 client handler=PlayerScreenHandler sync=0 revision=133 cursor=0 air source[42]=1 barbed_wire destination[45]=0 air phase=17 brush=6
+[17:31:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-rusty-7 client handler=PlayerScreenHandler sync=0 revision=133 cursor=0 air source[43]=1 rusted_iron_spear destination[45]=0 air phase=14 brush=7
+[17:31:49] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-rusty-7 handler=PlayerScreenHandler sync=0 revision=133 cursor=0 air source[43]=1 rusted_iron_spear destination[45]=0 air phase=14 brush=7
+[17:31:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-rusty-7 client handler=PlayerScreenHandler sync=0 revision=135 cursor=0 air source[43]=0 air destination[45]=1 rusted_iron_spear phase=14 brush=7
+[17:31:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: tetanusmod:rusted_iron_spear from100tick water exposure and native pickup; actual client wire-brush use restored clean item
+[17:31:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN store-clean-7 client handler=PlayerScreenHandler sync=0 revision=136 cursor=0 air source[43]=0 air destination[45]=1 iron_spear phase=17 brush=7
+[17:31:50] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE store-clean-7 handler=PlayerScreenHandler sync=0 revision=136 cursor=0 air source[43]=0 air destination[45]=1 iron_spear phase=17 brush=7
+[17:31:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK store-clean-7 client handler=PlayerScreenHandler sync=0 revision=138 cursor=0 air source[43]=1 iron_spear destination[45]=0 air phase=17 brush=7
+[17:31:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN equip-rusty-8 client handler=PlayerScreenHandler sync=0 revision=138 cursor=0 air source[44]=1 rusted_bear_trap destination[45]=0 air phase=14 brush=8
+[17:31:50] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE equip-rusty-8 handler=PlayerScreenHandler sync=0 revision=138 cursor=0 air source[44]=1 rusted_bear_trap destination[45]=0 air phase=14 brush=8
+[17:31:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK equip-rusty-8 client handler=PlayerScreenHandler sync=0 revision=140 cursor=0 air source[44]=0 air destination[45]=1 rusted_bear_trap phase=14 brush=8
+[17:31:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: tetanusmod:rusted_bear_trap from100tick water exposure and native pickup; actual client wire-brush use restored clean item
+[17:31:51] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_BEGIN store-clean-8 client handler=PlayerScreenHandler sync=0 revision=141 cursor=0 air source[44]=0 air destination[45]=1 bear_trap phase=17 brush=8
+[17:31:51] [Server thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_SERVER_BEFORE store-clean-8 handler=PlayerScreenHandler sync=0 revision=141 cursor=0 air source[44]=0 air destination[45]=1 bear_trap phase=17 brush=8
+[17:31:51] [Render thread/INFO] (tetanusmod) GRAPHICAL_INVENTORY_ACK store-clean-8 client handler=PlayerScreenHandler sync=0 revision=143 cursor=0 air source[44]=1 bear_trap destination[45]=0 air phase=17 brush=8
+[17:31:51] [Render thread/INFO] (tetanusmod) GRAPHICAL_ACQUIRE_PASS: all nine weathering/cleaning pairs, nine earned Rust and nine durability consumed
+[17:31:51] [Render thread/ERROR] (tetanusmod) Graphical release validation failed
+java.lang.IllegalStateException: Graphical advancement action failed
+	at com.tetanusmod.test.GraphicalAdvancementAudit.tickInternal(GraphicalAdvancementAudit.java:91) ~[smoketest/:?]
+	at com.tetanusmod.test.GraphicalAdvancementAudit.tick(GraphicalAdvancementAudit.java:86) ~[smoketest/:?]
+	at com.tetanusmod.test.ClientSmokeTest.lambda$onInitializeClient$37(ClientSmokeTest.java:531) ~[smoketest/:?]
+	at net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.lambda$static$2(ClientTickEvents.java:43) ~[fabric-lifecycle-events-v1-2.2.23+1802ada577.jar:?]
+	at net.minecraft.client.MinecraftClient.handler$zhn000$fabric-lifecycle-events-v1$onEndTick(MinecraftClient.java:5022) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.client.MinecraftClient.tick(MinecraftClient.java:1957) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.client.MinecraftClient.render(MinecraftClient.java:1181) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.client.MinecraftClient.run(MinecraftClient.java:802) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.client.main.Main.main(Main.java:250) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:480) ~[fabric-loader-0.16.14.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74) ~[fabric-loader-0.16.14.jar:?]
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) ~[fabric-loader-0.16.14.jar:?]
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86) ~[dev-launch-injector-0.2.1+build.8.jar:?]
+Caused by: java.lang.IllegalStateException: Graphical advancement journey requires a fresh actor; prior criteria exist for rusty_business
+	at com.tetanusmod.test.GraphicalAdvancementAudit.lambda$start$1(GraphicalAdvancementAudit.java:74) ~[smoketest/:?]
+	at net.minecraft.server.ServerTask.run(ServerTask.java:18) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.util.thread.ThreadExecutor.executeTask(ThreadExecutor.java:156) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.util.thread.ReentrantThreadExecutor.executeTask(ReentrantThreadExecutor.java:23) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.server.MinecraftServer.executeTask(MinecraftServer.java:782) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.server.MinecraftServer.executeTask(MinecraftServer.java:164) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.util.thread.ThreadExecutor.runTask(ThreadExecutor.java:130) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.server.MinecraftServer.runOneTask(MinecraftServer.java:764) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.server.MinecraftServer.runTask(MinecraftServer.java:758) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.util.thread.ThreadExecutor.runTasks(ThreadExecutor.java:139) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.server.MinecraftServer.runTasksTillTickEnd(MinecraftServer.java:743) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:675) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:265) ~[minecraft-merged-5eeb33d660-1.20.1-net.fabricmc.yarn.1_20_1.1.20.1+build.10-v2.jar:?]
+	at java.lang.Thread.run(Thread.java:840) ~[?:?]
+[17:31:51] [Render thread/INFO] (tetanusmod) FAIL: java.lang.IllegalStateException: Graphical advancement action failed
+[17:31:51] [Render thread/INFO] (Minecraft) Stopping!
+[17:31:51] [Server thread/INFO] (Minecraft) ReadyPlain011 lost connection: Disconnected
+[17:31:51] [Server thread/INFO] (Minecraft) ReadyPlain011 left the game
+[17:31:51] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[17:31:51] [Server thread/INFO] (Minecraft) Stopping server
+[17:31:51] [Server thread/INFO] (Minecraft) Saving players
+[17:31:51] [Server thread/INFO] (Minecraft) Saving worlds
+[17:31:52] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:overworld
+[17:31:53] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:the_nether
+[17:31:53] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-plain-full-20261114]'/minecraft:the_end
+[17:31:53] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (ready-plain-full-20261114): All chunks are saved
+[17:31:53] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[17:31:53] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[17:31:53] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+
+> Task :runClientSmoke FAILED
+gradlew.bat : 
+At line:7 char:789
++ ... .0.20.1+1'; & .\gradlew.bat --offline runClientSmoke -PsmokeWorld=rea ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file 'C:\Users\gwilliamscrypto\Documents\Rust & Ruin\build.gradle' line: 147
+
+* What went wrong:
+Execution failed for task ':runClientSmoke'.
+> FAIL: java.lang.IllegalStateException: Graphical advancement action failed
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 3m 59s
+9 actionable tasks: 1 executed, 8 up-to-date
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if 1 EQU 0 goto mainEnd 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>rem the _cmd.exe /c_ return code! 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set EXIT_CODE=1 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if 1 EQU 0 set EXIT_CODE=1 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if not "" == "" exit 1 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>exit /b 1 

@@ -1,0 +1,2924 @@
+{
+  "Result": "PASS",
+  "ActualConnectedPlayer": true,
+  "DirectCriterionGrants": 0,
+  "ProgressRevocations": 0,
+  "ExistingCriteriaDatesPreserved": 119,
+  "OriginalSelectedSlot": 0,
+  "ClientSelectedSlotRestored": true,
+  "VisibleModNodes": 30,
+  "VanillaRootActions": {
+    "story/root": "Automatic real crafting-table item pickup",
+    "husbandry/root": "Real client held-use apple consumption",
+    "nether/root": "Native network dimension teleport to the Nether",
+    "end/root": "Native network dimension teleport to the End",
+    "adventure/root": "Real client sword attack killed the fixture cow"
+  },
+  "NativeActionEvidence": {
+    "AppleUsedStatDelta": 1,
+    "CowKilled": true,
+    "EndRootComplete": true,
+    "NetherRootComplete": true,
+    "CraftingTablePickedUp": true
+  },
+  "Scales": [
+    {
+      "RequestedGuiScale": 2,
+      "NativeAppliedScale": 2.0,
+      "NativeCapRespected": true,
+      "ScaledSize": [
+        960,
+        720
+      ],
+      "NativeTabs": [
+        "minecraft:adventure/root",
+        "minecraft:end/root",
+        "minecraft:husbandry/root",
+        "minecraft:nether/root",
+        "minecraft:story/root",
+        "tetanusmod:root"
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "NativeAppliedScale": 3.0,
+      "NativeCapRespected": true,
+      "ScaledSize": [
+        640,
+        480
+      ],
+      "NativeTabs": [
+        "minecraft:adventure/root",
+        "minecraft:end/root",
+        "minecraft:husbandry/root",
+        "minecraft:nether/root",
+        "minecraft:story/root",
+        "tetanusmod:root"
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "NativeAppliedScale": 4.0,
+      "NativeCapRespected": true,
+      "ScaledSize": [
+        480,
+        360
+      ],
+      "NativeTabs": [
+        "minecraft:adventure/root",
+        "minecraft:end/root",
+        "minecraft:husbandry/root",
+        "minecraft:nether/root",
+        "minecraft:story/root",
+        "tetanusmod:root"
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "NativeAppliedScale": 6.0,
+      "NativeCapRespected": true,
+      "ScaledSize": [
+        320,
+        240
+      ],
+      "NativeTabs": [
+        "minecraft:adventure/root",
+        "minecraft:end/root",
+        "minecraft:husbandry/root",
+        "minecraft:nether/root",
+        "minecraft:story/root",
+        "tetanusmod:root"
+      ]
+    }
+  ],
+  "Window": {
+    "OriginalWindowSize": [
+      960,
+      540
+    ],
+    "OriginalWindowPosition": [
+      800,
+      530
+    ],
+    "OriginalFullscreen": false,
+    "RequestedNativeWindowSize": [
+      1920,
+      1440
+    ],
+    "ObservedNativeWindowSize": [
+      1920,
+      1440
+    ],
+    "ObservedFramebufferSize": [
+      1920,
+      1440
+    ],
+    "StableNativeResizeTicks": 10,
+    "OriginalNativeCursor": [
+      336.0,
+      404.0
+    ],
+    "RestoredNativeCursor": [
+      336.0,
+      404.0
+    ],
+    "RestoredNativeWindowSize": [
+      960,
+      540
+    ],
+    "RestoredWindowPosition": [
+      800,
+      530
+    ],
+    "RestoredFullscreen": false,
+    "RestoredGuiScaleOption": 2
+  },
+  "Keyboard": {
+    "OriginalAdvancementsKey": "key.keyboard.l",
+    "NativeReboundHomeClosesScreen": true,
+    "NativeHomeRecenteredAtScale2": true,
+    "NativeHomeRecenteredAtScale3": true,
+    "NativeHomeRecenteredAtScale4": true,
+    "NativeHomeRecenteredAtScale6": true,
+    "RestoredAdvancementsKey": "key.keyboard.l"
+  },
+  "Screenshots": [
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "overview",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-overview.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 527
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "scrolled",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-scrolled.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 646
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "home",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-home.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 768
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "vanilla-story-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-vanilla-story-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 890
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "vanilla-adventure-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-vanilla-adventure-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 1013
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "vanilla-husbandry-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-vanilla-husbandry-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 1133
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "vanilla-nether-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-vanilla-nether-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 1257
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "vanilla-end-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-vanilla-end-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 1380
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "antitoxin",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-antitoxin.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 1500,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 1500,
+      "NativeTooltipAdvancementId": "tetanusmod:antitoxin",
+      "NativeTooltipBounds": {
+        "left": 438.0,
+        "top": 351.0,
+        "right": 598.0,
+        "bottom": 410.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        451.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "beacon_full",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-beacon_full.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 1613,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 1613,
+      "NativeTooltipAdvancementId": "tetanusmod:beacon_full",
+      "NativeTooltipBounds": {
+        "left": 522.0,
+        "top": 351.0,
+        "right": 652.0,
+        "bottom": 410.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        535.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "beacon_placed",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-beacon_placed.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 1735,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 1735,
+      "NativeTooltipAdvancementId": "tetanusmod:beacon_placed",
+      "NativeTooltipBounds": {
+        "left": 494.0,
+        "top": 351.0,
+        "right": 646.0,
+        "bottom": 392.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        507.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "clean_bill_of_health",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-clean_bill_of_health.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 1854,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 1854,
+      "NativeTooltipAdvancementId": "tetanusmod:clean_bill_of_health",
+      "NativeTooltipBounds": {
+        "left": 494.0,
+        "top": 361.0,
+        "right": 626.0,
+        "bottom": 420.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        507.0,
+        407.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "clinic",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-clinic.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 1976,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 1976,
+      "NativeTooltipAdvancementId": "tetanusmod:clinic",
+      "NativeTooltipBounds": {
+        "left": 410.0,
+        "top": 361.0,
+        "right": 539.0,
+        "bottom": 420.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        423.0,
+        407.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "dragon_defeated",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-dragon_defeated.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 2091,
+      "NativeTooltipRenderedFrames": 77,
+      "NativeTooltipFrame": 2091,
+      "NativeTooltipAdvancementId": "tetanusmod:dragon_defeated",
+      "NativeTooltipBounds": {
+        "left": 550.0,
+        "top": 351.0,
+        "right": 692.0,
+        "bottom": 410.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        563.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "dragon_summoned",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-dragon_summoned.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 2206,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 2206,
+      "NativeTooltipAdvancementId": "tetanusmod:dragon_summoned",
+      "NativeTooltipBounds": {
+        "left": 522.0,
+        "top": 291.0,
+        "right": 637.0,
+        "bottom": 377.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        535.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "forge_crystal",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-forge_crystal.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 2328,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 2328,
+      "NativeTooltipAdvancementId": "tetanusmod:forge_crystal",
+      "NativeTooltipBounds": {
+        "left": 494.0,
+        "top": 351.0,
+        "right": 628.0,
+        "bottom": 419.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        507.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "glove_protection",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-glove_protection.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 2451,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 2451,
+      "NativeTooltipAdvancementId": "tetanusmod:glove_protection",
+      "NativeTooltipBounds": {
+        "left": 494.0,
+        "top": 351.0,
+        "right": 581.0,
+        "bottom": 419.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        507.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "infected",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-infected.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 2572,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 2572,
+      "NativeTooltipAdvancementId": "tetanusmod:infected",
+      "NativeTooltipBounds": {
+        "left": 410.0,
+        "top": 351.0,
+        "right": 531.0,
+        "bottom": 392.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        423.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "iron_has_a_darker_side",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-iron_has_a_darker_side.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 2693,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 2693,
+      "NativeTooltipAdvancementId": "tetanusmod:iron_has_a_darker_side",
+      "NativeTooltipBounds": {
+        "left": 410.0,
+        "top": 354.0,
+        "right": 564.0,
+        "bottom": 404.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        423.0,
+        367.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "lockjaw_sonata",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-lockjaw_sonata.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 2816,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 2816,
+      "NativeTooltipAdvancementId": "tetanusmod:lockjaw_sonata",
+      "NativeTooltipBounds": {
+        "left": 438.0,
+        "top": 335.0,
+        "right": 554.0,
+        "bottom": 394.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        451.0,
+        348.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "medic",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-medic.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 2936,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 2936,
+      "NativeTooltipAdvancementId": "tetanusmod:medic",
+      "NativeTooltipBounds": {
+        "left": 438.0,
+        "top": 370.0,
+        "right": 557.0,
+        "bottom": 420.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        451.0,
+        407.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "nice_one",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-nice_one.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 3057,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 3057,
+      "NativeTooltipAdvancementId": "tetanusmod:nice_one",
+      "NativeTooltipBounds": {
+        "left": 466.0,
+        "top": 351.0,
+        "right": 605.0,
+        "bottom": 392.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        479.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "rabies",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-rabies.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 3176,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 3176,
+      "NativeTooltipAdvancementId": "tetanusmod:rabies",
+      "NativeTooltipBounds": {
+        "left": 466.0,
+        "top": 348.0,
+        "right": 607.0,
+        "bottom": 389.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        479.0,
+        361.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "rabies_cured",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-rabies_cured.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 3298,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 3298,
+      "NativeTooltipAdvancementId": "tetanusmod:rabies_cured",
+      "NativeTooltipBounds": {
+        "left": 494.0,
+        "top": 348.0,
+        "right": 616.0,
+        "bottom": 398.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        507.0,
+        361.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 3420,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 3420,
+      "NativeTooltipAdvancementId": "tetanusmod:root",
+      "NativeTooltipBounds": {
+        "left": 382.0,
+        "top": 351.0,
+        "right": 480.0,
+        "bottom": 419.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        395.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "rust_arrows",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-rust_arrows.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 3540,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 3540,
+      "NativeTooltipAdvancementId": "tetanusmod:rust_arrows",
+      "NativeTooltipBounds": {
+        "left": 494.0,
+        "top": 351.0,
+        "right": 628.0,
+        "bottom": 401.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        507.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "rusty_business",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-rusty_business.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 3660,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 3660,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_business",
+      "NativeTooltipBounds": {
+        "left": 438.0,
+        "top": 354.0,
+        "right": 551.0,
+        "bottom": 413.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        451.0,
+        367.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "rusty_guardian",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-rusty_guardian.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 3782,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 3782,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_guardian",
+      "NativeTooltipBounds": {
+        "left": 438.0,
+        "top": 351.0,
+        "right": 571.0,
+        "bottom": 410.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        451.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "rusty_hook",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-rusty_hook.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 3905,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 3905,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_hook",
+      "NativeTooltipBounds": {
+        "left": 466.0,
+        "top": 367.0,
+        "right": 622.0,
+        "bottom": 417.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        479.0,
+        380.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "shield_protection",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-shield_protection.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 4028,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 4028,
+      "NativeTooltipAdvancementId": "tetanusmod:shield_protection",
+      "NativeTooltipBounds": {
+        "left": 522.0,
+        "top": 351.0,
+        "right": 695.0,
+        "bottom": 401.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        535.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "spear",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-spear.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 4150,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 4150,
+      "NativeTooltipAdvancementId": "tetanusmod:spear",
+      "NativeTooltipBounds": {
+        "left": 466.0,
+        "top": 351.0,
+        "right": 601.0,
+        "bottom": 392.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        479.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "strange_meat",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-strange_meat.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 4272,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 4272,
+      "NativeTooltipAdvancementId": "tetanusmod:strange_meat",
+      "NativeTooltipBounds": {
+        "left": 438.0,
+        "top": 351.0,
+        "right": 551.0,
+        "bottom": 410.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        451.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "supply_run",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-supply_run.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 4391,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 4391,
+      "NativeTooltipAdvancementId": "tetanusmod:supply_run",
+      "NativeTooltipBounds": {
+        "left": 466.0,
+        "top": 334.0,
+        "right": 583.0,
+        "bottom": 420.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        479.0,
+        407.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "tetanized_mob",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-tetanized_mob.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 4509,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 4509,
+      "NativeTooltipAdvancementId": "tetanusmod:tetanized_mob",
+      "NativeTooltipBounds": {
+        "left": 410.0,
+        "top": 351.0,
+        "right": 523.0,
+        "bottom": 410.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        423.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "trap_reset",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-trap_reset.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 4632,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 4632,
+      "NativeTooltipAdvancementId": "tetanusmod:trap_reset",
+      "NativeTooltipBounds": {
+        "left": 522.0,
+        "top": 351.0,
+        "right": 661.0,
+        "bottom": 392.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        535.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "vaccinated",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-vaccinated.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 4755,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 4755,
+      "NativeTooltipAdvancementId": "tetanusmod:vaccinated",
+      "NativeTooltipBounds": {
+        "left": 466.0,
+        "top": 351.0,
+        "right": 571.0,
+        "bottom": 401.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        479.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "why_did_i_do_that",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-why_did_i_do_that.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 4875,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 4875,
+      "NativeTooltipAdvancementId": "tetanusmod:why_did_i_do_that",
+      "NativeTooltipBounds": {
+        "left": 438.0,
+        "top": 308.0,
+        "right": 565.0,
+        "bottom": 367.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        451.0,
+        321.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 2,
+      "AppliedGuiScale": 2.0,
+      "View": "why_did_i_eat_that",
+      "Screenshot": "rust-and-ruin-plain-layout-scale2-why_did_i_eat_that.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 4998,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 4998,
+      "NativeTooltipAdvancementId": "tetanusmod:why_did_i_eat_that",
+      "NativeTooltipBounds": {
+        "left": 466.0,
+        "top": 351.0,
+        "right": 601.0,
+        "bottom": 401.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        479.0,
+        364.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "overview",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-overview.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 5125
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "scrolled",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-scrolled.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 5246
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "home",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-home.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 5364
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "vanilla-story-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-vanilla-story-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 5486
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "vanilla-adventure-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-vanilla-adventure-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 5610
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "vanilla-husbandry-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-vanilla-husbandry-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 5734
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "vanilla-nether-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-vanilla-nether-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 5856
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "vanilla-end-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-vanilla-end-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 5979
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "antitoxin",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-antitoxin.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 6101,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 6101,
+      "NativeTooltipAdvancementId": "tetanusmod:antitoxin",
+      "NativeTooltipBounds": {
+        "left": 278.0,
+        "top": 231.0,
+        "right": 438.0,
+        "bottom": 290.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        291.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "beacon_full",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-beacon_full.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 6223,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 6223,
+      "NativeTooltipAdvancementId": "tetanusmod:beacon_full",
+      "NativeTooltipBounds": {
+        "left": 362.0,
+        "top": 231.0,
+        "right": 492.0,
+        "bottom": 290.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        375.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "beacon_placed",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-beacon_placed.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 6341,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 6341,
+      "NativeTooltipAdvancementId": "tetanusmod:beacon_placed",
+      "NativeTooltipBounds": {
+        "left": 334.0,
+        "top": 231.0,
+        "right": 486.0,
+        "bottom": 272.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        347.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "clean_bill_of_health",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-clean_bill_of_health.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 6461,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 6461,
+      "NativeTooltipAdvancementId": "tetanusmod:clean_bill_of_health",
+      "NativeTooltipBounds": {
+        "left": 334.0,
+        "top": 241.0,
+        "right": 466.0,
+        "bottom": 300.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        347.0,
+        287.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "clinic",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-clinic.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 6583,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 6583,
+      "NativeTooltipAdvancementId": "tetanusmod:clinic",
+      "NativeTooltipBounds": {
+        "left": 250.0,
+        "top": 241.0,
+        "right": 379.0,
+        "bottom": 300.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        263.0,
+        287.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "dragon_defeated",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-dragon_defeated.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 6705,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 6705,
+      "NativeTooltipAdvancementId": "tetanusmod:dragon_defeated",
+      "NativeTooltipBounds": {
+        "left": 390.0,
+        "top": 231.0,
+        "right": 532.0,
+        "bottom": 290.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        403.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "dragon_summoned",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-dragon_summoned.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 6828,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 6828,
+      "NativeTooltipAdvancementId": "tetanusmod:dragon_summoned",
+      "NativeTooltipBounds": {
+        "left": 362.0,
+        "top": 171.0,
+        "right": 477.0,
+        "bottom": 257.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        375.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "forge_crystal",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-forge_crystal.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 6952,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 6952,
+      "NativeTooltipAdvancementId": "tetanusmod:forge_crystal",
+      "NativeTooltipBounds": {
+        "left": 334.0,
+        "top": 231.0,
+        "right": 468.0,
+        "bottom": 299.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        347.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "glove_protection",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-glove_protection.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 7073,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 7073,
+      "NativeTooltipAdvancementId": "tetanusmod:glove_protection",
+      "NativeTooltipBounds": {
+        "left": 334.0,
+        "top": 231.0,
+        "right": 421.0,
+        "bottom": 299.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        347.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "infected",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-infected.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 7191,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 7191,
+      "NativeTooltipAdvancementId": "tetanusmod:infected",
+      "NativeTooltipBounds": {
+        "left": 250.0,
+        "top": 231.0,
+        "right": 371.0,
+        "bottom": 272.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        263.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "iron_has_a_darker_side",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-iron_has_a_darker_side.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 7313,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 7313,
+      "NativeTooltipAdvancementId": "tetanusmod:iron_has_a_darker_side",
+      "NativeTooltipBounds": {
+        "left": 250.0,
+        "top": 234.0,
+        "right": 404.0,
+        "bottom": 284.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        263.0,
+        247.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "lockjaw_sonata",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-lockjaw_sonata.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 7432,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 7432,
+      "NativeTooltipAdvancementId": "tetanusmod:lockjaw_sonata",
+      "NativeTooltipBounds": {
+        "left": 278.0,
+        "top": 215.0,
+        "right": 394.0,
+        "bottom": 274.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        291.0,
+        228.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "medic",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-medic.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 7554,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 7554,
+      "NativeTooltipAdvancementId": "tetanusmod:medic",
+      "NativeTooltipBounds": {
+        "left": 278.0,
+        "top": 250.0,
+        "right": 397.0,
+        "bottom": 300.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        291.0,
+        287.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "nice_one",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-nice_one.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 7676,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 7676,
+      "NativeTooltipAdvancementId": "tetanusmod:nice_one",
+      "NativeTooltipBounds": {
+        "left": 306.0,
+        "top": 231.0,
+        "right": 445.0,
+        "bottom": 272.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        319.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "rabies",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-rabies.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 7795,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 7795,
+      "NativeTooltipAdvancementId": "tetanusmod:rabies",
+      "NativeTooltipBounds": {
+        "left": 306.0,
+        "top": 228.0,
+        "right": 447.0,
+        "bottom": 269.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        319.0,
+        241.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "rabies_cured",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-rabies_cured.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 7917,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 7917,
+      "NativeTooltipAdvancementId": "tetanusmod:rabies_cured",
+      "NativeTooltipBounds": {
+        "left": 334.0,
+        "top": 228.0,
+        "right": 456.0,
+        "bottom": 278.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        347.0,
+        241.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 8040,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 8040,
+      "NativeTooltipAdvancementId": "tetanusmod:root",
+      "NativeTooltipBounds": {
+        "left": 222.0,
+        "top": 231.0,
+        "right": 320.0,
+        "bottom": 299.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        235.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "rust_arrows",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-rust_arrows.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 8163,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 8163,
+      "NativeTooltipAdvancementId": "tetanusmod:rust_arrows",
+      "NativeTooltipBounds": {
+        "left": 334.0,
+        "top": 231.0,
+        "right": 468.0,
+        "bottom": 281.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        347.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "rusty_business",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-rusty_business.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 8286,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 8286,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_business",
+      "NativeTooltipBounds": {
+        "left": 278.0,
+        "top": 234.0,
+        "right": 391.0,
+        "bottom": 293.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        291.0,
+        247.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "rusty_guardian",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-rusty_guardian.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 8410,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 8410,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_guardian",
+      "NativeTooltipBounds": {
+        "left": 278.0,
+        "top": 231.0,
+        "right": 411.0,
+        "bottom": 290.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        291.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "rusty_hook",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-rusty_hook.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 8533,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 8533,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_hook",
+      "NativeTooltipBounds": {
+        "left": 306.0,
+        "top": 247.0,
+        "right": 462.0,
+        "bottom": 297.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        319.0,
+        260.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "shield_protection",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-shield_protection.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 8654,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 8654,
+      "NativeTooltipAdvancementId": "tetanusmod:shield_protection",
+      "NativeTooltipBounds": {
+        "left": 362.0,
+        "top": 231.0,
+        "right": 535.0,
+        "bottom": 281.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        375.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "spear",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-spear.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 8777,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 8777,
+      "NativeTooltipAdvancementId": "tetanusmod:spear",
+      "NativeTooltipBounds": {
+        "left": 306.0,
+        "top": 231.0,
+        "right": 441.0,
+        "bottom": 272.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        319.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "strange_meat",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-strange_meat.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 8900,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 8900,
+      "NativeTooltipAdvancementId": "tetanusmod:strange_meat",
+      "NativeTooltipBounds": {
+        "left": 278.0,
+        "top": 231.0,
+        "right": 391.0,
+        "bottom": 290.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        291.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "supply_run",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-supply_run.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 9023,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 9023,
+      "NativeTooltipAdvancementId": "tetanusmod:supply_run",
+      "NativeTooltipBounds": {
+        "left": 306.0,
+        "top": 214.0,
+        "right": 423.0,
+        "bottom": 300.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        319.0,
+        287.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "tetanized_mob",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-tetanized_mob.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 9142,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 9142,
+      "NativeTooltipAdvancementId": "tetanusmod:tetanized_mob",
+      "NativeTooltipBounds": {
+        "left": 250.0,
+        "top": 231.0,
+        "right": 363.0,
+        "bottom": 290.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        263.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "trap_reset",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-trap_reset.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 9262,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 9262,
+      "NativeTooltipAdvancementId": "tetanusmod:trap_reset",
+      "NativeTooltipBounds": {
+        "left": 362.0,
+        "top": 231.0,
+        "right": 501.0,
+        "bottom": 272.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        375.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "vaccinated",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-vaccinated.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 9382,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 9382,
+      "NativeTooltipAdvancementId": "tetanusmod:vaccinated",
+      "NativeTooltipBounds": {
+        "left": 306.0,
+        "top": 231.0,
+        "right": 411.0,
+        "bottom": 281.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        319.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "why_did_i_do_that",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-why_did_i_do_that.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 9504,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 9504,
+      "NativeTooltipAdvancementId": "tetanusmod:why_did_i_do_that",
+      "NativeTooltipBounds": {
+        "left": 278.0,
+        "top": 188.0,
+        "right": 405.0,
+        "bottom": 247.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        291.0,
+        201.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 3,
+      "AppliedGuiScale": 3.0,
+      "View": "why_did_i_eat_that",
+      "Screenshot": "rust-and-ruin-plain-layout-scale3-why_did_i_eat_that.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 9626,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 9626,
+      "NativeTooltipAdvancementId": "tetanusmod:why_did_i_eat_that",
+      "NativeTooltipBounds": {
+        "left": 306.0,
+        "top": 231.0,
+        "right": 441.0,
+        "bottom": 281.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        319.0,
+        244.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "overview",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-overview.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 9754
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "scrolled",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-scrolled.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 9876
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "home",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-home.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 9998
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "vanilla-story-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-vanilla-story-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 10121
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "vanilla-adventure-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-vanilla-adventure-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 10245
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "vanilla-husbandry-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-vanilla-husbandry-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 10368
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "vanilla-nether-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-vanilla-nether-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 10489
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "vanilla-end-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-vanilla-end-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 10611
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "antitoxin",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-antitoxin.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 10730,
+      "NativeTooltipRenderedFrames": 79,
+      "NativeTooltipFrame": 10730,
+      "NativeTooltipAdvancementId": "tetanusmod:antitoxin",
+      "NativeTooltipBounds": {
+        "left": 198.0,
+        "top": 171.0,
+        "right": 358.0,
+        "bottom": 230.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        211.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "beacon_full",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-beacon_full.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 10851,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 10851,
+      "NativeTooltipAdvancementId": "tetanusmod:beacon_full",
+      "NativeTooltipBounds": {
+        "left": 282.0,
+        "top": 171.0,
+        "right": 412.0,
+        "bottom": 230.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        295.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "beacon_placed",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-beacon_placed.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 10970,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 10970,
+      "NativeTooltipAdvancementId": "tetanusmod:beacon_placed",
+      "NativeTooltipBounds": {
+        "left": 254.0,
+        "top": 171.0,
+        "right": 406.0,
+        "bottom": 212.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        267.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "clean_bill_of_health",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-clean_bill_of_health.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 11091,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 11091,
+      "NativeTooltipAdvancementId": "tetanusmod:clean_bill_of_health",
+      "NativeTooltipBounds": {
+        "left": 254.0,
+        "top": 181.0,
+        "right": 386.0,
+        "bottom": 240.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        267.0,
+        227.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "clinic",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-clinic.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 11212,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 11212,
+      "NativeTooltipAdvancementId": "tetanusmod:clinic",
+      "NativeTooltipBounds": {
+        "left": 170.0,
+        "top": 181.0,
+        "right": 299.0,
+        "bottom": 240.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        183.0,
+        227.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "dragon_defeated",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-dragon_defeated.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 11332,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 11332,
+      "NativeTooltipAdvancementId": "tetanusmod:dragon_defeated",
+      "NativeTooltipBounds": {
+        "left": 310.0,
+        "top": 171.0,
+        "right": 452.0,
+        "bottom": 230.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        323.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "dragon_summoned",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-dragon_summoned.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 11455,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 11455,
+      "NativeTooltipAdvancementId": "tetanusmod:dragon_summoned",
+      "NativeTooltipBounds": {
+        "left": 282.0,
+        "top": 111.0,
+        "right": 397.0,
+        "bottom": 197.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        295.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "forge_crystal",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-forge_crystal.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 11577,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 11577,
+      "NativeTooltipAdvancementId": "tetanusmod:forge_crystal",
+      "NativeTooltipBounds": {
+        "left": 254.0,
+        "top": 171.0,
+        "right": 388.0,
+        "bottom": 239.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        267.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "glove_protection",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-glove_protection.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 11696,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 11696,
+      "NativeTooltipAdvancementId": "tetanusmod:glove_protection",
+      "NativeTooltipBounds": {
+        "left": 254.0,
+        "top": 171.0,
+        "right": 341.0,
+        "bottom": 239.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        267.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "infected",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-infected.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 11818,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 11818,
+      "NativeTooltipAdvancementId": "tetanusmod:infected",
+      "NativeTooltipBounds": {
+        "left": 170.0,
+        "top": 171.0,
+        "right": 291.0,
+        "bottom": 212.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        183.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "iron_has_a_darker_side",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-iron_has_a_darker_side.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 11940,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 11940,
+      "NativeTooltipAdvancementId": "tetanusmod:iron_has_a_darker_side",
+      "NativeTooltipBounds": {
+        "left": 170.0,
+        "top": 174.0,
+        "right": 324.0,
+        "bottom": 224.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        183.0,
+        187.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "lockjaw_sonata",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-lockjaw_sonata.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 12059,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 12059,
+      "NativeTooltipAdvancementId": "tetanusmod:lockjaw_sonata",
+      "NativeTooltipBounds": {
+        "left": 198.0,
+        "top": 155.0,
+        "right": 314.0,
+        "bottom": 214.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        211.0,
+        168.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "medic",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-medic.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 12178,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 12178,
+      "NativeTooltipAdvancementId": "tetanusmod:medic",
+      "NativeTooltipBounds": {
+        "left": 198.0,
+        "top": 190.0,
+        "right": 317.0,
+        "bottom": 240.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        211.0,
+        227.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "nice_one",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-nice_one.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 12296,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 12296,
+      "NativeTooltipAdvancementId": "tetanusmod:nice_one",
+      "NativeTooltipBounds": {
+        "left": 226.0,
+        "top": 171.0,
+        "right": 365.0,
+        "bottom": 212.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        239.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "rabies",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-rabies.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 12411,
+      "NativeTooltipRenderedFrames": 78,
+      "NativeTooltipFrame": 12411,
+      "NativeTooltipAdvancementId": "tetanusmod:rabies",
+      "NativeTooltipBounds": {
+        "left": 226.0,
+        "top": 168.0,
+        "right": 367.0,
+        "bottom": 209.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        239.0,
+        181.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "rabies_cured",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-rabies_cured.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 12528,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 12528,
+      "NativeTooltipAdvancementId": "tetanusmod:rabies_cured",
+      "NativeTooltipBounds": {
+        "left": 254.0,
+        "top": 168.0,
+        "right": 376.0,
+        "bottom": 218.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        267.0,
+        181.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 12639,
+      "NativeTooltipRenderedFrames": 78,
+      "NativeTooltipFrame": 12639,
+      "NativeTooltipAdvancementId": "tetanusmod:root",
+      "NativeTooltipBounds": {
+        "left": 142.0,
+        "top": 171.0,
+        "right": 240.0,
+        "bottom": 239.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        155.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "rust_arrows",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-rust_arrows.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 12758,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 12758,
+      "NativeTooltipAdvancementId": "tetanusmod:rust_arrows",
+      "NativeTooltipBounds": {
+        "left": 254.0,
+        "top": 171.0,
+        "right": 388.0,
+        "bottom": 221.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        267.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "rusty_business",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-rusty_business.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 12878,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 12878,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_business",
+      "NativeTooltipBounds": {
+        "left": 198.0,
+        "top": 174.0,
+        "right": 311.0,
+        "bottom": 233.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        211.0,
+        187.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "rusty_guardian",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-rusty_guardian.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 13002,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 13002,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_guardian",
+      "NativeTooltipBounds": {
+        "left": 198.0,
+        "top": 171.0,
+        "right": 331.0,
+        "bottom": 230.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        211.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "rusty_hook",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-rusty_hook.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 13118,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 13118,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_hook",
+      "NativeTooltipBounds": {
+        "left": 226.0,
+        "top": 187.0,
+        "right": 382.0,
+        "bottom": 237.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        239.0,
+        200.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "shield_protection",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-shield_protection.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 13234,
+      "NativeTooltipRenderedFrames": 77,
+      "NativeTooltipFrame": 13234,
+      "NativeTooltipAdvancementId": "tetanusmod:shield_protection",
+      "NativeTooltipBounds": {
+        "left": 282.0,
+        "top": 171.0,
+        "right": 455.0,
+        "bottom": 221.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        295.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "spear",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-spear.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 13347,
+      "NativeTooltipRenderedFrames": 76,
+      "NativeTooltipFrame": 13347,
+      "NativeTooltipAdvancementId": "tetanusmod:spear",
+      "NativeTooltipBounds": {
+        "left": 226.0,
+        "top": 171.0,
+        "right": 361.0,
+        "bottom": 212.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        239.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "strange_meat",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-strange_meat.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 13468,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 13468,
+      "NativeTooltipAdvancementId": "tetanusmod:strange_meat",
+      "NativeTooltipBounds": {
+        "left": 198.0,
+        "top": 171.0,
+        "right": 311.0,
+        "bottom": 230.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        211.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "supply_run",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-supply_run.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 13590,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 13590,
+      "NativeTooltipAdvancementId": "tetanusmod:supply_run",
+      "NativeTooltipBounds": {
+        "left": 226.0,
+        "top": 154.0,
+        "right": 343.0,
+        "bottom": 240.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        239.0,
+        227.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "tetanized_mob",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-tetanized_mob.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 13712,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 13712,
+      "NativeTooltipAdvancementId": "tetanusmod:tetanized_mob",
+      "NativeTooltipBounds": {
+        "left": 170.0,
+        "top": 171.0,
+        "right": 283.0,
+        "bottom": 230.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        183.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "trap_reset",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-trap_reset.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 13835,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 13835,
+      "NativeTooltipAdvancementId": "tetanusmod:trap_reset",
+      "NativeTooltipBounds": {
+        "left": 282.0,
+        "top": 171.0,
+        "right": 421.0,
+        "bottom": 212.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        295.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "vaccinated",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-vaccinated.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 13958,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 13958,
+      "NativeTooltipAdvancementId": "tetanusmod:vaccinated",
+      "NativeTooltipBounds": {
+        "left": 226.0,
+        "top": 171.0,
+        "right": 331.0,
+        "bottom": 221.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        239.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "why_did_i_do_that",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-why_did_i_do_that.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 14073,
+      "NativeTooltipRenderedFrames": 79,
+      "NativeTooltipFrame": 14073,
+      "NativeTooltipAdvancementId": "tetanusmod:why_did_i_do_that",
+      "NativeTooltipBounds": {
+        "left": 198.0,
+        "top": 128.0,
+        "right": 325.0,
+        "bottom": 187.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        211.0,
+        141.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 4,
+      "AppliedGuiScale": 4.0,
+      "View": "why_did_i_eat_that",
+      "Screenshot": "rust-and-ruin-plain-layout-scale4-why_did_i_eat_that.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 14194,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 14194,
+      "NativeTooltipAdvancementId": "tetanusmod:why_did_i_eat_that",
+      "NativeTooltipBounds": {
+        "left": 226.0,
+        "top": 171.0,
+        "right": 361.0,
+        "bottom": 221.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        239.0,
+        184.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "overview",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-overview.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 14319
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "scrolled",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-scrolled.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 14440
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "home",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-home.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 14561
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "vanilla-story-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-vanilla-story-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 14679
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "vanilla-adventure-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-vanilla-adventure-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 14802
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "vanilla-husbandry-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-vanilla-husbandry-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 14923
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "vanilla-nether-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-vanilla-nether-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 15045
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "vanilla-end-root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-vanilla-end-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 15167
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "antitoxin",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-antitoxin.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 15289,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 15289,
+      "NativeTooltipAdvancementId": "tetanusmod:antitoxin",
+      "NativeTooltipBounds": {
+        "left": 118.0,
+        "top": 111.0,
+        "right": 278.0,
+        "bottom": 170.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        131.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "beacon_full",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-beacon_full.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 15409,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 15409,
+      "NativeTooltipAdvancementId": "tetanusmod:beacon_full",
+      "NativeTooltipBounds": {
+        "left": 104.0,
+        "top": 111.0,
+        "right": 234.0,
+        "bottom": 170.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        215.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "beacon_placed",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-beacon_placed.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 15529,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 15529,
+      "NativeTooltipAdvancementId": "tetanusmod:beacon_placed",
+      "NativeTooltipBounds": {
+        "left": 54.0,
+        "top": 111.0,
+        "right": 206.0,
+        "bottom": 152.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        187.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "clean_bill_of_health",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-clean_bill_of_health.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 15652,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 15652,
+      "NativeTooltipAdvancementId": "tetanusmod:clean_bill_of_health",
+      "NativeTooltipBounds": {
+        "left": 74.0,
+        "top": 121.0,
+        "right": 206.0,
+        "bottom": 180.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        187.0,
+        167.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "clinic",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-clinic.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 15774,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 15774,
+      "NativeTooltipAdvancementId": "tetanusmod:clinic",
+      "NativeTooltipBounds": {
+        "left": 90.0,
+        "top": 121.0,
+        "right": 219.0,
+        "bottom": 180.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        103.0,
+        167.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "dragon_defeated",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-dragon_defeated.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 15896,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 15896,
+      "NativeTooltipAdvancementId": "tetanusmod:dragon_defeated",
+      "NativeTooltipBounds": {
+        "left": 120.0,
+        "top": 111.0,
+        "right": 262.0,
+        "bottom": 170.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        243.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "dragon_summoned",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-dragon_summoned.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 16018,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 16018,
+      "NativeTooltipAdvancementId": "tetanusmod:dragon_summoned",
+      "NativeTooltipBounds": {
+        "left": 119.0,
+        "top": 51.0,
+        "right": 234.0,
+        "bottom": 137.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        215.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "forge_crystal",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-forge_crystal.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 16140,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 16140,
+      "NativeTooltipAdvancementId": "tetanusmod:forge_crystal",
+      "NativeTooltipBounds": {
+        "left": 72.0,
+        "top": 111.0,
+        "right": 206.0,
+        "bottom": 179.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        187.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "glove_protection",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-glove_protection.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 16261,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 16261,
+      "NativeTooltipAdvancementId": "tetanusmod:glove_protection",
+      "NativeTooltipBounds": {
+        "left": 174.0,
+        "top": 111.0,
+        "right": 261.0,
+        "bottom": 179.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        187.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "infected",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-infected.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 16374,
+      "NativeTooltipRenderedFrames": 73,
+      "NativeTooltipFrame": 16374,
+      "NativeTooltipAdvancementId": "tetanusmod:infected",
+      "NativeTooltipBounds": {
+        "left": 90.0,
+        "top": 111.0,
+        "right": 211.0,
+        "bottom": 152.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        103.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "iron_has_a_darker_side",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-iron_has_a_darker_side.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 16490,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 16490,
+      "NativeTooltipAdvancementId": "tetanusmod:iron_has_a_darker_side",
+      "NativeTooltipBounds": {
+        "left": 90.0,
+        "top": 114.0,
+        "right": 244.0,
+        "bottom": 164.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        103.0,
+        127.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "lockjaw_sonata",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-lockjaw_sonata.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 16612,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 16612,
+      "NativeTooltipAdvancementId": "tetanusmod:lockjaw_sonata",
+      "NativeTooltipBounds": {
+        "left": 118.0,
+        "top": 95.0,
+        "right": 234.0,
+        "bottom": 154.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        131.0,
+        108.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "medic",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-medic.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 16733,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 16733,
+      "NativeTooltipAdvancementId": "tetanusmod:medic",
+      "NativeTooltipBounds": {
+        "left": 118.0,
+        "top": 130.0,
+        "right": 237.0,
+        "bottom": 180.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        131.0,
+        167.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "nice_one",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-nice_one.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 16854,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 16854,
+      "NativeTooltipAdvancementId": "tetanusmod:nice_one",
+      "NativeTooltipBounds": {
+        "left": 146.0,
+        "top": 111.0,
+        "right": 285.0,
+        "bottom": 152.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        159.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "rabies",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-rabies.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 16973,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 16973,
+      "NativeTooltipAdvancementId": "tetanusmod:rabies",
+      "NativeTooltipBounds": {
+        "left": 146.0,
+        "top": 108.0,
+        "right": 287.0,
+        "bottom": 149.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        159.0,
+        121.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "rabies_cured",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-rabies_cured.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 17094,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 17094,
+      "NativeTooltipAdvancementId": "tetanusmod:rabies_cured",
+      "NativeTooltipBounds": {
+        "left": 174.0,
+        "top": 108.0,
+        "right": 296.0,
+        "bottom": 158.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        187.0,
+        121.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "root",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-root.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 17215,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 17215,
+      "NativeTooltipAdvancementId": "tetanusmod:root",
+      "NativeTooltipBounds": {
+        "left": 62.0,
+        "top": 111.0,
+        "right": 160.0,
+        "bottom": 179.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        75.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "rust_arrows",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-rust_arrows.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 17338,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 17338,
+      "NativeTooltipAdvancementId": "tetanusmod:rust_arrows",
+      "NativeTooltipBounds": {
+        "left": 72.0,
+        "top": 111.0,
+        "right": 206.0,
+        "bottom": 161.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        187.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "rusty_business",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-rusty_business.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 17460,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 17460,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_business",
+      "NativeTooltipBounds": {
+        "left": 118.0,
+        "top": 114.0,
+        "right": 231.0,
+        "bottom": 173.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        131.0,
+        127.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "rusty_guardian",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-rusty_guardian.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 17579,
+      "NativeTooltipRenderedFrames": 80,
+      "NativeTooltipFrame": 17579,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_guardian",
+      "NativeTooltipBounds": {
+        "left": 118.0,
+        "top": 111.0,
+        "right": 251.0,
+        "bottom": 170.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        131.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "rusty_hook",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-rusty_hook.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 17701,
+      "NativeTooltipRenderedFrames": 82,
+      "NativeTooltipFrame": 17701,
+      "NativeTooltipAdvancementId": "tetanusmod:rusty_hook",
+      "NativeTooltipBounds": {
+        "left": 146.0,
+        "top": 127.0,
+        "right": 302.0,
+        "bottom": 177.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        159.0,
+        140.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "shield_protection",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-shield_protection.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 17823,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 17823,
+      "NativeTooltipAdvancementId": "tetanusmod:shield_protection",
+      "NativeTooltipBounds": {
+        "left": 61.0,
+        "top": 111.0,
+        "right": 234.0,
+        "bottom": 161.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        215.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "spear",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-spear.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 17942,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 17942,
+      "NativeTooltipAdvancementId": "tetanusmod:spear",
+      "NativeTooltipBounds": {
+        "left": 146.0,
+        "top": 111.0,
+        "right": 281.0,
+        "bottom": 152.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        159.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "strange_meat",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-strange_meat.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 18064,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 18064,
+      "NativeTooltipAdvancementId": "tetanusmod:strange_meat",
+      "NativeTooltipBounds": {
+        "left": 118.0,
+        "top": 111.0,
+        "right": 231.0,
+        "bottom": 170.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        131.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "supply_run",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-supply_run.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 18187,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 18187,
+      "NativeTooltipAdvancementId": "tetanusmod:supply_run",
+      "NativeTooltipBounds": {
+        "left": 146.0,
+        "top": 94.0,
+        "right": 263.0,
+        "bottom": 180.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        159.0,
+        167.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "tetanized_mob",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-tetanized_mob.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 18308,
+      "NativeTooltipRenderedFrames": 81,
+      "NativeTooltipFrame": 18308,
+      "NativeTooltipAdvancementId": "tetanusmod:tetanized_mob",
+      "NativeTooltipBounds": {
+        "left": 90.0,
+        "top": 111.0,
+        "right": 203.0,
+        "bottom": 170.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        103.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "trap_reset",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-trap_reset.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 18430,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 18430,
+      "NativeTooltipAdvancementId": "tetanusmod:trap_reset",
+      "NativeTooltipBounds": {
+        "left": 95.0,
+        "top": 111.0,
+        "right": 234.0,
+        "bottom": 152.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        215.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "vaccinated",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-vaccinated.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 18554,
+      "NativeTooltipRenderedFrames": 84,
+      "NativeTooltipFrame": 18554,
+      "NativeTooltipAdvancementId": "tetanusmod:vaccinated",
+      "NativeTooltipBounds": {
+        "left": 146.0,
+        "top": 111.0,
+        "right": 251.0,
+        "bottom": 161.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        159.0,
+        124.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "why_did_i_do_that",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-why_did_i_do_that.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 18676,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 18676,
+      "NativeTooltipAdvancementId": "tetanusmod:why_did_i_do_that",
+      "NativeTooltipBounds": {
+        "left": 118.0,
+        "top": 68.0,
+        "right": 245.0,
+        "bottom": 127.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        131.0,
+        81.0
+      ]
+    },
+    {
+      "RequestedGuiScale": 6,
+      "AppliedGuiScale": 6.0,
+      "View": "why_did_i_eat_that",
+      "Screenshot": "rust-and-ruin-plain-layout-scale6-why_did_i_eat_that.png",
+      "CapturePhase": "GameRenderer.render:TAIL",
+      "CaptureFrame": 18797,
+      "NativeTooltipRenderedFrames": 83,
+      "NativeTooltipFrame": 18797,
+      "NativeTooltipAdvancementId": "tetanusmod:why_did_i_eat_that",
+      "NativeTooltipBounds": {
+        "left": 146.0,
+        "top": 111.0,
+        "right": 281.0,
+        "bottom": 161.0
+      },
+      "AcknowledgedNativeCursorScaled": [
+        159.0,
+        124.0
+      ]
+    }
+  ],
+  "RetiredHidden": "variant_egg remains hidden; recipe unlock remains a functional hidden helper."
+}

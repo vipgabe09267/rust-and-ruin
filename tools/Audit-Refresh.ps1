@@ -1,8 +1,13 @@
-param([string]$Jar='build/libs/rust-and-ruin-0.1.0-beta.jar',[string]$Report)
+param([string]$Jar,[string]$Report)
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 Add-Type -AssemblyName System.Drawing
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
+if(!$Jar){
+    $versionMatch=[regex]::Match([IO.File]::ReadAllText((Join-Path $root 'gradle.properties')),'(?m)^mod_version=([A-Za-z0-9][A-Za-z0-9.+_-]*)\r?$')
+    if(!$versionMatch.Success){throw 'Missing or invalid mod_version in gradle.properties'}
+    $Jar="build/libs/rust-and-ruin-$($versionMatch.Groups[1].Value).jar"
+}
 $path=if([IO.Path]::IsPathRooted($Jar)){$Jar}else{Join-Path $root $Jar}
 $zip=[IO.Compression.ZipFile]::OpenRead($path)
 function Json($name){

@@ -1,0 +1,133 @@
+{
+  "EndermanTexture": {
+    "ClientCrosshairId": 3,
+    "ChangedPixels": 1058,
+    "OriginalRustPixels": 0,
+    "Generated": "tetanusmod:tetanized/minecraft/textures/entity/enderman/enderman.png",
+    "Width": 64,
+    "Height": 32,
+    "AlphaPreserved": true,
+    "Original": "minecraft:textures/entity/enderman/enderman.png",
+    "RustPixels": 468
+  },
+  "NativeWither": {
+    "Minions": [
+      {
+        "MaxHealth": 10.0,
+        "Health": 10.0,
+        "Id": 5,
+        "BodyHeight": 1.2,
+        "Weapon": "iron_sword"
+      },
+      {
+        "MaxHealth": 10.0,
+        "Health": 10.0,
+        "Id": 8,
+        "BodyHeight": 1.2,
+        "Weapon": "iron_sword"
+      }
+    ],
+    "MaxHealth": 650.0,
+    "CurrentHealth": 650.0
+  },
+  "NativeDragon": {
+    "Dimension": "minecraft:overworld",
+    "Purpose": "Paused model/skin fixture, not the End ritual or fight",
+    "MaxHealth": 1100.0,
+    "CurrentHealth": 1100.0
+  },
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "Viewer": "plain",
+  "BeaconUsesNativeMenuPackets": true,
+  "NetheriteConsumed": 3,
+  "StarsConsumed": 1,
+  "AdditionalStarRequiredForEachIVSelection": true,
+  "UnusedStarReturned": true,
+  "DowngradeWaitedForVanillaEffectExpiry": true,
+  "VisualSpecimensHaveAiPaused": true,
+  "BossRitualOrCombatTestedByThisController": false,
+  "OriginalPlayerAndWorldStateRestored": true,
+  "DirectCriterionGrants": 0,
+  "ProgressRevocations": 0,
+  "Screenshots": [
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-beacon-pyramid.png",
+      "SettledTicks": 35,
+      "NativeScreen": "HUD",
+      "View": "beacon-pyramid"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-iii-selection.png",
+      "SettledTicks": 30,
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "View": "iii-selection"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-haste-iii.png",
+      "SettledTicks": 1,
+      "NativeScreen": "HUD",
+      "View": "haste-iii"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-iv-star-required.png",
+      "SettledTicks": 30,
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "View": "iv-star-required"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-iv-payments.png",
+      "SettledTicks": 30,
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "View": "iv-payments"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-haste-iv.png",
+      "SettledTicks": 1,
+      "NativeScreen": "HUD",
+      "View": "haste-iv"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-iv-reconfirmation-needs-star.png",
+      "SettledTicks": 30,
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "View": "iv-reconfirmation-needs-star"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-iii-downgrade-selection.png",
+      "SettledTicks": 30,
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "View": "iii-downgrade-selection"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-haste-iii-after-downgrade.png",
+      "SettledTicks": 1,
+      "NativeScreen": "HUD",
+      "View": "haste-iii-after-downgrade"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-unused-star.png",
+      "SettledTicks": 30,
+      "NativeScreen": "com.tetanusmod.client.TetanizedBeaconScreen",
+      "View": "unused-star"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-rusted-enderman.png",
+      "SettledTicks": 31,
+      "NativeScreen": "HUD",
+      "View": "rusted-enderman"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-wither-and-minions.png",
+      "SettledTicks": 30,
+      "NativeScreen": "HUD",
+      "View": "wither-and-minions"
+    },
+    {
+      "Screenshot": "rust-and-ruin-plain-boss-expansion-tetanized-dragon.png",
+      "SettledTicks": 40,
+      "NativeScreen": "HUD",
+      "View": "tetanized-dragon"
+    }
+  ]
+}

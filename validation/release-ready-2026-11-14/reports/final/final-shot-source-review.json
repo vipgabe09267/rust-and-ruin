@@ -1,0 +1,33 @@
+{
+    "EvidenceSource":  "IndependentManualSourceReview",
+    "Result":  "NO_CONFIRMED_BLOCKER_IN_CHANGED_PRODUCTION_METHOD",
+    "ReviewedAtUtc":  "2026-11-14T23:45:31.9375544Z",
+    "CandidateSHA256":  "E83241B111FEB09F36DF8601247174CA54142372F3DFD4363F0DDA03070608FC",
+    "ChangedPackagedEntries":  [
+                                   "com/tetanusmod/expansion/CombatInfection.class"
+                               ],
+    "Source":  {
+                   "File":  "src/main/java/com/tetanusmod/expansion/CombatInfection.java",
+                   "Lines":  71,
+                   "SHA256":  "650B575A3E55DD9FEEC88B856115022D8096BAC50E4B064943E132046A0A62BE"
+               },
+    "NativeTests":  {
+                        "File":  "src/gametest/java/com/tetanusmod/test/FinalShotGameTests.java",
+                        "Cases":  5,
+                        "SHA256":  "EA70E95EC92A673584AD6801A1C1B38F4AF797B677D7B89BD2921D91B08C755A",
+                        "Receipt":  "native-focused.xml"
+                    },
+    "Findings":  [
+
+                 ],
+    "VerifiedBehavior":  [
+                             "Native ItemStack damage may reduce the firing weapon count to zero before projectiles are spawned, but the same object retains its enchantment NBT.",
+                             "Reads that current object only, matches the registered Tetanus enchantment id and clamps the snapshot to levels0-2.",
+                             "No mutable global cache or last-shot state; ordinary weapons cannot borrow a preceding enchanted firing action.",
+                             "Each real final-shot Multishot arrow and rocket receives its own snapshot; projectile save/load and actual advanced infection are covered by native cases."
+                         ],
+    "Limits":  [
+                   "Manual review and focused native tests are separate from the ongoing complete423-case run.",
+                   "Focused controls include plain final shots, normal near-break trident throws and unbroken Multishot. No arbitrary external-mod compatibility guarantee."
+               ]
+}

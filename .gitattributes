@@ -16,3 +16,7 @@ validation/camp-audio-2026-10-25/evidence/** -text whitespace=trailing-space,spa
 validation/camp-audio-2026-10-25/verification/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
 validation/clinic-advancements-2026-10-25/evidence/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
 validation/clinic-advancements-2026-10-25/verification/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+validation/boss-fixes-2026-11-14/** -text -whitespace
+validation/expansion-2026-11-14/** -text -whitespace
+validation/release-ready-2026-11-14/** -text -whitespace
+validation/version-0.1.1-beta/** -text -whitespace

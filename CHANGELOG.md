@@ -1,3 +1,16 @@
+# 0.1.1-beta - boss and medic fixes (November 14, 2026)
+
+- Fix Tetanus-enchanted bows and crossbows losing infection on the shot that breaks the weapon, including every arrow or firework in a Multishot volley. Five new native firing regressions passed in the final **423/423** suite.
+- The final candidate is **3,557,756 bytes**, SHA-256 `E83241B111FEB09F36DF8601247174CA54142372F3DFD4363F0DDA03070608FC`. Replace the previous 0.1.1-beta JAR on both sides. All **16 final visible-client reports passed**. [Readiness, evidence and limits](docs/RELEASE_READINESS_0.1.1-beta.md).
+
+- Tetanized Withers drop only the special star; brush it for an ordinary Nether Star. Minions now have 20 health, an initial 10-15-second wave after the shield, later 30-60-second waves, and visible summons for nearby Creative observers.
+- Add Prescription Writers to newly generated clinics/camps and possible medic trades; clean up their menu. Give medic ranks distinct treatment/supply pools, scarce emergency prescriptions, and saved stock limits.
+- Convert all ten healing crystals during a special Dragon ritual; special crystal explosions infect only after accepted native blast damage.
+- Raise Dragon grabs to 15%, lift caught players ten blocks, and retain the 120-second successful-grab cooldown. Add a custom Dragon bar, black egg with rust chips, and local slowed/reverberant victory audio.
+- Move glowing, non-despawning shared Dragon rewards outside the exit fountain. Redesign the beacon menu with explicit II/III/IV controls and clear ingot/star payments.
+- Keep the 650-HP Wither, 1,100-HP special Dragon, forging progression, single replacement-tier Tetanus book, and combat/medicine advancements.
+- Current receipts and limits are tracked in [validation](VALIDATION.md); see [release notes](docs/RELEASE_NOTES_2026-11-14.md). The prior metadata-only version correction and its original receipts remain archived.
+
 # 0.1.0-beta - medics, equipment, and disease fixes (October 23 refresh)
 
 - Add five biome-themed clinics with a 55% eligible village-location roll, supply chests, and seven medic uniform palettes.

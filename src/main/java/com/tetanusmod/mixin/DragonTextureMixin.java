@@ -14,7 +14,10 @@ public abstract class DragonTextureMixin {
     @org.spongepowered.asm.mixin.Shadow @org.spongepowered.asm.mixin.Final private static net.minecraft.client.render.RenderLayer DRAGON_DECAL;
     @Redirect(method="render(Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V",at=@At(value="INVOKE",target="Lnet/minecraft/client/render/VertexConsumerProvider;getBuffer(Lnet/minecraft/client/render/RenderLayer;)Lnet/minecraft/client/render/VertexConsumer;"))
     private net.minecraft.client.render.VertexConsumer dragonLayer(net.minecraft.client.render.VertexConsumerProvider provider,net.minecraft.client.render.RenderLayer layer,EnderDragonEntity entity,float yaw,float delta,net.minecraft.client.util.math.MatrixStack matrices,net.minecraft.client.render.VertexConsumerProvider ignored,int light) {
-        if(MobVariants.permanent(entity)&&(layer==DRAGON_CUTOUT||layer==DRAGON_DECAL))layer=net.minecraft.client.render.RenderLayer.getEntityCutoutNoCull(TetanizedTextures.get(TEXTURE));
+        if(MobVariants.permanent(entity)){
+            if(layer==DRAGON_DECAL)layer=net.minecraft.client.render.RenderLayer.getEntityDecal(TetanizedTextures.get(TEXTURE));
+            else if(layer==DRAGON_CUTOUT)layer=net.minecraft.client.render.RenderLayer.getEntityCutoutNoCull(TetanizedTextures.get(TEXTURE));
+        }
         return provider.getBuffer(layer);
     }
     @Inject(method="getTexture(Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;)Lnet/minecraft/util/Identifier;",at=@At("RETURN"),cancellable=true)

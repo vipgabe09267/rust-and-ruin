@@ -62,6 +62,9 @@ public final class TetanusMod implements ModInitializer {
     public void onInitialize() {
         com.tetanusmod.expansion.ExpansionEffects.initialize();
         ModItems.initialize();
+        com.tetanusmod.dragon.DragonContent.initialize();
+        com.tetanusmod.entity.WitherMinions.initialize();
+        com.tetanusmod.medical.MedicalWorkstations.initialize();
         com.tetanusmod.world.MedicStructures.initialize();
         com.tetanusmod.command.DiseaseCommands.initialize();
         com.tetanusmod.rust.RustCoating.initialize();

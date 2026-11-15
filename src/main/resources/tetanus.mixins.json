@@ -3,6 +3,7 @@
     "package":  "com.tetanusmod.mixin",
     "compatibilityLevel":  "JAVA_17",
     "mixins":  [
+                   "MedicCampKnownShapePlacementMixin",
                    "ItemEntityMixin",
                    "CoatingWearMixin",
                    "LivingEntityMixin",
@@ -44,7 +45,17 @@
                    "CabinetPathfindingMixin",
                    "DiseaseRespawnMixin",
                    "CommandSourceOutputAccessor",
-                   "CampGuardMixin"
+                   "CampGuardMixin",
+                   "WitherCombatMixin",
+                   "DragonFightRitualMixin",
+                   "DragonEncounterMixin",
+                   "DragonHealthAttributeMixin",
+                   "DragonInfectionMixin",
+                   "DragonBedExplosionAttributionMixin",
+                   "DragonAnchorExplosionAttributionMixin",
+                   "OverloadSwordCraftingRepairMixin",
+                   "OverloadSwordGrindstoneRepairMixin",
+                   "OverloadSwordAnvilRepairMixin"
                ],
     "client":  [
                    "InGameHudMixin",
@@ -63,7 +74,8 @@
                    "MedicClothingMixin",
                    "MedicMerchantScreenMixin",
                    "AdvancementTabNavigationMixin",
-                   "AdvancementScreenNavigationMixin"
+                   "AdvancementScreenNavigationMixin",
+                   "EndCrystalTextureMixin"
                ],
     "injectors":  {
                       "defaultRequire":  1

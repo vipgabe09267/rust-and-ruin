@@ -1,0 +1,20 @@
+{
+  "Result": "PASS",
+  "ReleaseVersion": "0.1.1-beta",
+  "BaselineVersion": "0.1.0-beta",
+  "ChangedArchiveEntries": [
+    "fabric.mod.json"
+  ],
+  "MetadataChange": "Only version: 0.1.0-beta -> 0.1.1-beta",
+  "ByteIdenticalClasses": 267,
+  "AllOtherEntryBytesIdentical": true,
+  "GameplayTestsRerun": false,
+  "BaselineNativeTestsPassed": 399,
+  "BaselineNativeFailures": 0,
+  "BaselineGraphicalEvidence": "../expansion-2026-11-14/index.html",
+  "Jar": "build/libs/rust-and-ruin-0.1.1-beta.jar",
+  "JarBytes": 3501095,
+  "JarSHA256": "957F54966E70FFA9B3B27136D337EBF3D9A1E6551DF112D13DA39A7BC808BE2A",
+  "BaselineJarSHA256": "7F1D6F6AB1C4001A7C09EFF7D3CD839345BB4F4CE2B9D56D494D4BD714B8AA25",
+  "CreatedUTC": "2026-11-14T21:52:24.005736+00:00"
+}

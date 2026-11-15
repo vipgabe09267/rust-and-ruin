@@ -1,0 +1,18 @@
+{
+    "ingredients":  [
+                        {
+                            "item":  "minecraft:end_crystal"
+                        },
+                        {
+                            "item":  "tetanusmod:rust"
+                        },
+                        {
+                            "item":  "minecraft:netherite_ingot"
+                        }
+                    ],
+    "result":  {
+                   "count":  1,
+                   "item":  "tetanusmod:tetanized_end_crystal"
+               },
+    "type":  "tetanusmod:crystal_forging"
+}

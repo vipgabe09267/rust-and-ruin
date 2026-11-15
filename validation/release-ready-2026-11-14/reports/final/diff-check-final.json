@@ -1,0 +1,13 @@
+{
+    "EvidenceSource":  "ActualReadOnlyCommand",
+    "Command":  "git -c core.safecrlf=false diff --check",
+    "ExitCode":  0,
+    "OutputLines":  0,
+    "ParentCompletedLog":  ".tools/release-ready-2026-11-14/diff-check-final.log",
+    "ParentCompletedLogBytes":  0,
+    "ParentCompletedLogSHA256":  "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "CandidateSHA256":  "E83241B111FEB09F36DF8601247174CA54142372F3DFD4363F0DDA03070608FC",
+    "ObservedAtUTC":  "2026-11-15T00:00:15.6176096Z",
+    "Result":  "PASS",
+    "Note":  "Per-command safecrlf=false suppresses line-ending warnings; whitespace error detection remains enabled. No repository config changed."
+}

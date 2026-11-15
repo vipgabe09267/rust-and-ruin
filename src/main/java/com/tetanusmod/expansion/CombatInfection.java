@@ -13,8 +13,24 @@ import net.minecraft.item.ItemStack;
 
 public final class CombatInfection {
     public interface RangedCarrier {int rustruin$weaponLevel();void rustruin$weaponLevel(int level);}
-    public static void prepare(Entity projectile,ItemStack weapon){if(projectile instanceof RangedCarrier carrier)carrier.rustruin$weaponLevel(EnchantmentHelper.getLevel(ModItems.TETANUS_ENCHANTMENT,weapon));}
+    public static void prepare(Entity projectile,ItemStack weapon){
+        if(projectile instanceof RangedCarrier carrier)carrier.rustruin$weaponLevel(firingLevel(weapon));
+    }
+    private static int firingLevel(ItemStack weapon){
+        // Vanilla damages the weapon before spawning each projectile. A broken bow/crossbow
+        // keeps its enchantment tags on this same object, including later Multishot arrows.
+        // EnchantmentHelper.getLevel instead returns zero as soon as its count reaches zero.
+        var wanted=EnchantmentHelper.getEnchantmentId(ModItems.TETANUS_ENCHANTMENT);
+        if(wanted==null)return 0;
+        var tags=weapon.getEnchantments();
+        for(int i=0;i<tags.size();i++){
+            var tag=tags.getCompound(i);
+            if(wanted.equals(EnchantmentHelper.getIdFromNbt(tag)))return Math.max(0,Math.min(2,EnchantmentHelper.getLevelFromNbt(tag)));
+        }
+        return 0;
+    }
     public static boolean infectious(DamageSource source){
+        if(source.getAttacker() instanceof WitherMinionEntity || source.getAttacker() instanceof net.minecraft.entity.boss.WitherEntity wither&&MobVariants.permanent(wither) || source.getAttacker() instanceof net.minecraft.entity.boss.dragon.EnderDragonEntity dragon&&MobVariants.permanent(dragon))return true;
         if(level(source)>0||source.getSource() instanceof TetanizedArrowEntity)return true;
         if(source.getSource() instanceof NailEntity nail&&nail.getStack().getItem() instanceof com.tetanusmod.item.NailItem item)return item.isRusty();
         if(source.getSource()==source.getAttacker()&&source.getAttacker() instanceof LivingEntity attacker){

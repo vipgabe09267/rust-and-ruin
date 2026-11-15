@@ -26,11 +26,10 @@ public final class TetanizedTextures {
                 if(alpha==0)continue;
                 int r=pixel&255,g=(pixel>>>8)&255,b=(pixel>>>16)&255;
                 int value=(r*3+g*5+b*2)/10;
-                int noise=Math.floorMod(x*73856093^y*19349663^original.hashCode(),101);
-                boolean rust=noise<24 && value>35;
-                int nr=rust?Math.min(230,60+value*3/4):(r+value*2)/3;
-                int ng=rust?25+value/3:(g+value*2)/4;
-                int nb=rust?12+value/8:(b+value)/3;
+                int transformed=VariantSkinPalette.tetanized(pixel,x,y,original.hashCode(),(original.getPath().equals("textures/entity/enderman/enderman.png")||original.getPath().equals("textures/entity/enderdragon/dragon.png")));
+                int nr=transformed&255;
+                int ng=(transformed>>>8)&255;
+                int nb=(transformed>>>16)&255;
                 if(rabid){
                     nr=(r*2+value*3)/5;ng=(g*2+value*3)*17/100;nb=(b*2+value*3)*17/100;
                     int patch=Math.floorMod((x/3)*83492791^(y/3)*297121507^original.hashCode(),101);

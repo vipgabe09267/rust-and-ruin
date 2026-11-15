@@ -20,7 +20,7 @@
                                     },
                     "show_toast":  true,
                     "icon":  {
-                                 "item":  "minecraft:iron_ingot"
+                                 "item":  "tetanusmod:rusted_iron_block"
                              },
                     "hidden":  false,
                     "announce_to_chat":  true,

@@ -56,7 +56,7 @@ public final class ModItems {
                 .displayName(Text.translatable("itemGroup.tetanusmod"))
                 .icon(() -> new ItemStack(RUSTED_NAIL))
                 .entries((context, entries) -> {
-                    ALL.stream().filter(item->!ModIronTools.isRusted(item)&&!(item instanceof com.tetanusmod.expansion.VariantSpawnEggItem)).forEach(entries::add);
+                    ALL.stream().filter(item->!ModIronTools.isRusted(item)&&!(item instanceof com.tetanusmod.expansion.VariantSpawnEggItem)).forEach(item->entries.add(item.getDefaultStack()));
                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(
                             new net.minecraft.enchantment.EnchantmentLevelEntry(TETANUS_ENCHANTMENT,1)));
                     entries.add(net.minecraft.item.EnchantedBookItem.forEnchantment(new net.minecraft.enchantment.EnchantmentLevelEntry(TETANUS_ENCHANTMENT,2)));

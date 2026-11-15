@@ -1,0 +1,62 @@
+{
+    "Result":  "PASS",
+    "Verdict":  "No confirmed release blockers remain within the recorded checks; this is not a guarantee of zero bugs.",
+    "CheckedUtc":  "2026-11-15T00:00:49.0471175Z",
+    "Version":  "0.1.1-beta",
+    "Artifact":  {
+                     "Path":  "build/libs/rust-and-ruin-0.1.1-beta.jar",
+                     "Bytes":  3557756,
+                     "SHA256":  "E83241B111FEB09F36DF8601247174CA54142372F3DFD4363F0DDA03070608FC",
+                     "ReplacePreviousClientAndServerJar":  true
+                 },
+    "FixThisFinalPass":  "Preserve Tetanus on the durability-breaking bow/crossbow shot, including every Multishot projectile, with plain negative controls.",
+    "Native":  {
+                   "Tests":  423,
+                   "Passed":  423,
+                   "Failures":  0,
+                   "Errors":  0,
+                   "FinalShotRegressions":  5,
+                   "FullTestClasses":  45,
+                   "Receipt":  "reports/final/native-final.xml"
+               },
+    "Graphical":  {
+                      "PassedReports":  16,
+                      "OriginalPngs":  392,
+                      "VisibleMinecraftClients":  true,
+                      "FreshWorlds":  true,
+                      "OrdinaryRecipesCrafted":  31,
+                      "CraftBeforeAfterFrames":  62,
+                      "OptionalViewers":  [
+                                              "JEI",
+                                              "REI"
+                                          ],
+                      "Manifest":  "manifest.json",
+                      "Gallery":  "index.html"
+                  },
+    "Package":  {
+                    "OfflineBuild":  "PASS",
+                    "ResourceVerification":  "PASS",
+                    "ReleaseAudit":  "PASS",
+                    "RefreshAudit":  "PASS",
+                    "RegeneratedResourceFiles":  409,
+                    "RegeneratedResourcesByteIdentical":  true,
+                    "OnlyChangedArchiveEntrySincePreviousPatch":  "com/tetanusmod/expansion/CombatInfection.class",
+                    "DiffWhitespaceCheck":  "PASS",
+                    "DevelopmentTestCodeBundled":  false
+                },
+    "Evidence":  {
+                     "VerifiedFileHashes":  455,
+                     "ManifestSHA256":  "AC7343EBAA035633012AC2735F021224123BE7FD071CD60070B6D9EFF26BDA0D",
+                     "ReceiptExcludedFromManifestToAvoidSelfHashCycle":  true
+                 },
+    "ProductionNamespaceProbe":  {
+                                     "DiscoveredMods":  45,
+                                     "MixinAndNamespaceResolution":  "PASS to EULA=false guard",
+                                     "CreatedProductionWorld":  false
+                                 },
+    "Limits":  [
+                   "No guarantee for arbitrary modpacks, resource packs, remote-client multiplayer or long-running server endurance.",
+                   "Graphical fixtures supply ingredients and use disclosed controlled targets, seeded approaches and shortened boss final-hit scenarios; not a Survival balance playthrough.",
+                   "Packaged-server probe stopped at the EULA guard; native dedicated GameTests and integrated graphical clients covered world gameplay."
+               ]
+}

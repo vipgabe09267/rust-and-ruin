@@ -9,5 +9,7 @@ import net.minecraft.sound.SoundEvent;
 public final class ModSounds {
     public static final SoundEvent MEDIC_WORK=Registry.register(Registries.SOUND_EVENT,
             TetanusMod.id("medic_work"),SoundEvent.of(TetanusMod.id("medic_work"),12));
+    public static final SoundEvent DRAGON_DEFEATED=Registry.register(Registries.SOUND_EVENT,
+            TetanusMod.id("dragon_defeated"),SoundEvent.of(TetanusMod.id("dragon_defeated"),32));
     private ModSounds(){}
 }

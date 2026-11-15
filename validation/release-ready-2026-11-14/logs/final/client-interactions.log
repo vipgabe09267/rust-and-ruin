@@ -1,0 +1,418 @@
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "Windows_NT" == "Windows_NT" setlocal
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "DIRNAME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" == "" set DIRNAME=. 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_BASE_NAME=gradlew" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>for %i in ("C:\Users\gwilliamscrypto\Documents\Rust & Ruin\") do set "APP_HOME=%~fi" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "APP_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if defined JAVA_HOME goto findJavaFromJavaHome 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_HOME=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "JAVA_EXE=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if exist "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" goto execute 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>set "CLASSPATH=C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>"C:\Users\gwilliamscrypto\Documents\Rust & Ruin\.tools\java\jdk-17.0.20.1+1/bin/java.exe" "-Xmx64m" "-Xms64m"   "-Dorg.gradle.appname=gradlew" -classpath "C:\Users\gwilliamscrypto\Documents\Rust & Ruin\\gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWrapperMain --offline runClientSmoke -PgraphicalFocus=release-interactions -PsmokeWorld=ready-interactions-20261114 -PsmokeUsername=ReadyInteract011 --console plain 
+
+> Configure project :
+Fabric Loom: 1.10.5
+
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :compileSmoketestJava
+gradlew.bat : Note: C:\Users\gwilliamscrypto\Documents\Rust & 
+Ruin\src\smoketest\java\com\tetanusmod\test\ClientSmokeTest.java uses or overrides a deprecated API.
+At line:2 char:345
++ ... .0.20.1+1'; & .\gradlew.bat --offline runClientSmoke -PgraphicalFocus ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Note: C:\Users\...deprecated API.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :generateLog4jConfig UP-TO-DATE
+> Task :generateRemapClasspath UP-TO-DATE
+> Task :generateDLIConfig UP-TO-DATE
+> Task :configureLaunch UP-TO-DATE
+> Task :downloadAssets UP-TO-DATE
+> Task :configureClientLaunch UP-TO-DATE
+> Task :processSmoketestResources UP-TO-DATE
+> Task :smoketestClasses
+
+> Task :runClientSmoke
+[17:50:52] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.20.1 with Fabric Loader 0.16.14
+[17:50:52] [main/INFO] (FabricLoader) Loading 60 mods:
+	- fabric-api 0.92.6+1.20.1
+	- fabric-api-base 0.4.32+1802ada577
+	- fabric-api-lookup-api-v1 1.6.37+1802ada577
+	- fabric-biome-api-v1 13.0.14+1802ada577
+	- fabric-block-api-v1 1.0.12+1802ada577
+	- fabric-block-view-api-v2 1.0.3+924f046a77
+	- fabric-blockrenderlayer-v1 1.1.42+1802ada577
+	- fabric-client-tags-api-v1 1.1.3+1802ada577
+	- fabric-command-api-v1 1.2.35+f71b366f77
+	- fabric-command-api-v2 2.2.14+1802ada577
+	- fabric-commands-v0 0.2.52+df3654b377
+	- fabric-containers-v0 0.1.67+df3654b377
+	- fabric-content-registries-v0 4.0.13+1802ada577
+	- fabric-convention-tags-v1 1.5.6+1802ada577
+	- fabric-crash-report-info-v1 0.2.20+1802ada577
+	- fabric-data-attachment-api-v1 1.0.2+de0fd6d177
+	- fabric-data-generation-api-v1 12.3.7+1802ada577
+	- fabric-dimensions-v1 2.1.55+1802ada577
+	- fabric-entity-events-v1 1.6.1+1c78457f77
+	- fabric-events-interaction-v0 0.6.5+13a40c6677
+	- fabric-events-lifecycle-v0 0.2.64+df3654b377
+	- fabric-game-rule-api-v1 1.0.41+1802ada577
+	- fabric-gametest-api-v1 1.2.15+1802ada577
+	- fabric-item-api-v1 2.1.29+1802ada577
+	- fabric-item-group-api-v1 4.0.14+1802ada577
+	- fabric-key-binding-api-v1 1.0.38+1802ada577
+	- fabric-keybindings-v0 0.2.36+df3654b377
+	- fabric-lifecycle-events-v1 2.2.23+1802ada577
+	- fabric-loot-api-v2 1.2.3+1802ada577
+	- fabric-loot-tables-v1 1.1.47+9e7660c677
+	- fabric-message-api-v1 5.1.10+1802ada577
+	- fabric-mining-level-api-v1 2.1.52+1802ada577
+	- fabric-model-loading-api-v1 1.0.4+1802ada577
+	- fabric-models-v0 0.4.3+9386d8a777
+	- fabric-networking-api-v1 1.3.14+a158aa0477
+	- fabric-networking-v0 0.3.54+df3654b377
+	- fabric-object-builder-api-v1 11.1.5+e35120df77
+	- fabric-particles-v1 1.1.3+1802ada577
+	- fabric-recipe-api-v1 1.0.24+1802ada577
+	- fabric-registry-sync-v0 2.3.6+1802ada577
+	- fabric-renderer-api-v1 3.2.2+1802ada577
+	- fabric-renderer-indigo 1.5.3+85287f9f77
+	- fabric-renderer-registries-v1 3.2.47+df3654b377
+	- fabric-rendering-data-attachment-v1 0.3.39+92a0d36777
+	- fabric-rendering-fluids-v1 3.0.29+1802ada577
+	- fabric-rendering-v0 1.1.50+df3654b377
+	- fabric-rendering-v1 3.0.9+1802ada577
+	- fabric-resource-conditions-api-v1 2.3.9+1802ada577
+	- fabric-resource-loader-v0 0.11.12+fb82e9d777
+	- fabric-screen-api-v1 2.0.9+1802ada577
+	- fabric-screen-handler-api-v1 1.3.33+1802ada577
+	- fabric-sound-api-v1 1.0.14+1802ada577
+	- fabric-transfer-api-v1 3.3.6+8dd72ea377
+	- fabric-transitive-access-wideners-v1 4.3.2+1802ada577
+	- fabricloader 0.16.14
+	- java 17
+	- minecraft 1.20.1
+	- mixinextras 0.4.1
+	- tetanusmod 0.1.1-beta
+	- tetanusmod_smoketest 1.0.0
+[17:50:53] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/gwilliamscrypto/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.5+mixin.0.8.7/22f9eb729e216a091673a574a5906dc1b9027fb3/sponge-mixin-0.15.5+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[17:50:53] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[17:50:53] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_16
+[17:50:53] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_17
+[17:50:55] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[17:51:03] [Datafixer Bootstrap/INFO] (Minecraft) 188 Datafixer optimizations took 211 milliseconds
+[17:51:06] [Render thread/INFO] (Minecraft) Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[17:51:07] [Render thread/INFO] (Minecraft) Setting user: ReadyInteract011
+[17:51:08] [Render thread/INFO] (Indigo) [Indigo] Registering Indigo renderer!
+[17:51:08] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.1 SNAPSHOT
+[17:51:10] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric (fabric-renderer-registries-v1, fabric-entity-events-v1, fabric-loot-tables-v1, fabric-screen-handler-api-v1, fabric-gametest-api-v1, fabric-convention-tags-v1, fabric-blockrenderlayer-v1, fabric-renderer-api-v1, fabric-data-generation-api-v1, fabric-resource-loader-v0, fabric-loot-api-v2, fabric-screen-api-v1, fabric-crash-report-info-v1, fabric-events-interaction-v0, fabric-commands-v0, fabric-rendering-v0, fabric-object-builder-api-v1, fabric-lifecycle-events-v1, fabric-api, fabricloader, fabric-transfer-api-v1, fabric-game-rule-api-v1, fabric-rendering-data-attachment-v1, fabric-models-v0, fabric-networking-v0, fabric-message-api-v1, fabric-api-lookup-api-v1, fabric-model-loading-api-v1, fabric-content-registries-v0, fabric-item-group-api-v1, fabric-command-api-v1, fabric-api-base, fabric-containers-v0, fabric-command-api-v2, fabric-key-binding-api-v1, fabric-biome-api-v1, fabric-recipe-api-v1, fabric-events-lifecycle-v0, fabric-data-attachment-api-v1, fabric-rendering-fluids-v1, fabric-block-view-api-v2, fabric-registry-sync-v0, tetanusmod_smoketest, fabric-item-api-v1, fabric-renderer-indigo, fabric-keybindings-v0, fabric-resource-conditions-api-v1, fabric-transitive-access-wideners-v1, fabric-particles-v1, fabric-networking-api-v1, fabric-rendering-v1, fabric-mining-level-api-v1, fabric-client-tags-api-v1, fabric-block-api-v1, fabric-sound-api-v1, fabric-dimensions-v1, tetanusmod)
+[17:51:11] [Worker-Main-9/INFO] (Minecraft) Found unifont_all_no_pua-15.0.06.hex, loading
+[17:51:12] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:item.goat_horn.play
+[17:51:12] [Render thread/WARN] (Minecraft) Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[17:51:13] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Sonos Amp (Realtek(R) Audio)
+[17:51:13] [Render thread/INFO] (Minecraft) Sound engine started
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/blocks.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[17:51:13] [Render thread/WARN] (Minecraft) Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[17:51:13] [Render thread/INFO] (Minecraft) Created: 256x256x0 minecraft:textures/atlas/mob_effects.png-atlas
+[17:51:15] [Render thread/INFO] (Minecraft) Loaded 9 recipes
+[17:51:15] [Render thread/INFO] (Minecraft) Loaded 1304 advancements
+[17:51:16] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 64 new biomes in 1.529 ms
+[17:51:16] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.20.1
+[17:51:16] [Server thread/INFO] (Minecraft) Generating keypair
+[17:51:16] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[17:51:17] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[17:51:17] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[17:51:17] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[17:51:18] [Render thread/INFO] (Minecraft) Preparing spawn area: 32%
+[17:51:18] [Render thread/INFO] (Minecraft) Time elapsed: 1930 ms
+[17:51:18] [Server thread/INFO] (Minecraft) Changing view distance to 12, from 10
+[17:51:18] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[17:51:19] [Server thread/INFO] (Minecraft) ReadyInteract011[local:E:ebe4243d] logged in with entity id 1 at (2.5, -60.0, 1.5)
+[17:51:19] [Server thread/INFO] (Minecraft) ReadyInteract011 joined the game
+[17:51:20] [Render thread/INFO] (Minecraft) Loaded 14 advancements
+[17:51:27] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-capture, Tick=0, Position=(191.88424965926123, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=0.0, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=0.0, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=0.0}
+[17:51:27] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_REGRESSION_PASS survival-capture
+[17:51:27] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62128, Position=(191.88424965926123, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=0.0, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=0.0, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=0.0}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62129, Position=(191.88424965926123, 4.00419999986887, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7639998898509764E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7639998898509764E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7639998898509764E-5}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62130, Position=(191.88424965926123, 4.00419999986887, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7639998898509764E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7639998898509764E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7639998898509764E-5}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62131, Position=(191.88444565926065, 4.003415999853612, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.170747099964878E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.170747099964878E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.170747099964878E-5}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62132, Position=(191.8848376592595, 4.001847999823095, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=3.7608473441130017E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=3.7608473441130017E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=3.7608473441130017E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62133, Position=(191.8850336592589, 4.001063999807837, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7467515874382065E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7467515874382065E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7467515874382065E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62134, Position=(191.88522965925833, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.0387998781588076E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.0387998781588076E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.0387998781588076E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62135, Position=(191.88522965925833, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.0387998781588076E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.0387998781588076E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.0387998781588076E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62136, Position=(191.88542565925775, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=true, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.382975991813381E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.382975991813381E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.382975991813381E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62137, Position=(191.88542565925775, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.382975991813381E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.382975991813381E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.382975991813381E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62138, Position=(191.88542565925775, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.382975991813381E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.382975991813381E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.382975991813381E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62139, Position=(191.88542565925775, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.382975991813381E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.382975991813381E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.382975991813381E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62140, Position=(191.88542565925775, 4.00419999986887, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.9022974890323144E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.9022974890323144E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.9022974890323144E-5}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62141, Position=(191.88562165925717, 4.003415999853612, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.3551438988733288E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.3551438988733288E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.3551438988733288E-5}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62142, Position=(191.8858176592566, 4.0026319998383535, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=9.386047134538827E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=9.386047134538827E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=9.386047134538827E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62143, Position=(191.886013659256, 4.001847999823095, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=6.5267993277397635E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=6.5267993277397635E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=6.5267993277397635E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62144, Position=(191.88620965925543, 4.001063999807837, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=4.973695568336096E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=4.973695568336096E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=4.973695568336096E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62145, Position=(191.88640565925485, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=4.726735856327823E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=4.726735856327823E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=4.726735856327823E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62146, Position=(191.88660165925427, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=true, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=5.531903967253524E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=5.531903967253524E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=5.531903967253524E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62147, Position=(191.88660165925427, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=5.531903967253524E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=5.531903967253524E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=5.531903967253524E-6}
+[17:51:28] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62148, Position=(191.88660165925427, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=5.531903967253524E-6, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=5.531903967253524E-6, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=5.531903967253524E-6}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62149, Position=(191.88660165925427, 4.00419999986887, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=2.3171902865763288E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=2.3171902865763288E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=2.3171902865763288E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62150, Position=(191.8867976592537, 4.003415999853612, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.8161358961444558E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.8161358961444558E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.8161358961444558E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62151, Position=(191.8869936592531, 4.0026319998383535, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.4456959104521225E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.4456959104521225E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.4456959104521225E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62152, Position=(191.8869936592531, 4.0026319998383535, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.4456959104521225E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.4456959104521225E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.4456959104521225E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62153, Position=(191.88718965925253, 4.001847999823095, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.2058703294993288E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.2058703294993288E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.2058703294993288E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62154, Position=(191.88738565925195, 4.001063999807837, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.0966591532860748E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.0966591532860748E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.0966591532860748E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62155, Position=(191.88758165925137, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.1180623818123603E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.1180623818123603E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.1180623818123603E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62156, Position=(191.8877776592508, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=true, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.244678392632043E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.244678392632043E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.244678392632043E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62157, Position=(191.8877776592508, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.244678392632043E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.244678392632043E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.244678392632043E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62158, Position=(191.8877776592508, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.244678392632043E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.244678392632043E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.244678392632043E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62159, Position=(191.8877776592508, 4.0, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.244678392632043E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.244678392632043E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.244678392632043E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62160, Position=(191.8877776592508, 4.00419999986887, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=3.0086782824830193E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=3.0086782824830193E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=3.0086782824830193E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62161, Position=(191.8879736592502, 4.003415999853612, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=2.5537230917782593E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=2.5537230917782593E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=2.5537230917782593E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62162, Position=(191.88816965924963, 4.0026319998383535, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=2.2293823058130383E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=2.2293823058130383E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=2.2293823058130383E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62163, Position=(191.88836565924905, 4.001063999807837, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.807355149079062E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.807355149079062E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.807355149079062E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62164, Position=(191.88836565924905, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7019855783557877E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7019855783557877E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7019855783557877E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62165, Position=(191.88836565924905, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=true, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7019855783557877E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7019855783557877E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7019855783557877E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62166, Position=(191.88836565924905, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7019855783557877E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7019855783557877E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7019855783557877E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62167, Position=(191.88836565924905, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7019855783557877E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7019855783557877E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7019855783557877E-5}
+[17:51:29] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62168, Position=(191.88836565924905, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7019855783557877E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7019855783557877E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7019855783557877E-5}
+[17:51:30] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62169, Position=(191.88836565924905, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7019855783557877E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7019855783557877E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7019855783557877E-5}
+[17:51:30] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62170, Position=(191.88836565924905, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7019855783557877E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7019855783557877E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7019855783557877E-5}
+[17:51:30] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-end-world-tick, Tick=62171, Position=(191.88836565924905, 4.000279999792578, 64.5), Velocity=(0.0, 0.0, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7019855783557877E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7019855783557877E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7019855783557877E-5}
+[17:51:30] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_HOLD_SAMPLE {Source=server-final-hold, Tick=45, Position=(191.88836565924905, 4.000279999792578, 64.5), Velocity=(0.0, -0.0784000015258789, 0.0), OnGround=false, Holds=true, Closed=true, HasCapturedUuid=true, NativeAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToNativeAnchor=1.7019855783557877E-5, CapturedAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToCapturedAnchor=1.7019855783557877E-5, SnapshotAnchor=(191.88424965926123, 4.0, 64.5), DistanceSquaredToSnapshot=1.7019855783557877E-5}
+[17:51:30] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_REGRESSION_PASS survival-native-movement-held
+[17:51:31] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Mind Your Fingers]
+[17:51:31] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Mind Your Fingers]
+[17:51:31] [Render thread/INFO] (Minecraft) Loaded 17 advancements
+[17:51:31] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_REGRESSION_PASS native-top-click-reset
+[17:51:32] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_REGRESSION_PASS native-captive-entity-click-reset
+[17:51:33] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_REGRESSION_PASS native-side-click-reset
+[17:51:34] [Server thread/INFO] (tetanusmod) GRAPHICAL_TRAP_REGRESSION_PASS creative-native-walking-immune
+[17:51:40] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS rusty-nail-air nativeProjectile=2f2cf693-a6ab-4fd3-b584-1a41019505a8 usedDelta=1 clientVoices=0 clientGuardian=false
+[17:51:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS rusty-bent-nail-air nativeProjectile=f35945a0-71ec-45bd-a1d0-3006c393f2d4 usedDelta=1 clientVoices=0 clientGuardian=false
+[17:51:47] [Render thread/INFO] (Minecraft) Loaded 18 advancements
+[17:51:53] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS tetanized-arrow-wall nativeProjectile=e88ff9e8-1362-41e1-9c3a-e6ee9076c2ee usedDelta=1 clientVoices=0 clientGuardian=false
+[17:51:57] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Tetanized Mob]
+[17:51:57] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Tetanized Guardian]
+[17:51:57] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Tetanized Mob]
+[17:51:57] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Tetanized Guardian]
+[17:51:57] [Render thread/INFO] (Minecraft) Loaded 21 advancements
+[17:51:58] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS rusty-nail-natural-golem nativeProjectile=87ceda79-841e-4001-91fe-0371ed298027 usedDelta=1 clientVoices=1 clientGuardian=true
+[17:51:59] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:beacon_placed
+[17:51:59] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:forge_crystal
+[17:51:59] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:beacon_placed
+[17:51:59] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:forge_crystal
+[17:51:59] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:nice_one
+[17:51:59] [Render thread/INFO] (Minecraft) Loaded 18 advancements
+[17:52:02] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Tetanized Mob]
+[17:52:02] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Tetanized Guardian]
+[17:52:02] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Tetanized Mob]
+[17:52:02] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Tetanized Guardian]
+[17:52:02] [Render thread/INFO] (Minecraft) Loaded 21 advancements
+[17:52:04] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS rusty-bent-natural-golem nativeProjectile=06803252-83a2-42a5-a608-059f57cca240 usedDelta=1 clientVoices=1 clientGuardian=true
+[17:52:05] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:beacon_placed
+[17:52:05] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:forge_crystal
+[17:52:05] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:beacon_placed
+[17:52:05] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:forge_crystal
+[17:52:05] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:nice_one
+[17:52:05] [Render thread/INFO] (Minecraft) Loaded 18 advancements
+[17:52:07] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Tetanized Mob]
+[17:52:07] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Tetanized Guardian]
+[17:52:07] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Tetanized Mob]
+[17:52:07] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Tetanized Guardian]
+[17:52:07] [Render thread/INFO] (Minecraft) Loaded 21 advancements
+[17:52:09] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS rusty-nail-player-golem nativeProjectile=4a76df4e-6ac4-4742-92e7-46a3f7f98d01 usedDelta=1 clientVoices=1 clientGuardian=true
+[17:52:10] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:beacon_placed
+[17:52:10] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:forge_crystal
+[17:52:10] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:beacon_placed
+[17:52:10] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:forge_crystal
+[17:52:10] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:nice_one
+[17:52:10] [Render thread/INFO] (Minecraft) Loaded 18 advancements
+[17:52:13] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Tetanized Mob]
+[17:52:13] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Tetanized Guardian]
+[17:52:13] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Tetanized Mob]
+[17:52:13] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Tetanized Guardian]
+[17:52:13] [Render thread/INFO] (Minecraft) Loaded 21 advancements
+[17:52:14] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS rusty-bent-player-golem nativeProjectile=8eff661b-ee47-48f6-a59f-4d1c89149157 usedDelta=1 clientVoices=1 clientGuardian=true
+[17:52:20] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS fresh-mob-infection nativeProjectile=75681454-91b7-4570-97f1-31ba52e75c0b usedDelta=1 clientVoices=1 clientGuardian=true
+[17:52:25] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS later-repeat-mob-hit nativeProjectile=07b664a8-6b4b-49d1-a9ba-b6666c8f787d usedDelta=1 clientVoices=0 clientGuardian=true
+[17:52:33] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [A Painful Lesson]
+[17:52:33] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [A Painful Lesson]
+[17:52:33] [Render thread/INFO] (Minecraft) Loaded 24 advancements
+[17:52:35] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS fresh-player-infection nativeProjectile=9b32c2f1-76ea-4cd6-afd7-59a7cb3a1b87 usedDelta=1 clientVoices=1 clientGuardian=true
+[17:52:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_COMBAT_NATIVE_PASS vaccinated-player-block nativeProjectile=791b36e0-53cb-4cac-a513-9ff134b57e7d usedDelta=1 clientVoices=0 clientGuardian=true
+[17:52:45] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:beacon_placed
+[17:52:45] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:forge_crystal
+[17:52:45] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:beacon_placed
+[17:52:45] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:forge_crystal
+[17:52:45] [Render thread/INFO] (Minecraft) Forgot about advancement tetanusmod:nice_one
+[17:52:45] [Render thread/INFO] (Minecraft) Loaded 21 advancements
+[17:52:53] [Render thread/INFO] (tetanusmod) GRAPHICAL_DESPAWN_PASS native automatic removal of six unnamed hostile variants; named and three livestock controls retained
+[17:52:55] [Render thread/INFO] (RustRuinProximityAudio) PROXIMITY_AUDIO_NATIVE_COMMAND /effect give 796fdb0a-0fe5-4ffd-b387-bf35b5b0c8fe tetanusmod:tetanus 300
+[17:52:55] [Server thread/INFO] (Minecraft) [ReadyInteract011: Applied effect Tetanus to Cow]
+[17:52:55] [Render thread/INFO] (Minecraft) [System] [CHAT] Applied effect Tetanus to Cow
+[17:52:57] [Render thread/INFO] (RustRuinProximityAudio) GRAPHICAL_PROXIMITY_AUDIO_PASS far32-new-command-infection
+[17:52:59] [Render thread/INFO] (RustRuinProximityAudio) GRAPHICAL_PROXIMITY_AUDIO_PASS approach-already-infected-to6
+[17:52:59] [Render thread/INFO] (RustRuinProximityAudio) PROXIMITY_AUDIO_NATIVE_COMMAND /effect clear 796fdb0a-0fe5-4ffd-b387-bf35b5b0c8fe tetanusmod:tetanus
+[17:52:59] [Server thread/INFO] (Minecraft) [ReadyInteract011: Removed effect Tetanus from Cow]
+[17:52:59] [Render thread/INFO] (Minecraft) [System] [CHAT] Removed effect Tetanus from Cow
+[17:53:00] [Render thread/INFO] (RustRuinProximityAudio) PROXIMITY_AUDIO_NATIVE_COMMAND /effect give 796fdb0a-0fe5-4ffd-b387-bf35b5b0c8fe tetanusmod:tetanus 300
+[17:53:00] [Server thread/INFO] (Minecraft) [ReadyInteract011: Applied effect Tetanus to Cow]
+[17:53:00] [Render thread/INFO] (Minecraft) [System] [CHAT] Applied effect Tetanus to Cow
+[17:53:05] [Render thread/INFO] (RustRuinProximityAudio) GRAPHICAL_PROXIMITY_AUDIO_PASS fresh-near6-command-single-positional-voice
+[17:53:05] [Render thread/INFO] (RustRuinProximityAudio) PROXIMITY_AUDIO_NATIVE_COMMAND /effect give 796fdb0a-0fe5-4ffd-b387-bf35b5b0c8fe tetanusmod:tetanus 600 1
+[17:53:05] [Server thread/INFO] (Minecraft) [ReadyInteract011: Applied effect Tetanus to Cow]
+[17:53:05] [Render thread/INFO] (Minecraft) [System] [CHAT] Applied effect Tetanus to Cow
+[17:53:07] [Render thread/INFO] (RustRuinProximityAudio) GRAPHICAL_PROXIMITY_AUDIO_PASS later-command-refresh-no-extra-voice
+[17:53:09] [Render thread/INFO] (RustRuinProximityAudio) GRAPHICAL_PROXIMITY_AUDIO_PASS near-procedural-spawn-client-rusted-flag-no-voice
+[17:53:12] [Render thread/INFO] (RustRuinProximityAudio) GRAPHICAL_PROXIMITY_AUDIO_PASS native-medic-work-single-custom-client-event
+[17:53:12] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Spooky Scary Skeleton]
+[17:53:12] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Spooky Scary Skeleton]
+[17:53:12] [Render thread/INFO] (Minecraft) Loaded 27 advancements
+[17:53:14] [Render thread/INFO] (tetanusmod) GRAPHICAL_WITHER_PATCH_VIEW creative ritual-before
+[17:53:14] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Withering Heights]
+[17:53:14] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Withering Heights]
+[17:53:14] [Render thread/INFO] (Minecraft) Loaded 28 advancements
+[17:53:40] [Render thread/INFO] (tetanusmod) GRAPHICAL_WITHER_PATCH_VIEW creative native-first-wave
+[17:53:41] [Render thread/INFO] (tetanusmod) GRAPHICAL_WITHER_PATCH_VIEW creative native-finishing-hit
+[17:53:41] [Server thread/INFO] (Minecraft) ReadyInteract011 has made the advancement [Monster Hunter]
+[17:53:41] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/73, l='ServerLevel[Rust and Ruin expansion validation: ready-interactions-20261114]', x=410.10, y=4.00, z=61.13] died: Tetanized Wither was slain by ReadyInteract011
+[17:53:41] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has made the advancement [Monster Hunter]
+[17:53:41] [Server thread/INFO] (Minecraft) ReadyInteract011 has completed the challenge [Tetanus. Nice One!]
+[17:53:41] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has completed the challenge [Tetanus. Nice One!]
+[17:53:41] [Render thread/INFO] (Minecraft) Loaded 64 advancements
+[17:53:42] [Render thread/INFO] (tetanusmod) GRAPHICAL_WITHER_PATCH_VIEW creative native-special-star-only
+[17:53:43] [Render thread/INFO] (tetanusmod) GRAPHICAL_WITHER_PATCH_VIEW survival ritual-before
+[17:54:06] [Render thread/INFO] (tetanusmod) GRAPHICAL_WITHER_PATCH_VIEW survival native-first-wave
+[17:54:08] [Render thread/INFO] (tetanusmod) GRAPHICAL_WITHER_PATCH_VIEW survival native-finishing-hit
+[17:54:08] [Server thread/INFO] (Minecraft) Named entity WitherEntity['Tetanized Wither'/99, l='ServerLevel[Rust and Ruin expansion validation: ready-interactions-20261114]', x=415.07, y=11.99, z=68.39] died: Tetanized Wither was slain by ReadyInteract011
+[17:54:08] [Render thread/INFO] (tetanusmod) GRAPHICAL_WITHER_PATCH_VIEW survival native-special-star-only
+[17:54:09] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=0 scale=0 view=0 elapsedMs=11 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=HUD, prepared=false, pending=true, position=(2.5, -60.0, 1.5), wallUtc=2026-11-14T23:54:09.696551100Z
+[17:54:09] [Render thread/INFO] (Minecraft) Loaded 75 advancements
+[17:54:10] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=1 scale=0 view=0 elapsedMs=596 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=HUD, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:10.281438200Z
+[17:54:11] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=2 scale=0 view=0 elapsedMs=1840 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:11.525548500Z
+[17:54:13] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=3 scale=0 view=0 elapsedMs=4047 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:13.732058800Z
+[17:54:13] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=0 view=0 elapsedMs=4093 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:13.778667900Z
+[17:54:14] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=0 view=0 elapsedMs=5096 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:14.781695700Z
+[17:54:15] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW ii scale=2
+[17:54:16] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=0 view=1 elapsedMs=6340 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:16.025480300Z
+[17:54:17] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=0 view=1 elapsedMs=7347 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:17.032856700Z
+[17:54:18] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iii scale=2
+[17:54:18] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=0 view=2 elapsedMs=8594 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:18.279050500Z
+[17:54:19] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=0 view=2 elapsedMs=9592 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:19.277981700Z
+[17:54:20] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iv-unpaid scale=2
+[17:54:20] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=0 view=3 elapsedMs=10846 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:20.531386500Z
+[17:54:21] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=0 view=3 elapsedMs=11843 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:21.528109100Z
+[17:54:22] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iv-paid scale=2
+[17:54:22] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=0 view=4 elapsedMs=13096 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:22.781315500Z
+[17:54:23] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=0 view=4 elapsedMs=14091 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:23.776464Z
+[17:54:24] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW regeneration scale=2
+[17:54:25] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=3 scale=1 view=0 elapsedMs=15341 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:25.026544800Z
+[17:54:25] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=1 view=0 elapsedMs=15393 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:25.078138Z
+[17:54:26] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=1 view=0 elapsedMs=16391 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:26.076614100Z
+[17:54:27] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW ii scale=3
+[17:54:27] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=1 view=1 elapsedMs=17645 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:27.330318600Z
+[17:54:28] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=1 view=1 elapsedMs=18640 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:28.325685500Z
+[17:54:29] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iii scale=3
+[17:54:29] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=1 view=2 elapsedMs=19895 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:29.581613900Z
+[17:54:30] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=1 view=2 elapsedMs=20897 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:30.582244800Z
+[17:54:31] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iv-unpaid scale=3
+[17:54:31] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=1 view=3 elapsedMs=22147 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:31.833783600Z
+[17:54:32] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=1 view=3 elapsedMs=23146 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:32.831823200Z
+[17:54:34] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iv-paid scale=3
+[17:54:34] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=1 view=4 elapsedMs=24399 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:34.084007400Z
+[17:54:35] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=1 view=4 elapsedMs=25391 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:35.077292300Z
+[17:54:36] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW regeneration scale=3
+[17:54:36] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=3 scale=2 view=0 elapsedMs=26642 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:36.328650900Z
+[17:54:36] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=2 view=0 elapsedMs=26698 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:36.383367700Z
+[17:54:37] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=2 view=0 elapsedMs=27691 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:37.376996400Z
+[17:54:38] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW ii scale=4
+[17:54:38] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=2 view=1 elapsedMs=28946 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:38.631030400Z
+[17:54:39] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=2 view=1 elapsedMs=29947 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:39.632654700Z
+[17:54:40] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iii scale=4
+[17:54:40] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=2 view=2 elapsedMs=31197 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:40.883084800Z
+[17:54:41] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=2 view=2 elapsedMs=32198 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:41.883935200Z
+[17:54:43] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iv-unpaid scale=4
+[17:54:43] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=2 view=3 elapsedMs=33442 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:43.127735800Z
+[17:54:44] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=2 view=3 elapsedMs=34442 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:44.127852400Z
+[17:54:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iv-paid scale=4
+[17:54:45] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=2 view=4 elapsedMs=35694 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:45.379220700Z
+[17:54:46] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=2 view=4 elapsedMs=36692 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:46.377756800Z
+[17:54:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW regeneration scale=4
+[17:54:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=3 scale=3 view=0 elapsedMs=37943 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:47.628043300Z
+[17:54:47] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=3 view=0 elapsedMs=37990 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:47.675570700Z
+[17:54:48] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=3 view=0 elapsedMs=38992 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:48.677863300Z
+[17:54:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW ii scale=6
+[17:54:49] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=3 view=1 elapsedMs=40240 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:49.925122100Z
+[17:54:50] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=3 view=1 elapsedMs=41243 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:50.928043500Z
+[17:54:52] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iii scale=6
+[17:54:52] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=3 view=2 elapsedMs=42498 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:52.183320700Z
+[17:54:53] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=3 view=2 elapsedMs=43497 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:53.183491600Z
+[17:54:54] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iv-unpaid scale=6
+[17:54:54] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=3 view=3 elapsedMs=44747 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:54.432263800Z
+[17:54:55] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=3 view=3 elapsedMs=45742 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:55.427838600Z
+[17:54:56] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW iv-paid scale=6
+[17:54:56] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=4 scale=3 view=4 elapsedMs=46992 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:56.677840300Z
+[17:54:57] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=5 scale=3 view=4 elapsedMs=47993 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:57.678595Z
+[17:54:58] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_VIEW regeneration scale=6
+[17:54:58] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=6 scale=4 view=5 elapsedMs=49243 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=com.tetanusmod.client.TetanizedBeaconScreen, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:54:58.928923Z
+[17:55:00] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=7 scale=4 view=5 elapsedMs=50492 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=HUD, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:55:00.177499200Z
+[17:55:01] [Server thread/INFO] (Minecraft) ReadyInteract011 has completed the challenge [Rust Never Sleeps]
+[17:55:01] [Render thread/INFO] (Minecraft) [System] [CHAT] ReadyInteract011 has completed the challenge [Rust Never Sleeps]
+[17:55:01] [Render thread/INFO] (Minecraft) Loaded 75 advancements
+[17:55:02] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=7 scale=4 view=5 elapsedMs=52996 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=HUD, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:55:02.681061800Z
+[17:55:05] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=8 scale=4 view=5 elapsedMs=55495 native=1920x1440, cached=1920x1440, nativeFramebuffer=1920x1440, framebuffer=1920x1440, renderTarget=1920x1440, iconified=0, focused=0, screen=HUD, prepared=true, pending=false, position=(480.5, 9.0, 93.5), wallUtc=2026-11-14T23:55:05.180896300Z
+[17:55:05] [Render thread/INFO] (tetanusmod) GRAPHICAL_BEACON_UI_STATE phase=9 scale=4 view=5 elapsedMs=55569 native=960x540, cached=960x540, nativeFramebuffer=960x540, framebuffer=960x540, renderTarget=960x540, iconified=0, focused=0, screen=HUD, prepared=true, pending=false, position=(2.5, -60.0, 1.5), wallUtc=2026-11-14T23:55:05.254134400Z
+[17:55:06] [Render thread/INFO] (tetanusmod) PASS: release interaction sequence; native traps, reset tool, combat/infection, automatic despawn, positional audio, timed Wither minions/rewards and four-scale beacon payments
+[17:55:06] [Render thread/INFO] (Minecraft) Stopping!
+[17:55:06] [Server thread/INFO] (Minecraft) ReadyInteract011 lost connection: Disconnected
+[17:55:06] [Server thread/INFO] (Minecraft) ReadyInteract011 left the game
+[17:55:06] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[17:55:06] [Server thread/INFO] (Minecraft) Stopping server
+[17:55:06] [Server thread/INFO] (Minecraft) Saving players
+[17:55:06] [Server thread/INFO] (Minecraft) Saving worlds
+[17:55:06] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-interactions-20261114]'/minecraft:overworld
+[17:55:06] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-interactions-20261114]'/minecraft:the_end
+[17:55:06] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[Rust and Ruin expansion validation: ready-interactions-20261114]'/minecraft:the_nether
+[17:55:06] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (ready-interactions-20261114): All chunks are saved
+[17:55:06] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[17:55:06] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[17:55:06] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+
+[Incubating] Problems report is available at: file:///C:/Users/gwilliamscrypto/Documents/Rust%20&%20Ruin/build/reports/problems/problems-report.html
+
+BUILD SUCCESSFUL in 4m 24s
+9 actionable tasks: 2 executed, 7 up-to-date
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if 0 EQU 0 goto mainEnd 
+
+C:\Users\gwilliamscrypto\Documents\Rust & Ruin>if "Windows_NT" == "Windows_NT" endlocal

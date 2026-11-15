@@ -1,0 +1,147 @@
+{
+  "Result": "PASS",
+  "ActualGraphicalClient": true,
+  "Viewer": "plain",
+  "Scope": [
+    "fresh Survival advancement tab",
+    "registered base mutation render layers and22 rabid skins",
+    "12 disease potion tooltips",
+    "disease HUD and player-list hearts",
+    "vaccine and glove synchronization",
+    "cabinet item/block baking and open state",
+    "first/third person gloves",
+    "failed Lockjaw eating gesture",
+    "clinic/camp and seven biome medic uniforms",
+    "Nurse/Attending scrolling, Hero discounts and scarce field stock",
+    "malformed client packet rejection"
+  ],
+  "DirectCriterionGrants": 0,
+  "ProgressRevocations": 0,
+  "Fixture": "Disposable isolated world with supplied items/status effects and template placements; dedicated advancement/despawn journeys run in a different fresh session.",
+  "Screenshots": [
+    {
+      "View": "rust-and-ruin-plain-fresh-survival-advancements.png",
+      "Screenshot": "rust-and-ruin-plain-fresh-survival-advancements.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-hud.png",
+      "Screenshot": "rust-and-ruin-plain-hud.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-tab-hearts.png",
+      "Screenshot": "rust-and-ruin-plain-tab-hearts.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-inventory.png",
+      "Screenshot": "rust-and-ruin-plain-inventory.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-beacon.png",
+      "Screenshot": "rust-and-ruin-plain-beacon.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-advancements.png",
+      "Screenshot": "rust-and-ruin-plain-advancements.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-field-guide.png",
+      "Screenshot": "rust-and-ruin-plain-field-guide.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-rabies-hud.png",
+      "Screenshot": "rust-and-ruin-plain-rabies-hud.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-rabies-tab.png",
+      "Screenshot": "rust-and-ruin-plain-rabies-tab.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-clinic-traps.png",
+      "Screenshot": "rust-and-ruin-plain-clinic-traps.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-medic.png",
+      "Screenshot": "rust-and-ruin-plain-medic.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-clinic-interior.png",
+      "Screenshot": "rust-and-ruin-plain-clinic-interior.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-creative-items.png",
+      "Screenshot": "rust-and-ruin-plain-creative-items.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-spawn-eggs.png",
+      "Screenshot": "rust-and-ruin-plain-spawn-eggs.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-creative-gloves.png",
+      "Screenshot": "rust-and-ruin-plain-creative-gloves.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-workshop.png",
+      "Screenshot": "rust-and-ruin-plain-workshop.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-medicine-cabinet.png",
+      "Screenshot": "rust-and-ruin-plain-medicine-cabinet.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-medicine-cabinet-open.png",
+      "Screenshot": "rust-and-ruin-plain-medicine-cabinet-open.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-cabinet-inventory.png",
+      "Screenshot": "rust-and-ruin-plain-cabinet-inventory.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-gloves-first-person.png",
+      "Screenshot": "rust-and-ruin-plain-gloves-first-person.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-gloves-left-hand.png",
+      "Screenshot": "rust-and-ruin-plain-gloves-left-hand.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-gloves-third-person.png",
+      "Screenshot": "rust-and-ruin-plain-gloves-third-person.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-lockjaw-attempt.png",
+      "Screenshot": "rust-and-ruin-plain-lockjaw-attempt.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-medic-tent.png",
+      "Screenshot": "rust-and-ruin-plain-medic-tent.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-native-tent-poi-locate.png",
+      "Screenshot": "rust-and-ruin-plain-native-tent-poi-locate.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-medic-biomes.png",
+      "Screenshot": "rust-and-ruin-plain-medic-biomes.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-advancements-after-playtest.png",
+      "Screenshot": "rust-and-ruin-plain-advancements-after-playtest.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-medic-nurse-trades.png",
+      "Screenshot": "rust-and-ruin-plain-medic-nurse-trades.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-medic-attending-scrolled.png",
+      "Screenshot": "rust-and-ruin-plain-medic-attending-scrolled.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-medic-hero-discount.png",
+      "Screenshot": "rust-and-ruin-plain-medic-hero-discount.png"
+    },
+    {
+      "View": "rust-and-ruin-plain-field-medic-supplies.png",
+      "Screenshot": "rust-and-ruin-plain-field-medic-supplies.png"
+    }
+  ]
+}

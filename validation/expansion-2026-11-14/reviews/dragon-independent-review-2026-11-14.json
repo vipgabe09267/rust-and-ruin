@@ -1,0 +1,190 @@
+{
+    "Date":  "2026-11-14",
+    "ReviewerScope":  "Independent manual read of every line in listed dragon, new forge client, viewer and dragon-related mixin files; native API bytecode comparisons where needed",
+    "Status":  "Source review complete; authorized fixes applied; runtime regression verification remains pending",
+    "Files":  [
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/client/WitherForgingScreen.java",
+                      "Lines":  16,
+                      "ReviewedRange":  "1-16",
+                      "SHA256":  "38AE686F3D9D6AE1AD15E2109E47C677085329A194D52C56EEF95F523FE8C20C"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/compat/DragonJeiPlugin.java",
+                      "Lines":  60,
+                      "ReviewedRange":  "1-60",
+                      "SHA256":  "031228757B9C0520A46C698CBE480BA2197FF2E5ED36BAB28E0BFC550ACE9A1C"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/compat/DragonReiPlugin.java",
+                      "Lines":  54,
+                      "ReviewedRange":  "1-54",
+                      "SHA256":  "15AFDAD44B6DCCFABCDEDDA0BA76DBA23D7C4F7CEA094F7D59C49533A24436E4"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/CrystalForgingRecipe.java",
+                      "Lines":  31,
+                      "ReviewedRange":  "1-31",
+                      "SHA256":  "9FAA38BCDCC3870BFADCDFEA823CAEECF548C53DD499E96C7A0489316F22B947"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonContent.java",
+                      "Lines":  30,
+                      "ReviewedRange":  "1-30",
+                      "SHA256":  "53DFCC7A9658F5E55953CFC92555D2B0E12AA791326CDC1E484AF6857E142292"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonEncounter.java",
+                      "Lines":  120,
+                      "ReviewedRange":  "1-120",
+                      "SHA256":  "79437E8FDE409496BFE4701FA7BB449498D54C3E47D69869ACDB3CA51C147689"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonEncounterState.java",
+                      "Lines":  2,
+                      "ReviewedRange":  "1-2",
+                      "SHA256":  "959739CA0D4C702B4D35656CD3CF432FEE69F37A20259AB8DF40F83AEF9DD197"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonExplosionAttribution.java",
+                      "Lines":  33,
+                      "ReviewedRange":  "1-33",
+                      "SHA256":  "C3688A184DFE14379AAB34CE678CBF5363E0D3CB6E254D65FBD859FB03C59825"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/DragonRewardState.java",
+                      "Lines":  14,
+                      "ReviewedRange":  "1-14",
+                      "SHA256":  "9966179CD3F9BD1F4312A9E506EE4862C2AFA39A065926D141CC9199D6AAEAFD"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/OverloadSwordItem.java",
+                      "Lines":  25,
+                      "ReviewedRange":  "1-25",
+                      "SHA256":  "EEF9AC60AA71630AFBF426DC441921FF61F5802887D8881504A2EF75E36B89E7"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/TetanizedEndCrystalEntity.java",
+                      "Lines":  9,
+                      "ReviewedRange":  "1-9",
+                      "SHA256":  "CC3CB2558583C98F3B8BD95581B0363AD8BE56FA7D39B79A84ABFEC541E636A7"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/TetanizedEndCrystalItem.java",
+                      "Lines":  27,
+                      "ReviewedRange":  "1-27",
+                      "SHA256":  "D796AFC48365A3764B866B5A48F22CE8C382083D0E0867C8B2C00276A24D9CC3"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/WitherForgingBlock.java",
+                      "Lines":  17,
+                      "ReviewedRange":  "1-17",
+                      "SHA256":  "DE79956693B02885735F21974E48B839BA964653E60C5872A9924506E926D65A"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/dragon/WitherForgingScreenHandler.java",
+                      "Lines":  43,
+                      "ReviewedRange":  "1-43",
+                      "SHA256":  "56181C65507DA28F129D000B25E6868DBBEF7E13DF7DE2901CD17E78D1E9DED2"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonAnchorExplosionAttributionMixin.java",
+                      "Lines":  29,
+                      "ReviewedRange":  "1-29",
+                      "SHA256":  "3F08F9F5A0E4E8DF2676FF3FA0843177D8F5F9694BDC937B5FCC31C0BFDDC1A6"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonBedExplosionAttributionMixin.java",
+                      "Lines":  23,
+                      "ReviewedRange":  "1-23",
+                      "SHA256":  "43F23C0CC4AE9D60ADD74EA72BF7E73216483F1589A22E764EC11735A2240EE1"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonEncounterMixin.java",
+                      "Lines":  27,
+                      "ReviewedRange":  "1-27",
+                      "SHA256":  "BA2F0F1315AD884F170B3999AA125B0016A0585A68F8AC4669C22EC6FA7D253B"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonFightRitualMixin.java",
+                      "Lines":  14,
+                      "ReviewedRange":  "1-14",
+                      "SHA256":  "C82D4C0C734E8EB5F71B2B276EE855F92CE0F7FFE6812C094F707820CF05B07D"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonInfectionMixin.java",
+                      "Lines":  17,
+                      "ReviewedRange":  "1-17",
+                      "SHA256":  "320B211A79C3375615003109451D74F582C8A8F6825F381498B3DC1434E1C731"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/DragonTextureMixin.java",
+                      "Lines":  27,
+                      "ReviewedRange":  "1-27",
+                      "SHA256":  "DB90F1CEEE5F070384E72717147DDE4D2E702F26D263B027B40C91DF5BEFFCF1"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/EndCrystalTextureMixin.java",
+                      "Lines":  17,
+                      "ReviewedRange":  "1-17",
+                      "SHA256":  "69C3933213C669D8C39557122E179335EF0F3F184423E5B1E8D5A5416304BE34"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/OverloadSwordAnvilRepairMixin.java",
+                      "Lines":  22,
+                      "ReviewedRange":  "1-22",
+                      "SHA256":  "ACE6FF17DFA7B52A22CD67E1595908D4AAC70AACEF5E7ECD58FB16E827FB0A71"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/OverloadSwordCraftingRepairMixin.java",
+                      "Lines":  17,
+                      "ReviewedRange":  "1-17",
+                      "SHA256":  "13BD1F95BFAD863B04D342E159E02D3BE74F93C8EA92B015D4F83D3CD614B728"
+                  },
+                  {
+                      "Path":  "src/main/java/com/tetanusmod/mixin/OverloadSwordGrindstoneRepairMixin.java",
+                      "Lines":  22,
+                      "ReviewedRange":  "1-22",
+                      "SHA256":  "BFB8B3D9B3F96DD956AE330ADF50379BA9F7D2CD0A622F5DD960223E34409562"
+                  }
+              ],
+    "TotalFiles":  24,
+    "TotalLines":  696,
+    "NativeReference":  ".tools/dragon-independent-javap.txt",
+    "NativeComparisons":  [
+                              "EnderDragonEntity DragonPhase save/load and death counter/XP/removal ordering",
+                              "HoverPhase serverTick has no autonomous phase transition",
+                              "EnderDragonFight full ritual creates the dragon before special crystals are discarded",
+                              "EndCrystalItem obsidian/bedrock, air and entity-clearance placement conditions",
+                              "DragonEggBlock teleports the original block state",
+                              "EnderDragonEntityRenderer retains decal semantics for native death dissolve"
+                          ],
+    "Findings":  [
+                     {
+                         "Fix":  "Persist interrupted-grab marker; first authoritative tick dismounts saved riders and returns only interrupted HOVER to safe HOLDING_PATTERN; preserves cooldown",
+                         "Regression":  "DragonEncounterGameTests.nativeNbtReloadRecoversInterruptedGrabWithoutChangingOrdinaryHover",
+                         "File":  "src/main/java/com/tetanusmod/dragon/DragonEncounter.java",
+                         "Problem":  "Saving during a grab retained native HOVER while dropping transient carried state; reloaded boss could hover indefinitely"
+                     },
+                     {
+                         "Fix":  "Map custom decal through RenderLayer.getEntityDecal; retain cutout only for normal body layer",
+                         "File":  "src/main/java/com/tetanusmod/mixin/DragonTextureMixin.java",
+                         "Problem":  "Replacing native DRAGON_DECAL with ordinary cutout removed the native death-dissolve depth mask"
+                     },
+                     {
+                         "Fix":  "Added second plus separator",
+                         "File":  "src/main/java/com/tetanusmod/compat/DragonJeiPlugin.java and DragonReiPlugin.java",
+                         "Problem":  "Recipe display omitted plus separator before third input"
+                     }
+                 ],
+    "HarnessFixes":  {
+                         "Fix":  "Join/clear pending independently, finish from restored state after frame wait",
+                         "Files":  [
+                                       "GraphicalMedicalAudit.java",
+                                       "GraphicalForgeAudit.java"
+                                   ],
+                         "Problem":  "Final phase cleared pending before minimum frame wait, then required pending non-null forever"
+                     },
+    "UnconfirmedVulnerabilitiesReportedAsFindings":  0,
+    "BuildsRunByThisReviewer":  0
+}

@@ -1,0 +1,2210 @@
+{
+    "Patch":  "0.1.1-beta",
+    "SnapshotStatus":  "SCOPED_CHECKS_COMPLETE",
+    "CompleteNativeStatus":  "PASS",
+    "CurrentGraphicalStatus":  "PASS",
+    "UpdatedUtc":  "2026-11-14T23:10:41.5227690Z",
+    "Files":  [
+                  {
+                      "File":  "reports/graphical-beacon-ui-plain.json",
+                      "Kind":  "OriginalGraphicalReport",
+                      "SHA256":  "323794F252C757C6CAC04270AECB3BB84A380CB87CDDD66BBE585EFA7402A3E9",
+                      "Bytes":  12492,
+                      "SourceSHA256":  "323794F252C757C6CAC04270AECB3BB84A380CB87CDDD66BBE585EFA7402A3E9",
+                      "SourceBytes":  12492,
+                      "SourceModifiedUtc":  "2026-11-14T22:54:19.1194708Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale2-ii.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "6A2C045597E72BC6910AF5B861DA6EE9B7D35E6079EACCDA343E24DDEEEA2EE9",
+                      "Bytes":  887587,
+                      "SourceSHA256":  "6A2C045597E72BC6910AF5B861DA6EE9B7D35E6079EACCDA343E24DDEEEA2EE9",
+                      "SourceBytes":  887587,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:29.3913669Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale2-iii.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "B4A58FB6C77575D6CC013C0DECB07AB4E62559B6D3C8D401BA7EEF6D8857817C",
+                      "Bytes":  851306,
+                      "SourceSHA256":  "B4A58FB6C77575D6CC013C0DECB07AB4E62559B6D3C8D401BA7EEF6D8857817C",
+                      "SourceBytes":  851306,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:31.5368450Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale2-iv-unpaid.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "7740F1E06A64E8E41FA50B6C3A10EA477A4BBEECF6BDBA224A162C55E0937B3C",
+                      "Bytes":  831446,
+                      "SourceSHA256":  "7740F1E06A64E8E41FA50B6C3A10EA477A4BBEECF6BDBA224A162C55E0937B3C",
+                      "SourceBytes":  831446,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:33.8126948Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale2-iv-paid.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "3039C6076EEAD489677DA098C0E8C26ABC1DABF6D1165AC888C8561F745986EE",
+                      "Bytes":  807294,
+                      "SourceSHA256":  "3039C6076EEAD489677DA098C0E8C26ABC1DABF6D1165AC888C8561F745986EE",
+                      "SourceBytes":  807294,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:36.0331393Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale2-regeneration.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "F844B46A0761912788B1331B7BD37F7AA864C993870491250BBE4FDEF8D4A256",
+                      "Bytes":  792398,
+                      "SourceSHA256":  "F844B46A0761912788B1331B7BD37F7AA864C993870491250BBE4FDEF8D4A256",
+                      "SourceBytes":  792398,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:38.2985379Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale3-ii.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "BDA22F22ECCC58BDEC004D06AE5CBCAA72A0EB7DA5E687FD71D5492261A280A8",
+                      "Bytes":  718851,
+                      "SourceSHA256":  "BDA22F22ECCC58BDEC004D06AE5CBCAA72A0EB7DA5E687FD71D5492261A280A8",
+                      "SourceBytes":  718851,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:40.5666240Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale3-iii.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "7372D993B40AA5DFF162BB843ACF20111E014518BB678A7C9A720B2C97BEBB27",
+                      "Bytes":  700189,
+                      "SourceSHA256":  "7372D993B40AA5DFF162BB843ACF20111E014518BB678A7C9A720B2C97BEBB27",
+                      "SourceBytes":  700189,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:42.8299943Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale3-iv-unpaid.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "D33D125E53080804E1A51A2E16DEDC15C3AB7AB56A849655FA0373C8C5FC4791",
+                      "Bytes":  688707,
+                      "SourceSHA256":  "D33D125E53080804E1A51A2E16DEDC15C3AB7AB56A849655FA0373C8C5FC4791",
+                      "SourceBytes":  688707,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:45.1269017Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale3-iv-paid.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "82845D9FF0DB16D4BE99D2A6C3A358CA839EE9185B8316E14C8325525056F61F",
+                      "Bytes":  683723,
+                      "SourceSHA256":  "82845D9FF0DB16D4BE99D2A6C3A358CA839EE9185B8316E14C8325525056F61F",
+                      "SourceBytes":  683723,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:47.3277871Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale3-regeneration.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "5B39C807E64B4B5EEB4FBC13F85579948DA2B130E86E188BFD8D016BB2772466",
+                      "Bytes":  686086,
+                      "SourceSHA256":  "5B39C807E64B4B5EEB4FBC13F85579948DA2B130E86E188BFD8D016BB2772466",
+                      "SourceBytes":  686086,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:49.5799690Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale4-ii.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "556B9492FE11FCBE754E61CB838CB5A6B174C47980D2519B02E96C5FE9772DE8",
+                      "Bytes":  597525,
+                      "SourceSHA256":  "556B9492FE11FCBE754E61CB838CB5A6B174C47980D2519B02E96C5FE9772DE8",
+                      "SourceBytes":  597525,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:51.8865022Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale4-iii.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "B96ECDB5689634D7F67F4F98C59273ADC565E4BF11EE566C43786DB696EC995A",
+                      "Bytes":  597560,
+                      "SourceSHA256":  "B96ECDB5689634D7F67F4F98C59273ADC565E4BF11EE566C43786DB696EC995A",
+                      "SourceBytes":  597560,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:54.1320590Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale4-iv-unpaid.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "8F0E80655145388D9133EF6053953EDFA6664109727559915CC6B818D16EBF94",
+                      "Bytes":  591187,
+                      "SourceSHA256":  "8F0E80655145388D9133EF6053953EDFA6664109727559915CC6B818D16EBF94",
+                      "SourceBytes":  591187,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:56.3597135Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale4-iv-paid.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "BC56325A69027B3B3ECF626282D6A08B0203BCEFC9D7884589EBEEC5BC14A9D2",
+                      "Bytes":  600803,
+                      "SourceSHA256":  "BC56325A69027B3B3ECF626282D6A08B0203BCEFC9D7884589EBEEC5BC14A9D2",
+                      "SourceBytes":  600803,
+                      "SourceModifiedUtc":  "2026-11-14T22:53:58.6524816Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale4-regeneration.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "89E8803F5891CD53547D91E4D25AC9C02C8074C72A9A849E8FF99BEC7CDA2573",
+                      "Bytes":  601016,
+                      "SourceSHA256":  "89E8803F5891CD53547D91E4D25AC9C02C8074C72A9A849E8FF99BEC7CDA2573",
+                      "SourceBytes":  601016,
+                      "SourceModifiedUtc":  "2026-11-14T22:54:00.8747390Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale6-ii.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "9F5175F6CB46C2C9E263E27CD4B85507C317F699C2E075CAEE9F0E2DC4B55E46",
+                      "Bytes":  311267,
+                      "SourceSHA256":  "9F5175F6CB46C2C9E263E27CD4B85507C317F699C2E075CAEE9F0E2DC4B55E46",
+                      "SourceBytes":  311267,
+                      "SourceModifiedUtc":  "2026-11-14T22:54:03.2574059Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale6-iii.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "A330F47E5FAE2F48F5B954C29F582A8E56290C05C7EB8EBA64815D43F8FAC223",
+                      "Bytes":  311569,
+                      "SourceSHA256":  "A330F47E5FAE2F48F5B954C29F582A8E56290C05C7EB8EBA64815D43F8FAC223",
+                      "SourceBytes":  311569,
+                      "SourceModifiedUtc":  "2026-11-14T22:54:05.4758938Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale6-iv-unpaid.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "69F61D4AC2F8A62BEE6AAD079FFCEC8BEAD54F42505231931A90B68690D75E82",
+                      "Bytes":  311513,
+                      "SourceSHA256":  "69F61D4AC2F8A62BEE6AAD079FFCEC8BEAD54F42505231931A90B68690D75E82",
+                      "SourceBytes":  311513,
+                      "SourceModifiedUtc":  "2026-11-14T22:54:07.7278013Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale6-iv-paid.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "0A0B1EDE0FC80E5BADD6FB52A3268E2530ACB507D933E5D461804859C9572209",
+                      "Bytes":  311457,
+                      "SourceSHA256":  "0A0B1EDE0FC80E5BADD6FB52A3268E2530ACB507D933E5D461804859C9572209",
+                      "SourceBytes":  311457,
+                      "SourceModifiedUtc":  "2026-11-14T22:54:10.0070751Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-beacon-ui-scale6-regeneration.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "39260380F94AB0C87B79D86A81B0E6D211AF8311BB1C3AD57384E06A757FF6D3",
+                      "Bytes":  311439,
+                      "SourceSHA256":  "39260380F94AB0C87B79D86A81B0E6D211AF8311BB1C3AD57384E06A757FF6D3",
+                      "SourceBytes":  311439,
+                      "SourceModifiedUtc":  "2026-11-14T22:54:12.2596946Z"
+                  },
+                  {
+                      "File":  "logs/raw/client-beacon-ui-last.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "B9E42FA0AB717F008E39E95A7C9F509A03A1D4831B6399F931C661179C08FD14",
+                      "Bytes":  73196,
+                      "SourceSHA256":  "B9E42FA0AB717F008E39E95A7C9F509A03A1D4831B6399F931C661179C08FD14",
+                      "SourceBytes":  73196,
+                      "SourceModifiedUtc":  "2026-11-14T22:54:22.6806378Z"
+                  },
+                  {
+                      "File":  "logs/client-beacon-ui-last.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "A1682EFBCB1A0C6E2A2101EF1B7A93BDA6FA323706C1DBB60214B63972AE87C7",
+                      "Bytes":  36597,
+                      "SourceSHA256":  "B9E42FA0AB717F008E39E95A7C9F509A03A1D4831B6399F931C661179C08FD14",
+                      "SourceBytes":  73196,
+                      "SourceModifiedUtc":  "2026-11-14T22:54:22.6806378Z"
+                  },
+                  {
+                      "File":  "logs/raw/client-beacon-ui.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "AF65581D974A63D98745C8493CB182A4FADA432EE4D15542E819F2F431CB83C2",
+                      "Bytes":  36288,
+                      "SourceSHA256":  "AF65581D974A63D98745C8493CB182A4FADA432EE4D15542E819F2F431CB83C2",
+                      "SourceBytes":  36288,
+                      "SourceModifiedUtc":  "2026-11-14T22:44:29.3393358Z"
+                  },
+                  {
+                      "File":  "logs/client-beacon-ui.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "3415BB7B1F4D82D8FB3B1819899FF9773507436C6EAF883907B70F9DB8A34FB5",
+                      "Bytes":  18143,
+                      "SourceSHA256":  "AF65581D974A63D98745C8493CB182A4FADA432EE4D15542E819F2F431CB83C2",
+                      "SourceBytes":  36288,
+                      "SourceModifiedUtc":  "2026-11-14T22:44:29.3393358Z"
+                  },
+                  {
+                      "File":  "logs/raw/client-beacon-ui-confirm.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "EDEAB39D07680E93471E01F3C5643450666BA12B657D3127AC4368F5A43AC91E",
+                      "Bytes":  36892,
+                      "SourceSHA256":  "EDEAB39D07680E93471E01F3C5643450666BA12B657D3127AC4368F5A43AC91E",
+                      "SourceBytes":  36892,
+                      "SourceModifiedUtc":  "2026-11-14T22:50:24.2769251Z"
+                  },
+                  {
+                      "File":  "logs/client-beacon-ui-confirm.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "8C5EB9AB6EA79819BD1B388A654D212C618EA854BF4B305B7BB01C7042802EF9",
+                      "Bytes":  18445,
+                      "SourceSHA256":  "EDEAB39D07680E93471E01F3C5643450666BA12B657D3127AC4368F5A43AC91E",
+                      "SourceBytes":  36892,
+                      "SourceModifiedUtc":  "2026-11-14T22:50:24.2769251Z"
+                  },
+                  {
+                      "File":  "logs/raw/native-final.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "2979E58A21E4E55608C2537FC0F45FADF3C4F78D1AF5AA527B02A53E08B0AF10",
+                      "Bytes":  62688,
+                      "SourceSHA256":  "2979E58A21E4E55608C2537FC0F45FADF3C4F78D1AF5AA527B02A53E08B0AF10",
+                      "SourceBytes":  62688,
+                      "SourceModifiedUtc":  "2026-11-14T22:52:10.0347268Z"
+                  },
+                  {
+                      "File":  "logs/native-final.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "ABF71B99DDBB9AE97AC2DF04489130841EFC7A2619871A2727398B778F4D250E",
+                      "Bytes":  31343,
+                      "SourceSHA256":  "2979E58A21E4E55608C2537FC0F45FADF3C4F78D1AF5AA527B02A53E08B0AF10",
+                      "SourceBytes":  62688,
+                      "SourceModifiedUtc":  "2026-11-14T22:52:10.0347268Z"
+                  },
+                  {
+                      "File":  "reports/native-second.xml",
+                      "Kind":  "OriginalFailedNativeXml",
+                      "SHA256":  "ED6A76B449859822958569CEA81A39A5CBD6237AF924E63A05AAB65E8F2CD296",
+                      "Bytes":  58729,
+                      "SourceSHA256":  "ED6A76B449859822958569CEA81A39A5CBD6237AF924E63A05AAB65E8F2CD296",
+                      "SourceBytes":  58729,
+                      "SourceModifiedUtc":  "2026-11-14T22:49:49.6475416Z"
+                  },
+                  {
+                      "File":  "logs/raw/native-second.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "00132685ABB5F801F88D9D2297BB5A506AA86238982C1DAF693A3B41DDA4D79F",
+                      "Bytes":  435498,
+                      "SourceSHA256":  "00132685ABB5F801F88D9D2297BB5A506AA86238982C1DAF693A3B41DDA4D79F",
+                      "SourceBytes":  435498,
+                      "SourceModifiedUtc":  "2026-11-14T22:49:53.3534470Z"
+                  },
+                  {
+                      "File":  "logs/native-second.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "0AD30E375B6DB13A514ED144FF9C91CE11F065AF74CF439B2E784BB3568623C7",
+                      "Bytes":  217796,
+                      "SourceSHA256":  "00132685ABB5F801F88D9D2297BB5A506AA86238982C1DAF693A3B41DDA4D79F",
+                      "SourceBytes":  435498,
+                      "SourceModifiedUtc":  "2026-11-14T22:49:53.3534470Z"
+                  },
+                  {
+                      "File":  "reports/graphical-medical-plain.json",
+                      "Kind":  "OriginalGraphicalReport",
+                      "SHA256":  "C46BDB108C8416AC6A547FEEE520222F490A26065E2301A0C3F8B991E6AC9C3D",
+                      "Bytes":  2144,
+                      "SourceSHA256":  "C46BDB108C8416AC6A547FEEE520222F490A26065E2301A0C3F8B991E6AC9C3D",
+                      "SourceBytes":  2144,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:43.1634862Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-medical-writer-exterior.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "EA28D4A13F8C257BA2FC0AC6DEE529F1CBB82CF037B9F81817B9587B03BA3226",
+                      "Bytes":  181838,
+                      "SourceSHA256":  "EA28D4A13F8C257BA2FC0AC6DEE529F1CBB82CF037B9F81817B9587B03BA3226",
+                      "SourceBytes":  181838,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:22.5339738Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-medical-writer-inputs-output.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "251E964A323028C51011B65CAC3C8D6D20B736A045D251A4F3031AEA5A51B04E",
+                      "Bytes":  83221,
+                      "SourceSHA256":  "251E964A323028C51011B65CAC3C8D6D20B736A045D251A4F3031AEA5A51B04E",
+                      "SourceBytes":  83221,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:24.9528724Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-medical-writer-crafted.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "3FE1054E861D2C2B1BFF933BA92A36A4C4D5DF73E23FEF4756F14330CEAC155A",
+                      "Bytes":  78238,
+                      "SourceSHA256":  "3FE1054E861D2C2B1BFF933BA92A36A4C4D5DF73E23FEF4756F14330CEAC155A",
+                      "SourceBytes":  78238,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:26.4383080Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-medical-supply-request.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "3B89F953A9CCDD0A52008E0D0A768EF5B01140B748DA832E80546B1919EE7AA1",
+                      "Bytes":  136253,
+                      "SourceSHA256":  "3B89F953A9CCDD0A52008E0D0A768EF5B01140B748DA832E80546B1919EE7AA1",
+                      "SourceBytes":  136253,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:29.0056636Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-medical-supply-delivered.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "1370FAF1E70DEAD9A217BFF6996A63FAF47C142B74E6F49D0C6CC99FAEDDD9A2",
+                      "Bytes":  126827,
+                      "SourceSHA256":  "1370FAF1E70DEAD9A217BFF6996A63FAF47C142B74E6F49D0C6CC99FAEDDD9A2",
+                      "SourceBytes":  126827,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:30.9884200Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-medical-prescription-trade.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "F4198AB58BC3ED854CD33786EE929CEFF613B4E823FDA3A999745413AB952032",
+                      "Bytes":  82625,
+                      "SourceSHA256":  "F4198AB58BC3ED854CD33786EE929CEFF613B4E823FDA3A999745413AB952032",
+                      "SourceBytes":  82625,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:35.0163112Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-medical-tetanus-before-cure.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "56134A5D45354054FABF12CF02A6B97E0BD46B378932B51E3ED18C71B1A7C685",
+                      "Bytes":  149477,
+                      "SourceSHA256":  "56134A5D45354054FABF12CF02A6B97E0BD46B378932B51E3ED18C71B1A7C685",
+                      "SourceBytes":  149477,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:37.5248973Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-medical-cure-advancement.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "BFB00EE00BD73EB41831DDA6722BCEDBB568453971777D2280EDEE957C3D2636",
+                      "Bytes":  97421,
+                      "SourceSHA256":  "BFB00EE00BD73EB41831DDA6722BCEDBB568453971777D2280EDEE957C3D2636",
+                      "SourceBytes":  97421,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:42.2695372Z"
+                  },
+                  {
+                      "File":  "reports/graphical-wither-patch-plain.json",
+                      "Kind":  "OriginalGraphicalReport",
+                      "SHA256":  "18A31A8FA0533E2E24EBFDF0F5C96310FC977BD6B352D61DF6E97DD9F0CC1642",
+                      "Bytes":  3109,
+                      "SourceSHA256":  "18A31A8FA0533E2E24EBFDF0F5C96310FC977BD6B352D61DF6E97DD9F0CC1642",
+                      "SourceBytes":  3109,
+                      "SourceModifiedUtc":  "2026-11-14T22:57:43.0140115Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-wither-patch-creative-ritual-before.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "AC26DA8B801CBD451275414EF4448C3DB24BE993ABE4879806D1D226756C5438",
+                      "Bytes":  212738,
+                      "SourceSHA256":  "AC26DA8B801CBD451275414EF4448C3DB24BE993ABE4879806D1D226756C5438",
+                      "SourceBytes":  212738,
+                      "SourceModifiedUtc":  "2026-11-14T22:56:45.0639368Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-wither-patch-creative-native-first-wave.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "5F52076A977DED1E29BA8990B5D29A969CA9A2565E55E773473C5006DF2FF005",
+                      "Bytes":  248688,
+                      "SourceSHA256":  "5F52076A977DED1E29BA8990B5D29A969CA9A2565E55E773473C5006DF2FF005",
+                      "SourceBytes":  248688,
+                      "SourceModifiedUtc":  "2026-11-14T22:57:09.6378576Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-wither-patch-creative-native-finishing-hit.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "39F217E637A2F275A3D4199A4AF64F3FCBD1CB9A62A9CC587AE00D976E1F65CC",
+                      "Bytes":  138924,
+                      "SourceSHA256":  "39F217E637A2F275A3D4199A4AF64F3FCBD1CB9A62A9CC587AE00D976E1F65CC",
+                      "SourceBytes":  138924,
+                      "SourceModifiedUtc":  "2026-11-14T22:57:10.8783425Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-wither-patch-creative-native-special-star-only.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "2B40B52C530BE44962AE4963F73DE9EBBD148CE292C5AD2B5927523307562987",
+                      "Bytes":  174958,
+                      "SourceSHA256":  "2B40B52C530BE44962AE4963F73DE9EBBD148CE292C5AD2B5927523307562987",
+                      "SourceBytes":  174958,
+                      "SourceModifiedUtc":  "2026-11-14T22:57:11.2077443Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-wither-patch-survival-ritual-before.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "3BB9841DD851863132D5817C34740F8D08CB79A5A1EEF148DA22BB9085F7A5FC",
+                      "Bytes":  209476,
+                      "SourceSHA256":  "3BB9841DD851863132D5817C34740F8D08CB79A5A1EEF148DA22BB9085F7A5FC",
+                      "SourceBytes":  209476,
+                      "SourceModifiedUtc":  "2026-11-14T22:57:12.9639013Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-wither-patch-survival-native-first-wave.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "D77938E0BD0501D400466257683AF1AAB5BE003633159970585761B593AB0CF9",
+                      "Bytes":  342503,
+                      "SourceSHA256":  "D77938E0BD0501D400466257683AF1AAB5BE003633159970585761B593AB0CF9",
+                      "SourceBytes":  342503,
+                      "SourceModifiedUtc":  "2026-11-14T22:57:40.2879978Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-wither-patch-survival-native-finishing-hit.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "68C76BC12BE9985A11F8F1CA76F7311EE70DEB05E0D47CFC9035A7389485F7E0",
+                      "Bytes":  211677,
+                      "SourceSHA256":  "68C76BC12BE9985A11F8F1CA76F7311EE70DEB05E0D47CFC9035A7389485F7E0",
+                      "SourceBytes":  211677,
+                      "SourceModifiedUtc":  "2026-11-14T22:57:41.5358652Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-wither-patch-survival-native-special-star-only.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "461C157B81AC02E315386AB98968DC8B4BF2650AA774F5B9470AF069FBA21CDC",
+                      "Bytes":  242095,
+                      "SourceSHA256":  "461C157B81AC02E315386AB98968DC8B4BF2650AA774F5B9470AF069FBA21CDC",
+                      "SourceBytes":  242095,
+                      "SourceModifiedUtc":  "2026-11-14T22:57:41.8928593Z"
+                  },
+                  {
+                      "File":  "logs/raw/client-playtest.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "6D40F047CCA5766ADC30B10B002FF94CD64DF331FEE9D7F66730562436776942",
+                      "Bytes":  51412,
+                      "SourceSHA256":  "6D40F047CCA5766ADC30B10B002FF94CD64DF331FEE9D7F66730562436776942",
+                      "SourceBytes":  51412,
+                      "SourceModifiedUtc":  "2026-11-14T22:59:15.5762627Z"
+                  },
+                  {
+                      "File":  "logs/client-playtest.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "D754A6901A6B80DCBE5A9A84118C3E1386D984C58648C4F9035D2DAC81A35A10",
+                      "Bytes":  25705,
+                      "SourceSHA256":  "6D40F047CCA5766ADC30B10B002FF94CD64DF331FEE9D7F66730562436776942",
+                      "SourceBytes":  51412,
+                      "SourceModifiedUtc":  "2026-11-14T22:59:15.5762627Z"
+                  },
+                  {
+                      "File":  "reports/audio-verification.json",
+                      "Kind":  "OriginalAudioDecodeAndMetadataReport",
+                      "SHA256":  "CA70FAD3D6DF437F4913F28B39E0510A3E374A90FAD96BBE6858A992FD2B0670",
+                      "Bytes":  1158,
+                      "SourceSHA256":  "CA70FAD3D6DF437F4913F28B39E0510A3E374A90FAD96BBE6858A992FD2B0670",
+                      "SourceBytes":  1158,
+                      "SourceModifiedUtc":  "2026-11-14T22:58:16.3999150Z"
+                  },
+                  {
+                      "File":  "reports/graphical-dragon-ritual-plain.json",
+                      "Kind":  "OriginalGraphicalReport",
+                      "SHA256":  "F9024DF71E0394EB49125929B831247BFE5B45C87F4B043DA485A95619CC23C9",
+                      "Bytes":  5190,
+                      "SourceSHA256":  "F9024DF71E0394EB49125929B831247BFE5B45C87F4B043DA485A95619CC23C9",
+                      "SourceBytes":  5190,
+                      "SourceModifiedUtc":  "2026-11-14T23:03:23.1733995Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-mixed-four-crystals.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "C9B29378023072E7D087F451604B17054BCA12382020FC64EC6C9AFADA37014B",
+                      "Bytes":  623376,
+                      "SourceSHA256":  "C9B29378023072E7D087F451604B17054BCA12382020FC64EC6C9AFADA37014B",
+                      "SourceBytes":  623376,
+                      "SourceModifiedUtc":  "2026-11-14T23:01:27.3682163Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-mixed-preparing_to_summon_pillars.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "55C8AC87375D848DBC6C20132A51DDFDEB439366F6C3D4FD87E44731394E9B24",
+                      "Bytes":  617640,
+                      "SourceSHA256":  "55C8AC87375D848DBC6C20132A51DDFDEB439366F6C3D4FD87E44731394E9B24",
+                      "SourceBytes":  617640,
+                      "SourceModifiedUtc":  "2026-11-14T23:01:29.4013888Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-mixed-summoning_pillars.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "9141166D4F1F2958841C8A0DA2BD8ACB911BAB7463CBC1BA2A18BDCBFE324E19",
+                      "Bytes":  633792,
+                      "SourceSHA256":  "9141166D4F1F2958841C8A0DA2BD8ACB911BAB7463CBC1BA2A18BDCBFE324E19",
+                      "SourceBytes":  633792,
+                      "SourceModifiedUtc":  "2026-11-14T23:01:31.9003530Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-mixed-summoning_dragon.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "ECCA6C718E2D46C8E51F060099FBFB8DE5B2F0D9E77150090F829DABD3B8C1DE",
+                      "Bytes":  593157,
+                      "SourceSHA256":  "ECCA6C718E2D46C8E51F060099FBFB8DE5B2F0D9E77150090F829DABD3B8C1DE",
+                      "SourceBytes":  593157,
+                      "SourceModifiedUtc":  "2026-11-14T23:01:51.8985291Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-mixed-normal-dragon-200hp.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "17951AE214C6D5C600FBB3133D78453F547DD52BBAC07C2A033900E3D5DA7F77",
+                      "Bytes":  172522,
+                      "SourceSHA256":  "17951AE214C6D5C600FBB3133D78453F547DD52BBAC07C2A033900E3D5DA7F77",
+                      "SourceBytes":  172522,
+                      "SourceModifiedUtc":  "2026-11-14T23:01:58.6323239Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-special-four-crystals.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "8A1DFB61783B34593E9FBE6D733ADFF9D180E870190DB89D4829A5780EBFAB8D",
+                      "Bytes":  619166,
+                      "SourceSHA256":  "8A1DFB61783B34593E9FBE6D733ADFF9D180E870190DB89D4829A5780EBFAB8D",
+                      "SourceBytes":  619166,
+                      "SourceModifiedUtc":  "2026-11-14T23:02:09.0923581Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-special-preparing_to_summon_pillars.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "2D7887FDBC5D3E2FF78D26AF9D546D3796000C4C97FD5BBBDBBB8E2F95E6D65A",
+                      "Bytes":  601716,
+                      "SourceSHA256":  "2D7887FDBC5D3E2FF78D26AF9D546D3796000C4C97FD5BBBDBBB8E2F95E6D65A",
+                      "SourceBytes":  601716,
+                      "SourceModifiedUtc":  "2026-11-14T23:02:11.1508630Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-special-summoning_pillars.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "5166DAA55F1CA40D3860A69E7A9EBEBF3CECA9FBD300267BC71B2145AB00D6B1",
+                      "Bytes":  617912,
+                      "SourceSHA256":  "5166DAA55F1CA40D3860A69E7A9EBEBF3CECA9FBD300267BC71B2145AB00D6B1",
+                      "SourceBytes":  617912,
+                      "SourceModifiedUtc":  "2026-11-14T23:02:13.6414341Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-special-summoning_dragon.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "A2B12493C9E533995D641870831735F30BAAD3B61E5E60FCCA31DB0B8B18D8D0",
+                      "Bytes":  586468,
+                      "SourceSHA256":  "A2B12493C9E533995D641870831735F30BAAD3B61E5E60FCCA31DB0B8B18D8D0",
+                      "SourceBytes":  586468,
+                      "SourceModifiedUtc":  "2026-11-14T23:02:33.6605290Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-special-dragon-1100hp.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "C5162E8987827BDBBF6C1BD96E63384F06AA49AE6342E541E14732758E3ABC4A",
+                      "Bytes":  176410,
+                      "SourceSHA256":  "C5162E8987827BDBBF6C1BD96E63384F06AA49AE6342E541E14732758E3ABC4A",
+                      "SourceBytes":  176410,
+                      "SourceModifiedUtc":  "2026-11-14T23:02:40.3719314Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-native-mouth-carry.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "814E2ABBE5318CE3BFE1974F6ED48166A5B059F2D59A19052B79E18882EE9700",
+                      "Bytes":  134178,
+                      "SourceSHA256":  "814E2ABBE5318CE3BFE1974F6ED48166A5B059F2D59A19052B79E18882EE9700",
+                      "SourceBytes":  134178,
+                      "SourceModifiedUtc":  "2026-11-14T23:02:44.2579855Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-native-mouth-drop.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "0EF857DC6BA6EBB71AC7F55E0D64A63A7C22535B8792ABD8F8236FD5E661F29B",
+                      "Bytes":  191490,
+                      "SourceSHA256":  "0EF857DC6BA6EBB71AC7F55E0D64A63A7C22535B8792ABD8F8236FD5E661F29B",
+                      "SourceBytes":  191490,
+                      "SourceModifiedUtc":  "2026-11-14T23:02:45.4717321Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-native-contribution-at-least20.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "96C2DFCA9D568A48C7789ECC172C84B91AAD3B75C4AF04387A2B7D1DF483404B",
+                      "Bytes":  191297,
+                      "SourceSHA256":  "96C2DFCA9D568A48C7789ECC172C84B91AAD3B75C4AF04387A2B7D1DF483404B",
+                      "SourceBytes":  191297,
+                      "SourceModifiedUtc":  "2026-11-14T23:03:03.4649111Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-native-dragon-death-animation.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "E004896DD4446136D2F68BA9AAB9839DD1734D35E201ADE38064F8E0BC4DA5DC",
+                      "Bytes":  259665,
+                      "SourceSHA256":  "E004896DD4446136D2F68BA9AAB9839DD1734D35E201ADE38064F8E0BC4DA5DC",
+                      "SourceBytes":  259665,
+                      "SourceModifiedUtc":  "2026-11-14T23:03:14.1712579Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-native-dragon-defeated.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "E0764589489D7A54BE20F165A4B44EC6F34BDB2EE94F8ECB7230612B881C4153",
+                      "Bytes":  1030150,
+                      "SourceSHA256":  "E0764589489D7A54BE20F165A4B44EC6F34BDB2EE94F8ECB7230612B881C4153",
+                      "SourceBytes":  1030150,
+                      "SourceModifiedUtc":  "2026-11-14T23:03:15.7311906Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-earned-overload-sword-tooltip.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "118852292F8C13F265E552F1134C36482748747963DA23A78D4110E08B4E2527",
+                      "Bytes":  388489,
+                      "SourceSHA256":  "118852292F8C13F265E552F1134C36482748747963DA23A78D4110E08B4E2527",
+                      "SourceBytes":  388489,
+                      "SourceModifiedUtc":  "2026-11-14T23:03:19.1924463Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-plain-dragon-earned-tetanized-egg-placed.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "70F9196C44F776951EEF135352A816C713015CD8D5AC23AE8158C718CB317E01",
+                      "Bytes":  565446,
+                      "SourceSHA256":  "70F9196C44F776951EEF135352A816C713015CD8D5AC23AE8158C718CB317E01",
+                      "SourceBytes":  565446,
+                      "SourceModifiedUtc":  "2026-11-14T23:03:21.9422824Z"
+                  },
+                  {
+                      "File":  "logs/raw/client-dragon-confirm.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "E30F0A3A0BF7C85DFA4AF1E085DE6E95977630505E9E97F1AE5EB962E9F760C0",
+                      "Bytes":  37146,
+                      "SourceSHA256":  "E30F0A3A0BF7C85DFA4AF1E085DE6E95977630505E9E97F1AE5EB962E9F760C0",
+                      "SourceBytes":  37146,
+                      "SourceModifiedUtc":  "2026-11-14T23:03:25.1544546Z"
+                  },
+                  {
+                      "File":  "logs/client-dragon-confirm.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "3CCE6D35DF38520880B0373B371E68EED8521EEC24438E64D9B609C80B2121AD",
+                      "Bytes":  18572,
+                      "SourceSHA256":  "E30F0A3A0BF7C85DFA4AF1E085DE6E95977630505E9E97F1AE5EB962E9F760C0",
+                      "SourceBytes":  37146,
+                      "SourceModifiedUtc":  "2026-11-14T23:03:25.1544546Z"
+                  },
+                  {
+                      "File":  "reports/native-release.xml",
+                      "Kind":  "OriginalPassingNativeXml",
+                      "SHA256":  "73939FC8CC0C1E1D1CB2ED719041B2344521A82BC3206FC610D80BD50489E310",
+                      "Bytes":  59100,
+                      "SourceSHA256":  "73939FC8CC0C1E1D1CB2ED719041B2344521A82BC3206FC610D80BD50489E310",
+                      "SourceBytes":  59100,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:33.9260743Z"
+                  },
+                  {
+                      "File":  "logs/raw/native-release.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "D130589EA846E992B53FB187677F7CF5CCA1EC826EE5C6D796463ED68EC058D2",
+                      "Bytes":  428496,
+                      "SourceSHA256":  "D130589EA846E992B53FB187677F7CF5CCA1EC826EE5C6D796463ED68EC058D2",
+                      "SourceBytes":  428496,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:38.1116957Z"
+                  },
+                  {
+                      "File":  "logs/native-release.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "A61F006878F06AF6D12481A7C0F3D877A0429DA301BCCE10A9405DB1DF5DD4B2",
+                      "Bytes":  214295,
+                      "SourceSHA256":  "D130589EA846E992B53FB187677F7CF5CCA1EC826EE5C6D796463ED68EC058D2",
+                      "SourceBytes":  428496,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:38.1116957Z"
+                  },
+                  {
+                      "File":  "reports/graphical-medical-jei.json",
+                      "Kind":  "OriginalGraphicalReport",
+                      "SHA256":  "01732848621662A354EE04A9D4951D0D1C237C49E64CEC293A8525F6CB3BEFF6",
+                      "Bytes":  2131,
+                      "SourceSHA256":  "01732848621662A354EE04A9D4951D0D1C237C49E64CEC293A8525F6CB3BEFF6",
+                      "SourceBytes":  2131,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:00.7948788Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-medical-writer-exterior.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "F1A5CDB1610935F18DA63093064A9E69F7ADD74F56F5C2E99CC2B88CADC113C0",
+                      "Bytes":  182915,
+                      "SourceSHA256":  "F1A5CDB1610935F18DA63093064A9E69F7ADD74F56F5C2E99CC2B88CADC113C0",
+                      "SourceBytes":  182915,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:40.1223519Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-medical-writer-inputs-output.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "57634AC5C9B0F2254FA6E6BE492E13D0B008861F4612F5A262D2CD3F9703814A",
+                      "Bytes":  143997,
+                      "SourceSHA256":  "57634AC5C9B0F2254FA6E6BE492E13D0B008861F4612F5A262D2CD3F9703814A",
+                      "SourceBytes":  143997,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:42.5515726Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-medical-writer-crafted.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "64894263960D67992914B59B2D4F89EC0B9B37BA4281C6AA6A059A7EBB2C1930",
+                      "Bytes":  141633,
+                      "SourceSHA256":  "64894263960D67992914B59B2D4F89EC0B9B37BA4281C6AA6A059A7EBB2C1930",
+                      "SourceBytes":  141633,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:44.0630552Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-medical-supply-request.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "CADDB7611CC6BE55E54A28C1AFE3EED9C7F68E0A3384C7C3D188BA3174158CDF",
+                      "Bytes":  135799,
+                      "SourceSHA256":  "CADDB7611CC6BE55E54A28C1AFE3EED9C7F68E0A3384C7C3D188BA3174158CDF",
+                      "SourceBytes":  135799,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:46.6109677Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-medical-supply-delivered.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "8A03CACE053DF127C1B3B8140D2CAC4C25ECD4BCDDFFC64449D3EC6E4B9DB65F",
+                      "Bytes":  128410,
+                      "SourceSHA256":  "8A03CACE053DF127C1B3B8140D2CAC4C25ECD4BCDDFFC64449D3EC6E4B9DB65F",
+                      "SourceBytes":  128410,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:48.6018926Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-medical-prescription-trade.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "39D891D18C111D6FFBBA5FA9A1EE3E4C4FF1462F3FBE8C255B8761B91CECA31B",
+                      "Bytes":  129998,
+                      "SourceSHA256":  "39D891D18C111D6FFBBA5FA9A1EE3E4C4FF1462F3FBE8C255B8761B91CECA31B",
+                      "SourceBytes":  129998,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:52.6016590Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-medical-tetanus-before-cure.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "267068D209373427CBF44080F10A0B0626B33CE7D18FA90AC6868E2D4C3209EB",
+                      "Bytes":  146457,
+                      "SourceSHA256":  "267068D209373427CBF44080F10A0B0626B33CE7D18FA90AC6868E2D4C3209EB",
+                      "SourceBytes":  146457,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:55.1019988Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-medical-cure-advancement.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "B297159D93D1D376A8BFE4363DE91A182BCEDCAD651B1E183A89E5A37CF14953",
+                      "Bytes":  96623,
+                      "SourceSHA256":  "B297159D93D1D376A8BFE4363DE91A182BCEDCAD651B1E183A89E5A37CF14953",
+                      "SourceBytes":  96623,
+                      "SourceModifiedUtc":  "2026-11-14T23:04:59.8420098Z"
+                  },
+                  {
+                      "File":  "reports/graphical-forge-jei.json",
+                      "Kind":  "OriginalGraphicalReport",
+                      "SHA256":  "77B0EC49FE52CF888FB9FBC9FEA91CB480DBD7930B19663AF7EEC4498FEFC866",
+                      "Bytes":  1488,
+                      "SourceSHA256":  "77B0EC49FE52CF888FB9FBC9FEA91CB480DBD7930B19663AF7EEC4498FEFC866",
+                      "SourceBytes":  1488,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:20.9445503Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-forge-station.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "138C18A098DD99725E8FDC185C38170DF36D91A037E371CD1F54D64288F90263",
+                      "Bytes":  96643,
+                      "SourceSHA256":  "138C18A098DD99725E8FDC185C38170DF36D91A037E371CD1F54D64288F90263",
+                      "SourceBytes":  96643,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:02.3776998Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-forge-full-inventory-preview.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "62F323D691B0389E2170047916E63421361E26D5712909A99FC24596513C769E",
+                      "Bytes":  131638,
+                      "SourceSHA256":  "62F323D691B0389E2170047916E63421361E26D5712909A99FC24596513C769E",
+                      "SourceBytes":  131638,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:06.3741754Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-forge-batch-crafted.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "F2AACC478DEF7E9A4374C7E08442097C0FCA76EAD28965A9823188352A72DB69",
+                      "Bytes":  126851,
+                      "SourceSHA256":  "F2AACC478DEF7E9A4374C7E08442097C0FCA76EAD28965A9823188352A72DB69",
+                      "SourceBytes":  126851,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:10.3745435Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-forge-close-preview.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "50EDD6B5F007675F86A3254526287EAEBA6C514313C8E66997057A2240AAB87A",
+                      "Bytes":  139326,
+                      "SourceSHA256":  "50EDD6B5F007675F86A3254526287EAEBA6C514313C8E66997057A2240AAB87A",
+                      "SourceBytes":  139326,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:15.9246866Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-forge-prescription-recipe-viewer.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "21CBC9B608532115A1FEE8F400EB3B479E507B49F20EC3DF58F932FC6D6DA47A",
+                      "Bytes":  129849,
+                      "SourceSHA256":  "21CBC9B608532115A1FEE8F400EB3B479E507B49F20EC3DF58F932FC6D6DA47A",
+                      "SourceBytes":  129849,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:18.4734556Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-jei-forge-forging-recipe-viewer.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "5E6BE83C8FC3CE8CA76F3818FBB811B86B3D0B8E65EFB30B0446B7879294CDEB",
+                      "Bytes":  132755,
+                      "SourceSHA256":  "5E6BE83C8FC3CE8CA76F3818FBB811B86B3D0B8E65EFB30B0446B7879294CDEB",
+                      "SourceBytes":  132755,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:19.9898789Z"
+                  },
+                  {
+                      "File":  "logs/raw/client-jei.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "CCFE557DAB3B1D9F96DBA41995339C35E4921E05CF00815C92A73665890B291F",
+                      "Bytes":  43768,
+                      "SourceSHA256":  "CCFE557DAB3B1D9F96DBA41995339C35E4921E05CF00815C92A73665890B291F",
+                      "SourceBytes":  43768,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:22.7185096Z"
+                  },
+                  {
+                      "File":  "logs/client-jei.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "A17603E1B930C1CE1A2DEA2B89F3977294ACC26D887A713DB20EE6B3F86D9C9E",
+                      "Bytes":  21883,
+                      "SourceSHA256":  "CCFE557DAB3B1D9F96DBA41995339C35E4921E05CF00815C92A73665890B291F",
+                      "SourceBytes":  43768,
+                      "SourceModifiedUtc":  "2026-11-14T23:05:22.7185096Z"
+                  },
+                  {
+                      "File":  "reports/resource-reproducibility.json",
+                      "Kind":  "OriginalResourceReproducibilityReport",
+                      "SHA256":  "0B93A0BEAA95DF7FF9C4E1374E45C3E830D040A49EA882B80F1F7EECF53C80B5",
+                      "Bytes":  166,
+                      "SourceSHA256":  "0B93A0BEAA95DF7FF9C4E1374E45C3E830D040A49EA882B80F1F7EECF53C80B5",
+                      "SourceBytes":  166,
+                      "SourceModifiedUtc":  "2026-11-14T23:07:06.3193296Z"
+                  },
+                  {
+                      "File":  "reports/graphical-medical-rei.json",
+                      "Kind":  "OriginalGraphicalReport",
+                      "SHA256":  "8D73088B290002280E47E39001649517FF37D6E30E295144FA26E2C750E1BDE6",
+                      "Bytes":  2131,
+                      "SourceSHA256":  "8D73088B290002280E47E39001649517FF37D6E30E295144FA26E2C750E1BDE6",
+                      "SourceBytes":  2131,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:08.0780407Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-medical-writer-exterior.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "3677E569B4871520EC0ED4DEDA29461C9EC51750BDE8E8DC995FE909D08EC4EA",
+                      "Bytes":  180911,
+                      "SourceSHA256":  "3677E569B4871520EC0ED4DEDA29461C9EC51750BDE8E8DC995FE909D08EC4EA",
+                      "SourceBytes":  180911,
+                      "SourceModifiedUtc":  "2026-11-14T23:07:47.3874176Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-medical-writer-inputs-output.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "DDB1BA26DAB0A546A1184A356B7DDD6856B06D9715AD55369A192537D2A2AC86",
+                      "Bytes":  228078,
+                      "SourceSHA256":  "DDB1BA26DAB0A546A1184A356B7DDD6856B06D9715AD55369A192537D2A2AC86",
+                      "SourceBytes":  228078,
+                      "SourceModifiedUtc":  "2026-11-14T23:07:49.8397790Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-medical-writer-crafted.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "874C3DAB92CE007CF761E1CA67EAAD1D2989F66188B42687FC0E465B1F3DCC9C",
+                      "Bytes":  224606,
+                      "SourceSHA256":  "874C3DAB92CE007CF761E1CA67EAAD1D2989F66188B42687FC0E465B1F3DCC9C",
+                      "SourceBytes":  224606,
+                      "SourceModifiedUtc":  "2026-11-14T23:07:51.3347375Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-medical-supply-request.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "743CAB97A793B27F7B0D8FBCF020DF51796889B8A1006846863EA869B8F4D429",
+                      "Bytes":  135650,
+                      "SourceSHA256":  "743CAB97A793B27F7B0D8FBCF020DF51796889B8A1006846863EA869B8F4D429",
+                      "SourceBytes":  135650,
+                      "SourceModifiedUtc":  "2026-11-14T23:07:53.8871449Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-medical-supply-delivered.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "AF50AD216F23740CF7FE370900EBE1092997AA0565BD45BFAAFA7AAC75A81EA6",
+                      "Bytes":  128503,
+                      "SourceSHA256":  "AF50AD216F23740CF7FE370900EBE1092997AA0565BD45BFAAFA7AAC75A81EA6",
+                      "SourceBytes":  128503,
+                      "SourceModifiedUtc":  "2026-11-14T23:07:55.8756431Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-medical-prescription-trade.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "FCFD7F2B3FFA11A4C6E75EA564DB937502E5E54A39E927CDDC187EEACB3D04DC",
+                      "Bytes":  175095,
+                      "SourceSHA256":  "FCFD7F2B3FFA11A4C6E75EA564DB937502E5E54A39E927CDDC187EEACB3D04DC",
+                      "SourceBytes":  175095,
+                      "SourceModifiedUtc":  "2026-11-14T23:07:59.8858640Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-medical-tetanus-before-cure.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "D50A8606ED43BE647A5FA3F5417DE7DBB825A427D517D07805FCEAC9279DB66E",
+                      "Bytes":  147123,
+                      "SourceSHA256":  "D50A8606ED43BE647A5FA3F5417DE7DBB825A427D517D07805FCEAC9279DB66E",
+                      "SourceBytes":  147123,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:02.3850155Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-medical-cure-advancement.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "111C72348F514C673EFC33CCF1B618DCC305AB17F37F59EE6272D3DF9E4200CA",
+                      "Bytes":  97866,
+                      "SourceSHA256":  "111C72348F514C673EFC33CCF1B618DCC305AB17F37F59EE6272D3DF9E4200CA",
+                      "SourceBytes":  97866,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:07.1215432Z"
+                  },
+                  {
+                      "File":  "reports/graphical-forge-rei.json",
+                      "Kind":  "OriginalGraphicalReport",
+                      "SHA256":  "5128AB84C581A7FA03D8F9FF127590BF8F678F7738903DB70265BF983B6F4222",
+                      "Bytes":  1560,
+                      "SourceSHA256":  "5128AB84C581A7FA03D8F9FF127590BF8F678F7738903DB70265BF983B6F4222",
+                      "SourceBytes":  1560,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:28.2261891Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-forge-station.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "1446E721433CCA806CDAA929BEFFBDE6DE13663D2B112474E191643272FD4D90",
+                      "Bytes":  97768,
+                      "SourceSHA256":  "1446E721433CCA806CDAA929BEFFBDE6DE13663D2B112474E191643272FD4D90",
+                      "SourceBytes":  97768,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:09.6641260Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-forge-full-inventory-preview.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "3B767EF0A0DAD3887FD711AC6D5ADD7B5C8B190AEF7F1D9C6B2A34724214FE37",
+                      "Bytes":  203699,
+                      "SourceSHA256":  "3B767EF0A0DAD3887FD711AC6D5ADD7B5C8B190AEF7F1D9C6B2A34724214FE37",
+                      "SourceBytes":  203699,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:13.6595074Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-forge-batch-crafted.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "3E680CEEF41F5987489D09342FFFD0D3854016BE83322BE108E62EAE9E2F87EF",
+                      "Bytes":  192836,
+                      "SourceSHA256":  "3E680CEEF41F5987489D09342FFFD0D3854016BE83322BE108E62EAE9E2F87EF",
+                      "SourceBytes":  192836,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:17.6592694Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-forge-close-preview.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "5896E969B4944F0472C7E5F2FF1802AB6323E1F01A5EE1EC80A7EB71A158160A",
+                      "Bytes":  224173,
+                      "SourceSHA256":  "5896E969B4944F0472C7E5F2FF1802AB6323E1F01A5EE1EC80A7EB71A158160A",
+                      "SourceBytes":  224173,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:23.2134878Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-forge-prescription-recipe-viewer.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "B361BBA175E35946877CC5A059454397596D00EB2D0DB4A4DDBDA64411D3362C",
+                      "Bytes":  195595,
+                      "SourceSHA256":  "B361BBA175E35946877CC5A059454397596D00EB2D0DB4A4DDBDA64411D3362C",
+                      "SourceBytes":  195595,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:25.7626282Z"
+                  },
+                  {
+                      "File":  "screenshots/rust-and-ruin-rei-forge-forging-recipe-viewer.png",
+                      "Kind":  "OriginalNativePng",
+                      "SHA256":  "769DE71B92B38761C9C14C412EBD451A6751F4C8BA7D9A2D28C7FDD89A587E01",
+                      "Bytes":  177056,
+                      "SourceSHA256":  "769DE71B92B38761C9C14C412EBD451A6751F4C8BA7D9A2D28C7FDD89A587E01",
+                      "SourceBytes":  177056,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:27.2802348Z"
+                  },
+                  {
+                      "File":  "logs/raw/client-rei.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "D60DAF38C1ED36800A55D62054BCC935C364C9BE2E3D55C20592575F44CC6ACB",
+                      "Bytes":  56244,
+                      "SourceSHA256":  "D60DAF38C1ED36800A55D62054BCC935C364C9BE2E3D55C20592575F44CC6ACB",
+                      "SourceBytes":  56244,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:30.0121812Z"
+                  },
+                  {
+                      "File":  "logs/client-rei.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "148991AFF582D35DF8D5B1E765DFF5705D06B002C2A3DB3F398F46FCF3867EDF",
+                      "Bytes":  28121,
+                      "SourceSHA256":  "D60DAF38C1ED36800A55D62054BCC935C364C9BE2E3D55C20592575F44CC6ACB",
+                      "SourceBytes":  56244,
+                      "SourceModifiedUtc":  "2026-11-14T23:08:30.0121812Z"
+                  },
+                  {
+                      "File":  "logs/raw/build-final.log",
+                      "Kind":  "OriginalLogBytes",
+                      "SHA256":  "D6B89939E222C7316052264D89642C7814F4ED085AA47223BBC1677FA7132205",
+                      "Bytes":  5784,
+                      "SourceSHA256":  "D6B89939E222C7316052264D89642C7814F4ED085AA47223BBC1677FA7132205",
+                      "SourceBytes":  5784,
+                      "SourceModifiedUtc":  "2026-11-14T23:09:32.0998147Z"
+                  },
+                  {
+                      "File":  "logs/build-final.log",
+                      "Kind":  "NativeLogTextUtf8",
+                      "SHA256":  "2310F4B0ADC8D5A2F3EA7A837AD609CB20A20595E961B6AB71C253DD93558434",
+                      "Bytes":  2891,
+                      "SourceSHA256":  "D6B89939E222C7316052264D89642C7814F4ED085AA47223BBC1677FA7132205",
+                      "SourceBytes":  5784,
+                      "SourceModifiedUtc":  "2026-11-14T23:09:32.0998147Z"
+                  }
+              ],
+    "Reports":  [
+                    {
+                        "Name":  "graphical-beacon-ui-plain.json",
+                        "Result":  "PASS",
+                        "File":  "reports/graphical-beacon-ui-plain.json",
+                        "SourceModifiedUtc":  "2026-11-14T22:54:19.1194708Z",
+                        "Screenshots":  [
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-ii.png",
+                                                "View":  "ii",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  2.0,
+                                                                     "RequestedGuiScale":  2,
+                                                                     "View":  "ii",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-ii.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          342,
+                                                                                                          248,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-iii.png",
+                                                "View":  "iii",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  2.0,
+                                                                     "RequestedGuiScale":  2,
+                                                                     "View":  "iii",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-iii.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          342,
+                                                                                                          248,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-iv-unpaid.png",
+                                                "View":  "iv-unpaid",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  2.0,
+                                                                     "RequestedGuiScale":  2,
+                                                                     "View":  "iv-unpaid",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-iv-unpaid.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          342,
+                                                                                                          248,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-iv-paid.png",
+                                                "View":  "iv-paid",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  2.0,
+                                                                     "RequestedGuiScale":  2,
+                                                                     "View":  "iv-paid",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-iv-paid.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          342,
+                                                                                                          248,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-regeneration.png",
+                                                "View":  "regeneration",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  2.0,
+                                                                     "RequestedGuiScale":  2,
+                                                                     "View":  "regeneration",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale2-regeneration.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          342,
+                                                                                                          248,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-ii.png",
+                                                "View":  "ii",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  3.0,
+                                                                     "RequestedGuiScale":  3,
+                                                                     "View":  "ii",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-ii.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          182,
+                                                                                                          128,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-iii.png",
+                                                "View":  "iii",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  3.0,
+                                                                     "RequestedGuiScale":  3,
+                                                                     "View":  "iii",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-iii.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          182,
+                                                                                                          128,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-iv-unpaid.png",
+                                                "View":  "iv-unpaid",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  3.0,
+                                                                     "RequestedGuiScale":  3,
+                                                                     "View":  "iv-unpaid",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-iv-unpaid.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          182,
+                                                                                                          128,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-iv-paid.png",
+                                                "View":  "iv-paid",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  3.0,
+                                                                     "RequestedGuiScale":  3,
+                                                                     "View":  "iv-paid",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-iv-paid.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          182,
+                                                                                                          128,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-regeneration.png",
+                                                "View":  "regeneration",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  3.0,
+                                                                     "RequestedGuiScale":  3,
+                                                                     "View":  "regeneration",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale3-regeneration.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          182,
+                                                                                                          128,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-ii.png",
+                                                "View":  "ii",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  4.0,
+                                                                     "RequestedGuiScale":  4,
+                                                                     "View":  "ii",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-ii.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          102,
+                                                                                                          68,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-iii.png",
+                                                "View":  "iii",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  4.0,
+                                                                     "RequestedGuiScale":  4,
+                                                                     "View":  "iii",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-iii.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          102,
+                                                                                                          68,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-iv-unpaid.png",
+                                                "View":  "iv-unpaid",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  4.0,
+                                                                     "RequestedGuiScale":  4,
+                                                                     "View":  "iv-unpaid",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-iv-unpaid.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          102,
+                                                                                                          68,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-iv-paid.png",
+                                                "View":  "iv-paid",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  4.0,
+                                                                     "RequestedGuiScale":  4,
+                                                                     "View":  "iv-paid",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-iv-paid.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          102,
+                                                                                                          68,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-regeneration.png",
+                                                "View":  "regeneration",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  4.0,
+                                                                     "RequestedGuiScale":  4,
+                                                                     "View":  "regeneration",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale4-regeneration.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          102,
+                                                                                                          68,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-ii.png",
+                                                "View":  "ii",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  6.0,
+                                                                     "RequestedGuiScale":  6,
+                                                                     "View":  "ii",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-ii.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          22,
+                                                                                                          8,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-iii.png",
+                                                "View":  "iii",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  6.0,
+                                                                     "RequestedGuiScale":  6,
+                                                                     "View":  "iii",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-iii.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          22,
+                                                                                                          8,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-iv-unpaid.png",
+                                                "View":  "iv-unpaid",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  6.0,
+                                                                     "RequestedGuiScale":  6,
+                                                                     "View":  "iv-unpaid",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-iv-unpaid.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          22,
+                                                                                                          8,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-iv-paid.png",
+                                                "View":  "iv-paid",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  6.0,
+                                                                     "RequestedGuiScale":  6,
+                                                                     "View":  "iv-paid",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-iv-paid.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          22,
+                                                                                                          8,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-regeneration.png",
+                                                "View":  "regeneration",
+                                                "NativeRecord":  {
+                                                                     "AppliedGuiScale":  6.0,
+                                                                     "RequestedGuiScale":  6,
+                                                                     "View":  "regeneration",
+                                                                     "Screenshot":  "rust-and-ruin-plain-beacon-ui-scale6-regeneration.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.TetanizedBeaconScreen",
+                                                                     "Geometry":  {
+                                                                                      "PanelBounds":  [
+                                                                                                          22,
+                                                                                                          8,
+                                                                                                          276,
+                                                                                                          224
+                                                                                                      ],
+                                                                                      "ButtonLabelsFit":  true,
+                                                                                      "NativeSlots":  38,
+                                                                                      "ViewportContainsFrame":  true,
+                                                                                      "Widgets":  10,
+                                                                                      "NoControlOrSlotOverlap":  true
+                                                                                  }
+                                                                 }
+                                            }
+                                        ]
+                    },
+                    {
+                        "Name":  "graphical-medical-plain.json",
+                        "Result":  "PASS",
+                        "File":  "reports/graphical-medical-plain.json",
+                        "SourceModifiedUtc":  "2026-11-14T22:56:43.1634862Z",
+                        "Screenshots":  [
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-medical-writer-exterior.png",
+                                                "View":  "writer-exterior",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "HUD",
+                                                                     "Screenshot":  "rust-and-ruin-plain-medical-writer-exterior.png",
+                                                                     "View":  "writer-exterior"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-medical-writer-inputs-output.png",
+                                                "View":  "writer-inputs-output",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "PrescriptionWriterScreen",
+                                                                     "Screenshot":  "rust-and-ruin-plain-medical-writer-inputs-output.png",
+                                                                     "View":  "writer-inputs-output"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-medical-writer-crafted.png",
+                                                "View":  "writer-crafted",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "PrescriptionWriterScreen",
+                                                                     "Screenshot":  "rust-and-ruin-plain-medical-writer-crafted.png",
+                                                                     "View":  "writer-crafted"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-medical-supply-request.png",
+                                                "View":  "supply-request",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "ChatScreen",
+                                                                     "Screenshot":  "rust-and-ruin-plain-medical-supply-request.png",
+                                                                     "View":  "supply-request"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-medical-supply-delivered.png",
+                                                "View":  "supply-delivered",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "ChatScreen",
+                                                                     "Screenshot":  "rust-and-ruin-plain-medical-supply-delivered.png",
+                                                                     "View":  "supply-delivered"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-medical-prescription-trade.png",
+                                                "View":  "prescription-trade",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "MerchantScreen",
+                                                                     "Screenshot":  "rust-and-ruin-plain-medical-prescription-trade.png",
+                                                                     "View":  "prescription-trade"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-medical-tetanus-before-cure.png",
+                                                "View":  "tetanus-before-cure",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "HUD",
+                                                                     "Screenshot":  "rust-and-ruin-plain-medical-tetanus-before-cure.png",
+                                                                     "View":  "tetanus-before-cure"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-medical-cure-advancement.png",
+                                                "View":  "cure-advancement",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "AdvancementsScreen",
+                                                                     "Screenshot":  "rust-and-ruin-plain-medical-cure-advancement.png",
+                                                                     "View":  "cure-advancement"
+                                                                 }
+                                            }
+                                        ]
+                    },
+                    {
+                        "Name":  "graphical-wither-patch-plain.json",
+                        "Result":  "PASS",
+                        "File":  "reports/graphical-wither-patch-plain.json",
+                        "SourceModifiedUtc":  "2026-11-14T22:57:43.0140115Z",
+                        "Screenshots":  [
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-wither-patch-creative-ritual-before.png",
+                                                "View":  "ritual-before",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-wither-patch-creative-ritual-before.png",
+                                                                     "Mode":  "Creative",
+                                                                     "View":  "ritual-before"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-wither-patch-creative-native-first-wave.png",
+                                                "View":  "native-first-wave",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-wither-patch-creative-native-first-wave.png",
+                                                                     "Mode":  "Creative",
+                                                                     "View":  "native-first-wave"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-wither-patch-creative-native-finishing-hit.png",
+                                                "View":  "native-finishing-hit",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-wither-patch-creative-native-finishing-hit.png",
+                                                                     "Mode":  "Creative",
+                                                                     "View":  "native-finishing-hit"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-wither-patch-creative-native-special-star-only.png",
+                                                "View":  "native-special-star-only",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-wither-patch-creative-native-special-star-only.png",
+                                                                     "Mode":  "Creative",
+                                                                     "View":  "native-special-star-only"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-wither-patch-survival-ritual-before.png",
+                                                "View":  "ritual-before",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-wither-patch-survival-ritual-before.png",
+                                                                     "Mode":  "Survival",
+                                                                     "View":  "ritual-before"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-wither-patch-survival-native-first-wave.png",
+                                                "View":  "native-first-wave",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-wither-patch-survival-native-first-wave.png",
+                                                                     "Mode":  "Survival",
+                                                                     "View":  "native-first-wave"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-wither-patch-survival-native-finishing-hit.png",
+                                                "View":  "native-finishing-hit",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-wither-patch-survival-native-finishing-hit.png",
+                                                                     "Mode":  "Survival",
+                                                                     "View":  "native-finishing-hit"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-wither-patch-survival-native-special-star-only.png",
+                                                "View":  "native-special-star-only",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-wither-patch-survival-native-special-star-only.png",
+                                                                     "Mode":  "Survival",
+                                                                     "View":  "native-special-star-only"
+                                                                 }
+                                            }
+                                        ]
+                    },
+                    {
+                        "Name":  "graphical-dragon-ritual-plain.json",
+                        "Result":  "PASS",
+                        "File":  "reports/graphical-dragon-ritual-plain.json",
+                        "SourceModifiedUtc":  "2026-11-14T23:03:23.1733995Z",
+                        "Screenshots":  [
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-mixed-four-crystals.png",
+                                                "View":  "mixed-four-crystals",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-mixed-four-crystals.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "mixed-four-crystals"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-mixed-preparing_to_summon_pillars.png",
+                                                "View":  "mixed-preparing_to_summon_pillars",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-mixed-preparing_to_summon_pillars.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "mixed-preparing_to_summon_pillars"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-mixed-summoning_pillars.png",
+                                                "View":  "mixed-summoning_pillars",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-mixed-summoning_pillars.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "mixed-summoning_pillars"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-mixed-summoning_dragon.png",
+                                                "View":  "mixed-summoning_dragon",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-mixed-summoning_dragon.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "mixed-summoning_dragon"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-mixed-normal-dragon-200hp.png",
+                                                "View":  "mixed-normal-dragon-200hp",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-mixed-normal-dragon-200hp.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "mixed-normal-dragon-200hp"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-special-four-crystals.png",
+                                                "View":  "special-four-crystals",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-special-four-crystals.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "special-four-crystals"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-special-preparing_to_summon_pillars.png",
+                                                "View":  "special-preparing_to_summon_pillars",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-special-preparing_to_summon_pillars.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "special-preparing_to_summon_pillars"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-special-summoning_pillars.png",
+                                                "View":  "special-summoning_pillars",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-special-summoning_pillars.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "special-summoning_pillars"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-special-summoning_dragon.png",
+                                                "View":  "special-summoning_dragon",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-special-summoning_dragon.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "special-summoning_dragon"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-special-dragon-1100hp.png",
+                                                "View":  "special-dragon-1100hp",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-special-dragon-1100hp.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "special-dragon-1100hp"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-native-mouth-carry.png",
+                                                "View":  "native-mouth-carry",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-native-mouth-carry.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "native-mouth-carry"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-native-mouth-drop.png",
+                                                "View":  "native-mouth-drop",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-native-mouth-drop.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "native-mouth-drop"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-native-contribution-at-least20.png",
+                                                "View":  "native-contribution-at-least20",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-native-contribution-at-least20.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "native-contribution-at-least20"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-native-dragon-death-animation.png",
+                                                "View":  "native-dragon-death-animation",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-native-dragon-death-animation.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "native-dragon-death-animation"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-native-dragon-defeated.png",
+                                                "View":  "native-dragon-defeated",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-native-dragon-defeated.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "native-dragon-defeated"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-earned-overload-sword-tooltip.png",
+                                                "View":  "earned-overload-sword-tooltip",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-earned-overload-sword-tooltip.png",
+                                                                     "NativeScreen":  "net.minecraft.client.gui.screen.ingame.InventoryScreen",
+                                                                     "View":  "earned-overload-sword-tooltip"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-plain-dragon-earned-tetanized-egg-placed.png",
+                                                "View":  "earned-tetanized-egg-placed",
+                                                "NativeRecord":  {
+                                                                     "Screenshot":  "rust-and-ruin-plain-dragon-earned-tetanized-egg-placed.png",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "View":  "earned-tetanized-egg-placed"
+                                                                 }
+                                            }
+                                        ]
+                    },
+                    {
+                        "Name":  "graphical-medical-jei.json",
+                        "Result":  "PASS",
+                        "File":  "reports/graphical-medical-jei.json",
+                        "SourceModifiedUtc":  "2026-11-14T23:05:00.7948788Z",
+                        "Screenshots":  [
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-medical-writer-exterior.png",
+                                                "View":  "writer-exterior",
+                                                "NativeRecord":  {
+                                                                     "View":  "writer-exterior",
+                                                                     "ActualNativeScreen":  "HUD",
+                                                                     "Screenshot":  "rust-and-ruin-jei-medical-writer-exterior.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-medical-writer-inputs-output.png",
+                                                "View":  "writer-inputs-output",
+                                                "NativeRecord":  {
+                                                                     "View":  "writer-inputs-output",
+                                                                     "ActualNativeScreen":  "PrescriptionWriterScreen",
+                                                                     "Screenshot":  "rust-and-ruin-jei-medical-writer-inputs-output.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-medical-writer-crafted.png",
+                                                "View":  "writer-crafted",
+                                                "NativeRecord":  {
+                                                                     "View":  "writer-crafted",
+                                                                     "ActualNativeScreen":  "PrescriptionWriterScreen",
+                                                                     "Screenshot":  "rust-and-ruin-jei-medical-writer-crafted.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-medical-supply-request.png",
+                                                "View":  "supply-request",
+                                                "NativeRecord":  {
+                                                                     "View":  "supply-request",
+                                                                     "ActualNativeScreen":  "ChatScreen",
+                                                                     "Screenshot":  "rust-and-ruin-jei-medical-supply-request.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-medical-supply-delivered.png",
+                                                "View":  "supply-delivered",
+                                                "NativeRecord":  {
+                                                                     "View":  "supply-delivered",
+                                                                     "ActualNativeScreen":  "ChatScreen",
+                                                                     "Screenshot":  "rust-and-ruin-jei-medical-supply-delivered.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-medical-prescription-trade.png",
+                                                "View":  "prescription-trade",
+                                                "NativeRecord":  {
+                                                                     "View":  "prescription-trade",
+                                                                     "ActualNativeScreen":  "MerchantScreen",
+                                                                     "Screenshot":  "rust-and-ruin-jei-medical-prescription-trade.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-medical-tetanus-before-cure.png",
+                                                "View":  "tetanus-before-cure",
+                                                "NativeRecord":  {
+                                                                     "View":  "tetanus-before-cure",
+                                                                     "ActualNativeScreen":  "HUD",
+                                                                     "Screenshot":  "rust-and-ruin-jei-medical-tetanus-before-cure.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-medical-cure-advancement.png",
+                                                "View":  "cure-advancement",
+                                                "NativeRecord":  {
+                                                                     "View":  "cure-advancement",
+                                                                     "ActualNativeScreen":  "AdvancementsScreen",
+                                                                     "Screenshot":  "rust-and-ruin-jei-medical-cure-advancement.png"
+                                                                 }
+                                            }
+                                        ]
+                    },
+                    {
+                        "Name":  "graphical-forge-jei.json",
+                        "Result":  "PASS",
+                        "File":  "reports/graphical-forge-jei.json",
+                        "SourceModifiedUtc":  "2026-11-14T23:05:20.9445503Z",
+                        "Screenshots":  [
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-forge-station.png",
+                                                "View":  "station",
+                                                "NativeRecord":  {
+                                                                     "View":  "station",
+                                                                     "Screenshot":  "rust-and-ruin-jei-forge-station.png",
+                                                                     "NativeScreen":  "HUD"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-forge-full-inventory-preview.png",
+                                                "View":  "full-inventory-preview",
+                                                "NativeRecord":  {
+                                                                     "View":  "full-inventory-preview",
+                                                                     "Screenshot":  "rust-and-ruin-jei-forge-full-inventory-preview.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.WitherForgingScreen"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-forge-batch-crafted.png",
+                                                "View":  "batch-crafted",
+                                                "NativeRecord":  {
+                                                                     "View":  "batch-crafted",
+                                                                     "Screenshot":  "rust-and-ruin-jei-forge-batch-crafted.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.WitherForgingScreen"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-forge-close-preview.png",
+                                                "View":  "close-preview",
+                                                "NativeRecord":  {
+                                                                     "View":  "close-preview",
+                                                                     "Screenshot":  "rust-and-ruin-jei-forge-close-preview.png",
+                                                                     "NativeScreen":  "com.tetanusmod.client.WitherForgingScreen"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-forge-prescription-recipe-viewer.png",
+                                                "View":  "prescription-recipe-viewer",
+                                                "NativeRecord":  {
+                                                                     "View":  "prescription-recipe-viewer",
+                                                                     "Screenshot":  "rust-and-ruin-jei-forge-prescription-recipe-viewer.png",
+                                                                     "NativeScreen":  "mezz.jei.gui.recipes.RecipesGui"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-jei-forge-forging-recipe-viewer.png",
+                                                "View":  "forging-recipe-viewer",
+                                                "NativeRecord":  {
+                                                                     "View":  "forging-recipe-viewer",
+                                                                     "Screenshot":  "rust-and-ruin-jei-forge-forging-recipe-viewer.png",
+                                                                     "NativeScreen":  "mezz.jei.gui.recipes.RecipesGui"
+                                                                 }
+                                            }
+                                        ]
+                    },
+                    {
+                        "Name":  "graphical-medical-rei.json",
+                        "Result":  "PASS",
+                        "File":  "reports/graphical-medical-rei.json",
+                        "SourceModifiedUtc":  "2026-11-14T23:08:08.0780407Z",
+                        "Screenshots":  [
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-medical-writer-exterior.png",
+                                                "View":  "writer-exterior",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "HUD",
+                                                                     "View":  "writer-exterior",
+                                                                     "Screenshot":  "rust-and-ruin-rei-medical-writer-exterior.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-medical-writer-inputs-output.png",
+                                                "View":  "writer-inputs-output",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "PrescriptionWriterScreen",
+                                                                     "View":  "writer-inputs-output",
+                                                                     "Screenshot":  "rust-and-ruin-rei-medical-writer-inputs-output.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-medical-writer-crafted.png",
+                                                "View":  "writer-crafted",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "PrescriptionWriterScreen",
+                                                                     "View":  "writer-crafted",
+                                                                     "Screenshot":  "rust-and-ruin-rei-medical-writer-crafted.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-medical-supply-request.png",
+                                                "View":  "supply-request",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "ChatScreen",
+                                                                     "View":  "supply-request",
+                                                                     "Screenshot":  "rust-and-ruin-rei-medical-supply-request.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-medical-supply-delivered.png",
+                                                "View":  "supply-delivered",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "ChatScreen",
+                                                                     "View":  "supply-delivered",
+                                                                     "Screenshot":  "rust-and-ruin-rei-medical-supply-delivered.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-medical-prescription-trade.png",
+                                                "View":  "prescription-trade",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "MerchantScreen",
+                                                                     "View":  "prescription-trade",
+                                                                     "Screenshot":  "rust-and-ruin-rei-medical-prescription-trade.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-medical-tetanus-before-cure.png",
+                                                "View":  "tetanus-before-cure",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "HUD",
+                                                                     "View":  "tetanus-before-cure",
+                                                                     "Screenshot":  "rust-and-ruin-rei-medical-tetanus-before-cure.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-medical-cure-advancement.png",
+                                                "View":  "cure-advancement",
+                                                "NativeRecord":  {
+                                                                     "ActualNativeScreen":  "AdvancementsScreen",
+                                                                     "View":  "cure-advancement",
+                                                                     "Screenshot":  "rust-and-ruin-rei-medical-cure-advancement.png"
+                                                                 }
+                                            }
+                                        ]
+                    },
+                    {
+                        "Name":  "graphical-forge-rei.json",
+                        "Result":  "PASS",
+                        "File":  "reports/graphical-forge-rei.json",
+                        "SourceModifiedUtc":  "2026-11-14T23:08:28.2261891Z",
+                        "Screenshots":  [
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-forge-station.png",
+                                                "View":  "station",
+                                                "NativeRecord":  {
+                                                                     "View":  "station",
+                                                                     "NativeScreen":  "HUD",
+                                                                     "Screenshot":  "rust-and-ruin-rei-forge-station.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-forge-full-inventory-preview.png",
+                                                "View":  "full-inventory-preview",
+                                                "NativeRecord":  {
+                                                                     "View":  "full-inventory-preview",
+                                                                     "NativeScreen":  "com.tetanusmod.client.WitherForgingScreen",
+                                                                     "Screenshot":  "rust-and-ruin-rei-forge-full-inventory-preview.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-forge-batch-crafted.png",
+                                                "View":  "batch-crafted",
+                                                "NativeRecord":  {
+                                                                     "View":  "batch-crafted",
+                                                                     "NativeScreen":  "com.tetanusmod.client.WitherForgingScreen",
+                                                                     "Screenshot":  "rust-and-ruin-rei-forge-batch-crafted.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-forge-close-preview.png",
+                                                "View":  "close-preview",
+                                                "NativeRecord":  {
+                                                                     "View":  "close-preview",
+                                                                     "NativeScreen":  "com.tetanusmod.client.WitherForgingScreen",
+                                                                     "Screenshot":  "rust-and-ruin-rei-forge-close-preview.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-forge-prescription-recipe-viewer.png",
+                                                "View":  "prescription-recipe-viewer",
+                                                "NativeRecord":  {
+                                                                     "View":  "prescription-recipe-viewer",
+                                                                     "NativeScreen":  "me.shedaniel.rei.impl.client.gui.screen.DefaultDisplayViewingScreen",
+                                                                     "Screenshot":  "rust-and-ruin-rei-forge-prescription-recipe-viewer.png"
+                                                                 }
+                                            },
+                                            {
+                                                "Screenshot":  "rust-and-ruin-rei-forge-forging-recipe-viewer.png",
+                                                "View":  "forging-recipe-viewer",
+                                                "NativeRecord":  {
+                                                                     "View":  "forging-recipe-viewer",
+                                                                     "NativeScreen":  "me.shedaniel.rei.impl.client.gui.screen.DefaultDisplayViewingScreen",
+                                                                     "Screenshot":  "rust-and-ruin-rei-forge-forging-recipe-viewer.png"
+                                                                 }
+                                            }
+                                        ]
+                    }
+                ],
+    "RetainedRuns":  [
+                         {
+                             "Id":  "beacon-external-resize",
+                             "Outcome":  "FAILED TEST HARNESS",
+                             "Explanation":  "The window helper resized the actual viewport during the scale matrix. The controller correctly rejected a capped GUI scale. This attempt did not pass.",
+                             "Log":  "logs/client-beacon-ui.log"
+                         },
+                         {
+                             "Id":  "beacon-minimized",
+                             "Outcome":  "FAILED TEST HARNESS",
+                             "Explanation":  "The native test HWND was minimized with a zero client area. Startup timed out at phase0. The later fixture has bounded diagnostics and one measured startup recovery. This attempt did not pass.",
+                             "Log":  "logs/client-beacon-ui-confirm.log"
+                         },
+                         {
+                             "Id":  "native-cancelled",
+                             "Outcome":  "CANCELLED",
+                             "Explanation":  "This native invocation was cancelled before completion. Its log is retained. No XML is associated with it: native-final.xml was a stale copy of the preceding failed run and is deliberately excluded.",
+                             "Log":  "logs/native-final.log"
+                         },
+                         {
+                             "Id":  "native-second",
+                             "Outcome":  "FAILED",
+                             "Tests":  415,
+                             "Passed":  414,
+                             "Failures":  1,
+                             "FailedCase":  "comprehensiveacquisitiongametests.everycreativevarianteggactuallyspawnsitsspeciesandmutation",
+                             "FailureMessage":  "Variant egg failed to spawn: tetanusmod:tetanized_ender_dragon_spawn_egg",
+                             "Explanation":  "The creative variant-egg matrix used a cramped spawn fixture for the very large Ender Dragon. The full run finished414/415; it is retained as failed. The fixture was corrected for a later release run, whose outcome remains separate.",
+                             "Xml":  "reports/native-second.xml",
+                             "Log":  "logs/native-second.log"
+                         },
+                         {
+                             "Id":  "combined-playtest",
+                             "Outcome":  "FAILED TEST HARNESS",
+                             "Log":  "logs/client-playtest.log",
+                             "Explanation":  "The combined visible run completed the separately archived medical and Wither phases. It also logged a native mixed 200-HP ritual with 10 ordinary pillar crystals and a special 1100-HP ritual with 10 special pillar crystals. The later grab-height measurement failed at 9.261655631359204: its baseline preceded 18 approaches and its four-tick polling missed the peak. The subsequent smoke-only measurement records actual player height every native tick from the successful grab start; strict thresholds remain unchanged. That confirmation is separate. This composite run did not pass, and no old Dragon JSON is substituted."
+                         },
+                         {
+                             "Id":  "native-release",
+                             "Outcome":  "PASS",
+                             "Tests":  418,
+                             "Passed":  418,
+                             "Failures":  0,
+                             "Xml":  "reports/native-release.xml",
+                             "Log":  "logs/native-release.log",
+                             "Explanation":  "Completed current native release run; counts verified against its original XML and complete log."
+                         }
+                     ],
+    "Pending":  [
+
+                ],
+    "AudioVerification":  {
+                              "Result":  "PASS",
+                              "Scope":  "File decoding and metadata only; no in-game playback claim",
+                              "File":  "reports/audio-verification.json",
+                              "OriginalSeconds":  "4.300000",
+                              "DefeatSeconds":  "5.976327",
+                              "Codec":  "Vorbis",
+                              "Channels":  1,
+                              "SampleRate":  44100,
+                              "SpeedAndPitch":  0.75,
+                              "ConfiguredAttenuationBlocks":  32
+                          },
+    "ResourceReproducibility":  {
+                                    "Result":  "PASS",
+                                    "Files":  409,
+                                    "ChangedFiles":  [
+
+                                                     ],
+                                    "File":  "reports/resource-reproducibility.json"
+                                }
+}
