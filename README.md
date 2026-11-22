@@ -4,17 +4,17 @@
 
 Throw nails, set rusty traps, and fight infected creatures. Rust & Ruin adds weathering weapons, three diseases, village medics, and Tetanized Wither and Ender Dragon fights with their own rewards.
 
-**Minecraft 1.20.1 Fabric · version 0.1.1-beta**
+**Minecraft 1.20.1 Fabric · version 0.1.2-beta**
 
-[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes](docs/RECIPES.md) · [Validation](VALIDATION.md) · [Current test gallery](validation/release-ready-2026-11-14/index.html) · [Expansion notes](docs/RELEASE_NOTES_2026-11-14.md) · [Requested features](docs/REQUEST_AUDIT.md) · [Security review](docs/SECURITY_AUDIT.md) · [File audit](docs/FULL_AUDIT.md)
+[Download on Modrinth](https://modrinth.com/mod/rust-ruin) · [Recipes](docs/RECIPES.md) · [Advancements](docs/ADVANCEMENTS.md) · [Validation](VALIDATION.md) · [0.1.1-beta test gallery](validation/release-ready-2026-11-14/index.html) · [Expansion notes](docs/RELEASE_NOTES_2026-11-14.md) · [Requested features](docs/REQUEST_AUDIT.md) · [Security review](docs/SECURITY_AUDIT.md) · [File audit](docs/FULL_AUDIT.md)
 
 [![A Tetanized Ender Dragon summoned through the native four-crystal ritual](validation/expansion-2026-11-14/screenshots/rust-and-ruin-plain-dragon-special-dragon-1100hp.png)](validation/expansion-2026-11-14/index.html)
 
-The pictured playtest is from the earlier baseline. The current **0.1.1-beta gameplay patch passed all 423 native tests**, including the final-shot bow/crossbow fix. All **16 final visible-client reports passed**; their original screenshots and fixtures are in the [current test gallery](validation/release-ready-2026-11-14/index.html). See [release readiness](docs/RELEASE_READINESS_0.1.1-beta.md) for the exact JAR, coverage, and limits; earlier receipts remain archived.
+The pictured playtest shows the Tetanized Ender Dragon. The [0.1.1-beta release record](docs/RELEASE_READINESS_0.1.1-beta.md) and [test gallery](validation/release-ready-2026-11-14/index.html) contain that version's results and screenshots.
 
 ## Install
 
-Put `rust-and-ruin-0.1.1-beta.jar` in `mods` on **both client and server**, replacing older copies. Requires **Java 17, Fabric Loader 0.16.14+, and Fabric API for 1.20.1**.
+Put `rust-and-ruin-0.1.2-beta.jar` in `mods` on **both client and server**, replacing older copies. Requires **Java 17, Fabric Loader 0.16.14+, and Fabric API for 1.20.1**.
 
 JEI and REI are optional alternatives. Both display crafting, cooking, disease brewing, nine rusting conversions, batch arrow smithing, prescription writing, and crystal forging. Install your chosen viewer with its own dependencies; Rust & Ruin itself only requires Fabric API.
 
@@ -25,6 +25,10 @@ Nails deal one heart per throw; rebar deals half a heart on a fully charged unar
 Dropped supported metal rusts after **five consecutive seconds touching water** or **fifteen seconds in exposed rain**. Conversion preserves item names, damage, enchantments, and stack counts. Brush it clean to collect Rust, or place Rust on floors and walls. Existing rusty iron tools retain their IDs and behavior, but are retired from new rusting and the Creative tab in favor of the spear.
 
 Caltrops and barbed wire damage creatures that step through them. **Bear Traps** close after one activation, holding the victim in place with Slowness X; use a **Trap Reset Tool** to release it, with three seconds to move clear before rearming. Rusty traps spread Tetanus. Traps play infection sounds at their position.
+
+**Tetanus TNT** uses one TNT at the center of a 3×3 crafting grid, four Rust in the corners, and four gunpowder on the sides. Its explosion has twice the power of regular TNT, plays **Tetanus. Nice One!**, and leaves a cosmetic rust cloud for 5–15 seconds.
+
+The **Rust Magnet** pulls loose nails, Rust, and metal salvage from within seven blocks. Each successful pulse costs durability.
 
 Fishing rods left in water break into two sticks and two string, with a 15% Rusty Fishing Hook chance. Craft a hookline from the hook, chain, string, and a stick to pull and infect creatures up to twelve blocks away.
 
@@ -56,7 +60,7 @@ Permanent tetanized hostiles gain 50% maximum health and extra attack damage whe
 
 Withers and the Ender Dragon are excluded from these automatic rolls. Rusty contact retains the configurable default mutation chances of 2% for animals and 1% for other ordinary mobs. Certain unconverted mammals and undead can instead become rabid, at 0.3%/0.6%/1% on Easy/Normal/Hard. Rabid creatures have thirty extra health points, seven extra armor points, custom skins, and five-point melee attacks before armor. Only rabid animals drop Rabid Meat. Raw Infected Meat causes Salmonella only; raw Rabid Meat causes Rabies and immediate nausea unless vaccination prevents infection. Both meats become safe when cooked.
 
-Medics progress from **Nurse** through **Nurse Practitioner**, **Medical Doctor**, and **Attending Physician**. Each rank adds one randomized treatment and one supply/barter offer, with stronger medicines and supplies entering the pools as the medic progresses. Treatment trades require emeralds plus a **Medical Prescription**: use one paper and one ink sac at a **Prescription Writer**. Writers can be crafted, found in newly generated clinics and cave camps, or offered by lower-rank medics. The writer has labeled paper, ink, and output slots. Medics can also offer a scarce emergency prescription: at most two purchases in villages, or one in a cave camp. Ordinary supply barters remain separate. Distinct medicines have 2-4 purchases per delivery; village supplies replenish at most once per 24,000 world ticks. Higher ranks can trade potion ingredients, protection books, golden apples and a scarce enchanted golden apple. Native Hero of the Village discounts apply.
+Medics progress from **Nurse** through **Nurse Practitioner**, **Medical Doctor**, and **Attending Physician**. Each rank adds one randomized treatment and one supply or barter offer. Village medics stock clinic and brewing supplies. Field medics can buy Rust and sell cave equipment. Treatment trades require emeralds and a **Medical Prescription**. Write one with paper and an ink sac at a **Prescription Writer**, the only survival source. Craft the writer, find it in a new clinic or cave camp, or buy the table from a medic who stocks it. Village medicine offers have 2–4 purchases per delivery. Native gossip and Hero of the Village discounts apply.
 
 New village locations roll a **55% clinic chance**, with suitable terrain and a free plot required. Five biome themes use local materials, medical uniforms and supply chests. A crafted **stainless-steel Medicine Cabinet** also gives an unemployed villager the profession without a clinic. Field medics in cave tents have at most two purchases per offer and replenish at most once per 72,000 world ticks. Other villagers offer selected weapons, traps, tools and hooks. Species-colored variant eggs have their own **Rust & Ruins Spawn Eggs** tab.
 
@@ -84,11 +88,13 @@ The sword has **12 attack damage**, **2.3 attack speed**, **4,062 durability**, 
 
 Summoning the special dragon awards **Tetanus, Again?** to nonspectating players within 256 horizontal blocks of the central End portal. Dealing at least 20 actual health damage during its fight qualifies a player for **The End of Tetanus?** when it dies.
 
+Both Tetanized bosses deal double damage on boss-owned attacks. The Wither marks orange rings before Rustquake or a three-skull barrage. The dragon marks purple rings before a Rustfire breath pool or a Wingstorm knockback. At half health, both enrage and cast their special attacks more often.
+
 ## Advancements, commands, and sounds
 
 The Rust & Ruin advancement tree has four branches. Drag or scroll to move through it; hold Shift to scroll sideways, and press Home to return to the start. Vanilla advancement tabs still unlock through their normal gameplay requirements. Existing advancement progress is preserved.
 
-The rusty advancement tab includes disease milestones, Strange Meat for collecting Infected Meat, Why did I eat that? for Salmonella, shield/glove prevention, medicine use, the medic, traps, and boss/beacon progression. Why did I do that? requires dying to your own upward-thrown rusty nail and has its own death message.
+The [advancement guide](docs/ADVANCEMENTS.md) gives the exact actions for each milestone, including medic cases, disease prevention, and the dragon damage requirement.
 
 Operator permission level 2:
 
@@ -120,7 +126,7 @@ With JDK 17:
 .\tools\Audit-Release.ps1
 ```
 
-Use `--offline` if dependencies are already cached. The distributable is `build/libs/rust-and-ruin-0.1.1-beta.jar`; test helpers and recipe viewer implementations are excluded. See [validation](VALIDATION.md) for the checks actually run and their limits.
+Use `--offline` if dependencies are already cached. The distributable is `build/libs/rust-and-ruin-0.1.2-beta.jar`. See [validation](VALIDATION.md) for the repository's test procedures.
 
 Wild tetanized and rabid variants use their species' normal despawn and mob-cap rules. Previously affected saves are repaired on load while recognizable player-kept creatures retain persistence. See the [October 19 source and despawn audit](docs/DESPAWN_AUDIT.md).
 
@@ -130,7 +136,9 @@ A single-use **Veterinary Kit** cures a permanently tetanized or rabid animal, r
 
 Use **honeycomb** with clean, rustable equipment in your other hand to wax it. Coating costs one honeycomb per item and protects dropped equipment for ten minutes of water/rain exposure by default. Each point of equipment durability use also consumes one second of coating. The coating survives saving and item splitting. It does not clean already rusty items or protect traps after placement. JEI and REI have dedicated coating displays.
 
-Sneak and right-click a **medic** to see the exact current supply request and how many of the requested item you hold. Bring **12 glass bottles, 3 honey bottles, 8 glow berries, or 8 white wool**, as specified, in your **main hand**, then sneak and right-click the same medic again. A completed delivery earns a reputation discount and **Special Delivery**. Each medic accepts one delivery per world day; requests rotate daily and completed deliveries survive reloads. Vanilla reputation decay, stock limits, and price limits still apply.
+Use a **Clinic Notice Board** in new clinics and cave camps to preview and choose a two-stage case. You can craft a board or sneak and right-click a medic for the rotating case. Complete both objectives with the appropriate medic to earn supplies, emeralds, a reputation discount, and **Special Delivery**. Progress survives reloads and respawns. Use `/mediccase` to see your objective or `/mediccase abandon` to drop the case.
+
+A **Field Splint** reduces spasms for 90 seconds during Tetanus. Antitoxin treats the underlying infection.
 
 **Abandoned workshops** can generate in new chunks in plains, sunflower plains, forest, birch forest, taiga, meadow, savanna, and dark forest biomes. Their ruined forges contain rusty traps, modest salvage, worn weapons, and occasional medicine. They add no creature spawners.
 

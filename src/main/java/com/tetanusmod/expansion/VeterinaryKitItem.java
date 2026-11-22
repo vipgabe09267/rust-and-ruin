@@ -35,7 +35,10 @@ public final class VeterinaryKitItem extends Item {
                 world.playSound(null,target.getBlockPos(),net.minecraft.sound.SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE,net.minecraft.sound.SoundCategory.NEUTRAL,0.7F,1.25F);
             }
             if (!user.getAbilities().creativeMode) stack.decrement(1);
-            if (user instanceof ServerPlayerEntity player) ModAdvancements.award(player,"clean_bill_of_health","treat_animal");
+            if (user instanceof ServerPlayerEntity player) {
+                ModAdvancements.award(player,"clean_bill_of_health","treat_animal");
+                MedicCases.recordWork(player, MedicCases.Work.VETERINARY);
+            }
             user.sendMessage(Text.translatable("message.tetanusmod.animal_treated"), true);
         }
         return ActionResult.success(user.getWorld().isClient);

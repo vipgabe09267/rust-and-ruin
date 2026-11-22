@@ -38,6 +38,7 @@ public final class AntitoxinItem extends Item {
             boolean ill=user.hasStatusEffect(TetanusMod.TETANUS)||user.hasStatusEffect(TetanusMod.LOCKJAW)||state.tetanus$getLockjaw()>0;
             user.removeStatusEffect(TetanusMod.TETANUS);
             user.removeStatusEffect(TetanusMod.LOCKJAW);
+            user.removeStatusEffect(com.tetanusmod.expansion.ExpansionEffects.SPLINTED);
             if(ill)user.removeStatusEffect(com.tetanusmod.expansion.ExpansionEffects.DISORIENTED);
             state.tetanus$setInfection(0,0);state.tetanus$setLockjaw(0);state.tetanus$setLockjawWindow(0);state.tetanus$setFreeze(0);
             // Award the completed cure, including eating-blocked Lockjaw before its visible effect refresh.

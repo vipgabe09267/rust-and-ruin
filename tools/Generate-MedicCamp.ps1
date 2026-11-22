@@ -31,6 +31,7 @@ Block 2 2 7 'tetanusmod:field_medic_cabinet' @{complete='true';facing='east';hal
 # A low wooden desk keeps the writer above the floor and faces the clear center aisle.
 Block 2 1 5 'minecraft:oak_planks'
 Block 2 2 5 'tetanusmod:prescription_writer' @{facing='east'}
+Block 2 2 8 'tetanusmod:clinic_notice_board' @{facing='east'}
 Block 8 1 10 'minecraft:chest' @{facing='north';type='single';waterlogged='false'} @{id='minecraft:chest';LootTable='tetanusmod:chests/medic_tent'}
 Block 8 1 8 'minecraft:water_cauldron' @{level='3'}
 Block 6 5 7 'minecraft:lantern' @{hanging='true';waterlogged='false'}

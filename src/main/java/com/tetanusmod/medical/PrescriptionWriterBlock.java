@@ -1,6 +1,7 @@
 package com.tetanusmod.medical;
 
 import net.minecraft.block.*;
+import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
@@ -26,6 +27,13 @@ public final class PrescriptionWriterBlock extends HorizontalFacingBlock {
     @Override public BlockState rotate(BlockState state,BlockRotation rotation){return state.with(FACING,rotation.rotate(state.get(FACING)));}
     @Override public BlockState mirror(BlockState state,BlockMirror mirror){return state.rotate(mirror.getRotation(state.get(FACING)));}
     @Override public VoxelShape getOutlineShape(BlockState state,BlockView world,BlockPos pos,ShapeContext context){return createCuboidShape(0,0,0,16,15,16);}
+
+    @Override
+    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+        // The recessed top still blocks passage. Villagers must walk around a raised writer.
+        return false;
+    }
+
     @Override public ActionResult onUse(BlockState state,World world,BlockPos pos,PlayerEntity player,Hand hand,BlockHitResult hit){
         if(player.isSpectator())return ActionResult.PASS;
         if(!world.isClient)player.openHandledScreen(new SimpleNamedScreenHandlerFactory((sync,inventory,user)->new PrescriptionWriterScreenHandler(sync,inventory,ScreenHandlerContext.create(world,pos)),Text.translatable("block.tetanusmod.prescription_writer")));

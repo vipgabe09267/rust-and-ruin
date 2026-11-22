@@ -8,6 +8,10 @@ Fight with throwable nails, rebar, metal pipes, and spears. Leave supported meta
 
 Set caltrops and barbed wire, or catch creatures and Survival players in **bear traps**. A trap snaps shut, holds its victim with Slowness X, and needs a **Trap Reset Tool** before it can catch someone else. Resetting opens the jaws and gives three seconds to move clear. Rusty traps can infect their victims.
 
+Craft **Tetanus TNT** with one TNT in the center, **four Rust in the corners**, and **four gunpowder in the remaining slots**. It ignites like vanilla TNT and has twice the blast power. The explosion plays **Tetanus. Nice One!** and leaves a rust-colored particle cloud for a random **5–15 seconds**. The cloud is cosmetic.
+
+Right-click a **Rust Magnet** to pull loose Rust, nails, rebar, and iron or copper salvage from up to seven blocks away. Solid blocks stop the pull. Each successful pulse spends one durability and brings items toward you for normal pickup.
+
 The **Iron Spear** has seven base damage, a slower swing than an iron sword, and a right-click thrust with extra reach. Salvage a **Rusty Fishing Hook** from a waterlogged rod and craft a hookline to pull enemies toward you.
 
 ## Three diseases, different problems
@@ -19,6 +23,8 @@ The **Iron Spear** has seven base damage, a slower swing than an iron sword, and
 Equip **Protective Gloves** in their dedicated inventory slot. They have 192 durability, appear on your character, and accept Unbreaking and Mending. Separate Tetanus and Rabies vaccines lower the risk of a new infection; they do not cure an existing one. Vaccination is protection, not immunity.
 
 The **Tetanus Protection** shield enchantment reduces infection risk from Tetanus I by 65% and Tetanus II by 40%.
+
+Use a **Field Splint** during Tetanus to stop the current movement spasm and reduce further spasms for **90 seconds**. It works during Lockjaw. Tetanus Antitoxin cures the infection.
 
 ## Infected creatures
 
@@ -32,11 +38,11 @@ Species-colored variant eggs have their own **Rust & Ruins Spawn Eggs** Creative
 
 ## Visit the medic
 
-Find a medic in a village clinic, or place a **Medicine Cabinet** to give an unemployed villager the job. Medics progress from **Nurse** to **Nurse Practitioner**, **Medical Doctor**, and **Attending Physician**, with one randomized treatment and one supply or barter offer at each rank. Later ranks can offer stronger treatments, protection books, potion ingredients, golden apples, and a scarce enchanted golden apple. Hero of the Village discounts apply.
+Find a medic in a village clinic, or place a **Medicine Cabinet** to give an unemployed villager the job. Each rank adds one randomized treatment and one supply or barter offer. Village medics can stock honeycomb, brewing supplies, or rare medical provisions. Cave medics can buy Rust or offer equipment like lanterns, Wire Brushes, and Trap Reset Tools. Higher ranks unlock additional treatments. Hero of the Village discounts apply.
 
-Treatment trades require emeralds **and one Medical Prescription**. Use **one paper + one ink sac** at a **Prescription Writer** to make it. Writers can be crafted, found in newly generated clinics and cave camps, or offered by lower-rank medics. Bring the prescription and listed emerald payment to the medic. An emergency prescription can also cost 3 emeralds, with at most two purchases per village delivery or one in a cave camp. Medicine stock is limited to **2-4 purchases per delivery**; village medics restock no more often than once per in-game day.
+Treatment trades require emeralds **and one Medical Prescription**. The **Prescription Writer** is the only survival source for prescriptions. Use **one paper + one ink sac** in the Writer. Craft the table, find it in a newly generated clinic or cave camp, or buy the table from a medic who stocks it. Village medicine offers have **2–4 purchases per delivery** and restock at most once per in-game day.
 
-For **Special Delivery**, sneak and right-click a medic to see the requested item, exact amount, and how much you hold. Bring the requested **12 glass bottles, 3 honey bottles, 8 glow berries, or 8 white wool** in your **main hand**, then sneak and right-click the same medic again. A completed daily delivery improves your medicine prices. This is separate from prescription trading.
+Use a **Clinic Notice Board** to choose a case and hover over it to preview both objectives. Boards are craftable and appear in newly generated clinics and cave camps. You can also accept a rotating case by sneaking and right-clicking a medic. Bring requested items in your **main hand** and sneak-interact, using partial stacks if needed. After fieldwork, report back to any medic of the case's kind. Use **`/mediccase`** to check your objective or **`/mediccase abandon`** to drop the case. Complete one case per in-game day for emeralds, supplies, a discount with that medic, and **Special Delivery**.
 
 New villages have a **55% clinic roll** where terrain and space allow. Clinics and uniforms match plains, desert, savanna, snowy, and taiga villages. Buildings have treatment beds, a two-block stainless-steel and glass cabinet, and a supply chest.
 
@@ -67,6 +73,8 @@ Build the usual Wither structure using four **Tetanized Soul Sand** blocks for a
 
 The **Tetanized Wither** has **650 health**, a custom appearance and boss bar, and summons tiny Tetanized Wither Skeleton minions. The first wave arrives **10-15 seconds after its spawn shield ends** while a player is nearby, with later waves every random **30-60 seconds**. Waves contain up to two **20-health** minions, with no more than six alive per Wither. They carry iron swords and can cause Wither and Tetanus. Nearby Creative observers can see the summons too.
 
+The Wither deals **double damage** with its boss-owned attacks, including skull hits and blasts. Its skulls inflict **Wither III** on Normal and Hard. **Rustquake** hits a marked orange circle and launches nearby players upward. **Skull Barrage** fires three skulls at the marked spot. At half health, the Wither enrages and the wait after each special attack drops from **15 to 9 seconds**.
+
 Defeating it drops native **50 XP**, one **Tetanized Wither Star**, bonus loot, and exactly **one** Tetanus book: **50% Tetanus II, otherwise Tetanus I**.
 
 Wire-brush the special star if you need an ordinary Nether Star; the boss does not drop both.
@@ -85,6 +93,8 @@ At the table, combine **one End Crystal + one Rust + one netherite ingot** into 
 
 The **Tetanized Ender Dragon** has **1,100 health**, a rust-and-purple boss bar, and attacks that spread Tetanus. A close pass has a **15%** chance to grab a nearby Survival player, lift them **ten blocks**, and drop them. A successful grab starts a **120-second cooldown**. Its native dragon XP sequence is preserved.
 
+The dragon deals **double damage** with its boss-owned hits, including bites, wing hits, and breath. **Rustfire** leaves a damaging breath pool for **seven seconds**. **Wingstorm** hits a wider circle and knocks players outward. Both give a sound cue and a purple ring before they land. At half health, the dragon enrages and the wait after each special attack drops from **18 to 11 seconds**.
+
 With mob loot enabled, every special-dragon defeat drops one placeable **Tetanized Dragon Egg** and one **Tetanus Overload Sword**, including repeat fights. These are shared boss drops, placed on solid ground outside the exit fountain. They glow and do not despawn. The egg keeps the vanilla black shape with small rust chips, and a slower, reverberant victory cue plays nearby.
 
 The sword has **12 attack damage**, **2.3 attack speed**, **4,062 durability**, and **Tetanus II** already applied. Add compatible sword enchantments and repair it with **netherite blocks at an anvil** or Mending. Netherite ingots do not repair it.
@@ -99,11 +109,22 @@ An active beacon automatically grants **Tetanus Resistance**, independently of y
 
 ## Advancements for questionable decisions
 
-Earn advancements for preventing infection with gloves or a protected shield, curing Tetanus or Lockjaw with antitoxin, contracting and curing Rabies, treating an animal, and progressing through the bosses and beacon. Mod milestones use matching item icons where available.
+Press **L** by default and select **Rust & Ruin**. The tab appears after you join a world. Drag or scroll to move around, hold **Shift** while scrolling to move sideways, and press **Home** to return to the start when Home is available. Hover an icon for its goal.
 
-Pick up Infected Meat for **Strange Meat**, contract Salmonella for **Why did I eat that?**, or die to your own upward-thrown rusty nail for **Why did I do that?** Drinking either vaccine awards **Faucci Ouchie**.
+| Advancement | How to earn it |
+| --- | --- |
+| **Rusty Business** | Drop a Nail into water or exposed rain and let it turn into a Rusted Nail. |
+| **Hands Off** | Wear Protective Gloves and have them successfully prevent a Tetanus exposure. |
+| **Not Today, maybe tomorrow** | Raise a shield with Tetanus Protection and block a Tetanus-inflicting attack. |
+| **A Dose of Common Sense** | Drink Tetanus Antitoxin while Tetanus or Lockjaw Sonata is active. An early cure counts. |
+| **Special Delivery** | Sneak and right-click a medic, complete both case objectives, and report back if the final step was fieldwork. |
+| **Why did I do that?** | Throw a Rusted Nail upward and die to that same nail when it comes back down. |
+| **Forged in Infection** | Take a Tetanized End Crystal from the Tetanus Wither Forging Table. |
+| **Tetanus, Again?** | Be in the End within 256 horizontal blocks of the center portal when four Tetanized End Crystals summon the dragon. |
+| **The End of Tetanus?** | Earn this when the Tetanized Dragon dies after you deal at least 20 points of damage to its health. |
+| **Rust Never Sleeps** | Confirm a power on a Tetanized Beacon over a full four-layer Rusted Iron Block pyramid. |
 
-Forge a special crystal for **Forged in Infection**. The special dragon summon awards **Tetanus, Again?** to nonspectating players within 256 horizontal blocks of the central End portal. Contribute at least **20 actual health damage** during its fight to qualify for **The End of Tetanus?** when it dies.
+See every milestone and its unlock steps in the [complete advancement guide](https://github.com/vipgabe09267/rust-and-ruin/blob/main/docs/ADVANCEMENTS.md).
 
 ## Requirements
 

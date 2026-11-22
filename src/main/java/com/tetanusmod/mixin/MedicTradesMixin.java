@@ -1,6 +1,5 @@
 package com.tetanusmod.mixin;
 
-import com.tetanusmod.expansion.MedicSupplies;
 import com.tetanusmod.expansion.MedicTradeOffers;
 import com.tetanusmod.expansion.MedicVillage;
 import net.minecraft.entity.passive.VillagerEntity;
@@ -11,12 +10,9 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.*;
 
 @Mixin(VillagerEntity.class)
-public abstract class MedicTradesMixin implements MedicSupplies.State, MedicTradeOffers.State {
-    @Unique private long rustruin$supplyDay=Long.MIN_VALUE;
+public abstract class MedicTradesMixin implements MedicTradeOffers.State {
     @Unique private long rustruin$restock=Long.MIN_VALUE;
     @Unique private boolean rustruin$fieldMedic;
-    public long rustruin$lastSupplyDay(){return rustruin$supplyDay;}
-    public void rustruin$lastSupplyDay(long day){rustruin$supplyDay=day;}
     public long rustruin$lastRestock(){return rustruin$restock;}
     public void rustruin$lastRestock(long tick){rustruin$restock=tick;}
     public boolean rustruin$isFieldMedic(){return rustruin$fieldMedic;}
@@ -38,7 +34,7 @@ public abstract class MedicTradesMixin implements MedicSupplies.State, MedicTrad
     @Inject(method="beginTradeWith",at=@At("TAIL"))
     private void tradeMetadata(net.minecraft.entity.player.PlayerEntity player,CallbackInfo ci){MedicTradeOffers.sendScreenMetadata(rustruin$medic(),player);}
     @Inject(method="writeCustomDataToNbt",at=@At("TAIL"))
-    private void saveSupplies(NbtCompound nbt,CallbackInfo ci){nbt.putLong("RustRuinSupplyDay",rustruin$supplyDay);MedicTradeOffers.save(rustruin$medic(),nbt);}
+    private void saveTrades(NbtCompound nbt,CallbackInfo ci){MedicTradeOffers.save(rustruin$medic(),nbt);}
     @Inject(method="readCustomDataFromNbt",at=@At("TAIL"))
-    private void loadSupplies(NbtCompound nbt,CallbackInfo ci){rustruin$supplyDay=nbt.contains("RustRuinSupplyDay",net.minecraft.nbt.NbtElement.LONG_TYPE)?nbt.getLong("RustRuinSupplyDay"):Long.MIN_VALUE;MedicTradeOffers.load(rustruin$medic(),nbt);}
+    private void loadTrades(NbtCompound nbt,CallbackInfo ci){MedicTradeOffers.load(rustruin$medic(),nbt);}
 }

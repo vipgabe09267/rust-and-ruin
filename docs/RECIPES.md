@@ -1,6 +1,6 @@
 # Crafting and brewing guide
 
-All recipes are for Rust & Ruin **0.1.1-beta**, Minecraft 1.20.1 Fabric. JEI and REI show crafting, cooking, brewing, rusting, wax coating, arrow smithing, prescription writing, and crystal forging. Crafting recipes unlock when iron is acquired.
+All recipes are for Rust & Ruin **0.1.2-beta**, Minecraft 1.20.1 Fabric. JEI and REI show crafting, cooking, brewing, rusting, wax coating, arrow smithing, prescription writing, and crystal forging. Crafting recipes unlock when iron is acquired.
 
 ## Weapons and equipment
 
@@ -20,6 +20,16 @@ All recipes are for Rust & Ruin **0.1.1-beta**, Minecraft 1.20.1 Fabric. JEI and
 | Up to 64 Tetanized Arrows | One Rust + 1–64 ordinary arrows | Smithing table: empty template; arrows in base; Rust in addition |
 | Rusty Hookline | Rusty Fishing Hook + chain + string + stick | Shapeless |
 | Tetanized Soul Sand | Rust + soul sand + iron ingot | Shapeless; produces one block |
+| Tetanus TNT | TNT + 4 Rust + 4 gunpowder | TNT at center, Rust in the corners, gunpowder in the four remaining slots |
+| Clinic Notice Board | 3 paper + 3 planks + stick | Paper across the top, planks across the middle, stick in the bottom center |
+| Rust Magnet | 4 iron ingots + redstone dust + copper ingot | Iron in the top corners and middle sides, redstone in the center, copper in the bottom center |
+| Field Splint | Stick + leather + 2 string | Shapeless |
+
+Tetanus TNT follows regular TNT ignition and has explosion power 8, double vanilla TNT's 4. The blast plays **Tetanus. Nice One!**. Its rust-colored particles linger for 5–15 seconds and are cosmetic.
+
+The Rust Magnet pulls up to 24 eligible dropped stacks per pulse over seven blocks of open space. It has 128 durability and consumes one point on a successful pull. Items reserved for someone else or waiting out a pickup delay stay in place.
+
+The Field Splint is single-use. Apply it during Tetanus for 90 seconds of relief. It stops the current movement spasm and reduces future spasm frequency by 75% while active. Infection and Lockjaw continue until recovery or an antitoxin cure.
 
 The hookline works up to 12 blocks away. Right-click while aiming at a creature to pull it toward you and inflict Tetanus on a successful hit. It costs one durability and has a two-second cooldown. Solid blocks obstruct the hookline.
 
@@ -122,16 +132,16 @@ Prices below are base prices before reputation, demand, discounts, and curing ef
 
 | Villager | Level | Added offers |
 | --- | --- | --- |
-| Medic | Nurse | Antitoxin or Tetanus Vaccine, plus a supply/barter offer. A Writer or emergency prescription can appear. Medicine stock 2-4. |
-| Medic | Nurse Practitioner | Two more offers; Rabies Cure joins the treatment pool. Supplies can include a Writer, emergency prescription, brewing equipment, or barter. |
-| Medic | Medical Doctor | Two more offers; treatment, veterinary kits, shield protection books, golden apples, diamonds or stronger brewing ingredients. |
-| Medic | Attending Physician | Two final offers; stronger supplies and a possible enchanted golden apple for 48 emeralds plus 2 diamonds, one per delivery. |
+| Medic | Nurse | Antitoxin or Tetanus Vaccine. Village examples include honeycomb and glove barters. Field examples include lanterns and Rust purchases. Either can stock a Writer. |
+| Medic | Nurse Practitioner | Rabies Cure joins the treatment pool. Villages can sell brewing equipment or a Writer. Field medics can sell Wire Brushes and Trap Reset Tools. |
+| Medic | Medical Doctor | Rabies Vaccine and Veterinary Kits enter the treatment pool. Village supplies include ghast tears and golden apples. Field supplies include shields and compasses. |
+| Medic | Attending Physician | Final offers include shield protection books in either setting. Village medics can offer an enchanted golden apple for 48 emeralds and two diamonds, one per delivery. |
 | Weaponsmith | Apprentice | Iron Spear 7; Rusted Spear 9; Rebar 3; Rusted Rebar 4 emeralds |
 | Toolsmith | Apprentice | Wire Brush or Trap Reset Tool, 4 emeralds |
 | Armorer | Apprentice | Bear Trap 6 or Rusted Bear Trap 7 emeralds |
 | Fisherman | Apprentice | Rusty Fishing Hook 3 emeralds |
 
-Each medic rank adds one randomized treatment and one randomized supply/barter offer; higher ranks unlock stronger options. Repeated medicines, prescription stock, and writers do not stack across ranks. Treatments cost emeralds **and one Medical Prescription**, made from paper and an ink sac at a Prescription Writer. Hero and gossip discounts apply to the native emerald price; they do not remove the prescription requirement. Village stock replenishes at most once per 24,000 world ticks; field medics have at most two uses per offer and a 72,000-tick delivery interval. Clinics use a 55% roll on eligible village-grid sites with suitable terrain. Placing a Medicine Cabinet lets an unemployed villager acquire the medic profession outside a clinic.
+Each medic rank adds one randomized treatment and one randomized supply or barter offer. Treatments cost emeralds **and one Medical Prescription**, made from paper and an ink sac at a Prescription Writer. Hero and gossip discounts apply to the emerald payment. Village stock replenishes at most once per 24,000 world ticks. Field medics have at most two uses per offer and a 72,000-tick delivery interval. Clinics use a 55% roll on eligible village-grid sites with suitable terrain. Placing a Medicine Cabinet lets an unemployed villager acquire the medic profession outside a clinic.
 
 ## Shield enchantment and beacon updates
 
@@ -152,9 +162,20 @@ Produces one single-use kit. Right-click a permanently tetanized or rabid animal
 
 Waxing uses no crafting station: hold honeycomb in one hand and clean, supported metal in the other, then use the honeycomb. Cost: one honeycomb per item in the metal stack. Protection: 12000 wet-weather ticks by default, plus 20 ticks spent per point of durability use. Only dropped equipment weathers; coatings do not transfer to placed traps. View both inputs and the coated output in JEI/REI's Wax coating category.
 
-## Medic supply requests and workshop salvage
+## Medic case files and workshop salvage
 
-Each medic rotates among **12 glass bottles, 3 honey bottles, 8 glow berries, and 8 white wool**, offset by its UUID. Sneak and right-click to see the requested item, exact amount, and the number held. To complete it, hold at least that amount in your **main hand**, then sneak and right-click the same medic. This earns **Special Delivery**; no merchant trade is required. One delivery is accepted per medic per 24000 world ticks, shared between players. Honey bottles return their glass bottles. The reward is 30 minor-positive reputation with that medic, used by vanilla trade discounts and decay. Discounts do not refresh daily stock or bypass ordinary trade limits.
+Right-click a Clinic Notice Board to choose any of the six cases and hover to preview its objectives. Find boards in newly generated village clinics and cave camps or craft one. Sneak and right-click an adult medic to accept the rotating case directly. Keep delivery items in your **main hand** and sneak-interact with the appropriate medic. Partial stacks count, and honey deliveries return the empty bottles. Fieldwork requires a successful action while that step is active. Return to any medic of the same kind to report completed fieldwork.
+
+| Medic | Case | First step | Second step |
+| --- | --- | --- | --- |
+| Village | Clinic Restock | 6 glass bottles | 2 honey bottles |
+| Village | Workshop Inspection | 4 leather | Clean a rusty stack with a Wire Brush |
+| Village | Herd Checkup | 8 wheat | Cure a permanently tetanized or rabid animal with a Veterinary Kit |
+| Field | Camp Rations | 6 glow berries | 6 baked potatoes |
+| Field | Salvage Inspection | 6 Rust | Clean a rusty stack with a Wire Brush |
+| Field | Cave Patrol | 12 torches | Defeat 2 hostile mobs below Y=32 in the Overworld |
+
+Each player can complete one case per in-game day. Progress survives relogs and death. Completion awards emeralds, an item reward, 30 minor-positive reputation with the reporting medic, and **Special Delivery**. Use `/mediccase` to review the current goal or `/mediccase abandon` to discard the active case.
 
 Abandoned workshop barrels roll 3-5 rewards from Rust, copper, string, coal, rusty nails, a worn rusty rebar, or rare antitoxin/veterinary kits. Naturally placed workshops use a 32-chunk random-spread grid with 16-chunk separation in eight temperate Overworld biomes. Like other structures, exploration availability depends on seed and previously generated chunks.
 
@@ -182,7 +203,7 @@ Iron Ingot    Copper Ingot  Iron Ingot
 
 Any planks accepted by the recipe tag work. Place the block and right-click it. Put **one paper** in the paper slot and **one ink sac** in the ink slot; taking the output consumes both and gives **one Medical Prescription**. A glow ink sac is not a substitute. Shift-click batches only complete prescriptions that fit in the inventory. Closing the menu returns unused input items; it does not grant its untaken output preview.
 
-Writers are also placed in newly generated village clinics and cave camps, and can appear in lower-rank medic trades: 10 emeralds at Nurse or 8 at Nurse Practitioner, one per delivery. The menu labels its paper, ink, and prescription slots. Bring the finished prescription and listed emerald payment to a medic for treatment. An emergency prescription costs 3 emeralds and has at most two purchases per village restock, or one for a field medic. This is separate from daily supply deliveries; the writer does not assign a villager profession or restock medicines.
+Newly generated village clinics and cave camps include a Writer. Some lower-rank medics also stock one Writer per delivery for 10 emeralds at Nurse or 8 at Nurse Practitioner. Use the Writer to obtain prescriptions in Survival and bring each finished prescription with the listed emerald payment to a medic for treatment.
 
 ## Tetanus Wither Forging Table and End crystals
 

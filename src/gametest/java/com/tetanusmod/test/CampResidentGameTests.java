@@ -9,10 +9,13 @@ import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
+import net.minecraft.entity.ai.pathing.LandPathNodeMaker;
+import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.structure.StructureContext;
+import net.minecraft.structure.StructureTemplate;
 import net.minecraft.test.*;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.*;
@@ -70,6 +73,34 @@ public class CampResidentGameTests implements FabricGameTest {
             finally{zombie.discard();remove(camp);world.setTimeOfDay(oldTime);}
         });
     }
+
+    @GameTest(templateName=SPACE,batchId="camp_writer_navigation",tickLimit=200)
+    public void villagersNavigateAroundTheRaisedPrescriptionWriter(TestContext ctx) {
+        var world = ctx.getWorld();
+        for (var rotation : BlockRotation.values()) {
+            var camp = place(ctx, rotation, 0);
+            try {
+                var placement = camp.piece.getPlacementData();
+                var anchor = camp.piece.getPos();
+                var writer = StructureTemplate.transform(placement, new BlockPos(2, 2, 5)).add(anchor);
+                ctx.assertTrue(LandPathNodeMaker.getLandNodeType(world, writer.mutableCopy()) == PathNodeType.BLOCKED,
+                        "Native navigation treated the raised writer as a step: " + rotation);
+
+                var approach = StructureTemplate.transform(placement, new BlockPos(2, 1, 4)).add(anchor);
+                var beyondWriter = StructureTemplate.transform(placement, new BlockPos(2, 1, 6)).add(anchor);
+                var villager = camp.villagers.get(0);
+                villager.setPosition(Vec3d.ofBottomCenter(approach));
+                villager.setOnGround(true);
+                var path = villager.getNavigation().findPathTo(beyondWriter, 0);
+                ctx.assertTrue(path != null && path.reachesTarget(),
+                        "Villager could not find a path around the raised writer: " + rotation);
+            } finally {
+                remove(camp);
+            }
+        }
+        ctx.complete();
+    }
+
     @GameTest(templateName=SPACE,batchId="camp_fluid_replacement",tickLimit=200)
     public void dryCampReplacesAmbientWaterWithoutWaterloggingItsFixtures(TestContext ctx){
         var world=ctx.getWorld();

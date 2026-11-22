@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:iron_nugget",
+    "minecraft:iron_ingot",
+    "minecraft:raw_iron",
+    "minecraft:copper_ingot",
+    "minecraft:raw_copper",
+    "minecraft:chain",
+    "tetanusmod:rust",
+    "tetanusmod:nail",
+    "tetanusmod:rusted_nail",
+    "tetanusmod:bent_nail",
+    "tetanusmod:rusted_bent_nail",
+    "tetanusmod:rebar",
+    "tetanusmod:rusted_rebar",
+    "tetanusmod:sharpened_rebar",
+    "tetanusmod:rusted_sharpened_rebar",
+    "tetanusmod:metal_pipe",
+    "tetanusmod:rusted_metal_pipe"
+  ]
+}

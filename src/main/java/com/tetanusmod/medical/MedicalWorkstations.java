@@ -19,6 +19,12 @@ public final class MedicalWorkstations {
     public static final Block WRITER=Registry.register(Registries.BLOCK,TetanusMod.id("prescription_writer"),new PrescriptionWriterBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).strength(3).nonOpaque()));
     public static final Item WRITER_ITEM=ModItems.register("prescription_writer",new BlockItem(WRITER,new Item.Settings()));
     public static final ScreenHandlerType<PrescriptionWriterScreenHandler> SCREEN=Registry.register(Registries.SCREEN_HANDLER,TetanusMod.id("prescription_writer"),new ScreenHandlerType<>(PrescriptionWriterScreenHandler::new,FeatureFlags.VANILLA_FEATURES));
+    public static final Block BOARD = Registry.register(Registries.BLOCK, TetanusMod.id("clinic_notice_board"),
+            new ClinicNoticeBoardBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).noCollision().nonOpaque()));
+    public static final Item BOARD_ITEM = ModItems.register("clinic_notice_board", new BlockItem(BOARD, new Item.Settings()));
+    public static final ScreenHandlerType<ClinicNoticeBoardScreenHandler> BOARD_SCREEN = Registry.register(
+            Registries.SCREEN_HANDLER, TetanusMod.id("clinic_notice_board"),
+            new ScreenHandlerType<>(ClinicNoticeBoardScreenHandler::new, FeatureFlags.VANILLA_FEATURES));
     private MedicalWorkstations(){}
     public static void initialize(){PrescriptionWritingRecipe.initialize();}
 }

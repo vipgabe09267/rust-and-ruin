@@ -1,0 +1,44 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "tetanusmod:block/rusted_metal",
+    "rust": "tetanusmod:block/rusted_metal",
+    "label": "minecraft:block/tnt_side",
+    "top": "minecraft:block/tnt_top",
+    "bottom": "tetanusmod:block/rusted_iron_block"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 5, 16],
+      "faces": {
+        "north": { "texture": "#rust", "cullface": "north" },
+        "south": { "texture": "#rust", "cullface": "south" },
+        "west": { "texture": "#rust", "cullface": "west" },
+        "east": { "texture": "#rust", "cullface": "east" },
+        "down": { "texture": "#bottom", "cullface": "down" }
+      }
+    },
+    {
+      "from": [0, 5, 0],
+      "to": [16, 11, 16],
+      "faces": {
+        "north": { "texture": "#label", "uv": [0, 5, 16, 11], "cullface": "north" },
+        "south": { "texture": "#label", "uv": [0, 5, 16, 11], "cullface": "south" },
+        "west": { "texture": "#label", "uv": [0, 5, 16, 11], "cullface": "west" },
+        "east": { "texture": "#label", "uv": [0, 5, 16, 11], "cullface": "east" }
+      }
+    },
+    {
+      "from": [0, 11, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": { "texture": "#rust", "cullface": "north" },
+        "south": { "texture": "#rust", "cullface": "south" },
+        "west": { "texture": "#rust", "cullface": "west" },
+        "east": { "texture": "#rust", "cullface": "east" },
+        "up": { "texture": "#top", "cullface": "up" }
+      }
+    }
+  ]
+}

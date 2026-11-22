@@ -2,6 +2,7 @@ package com.tetanusmod.test;
 
 import com.google.gson.GsonBuilder;
 import com.tetanusmod.TetanusMod;
+import com.tetanusmod.client.ClinicNoticeBoardScreen;
 import com.tetanusmod.expansion.*;
 import com.tetanusmod.medical.*;
 import com.tetanusmod.registry.ModItems;
@@ -13,6 +14,7 @@ import net.minecraft.client.gui.hud.ChatHudLine;
 import net.minecraft.client.gui.screen.ChatScreen;
 import net.minecraft.client.gui.screen.advancement.*;
 import net.minecraft.client.gui.screen.ingame.MerchantScreen;
+import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.option.Perspective;
 import net.minecraft.client.util.ScreenshotRecorder;
 import net.minecraft.entity.*;
@@ -39,6 +41,8 @@ import java.util.function.Function;
 /** Real connected-client writing, prescription trade, timed cure and supply interaction. */
 public final class GraphicalMedicalAudit {
     private static final BlockPos STATION=new BlockPos(320,4,96);
+    private static final BlockPos NOTICE_BOARD=STATION.add(4,1,2);
+    private static final int CLINIC_RESTOCK=ClinicNoticeBoardScreenHandler.CASES.indexOf(MedicCases.CaseFile.CLINIC_RESTOCK);
     private final String viewer=FabricLoader.getInstance().isModLoaded("roughlyenoughitems")?"rei":FabricLoader.getInstance().isModLoaded("jei")?"jei":"plain";
     private final List<Map<String,Object>> shots=new ArrayList<>();
     private final Map<String,Object> evidence=new LinkedHashMap<>();
@@ -46,7 +50,7 @@ public final class GraphicalMedicalAudit {
     private CompletableFuture<?> pending;
     private Scene scene;
     private UUID playerId;
-    private int ticks,phase,phaseTicks,stable,medicinePrice;
+    private int ticks,phase,phaseTicks,stable,medicinePrice,deliveries;
     private boolean started,complete,restoring,clicked;
     private Perspective oldPerspective;
     private int oldFov;
@@ -85,7 +89,33 @@ public final class GraphicalMedicalAudit {
                 require(menu.getSlot(1).getStack().isEmpty()&&menu.getSlot(2).getStack().isEmpty(),"Native writing batch left an unpaid result");shot(client,"writer-crafted");client.player.closeHandledScreen();
                 pending=server(client,p->{scene.verifyWriting();scene.moveToMedic();return null;});next(5);
             }
-            case 5->{if(done()){pending.join();pending=null;cameraTarget=scene.medic.getBoundingBox().getCenter();next(6);}}
+            case 5->{if(done()){pending.join();pending=null;cameraTarget=scene.medic.getBoundingBox().getCenter();next(21);}}
+            case 21->{
+                if(!at(client,scene.medicCamera)||phaseTicks<20)return false;
+                var board=client.world.getBlockState(NOTICE_BOARD);
+                if(!board.isOf(MedicalWorkstations.BOARD))return false;
+                aim(client,board.getOutlineShape(client.world,NOTICE_BOARD).getBoundingBox().getCenter().add(Vec3d.of(NOTICE_BOARD)));
+                if(!(client.crosshairTarget instanceof BlockHitResult hit)||!hit.getBlockPos().equals(NOTICE_BOARD))return false;
+                require(client.interactionManager.interactBlock(client.player,Hand.MAIN_HAND,hit).isAccepted(),"Native notice board interaction failed");
+                next(22);
+            }
+            case 22->{
+                if(!(client.currentScreen instanceof ClinicNoticeBoardScreen screen)||phaseTicks<20)return false;
+                var label=MedicCases.CaseFile.CLINIC_RESTOCK.title().getString();
+                var choice=screen.children().stream().filter(node->node instanceof ButtonWidget button&&button.getMessage().getString().equals(label))
+                        .map(ButtonWidget.class::cast).findFirst().orElseThrow();
+                shot(client,"notice-board");
+                require(screen.mouseClicked(choice.getX()+choice.getWidth()/2.0,choice.getY()+10,0),"Notice board choice button did not accept a click");
+                next(23);
+            }
+            case 23->{
+                if(!(client.player.currentScreenHandler instanceof ClinicNoticeBoardScreenHandler menu)
+                        ||menu.selection()!=CLINIC_RESTOCK||phaseTicks<20)return false;
+                shot(client,"notice-board-selected");
+                evidence.put("NativeBoardCaseSelection",MedicCases.CaseFile.CLINIC_RESTOCK.name());
+                client.player.closeHandledScreen();
+                next(6);
+            }
             case 6->{
                 if(!at(client,scene.medicCamera)||npc(client)==null||phaseTicks<20)return false;aim(client,npc(client).getBoundingBox().getCenter());client.options.sneakKey.setPressed(true);next(7);
             }
@@ -94,17 +124,18 @@ public final class GraphicalMedicalAudit {
                 require(client.interactionManager.interactEntity(client.player,npc(client),Hand.MAIN_HAND).isAccepted(),"Native medic query failed");next(8);
             }
             case 8->{
-                var message=message(client,"message.tetanusmod.supply_request");if(message==null||phaseTicks<20)return false;
-                evidence.put("ActualSupplyRequestMessage",message.getString());client.setScreen(new ChatScreen(""));shot(client,"supply-request");client.setScreen(null);
+                var message=message(client,"message.tetanusmod.medic_case.objective");if(message==null||phaseTicks<20)return false;
+                evidence.put(deliveries==0?"ActualSupplyRequestMessage":"ActualSecondObjectiveMessage",message.getString());
+                if(deliveries==0){client.setScreen(new ChatScreen(""));shot(client,"supply-request");client.setScreen(null);}
                 pending=server(client,p->{scene.seedDelivery();return null;});next(9);
             }
             case 9->{
                 if(pending!=null){if(!done())return false;pending.join();pending=null;}client.player.getInventory().selectedSlot=6;client.options.sneakKey.setPressed(true);
                 if(!client.player.getMainHandStack().isOf(scene.request.getItem())||client.player.getMainHandStack().getCount()!=scene.request.getCount()||!client.player.isSneaking()||phaseTicks<20)return false;
-                oldChat.clear();oldChat.addAll(chat(client));require(client.interactionManager.interactEntity(client.player,npc(client),Hand.MAIN_HAND).isAccepted(),"Native delivery interaction failed");next(10);
+                oldChat.clear();oldChat.addAll(chat(client));require(client.interactionManager.interactEntity(client.player,npc(client),Hand.MAIN_HAND).isAccepted(),"Native delivery interaction failed");next(++deliveries==1?8:10);
             }
             case 10->{
-                var message=message(client,"message.tetanusmod.supplies_delivered");if(message==null||phaseTicks<20)return false;
+                var message=message(client,"message.tetanusmod.medic_case.complete");if(message==null||phaseTicks<20)return false;
                 evidence.put("ActualSupplyCompletionMessage",message.getString());client.setScreen(new ChatScreen(""));shot(client,"supply-delivered");client.setScreen(null);client.options.sneakKey.setPressed(false);
                 pending=server(client,p->{scene.verifyDelivery();return null;});next(11);
             }
@@ -127,7 +158,20 @@ public final class GraphicalMedicalAudit {
                 client.player.closeHandledScreen();pending=server(client,p->{scene.verifyTrade(medicinePrice);scene.prepareCure();return null;});next(15);
             }
             case 15->{
-                if(pending!=null){if(!done())return false;pending.join();pending=null;}client.player.getInventory().selectedSlot=scene.antitoxinSlot;
+                if(pending!=null){if(!done())return false;pending.join();pending=null;}
+                if(!client.player.hasStatusEffect(TetanusMod.TETANUS)||!client.player.getOffHandStack().isOf(ModItems.FIELD_SPLINT)||phaseTicks<20)return false;
+                require(client.interactionManager.interactItem(client.player,Hand.OFF_HAND).isAccepted(),"Native field splint use did not start");
+                next(24);
+            }
+            case 24->{
+                if(!client.player.hasStatusEffect(ExpansionEffects.SPLINTED)||!client.player.getOffHandStack().isEmpty()||phaseTicks<20)return false;
+                require(client.player.hasStatusEffect(TetanusMod.TETANUS),"Field splint cured Tetanus");
+                shot(client,"field-splint");
+                evidence.put("NativeFieldSplintApplied",true);
+                next(25);
+            }
+            case 25->{
+                client.player.getInventory().selectedSlot=scene.antitoxinSlot;
                 if(!client.player.hasStatusEffect(TetanusMod.TETANUS)||!client.player.getMainHandStack().isOf(ModItems.ANTITOXIN)||phaseTicks<30)return false;
                 shot(client,"tetanus-before-cure");client.options.useKey.setPressed(true);require(client.interactionManager.interactItem(client.player,Hand.MAIN_HAND).isAccepted(),"Native timed antitoxin use did not start");next(16);
             }
@@ -162,7 +206,7 @@ public final class GraphicalMedicalAudit {
     }
     private void write(MinecraftClient client){
         require(scene.restored,"Medical fixture was not restored");
-        evidence.put("Result","PASS");evidence.put("ActualGraphicalClient",true);evidence.put("ManuallyPlacedFixtureStation",true);evidence.put("ManuallySpawnedFixtureMedic",true);evidence.put("FixtureMedicAiDisabled",true);evidence.put("DirectCriterionGrants",0);evidence.put("ProgressRevocations",0);evidence.put("NativeWriterOutputsCrafted",2);evidence.put("NativePrescriptionTradePurchases",1);evidence.put("NativeAntitoxinUses",1);evidence.put("NativeSupplyDeliveries",1);evidence.put("ExistingCriterionDatesPreserved",scene.beforeDates.size());evidence.put("OriginalPlayerAndWorldStateRestored",true);evidence.put("Screenshots",shots);
+        evidence.put("Result","PASS");evidence.put("ActualGraphicalClient",true);evidence.put("ManuallyPlacedFixtureStation",true);evidence.put("ManuallySpawnedFixtureMedic",true);evidence.put("FixtureMedicAiDisabled",true);evidence.put("DirectCriterionGrants",0);evidence.put("ProgressRevocations",0);evidence.put("NativeWriterOutputsCrafted",2);evidence.put("NativePrescriptionTradePurchases",1);evidence.put("NativeAntitoxinUses",1);evidence.put("NativeSupplyDeliveries",deliveries);evidence.put("ExistingCriterionDatesPreserved",scene.beforeDates.size());evidence.put("OriginalPlayerAndWorldStateRestored",true);evidence.put("Screenshots",shots);
         try{Files.writeString(client.runDirectory.toPath().resolve("graphical-medical-"+viewer+".json"),new GsonBuilder().setPrettyPrinting().create().toJson(evidence));}catch(Exception problem){throw new IllegalStateException("Cannot save medical graphical proof",problem);}
     }
     private boolean done(){return pending!=null&&pending.isDone();}
@@ -188,13 +232,14 @@ public final class GraphicalMedicalAudit {
 
     private static final class Scene {
         final ServerPlayerEntity player;final ServerWorld world;final Vec3d oldPosition;final float oldYaw,oldPitch,oldHealth;final GameMode oldMode;final boolean oldGravity,oldFlying,oldAllowFlying,oldInvulnerable;
-        final NbtList oldInventory;final NbtCompound oldHunger=new NbtCompound();final List<StatusEffectInstance> oldEffects;final int oldSelected;final Map<BlockPos,BlockState> blocks=new LinkedHashMap<>();final Map<String,String> beforeDates;
+        final NbtList oldInventory;final NbtCompound oldHunger=new NbtCompound(),oldCase=new NbtCompound();final List<StatusEffectInstance> oldEffects;final int oldSelected;final Map<BlockPos,BlockState> blocks=new LinkedHashMap<>();final Map<String,String> beforeDates;
         final Vec3d stationCamera=Vec3d.ofBottomCenter(STATION).add(0,0,2.5),medicCamera=Vec3d.ofBottomCenter(STATION).add(3,0,3.5);
         VillagerEntity medic;ItemStack request;int antitoxinSlot,antitoxinUsedBefore;boolean restored;
         Scene(ServerPlayerEntity player){
             this.player=player;world=player.getServerWorld();require(world.getChunkManager().getChunkGenerator() instanceof net.minecraft.world.gen.chunk.FlatChunkGenerator,"Medical fixture requires a fresh flat test world");
             var cure=player.getServer().getAdvancementLoader().get(TetanusMod.id("antitoxin"));var supply=player.getServer().getAdvancementLoader().get(TetanusMod.id("supply_run"));require(cure!=null&&supply!=null&&!player.getAdvancementTracker().getProgress(cure).isDone()&&!player.getAdvancementTracker().getProgress(supply).isDone(),"Use a fresh fixture player; medical proof never revokes existing progress");
             require(!player.hasStatusEffect(TetanusMod.TETANUS)&&!player.hasStatusEffect(TetanusMod.LOCKJAW)&&!player.hasStatusEffect(ExpansionEffects.RABIES),"Medical proof needs an initially healthy actor");
+            MedicCases.progress(player).write(oldCase);
             oldPosition=player.getPos();oldYaw=player.getYaw();oldPitch=player.getPitch();oldHealth=player.getHealth();oldMode=player.interactionManager.getGameMode();oldGravity=player.hasNoGravity();oldFlying=player.getAbilities().flying;oldAllowFlying=player.getAbilities().allowFlying;oldInvulnerable=player.getAbilities().invulnerable;oldInventory=player.getInventory().writeNbt(new NbtList());oldSelected=player.getInventory().selectedSlot;player.getHungerManager().writeNbt(oldHunger);oldEffects=player.getStatusEffects().stream().map(StatusEffectInstance::new).toList();beforeDates=dates(player);
         }
         void prepare(){
@@ -203,18 +248,22 @@ public final class GraphicalMedicalAudit {
             for(var pos:blocks.keySet())world.setBlockState(pos,pos.getY()==3?Blocks.STONE.getDefaultState():Blocks.AIR.getDefaultState());world.setBlockState(STATION,MedicalWorkstations.WRITER.getDefaultState().with(HorizontalFacingBlock.FACING,Direction.SOUTH));
             player.changeGameMode(GameMode.SURVIVAL);player.clearStatusEffects();player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION,2400,0,false,false,false));player.setNoGravity(true);player.getAbilities().invulnerable=true;player.sendAbilitiesUpdate();player.getInventory().clear();player.getInventory().selectedSlot=0;player.getInventory().setStack(9,new ItemStack(Items.PAPER,3));player.getInventory().setStack(10,new ItemStack(Items.INK_SAC,2));player.getInventory().setStack(11,new ItemStack(Items.EMERALD,64));player.teleport(world,stationCamera.x,stationCamera.y,stationCamera.z,180,25);player.setVelocity(Vec3d.ZERO);
             for(int seed=0;seed<64;seed++){var candidate=EntityType.VILLAGER.create(world);require(candidate!=null,"Native villager construction failed");candidate.setVillagerData(candidate.getVillagerData().withProfession(MedicVillage.MEDIC).withLevel(1));candidate.setExperience(1);candidate.getRandom().setSeed(seed*97L+3);var offers=candidate.getOffers();if(!offers.isEmpty()&&offers.get(0).getSellItem().isOf(ModItems.ANTITOXIN)){medic=candidate;break;}}
-            require(medic!=null,"No native randomized Nurse fixture offers antitoxin");medic.setPosition(Vec3d.ofBottomCenter(STATION).add(3,0,1));medic.setAiDisabled(true);medic.setInvulnerable(true);medic.setNoGravity(true);require(world.spawnEntity(medic),"Native Nurse fixture could not spawn");request=MedicSupplies.request(medic);player.currentScreenHandler.sendContentUpdates();
+            require(medic!=null,"No native randomized Nurse fixture offers antitoxin");medic.setPosition(Vec3d.ofBottomCenter(STATION).add(3,0,1));medic.setAiDisabled(true);medic.setInvulnerable(true);medic.setNoGravity(true);require(world.spawnEntity(medic),"Native Nurse fixture could not spawn");
+            world.setBlockState(NOTICE_BOARD,MedicalWorkstations.BOARD.getDefaultState().with(HorizontalFacingBlock.FACING,Direction.SOUTH));
+            MedicCases.progress(player).read(new NbtCompound());
+            player.currentScreenHandler.sendContentUpdates();
         }
         void verifyWriting(){require(player.getInventory().count(MedicalWorkstations.PRESCRIPTION)==2&&player.getInventory().count(Items.PAPER)==1&&player.getInventory().count(Items.INK_SAC)==0,"Real writer outputs/ingredients failed accounting");}
         void moveToMedic(){player.teleport(world,medicCamera.x,medicCamera.y,medicCamera.z,180,0);player.setVelocity(Vec3d.ZERO);}
-        void seedDelivery(){require(player.getInventory().getStack(6).isEmpty(),"Fixture delivery slot is unexpectedly occupied");player.getInventory().setStack(6,request.copy());player.getInventory().selectedSlot=6;player.currentScreenHandler.sendContentUpdates();}
-        void verifyDelivery(){require(((MedicSupplies.State)medic).rustruin$lastSupplyDay()==MedicSupplies.day(medic)&&player.getMainHandStack().isEmpty(),"Native delivery did not charge its exact stack");var advancement=player.getServer().getAdvancementLoader().get(TetanusMod.id("supply_run"));require(player.getAdvancementTracker().getProgress(advancement).isDone(),"Native supply delivery did not award its advancement");}
-        void verifyTrade(int price){require(player.getInventory().count(ModItems.ANTITOXIN)==1&&player.getInventory().count(MedicalWorkstations.PRESCRIPTION)==1&&player.getInventory().count(Items.EMERALD)==64-price&&medic.getOffers().get(0).getUses()==1,"Native prescription trade failed cost/stock accounting");}
-        void prepareCure(){player.closeHandledScreen();require(CommandEffects.apply(player,new StatusEffectInstance(TetanusMod.TETANUS,10000),null),"Native Tetanus fixture application failed");require(!player.hasStatusEffect(TetanusMod.LOCKJAW),"Cure fixture entered late-stage Lockjaw");antitoxinUsedBefore=player.getStatHandler().getStat(Stats.USED.getOrCreateStat(ModItems.ANTITOXIN));antitoxinSlot=-1;for(int i=0;i<9;i++)if(player.getInventory().getStack(i).isOf(ModItems.ANTITOXIN)){antitoxinSlot=i;break;}require(antitoxinSlot>=0,"Traded antitoxin did not reach native hotbar");player.getInventory().selectedSlot=antitoxinSlot;player.currentScreenHandler.sendContentUpdates();}
-        void verifyCure(){require(!player.hasStatusEffect(TetanusMod.TETANUS)&&!player.hasStatusEffect(TetanusMod.LOCKJAW)&&player.getStatHandler().getStat(Stats.USED.getOrCreateStat(ModItems.ANTITOXIN))-antitoxinUsedBefore==1,"Native timed antitoxin failed cure or consumption stat");var cure=player.getServer().getAdvancementLoader().get(TetanusMod.id("antitoxin"));require(player.getAdvancementTracker().getProgress(cure).isDone(),"Actual timed early cure did not award Common Sense");}
+        void seedDelivery(){require(player.getInventory().getStack(6).isEmpty(),"Fixture delivery slot is unexpectedly occupied");var progress=MedicCases.progress(player);request=new ItemStack(progress.currentStep().delivery(),progress.remaining());player.getInventory().setStack(6,request.copy());player.getInventory().selectedSlot=6;player.currentScreenHandler.sendContentUpdates();}
+        void verifyDelivery(){require(MedicCases.progress(player).activeCase()==null&&player.getInventory().count(Items.GLASS_BOTTLE)==2&&player.getInventory().count(Items.HONEY_BOTTLE)==1&&player.getInventory().count(Items.EMERALD)==67,"Native case did not charge its supplies and award the exact rewards");var advancement=player.getServer().getAdvancementLoader().get(TetanusMod.id("supply_run"));require(player.getAdvancementTracker().getProgress(advancement).isDone(),"Native medic case did not award its advancement");}
+        void verifyTrade(int price){require(player.getInventory().count(ModItems.ANTITOXIN)==1&&player.getInventory().count(MedicalWorkstations.PRESCRIPTION)==1&&player.getInventory().count(Items.EMERALD)==67-price&&medic.getOffers().get(0).getUses()==1,"Native prescription trade failed cost/stock accounting");}
+        void prepareCure(){player.closeHandledScreen();require(CommandEffects.apply(player,new StatusEffectInstance(TetanusMod.TETANUS,10000),null),"Native Tetanus fixture application failed");require(!player.hasStatusEffect(TetanusMod.LOCKJAW),"Cure fixture entered late-stage Lockjaw");antitoxinUsedBefore=player.getStatHandler().getStat(Stats.USED.getOrCreateStat(ModItems.ANTITOXIN));antitoxinSlot=-1;for(int i=0;i<9;i++)if(player.getInventory().getStack(i).isOf(ModItems.ANTITOXIN)){antitoxinSlot=i;break;}require(antitoxinSlot>=0,"Traded antitoxin did not reach native hotbar");require(player.getOffHandStack().isEmpty(),"Fixture offhand is occupied");player.setStackInHand(Hand.OFF_HAND,new ItemStack(ModItems.FIELD_SPLINT));player.currentScreenHandler.sendContentUpdates();}
+        void verifyCure(){require(!player.hasStatusEffect(TetanusMod.TETANUS)&&!player.hasStatusEffect(TetanusMod.LOCKJAW)&&!player.hasStatusEffect(ExpansionEffects.SPLINTED)&&player.getStatHandler().getStat(Stats.USED.getOrCreateStat(ModItems.ANTITOXIN))-antitoxinUsedBefore==1,"Native timed antitoxin failed cure or consumption stat");var cure=player.getServer().getAdvancementLoader().get(TetanusMod.id("antitoxin"));require(player.getAdvancementTracker().getProgress(cure).isDone(),"Actual timed early cure did not award Common Sense");}
         void restore(){
             if(restored)return;player.closeHandledScreen();if(medic!=null&&!medic.isRemoved())medic.discard();for(var entry:blocks.entrySet())world.setBlockState(entry.getKey(),entry.getValue());
             var after=dates(player);require(after.entrySet().containsAll(beforeDates.entrySet()),"Medical proof changed an existing earned criterion date");
+            MedicCases.progress(player).read(oldCase);
             player.teleport(world,oldPosition.x,oldPosition.y,oldPosition.z,oldYaw,oldPitch);player.changeGameMode(oldMode);player.setNoGravity(oldGravity);player.getAbilities().flying=oldFlying;player.getAbilities().allowFlying=oldAllowFlying;player.getAbilities().invulnerable=oldInvulnerable;player.sendAbilitiesUpdate();player.getInventory().readNbt(oldInventory.copy());player.getInventory().selectedSlot=oldSelected;player.getHungerManager().readNbt(oldHunger.copy());player.clearStatusEffects();for(var effect:oldEffects)player.addStatusEffect(new StatusEffectInstance(effect));player.setHealth(oldHealth);player.currentScreenHandler.sendContentUpdates();restored=true;
         }
         static Map<String,String> dates(ServerPlayerEntity player){var result=new TreeMap<String,String>();for(var advancement:player.getServer().getAdvancementLoader().getAdvancements()){var progress=player.getAdvancementTracker().getProgress(advancement);for(String criterion:progress.getObtainedCriteria())result.put(advancement.getId()+"/"+criterion,progress.getCriterionProgress(criterion).toJson().toString());}return result;}

@@ -1,10 +1,12 @@
 package com.tetanusmod.item;
 
+import com.tetanusmod.expansion.MedicCases;
 import com.tetanusmod.rust.RustingSystem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -35,6 +37,7 @@ public final class WireBrushItem extends Item {
             ItemStack flakes=new ItemStack(com.tetanusmod.registry.ModItems.RUST);
             if(!user.getInventory().insertStack(flakes))user.dropItem(flakes,false);
             if (!user.getAbilities().creativeMode) brush.damage(cost, user, player -> player.sendToolBreakStatus(hand));
+            if (user instanceof ServerPlayerEntity player) MedicCases.recordWork(player, MedicCases.Work.BRUSH);
             world.playSound(null, user.getBlockPos(), SoundEvents.ITEM_BRUSH_BRUSHING_GENERIC,
                     SoundCategory.PLAYERS, 0.7F, 1.0F);
         }

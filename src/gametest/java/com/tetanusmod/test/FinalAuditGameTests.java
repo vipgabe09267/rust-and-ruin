@@ -62,7 +62,7 @@ public class FinalAuditGameTests implements FabricGameTest {
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void offhandHooklineChargesOnlyOneExposure(TestContext ctx) {
         for(int x=2;x<=4;x++)for(int y=3;y<=5;y++)for(int z=1;z<=6;z++)ctx.setBlockState(x,y,z,net.minecraft.block.Blocks.AIR);
-        var player=ctx.createMockSurvivalPlayer();player.setPosition(ctx.getAbsolute(new Vec3d(3.5,3,1.5)));player.setYaw(0);player.setPitch(0);
+        var player=ctx.createMockSurvivalPlayer();player.setPosition(ctx.getAbsolute(new Vec3d(3.5,3,1.5)));player.setNoGravity(true);
         player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModItems.RUSTED_REBAR));player.setStackInHand(Hand.OFF_HAND,new ItemStack(ModItems.RUSTY_HOOKLINE));
         var cow=ctx.spawnEntity(EntityType.COW,new Vec3d(3.5,3.5,5.5));cow.setAiDisabled(true);cow.setNoGravity(true);
         cow.equipStack(EquipmentSlot.OFFHAND,new ItemStack(ModItems.PROTECTIVE_GLOVES));
@@ -70,6 +70,7 @@ public class FinalAuditGameTests implements FabricGameTest {
             float glove=TetanusMod.CONFIG.gloveProtectionChance,animal=TetanusMod.CONFIG.animalConversionChance;
             try {
                 TetanusMod.CONFIG.gloveProtectionChance=0;TetanusMod.CONFIG.animalConversionChance=0;
+                player.lookAt(net.minecraft.command.argument.EntityAnchorArgumentType.EntityAnchor.EYES,cow.getBoundingBox().getCenter());
                 ModItems.RUSTY_HOOKLINE.use(ctx.getWorld(),player,Hand.OFF_HAND);
                 ctx.assertTrue(cow.getHealth()==9&&cow.hasStatusEffect(TetanusMod.TETANUS),"Offhand hookline hit or infection failed");
                 ctx.assertTrue(cow.getOffHandStack().getDamage()==1,"Hookline charged two exposures from main-hand weapon");

@@ -1,6 +1,7 @@
 package com.tetanusmod.dragon;
 
 import com.tetanusmod.entity.MobVariants;
+import com.tetanusmod.entity.BossAbilities;
 import com.tetanusmod.effect.Infection;
 import com.tetanusmod.registry.ModAdvancements;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
@@ -26,6 +27,7 @@ public final class DragonEncounter {
     public static final float GRAB_CHANCE=.15F;
     private DragonEncounter(){}
     public static final class Data {
+        public final BossAbilities.State abilities=new BossAbilities.State();
         public final Map<UUID,Float> damage=new HashMap<>();
         public final Set<UUID> closePass=new HashSet<>();
         public long nextGrab;
@@ -37,10 +39,12 @@ public final class DragonEncounter {
         public Vec3d lastSafe;
         public PhaseType<?> previousPhase=PhaseType.HOLDING_PATTERN;
         public void write(NbtCompound nbt){
+            abilities.write(nbt);
             nbt.putLong("RustRuinDragonNextGrab",nextGrab);nbt.putBoolean("RustRuinDragonRewarded",rewarded);nbt.putBoolean("RustRuinDragonInterruptedGrab",carried!=null||interruptedGrab);
             var list=new NbtList();for(var entry:damage.entrySet()){var row=new NbtCompound();row.putUuid("Player",entry.getKey());row.putFloat("Damage",entry.getValue());list.add(row);}nbt.put("RustRuinDragonDamage",list);
         }
         public void read(NbtCompound nbt,long now){
+            abilities.read(nbt);
             nextGrab=Math.max(0,Math.min(now+GRAB_COOLDOWN,nbt.getLong("RustRuinDragonNextGrab")));rewarded=nbt.getBoolean("RustRuinDragonRewarded");interruptedGrab=nbt.getBoolean("RustRuinDragonInterruptedGrab");damage.clear();
             var list=nbt.getList("RustRuinDragonDamage",10);for(int i=0;i<Math.min(1024,list.size());i++){var row=list.getCompound(i);float amount=row.getFloat("Damage");if(row.containsUuid("Player")&&Float.isFinite(amount)&&amount>0)damage.put(row.getUuid("Player"),Math.min(20,amount));}
             carried=null;lastSafe=null;heldTicks=0;closePass.clear();
@@ -115,8 +119,9 @@ public final class DragonEncounter {
             for(var passenger:List.copyOf(dragon.getPassengerList()))if(passenger instanceof PlayerEntity)passenger.stopRiding();
             if(dragon.isAlive()&&dragon.getHealth()>0&&dragon.getPhaseManager().getCurrent().getType()==PhaseType.HOVER)dragon.getPhaseManager().setPhase(PhaseType.HOLDING_PATTERN);
         }
-        if(!dragon.isAlive()||dragon.getHealth()<=0||dragon.getPhaseManager().getCurrent().getType()==PhaseType.DYING){release(dragon);return;}
+        if(!dragon.isAlive()||dragon.getHealth()<=0||dragon.getPhaseManager().getCurrent().getType()==PhaseType.DYING){state.abilities.cancelWindup();release(dragon);return;}
         if(state.carried!=null){
+            state.abilities.cancelWindup();
             var player=world.getServer().getPlayerManager().getPlayer(state.carried);
             if(player==null||player.getWorld()!=world||!player.isAlive()||player.getVehicle()!=dragon||player.isCreative()||player.isSpectator()){release(dragon);return;}
             Vec3d point=mouth(dragon);if(!clear(world,player,point)){release(dragon);return;}state.lastSafe=point;
@@ -133,6 +138,7 @@ public final class DragonEncounter {
             return;
         }
         // A saved player vehicle must never leave a player stuck after loading an interrupted grab.
+        BossAbilities.tick(dragon,state.abilities);
         for(var passenger:List.copyOf(dragon.getPassengerList()))if(passenger instanceof PlayerEntity)passenger.stopRiding();
         var nearby=new HashSet<UUID>();for(var player:world.getPlayers())if(eligible(player)&&player.squaredDistanceTo(dragon.head)<=49){nearby.add(player.getUuid());if(!state.closePass.contains(player.getUuid()))tryGrab(dragon,player,dragon.getRandom().nextFloat());}
         state.closePass.clear();state.closePass.addAll(nearby);

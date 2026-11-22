@@ -6,6 +6,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import com.tetanusmod.TetanusMod;
+import com.tetanusmod.expansion.ExpansionEffects;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Hand;
 import java.util.UUID;
@@ -63,25 +64,28 @@ public final class TetanusEffect extends StatusEffect {
         // Randomized bursts, rolled once per second, keep symptoms intermittent.
         if (elapsed % 20 != 0 || entity.getRandom().nextDouble()
                 >= Math.min(0.8, (0.10 + stage * 0.10) * TetanusMod.CONFIG.spasmFrequency)) return;
-        Infection.twitch(entity, stage);
-        entity.swingHand(Hand.MAIN_HAND);
-        if (stage >= 1) {
-            if (!entity.hasVehicle()) {
-                double angle = entity.getRandom().nextDouble() * Math.PI * 2;
-                entity.addVelocity(Math.cos(angle) * 0.06, 0, Math.sin(angle) * 0.06);
-                entity.velocityModified = true;
-                state.tetanus$setFreeze(stage == 2 ? 4 : 2);
-            }
-            entity.getWorld().playSound(null, entity.getBlockPos(), TetanusMod.SPASM_SOUND,
-                    SoundCategory.PLAYERS, 0.15F, 0.8F + entity.getRandom().nextFloat() * 0.2F);
-        }
+        if (!entity.hasStatusEffect(ExpansionEffects.SPLINTED) || entity.getRandom().nextFloat() < 0.25F)
+            spasm(entity, state, stage);
         if (stage == 2 && entity instanceof net.minecraft.entity.player.PlayerEntity) {
-
             if (entity.getRandom().nextFloat() < 0.25F) {
                 float damage = TetanusMod.CONFIG.periodicDamage;
                 if (!TetanusMod.CONFIG.tetanusCanKill) damage = Math.min(damage, Math.max(0, entity.getHealth() - 1.0F));
                 if (damage > 0) entity.damage(com.tetanusmod.expansion.ModDamage.source(entity,com.tetanusmod.expansion.ModDamage.TETANUS), damage);
             }
         }
+    }
+
+    private void spasm(LivingEntity entity, InfectionState state, int stage) {
+        Infection.twitch(entity, stage);
+        entity.swingHand(Hand.MAIN_HAND);
+        if (stage < 1) return;
+        if (!entity.hasVehicle()) {
+            double angle = entity.getRandom().nextDouble() * Math.PI * 2;
+            entity.addVelocity(Math.cos(angle) * 0.06, 0, Math.sin(angle) * 0.06);
+            entity.velocityModified = true;
+            state.tetanus$setFreeze(stage == 2 ? 4 : 2);
+        }
+        entity.getWorld().playSound(null, entity.getBlockPos(), TetanusMod.SPASM_SOUND,
+                SoundCategory.PLAYERS, 0.15F, 0.8F + entity.getRandom().nextFloat() * 0.2F);
     }
 }

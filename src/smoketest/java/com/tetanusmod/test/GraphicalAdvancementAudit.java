@@ -299,7 +299,7 @@ public final class GraphicalAdvancementAudit {
                 {"trap_reset", "A cow walks into a placed trap; use its reset tool through the native block interaction."},
                 {"rust_arrows", "Take a real 64-arrow/Rust smithing result through the native output slot."},
                 {"medic", "Open a medic's actual merchant menu, supply its generated barter inputs, and take its output."},
-                {"supply_run", "Sneak-interact with that medic holding its requested daily supply delivery."},
+                {"supply_run", "Complete both steps of a medic case file by sneak-interacting with the requested supplies."},
                 {"spear", "Right-click a spear at a live indexed cow and land its actual raycast thrust."},
                 {"infected", "Contract Tetanus from an actual rusty zombie injury or a real timed Tetanus potion."},
                 {"why_did_i_eat_that", "Eat raw infected meat using the real item-use timer."},
@@ -521,7 +521,15 @@ public final class GraphicalAdvancementAudit {
             var menu=(MerchantScreenHandler)player.currentScreenHandler;var offer=medic.getOffers().get(0);menu.setRecipeIndex(0);menu.getSlot(0).setStack(offer.getAdjustedFirstBuyItem().copy());menu.getSlot(1).setStack(offer.getSecondBuyItem().copy());
             ctx.assertTrue(!menu.getSlot(2).getStack().isEmpty(),"Generated medic barter did not produce an output");menu.onSlotClick(2,0,SlotActionType.QUICK_MOVE,player);
             ctx.assertTrue(offer.getUses()==1,"Native medic result extraction did not consume stock");earned("medic");player.closeHandledScreen();medic.setCustomer(null);
-            player.setSneaking(true);player.setStackInHand(Hand.MAIN_HAND,MedicSupplies.request(medic).copy());UseEntityCallback.EVENT.invoker().interact(player,ctx.getWorld(),Hand.MAIN_HAND,medic,null);player.setSneaking(false);earned("supply_run");
+            var caseNbt=new net.minecraft.nbt.NbtCompound();
+            var caseFile=new net.minecraft.nbt.NbtCompound();caseFile.putString("File","clinic_restock");caseNbt.put("RustRuinMedicCase",caseFile);
+            var progress=MedicCases.progress(player);progress.read(caseNbt);
+            player.setSneaking(true);
+            for(int step=0;step<2;step++){
+                player.setStackInHand(Hand.MAIN_HAND,new ItemStack(progress.currentStep().delivery(),progress.remaining()));
+                UseEntityCallback.EVENT.invoker().interact(player,ctx.getWorld(),Hand.MAIN_HAND,medic,null);
+            }
+            player.setSneaking(false);earned("supply_run");
         }
         private void spear() {
             position(ctx.getAbsolute(new Vec3d(1.5,3,6.5)));player.setYaw(0);player.setPitch(0);player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ExpansionItems.SPEAR));

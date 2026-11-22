@@ -25,7 +25,7 @@ Json 'assets/tetanusmod/blockstates/prescription_writer.json' @{variants=@{'faci
 Json 'data/tetanusmod/loot_tables/blocks/prescription_writer.json' @{type='minecraft:block';pools=@(@{rolls=1;conditions=@(@{condition='minecraft:survives_explosion'});entries=@(@{type='minecraft:item';name='tetanusmod:prescription_writer'})})}
 AddValue 'data/minecraft/tags/blocks/mineable/pickaxe.json' 'tetanusmod:prescription_writer'
 AddValue 'data/minecraft/tags/blocks/needs_stone_tool.json' 'tetanusmod:prescription_writer'
-$unlock=ReadJson 'data/tetanusmod/advancements/recipes/unlock.json';$unlock.rewards.recipes=@(@($unlock.rewards.recipes)+@('tetanusmod:prescription_writer','tetanusmod:medical_prescription')|Sort-Object -Unique);Json 'data/tetanusmod/advancements/recipes/unlock.json' $unlock
+$unlock=ReadJson 'data/tetanusmod/advancements/recipes/unlock.json';$unlock.rewards.recipes=@(@($unlock.rewards.recipes)+@('tetanusmod:prescription_writer','tetanusmod:medical_prescription','tetanusmod:tetanus_tnt','tetanusmod:clinic_notice_board','tetanusmod:rust_magnet','tetanusmod:field_splint')|Sort-Object -Unique);Json 'data/tetanusmod/advancements/recipes/unlock.json' $unlock
 
 # IDs and existing criteria remain stable. Custom item icons identify the actual mod progression.
 $icons=@{iron_has_a_darker_side='rusted_iron_block';rusty_business='rusted_nail';spear='iron_spear';rust_arrows='tetanized_arrow';trap_reset='trap_reset_tool';rusty_hook='rusty_fishing_hook';infected='rusted_metal_pipe';lockjaw_sonata='medical_prescription';antitoxin='tetanus_antitoxin';vaccinated='tetanus_vaccine';glove_protection='protective_gloves';strange_meat='infected_meat';why_did_i_eat_that='infected_meat';rabies='rabid_meat';rabies_cured='rabies_cure';why_did_i_do_that='rusted_nail';tetanized_mob='tetanized_zombie_spawn_egg';rusty_guardian='rusted_iron_block';nice_one='tetanized_wither_star';beacon_placed='tetanized_beacon';beacon_full='rusted_iron_block';clinic='medic_cabinet';medic='medical_prescription';supply_run='medical_prescription';clean_bill_of_health='veterinary_kit'}
@@ -38,26 +38,66 @@ Json 'data/tetanusmod/advancements/antitoxin.json' $cure
 
 $langPath='assets/tetanusmod/lang/en_us.json';$lang=ReadJson $langPath
 $strings=@{
+ 'message.tetanusmod.boss.rustquake'='Rustquake incoming. Move out of the orange ring.';
+ 'message.tetanusmod.boss.skull_barrage'='Skull barrage incoming. Move away from the orange marker.';
+ 'message.tetanusmod.boss.rustfire'='Rustfire incoming. Leave the purple ring.';
+ 'message.tetanusmod.boss.wingstorm'='Wingstorm incoming. Leave the wide purple ring or take cover.';
+ 'guide.tetanusmod.boss_abilities'="Tetanized bosses deal double the damage on boss-owned hits, including skulls, blasts, bites, wings, and dragon breath. Wither skulls apply Wither III on Normal and Hard.`n`nThe Wither marks orange rings before a Rustquake or a three-skull barrage. The dragon marks purple rings before a seven-second Rustfire pool or a Wingstorm that knocks players outward. Leave the marked area when you hear a warning. At half health, both bosses enrage and use their abilities more often.";
+ 'block.tetanusmod.clinic_notice_board'='Clinic Notice Board';
+ 'item.tetanusmod.rust_magnet'='Rust Magnet';
+ 'item.tetanusmod.field_splint'='Field Splint';
+ 'effect.tetanusmod.splinted'='Splinted';
+ 'tooltip.tetanusmod.rust_magnet'='Pull loose metal salvage within %s blocks. A successful pull costs durability.';
+ 'tooltip.tetanusmod.field_splint'='Use during Tetanus to reduce spasms for %s seconds.';
+ 'message.tetanusmod.magnet_empty'='No reachable metal salvage.';
+ 'message.tetanusmod.splint_healthy'='A Field Splint helps when you have Tetanus.';
+ 'message.tetanusmod.splint_active'='Your Field Splint is still active.';
+ 'message.tetanusmod.medic_case.delivery_amount'='Deliver %s x %s.';
+ 'gui.tetanusmod.notice_board.village'='Village clinic cases';
+ 'gui.tetanusmod.notice_board.field'='Cave camp cases';
+ 'gui.tetanusmod.notice_board.select'='Choose a case. Hover over it to see the objectives.';
+ 'gui.tetanusmod.notice_board.active'='%s is active. Use /mediccase.';
+ 'gui.tetanusmod.notice_board.completed'='Today''s case is complete. Check back tomorrow.';
+ 'guide.tetanusmod.utilities'="Use a Clinic Notice Board to choose a case. Hover over a case to preview its objectives. Bring supplies or report fieldwork to the appropriate kind of medic.`n`nRight-click with a Rust Magnet to pull loose Rust, nails, and metal salvage up to seven blocks toward you. Solid blocks stop it. Each successful pull costs one durability.`n`nUse a Field Splint during Tetanus to reduce spasms for 90 seconds. Use antitoxin to cure the infection.";
  'item.tetanusmod.medical_prescription'='Medical Prescription';
  'block.tetanusmod.prescription_writer'='Prescription Writer';
- 'tooltip.tetanusmod.medical_prescription'='Print at a Writer; trade with emeralds.';
+ 'tooltip.tetanusmod.medical_prescription'='Write at a Prescription Writer and pay with emeralds for treatment.';
  'tooltip.tetanusmod.rabid_meat_origin'='Dropped by rabid animals; see Field Guide.';
  'gui.tetanusmod.writer.paper'='Paper';'gui.tetanusmod.writer.ink'='Ink';'gui.tetanusmod.writer.result'='Result';
  'gui.tetanusmod.writer.hint'='1 paper + 1 ink sac';
  'jei.tetanusmod.prescription_use'='A Prescription Writer consumes one paper and one ink sac to make one Medical Prescription. Medic treatment offers require a prescription as well as emeralds.';
- 'gui.tetanusmod.medic_supply_hint'='Sneak + right-click a medic to see today''s supply request.';
- 'message.tetanusmod.supply_request'='Today this medic needs %s x %s. You are holding %s. Hold the full amount in your main hand, then sneak and right-click this medic to deliver it.';
- 'message.tetanusmod.supplies_done'='You already completed this medic''s delivery today. A new request is available next world day.';
- 'message.tetanusmod.supplies_delivered'='Supply delivery complete! This medic now offers you better prices.';
- 'advancements.tetanusmod.supply_run.description'='Sneak and right-click a medic to read today''s request, then repeat while holding the requested supplies.';
+ 'block.tetanusmod.tetanus_tnt'='Tetanus TNT';
+ 'entity.tetanusmod.tetanus_tnt'='Primed Tetanus TNT';
+ 'gui.tetanusmod.medic_supply_hint'='Sneak + right-click to start or continue a case file.';
+ 'advancements.tetanusmod.supply_run.description'='Sneak and right-click a medic, then complete both steps of a case file.';
+ 'message.tetanusmod.medic_case.clinic_restock'='Clinic Restock';
+ 'message.tetanusmod.medic_case.workshop_inspection'='Workshop Inspection';
+ 'message.tetanusmod.medic_case.herd_checkup'='Herd Checkup';
+ 'message.tetanusmod.medic_case.camp_rations'='Camp Rations';
+ 'message.tetanusmod.medic_case.salvage_inspection'='Salvage Inspection';
+ 'message.tetanusmod.medic_case.cave_patrol'='Cave Patrol';
+ 'message.tetanusmod.medic_case.objective'='%s (step %s of %s). %s';
+ 'message.tetanusmod.medic_case.deliver'='Bring %s x %s. Hold the supplies in your main hand and sneak + right-click the medic. Partial deliveries count.';
+ 'message.tetanusmod.medic_case.work.brush'='Clean %s rusty stack with a Wire Brush.';
+ 'message.tetanusmod.medic_case.work.veterinary'='Treat %s permanently tetanized or rabid animal with a Veterinary Kit.';
+ 'message.tetanusmod.medic_case.work.cave_patrol'='Defeat %s hostile mobs below Y=32 in the Overworld.';
+ 'message.tetanusmod.medic_case.report'='%s is ready to turn in. Sneak + right-click a %s to report back.';
+ 'message.tetanusmod.medic_case.wrong_medic'='%s belongs to a %s. Check progress with /mediccase.';
+ 'message.tetanusmod.medic_case.complete'='%s complete! You earned supplies, emeralds, and better prices with this medic.';
+ 'message.tetanusmod.medic_case.none'='You have no active case file. Sneak + right-click a medic to take one.';
+ 'message.tetanusmod.medic_case.done'='You finished a case today. Check back the next in-game day.';
+ 'message.tetanusmod.medic_case.abandoned'='Case abandoned. Sneak + right-click a medic to take a case.';
  'advancements.tetanusmod.antitoxin.description'='Drink Tetanus Antitoxin while infected with Tetanus or Lockjaw Sonata.';
 }
 foreach($key in $strings.Keys){$lang|Add-Member -MemberType NoteProperty -Name $key -Value $strings[$key] -Force}
-$crafting="Prescription Writer: iron/feather/iron; planks/book/planks; iron/copper/iron. New village clinics and cave medic camps include a writer; Nurses and Nurse Practitioners may also sell one per delivery. Place it, add one paper and one ink sac, and take one Medical Prescription. Treatment trades require emeralds plus a prescription. Medics may sell two emergency prescriptions per village delivery, or one in a cave camp. Nurse treatments are antitoxin or Tetanus Vaccine; Rabies Cure starts at Nurse Practitioner, and Rabies Vaccine and Veterinary Kits start at Medical Doctor. Higher ranks have lower base treatment prices. Native discounts apply; stock still waits for its normal delivery."
-if(!$lang.'guide.tetanusmod.crafting.body'.Contains('Prescription Writer:')){$lang.'guide.tetanusmod.crafting.body'+="`n`n"+$crafting}
-$delivery="Medic supply requests: sneak and right-click any adult medic. The chat tells you the exact item and count. Hold that full amount in your main hand, then sneak and right-click the same medic again. One delivery per medic per world day earns better prices and Special Delivery. These requests are separate from prescription writing."
-if(!$lang.'guide.tetanusmod.crafting.body'.Contains('Medic supply requests:')){$lang.'guide.tetanusmod.crafting.body'+="`n`n"+$delivery}
+foreach($key in @('message.tetanusmod.supply_request','message.tetanusmod.supplies_done','message.tetanusmod.supplies_delivered')){$lang.PSObject.Properties.Remove($key)}
+$crafting='Craft a Prescription Writer with iron/feather/iron, planks/book/planks, and iron/copper/iron. Clinics and cave camps have a writer, and some lower-rank medics sell the table. Add one paper and one ink sac at the Writer to make a Medical Prescription. Every treatment trade uses emeralds and a written prescription. Nurses treat Tetanus. Nurse Practitioners can offer Rabies Cure, while Medical Doctors can also offer Rabies Vaccine and Veterinary Kits.'
+$cases='Sneak and right-click an adult medic to accept a case file. Put deliveries in your main hand and sneak-interact again. You can bring partial stacks. If the case asks you to clean gear, treat an animal, or fight a cave patrol, do the task and report back to the same kind of medic. Use /mediccase to check progress or /mediccase abandon to drop it. Completing a case earns rewards and better prices once per player per world day.'
+$tnt='Make Tetanus TNT in a crafting table. Put TNT in the center, Rust in all four corners, and gunpowder in the other four slots. It has twice the explosion power of TNT and leaves a visual rust cloud for 5 to 15 seconds.'
+$body=$lang.'guide.tetanusmod.crafting.body' -replace '(?s)\r?\n\r?\n(?:Prescription Writer:|Craft a Prescription Writer with).*',''
+$lang.'guide.tetanusmod.crafting.body'=@($body,$crafting,$cases,$tnt) -join "`n`n"
 $rabies="Finding rabid variants: explore newly spawned creatures in their usual habitats and look for purple-tinted, unusually aggressive mammals or zombie relatives. Wolves, foxes, rabbits, bats, farm mammals and horses are eligible, as are zombies, husks and drowned. Eligible natural/spawner spawns that do not become Tetanized roll a separate Rabid chance: Easy/Normal/Hard %s/%s/%s percent. Rusty weapons make Tetanized variants, not Rabid variants; giving a mob the Rabies effect does not change it into a permanent Rabid variant. For direct testing, use a Rabid spawn egg from the mod's spawn-egg creative tab."
 if(!$lang.'guide.tetanusmod.creatures.body'.Contains('Finding rabid variants:')){$lang.'guide.tetanusmod.creatures.body'+="`n`n"+$rabies}
 Json $langPath $lang
-Write-Output 'Generated Prescription Writer progression, readable supply instructions, cure criteria and custom advancement icons.'
+& (Join-Path $PSScriptRoot 'Generate-Utility-Icons.ps1')
+Write-Output 'Generated Prescription Writer progression, medic case text, Tetanus TNT recipe unlock, and advancement resources.'

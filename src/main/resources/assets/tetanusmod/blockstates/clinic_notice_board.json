@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tetanusmod:block/clinic_notice_board"
+    },
+    "facing=east": {
+      "model": "tetanusmod:block/clinic_notice_board",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tetanusmod:block/clinic_notice_board",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tetanusmod:block/clinic_notice_board",
+      "y": 270
+    }
+  }
+}

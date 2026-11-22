@@ -60,16 +60,20 @@ public class MedicTradingGameTests implements FabricGameTest {
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void medicVarietyIncludesBarterIngredientsAndRareFood(TestContext ctx){
-        var results=new HashSet<Item>();var costs=new HashSet<Item>();var nurses=new HashSet<String>();
+        var clinicResults=new HashSet<Item>();var fieldResults=new HashSet<Item>();var costs=new HashSet<Item>();var nurses=new HashSet<String>();
+        for(boolean field:new boolean[]{false,true}){
+        var results=field?fieldResults:clinicResults;
         for(int seed=0;seed<128;seed++){
-            var medic=medic(ctx,4,false);medic.getRandom().setSeed(seed*8713L+17);
+            var medic=medic(ctx,4,field);medic.getRandom().setSeed(seed*8713L+17);
             for(var offer:medic.getOffers()){
                 results.add(offer.getSellItem().getItem());costs.add(offer.getOriginalFirstBuyItem().getItem());
                 if(!offer.getSecondBuyItem().isEmpty())costs.add(offer.getSecondBuyItem().getItem());
             }
-            var nurse=medic(ctx,1,false);nurse.getRandom().setSeed(seed*8713L+17);nurses.add(nurse.getOffers().toNbt().toString());
+            var nurse=medic(ctx,1,field);nurse.getRandom().setSeed(seed*8713L+17);nurses.add(nurse.getOffers().toNbt().toString());
         }
-        for(Item item:new Item[]{Items.BREAD,Items.GOLDEN_APPLE,Items.ENCHANTED_GOLDEN_APPLE,Items.BLAZE_POWDER,Items.GHAST_TEAR})ctx.assertTrue(results.contains(item),"Random trade pools never offer "+item);
+        }
+        for(Item item:new Item[]{Items.HONEYCOMB,Items.GOLDEN_APPLE,Items.ENCHANTED_GOLDEN_APPLE,Items.BLAZE_POWDER,Items.GHAST_TEAR})ctx.assertTrue(clinicResults.contains(item)&&(!fieldResults.contains(item)||item==Items.GOLDEN_APPLE),"Clinic supplies missing or no longer distinct: "+item);
+        for(Item item:new Item[]{Items.LANTERN,Items.SCAFFOLDING,ModItems.WIRE_BRUSH,ExpansionItems.TRAP_RESET_TOOL,Items.COMPASS})ctx.assertTrue(fieldResults.contains(item)&&!clinicResults.contains(item),"Field supplies missing or no longer distinct: "+item);
         for(Item item:new Item[]{Items.IRON_INGOT,Items.FLINT,Items.DIAMOND,Items.EMERALD,com.tetanusmod.medical.MedicalWorkstations.PRESCRIPTION,Items.HONEY_BOTTLE})ctx.assertTrue(costs.contains(item),"Trade payments never use "+item);
         ctx.assertTrue(nurses.size()>8,"Independent medics receive effectively identical trades");ctx.complete();
     }

@@ -123,6 +123,8 @@ public abstract class LivingEntityMixin implements InfectionState, com.tetanusmo
         if (!self.getWorld().isClient && !self.hasStatusEffect(TetanusMod.TETANUS)) {
             boolean linked=tetanus$total>0||tetanus$elapsed>0;
             tetanus$elapsed = tetanus$total = tetanus$lockjaw = tetanus$freeze = tetanus$lockjawWindow = 0;
+            if (self.hasStatusEffect(com.tetanusmod.expansion.ExpansionEffects.SPLINTED))
+                self.removeStatusEffect(com.tetanusmod.expansion.ExpansionEffects.SPLINTED);
             if(linked){self.removeStatusEffect(TetanusMod.LOCKJAW);self.removeStatusEffect(com.tetanusmod.expansion.ExpansionEffects.DISORIENTED);}
         }
     }

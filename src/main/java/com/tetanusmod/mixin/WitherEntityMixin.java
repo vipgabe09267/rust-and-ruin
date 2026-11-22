@@ -15,6 +15,7 @@ public abstract class WitherEntityMixin implements WitherBossState {
     @Shadow @Final private ServerBossBar bossBar;
     @Unique private int rustruin$waveCooldown=-1;
     @Unique private final Map<UUID,Long> rustruin$minions=new LinkedHashMap<>();
+    @Unique private final BossAbilities.State rustruin$abilities=new BossAbilities.State();
     public int rustruin$minionCooldown(){return rustruin$waveCooldown;}
     public void rustruin$minionCooldown(int ticks){rustruin$waveCooldown=Math.max(-1,Math.min(WitherBossEncounter.MAX_COOLDOWN,ticks));}
     public Map<UUID,Long> rustruin$minionLeases(){return rustruin$minions;}
@@ -24,6 +25,7 @@ public abstract class WitherEntityMixin implements WitherBossState {
         if(MobVariants.permanent(self)){
             bossBar.setColor(BossBar.Color.YELLOW);bossBar.setStyle(BossBar.Style.NOTCHED_10);
             WitherBossEncounter.tick(self);
+            BossAbilities.tick(self,rustruin$abilities);
         }
     }
     @ModifyArg(method="dropEquipment",at=@At(value="INVOKE",target="Lnet/minecraft/entity/boss/WitherEntity;dropItem(Lnet/minecraft/item/ItemConvertible;)Lnet/minecraft/entity/ItemEntity;"),index=0)
@@ -32,6 +34,7 @@ public abstract class WitherEntityMixin implements WitherBossState {
     }
     @Inject(method="writeCustomDataToNbt",at=@At("TAIL"))
     private void rustruin$saveWave(NbtCompound nbt,CallbackInfo ci){
+        rustruin$abilities.write(nbt);
         nbt.putInt("RustRuinMinionCooldown",rustruin$waveCooldown);var leases=new NbtList();
         int count=0;for(var entry:rustruin$minions.entrySet()){
             if(count++>=WitherBossEncounter.MAX_ACTIVE)break;
@@ -41,6 +44,7 @@ public abstract class WitherEntityMixin implements WitherBossState {
     }
     @Inject(method="readCustomDataFromNbt",at=@At("TAIL"))
     private void rustruin$loadWave(NbtCompound nbt,CallbackInfo ci){
+        rustruin$abilities.read(nbt);
         rustruin$minionCooldown(nbt.contains("RustRuinMinionCooldown")?nbt.getInt("RustRuinMinionCooldown"):-1);
         rustruin$minions.clear();long now=((WitherEntity)(Object)this).getWorld().getTime();var values=nbt.getList("RustRuinMinionLeases",10);
         for(int i=0;i<Math.min(values.size(),WitherBossEncounter.MAX_ACTIVE);i++){

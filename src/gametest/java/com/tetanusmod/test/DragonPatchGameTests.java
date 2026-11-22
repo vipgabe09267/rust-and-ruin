@@ -85,11 +85,16 @@ public class DragonPatchGameTests implements FabricGameTest {
 
     @GameTest(templateName=SPACE,batchId="dragon_patch")
     public void realSpecialCrystalExplosionInfectsSurvivorsButOrdinaryCrystalDoesNot(TestContext ctx) {
-        var world=ctx.getWorld();var pos=Vec3d.ofCenter(ctx.getAbsolutePos(new BlockPos(23,16,23)));
+        var world=ctx.getWorld();var center=ctx.getAbsolutePos(new BlockPos(23,16,23));var chunk=new net.minecraft.util.math.ChunkPos(center);
+        // Keep the native victim query in the structure's central chunk even when the test origin shifts.
+        var pos=Vec3d.ofCenter(new BlockPos(chunk.getStartX()+4,center.getY(),chunk.getStartZ()+8));
         for(boolean special:new boolean[]{false,true}){
-            var victim=EntityType.IRON_GOLEM.create(world);victim.setPosition(pos.add(5,0,0));victim.setAiDisabled(true);world.spawnEntity(victim);
-            EndCrystalEntity crystal=special?new TetanizedEndCrystalEntity(DragonContent.CRYSTAL_ENTITY,world):new EndCrystalEntity(EntityType.END_CRYSTAL,world);crystal.setPosition(pos);world.spawnEntity(crystal);
+            var victim=EntityType.IRON_GOLEM.create(world);victim.setPosition(pos.add(5,0,0));victim.setAiDisabled(true);
+            EndCrystalEntity crystal=special?new TetanizedEndCrystalEntity(DragonContent.CRYSTAL_ENTITY,world):new EndCrystalEntity(EntityType.END_CRYSTAL,world);crystal.setPosition(pos);
             try{
+                ctx.assertTrue(world.spawnEntity(victim)&&world.spawnEntity(crystal),"Could not spawn crystal blast fixtures");
+                ctx.assertTrue(world.getEntitiesByClass(net.minecraft.entity.passive.IronGolemEntity.class,
+                        victim.getBoundingBox().expand(0.5),candidate->candidate==victim).size()==1,"Crystal victim is missing from native entity queries");
                 ctx.assertTrue(crystal.damage(world.getDamageSources().generic(),1)&&crystal.isRemoved(),"Crystal did not explode through its real damage path");
                 ctx.assertTrue(victim.isAlive()&&victim.getHealth()<100,"Fixture was not a surviving victim of native crystal blast damage");
                 ctx.assertTrue(victim.hasStatusEffect(TetanusMod.TETANUS)==special,"Crystal explosion infection identity is wrong");

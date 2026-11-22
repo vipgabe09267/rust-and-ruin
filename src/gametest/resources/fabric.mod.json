@@ -47,10 +47,13 @@
                                                 "com.tetanusmod.test.WitherRevisionGameTests",
                                                 "com.tetanusmod.test.BeaconUpgradeGameTests",
                                                 "com.tetanusmod.test.MedicalProgressionGameTests",
+                                                "com.tetanusmod.test.TetanusTntGameTests",
+                                                "com.tetanusmod.test.UtilityGameTests",
                                                 "com.tetanusmod.test.DragonRepairAttributionGameTests",
                                                 "com.tetanusmod.test.NaturalSpawnRulesGameTests",
                                                 "com.tetanusmod.test.DragonEncounterGameTests",
                                                 "com.tetanusmod.test.BossHealthGameTests",
+                                                "com.tetanusmod.test.BossCombatGameTests",
                                                 "com.tetanusmod.test.DragonPatchGameTests",
                                                 "com.tetanusmod.test.WitherPatchGameTests",
                                                 "com.tetanusmod.test.FinalShotGameTests"

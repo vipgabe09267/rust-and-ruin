@@ -1,3 +1,17 @@
+# 0.1.2-beta
+
+- Remove Medical Prescription sales from current and saved medic catalogues. Write prescriptions at a Prescription Writer and use them to pay for treatment.
+- Add six personal, two-stage medic cases across village clinics and cave camps. Deliver in partial stacks, complete fieldwork, and report back for supplies, emeralds, a reputation discount, and Special Delivery.
+- Give field medics their own gear and salvage trades. Village medics focus their supply trades on clinic, brewing, and higher-rank provisions.
+- Add Tetanus TNT with twice the blast power of vanilla TNT, the Tetanus. Nice One! sound, and a cosmetic rust cloud that lasts 5–15 seconds.
+- Let spreading fire prime Tetanus TNT using its own fuse and blast.
+- Add craftable Clinic Notice Boards that let players choose and preview village or cave cases.
+- Add the Rust Magnet for collecting loose metal salvage and the Field Splint for temporary Tetanus spasm relief.
+- Fix lost medic rewards when an inventory could only fit part of a stack.
+- Fix cave-camp villagers getting stuck on the raised Prescription Writer while walking to their beds.
+- Double boss-attributed damage from the Tetanized Wither and Ender Dragon. Add Wither III skull hits, Rustquake, a three-skull barrage, Rustfire pools, and Wingstorm. Both bosses enrage at half health and cast more often.
+- Add advancement unlock steps to the Modrinth description and a complete advancement guide.
+
 # 0.1.1-beta - boss and medic fixes (November 14, 2026)
 
 - Fix Tetanus-enchanted bows and crossbows losing infection on the shot that breaks the weapon, including every arrow or firework in a Multishot volley. Five new native firing regressions passed in the final **423/423** suite.

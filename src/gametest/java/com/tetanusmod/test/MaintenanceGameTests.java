@@ -9,10 +9,12 @@ import com.tetanusmod.registry.ModItems;
 import com.tetanusmod.rust.RustCoating;
 import net.fabricmc.fabric.api.gametest.v1.FabricGameTest;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.entity.*;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.test.*;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.*;
@@ -40,27 +42,63 @@ public class MaintenanceGameTests implements FabricGameTest {
         ctx.assertTrue(config.spawnerEasy==0.03F&&config.spawnerNormal==0.05F&&config.spawnerHard==0.08F,"Spawner defaults changed");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void supplyRequestsRotateDeterministically(TestContext ctx) {
-        var uuid=java.util.UUID.randomUUID();var items=new java.util.HashSet<Item>();
-        for(int day=0;day<4;day++){
-            var request=MedicSupplies.requestForDay(uuid,day);items.add(request.getItem());
-            ctx.assertTrue(ItemStack.areEqual(request,MedicSupplies.requestForDay(uuid,day+4)),"Request not deterministic");
+    public void medicCasesRotateThroughDifferentVillageAndFieldCases(TestContext ctx) {
+        var uuid=java.util.UUID.randomUUID();
+        var clinic=new java.util.HashSet<MedicCases.CaseFile>();
+        var field=new java.util.HashSet<MedicCases.CaseFile>();
+        for(int day=0;day<3;day++){
+            var assignment=MedicCases.offerFor(false,uuid,day);
+            clinic.add(assignment);
+            field.add(MedicCases.offerFor(true,uuid,day));
+            ctx.assertTrue(assignment==MedicCases.offerFor(false,uuid,day+3),"Clinic case changed on the same point in the rotation");
         }
-        ctx.assertTrue(items.size()==4,"Requests do not rotate");ctx.complete();
+        ctx.assertTrue(clinic.size()==3&&field.size()==3&&java.util.Collections.disjoint(clinic,field),"Case pools do not rotate independently");
+        ctx.complete();
     }
     private net.minecraft.entity.passive.VillagerEntity medic(TestContext ctx) {
         var medic=EntityType.VILLAGER.create(ctx.getWorld());
         medic.setVillagerData(medic.getVillagerData().withProfession(MedicVillage.MEDIC));
         medic.setPosition(ctx.getAbsolute(new Vec3d(1,3,1)));return medic;
     }
+    private void visit(net.minecraft.entity.passive.VillagerEntity medic,ServerPlayerEntity player,Hand hand) {
+        player.setSneaking(true);
+        UseEntityCallback.EVENT.invoker().interact(player,player.getWorld(),hand,medic,null);
+        player.setSneaking(false);
+    }
+    private NbtCompound caseData(String file,int step) {
+        var nbt=new NbtCompound();
+        var data=new NbtCompound();
+        data.putString("File",file);
+        data.putInt("Step",step);
+        nbt.put("RustRuinMedicCase",data);
+        return nbt;
+    }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void medicDeliveryConsumesOnceAndPersistsCooldown(TestContext ctx) {
+    public void clinicCaseAcceptsPartialDeliveriesPersistsAndRewardsOnce(TestContext ctx) {
         var player=ctx.createMockCreativeServerPlayerInWorld();
+        var visitor=ctx.createMockCreativeServerPlayerInWorld();
         try {
             player.getAbilities().creativeMode=false;var medic=medic(ctx);player.setPosition(medic.getPos());
-            var request=MedicSupplies.request(medic);player.setStackInHand(Hand.MAIN_HAND,request.copy());
-            ctx.assertTrue(MedicSupplies.deliver(medic,player,Hand.MAIN_HAND),"Delivery rejected");
-            ctx.assertFalse(player.getMainHandStack().isOf(request.getItem()),"Delivery materials were not consumed");
+            var progress=MedicCases.progress(player);
+            progress.read(caseData("clinic_restock",0));
+            player.setStackInHand(Hand.MAIN_HAND,new ItemStack(Items.GLASS_BOTTLE,2));
+            visit(medic,player,Hand.MAIN_HAND);
+            ctx.assertTrue(player.getMainHandStack().isEmpty()&&progress.remaining()==4,"Partial delivery did not consume just the offered bottles");
+            var saved=player.writeNbt(new NbtCompound());
+            progress.read(new NbtCompound());
+            player.readNbt(saved);
+            ctx.assertTrue(progress.remaining()==4&&progress.activeCase()==MedicCases.CaseFile.CLINIC_RESTOCK,"Partial case progress was lost on reload");
+            visitor.setPosition(medic.getPos());
+            visit(medic,visitor,Hand.MAIN_HAND);
+            var other=MedicCases.progress(visitor);
+            ctx.assertTrue(other.activeCase()!=null&&other.remaining()==other.currentStep().amount()&&progress.remaining()==4,"Another player shared the first player's case progress");
+            player.setStackInHand(Hand.MAIN_HAND,new ItemStack(Items.GLASS_BOTTLE,6));
+            visit(medic,player,Hand.MAIN_HAND);
+            ctx.assertTrue(player.getMainHandStack().getCount()==2&&progress.currentStep().delivery()==Items.HONEY_BOTTLE,"Delivery consumed excess stock or failed to advance");
+            player.setStackInHand(Hand.MAIN_HAND,new ItemStack(Items.HONEY_BOTTLE,2));
+            visit(medic,player,Hand.MAIN_HAND);
+            ctx.assertTrue(progress.activeCase()==null&&player.getInventory().count(Items.GLASS_BOTTLE)==2
+                    &&player.getInventory().count(Items.EMERALD)==3&&player.getInventory().count(Items.HONEY_BOTTLE)==1,"Clinic case rewards or bottle returns were incorrect");
             var medicine=medic.getOffers().stream().filter(offer->MedicTradeOffers.isMedicine(offer.getSellItem().getItem())).findFirst().orElseThrow();int basePrice=medicine.getAdjustedFirstBuyItem().getCount();
             player.setStackInHand(Hand.MAIN_HAND,ItemStack.EMPTY);
             medic.interactMob(player,Hand.MAIN_HAND);
@@ -69,26 +107,104 @@ public class MaintenanceGameTests implements FabricGameTest {
             player.closeHandledScreen();medic.setCustomer(null);
             var gossip=medic.getGossip().getReputationFor(player.getUuid(),type->true);
             ctx.assertTrue(gossip>0,"Discount reputation missing");
-            player.setStackInHand(Hand.MAIN_HAND,request.copy());
-            ctx.assertFalse(MedicSupplies.deliver(medic,player,Hand.MAIN_HAND),"Duplicate daily delivery rewarded");
-            ctx.assertTrue(player.getMainHandStack().getCount()==request.getCount(),"Rejected delivery consumed items");
-            var copy=medic(ctx);copy.readNbt(medic.writeNbt(new NbtCompound()));
-            ctx.assertTrue(((MedicSupplies.State)copy).rustruin$lastSupplyDay()==MedicSupplies.day(medic),"Delivery cooldown lost on reload");
-            ctx.assertFalse(MedicSupplies.deliver(copy,player,Hand.MAIN_HAND),"Reload bypasses cooldown");
-        } finally {player.discard();}ctx.complete();
+            var completed=player.writeNbt(new NbtCompound());
+            progress.read(new NbtCompound());
+            player.readNbt(completed);
+            visit(medic,player,Hand.MAIN_HAND);
+            ctx.assertTrue(progress.activeCase()==null&&player.getInventory().count(Items.EMERALD)==3,"Reload bypassed the personal one-case-per-day limit");
+        } finally {player.discard();visitor.discard();}ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void invalidSupplyDeliveriesCannotEarnDiscount(TestContext ctx) {
         var player=ctx.createMockCreativeServerPlayerInWorld();
         try {
-            var medic=medic(ctx);player.setPosition(medic.getPos());player.setStackInHand(Hand.MAIN_HAND,new ItemStack(Items.DIRT,64));
-            ctx.assertFalse(MedicSupplies.deliver(medic,player,Hand.MAIN_HAND),"Wrong material accepted");
-            var wanted=MedicSupplies.request(medic);player.setStackInHand(Hand.MAIN_HAND,new ItemStack(wanted.getItem(),wanted.getCount()-1));
-            ctx.assertFalse(MedicSupplies.deliver(medic,player,Hand.MAIN_HAND),"Insufficient material accepted");
-            player.setStackInHand(Hand.MAIN_HAND,wanted.copy());player.setPosition(medic.getPos().add(100,0,0));
-            ctx.assertFalse(MedicSupplies.deliver(medic,player,Hand.MAIN_HAND),"Remote delivery accepted");
-            ctx.assertTrue(((MedicSupplies.State)medic).rustruin$lastSupplyDay()==Long.MIN_VALUE,"Rejected delivery consumed daily request");
+            var medic=medic(ctx);player.setPosition(medic.getPos());
+            visit(medic,player,Hand.MAIN_HAND);
+            var progress=MedicCases.progress(player);
+            int remaining=progress.remaining();
+            var supplies=new ItemStack(progress.currentStep().delivery(),remaining);
+            player.setStackInHand(Hand.MAIN_HAND,new ItemStack(Items.DIRT,64));
+            visit(medic,player,Hand.MAIN_HAND);
+            ctx.assertTrue(progress.remaining()==remaining,"Wrong material advanced a case");
+            player.setStackInHand(Hand.MAIN_HAND,supplies);
+            visit(medic,player,Hand.OFF_HAND);
+            ctx.assertTrue(progress.remaining()==remaining,"Offhand interaction advanced a case");
+            var field=medic(ctx);
+            MedicTradeOffers.markField(field);
+            visit(field,player,Hand.MAIN_HAND);
+            ctx.assertTrue(progress.remaining()==remaining,"A field medic accepted clinic supplies");
+            player.setPosition(medic.getPos().add(100,0,0));
+            visit(medic,player,Hand.MAIN_HAND);
+            ctx.assertTrue(progress.remaining()==remaining&&supplies.getCount()==remaining,"Remote delivery was accepted");
         } finally {player.discard();}ctx.complete();
+    }
+    @GameTest(templateName=EMPTY_STRUCTURE)
+    public void realFieldworkAdvancesMatchingCaseAndRequiresReportingBack(TestContext ctx) {
+        var player=ctx.createMockCreativeServerPlayerInWorld();
+        var respawn=ctx.createMockCreativeServerPlayerInWorld();
+        var cow=EntityType.COW.create(ctx.getWorld());
+        try {
+            var medic=medic(ctx);
+            player.setPosition(medic.getPos());
+            cow.setPosition(player.getPos());
+            var progress=MedicCases.progress(player);
+            progress.read(caseData("herd_checkup",1));
+            player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModItems.WIRE_BRUSH));
+            player.setStackInHand(Hand.OFF_HAND,new ItemStack(ModItems.RUSTED_NAIL));
+            ModItems.WIRE_BRUSH.use(ctx.getWorld(),player,Hand.MAIN_HAND);
+            ctx.assertTrue(progress.remaining()==1,"Cleaning equipment counted as veterinary care");
+            MobVariants.makePermanent(cow);
+            var kit=new ItemStack(ExpansionItems.VETERINARY_KIT);
+            player.setStackInHand(Hand.MAIN_HAND,kit);
+            ctx.assertTrue(kit.useOnEntity(player,cow,Hand.MAIN_HAND).isAccepted(),"Real kit did not treat the mutated cow");
+            ctx.assertTrue(progress.activeCase()!=null&&progress.currentStep()==null&&player.getInventory().count(Items.EMERALD)==0,"Case did not wait for a final medic report");
+            respawn.copyFrom(player,false);
+            respawn.setPosition(medic.getPos());
+            ctx.assertTrue(MedicCases.progress(respawn).activeCase()==MedicCases.CaseFile.HERD_CHECKUP,"Respawning lost completed fieldwork");
+            visit(medic,respawn,Hand.MAIN_HAND);
+            ctx.assertTrue(respawn.getInventory().count(Items.EMERALD)==5,"Returning to the clinic did not award fieldwork");
+        } finally {cow.discard();player.discard();respawn.discard();}
+        ctx.complete();
+    }
+    @GameTest(templateName=EMPTY_STRUCTURE)
+    public void fieldCasesTrackActualCleaningAndCountOnlyQualifyingPatrolKills(TestContext ctx) {
+        var player=ctx.createMockCreativeServerPlayerInWorld();
+        try {
+            var medic=medic(ctx);
+            MedicTradeOffers.markField(medic);
+            player.setPosition(medic.getPos());
+            var progress=MedicCases.progress(player);
+            progress.read(caseData("salvage_inspection",1));
+            player.setStackInHand(Hand.MAIN_HAND,new ItemStack(ModItems.WIRE_BRUSH));
+            player.setStackInHand(Hand.OFF_HAND,new ItemStack(ModItems.NAIL));
+            ModItems.WIRE_BRUSH.use(ctx.getWorld(),player,Hand.MAIN_HAND);
+            ctx.assertTrue(progress.remaining()==1,"Brushing something clean counted as salvage work");
+            player.setStackInHand(Hand.OFF_HAND,new ItemStack(ModItems.RUSTED_NAIL));
+            ModItems.WIRE_BRUSH.use(ctx.getWorld(),player,Hand.MAIN_HAND);
+            ctx.assertTrue(progress.currentStep()==null,"Successful Wire Brush conversion did not count");
+
+            progress.read(caseData("cave_patrol",1));
+            var below=medic.getPos().add(0,27-medic.getY(),0);
+            killForPatrol(ctx,player,EntityType.COW,below);
+            killForPatrol(ctx,player,EntityType.ZOMBIE,below.add(0,8,0));
+            ctx.assertTrue(progress.remaining()==2,"A passive animal or above-threshold kill counted toward the cave patrol");
+            killForPatrol(ctx,player,EntityType.ZOMBIE,below);
+            ctx.assertTrue(progress.remaining()==1,"A qualifying hostile kill did not count exactly once");
+            killForPatrol(ctx,player,EntityType.SLIME,below);
+            ctx.assertTrue(progress.activeCase()!=null&&progress.currentStep()==null,"A qualifying slime kill did not finish cave fieldwork");
+            visit(medic,player,Hand.MAIN_HAND);
+            ctx.assertTrue(progress.activeCase()==null&&player.getInventory().count(Items.EMERALD)==4,"The medic did not reward a completed patrol");
+        } finally {player.discard();}
+        ctx.complete();
+    }
+    private void killForPatrol(TestContext ctx,ServerPlayerEntity player,EntityType<? extends LivingEntity> type,Vec3d pos) {
+        var target=type.create(ctx.getWorld());
+        target.setPosition(pos);
+        try {
+            ctx.assertTrue(ctx.getWorld().spawnEntity(target),"Could not spawn cave patrol fixture");
+            target.damage(target.getDamageSources().playerAttack(player),100);
+            ctx.assertTrue(!target.isAlive(),"Cave patrol fixture survived the native hit");
+        } finally {target.discard();}
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
     public void coatingSurvivesSerializationAndExpires(TestContext ctx) {

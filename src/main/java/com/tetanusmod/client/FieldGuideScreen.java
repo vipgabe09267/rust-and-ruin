@@ -30,11 +30,15 @@ public final class FieldGuideScreen extends Screen {
         return switch(chapter) {
             case 1->Text.translatable("guide.tetanusmod.diseases.body",cfg.minDurationSeconds,cfg.maxDurationSeconds);
             case 2->Text.translatable("guide.tetanusmod.prevention.body",percent(cfg.vaccineProtectionChance),(cfg.vaccineDurationSeconds%60==0?cfg.vaccineDurationSeconds/60+" minutes":cfg.vaccineDurationSeconds+" seconds"),percent(cfg.gloveProtectionChance),percent(1-(1-cfg.vaccineProtectionChance)*(1-cfg.gloveProtectionChance)));
+            case 4->Text.translatable("guide.tetanusmod.crafting.body").append("\n\n")
+                    .append(Text.translatable("guide.tetanusmod.utilities"));
             case 6->Text.translatable("guide.tetanusmod.creatures.body",
                     percent(cfg.animalConversionChance),percent(cfg.mobConversionChance),
                     percent(cfg.naturalAnimalEasy),percent(cfg.naturalAnimalNormal),percent(cfg.naturalAnimalHard),
                     percent(cfg.naturalMobEasy),percent(cfg.naturalMobNormal),percent(cfg.naturalMobHard),
                     percent(cfg.spawnerEasy),percent(cfg.spawnerNormal),percent(cfg.spawnerHard),percent(cfg.mobConversionChance>0?cfg.golemConversionChance:0),percent(cfg.naturalRabiesEasy),percent(cfg.naturalRabiesNormal),percent(cfg.naturalRabiesHard));
+            case 8->Text.translatable("guide.tetanusmod.bosses.body").append("\n\n")
+                    .append(Text.translatable("guide.tetanusmod.boss_abilities"));
             default->Text.translatable("guide.tetanusmod."+CHAPTERS[chapter]+".body");
         };
     }

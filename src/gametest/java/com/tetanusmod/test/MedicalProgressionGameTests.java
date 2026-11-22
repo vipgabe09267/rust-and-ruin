@@ -18,7 +18,6 @@ import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.test.*;
-import net.minecraft.text.TranslatableTextContent;
 import net.minecraft.util.Hand;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.BlockMirror;
@@ -123,13 +122,6 @@ public final class MedicalProgressionGameTests implements FabricGameTest {
         }finally{healthy.discard();ill.discard();}ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void supplyInstructionsContainActualCountAndRecognizeCompletedDelivery(TestContext ctx){
-        var medic=medic(ctx,1);var wanted=MedicSupplies.request(medic);var message=MedicSupplies.requestInstructions(medic,new ItemStack(wanted.getItem(),1));
-        ctx.assertTrue(message.getContent() instanceof TranslatableTextContent,"Supply message lost translation arguments");var content=(TranslatableTextContent)message.getContent();
-        ctx.assertTrue(content.getKey().equals("message.tetanusmod.supply_request")&&content.getArgs().length==3&&content.getArgs()[0].equals(wanted.getCount())&&content.getArgs()[2].equals(1),"Request does not show the actual requested item/count and held amount");
-        ((MedicSupplies.State)medic).rustruin$lastSupplyDay(MedicSupplies.day(medic));ctx.assertTrue(((TranslatableTextContent)MedicSupplies.requestInstructions(medic,ItemStack.EMPTY).getContent()).getKey().equals("message.tetanusmod.supplies_done"),"Completed daily request still invites a duplicate delivery");ctx.complete();
-    }
-    @GameTest(templateName=EMPTY_STRUCTURE)
     public void treatmentUnlocksAndBasePricesFollowMedicalRank(TestContext ctx){
         var previous=new HashMap<Item,Integer>();
         for(int rank=1;rank<=4;rank++){
@@ -150,27 +142,27 @@ public final class MedicalProgressionGameTests implements FabricGameTest {
         ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void writerAndEmergencyPrescriptionTradesStayScarceWithoutDuplicateStock(TestContext ctx){
-        boolean writerSeen=false,prescriptionSeen=false;
+    public void tradeCataloguesSellTheWriterAndNeverSellPrescriptions(TestContext ctx){
+        boolean writerSeen=false;
         for(boolean field:new boolean[]{false,true})for(int seed=0;seed<128;seed++){
             var medic=medic(ctx,4);if(field)MedicTradeOffers.markField(medic);medic.getRandom().setSeed(seed*2053L+19);
-            var distinct=new HashSet<Item>();int prescriptions=0,writers=0;
+            var distinct=new HashSet<Item>();int writers=0;
             for(var offer:medic.getOffers()){
                 Item result=offer.getSellItem().getItem();
                 if(MedicTradeOffers.isMedicine(result))ctx.assertTrue(distinct.add(result)&&offer.getMaxUses()>=2&&offer.getMaxUses()<=(field?2:4),"Treatment stock duplicates or exceeds delivery limits");
-                if(result==MedicalWorkstations.PRESCRIPTION){prescriptionSeen=true;prescriptions++;ctx.assertTrue(offer.getSellItem().getCount()==1&&offer.getMaxUses()==(field?1:2),"Emergency prescription trade has unlimited/batched stock");}
+                ctx.assertTrue(result!=MedicalWorkstations.PRESCRIPTION,"A medic still sells a prescription");
                 if(result==MedicalWorkstations.WRITER_ITEM){writerSeen=true;writers++;ctx.assertTrue(offer.getSellItem().getCount()==1&&offer.getMaxUses()==1,"Writer trade exceeds one per delivery");}
             }
-            ctx.assertTrue(medic.getOffers().size()==8&&prescriptions<=1&&writers<=1,"Rank progression duplicated scarce support offers");
+            ctx.assertTrue(medic.getOffers().size()==8&&writers<=1,"Rank progression duplicated scarce support offers");
         }
-        ctx.assertTrue(writerSeen&&prescriptionSeen,"Randomized catalogue never sells the new workstation or emergency prescriptions");ctx.complete();
+        ctx.assertTrue(writerSeen,"Randomized catalogue never sells the writing table");ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void heroDiscountsWriterAndPrescriptionWithoutWaivingScarceStock(TestContext ctx){
+    public void heroDiscountsWriterWithoutWaivingScarceStock(TestContext ctx){
         var player=ctx.createMockCreativeServerPlayerInWorld();
         try{
             player.addStatusEffect(new StatusEffectInstance(net.minecraft.entity.effect.StatusEffects.HERO_OF_THE_VILLAGE,1200));
-            for(Item result:List.of(MedicalWorkstations.WRITER_ITEM,MedicalWorkstations.PRESCRIPTION)){
+            Item result=MedicalWorkstations.WRITER_ITEM;
                 VillagerEntity seller=null;net.minecraft.village.TradeOffer sale=null;
                 for(int seed=0;seed<128&&seller==null;seed++){
                     var candidate=medic(ctx,1);candidate.getRandom().setSeed(seed*2053L+19);
@@ -181,25 +173,36 @@ public final class MedicalProgressionGameTests implements FabricGameTest {
                 seller.interactMob(player,Hand.MAIN_HAND);
                 ctx.assertTrue(sale.getAdjustedFirstBuyItem().getCount()<before&&sale.getMaxUses()==stock,"Hero discount failed or replenished scarce support stock");
                 player.closeHandledScreen();seller.setCustomer(null);ctx.assertTrue(sale.getAdjustedFirstBuyItem().getCount()==before,"Discount leaked into another customer's quote");
-            }
         }finally{player.discard();}ctx.complete();
     }
     @GameTest(templateName=EMPTY_STRUCTURE)
-    public void schemaFourMigrationPreservesRemainingStockAndDeliveryClock(TestContext ctx){
+    public void schemaFiveMigrationRemovesPrescriptionSalesAndPreservesTreatmentStock(TestContext ctx){
         for(boolean field:new boolean[]{false,true}){
             var original=medic(ctx,4);if(field)MedicTradeOffers.markField(original);var old=original.getOffers();
+            for(int index=0;index<old.size();index++){
+                if(MedicTradeOffers.isMedicine(old.get(index).getSellItem().getItem()))continue;
+                old.set(index,new net.minecraft.village.TradeOffer(new ItemStack(Items.EMERALD,3),
+                        new ItemStack(MedicalWorkstations.PRESCRIPTION),field?1:2,3,.05F));
+                break;
+            }
             for(int i=0;i<old.size();i++){if(i%3==0)old.get(i).disable();else old.get(i).use();}
             var clock=(MedicTradeOffers.State)original;clock.rustruin$lastRestock(ctx.getWorld().getTime()-7);
-            var nbt=original.writeNbt(new NbtCompound());nbt.putInt("RustRuinMedicTradesVersion",3);
+            var nbt=original.writeNbt(new NbtCompound());nbt.putInt("RustRuinMedicTradesVersion",4);
             var loaded=medic(ctx,1);loaded.readNbt(nbt);var updated=loaded.getOffers();
             for(var offer:updated){
                 Item result=offer.getSellItem().getItem();
+                ctx.assertTrue(result!=MedicalWorkstations.PRESCRIPTION,"A saved emergency prescription trade survived the upgrade");
                 long previousUnits=old.stream().filter(prior->prior.getSellItem().isOf(result)).mapToLong(prior->(long)Math.max(0,prior.getMaxUses()-prior.getUses())*prior.getSellItem().getCount()).sum();
                 long newUnits=(long)(offer.getMaxUses()-offer.getUses())*offer.getSellItem().getCount();
                 ctx.assertTrue(newUnits<=previousUnits,"Catalogue migration refilled a sell-item resource: "+result);
             }
+            for(var offer:old){
+                if(MedicTradeOffers.isMedicine(offer.getSellItem().getItem())){
+                    ctx.assertTrue(updated.stream().anyMatch(trade->trade.toNbt().equals(offer.toNbt())),"Migration rerolled an existing treatment or changed its stock");
+                }
+            }
             ctx.assertTrue(((MedicTradeOffers.State)loaded).rustruin$lastRestock()==clock.rustruin$lastRestock()&&!MedicTradeOffers.canRestock(loaded),"Catalogue migration reset the delivery clock");
-            var saved=loaded.writeNbt(new NbtCompound());var reread=medic(ctx,1);reread.readNbt(saved);ctx.assertTrue(reread.getOffers().toNbt().equals(updated.toNbt()),"Schema-four migration repeats after reload");
+            var saved=loaded.writeNbt(new NbtCompound());var reread=medic(ctx,1);reread.readNbt(saved);ctx.assertTrue(reread.getOffers().toNbt().equals(updated.toNbt()),"Catalogue migration repeats after reload");
         }
         ctx.complete();
     }
@@ -230,6 +233,23 @@ public final class MedicalProgressionGameTests implements FabricGameTest {
                         var result=user.interactionManager.interactBlock(user,world,user.getMainHandStack(),Hand.MAIN_HAND,hit);
                         ctx.assertTrue(result.isAccepted()&&user.currentScreenHandler instanceof PrescriptionWriterScreenHandler,"Survival writer click did not open its real native menu");
                         user.closeHandledScreen();
+                        var boards=template.getInfosForBlock(origin,placement,MedicalWorkstations.BOARD);
+                        ctx.assertTrue(boards.size()==1,"Generated medical template lacks one Clinic Notice Board: "+name);
+                        var board=boards.get(0);
+                        var front=board.state().get(HorizontalFacingBlock.FACING);
+                        var footing=board.pos().offset(front).down();
+                        user.setPosition(Vec3d.ofBottomCenter(footing));
+                        var boardState=world.getBlockState(board.pos());
+                        ctx.assertTrue(boardState.equals(board.state())&&world.getBlockState(footing.down()).isSolidBlock(world,footing.down())
+                                &&world.isSpaceEmpty(user,user.getBoundingBox()),"Notice board rotation or approach is obstructed: "+name+" "+rotation);
+                        var face=boardState.getOutlineShape(world,board.pos()).getBoundingBox().getCenter().add(Vec3d.of(board.pos()));
+                        var boardHit=world.raycast(new RaycastContext(user.getEyePos(),face,RaycastContext.ShapeType.OUTLINE,RaycastContext.FluidHandling.NONE,user));
+                        ctx.assertTrue(boardHit.getType()==net.minecraft.util.hit.HitResult.Type.BLOCK&&boardHit.getBlockPos().equals(board.pos()),
+                                "Notice board is obstructed in "+name+" "+rotation);
+                        var boardResult=user.interactionManager.interactBlock(user,world,user.getMainHandStack(),Hand.MAIN_HAND,boardHit);
+                        ctx.assertTrue(boardResult.isAccepted()&&user.currentScreenHandler instanceof com.tetanusmod.medical.ClinicNoticeBoardScreenHandler,
+                                "Survival notice board click did not open its native menu");
+                        user.closeHandledScreen();
                     }finally{user.closeHandledScreen();for(var entry:before.entrySet())world.setBlockState(entry.getKey(),entry.getValue(),Block.NOTIFY_LISTENERS|Block.FORCE_STATE);}
                 }
             }
@@ -250,7 +270,7 @@ public final class MedicalProgressionGameTests implements FabricGameTest {
                 var offer=offers.get(i);
                 if(offer.getSellItem().isOf(ModItems.ANTITOXIN)){antiIndex=i;ctx.assertTrue(offer.isDisabled(),"Sold-out Antitoxin inherited another medicine's stock");}
                 if(offer.getSellItem().isOf(ModItems.VACCINE)){vaccineIndex=i;ctx.assertTrue(offer.getUses()==0,"Full Vaccine stock was incorrectly exhausted by Antitoxin's old index");}
-                if(offer.getSellItem().isOf(MedicalWorkstations.PRESCRIPTION))ctx.assertTrue(offer.getMaxUses()-offer.getUses()<=1,"Prescription supply was refilled by catalogue migration");
+                ctx.assertTrue(!offer.getSellItem().isOf(MedicalWorkstations.PRESCRIPTION),"Legacy catalogue still sells a prescription");
             }
             if(antiIndex>=0&&vaccineIndex>=0&&antiIndex>vaccineIndex)swapped=true;
             ctx.assertTrue(((MedicTradeOffers.State)loaded).rustruin$lastRestock()==((MedicTradeOffers.State)original).rustruin$lastRestock()&&!MedicTradeOffers.canRestock(loaded),"Swapped catalogue bypassed the saved delivery clock");

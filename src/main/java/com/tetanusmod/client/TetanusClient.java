@@ -30,6 +30,7 @@ public final class TetanusClient implements ClientModInitializer {
         EntityRendererRegistry.register(com.tetanusmod.entity.WitherMinions.TYPE,WitherMinionRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry.ITEM.register((stack,tint)->0xB48772,com.tetanusmod.dragon.DragonContent.CRYSTAL);
         EntityRendererRegistry.register(TetanusMod.NAIL_ENTITY, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(com.tetanusmod.expansion.TetanusTnt.ENTITY, net.minecraft.client.render.entity.TntEntityRenderer::new);
         TetanusMod.LOCKJAW_GESTURE=LockjawAttempt::begin;
         registerBeacon();
         net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback.EVENT.register((type,renderer,helper,context)->{
